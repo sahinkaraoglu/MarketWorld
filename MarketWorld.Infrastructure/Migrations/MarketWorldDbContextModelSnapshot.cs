@@ -42,12 +42,54 @@ namespace MarketWorld.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ParentId");
+
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
+                            Name = "Elektronik"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
+                            Name = "Giyim & Aksesuar"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
+                            Name = "Ev & Yaşam"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
+                            Name = "Kozmetik & Kişisel Bakım"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
+                            Name = "Spor & Outdoor"
+                        });
                 });
 
             modelBuilder.Entity("MarketWorld.Domain.Entities.Product", b =>
@@ -89,6 +131,16 @@ namespace MarketWorld.Infrastructure.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Category", b =>
+                {
+                    b.HasOne("Category", "Parent")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("MarketWorld.Domain.Entities.Product", b =>
                 {
                     b.HasOne("Category", null)
@@ -99,6 +151,8 @@ namespace MarketWorld.Infrastructure.Migrations
             modelBuilder.Entity("Category", b =>
                 {
                     b.Navigation("Products");
+
+                    b.Navigation("SubCategories");
                 });
 #pragma warning restore 612, 618
         }

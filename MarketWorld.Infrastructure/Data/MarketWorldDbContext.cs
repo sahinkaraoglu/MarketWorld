@@ -28,6 +28,50 @@ namespace MarketWorld.Infrastructure.Data
                 .Property(c => c.Name)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            modelBuilder.Entity<Category>()
+                .HasOne(c => c.Parent)
+                .WithMany(c => c.SubCategories)
+                .HasForeignKey(c => c.ParentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Category>().HasData(
+                new Category 
+                { 
+                    Id = 1, 
+                    Name = "Elektronik",
+                    Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 2, 
+                    Name = "Giyim & Aksesuar",
+                    Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 3, 
+                    Name = "Ev & Yaşam",
+                    Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 4, 
+                    Name = "Kozmetik & Kişisel Bakım",
+                    Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 5, 
+                    Name = "Spor & Outdoor",
+                    Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
+                    CreatedDate = new DateTime(2024, 1, 1)
+                }
+            );
         }
     }
 }
