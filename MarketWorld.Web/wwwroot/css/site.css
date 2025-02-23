@@ -111,14 +111,17 @@ body {
     padding: 0 1.5rem;
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu Styles */
 .dropdown-menu {
-    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
     padding: 1rem 0;
+    min-width: 230px;
 }
 
 .dropdown-item {
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     font-weight: 500;
     color: var(--dark);
     transition: all 0.3s ease;
@@ -128,6 +131,14 @@ body {
     background: #f1f5f9;
     color: var(--primary);
     transform: translateX(5px);
+}
+
+/* Navbar dropdown hover */
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
 }
 
 /* Sepet Badge */

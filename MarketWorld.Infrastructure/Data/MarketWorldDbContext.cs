@@ -14,6 +14,7 @@ namespace MarketWorld.Infrastructure.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -69,6 +70,46 @@ namespace MarketWorld.Infrastructure.Data
                     Id = 5, 
                     Name = "Spor & Outdoor",
                     Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 6, 
+                    Name = "Bilgisayarlar & Tabletler",
+                    Description = "Dizüstü, masaüstü bilgisayarlar ve tabletler",
+                    ParentId = 1,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 7, 
+                    Name = "Yazıcılar & Projeksiyon",
+                    Description = "Yazıcılar, tarayıcılar ve projeksiyon cihazları",
+                    ParentId = 1,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 8, 
+                    Name = "Telefonlar",
+                    Description = "Akıllı telefonlar ve aksesuarları",
+                    ParentId = 1,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 9, 
+                    Name = "Beyaz Eşya",
+                    Description = "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar",
+                    ParentId = 1,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 10, 
+                    Name = "Klima ve Isıtıcılar",
+                    Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
+                    ParentId = 1,
                     CreatedDate = new DateTime(2024, 1, 1)
                 }
             );

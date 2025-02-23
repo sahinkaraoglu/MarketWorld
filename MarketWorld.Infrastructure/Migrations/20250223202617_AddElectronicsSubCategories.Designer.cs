@@ -4,6 +4,7 @@ using MarketWorld.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketWorld.Infrastructure.Migrations
 {
     [DbContext(typeof(MarketWorldDbContext))]
-    partial class MarketWorldDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250223202617_AddElectronicsSubCategories")]
+    partial class AddElectronicsSubCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace MarketWorld.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MarketWorld.Domain.Entities.Category", b =>
+            modelBuilder.Entity("Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -161,56 +164,19 @@ namespace MarketWorld.Infrastructure.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SubCategoryId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("MarketWorld.Domain.Entities.SubCategory", b =>
+            modelBuilder.Entity("Category", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("SubCategories");
-                });
-
-            modelBuilder.Entity("MarketWorld.Domain.Entities.Category", b =>
-                {
-                    b.HasOne("MarketWorld.Domain.Entities.Category", "Parent")
+                    b.HasOne("Category", "Parent")
                         .WithMany("SubCategories")
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -220,36 +186,16 @@ namespace MarketWorld.Infrastructure.Migrations
 
             modelBuilder.Entity("MarketWorld.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("MarketWorld.Domain.Entities.Category", null)
+                    b.HasOne("Category", null)
                         .WithMany("Products")
                         .HasForeignKey("CategoryId");
-
-                    b.HasOne("MarketWorld.Domain.Entities.SubCategory", null)
-                        .WithMany("Products")
-                        .HasForeignKey("SubCategoryId");
                 });
 
-            modelBuilder.Entity("MarketWorld.Domain.Entities.SubCategory", b =>
-                {
-                    b.HasOne("MarketWorld.Domain.Entities.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("MarketWorld.Domain.Entities.Category", b =>
+            modelBuilder.Entity("Category", b =>
                 {
                     b.Navigation("Products");
 
                     b.Navigation("SubCategories");
-                });
-
-            modelBuilder.Entity("MarketWorld.Domain.Entities.SubCategory", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
