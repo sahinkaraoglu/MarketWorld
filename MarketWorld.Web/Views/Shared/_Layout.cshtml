@@ -66,46 +66,70 @@
         </nav>
     </header>
 
-    <main role="main" class="pb-3 mt-5">
+    <main role="main" class="mt-5">
         @RenderBody()
     </main>
 
-    <footer class="footer bg-light py-5 mt-5">
+    <footer class="footer bg-white border-top">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-4">
-                    <h5 class="fw-bold mb-3">MarketWorld</h5>
-                    <p class="text-muted">En iyi alışveriş deneyimi için buradayız.</p>
+                <div class="col-lg-3">
+                    <img src="~/img/logo.png" alt="MarketWorld Logo" class="footer-logo mb-3">
+                    <p class="text-muted mb-3">Türkiye'nin en güvenilir e-ticaret platformu.</p>
                     <div class="social-links">
-                        <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="me-3 text-dark"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-3 text-dark"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-3 text-dark"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="me-3 text-dark"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2">
-                    <h6 class="fw-bold mb-3">Kategoriler</h6>
+                    <h6 class="fw-bold mb-4">Kategoriler</h6>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Elektronik</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Giyim</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Giyim & Aksesuar</a></li>
                         <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Ev & Yaşam</a></li>
                         <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Kozmetik</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Spor & Outdoor</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
-                    <h6 class="fw-bold mb-3">Yardım</h6>
+                    <h6 class="fw-bold mb-4">Kurumsal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Hakkımızda</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Kariyer</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">İletişim</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-4">Müşteri Hizmetleri</h6>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Sipariş Takibi</a></li>
                         <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">İade ve Değişim</a></li>
                         <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Sıkça Sorulan Sorular</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h6 class="fw-bold mb-3">Bültenimize Katılın</h6>
-                    <p class="text-muted">En yeni ürünler ve kampanyalardan haberdar olun.</p>
-                    <form class="d-flex">
-                        <input type="email" class="form-control me-2" placeholder="E-posta adresiniz">
-                        <button class="btn btn-primary">Katıl</button>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-4">E-Bülten</h6>
+                    <p class="text-muted mb-4">Kampanyalardan haberdar olmak için bültenimize abone olun.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+                            <button class="btn btn-primary" type="submit">Abone Ol</button>
+                        </div>
                     </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-md-0">© 2024 MarketWorld. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted text-decoration-none me-3">Gizlilik Politikası</a>
+                    <a href="#" class="text-muted text-decoration-none me-3">Kullanım Koşulları</a>
+                    <a href="#" class="text-muted text-decoration-none">KVKK</a>
                 </div>
             </div>
         </div>

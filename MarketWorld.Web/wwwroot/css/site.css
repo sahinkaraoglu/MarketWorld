@@ -18,7 +18,6 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
   font-family: 'Poppins', sans-serif;
   padding-top: 76px;
   background-color: #fff;
@@ -194,12 +193,68 @@ body {
 }
 
 .footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px;
-    background: var(--light-color);
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    padding: 2rem 0 1rem;
+}
+
+.footer h6 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+.footer .list-unstyled a {
+    color: var(--secondary);
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+}
+
+.footer .social-links a {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-logo {
+    height: 100px !important;
+    margin-bottom: 1rem !important;
+    margin-top: -10px !important;
+    margin-left: -10px !important;
+}
+
+.footer p {
+    font-size: 0.85rem;
+}
+
+.newsletter-form .form-control {
+    padding: 0.5rem 1rem;
+}
+
+.newsletter-form .btn {
+    padding: 0.5rem 1rem;
+    background-color: #22c55e;
+    border-color: #22c55e;
+}
+
+.newsletter-form .btn:hover {
+    background-color: #16a34a;
+    border-color: #16a34a;
+}
+
+.payment-methods img {
+    max-height: 20px;
+}
+
+.footer .row.g-4 {
+    --bs-gutter-y: 1.5rem;
+}
+
+.footer hr {
+    margin: 1rem 0;
 }
 
 .hero-area {
@@ -428,6 +483,12 @@ body {
     body {
         padding-top: 80px;
     }
+
+    .footer-logo {
+        height: 80px !important;
+        margin-top: -5px !important;
+        margin-left: -5px !important;
+    }
 }
 
 .social-links a {
@@ -438,4 +499,8 @@ body {
 
 .social-links a:hover {
     color: var(--primary-color);
+}
+
+main {
+    padding-bottom: 0 !important;
 }
