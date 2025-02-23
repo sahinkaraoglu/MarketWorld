@@ -1,8 +1,134 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ana Sayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="display-3 fw-bold mb-4">Alışverişin Yeni Adresi</h1>
+                    <p class="lead mb-4">En trend ürünler, en uygun fiyatlar ve hızlı teslimat MarketWorld'de!</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary btn-lg me-3">Alışverişe Başla</a>
+                        <a href="#" class="btn btn-outline-dark btn-lg">Kampanyalar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="~/images/hero-image.png" alt="Hero" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories -->
+<section class="categories-area py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold mb-2">Kategoriler</h6>
+            <h2 class="fw-bold">Popüler Kategoriler</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="category-card">
+                    <div class="icon-box">
+                        <i class="bi bi-laptop"></i>
+                    </div>
+                    <h5>Elektronik</h5>
+                    <span class="product-count">2.5K+ Ürün</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="category-card">
+                    <div class="icon-box">
+                        <i class="bi bi-handbag"></i>
+                    </div>
+                    <h5>Giyim</h5>
+                    <span class="product-count">3K+ Ürün</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="category-card">
+                    <div class="icon-box">
+                        <i class="bi bi-house-heart"></i>
+                    </div>
+                    <h5>Ev & Yaşam</h5>
+                    <span class="product-count">1.8K+ Ürün</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="category-card">
+                    <div class="icon-box">
+                        <i class="bi bi-droplet"></i>
+                    </div>
+                    <h5>Kozmetik</h5>
+                    <span class="product-count">1.2K+ Ürün</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="category-card">
+                    <div class="icon-box">
+                        <i class="bi bi-bicycle"></i>
+                    </div>
+                    <h5>Spor</h5>
+                    <span class="product-count">900+ Ürün</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="category-card">
+                    <div class="icon-box">
+                        <i class="bi bi-controller"></i>
+                    </div>
+                    <h5>Oyun & Hobi</h5>
+                    <span class="product-count">500+ Ürün</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="products-area py-5 bg-light">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold mb-2">Öne Çıkanlar</h6>
+            <h2 class="fw-bold">En Çok Satan Ürünler</h2>
+        </div>
+
+        <div class="row g-4">
+            @for (int i = 1; i <= 4; i++)
+            {
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-3">%25 İndirim</span>
+                            <img src="~/images/product-@(i).jpg" alt="Ürün" class="img-fluid">
+                            <div class="product-action">
+                                <a href="#" class="btn btn-light btn-sm"><i class="bi bi-heart"></i></a>
+                                <a href="#" class="btn btn-light btn-sm"><i class="bi bi-cart-plus"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-content p-3">
+                            <div class="category-name text-muted small mb-2">Elektronik</div>
+                            <h5 class="product-title">Örnek Ürün @i</h5>
+                            <div class="product-price mb-2">
+                                <span class="new-price">₺299.99</span>
+                                <span class="old-price text-muted">₺399.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-half text-warning"></i>
+                                <span class="rating-count text-muted">(45)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
