@@ -114,6 +114,38 @@ namespace MarketWorld.Infrastructure.Data
                     Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
                     ParentId = 1,
                     CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 11, 
+                    Name = "Ayakkabı & Çanta",
+                    Description = "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar",
+                    ParentId = 2,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 12, 
+                    Name = "Kadın Giyim",
+                    Description = "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim",
+                    ParentId = 2,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 13, 
+                    Name = "Erkek Giyim",
+                    Description = "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim",
+                    ParentId = 2,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 14, 
+                    Name = "Çocuk Giyim",
+                    Description = "Kız ve erkek çocuk giyim ürünleri",
+                    ParentId = 2,
+                    CreatedDate = new DateTime(2024, 1, 1)
                 }
             );
         }
