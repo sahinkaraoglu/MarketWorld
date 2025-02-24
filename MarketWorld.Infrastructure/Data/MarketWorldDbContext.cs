@@ -194,6 +194,54 @@ namespace MarketWorld.Infrastructure.Data
                     Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                     ParentId = 3,
                     CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 21, 
+                    Name = "Parfüm & Deodarant",
+                    Description = "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri",
+                    ParentId = 4,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 22, 
+                    Name = "Saç Şekillendirme",
+                    Description = "Saç bakım ve şekillendirme ürünleri",
+                    ParentId = 4,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 23, 
+                    Name = "Cilt Bakımı",
+                    Description = "Yüz ve vücut bakım ürünleri, kremler ve serumlar",
+                    ParentId = 4,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 24, 
+                    Name = "Makyaj",
+                    Description = "Renkli kozmetik ve makyaj malzemeleri",
+                    ParentId = 4,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 25, 
+                    Name = "Sağlık & Medikal Ürünler",
+                    Description = "Vitamin, takviye gıdalar ve medikal ürünler",
+                    ParentId = 4,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 26, 
+                    Name = "Ağız & Diş Bakımı",
+                    Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
+                    ParentId = 4,
+                    CreatedDate = new DateTime(2024, 1, 1)
                 }
             );
         }
