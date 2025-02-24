@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketWorld.Infrastructure.Migrations
 {
     [DbContext(typeof(MarketWorldDbContext))]
-    [Migration("20250222181351_InitialCreate")]
+    [Migration("20250224075823_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace MarketWorld.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Category", b =>
+            modelBuilder.Entity("MarketWorld.Domain.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -92,6 +92,46 @@ namespace MarketWorld.Infrastructure.Migrations
                             CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
                             Name = "Spor & Outdoor"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Dizüstü, masaüstü bilgisayarlar ve tabletler",
+                            Name = "Bilgisayarlar & Tabletler",
+                            ParentId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Yazıcılar, tarayıcılar ve projeksiyon cihazları",
+                            Name = "Yazıcılar & Projeksiyon",
+                            ParentId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Akıllı telefonlar ve aksesuarları",
+                            Name = "Telefonlar",
+                            ParentId = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar",
+                            Name = "Beyaz Eşya",
+                            ParentId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
+                            Name = "Klima ve Isıtıcılar",
+                            ParentId = 1
                         });
                 });
 
@@ -134,9 +174,9 @@ namespace MarketWorld.Infrastructure.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Category", b =>
+            modelBuilder.Entity("MarketWorld.Domain.Entities.Category", b =>
                 {
-                    b.HasOne("Category", "Parent")
+                    b.HasOne("MarketWorld.Domain.Entities.Category", "Parent")
                         .WithMany("SubCategories")
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -146,12 +186,14 @@ namespace MarketWorld.Infrastructure.Migrations
 
             modelBuilder.Entity("MarketWorld.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("Category", null)
+                    b.HasOne("MarketWorld.Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Category", b =>
+            modelBuilder.Entity("MarketWorld.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Products");
 

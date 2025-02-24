@@ -69,7 +69,12 @@ namespace MarketWorld.Infrastructure.Migrations
                     { 2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları", "Giyim & Aksesuar", null, null },
                     { 3, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili", "Ev & Yaşam", null, null },
                     { 4, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri", "Kozmetik & Kişisel Bakım", null, null },
-                    { 5, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri", "Spor & Outdoor", null, null }
+                    { 5, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri", "Spor & Outdoor", null, null },
+                    { 6, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dizüstü, masaüstü bilgisayarlar ve tabletler", "Bilgisayarlar & Tabletler", 1, null },
+                    { 7, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Yazıcılar, tarayıcılar ve projeksiyon cihazları", "Yazıcılar & Projeksiyon", 1, null },
+                    { 8, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Akıllı telefonlar ve aksesuarları", "Telefonlar", 1, null },
+                    { 9, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar", "Beyaz Eşya", 1, null },
+                    { 10, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Klimalar, ısıtıcılar ve hava temizleyiciler", "Klima ve Isıtıcılar", 1, null }
                 });
 
             migrationBuilder.CreateIndex(
