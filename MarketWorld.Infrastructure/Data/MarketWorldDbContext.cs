@@ -146,6 +146,54 @@ namespace MarketWorld.Infrastructure.Data
                     Description = "Kız ve erkek çocuk giyim ürünleri",
                     ParentId = 2,
                     CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 15, 
+                    Name = "Mobilya",
+                    Description = "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları",
+                    ParentId = 3,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 16, 
+                    Name = "Ev Tekstili",
+                    Description = "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri",
+                    ParentId = 3,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 17, 
+                    Name = "Dekorasyon & Aydınlatma",
+                    Description = "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri",
+                    ParentId = 3,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 18, 
+                    Name = "Mutfak Gereçleri",
+                    Description = "Pişirme, servis ve saklama ürünleri, mutfak aletleri",
+                    ParentId = 3,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 19, 
+                    Name = "Banyo & Ev Gereçleri",
+                    Description = "Banyo aksesuarları, temizlik ve düzenleme ürünleri",
+                    ParentId = 3,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 20, 
+                    Name = "Kırtasiye & Ofis",
+                    Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
+                    ParentId = 3,
+                    CreatedDate = new DateTime(2024, 1, 1)
                 }
             );
         }
