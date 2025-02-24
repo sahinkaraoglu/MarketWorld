@@ -242,6 +242,46 @@ namespace MarketWorld.Infrastructure.Data
                     Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
                     ParentId = 4,
                     CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 27, 
+                    Name = "Fitness & Kondisyon",
+                    Description = "Fitness ekipmanları, kondisyon aletleri ve aksesuarları",
+                    ParentId = 5,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 28, 
+                    Name = "Spor Giyim & Ayakkabı",
+                    Description = "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar",
+                    ParentId = 5,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 29, 
+                    Name = "Outdoor & Kamp",
+                    Description = "Kamp malzemeleri, outdoor giyim ve ekipmanlar",
+                    ParentId = 5,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 30, 
+                    Name = "Kış Sporları",
+                    Description = "Kayak ekipmanları ve kış sporları malzemeleri",
+                    ParentId = 5,
+                    CreatedDate = new DateTime(2024, 1, 1)
+                },
+                new Category 
+                { 
+                    Id = 31, 
+                    Name = "Su Sporları",
+                    Description = "Yüzme ve su sporları ekipmanları",
+                    ParentId = 5,
+                    CreatedDate = new DateTime(2024, 1, 1)
                 }
             );
         }
