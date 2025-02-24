@@ -30,6 +30,10 @@ namespace MarketWorld.Infrastructure.Data
                 .IsRequired()
                 .HasMaxLength(50);
 
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
+
             modelBuilder.Entity<Category>()
                 .HasOne(c => c.Parent)
                 .WithMany(c => c.SubCategories)
