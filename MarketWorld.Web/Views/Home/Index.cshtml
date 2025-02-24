@@ -2,133 +2,146 @@
     ViewData["Title"] = "Ana Sayfa";
 }
 
-<section class="hero-area">
+<section class="hero-section">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center min-vh-100">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <h1 class="display-3 fw-bold mb-4">Alışverişin Yeni Adresi</h1>
-                    <p class="lead mb-4">En trend ürünler, en uygun fiyatlar ve hızlı teslimat MarketWorld'de!</p>
-                    <div class="hero-buttons">
-                        <a href="#" class="btn btn-primary btn-lg me-3">Alışverişe Başla</a>
-                        <a href="#" class="btn btn-outline-dark btn-lg">Kampanyalar</a>
+                    <h1 class="display-3 fw-bold mb-4">Alışverişin En Şık Adresi</h1>
+                    <p class="lead fs-4 mb-5">Binlerce marka, milyonlarca ürün ve özel fırsatlar MarketWorld'de!</p>
+                    <div class="search-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Ne aramıştınız?">
+                            <button class="btn btn-primary">
+                                <i class="bi bi-search"></i>
+                                <span class="ms-2">Ara</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 d-none d-lg-block">
-                <img src="~/images/hero-image.png" alt="Hero" class="img-fluid">
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <div class="floating-card card-1">
+                        <i class="bi bi-bag-heart"></i>
+                        <span>Yeni Sezon</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="bi bi-percent"></i>
+                        <span>Özel İndirimler</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="bi bi-truck"></i>
+                        <span>Hızlı Teslimat</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Categories -->
-<section class="categories-area py-5">
+<section class="categories-section py-5">
     <div class="container">
-        <div class="section-title text-center mb-5">
-            <h6 class="text-primary text-uppercase fw-bold mb-2">Kategoriler</h6>
-            <h2 class="fw-bold">Popüler Kategoriler</h2>
+        <div class="section-header text-center mb-5">
+            <h2 class="display-6 fw-bold">Popüler Kategoriler</h2>
+            <div class="header-line"></div>
         </div>
-        
         <div class="row g-4">
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="#" class="category-card">
-                    <div class="icon-box">
-                        <i class="bi bi-laptop"></i>
-                    </div>
-                    <h5>Elektronik</h5>
-                    <span class="product-count">2.5K+ Ürün</span>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="#" class="category-card">
-                    <div class="icon-box">
-                        <i class="bi bi-handbag"></i>
-                    </div>
-                    <h5>Giyim</h5>
-                    <span class="product-count">3K+ Ürün</span>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="#" class="category-card">
-                    <div class="icon-box">
-                        <i class="bi bi-house-heart"></i>
-                    </div>
-                    <h5>Ev & Yaşam</h5>
-                    <span class="product-count">1.8K+ Ürün</span>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="#" class="category-card">
-                    <div class="icon-box">
-                        <i class="bi bi-droplet"></i>
-                    </div>
-                    <h5>Kozmetik</h5>
-                    <span class="product-count">1.2K+ Ürün</span>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="#" class="category-card">
-                    <div class="icon-box">
-                        <i class="bi bi-bicycle"></i>
-                    </div>
-                    <h5>Spor</h5>
-                    <span class="product-count">900+ Ürün</span>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="#" class="category-card">
-                    <div class="icon-box">
-                        <i class="bi bi-controller"></i>
-                    </div>
-                    <h5>Oyun & Hobi</h5>
-                    <span class="product-count">500+ Ürün</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Products -->
-<section class="products-area py-5 bg-light">
-    <div class="container">
-        <div class="section-title text-center mb-5">
-            <h6 class="text-primary text-uppercase fw-bold mb-2">Öne Çıkanlar</h6>
-            <h2 class="fw-bold">En Çok Satan Ürünler</h2>
-        </div>
-
-        <div class="row g-4">
-            @for (int i = 1; i <= 4; i++)
+            @foreach (var category in new[] { "Elektronik", "Giyim & Aksesuar", "Ev & Yaşam", "Kozmetik", "Spor" })
             {
-                <div class="col-6 col-md-3">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class="badge bg-danger position-absolute top-0 start-0 m-3">%25 İndirim</span>
-                            <img src="~/images/product-@(i).jpg" alt="Ürün" class="img-fluid">
-                            <div class="product-action">
-                                <a href="#" class="btn btn-light btn-sm"><i class="bi bi-heart"></i></a>
-                                <a href="#" class="btn btn-light btn-sm"><i class="bi bi-cart-plus"></i></a>
-                            </div>
+                <div class="col-lg-4">
+                    <div class="category-box">
+                        <div class="category-icon">
+                            <i class="bi bi-@(category.ToLower() == "elektronik" ? "laptop" : 
+                                           category.ToLower().Contains("giyim") ? "handbag" :
+                                           category.ToLower().Contains("ev") ? "house-heart" :
+                                           category.ToLower() == "kozmetik" ? "heart" : "bicycle")"></i>
                         </div>
-                        <div class="product-content p-3">
-                            <div class="category-name text-muted small mb-2">Elektronik</div>
-                            <h5 class="product-title">Örnek Ürün @i</h5>
-                            <div class="product-price mb-2">
-                                <span class="new-price">₺299.99</span>
-                                <span class="old-price text-muted">₺399.99</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-half text-warning"></i>
-                                <span class="rating-count text-muted">(45)</span>
-                            </div>
+                        <h3>@category</h3>
+                        <div class="subcategories">
+                            @foreach (var subCategory in GetSubCategories(category))
+                            {
+                                <a href="#" class="subcategory-link">@subCategory</a>
+                            }
                         </div>
+                        <a href="#" class="explore-btn">Keşfet <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             }
         </div>
     </div>
 </section>
+
+<section class="features-section py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Ücretsiz Kargo</h4>
+                        <p>150 TL üzeri alışverişlerde</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Güvenli Ödeme</h4>
+                        <p>256-bit SSL güvenliği</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-arrow-counterclockwise"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Kolay İade</h4>
+                        <p>14 gün içinde ücretsiz iade</p>
+                    </div>
+                </div>
+            </div>
+<!-- Featured Products -->
+            <div class="col-md-3">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>7/24 Destek</h4>
+                        <p>Her zaman yanınızdayız</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@functions {
+    private string[] GetSubCategories(string category)
+    {
+        switch (category)
+        {
+            case "Elektronik":
+                return new[] { "Bilgisayarlar", "Telefonlar", "TV & Ses", "Beyaz Eşya" };
+            case "Giyim & Aksesuar":
+                return new[] { "Kadın", "Erkek", "Çocuk", "Ayakkabı & Çanta" };
+            case "Ev & Yaşam":
+                return new[] { "Mobilya", "Dekorasyon", "Ev Tekstili", "Mutfak" };
+            case "Kozmetik":
+                return new[] { "Parfüm", "Makyaj", "Cilt Bakımı", "Saç Bakımı" };
+            case "Spor":
+                return new[] { "Fitness", "Outdoor", "Spor Giyim", "Spor Aletleri" };
+            default:
+                return new string[] { };
+        }
+    }
+}
