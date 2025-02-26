@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketWorld.Infrastructure.Migrations
 {
     [DbContext(typeof(MarketWorldDbContext))]
-    [Migration("20250224081845_AddHomeAndLivingSubCategories")]
-    partial class AddHomeAndLivingSubCategories
+    [Migration("20250225203529_HomePc")]
+    partial class HomePc
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -212,6 +212,94 @@ namespace MarketWorld.Infrastructure.Migrations
                             Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                             Name = "Kırtasiye & Ofis",
                             ParentId = 3
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri",
+                            Name = "Parfüm & Deodarant",
+                            ParentId = 4
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Saç bakım ve şekillendirme ürünleri",
+                            Name = "Saç Şekillendirme",
+                            ParentId = 4
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Yüz ve vücut bakım ürünleri, kremler ve serumlar",
+                            Name = "Cilt Bakımı",
+                            ParentId = 4
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Renkli kozmetik ve makyaj malzemeleri",
+                            Name = "Makyaj",
+                            ParentId = 4
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Vitamin, takviye gıdalar ve medikal ürünler",
+                            Name = "Sağlık & Medikal Ürünler",
+                            ParentId = 4
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
+                            Name = "Ağız & Diş Bakımı",
+                            ParentId = 4
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Fitness ekipmanları, kondisyon aletleri ve aksesuarları",
+                            Name = "Fitness & Kondisyon",
+                            ParentId = 5
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar",
+                            Name = "Spor Giyim & Ayakkabı",
+                            ParentId = 5
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Kamp malzemeleri, outdoor giyim ve ekipmanlar",
+                            Name = "Outdoor & Kamp",
+                            ParentId = 5
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Kayak ekipmanları ve kış sporları malzemeleri",
+                            Name = "Kış Sporları",
+                            ParentId = 5
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Yüzme ve su sporları ekipmanları",
+                            Name = "Su Sporları",
+                            ParentId = 5
                         });
                 });
 

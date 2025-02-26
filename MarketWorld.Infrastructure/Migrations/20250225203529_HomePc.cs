@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MarketWorld.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class HomePc : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -74,7 +74,28 @@ namespace MarketWorld.Infrastructure.Migrations
                     { 7, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Yazıcılar, tarayıcılar ve projeksiyon cihazları", "Yazıcılar & Projeksiyon", 1, null },
                     { 8, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Akıllı telefonlar ve aksesuarları", "Telefonlar", 1, null },
                     { 9, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar", "Beyaz Eşya", 1, null },
-                    { 10, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Klimalar, ısıtıcılar ve hava temizleyiciler", "Klima ve Isıtıcılar", 1, null }
+                    { 10, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Klimalar, ısıtıcılar ve hava temizleyiciler", "Klima ve Isıtıcılar", 1, null },
+                    { 11, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar", "Ayakkabı & Çanta", 2, null },
+                    { 12, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim", "Kadın Giyim", 2, null },
+                    { 13, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim", "Erkek Giyim", 2, null },
+                    { 14, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kız ve erkek çocuk giyim ürünleri", "Çocuk Giyim", 2, null },
+                    { 15, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları", "Mobilya", 3, null },
+                    { 16, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri", "Ev Tekstili", 3, null },
+                    { 17, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri", "Dekorasyon & Aydınlatma", 3, null },
+                    { 18, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pişirme, servis ve saklama ürünleri, mutfak aletleri", "Mutfak Gereçleri", 3, null },
+                    { 19, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Banyo aksesuarları, temizlik ve düzenleme ürünleri", "Banyo & Ev Gereçleri", 3, null },
+                    { 20, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri", "Kırtasiye & Ofis", 3, null },
+                    { 21, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri", "Parfüm & Deodarant", 4, null },
+                    { 22, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Saç bakım ve şekillendirme ürünleri", "Saç Şekillendirme", 4, null },
+                    { 23, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Yüz ve vücut bakım ürünleri, kremler ve serumlar", "Cilt Bakımı", 4, null },
+                    { 24, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Renkli kozmetik ve makyaj malzemeleri", "Makyaj", 4, null },
+                    { 25, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vitamin, takviye gıdalar ve medikal ürünler", "Sağlık & Medikal Ürünler", 4, null },
+                    { 26, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Diş bakım ürünleri ve ağız bakım ürünleri", "Ağız & Diş Bakımı", 4, null },
+                    { 27, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fitness ekipmanları, kondisyon aletleri ve aksesuarları", "Fitness & Kondisyon", 5, null },
+                    { 28, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar", "Spor Giyim & Ayakkabı", 5, null },
+                    { 29, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kamp malzemeleri, outdoor giyim ve ekipmanlar", "Outdoor & Kamp", 5, null },
+                    { 30, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kayak ekipmanları ve kış sporları malzemeleri", "Kış Sporları", 5, null },
+                    { 31, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Yüzme ve su sporları ekipmanları", "Su Sporları", 5, null }
                 });
 
             migrationBuilder.CreateIndex(
