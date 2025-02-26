@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "İletişim";
+}
+
+<div class="container mt-5 text-start">
+    <h1 class="text-center mb-4">İletişim</h1>
+    <p class="text-center">Bizimle iletişime geçmek için aşağıdaki bilgileri kullanabilirsiniz.</p>
+
+    <div class="row mt-4 justify-content-center">
+        <div class="col-lg-5 col-md-6 mb-4">
+            <div class="card p-4">
+                <h3 class="mb-3">İletişim Bilgileri</h3>
+                <ul class="list-unstyled">
+                    <li><strong>Telefon:</strong> +90 500 000 00 00</li>
+                    <li><strong>E-Posta:</strong> <a href="mailto:info@marketworld.com">info@marketworld.com</a></li>
+                    <li><strong>Adres:</strong> İstanbul, Türkiye</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-6 mb-4">
+            <div class="card p-4">
+                <h3 class="mb-3">Bize Ulaşın</h3>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Adınız</label>
+                        <input type="text" class="form-control" id="name" placeholder="Adınızı girin" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-Posta</label>
+                        <input type="email" class="form-control" id="email" placeholder="E-posta adresinizi girin" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Mesajınız</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Mesajınızı yazın" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="mb-4"></div>
+</div>
