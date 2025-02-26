@@ -1,0 +1,122 @@
+.career-section {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+    height: 100%;
+    min-height: 280px;
+}
+
+.career-section:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h3 {
+    color: #1e40af;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.career-section ul,
+.open-positions ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.career-section ul li,
+.open-positions ul li {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.career-section ul li:hover,
+.open-positions ul li:hover {
+    background: #f8fafc;
+    padding-left: 1rem;
+}
+
+.career-section ul li strong,
+.open-positions ul li strong {
+    color: #2563eb;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.btn-primary {
+    background: #2563eb;
+    border-color: #2563eb;
+    padding: 0.8rem 2rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+.career-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.benefit-item {
+    background: #f8fafc;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: #f1f5f9;
+    transform: translateX(5px);
+}
+
+.open-positions {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+.open-positions li {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0.75rem 0;
+}
+
+.open-positions li:last-child {
+    border-bottom: none;
+}
+
+.application-process {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.application-process p {
+    color: #64748b;
+    margin-bottom: 1rem;
+} 
