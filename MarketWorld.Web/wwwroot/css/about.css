@@ -21,4 +21,16 @@
     .about-content {
         font-size: 0.9rem;
     }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+h4 {
+    color: #2563eb;
 } 
