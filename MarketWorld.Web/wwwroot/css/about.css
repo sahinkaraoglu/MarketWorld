@@ -1,6 +1,8 @@
 .about-section {
-    padding-top: 100px;
     background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .about-content {
@@ -15,7 +17,7 @@
 
 @media (max-width: 768px) {
     .about-section {
-        padding-top: 60px;
+        padding: 1.5rem;
     }
     
     .about-content {
@@ -24,13 +26,105 @@
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    margin-top: 10px;
     color: #2563eb;
     font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 h4 {
+    color: #1e40af;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.about-description {
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.about-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.values-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.value-item {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+    transition: all 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateX(5px);
+    background: #f1f5f9;
+}
+
+.value-item strong {
     color: #2563eb;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.value-item p {
+    color: #64748b;
+    margin: 0;
+}
+
+.contact-info {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+}
+
+.contact-details {
+    margin-top: 1rem;
+}
+
+.contact-details p {
+    margin-bottom: 0.5rem;
+    color: #64748b;
+}
+
+.contact-details strong {
+    color: #1e40af;
+    margin-right: 0.5rem;
+}
+
+.contact-details a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+    .values-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-section {
+        padding: 1.5rem;
+    }
 } 
