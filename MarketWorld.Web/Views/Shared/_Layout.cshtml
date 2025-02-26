@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/order-tracking.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -139,13 +140,13 @@
                         <li><a href="@Url.Action("About", "Home")" class="text-muted text-decoration-none mb-2 d-block">Hakkımızda</a></li>
                         <li><a href="@Url.Action("Career", "Home")" class="text-muted text-decoration-none mb-2 d-block">Kariyer</a></li>
                         <li><a href="@Url.Action("Contact", "Home")" class="text-muted text-decoration-none mb-2 d-block">İletişim</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Blog</a></li>
+                        <li><a href="@Url.Action("Blog", "Home")" class="text-muted text-decoration-none mb-2 d-block">Blog</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
                     <h6 class="fw-bold mb-4">Müşteri Hizmetleri</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Sipariş Takibi</a></li>
+                        <li><a href="@Url.Action("OrderTracking", "Home")" class="text-muted text-decoration-none mb-2 d-block">Sipariş Takibi</a></li>
                         <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">İade ve Değişim</a></li>
                         <li><a href="#" class="text-muted text-decoration-none mb-2 d-block">Sıkça Sorulan Sorular</a></li>
                     </ul>

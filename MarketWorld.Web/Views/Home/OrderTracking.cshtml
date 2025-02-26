@@ -1,0 +1,107 @@
+@{
+    ViewData["Title"] = "Sipariş Takibi";
+}
+
+<link rel="stylesheet" href="~/css/order-tracking.css" />
+
+<div class="container mt-5 text-start">
+    <h1 class="text-center mb-4">Sipariş Takibi</h1>
+    <p class="text-center">Siparişlerinizin durumunu buradan kolayca takip edebilirsiniz.</p>
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form class="mb-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Sipariş numaranızı giriniz">
+                            <button class="btn btn-primary btn-lg" type="submit">
+                                <i class="bi bi-search me-2"></i>Sorgula
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Sipariş Durumu</h4>
+                    <div class="order-timeline mt-4">
+                        <div class="timeline-item active">
+                            <div class="timeline-icon">
+                                <i class="bi bi-box-seam"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>Hazırlanıyor</h5>
+                                <p>Siparişiniz onaylandı ve hazırlanıyor.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>Kargoya Verildi</h5>
+                                <p>Ürününüz kargoya teslim edildi ve yola çıktı.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>Dağıtıma Çıktı</h5>
+                                <p>Siparişiniz bulunduğunuz bölgeye ulaştı ve teslimat için dağıtıma çıkarıldı.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>Teslim Edildi</h5>
+                                <p>Siparişiniz başarıyla teslim edildi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h4>Yardıma mı İhtiyacınız Var?</h4>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <div class="support-item text-center p-3">
+                                <i class="bi bi-headset fs-1 text-primary mb-3"></i>
+                                <h5>Müşteri Hizmetleri</h5>
+                                <p>7/24 sizin için buradayız</p>
+                                <a href="tel:+905550001234" class="btn btn-outline-primary">Bizi Arayın</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="support-item text-center p-3">
+                                <i class="bi bi-chat-dots fs-1 text-primary mb-3"></i>
+                                <h5>Canlı Destek</h5>
+                                <p>Anında yanıtlar alın</p>
+                                <button class="btn btn-outline-primary">Sohbeti Başlat</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="support-item text-center p-3">
+                                <i class="bi bi-envelope fs-1 text-primary mb-3"></i>
+                                <h5>E-posta Desteği</h5>
+                                <p>24 saat içinde dönüş</p>
+                                <a href="mailto:destek@marketworld.com" class="btn btn-outline-primary">Mail Gönderin</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
