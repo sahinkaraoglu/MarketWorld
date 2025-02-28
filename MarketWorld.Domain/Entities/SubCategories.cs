@@ -1,6 +1,7 @@
 using MarketWorld.Domain.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MarketWorld.Domain.Entities
 {
@@ -10,8 +11,10 @@ namespace MarketWorld.Domain.Entities
         
         public string Description { get; set; }
         
+        
         public long CategoryId { get; set; }
         
+        [ForeignKey("CategoryId")]
         public Categories Categories { get; set; }
         
         public ICollection<Products>? Products { get; set; }
