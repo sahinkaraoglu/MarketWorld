@@ -11,7 +11,6 @@ namespace MarketWorld.Domain.Entities
         
         public string Description { get; set; }
         
-        
         public long CategoryId { get; set; }
         
         [ForeignKey("CategoryId")]
