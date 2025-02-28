@@ -23,8 +23,6 @@ namespace MarketWorld.Domain.Entities.Base
         
         public DateTime? UpdatedDate { get; set; }
         
-        public int RecVersion { get; set; } = 0;
-        
         public long? DbTableId { get; set; }
     }
 }
