@@ -15,8 +15,6 @@ namespace MarketWorld.Domain.Entities
         
         public string Description { get; set; }
         
-        public long? SubCategoryId { get; set; }
-        
-        public SubCategory? SubCategory { get; set; }
+        public SubCategories? SubCategory { get; set; }
     }
 }

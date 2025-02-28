@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MarketWorld.Domain.Entities
 {
-    public class SubCategory : BaseEntity
+    public class SubCategories : BaseEntity
     {
         public string Name { get; set; }
         
@@ -12,8 +12,8 @@ namespace MarketWorld.Domain.Entities
         
         public long CategoryId { get; set; }
         
-        public Category Category { get; set; }
+        public Categories Categories { get; set; }
         
-        public ICollection<SubCategory>? SubCategories { get; set; }
+        public ICollection<Products>? Products { get; set; }
     }
 } 

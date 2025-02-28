@@ -1,10 +1,15 @@
 ﻿using MarketWorld.Domain.Entities;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-public interface IProductService
+namespace MarketWorld.Application.Interfaces
 {
-    Task<IEnumerable<Products>> GetAllProducts();
-    Task<Products> GetProductById(int id);
-    Task<Products> CreateProduct(Products product);
-    Task UpdateProduct(Products product);
-    Task DeleteProduct(int id);
+    public interface IProductService
+    {
+        Task<IEnumerable<Products>> GetAllProducts();
+        Task<Products> GetProductById(int id);
+        Task<Products> CreateProduct(Products product);
+        Task UpdateProduct(Products product);
+        Task DeleteProduct(int id);
+    }
 }
