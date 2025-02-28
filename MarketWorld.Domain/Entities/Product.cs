@@ -1,20 +1,22 @@
-﻿using System;
-
+﻿using MarketWorld.Domain.Entities.Base;
+using System;
 
 namespace MarketWorld.Domain.Entities
-
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        
+        public string Brand { get; set; }
+        
         public decimal Price { get; set; }
+        
         public int Stock { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public int? CategoryId { get; set; }
-        public Category Category { get; set; }
+        
+        public string Description { get; set; }
+        
+        public long? SubCategoryId { get; set; }
+        
+        public SubCategory? SubCategory { get; set; }
     }
-
 }
