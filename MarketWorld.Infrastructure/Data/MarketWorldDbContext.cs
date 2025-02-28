@@ -13,15 +13,15 @@ namespace MarketWorld.Infrastructure.Data
         {
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<SubCategory> SubCategories { get; set; }
+        public DbSet<Products> Products { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<SubCategory> SubCategory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Products>()
                 .Property(p => p.Name)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -36,7 +36,7 @@ namespace MarketWorld.Infrastructure.Data
                 .IsRequired()
                 .HasMaxLength(50);
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Products>()
                 .Property(p => p.Price)
                 .HasColumnType("decimal(18,2)");
 
@@ -45,6 +45,45 @@ namespace MarketWorld.Infrastructure.Data
                 .WithMany(c => c.SubCategories)
                 .HasForeignKey(sc => sc.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
+                
+            // Kategori seed verileri
+            modelBuilder.Entity<Category>().HasData(
+                new Category
+                {
+                    Id = 1,
+                    Name = "Elektronik",
+                    Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
+                    CreatedDate = DateTime.Now
+                },
+                new Category
+                {
+                    Id = 2,
+                    Name = "Giyim & Aksesuar",
+                    Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
+                    CreatedDate = DateTime.Now
+                },
+                new Category
+                {
+                    Id = 3,
+                    Name = "Ev & Yaşam",
+                    Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
+                    CreatedDate = DateTime.Now
+                },
+                new Category
+                {
+                    Id = 4,
+                    Name = "Kozmetik & Kişisel Bakım",
+                    Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
+                    CreatedDate = DateTime.Now
+                },
+                new Category
+                {
+                    Id = 5,
+                    Name = "Spor & Outdoor",
+                    Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
+                    CreatedDate = DateTime.Now
+                }
+            );
         }
     }
 }

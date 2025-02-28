@@ -3,7 +3,7 @@ using System;
 
 namespace MarketWorld.Domain.Entities
 {
-    public class Product : BaseEntity
+    public class Products : BaseEntity
     {
         public string Name { get; set; }
         

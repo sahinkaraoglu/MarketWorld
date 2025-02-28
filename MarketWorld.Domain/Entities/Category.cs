@@ -12,6 +12,6 @@ namespace MarketWorld.Domain.Entities
         
         public ICollection<SubCategory>? SubCategories { get; set; }
         
-        public ICollection<Product>? Products { get; set; }
+        public ICollection<Products>? Products { get; set; }
     }
 }
