@@ -11,7 +11,7 @@ namespace MarketWorld.Domain.Entities.Base
     public class BaseEntity
     {
         [Column(Order = 0), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
+        public int Id { get; set; }
         
         public bool IsDeleted { get; set; } = false;
         

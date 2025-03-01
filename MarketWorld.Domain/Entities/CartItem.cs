@@ -10,6 +10,6 @@ namespace MarketWorld.Domain.Entities
         public Cart Cart { get; set; }
         
         public long ProductId { get; set; }
-        public Products Product { get; set; }
+        public Product Product { get; set; }
     }
 } 

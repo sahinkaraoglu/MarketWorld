@@ -13,9 +13,9 @@ namespace MarketWorld.Infrastructure.Data
         {
         }
 
-        public DbSet<Products> Products { get; set; }
-        public DbSet<Categories> Categories { get; set; }
-        public DbSet<SubCategories> SubCategories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -23,38 +23,39 @@ namespace MarketWorld.Infrastructure.Data
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Products>()
+            modelBuilder.Entity<Product>()
                 .Property(p => p.Name)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            modelBuilder.Entity<Categories>()
+            modelBuilder.Entity<Category>()
                 .Property(c => c.Name)
                 .IsRequired()
                 .HasMaxLength(50);
 
-            modelBuilder.Entity<SubCategories>()
+            modelBuilder.Entity<SubCategory>()
                 .Property(sc => sc.Name)
                 .IsRequired()
                 .HasMaxLength(50);
 
-            modelBuilder.Entity<Products>()
+            modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
                 .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<Products>()
+            modelBuilder.Entity<Product>()
                 .HasOne(p => p.SubCategory)
                 .WithMany(sc => sc.Products)
                 .HasForeignKey("SubCategoryId")
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            modelBuilder.Entity<Products>()
+            modelBuilder.Entity<Product>()
                 .Property(p => p.DiscountPrice)
                 .HasColumnType("decimal(18,2)");
 
@@ -124,43 +125,43 @@ namespace MarketWorld.Infrastructure.Data
                 .HasForeignKey(ci => ci.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<SubCategories>()
-                .HasOne(sc => sc.Categories)
+            modelBuilder.Entity<SubCategory>()
+                .HasOne(sc => sc.Category)
                 .WithMany(c => c.SubCategories)
                 .HasForeignKey(sc => sc.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
                 
             // Kategori seed verileri
-            modelBuilder.Entity<Categories>().HasData(
-                new Categories
+            modelBuilder.Entity<Category>().HasData(
+                new Category
                 {
                     Id = 1,
                     Name = "Elektronik",
                     Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
                     CreatedDate = DateTime.Now
                 },
-                new Categories
+                new Category
                 {
                     Id = 2,
                     Name = "Giyim & Aksesuar",
                     Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
                     CreatedDate = DateTime.Now
                 },
-                new Categories
+                new Category
                 {
                     Id = 3,
                     Name = "Ev & Yaşam",
                     Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
                     CreatedDate = DateTime.Now
                 },
-                new Categories
+                new Category
                 {
                     Id = 4,
                     Name = "Kozmetik & Kişisel Bakım",
                     Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
                     CreatedDate = DateTime.Now
                 },
-                new Categories
+                new Category
                 {
                     Id = 5,
                     Name = "Spor & Outdoor",
@@ -170,9 +171,9 @@ namespace MarketWorld.Infrastructure.Data
             );
             
             // Alt kategori seed verileri
-            modelBuilder.Entity<SubCategories>().HasData(
+            modelBuilder.Entity<SubCategory>().HasData(
                 // Elektronik kategorisi (CategoryId=1) için alt kategoriler
-                new SubCategories
+                new SubCategory
                 {
                     Id = 1,
                     Name = "Bilgisayarlar & Tabletler",
@@ -180,7 +181,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 2,
                     Name = "Yazıcılar & Projeksiyon",
@@ -188,7 +189,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 3,
                     Name = "Telefonlar",
@@ -196,7 +197,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 4,
                     Name = "Beyaz Eşya",
@@ -204,7 +205,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 5,
                     Name = "Klima ve Isıtıcılar",
@@ -214,7 +215,7 @@ namespace MarketWorld.Infrastructure.Data
                 },
                 
                 // Giyim & Aksesuar kategorisi (CategoryId=2) için alt kategoriler
-                new SubCategories
+                new SubCategory
                 {
                     Id = 6,
                     Name = "Ayakkabı & Çanta",
@@ -222,7 +223,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 2,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 7,
                     Name = "Kadın Giyim",
@@ -230,7 +231,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 2,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 8,
                     Name = "Erkek Giyim",
@@ -238,7 +239,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 2,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 9,
                     Name = "Çocuk Giyim",
@@ -248,7 +249,7 @@ namespace MarketWorld.Infrastructure.Data
                 },
                 
                 // Ev & Yaşam kategorisi (CategoryId=3) için alt kategoriler
-                new SubCategories
+                new SubCategory
                 {
                     Id = 10,
                     Name = "Mobilya",
@@ -256,7 +257,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 11,
                     Name = "Ev Tekstili",
@@ -264,7 +265,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 12,
                     Name = "Dekorasyon & Aydınlatma",
@@ -272,7 +273,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 13,
                     Name = "Mutfak Gereçleri",
@@ -280,7 +281,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 14,
                     Name = "Banyo & Ev Gereçleri",
@@ -288,7 +289,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 15,
                     Name = "Kırtasiye & Ofis",
@@ -298,7 +299,7 @@ namespace MarketWorld.Infrastructure.Data
                 },
                 
                 // Kozmetik & Kişisel Bakım kategorisi (CategoryId=4) için alt kategoriler
-                new SubCategories
+                new SubCategory
                 {
                     Id = 16,
                     Name = "Parfüm & Deodorant",
@@ -306,7 +307,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 17,
                     Name = "Saç Şekillendirme",
@@ -314,7 +315,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 18,
                     Name = "Cilt Bakımı",
@@ -322,7 +323,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 19,
                     Name = "Makyaj",
@@ -330,7 +331,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 20,
                     Name = "Sağlık & Medikal Ürünler",
@@ -338,7 +339,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 21,
                     Name = "Ağız & Diş Bakımı",
@@ -348,7 +349,7 @@ namespace MarketWorld.Infrastructure.Data
                 },
                 
                 // Spor & Outdoor kategorisi (CategoryId=5) için alt kategoriler
-                new SubCategories
+                new SubCategory
                 {
                     Id = 22,
                     Name = "Fitness & Kondisyon",
@@ -356,7 +357,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 5,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 23,
                     Name = "Spor Giyim & Ayakkabı",
@@ -364,7 +365,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 5,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 24,
                     Name = "Outdoor & Kamp",
@@ -372,7 +373,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 5,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 25,
                     Name = "Kış Sporları",
@@ -380,7 +381,7 @@ namespace MarketWorld.Infrastructure.Data
                     CategoryId = 5,
                     CreatedDate = DateTime.Now
                 },
-                new SubCategories
+                new SubCategory
                 {
                     Id = 26,
                     Name = "Su Sporları",

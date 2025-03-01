@@ -11,6 +11,6 @@ namespace MarketWorld.Domain.Entities
         public Order Order { get; set; }
         
         public long ProductId { get; set; }
-        public Products Product { get; set; }
+        public Product Product { get; set; }
     }
 } 

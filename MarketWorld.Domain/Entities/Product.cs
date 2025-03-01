@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MarketWorld.Domain.Entities
 {
-    public class Products : BaseEntity
+    public class Product : BaseEntity
     {
         public string Name { get; set; }
         public string Brand { get; set; }
@@ -13,11 +13,13 @@ namespace MarketWorld.Domain.Entities
         public string Description { get; set; }
         public decimal DiscountPrice { get; set; }
         public bool HasDiscount { get; set; } = false;
-        public string Images { get; set; }
+        public List<Image> Images { get; set; }
         
-        public SubCategories? SubCategory { get; set; }
+        public SubCategory? SubCategory { get; set; }
         
         public ICollection<OrderItem>? OrderItems { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }
+
+        // varyant kırmızı , 44 numara id = 11
     }
 }
