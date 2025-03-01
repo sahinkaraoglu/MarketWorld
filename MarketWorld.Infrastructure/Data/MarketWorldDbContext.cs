@@ -16,6 +16,13 @@ namespace MarketWorld.Infrastructure.Data
         public DbSet<Products> Products { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<SubCategories> SubCategories { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,6 +53,76 @@ namespace MarketWorld.Infrastructure.Data
                 .HasForeignKey("SubCategoryId")
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Products>()
+                .Property(p => p.DiscountPrice)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Email)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Username)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Address>()
+                .Property(a => a.AddressLine1)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<Address>()
+                .Property(a => a.City)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Order>()
+                .Property(o => o.OrderNumber)
+                .IsRequired()
+                .HasMaxLength(20);
+
+            modelBuilder.Entity<Order>()
+                .Property(o => o.TotalAmount)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<OrderItem>()
+                .Property(oi => oi.UnitPrice)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Payment>()
+                .Property(p => p.Amount)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Payment>()
+                .Property(p => p.PaymentMethod)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(oi => oi.Order)
+                .WithMany(o => o.OrderItems)
+                .HasForeignKey(oi => oi.OrderId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(oi => oi.Product)
+                .WithMany(p => p.OrderItems)
+                .HasForeignKey(oi => oi.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Cart)
+                .WithMany(c => c.CartItems)
+                .HasForeignKey(ci => ci.CartId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Product)
+                .WithMany(p => p.CartItems)
+                .HasForeignKey(ci => ci.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<SubCategories>()
                 .HasOne(sc => sc.Categories)
@@ -312,6 +389,33 @@ namespace MarketWorld.Infrastructure.Data
                     CreatedDate = DateTime.Now
                 }
             );
+
+            // Tüm entity'ler için BaseEntity'deki CreatedDate alanını nullable olmaktan çıkarıp 
+            // otomatik değer ataması yapalım
+            modelBuilder.Entity<User>()
+                .Property(u => u.CreatedDate)
+                .HasDefaultValueSql("GETDATE()")
+                .IsRequired();
+
+            modelBuilder.Entity<Order>()
+                .Property(o => o.CreatedDate)
+                .HasDefaultValueSql("GETDATE()")
+                .IsRequired();
+
+            modelBuilder.Entity<Address>()
+                .Property(a => a.CreatedDate)
+                .HasDefaultValueSql("GETDATE()")
+                .IsRequired();
+
+            modelBuilder.Entity<Cart>()
+                .Property(c => c.CreatedDate)
+                .HasDefaultValueSql("GETDATE()")
+                .IsRequired();
+
+            modelBuilder.Entity<Payment>()
+                .Property(p => p.CreatedDate)
+                .HasDefaultValueSql("GETDATE()")
+                .IsRequired();
         }
     }
 }
