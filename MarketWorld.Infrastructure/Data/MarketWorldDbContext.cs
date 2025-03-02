@@ -24,6 +24,9 @@ namespace MarketWorld.Infrastructure.Data
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<PropertyType> PropertyTypes { get; set; }
+        public DbSet<PropertyValue> PropertyValues { get; set; }
+        public DbSet<ProductProperty> ProductProperties { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -417,6 +420,60 @@ namespace MarketWorld.Infrastructure.Data
                 .Property(p => p.CreatedDate)
                 .HasDefaultValueSql("GETDATE()")
                 .IsRequired();
+
+            modelBuilder.Entity<PropertyType>()
+                .Property(pt => pt.Name)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<PropertyValue>()
+                .Property(pv => pv.Value)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<PropertyValue>()
+                .HasOne(pv => pv.PropertyType)
+                .WithMany(pt => pt.PropertyValues)
+                .HasForeignKey(pv => pv.PropertyTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ProductProperty>()
+                .HasOne(pp => pp.Product)
+                .WithMany(p => p.ProductProperties)
+                .HasForeignKey(pp => pp.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ProductProperty>()
+                .HasOne(pp => pp.PropertyType)
+                .WithMany(pt => pt.ProductProperties)
+                .HasForeignKey(pp => pp.PropertyTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ProductProperty>()
+                .HasOne(pp => pp.PropertyValue)
+                .WithMany(pv => pv.ProductProperties)
+                .HasForeignKey(pp => pp.PropertyValueId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // PropertyType seed verileri
+            modelBuilder.Entity<PropertyType>().HasData(
+                new PropertyType
+                {
+                    Id = 1,
+                    Name = "Renk",
+                    Description = "Ürün renk seçenekleri",
+                    CreatedDate = DateTime.Now,
+                    IsActive = true
+                },
+                new PropertyType
+                {
+                    Id = 2,
+                    Name = "Beden",
+                    Description = "Ürün beden seçenekleri",
+                    CreatedDate = DateTime.Now,
+                    IsActive = true
+                }
+            );
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MarketWorld.Domain.Entities
         
         public ICollection<OrderItem>? OrderItems { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }
+        public ICollection<ProductProperty> ProductProperties { get; set; }
 
-        // varyant kırmızı , 44 numara id = 11
     }
 }
