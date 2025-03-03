@@ -12,7 +12,7 @@ namespace MarketWorld.Domain.Entities
         public DateTime PaymentDate { get; set; }
         public string TransactionId { get; set; }
         
-        public long OrderId { get; set; }
+        public int OrderId { get; set; }
         public Order Order { get; set; }
     }
 } 

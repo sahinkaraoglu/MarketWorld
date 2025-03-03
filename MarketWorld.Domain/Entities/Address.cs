@@ -14,7 +14,7 @@ namespace MarketWorld.Domain.Entities
         public bool IsDefault { get; set; }
         public AddressType AddressType { get; set; }
         
-        public long UserId { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
     }
 } 

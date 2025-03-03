@@ -128,6 +128,14 @@ namespace MarketWorld.Infrastructure.Data
                 .HasForeignKey(ci => ci.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<CartItem>()
+                .Property(ci => ci.UnitPrice)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<CartItem>()
+                .Property(ci => ci.Quantity)
+                .HasColumnType("decimal(18,2)");
+
             modelBuilder.Entity<SubCategory>()
                 .HasOne(sc => sc.Category)
                 .WithMany(c => c.SubCategories)
@@ -474,6 +482,22 @@ namespace MarketWorld.Infrastructure.Data
                     IsActive = true
                 }
             );
+
+            modelBuilder.Entity<Cart>()
+                .Property(c => c.TotalAmount)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.ShippingAddress)
+                .WithMany()
+                .HasForeignKey(o => o.ShippingAddressId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.BillingAddress)
+                .WithMany()
+                .HasForeignKey(o => o.BillingAddressId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
