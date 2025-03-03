@@ -12,13 +12,13 @@ namespace MarketWorld.Domain.Entities
         public OrderStatus Status { get; set; }
         public decimal TotalAmount { get; set; }
         
-        public long UserId { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
         
-        public long? ShippingAddressId { get; set; }
+        public int? ShippingAddressId { get; set; }
         public Address ShippingAddress { get; set; }
         
-        public long? BillingAddressId { get; set; }
+        public int? BillingAddressId { get; set; }
         public Address BillingAddress { get; set; }
         
         public ICollection<OrderItem> OrderItems { get; set; }
