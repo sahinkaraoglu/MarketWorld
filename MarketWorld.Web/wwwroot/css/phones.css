@@ -6,6 +6,7 @@
     transition: all 0.3s ease;
     border: 1px solid #e2e8f0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
 }
 
 .product-card:hover {
@@ -13,7 +14,7 @@
 }
 
 .product-card .card-img-top {
-    height: 200px;
+    height: 280px;
     object-fit: contain;
     padding: 1.5rem;
     padding-top: 3rem;
@@ -55,11 +56,15 @@
 }
 
 .free-shipping-badge {
-    background: var(--primary);
-    font-size: 0.7rem;
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
-    color: #fff;
+    background: transparent;
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+    color: var(--primary);
+    position: absolute;
+    top: 15px;
+    right: 60px;
+    z-index: 2;
+    font-weight: 500;
 }
 
 .favorite-btn {
@@ -73,6 +78,11 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 3;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .favorite-btn:hover {
@@ -196,7 +206,7 @@
 
 @media (max-width: 768px) {
     .product-card .card-img-top {
-        height: 180px;
+        height: 220px;
     }
     
     .product-card .card-title {
