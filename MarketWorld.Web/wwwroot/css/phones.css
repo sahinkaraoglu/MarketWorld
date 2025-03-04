@@ -5,17 +5,18 @@
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .product-card .card-img-top {
     height: 200px;
     object-fit: contain;
-    padding: 1rem;
+    padding: 1.5rem;
+    padding-top: 3rem;
     background: #fff;
 }
 

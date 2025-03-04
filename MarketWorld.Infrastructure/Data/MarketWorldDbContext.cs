@@ -3,6 +3,7 @@ using MarketWorld.Domain.Entities;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using System;
+using System.Linq;
 
 namespace MarketWorld.Infrastructure.Data
 {
@@ -503,29 +504,27 @@ namespace MarketWorld.Infrastructure.Data
                 new Product
                 {
                     Id = 1,
-                    Name = "iPhone 14 Pro",
                     Brand = "Apple",
-                    Price = 56999.99m,
-                    Stock = 100,
+                    Name = "iPhone 16 Pro Max 256GB Beyaz",
+                    Price = 91999.99m,
+                    Description = "iPhone 16 Pro Max 256GB Beyaz",
                     IsActive = true,
-                    Description = "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu",
-                    DiscountPrice = 54999.99m,
-                    HasDiscount = true,
-                    SubCategoryId = 3, 
+                    SubCategoryId = 3,
+                    HasDiscount = false,
+                    Stock = 100,
                     CreatedDate = DateTime.Now
                 },
                 new Product
                 {
                     Id = 2,
-                    Name = "Samsung Galaxy S23",
                     Brand = "Samsung",
-                    Price = 41999.99m,
-                    Stock = 150,
+                    Name = "Galaxy A35 256 GB 8 GB Ram",
+                    Price = 15649m,
+                    Description = "Galaxy A35 256 GB 8 GB Ram (Samsung Türkiye Garantili) Açık Mavi",
                     IsActive = true,
-                    Description = "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu",
-                    DiscountPrice = 39999.99m,
-                    HasDiscount = true,
                     SubCategoryId = 3,
+                    HasDiscount = false,
+                    Stock = 150,
                     CreatedDate = DateTime.Now
                 }
             );
@@ -534,20 +533,28 @@ namespace MarketWorld.Infrastructure.Data
                 new Image
                 {
                     Id = 1,
-                    Path = "/images/products/iphone-14-pro.jpg",
-                    EntityId = 1, 
+                    Path = "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg",
+                    EntityId = 1,  // iPhone için
                     EntityType = 1,
                     CreatedDate = DateTime.Now
                 },
                 new Image
                 {
                     Id = 2,
-                    Path = "/images/products/samsung-s23.jpg",
-                    EntityId = 2, 
+                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimiki.jpg",
+                    EntityId = 2,  // Samsung için
                     EntityType = 1,
                     CreatedDate = DateTime.Now
                 }
             );
+
+            // Image ve Product arasındaki ilişki
+            modelBuilder.Entity<Image>()
+                .HasOne<Product>()
+                .WithMany(p => p.Images)
+                .HasForeignKey(i => i.EntityId)
+                .HasPrincipalKey(p => p.Id)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
