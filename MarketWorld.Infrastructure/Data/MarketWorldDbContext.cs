@@ -498,6 +498,56 @@ namespace MarketWorld.Infrastructure.Data
                 .WithMany()
                 .HasForeignKey(o => o.BillingAddressId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Product>().HasData(
+                new Product
+                {
+                    Id = 1,
+                    Name = "iPhone 14 Pro",
+                    Brand = "Apple",
+                    Price = 56999.99m,
+                    Stock = 100,
+                    IsActive = true,
+                    Description = "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu",
+                    DiscountPrice = 54999.99m,
+                    HasDiscount = true,
+                    SubCategoryId = 3, 
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 2,
+                    Name = "Samsung Galaxy S23",
+                    Brand = "Samsung",
+                    Price = 41999.99m,
+                    Stock = 150,
+                    IsActive = true,
+                    Description = "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu",
+                    DiscountPrice = 39999.99m,
+                    HasDiscount = true,
+                    SubCategoryId = 3,
+                    CreatedDate = DateTime.Now
+                }
+            );
+
+            modelBuilder.Entity<Image>().HasData(
+                new Image
+                {
+                    Id = 1,
+                    Path = "/images/products/iphone-14-pro.jpg",
+                    EntityId = 1, 
+                    EntityType = 1,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 2,
+                    Path = "/images/products/samsung-s23.jpg",
+                    EntityId = 2, 
+                    EntityType = 1,
+                    CreatedDate = DateTime.Now
+                }
+            );
         }
     }
 }
