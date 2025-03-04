@@ -217,7 +217,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9055),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(3946),
                             Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
                             IsDeleted = false,
                             Name = "Elektronik"
@@ -225,7 +225,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9073),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(3967),
                             Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
                             IsDeleted = false,
                             Name = "Giyim & Aksesuar"
@@ -233,7 +233,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9075),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(3969),
                             Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
                             IsDeleted = false,
                             Name = "Ev & Yaşam"
@@ -241,7 +241,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9076),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(3971),
                             Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
                             IsDeleted = false,
                             Name = "Kozmetik & Kişisel Bakım"
@@ -249,7 +249,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9078),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(3973),
                             Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
                             IsDeleted = false,
                             Name = "Spor & Outdoor"
@@ -300,7 +300,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 583, DateTimeKind.Local).AddTicks(2327),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 304, DateTimeKind.Local).AddTicks(923),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -309,11 +309,20 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 583, DateTimeKind.Local).AddTicks(2330),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 304, DateTimeKind.Local).AddTicks(926),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
                             Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 304, DateTimeKind.Local).AddTicks(928),
+                            EntityId = 3,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg"
                         });
                 });
 
@@ -549,7 +558,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 1,
                             Brand = "Apple",
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 583, DateTimeKind.Local).AddTicks(2274),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 304, DateTimeKind.Local).AddTicks(862),
                             Description = "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu",
                             DiscountPrice = 54999.99m,
                             HasDiscount = true,
@@ -564,7 +573,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 2,
                             Brand = "Samsung",
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 583, DateTimeKind.Local).AddTicks(2283),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 304, DateTimeKind.Local).AddTicks(873),
                             Description = "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu",
                             DiscountPrice = 39999.99m,
                             HasDiscount = true,
@@ -572,6 +581,21 @@ namespace MarketWorld.Infrastructure.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S23",
                             Price = 41999.99m,
+                            Stock = 150,
+                            SubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Brand = "Apple",
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 304, DateTimeKind.Local).AddTicks(876),
+                            Description = "Apple iPhone 15 128 GB Mavi",
+                            DiscountPrice = 39999.99m,
+                            HasDiscount = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Apple iPhone 15 128 GB Mavi",
+                            Price = 49999.99m,
                             Stock = 150,
                             SubCategoryId = 3
                         });
@@ -671,7 +695,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 582, DateTimeKind.Local).AddTicks(9347),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 303, DateTimeKind.Local).AddTicks(7934),
                             Description = "Ürün renk seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -680,7 +704,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 582, DateTimeKind.Local).AddTicks(9354),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 303, DateTimeKind.Local).AddTicks(7944),
                             Description = "Ürün beden seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -777,7 +801,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9313),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4293),
                             Description = "Dizüstü, masaüstü bilgisayarlar ve tabletler",
                             IsDeleted = false,
                             Name = "Bilgisayarlar & Tabletler"
@@ -786,7 +810,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9315),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4298),
                             Description = "Yazıcılar, tarayıcılar ve projeksiyon cihazları",
                             IsDeleted = false,
                             Name = "Yazıcılar & Projeksiyon"
@@ -795,7 +819,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9317),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4300),
                             Description = "Akıllı telefonlar ve aksesuarları",
                             IsDeleted = false,
                             Name = "Telefonlar"
@@ -804,7 +828,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9318),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4303),
                             Description = "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar",
                             IsDeleted = false,
                             Name = "Beyaz Eşya"
@@ -813,7 +837,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9320),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4305),
                             Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
                             IsDeleted = false,
                             Name = "Klima ve Isıtıcılar"
@@ -822,7 +846,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 6,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9321),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4307),
                             Description = "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar",
                             IsDeleted = false,
                             Name = "Ayakkabı & Çanta"
@@ -831,7 +855,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9323),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4309),
                             Description = "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
                             Name = "Kadın Giyim"
@@ -840,7 +864,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 8,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9325),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4311),
                             Description = "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
                             Name = "Erkek Giyim"
@@ -849,7 +873,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 9,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9327),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4313),
                             Description = "Kız ve erkek çocuk giyim ürünleri",
                             IsDeleted = false,
                             Name = "Çocuk Giyim"
@@ -858,7 +882,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 10,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9329),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4315),
                             Description = "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları",
                             IsDeleted = false,
                             Name = "Mobilya"
@@ -867,7 +891,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 11,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9330),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4317),
                             Description = "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri",
                             IsDeleted = false,
                             Name = "Ev Tekstili"
@@ -876,7 +900,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 12,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9332),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4319),
                             Description = "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri",
                             IsDeleted = false,
                             Name = "Dekorasyon & Aydınlatma"
@@ -885,7 +909,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 13,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9333),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4320),
                             Description = "Pişirme, servis ve saklama ürünleri, mutfak aletleri",
                             IsDeleted = false,
                             Name = "Mutfak Gereçleri"
@@ -894,7 +918,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 14,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9335),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4322),
                             Description = "Banyo aksesuarları, temizlik ve düzenleme ürünleri",
                             IsDeleted = false,
                             Name = "Banyo & Ev Gereçleri"
@@ -903,7 +927,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 15,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9336),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4324),
                             Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                             IsDeleted = false,
                             Name = "Kırtasiye & Ofis"
@@ -912,7 +936,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 16,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9338),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4326),
                             Description = "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri",
                             IsDeleted = false,
                             Name = "Parfüm & Deodorant"
@@ -921,7 +945,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 17,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9339),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4328),
                             Description = "Saç bakım ve şekillendirme ürünleri",
                             IsDeleted = false,
                             Name = "Saç Şekillendirme"
@@ -930,7 +954,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 18,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9341),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4330),
                             Description = "Yüz ve vücut bakım ürünleri, kremler ve serumlar",
                             IsDeleted = false,
                             Name = "Cilt Bakımı"
@@ -939,7 +963,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 19,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9342),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4332),
                             Description = "Renkli kozmetik ve makyaj malzemeleri",
                             IsDeleted = false,
                             Name = "Makyaj"
@@ -948,7 +972,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 20,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9344),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4333),
                             Description = "Vitamin, takviye gıdalar ve medikal ürünler",
                             IsDeleted = false,
                             Name = "Sağlık & Medikal Ürünler"
@@ -957,7 +981,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 21,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9346),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4337),
                             Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
                             IsDeleted = false,
                             Name = "Ağız & Diş Bakımı"
@@ -966,7 +990,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 22,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9347),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4339),
                             Description = "Fitness ekipmanları, kondisyon aletleri ve aksesuarları",
                             IsDeleted = false,
                             Name = "Fitness & Kondisyon"
@@ -975,7 +999,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 23,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9349),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4340),
                             Description = "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar",
                             IsDeleted = false,
                             Name = "Spor Giyim & Ayakkabı"
@@ -984,7 +1008,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 24,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9350),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4342),
                             Description = "Kamp malzemeleri, outdoor giyim ve ekipmanlar",
                             IsDeleted = false,
                             Name = "Outdoor & Kamp"
@@ -993,7 +1017,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 25,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9352),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4344),
                             Description = "Kayak ekipmanları ve kış sporları malzemeleri",
                             IsDeleted = false,
                             Name = "Kış Sporları"
@@ -1002,7 +1026,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 26,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 4, 13, 56, 45, 581, DateTimeKind.Local).AddTicks(9354),
+                            CreatedDate = new DateTime(2025, 3, 4, 14, 27, 47, 302, DateTimeKind.Local).AddTicks(4346),
                             Description = "Yüzme ve su sporları ekipmanları",
                             IsDeleted = false,
                             Name = "Su Sporları"
