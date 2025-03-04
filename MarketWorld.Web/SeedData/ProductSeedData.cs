@@ -52,7 +52,7 @@ namespace MarketWorld.Web.SeedData
                 new Image
                 {
                     Id = 2,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimiki.jpg",
+                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg",
                     EntityId = 2,  
                     EntityType = 1,
                     CreatedDate = DateTime.Now
