@@ -1,6 +1,7 @@
 using MarketWorld.Domain.Entities;
+using MarketWorld.Domain.Enums;
 
-namespace MarketWorld.Web.SeedData
+namespace MarketWorld.Infrastructure.Data.SeedData
 {
     public static class ProductSeedData
     {
@@ -11,27 +12,29 @@ namespace MarketWorld.Web.SeedData
                 new Product
                 {
                     Id = 1,
+                    Name = "iPhone 14 Pro",
                     Brand = "Apple",
-                    Name = "iPhone 16 Pro Max 256GB Beyaz",
-                    Price = 91999.99m,
-                    Description = "iPhone 16 Pro Max 256GB Beyaz",
-                    IsActive = true,
-                    SubCategoryId = 3,
-                    HasDiscount = false,
+                    Price = 56999.99m,
                     Stock = 100,
+                    IsActive = true,
+                    Description = "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu",
+                    DiscountPrice = 54999.99m,
+                    HasDiscount = true,
+                    SubCategoryId = 3,
                     CreatedDate = DateTime.Now
                 },
                 new Product
                 {
                     Id = 2,
-                    Brand = "Samsung",
-                    Name = "Galaxy A35 256 GB 8 GB Ram",
-                    Price = 15649m,
-                    Description = "Galaxy A35 256 GB 8 GB Ram (Samsung Türkiye Garantili) Açık Mavi",
-                    IsActive = true,
-                    SubCategoryId = 3,
-                    HasDiscount = false,
+                    Name = "Samsung Galaxy S23",
+                    Brand = "Samsung", 
+                    Price = 41999.99m,
                     Stock = 150,
+                    IsActive = true,
+                    Description = "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu",
+                    DiscountPrice = 39999.99m,
+                    HasDiscount = true,
+                    SubCategoryId = 3,
                     CreatedDate = DateTime.Now
                 }
             };
@@ -45,16 +48,16 @@ namespace MarketWorld.Web.SeedData
                 {
                     Id = 1,
                     Path = "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg",
-                    EntityId = 1,  
-                    EntityType = 1,
+                    EntityId = 1,
+                    EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
                 },
                 new Image
                 {
                     Id = 2,
                     Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg",
-                    EntityId = 2,  
-                    EntityType = 1,
+                    EntityId = 2,
+                    EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
                 }
             };

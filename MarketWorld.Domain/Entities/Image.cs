@@ -1,5 +1,4 @@
 using MarketWorld.Domain.Entities.Base;
-using System.Collections.Generic;
 
 namespace MarketWorld.Domain.Entities
 {
@@ -8,8 +7,5 @@ namespace MarketWorld.Domain.Entities
         public string Path { get; set; }
         public int EntityId { get; set; }
         public int EntityType { get; set; }
-
     }
-    
-    
 } 
