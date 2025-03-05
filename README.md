@@ -2,7 +2,7 @@
 
 MarketWorld is a comprehensive e-commerce platform built with .NET 8.0, implementing Clean Architecture principles and modern web development practices.
 
-## 🌟 Features
+## Features
 
 - **Clean Architecture**: Organized into Domain, Application, Infrastructure, and Web layers
 - **Modern Tech Stack**: Built with .NET 8.0 and Entity Framework Core  
@@ -14,7 +14,7 @@ MarketWorld is a comprehensive e-commerce platform built with .NET 8.0, implemen
   - 24/7 customer support
   - Secure payment processing
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 - **Backend**: .NET 8.0
 - **Database**: Microsoft SQL Server
@@ -25,7 +25,7 @@ MarketWorld is a comprehensive e-commerce platform built with .NET 8.0, implemen
   - jQuery
   - Custom CSS
 
-## 🏗️ Architecture
+##  Architecture
 
 The solution follows Clean Architecture principles with the following projects:
 - `MarketWorld.Domain`: Core business logic and entities
@@ -33,18 +33,18 @@ The solution follows Clean Architecture principles with the following projects:
 - `MarketWorld.Infrastructure`: External concerns implementation
 - `MarketWorld.Web`: User interface and web application
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - .NET 8.0 SDK
 - SQL Server
 - Visual Studio 2022 or later
 
-## 🌐 Environment URLs
+## Environment URLs
 
 - Web Application: `https://localhost:7154`
 
-## 🔄 Current Status
+## Current Status
 
 The project is in active development and scheduled for completion in Spring 2024. Key features being implemented:
 - User authentication and authorization
