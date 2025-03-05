@@ -83,25 +83,25 @@ namespace MarketWorld.Web.Controllers
         {
             try
             {
-                System.Diagnostics.Debug.WriteLine($"İstenen CategoryId: {categoryId}");
+                var category = await _context.Categories
+                    .Include(c => c.SubCategories)
+                    .FirstOrDefaultAsync(c => c.Id == categoryId);
 
-                var subCategories = await _context.SubCategories
-                    .Where(sc => sc.CategoryId == categoryId)
-                    .Select(sc => new { id = sc.Id, name = sc.Name })
-                    .ToListAsync();
-
-                System.Diagnostics.Debug.WriteLine($"Bulunan alt kategori sayısı: {subCategories.Count}");
-                foreach (var sc in subCategories)
+                if (category == null)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Alt Kategori: {sc.name}, ID: {sc.id}");
+                    return NotFound($"Kategori bulunamadı: {categoryId}");
                 }
+
+                var subCategories = category.SubCategories
+                    .Where(sc => !sc.IsDeleted)
+                    .Select(sc => new { id = sc.Id, name = sc.Name })
+                    .ToList();
 
                 return Json(subCategories);
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Alt kategori getirme hatası: {ex.Message}");
-                return Json(new { error = ex.Message });
+                return BadRequest($"Alt kategoriler getirilirken hata oluştu: {ex.Message}");
             }
         }
 
@@ -158,6 +158,64 @@ namespace MarketWorld.Web.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Products));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var product = await _context.Products
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .Include(p => p.Brand)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (product == null)
+                return NotFound();
+
+            var viewModel = new ProductAdminViewModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                Stock = product.Stock,
+                CategoryId = product.SubCategory?.CategoryId ?? 0,
+                SubCategoryId = product.SubCategoryId ?? 0,
+                BrandId = product.BrandId
+            };
+
+            return Json(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct([FromBody] ProductAdminViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var product = await _context.Products.FindAsync(model.Id);
+            if (product == null)
+                return NotFound();
+
+            product.Name = model.Name;
+            product.BrandId = model.BrandId;
+            product.SubCategoryId = model.SubCategoryId;
+            product.Price = model.Price;
+            product.Stock = model.Stock;
+
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+                return NotFound();
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
     }
 } 

@@ -125,6 +125,62 @@
     </div>
 </div>
 
+<div class="modal fade" id="editProductModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ürün Düzenle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="editProductForm">
+                <input type="hidden" id="editProductId" name="Id">
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Ürün Adı</label>
+                            <input type="text" name="Name" id="editName" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Marka</label>
+                            <select name="BrandId" id="editBrandId" class="form-select" required>
+                                <option value="">Marka Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Kategori</label>
+                            <select id="editCategorySelect" class="form-select" required>
+                                <option value="">Kategori Seçiniz</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Alt Kategori</label>
+                            <select name="SubCategoryId" id="editSubCategoryId" class="form-select" required>
+                                <option value="">Önce Kategori Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Fiyat</label>
+                            <input type="number" name="Price" id="editPrice" class="form-control" step="0.01" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Stok</label>
+                            <input type="number" name="Stock" id="editStock" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script>
         $(document).ready(function() {
@@ -169,11 +225,14 @@
             });
 
             // Kategori seçildiğinde alt kategorileri yükle
-            $('#categorySelect').change(function() {
+            $('#categorySelect, #editCategorySelect').change(function() {
                 var categoryId = $(this).val();
-                console.log('Seçilen kategori ID:', categoryId);
+                var targetSelect = $(this).attr('id') === 'categorySelect' ? '#subCategorySelect' : '#editSubCategoryId';
                 
-                $('#subCategorySelect').empty().append('<option value="">Alt Kategori Seçiniz</option>');
+                console.log('Seçilen kategori ID:', categoryId);
+                console.log('Hedef select:', targetSelect);
+                
+                $(targetSelect).empty().append('<option value="">Alt Kategori Seçiniz</option>');
                 
                 if (categoryId) {
                     $.ajax({
@@ -183,14 +242,14 @@
                             console.log('Gelen alt kategoriler:', subCategories);
                             if (subCategories && subCategories.length > 0) {
                                 subCategories.forEach(function(subCategory) {
-                                    $('#subCategorySelect').append(
+                                    $(targetSelect).append(
                                         $('<option></option>')
                                             .val(subCategory.id)
                                             .text(subCategory.name)
                                     );
                                 });
                             } else {
-                                $('#subCategorySelect').append(
+                                $(targetSelect).append(
                                     $('<option></option>')
                                         .val('')
                                         .text('Bu kategoride alt kategori yok')
@@ -201,6 +260,7 @@
                             console.error('Alt kategori yükleme hatası:', error);
                             console.error('Status:', status);
                             console.error('Response:', xhr.responseText);
+                            alert('Alt kategoriler yüklenirken bir hata oluştu: ' + error);
                         }
                     });
                 }
@@ -251,6 +311,88 @@
                         }
                     }
                 });
+            });
+        });
+
+        function editProduct(id) {
+            $.ajax({
+                url: '/Admin/GetProduct/' + id,
+                method: 'GET',
+                success: function(product) {
+                    $('#editProductId').val(product.id);
+                    $('#editName').val(product.name);
+                    $('#editBrandId').val(product.brandId);
+                    $('#editPrice').val(product.price);
+                    $('#editStock').val(product.stock);
+                    
+                    $.ajax({
+                        url: '/Admin/GetCategories',
+                        method: 'GET',
+                        success: function(categories) {
+                            $('#editCategorySelect').empty().append('<option value="">Kategori Seçiniz</option>');
+                            categories.forEach(function(category) {
+                                $('#editCategorySelect').append(
+                                    $('<option></option>')
+                                        .val(category.id)
+                                        .text(category.name)
+                                );
+                            });
+                            
+                            $('#editCategorySelect').val(product.categoryId).trigger('change');
+                            
+                            setTimeout(function() {
+                                $('#editSubCategoryId').val(product.subCategoryId);
+                            }, 500);
+                        }
+                    });
+                    
+                    $('#editProductModal').modal('show');
+                },
+                error: function(xhr, status, error) {
+                    alert('Ürün bilgileri alınamadı: ' + error);
+                }
+            });
+        }
+
+        function deleteProduct(id) {
+            if (confirm('Bu ürünü silmek istediğinizden emin misiniz?')) {
+                $.ajax({
+                    url: '/Admin/DeleteProduct/' + id,
+                    method: 'POST',
+                    success: function() {
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Ürün silinemedi: ' + error);
+                    }
+                });
+            }
+        }
+
+        $('#editProductForm').submit(function(e) {
+            e.preventDefault();
+            
+            var formData = {
+                Id: $('#editProductId').val(),
+                Name: $('#editName').val(),
+                BrandId: $('#editBrandId').val(),
+                SubCategoryId: $('#editSubCategoryId').val(),
+                Price: $('#editPrice').val(),
+                Stock: $('#editStock').val()
+            };
+
+            $.ajax({
+                url: '/Admin/UpdateProduct',
+                method: 'POST',
+                data: JSON.stringify(formData),
+                contentType: 'application/json',
+                success: function() {
+                    $('#editProductModal').modal('hide');
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    alert('Ürün güncellenemedi: ' + error);
+                }
             });
         });
     </script>

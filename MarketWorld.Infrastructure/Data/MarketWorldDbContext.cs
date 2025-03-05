@@ -134,6 +134,11 @@ namespace MarketWorld.Infrastructure.Data
                 .Property(ci => ci.Quantity)
                 .HasColumnType("decimal(18,2)");
 
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.SubCategories)
+                .WithOne(sc => sc.Category)
+                .HasForeignKey(sc => sc.CategoryId);
+
             modelBuilder.Entity<SubCategory>()
                 .HasOne(sc => sc.Category)
                 .WithMany(c => c.SubCategories)
