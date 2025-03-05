@@ -1,0 +1,257 @@
+@model List<MarketWorld.Web.Models.Admin.ProductAdminViewModel>
+
+<div class="container mt-5 pt-5">
+    <h2>Ürün Yönetimi</h2>
+    <div class="mb-3">
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+            Yeni Ürün Ekle
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ürün Adı</th>
+                <th>Kategori</th>
+                <th>Alt Kategori</th>
+                <th>Marka</th>
+                <th>Fiyat</th>
+                <th>Stok</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.CategoryName</td>
+                    <td>@product.SubCategoryName</td>
+                    <td>@product.BrandName</td>
+                    <td>@product.Price.ToString("C2")</td>
+                    <td>@product.Stock</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="editProduct(@product.Id)">Düzenle</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteProduct(@product.Id)">Sil</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Yeni Ürün Ekleme Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Yeni Ürün Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="addProductForm" asp-controller="Admin" asp-action="AddProduct" method="post">
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Ürün Adı</label>
+                            <input type="text" name="Name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Marka</label>
+                            <select name="BrandId" class="form-select" required>
+                                <option value="">Marka Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Kategori</label>
+                            <select id="categorySelect" class="form-select" required>
+                                <option value="">Kategori Seçiniz</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Alt Kategori</label>
+                            <select name="SubCategoryId" id="subCategorySelect" class="form-select" required>
+                                <option value="">Önce Kategori Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Fiyat</label>
+                            <input type="number" name="Price" class="form-control" step="0.01" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">İndirimli Fiyat</label>
+                            <input type="number" name="DiscountPrice" class="form-control" step="0.01">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Stok</label>
+                            <input type="number" name="Stock" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea name="Description" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" name="IsActive" class="form-check-input" value="true" checked>
+                                <input type="hidden" name="IsActive" value="false">
+                                <label class="form-check-label">Aktif</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" name="HasDiscount" class="form-check-input" value="true">
+                                <input type="hidden" name="HasDiscount" value="false">
+                                <label class="form-check-label">İndirimli</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ürün Resimleri</label>
+                        <input type="file" name="Images" class="form-control" multiple accept="image/*">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Kategorileri yükle
+            $.ajax({
+                url: '/Admin/GetCategories',
+                method: 'GET',
+                success: function(categories) {
+                    console.log('Yüklenen kategoriler:', categories);
+                    $('#categorySelect').empty().append('<option value="">Kategori Seçiniz</option>');
+                    categories.forEach(function(category) {
+                        $('#categorySelect').append(
+                            $('<option></option>')
+                                .val(category.id)
+                                .text(category.name)
+                        );
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('Kategori yükleme hatası:', error);
+                }
+            });
+
+            // Markaları yükle
+            $.ajax({
+                url: '/Admin/GetBrands',
+                method: 'GET',
+                success: function(brands) {
+                    console.log('Yüklenen markalar:', brands);
+                    $('select[name="BrandId"]').empty().append('<option value="">Marka Seçiniz</option>');
+                    brands.forEach(function(brand) {
+                        $('select[name="BrandId"]').append(
+                            $('<option></option>')
+                                .val(brand.id)
+                                .text(brand.name)
+                        );
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('Marka yükleme hatası:', error);
+                }
+            });
+
+            // Kategori seçildiğinde alt kategorileri yükle
+            $('#categorySelect').change(function() {
+                var categoryId = $(this).val();
+                console.log('Seçilen kategori ID:', categoryId);
+                
+                $('#subCategorySelect').empty().append('<option value="">Alt Kategori Seçiniz</option>');
+                
+                if (categoryId) {
+                    $.ajax({
+                        url: '/Admin/GetSubCategories/' + categoryId,
+                        method: 'GET',
+                        success: function(subCategories) {
+                            console.log('Gelen alt kategoriler:', subCategories);
+                            if (subCategories && subCategories.length > 0) {
+                                subCategories.forEach(function(subCategory) {
+                                    $('#subCategorySelect').append(
+                                        $('<option></option>')
+                                            .val(subCategory.id)
+                                            .text(subCategory.name)
+                                    );
+                                });
+                            } else {
+                                $('#subCategorySelect').append(
+                                    $('<option></option>')
+                                        .val('')
+                                        .text('Bu kategoride alt kategori yok')
+                                );
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Alt kategori yükleme hatası:', error);
+                            console.error('Status:', status);
+                            console.error('Response:', xhr.responseText);
+                        }
+                    });
+                }
+            });
+
+            // Form submit işlemini JavaScript ile yapalım
+            $('#addProductForm').submit(function(e) {
+                e.preventDefault();
+                
+                var formData = new FormData();
+                formData.append('Name', $('input[name="Name"]').val());
+                formData.append('BrandId', $('select[name="BrandId"]').val());
+                formData.append('SubCategoryId', $('#subCategorySelect').val());
+                formData.append('Price', $('input[name="Price"]').val());
+                formData.append('DiscountPrice', $('input[name="DiscountPrice"]').val() || '0');
+                formData.append('Stock', $('input[name="Stock"]').val());
+                formData.append('Description', $('textarea[name="Description"]').val());
+                formData.append('IsActive', $('input[name="IsActive"]').is(':checked'));
+                formData.append('HasDiscount', $('input[name="HasDiscount"]').is(':checked'));
+
+                // Resimleri ekle
+                var files = $('input[name="Images"]')[0].files;
+                for (var i = 0; i < files.length; i++) {
+                    formData.append('Images', files[i]);
+                }
+
+                $.ajax({
+                    url: '/Admin/AddProduct',
+                    method: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#addProductModal').modal('hide');
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Ürün ekleme hatası:', error);
+                        if (xhr.responseJSON) {
+                            var errors = xhr.responseJSON;
+                            var errorMessages = [];
+                            Object.keys(errors).forEach(function(key) {
+                                errorMessages.push(key + ': ' + errors[key].join(', '));
+                            });
+                            alert('Hata:\n' + errorMessages.join('\n'));
+                        } else {
+                            alert('Bir hata oluştu: ' + error);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+} 
