@@ -8,11 +8,6 @@ MarketWorld is a comprehensive e-commerce platform built with .NET 8.0, implemen
 - **Modern Tech Stack**: Built with .NET 8.0 and Entity Framework Core  
 - **Secure Payments**: 256-bit SSL encryption for all transactions
 - **User-Friendly Interface**: Responsive design with Bootstrap
-- **Shopping Experience**:
-  - Free shipping on orders over 150 TL
-  - Easy 14-day returns
-  - 24/7 customer support
-  - Secure payment processing
 
 ## Technical Stack
 
