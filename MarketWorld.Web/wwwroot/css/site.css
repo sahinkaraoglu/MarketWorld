@@ -1,3 +1,7 @@
+*:hover {
+    transform: none !important;
+}
+
 html {
   font-size: 14px;
 }
@@ -50,11 +54,7 @@ body {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.navbar-brand:hover {
-    transform: translateY(-2px);
+    transition: none;
 }
 
 .navbar-logo {
@@ -62,7 +62,7 @@ body {
     width: auto;
     margin-top: -30px;
     margin-bottom: -30px;
-    transition: transform 0.3s ease;
+    transition: none;
 }
 
 .navbar-nav {
@@ -230,13 +230,13 @@ body {
 }
 
 .card {
-    transition: transform 0.2s;
+    transition: none;
     border: none;
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: none;
 }
 
 .footer {
@@ -363,7 +363,7 @@ body {
 }
 
 .category-card:hover {
-    transform: translateY(-5px);
+    transform: none;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     border-color: var(--primary);
 }
@@ -405,7 +405,7 @@ body {
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    transform: none;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
@@ -749,7 +749,7 @@ main {
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
+    transform: none;
 }
 
 .feature-icon {
