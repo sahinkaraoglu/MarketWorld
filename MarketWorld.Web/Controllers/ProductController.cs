@@ -16,13 +16,12 @@ namespace MarketWorld.Web.Controllers
 
         public IActionResult Phones()
         {
-            // Debug için önce verileri çekelim
             var products = _context.Products
                 .Where(p => p.SubCategoryId == 3 && p.IsActive)
                 .Include(p => p.Images)
+                .Include(p => p.Brand)
                 .ToList();
 
-            // Debug için SQL sorgusunu yazdıralım
             var debugSql = products.Select(p => new
             {
                 ProductId = p.Id,
@@ -35,10 +34,12 @@ namespace MarketWorld.Web.Controllers
                 System.Diagnostics.Debug.WriteLine($"Product {item.ProductId}: {item.ImageCount} images - Paths: {item.ImagePaths}");
             }
 
+            //log tablosu oluşturturken, log tablosuna yazdırılan sql sorgularını görebiliriz.
+
             var phones = products.Select(p => new PhoneViewModel
             {
                 Id = p.Id,
-                Brand = p.Brand,
+                Brand = p.Brand?.Name ?? "Bilinmeyen Marka",
                 Model = p.Name,
                 Price = p.Price,
                 ImageUrl = p.Images.FirstOrDefault() != null ? 

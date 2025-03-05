@@ -6,7 +6,7 @@ namespace MarketWorld.Domain.Entities
     public class Product : BaseEntity
     {
         public string Name { get; set; }
-        public string Brand { get; set; }
+        public int BrandId { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
         public bool IsActive { get; set; } = true;
@@ -17,6 +17,7 @@ namespace MarketWorld.Domain.Entities
         
         public int? SubCategoryId { get; set; }
         public SubCategory? SubCategory { get; set; }
+        public Brand? Brand { get; set; }
         
         public ICollection<OrderItem>? OrderItems { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }

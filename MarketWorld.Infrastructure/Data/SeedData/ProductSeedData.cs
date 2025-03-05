@@ -13,7 +13,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 {
                     Id = 1,
                     Name = "iPhone 14 Pro",
-                    Brand = "Apple",
+                    BrandId = 1,
                     Price = 56999.99m,
                     Stock = 100,
                     IsActive = true,
@@ -27,7 +27,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 {
                     Id = 2,
                     Name = "Samsung Galaxy S23",
-                    Brand = "Samsung", 
+                    BrandId = 2,
                     Price = 41999.99m,
                     Stock = 150,
                     IsActive = true,
@@ -41,7 +41,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 {
                     Id = 3,
                     Name = "Apple iPhone 15 128 GB Mavi",
-                    Brand = "Apple",
+                    BrandId = 1,
                     Price = 49999.99m,
                     Stock = 150,
                     IsActive = true,
@@ -49,6 +49,25 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     DiscountPrice = 39999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
+                    CreatedDate = DateTime.Now
+                }
+            };
+        }
+
+        public static List<Brand> GetBrands()
+        {
+            return new List<Brand>
+            {
+                new Brand
+                {
+                    Id = 1,
+                    Name = "Apple",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 2,
+                    Name = "Samsung",
                     CreatedDate = DateTime.Now
                 }
             };

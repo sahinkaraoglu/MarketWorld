@@ -24,6 +24,7 @@ namespace MarketWorld.Infrastructure.Data
         public DbSet<PropertyType> PropertyTypes { get; set; }
         public DbSet<PropertyValue> PropertyValues { get; set; }
         public DbSet<ProductProperty> ProductProperties { get; set; }
+        public DbSet<Brand> Brands { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -399,6 +400,8 @@ namespace MarketWorld.Infrastructure.Data
                 }
             );
 
+            modelBuilder.Entity<Brand>().HasData(Infrastructure.Data.SeedData.ProductSeedData.GetBrands());
+
             // Tüm entity'ler için BaseEntity'deki CreatedDate alanını nullable olmaktan çıkarıp 
             // otomatik değer ataması yapalım
             modelBuilder.Entity<User>()
@@ -506,6 +509,17 @@ namespace MarketWorld.Infrastructure.Data
                 .HasForeignKey(i => i.EntityId)
                 .HasPrincipalKey(p => p.Id)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Brand)
+                .WithMany(b => b.Products)
+                .HasForeignKey(p => p.BrandId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Brand>()
+                .Property(b => b.Name)
+                .IsRequired()
+                .HasMaxLength(50);
         }
     }
 }
