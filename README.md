@@ -1,4 +1,4 @@
-# MarketWorld 🛍️ (Coming Soon - Spring 2024)
+# MarketWorld 🛍️ (Coming Soon)
 
 MarketWorld is a comprehensive e-commerce platform built with .NET 8.0, implementing Clean Architecture principles and modern web development practices.
 
