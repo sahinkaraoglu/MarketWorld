@@ -1,45 +1,20 @@
-@model List<MarketWorld.Web.Models.ProductViewModel>
+@model List<MarketWorld.Web.Models.ProductViewModel> 
 
 @{
-    ViewData["Title"] = "Telefonlar";
+    ViewData["Title"] = "Su Sporları Ürünleri";
 }
 
 @section Styles {
     <link rel="stylesheet" href="~/css/phones.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        .phones-breadcrumb {
-            margin-top: 80px;
-        }
-        .filter-card {
-            position: sticky;
-            top: 100px;
-        }
-        .filter-section {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        .filter-section:last-child {
-            border-bottom: none;
-        }
-        .filter-section-title {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        .price-input {
-            width: 100%;
-            margin-bottom: 0.5rem;
-        }
-    </style>
 }
 
 <div class="container py-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb phones-breadcrumb">
             <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
-            <li class="breadcrumb-item active">Telefonlar</li>
+            <li class="breadcrumb-item">Spor & Outdoor</li>
+            <li class="breadcrumb-item active">Su Sporları</li>
         </ol>
     </nav>
 
@@ -64,16 +39,12 @@
                         <div class="filter-section">
                             <h6 class="filter-section-title">Marka</h6>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" value="apple" id="apple">
-                                <label class="form-check-label" for="apple">Apple</label>
+                                <input class="form-check-input" type="checkbox" value="speedo" id="speedo">
+                                <label class="form-check-label" for="speedo">Speedo</label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" value="samsung" id="samsung">
-                                <label class="form-check-label" for="samsung">Samsung</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" value="xiaomi" id="xiaomi">
-                                <label class="form-check-label" for="xiaomi">Xiaomi</label>
+                                <input class="form-check-input" type="checkbox" value="arena" id="arena">
+                                <label class="form-check-label" for="arena">Arena</label>
                             </div>
                         </div>
 
@@ -110,17 +81,17 @@
             <!-- Ürün Listesi -->
             <div class="col-md-9">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    @foreach (var phone in Model)
+                    @foreach (var product in Model)
                     {
                         <div class="col">
                             <div class="card product-card h-100">
                                 <div class="position-relative">
-                                    <img src="@phone.ImageUrl" class="card-img-top" alt="@phone.Name" 
+                                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" 
                                          onerror="this.src='/img/default-product.jpg';" />
                                     <button class="favorite-btn position-absolute top-0 end-0 m-2">
                                         <i class="far fa-heart"></i>
                                     </button>
-                                    @if (phone.HasFreeShipping)
+                                    @if (product.HasFreeShipping)
                                     {
                                         <span class="badge free-shipping-badge position-absolute top-0 start-0 m-2">
                                             <i class="fas fa-truck me-1"></i>ÜCRETSİZ KARGO
@@ -128,16 +99,16 @@
                                     }
                                 </div>
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">  @phone.BrandName  <br > @phone.Name    </h5>
+                                    <h5 class="card-title">@product.BrandName @product.Name</h5>
                                     <div class="d-flex align-items-center mb-2">
                                         <div class="rating">
                                             @for (int i = 1; i <= 5; i++)
                                             {
-                                                if (i <= phone.Rating)
+                                                if (i <= product.Rating)
                                                 {
                                                     <i class="fas fa-star"></i>
                                                 }
-                                                else if (i - phone.Rating < 1)
+                                                else if (i - product.Rating < 1)
                                                 {
                                                     <i class="fas fa-star-half-alt"></i>
                                                 }
@@ -147,10 +118,10 @@
                                                 }
                                             }
                                         </div>
-                                        <span class="review-count ms-2">(@phone.ReviewCount)</span>
+                                        <span class="review-count ms-2">(@product.ReviewCount)</span>
                                     </div>
                                     <div class="mt-auto">
-                                        <p class="price mb-3">@phone.Price.ToString("N2") TL</p>
+                                        <p class="price mb-3">@product.Price.ToString("N2") TL</p>
                                         <button class="btn btn-primary add-to-cart-btn w-100">
                                             <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
                                         </button>

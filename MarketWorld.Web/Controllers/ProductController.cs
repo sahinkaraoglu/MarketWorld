@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
 using MarketWorld.Infrastructure;
 using MarketWorld.Web.Models;
+using static MarketWorld.Web.Models.CategoryViewModel;
+using ProductViewModel = MarketWorld.Web.Models.ProductViewModel;
 namespace MarketWorld.Web.Controllers
 {
     public class ProductController : Controller
@@ -36,11 +38,12 @@ namespace MarketWorld.Web.Controllers
 
             //log tablosu oluşturturken, log tablosuna yazdırılan sql sorgularını görebiliriz.
 
-            var phones = products.Select(p => new PhoneViewModel
+            var phones = products.Select(p => new ProductViewModel
             {
                 Id = p.Id,
-                Brand = p.Brand?.Name ?? "Bilinmeyen Marka",
-                Model = p.Name,
+                BrandId = p.BrandId,
+                BrandName = p.Brand?.Name ?? "Bilinmeyen Marka",
+                Name = p.Name,
                 Price = p.Price,
                 ImageUrl = p.Images.FirstOrDefault() != null ? 
                           $"/{p.Images.FirstOrDefault().Path}" : 
@@ -53,6 +56,32 @@ namespace MarketWorld.Web.Controllers
             }).ToList();
 
             return View(phones);
+        }
+
+        public async Task<IActionResult> WaterSports()
+        {
+            var products = await _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
+                .Where(p => p.SubCategory.Name == "Su Sporları" && p.IsActive && !p.IsDeleted)
+                .Select(p => new ProductViewModel
+                {
+                    Id = p.Id,
+                    BrandId = p.BrandId,
+                    Name = p.Name,
+                    Description = p.Description,
+                    Price = p.Price,
+                    ImageUrl = p.Images.FirstOrDefault() != null ? 
+                              $"/{p.Images.FirstOrDefault().Path}" : 
+                              "/img/default-product.jpg",
+                    Rating = 4.5,
+                    ReviewCount = 100,
+                    HasFreeShipping = p.Price > 10000,
+                    Stock = p.Stock
+                })
+                .ToListAsync();
+
+            return View(products);
         }
     }
 } 
