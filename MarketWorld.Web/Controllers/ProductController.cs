@@ -28,6 +28,7 @@ namespace MarketWorld.Web.Controllers
                 {
                     Id = p.Id,
                     BrandId = p.BrandId,
+                    BrandName = p.Brand.Name,
                     Name = p.Name,
                     Description = p.Description,
                     Price = p.Price,
