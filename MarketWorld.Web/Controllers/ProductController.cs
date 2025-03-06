@@ -27,10 +27,11 @@ namespace MarketWorld.Web.Controllers
                 .Select(p => new ProductViewModel
                 {
                     Id = p.Id,
-                    BrandId = p.BrandId,
-                    BrandName = p.Brand.Name,
                     Name = p.Name,
                     Description = p.Description,
+                    BrandId = p.BrandId,
+                    BrandName = p.Brand.Name,
+                    CreatedDate = p.CreatedDate,
                     Price = p.Price,
                     ImageUrl = p.Images.FirstOrDefault() != null ? 
                               $"/{p.Images.FirstOrDefault().Path}" : 

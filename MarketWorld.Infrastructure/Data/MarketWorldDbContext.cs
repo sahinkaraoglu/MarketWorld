@@ -525,6 +525,13 @@ namespace MarketWorld.Infrastructure.Data
                 .Property(b => b.Name)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            modelBuilder.Entity<Brand>()
+                .HasOne(b => b.SubCategory)
+                .WithMany()
+                .HasForeignKey(b => b.SubCategoryId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

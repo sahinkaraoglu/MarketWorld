@@ -8,6 +8,7 @@ namespace MarketWorld.Web.Models
         public string BrandName { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public DateTime? CreatedDate { get; set; } = DateTime.Now;
         public string ImageUrl { get; set; }
         public double Rating { get; set; }
         public int ReviewCount { get; set; }

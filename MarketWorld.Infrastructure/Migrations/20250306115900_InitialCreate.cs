@@ -14,24 +14,6 @@ namespace MarketWorld.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Brands",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Brands", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
                 {
@@ -204,21 +186,13 @@ namespace MarketWorld.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Brands",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    BrandId = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Stock = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscountPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    HasDiscount = table.Column<bool>(type: "bit", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     SubCategoryId = table.Column<int>(type: "int", nullable: true),
-                    CategoryId = table.Column<int>(type: "int", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedById = table.Column<long>(type: "bigint", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -227,20 +201,9 @@ namespace MarketWorld.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("PK_Brands", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_Brands_BrandId",
-                        column: x => x.BrandId,
-                        principalTable: "Brands",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Products_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Products_SubCategories_SubCategoryId",
+                        name: "FK_Brands_SubCategories_SubCategoryId",
                         column: x => x.SubCategoryId,
                         principalTable: "SubCategories",
                         principalColumn: "Id",
@@ -285,6 +248,79 @@ namespace MarketWorld.Infrastructure.Migrations
                         name: "FK_Orders_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    BrandId = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Stock = table.Column<int>(type: "int", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DiscountPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    HasDiscount = table.Column<bool>(type: "bit", nullable: false),
+                    SubCategoryId = table.Column<int>(type: "int", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Products_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Products_SubCategories_SubCategoryId",
+                        column: x => x.SubCategoryId,
+                        principalTable: "SubCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Payments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PaymentMethod = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TransactionId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Payments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Payments_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -349,6 +385,39 @@ namespace MarketWorld.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OrderItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductProperties",
                 columns: table => new
                 {
@@ -388,75 +457,13 @@ namespace MarketWorld.Infrastructure.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "OrderItems",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OrderItems", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_OrderItems_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_OrderItems_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Payments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PaymentMethod = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TransactionId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
-                    UpdatedById = table.Column<long>(type: "bigint", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Payments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Payments_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "Brands",
-                columns: new[] { "Id", "CreatedById", "CreatedDate", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
+                columns: new[] { "Id", "CreatedById", "CreatedDate", "IsDeleted", "Name", "SubCategoryId", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6209), false, "Apple", null, null },
-                    { 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6213), false, "Samsung", null, null }
+                    { 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1116), false, "Apple", null, null, null },
+                    { 2, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1120), false, "Samsung", null, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -464,11 +471,11 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "Description", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5897), "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar", false, "Elektronik", null, null },
-                    { 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5918), "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları", false, "Giyim & Aksesuar", null, null },
-                    { 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5921), "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili", false, "Ev & Yaşam", null, null },
-                    { 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5922), "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri", false, "Kozmetik & Kişisel Bakım", null, null },
-                    { 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5924), "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri", false, "Spor & Outdoor", null, null }
+                    { 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(829), "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar", false, "Elektronik", null, null },
+                    { 2, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(847), "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları", false, "Giyim & Aksesuar", null, null },
+                    { 3, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(849), "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili", false, "Ev & Yaşam", null, null },
+                    { 4, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(850), "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri", false, "Kozmetik & Kişisel Bakım", null, null },
+                    { 5, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(851), "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri", false, "Spor & Outdoor", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -476,8 +483,8 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "Description", "IsActive", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 328, DateTimeKind.Local).AddTicks(7425), "Ürün renk seçenekleri", true, false, "Renk", null, null },
-                    { 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 328, DateTimeKind.Local).AddTicks(7436), "Ürün beden seçenekleri", true, false, "Beden", null, null }
+                    { 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 878, DateTimeKind.Local).AddTicks(1464), "Ürün renk seçenekleri", true, false, "Renk", null, null },
+                    { 2, null, new DateTime(2025, 3, 6, 14, 58, 59, 878, DateTimeKind.Local).AddTicks(1471), "Ürün beden seçenekleri", true, false, "Beden", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -485,32 +492,32 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedById", "CreatedDate", "Description", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6110), "Dizüstü, masaüstü bilgisayarlar ve tabletler", false, "Bilgisayarlar & Tabletler", null, null },
-                    { 2, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6113), "Yazıcılar, tarayıcılar ve projeksiyon cihazları", false, "Yazıcılar & Projeksiyon", null, null },
-                    { 3, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6115), "Akıllı telefonlar ve aksesuarları", false, "Telefonlar", null, null },
-                    { 4, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6117), "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar", false, "Beyaz Eşya", null, null },
-                    { 5, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6118), "Klimalar, ısıtıcılar ve hava temizleyiciler", false, "Klima ve Isıtıcılar", null, null },
-                    { 6, 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6120), "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar", false, "Ayakkabı & Çanta", null, null },
-                    { 7, 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6122), "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim", false, "Kadın Giyim", null, null },
-                    { 8, 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6124), "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim", false, "Erkek Giyim", null, null },
-                    { 9, 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6126), "Kız ve erkek çocuk giyim ürünleri", false, "Çocuk Giyim", null, null },
-                    { 10, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6127), "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları", false, "Mobilya", null, null },
-                    { 11, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6129), "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri", false, "Ev Tekstili", null, null },
-                    { 12, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6130), "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri", false, "Dekorasyon & Aydınlatma", null, null },
-                    { 13, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6132), "Pişirme, servis ve saklama ürünleri, mutfak aletleri", false, "Mutfak Gereçleri", null, null },
-                    { 14, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6133), "Banyo aksesuarları, temizlik ve düzenleme ürünleri", false, "Banyo & Ev Gereçleri", null, null },
-                    { 15, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6135), "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri", false, "Kırtasiye & Ofis", null, null },
-                    { 16, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6137), "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri", false, "Parfüm & Deodorant", null, null },
-                    { 17, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6139), "Saç bakım ve şekillendirme ürünleri", false, "Saç Şekillendirme", null, null },
-                    { 18, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6140), "Yüz ve vücut bakım ürünleri, kremler ve serumlar", false, "Cilt Bakımı", null, null },
-                    { 19, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6142), "Renkli kozmetik ve makyaj malzemeleri", false, "Makyaj", null, null },
-                    { 20, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6143), "Vitamin, takviye gıdalar ve medikal ürünler", false, "Sağlık & Medikal Ürünler", null, null },
-                    { 21, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6145), "Diş bakım ürünleri ve ağız bakım ürünleri", false, "Ağız & Diş Bakımı", null, null },
-                    { 22, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6146), "Fitness ekipmanları, kondisyon aletleri ve aksesuarları", false, "Fitness & Kondisyon", null, null },
-                    { 23, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6149), "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar", false, "Spor Giyim & Ayakkabı", null, null },
-                    { 24, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6150), "Kamp malzemeleri, outdoor giyim ve ekipmanlar", false, "Outdoor & Kamp", null, null },
-                    { 25, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6152), "Kayak ekipmanları ve kış sporları malzemeleri", false, "Kış Sporları", null, null },
-                    { 26, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6153), "Yüzme ve su sporları ekipmanları", false, "Su Sporları", null, null }
+                    { 1, 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1023), "Dizüstü, masaüstü bilgisayarlar ve tabletler", false, "Bilgisayarlar & Tabletler", null, null },
+                    { 2, 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1025), "Yazıcılar, tarayıcılar ve projeksiyon cihazları", false, "Yazıcılar & Projeksiyon", null, null },
+                    { 3, 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1028), "Akıllı telefonlar ve aksesuarları", false, "Telefonlar", null, null },
+                    { 4, 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1029), "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar", false, "Beyaz Eşya", null, null },
+                    { 5, 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1031), "Klimalar, ısıtıcılar ve hava temizleyiciler", false, "Klima ve Isıtıcılar", null, null },
+                    { 6, 2, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1033), "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar", false, "Ayakkabı & Çanta", null, null },
+                    { 7, 2, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1034), "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim", false, "Kadın Giyim", null, null },
+                    { 8, 2, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1037), "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim", false, "Erkek Giyim", null, null },
+                    { 9, 2, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1038), "Kız ve erkek çocuk giyim ürünleri", false, "Çocuk Giyim", null, null },
+                    { 10, 3, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1040), "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları", false, "Mobilya", null, null },
+                    { 11, 3, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1041), "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri", false, "Ev Tekstili", null, null },
+                    { 12, 3, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1043), "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri", false, "Dekorasyon & Aydınlatma", null, null },
+                    { 13, 3, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1044), "Pişirme, servis ve saklama ürünleri, mutfak aletleri", false, "Mutfak Gereçleri", null, null },
+                    { 14, 3, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1046), "Banyo aksesuarları, temizlik ve düzenleme ürünleri", false, "Banyo & Ev Gereçleri", null, null },
+                    { 15, 3, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1047), "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri", false, "Kırtasiye & Ofis", null, null },
+                    { 16, 4, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1049), "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri", false, "Parfüm & Deodorant", null, null },
+                    { 17, 4, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1050), "Saç bakım ve şekillendirme ürünleri", false, "Saç Şekillendirme", null, null },
+                    { 18, 4, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1052), "Yüz ve vücut bakım ürünleri, kremler ve serumlar", false, "Cilt Bakımı", null, null },
+                    { 19, 4, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1053), "Renkli kozmetik ve makyaj malzemeleri", false, "Makyaj", null, null },
+                    { 20, 4, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1055), "Vitamin, takviye gıdalar ve medikal ürünler", false, "Sağlık & Medikal Ürünler", null, null },
+                    { 21, 4, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1056), "Diş bakım ürünleri ve ağız bakım ürünleri", false, "Ağız & Diş Bakımı", null, null },
+                    { 22, 5, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1057), "Fitness ekipmanları, kondisyon aletleri ve aksesuarları", false, "Fitness & Kondisyon", null, null },
+                    { 23, 5, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1059), "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar", false, "Spor Giyim & Ayakkabı", null, null },
+                    { 24, 5, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1061), "Kamp malzemeleri, outdoor giyim ve ekipmanlar", false, "Outdoor & Kamp", null, null },
+                    { 25, 5, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1062), "Kayak ekipmanları ve kış sporları malzemeleri", false, "Kış Sporları", null, null },
+                    { 26, 5, null, new DateTime(2025, 3, 6, 14, 58, 59, 877, DateTimeKind.Local).AddTicks(1064), "Yüzme ve su sporları ekipmanları", false, "Su Sporları", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -518,9 +525,9 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "BrandId", "CategoryId", "CreatedById", "CreatedDate", "Description", "DiscountPrice", "HasDiscount", "IsActive", "IsDeleted", "Name", "Price", "Stock", "SubCategoryId", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, null, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(775), "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu", 54999.99m, true, true, false, "iPhone 14 Pro", 56999.99m, 100, 3, null, null },
-                    { 2, 2, null, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(789), "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu", 39999.99m, true, true, false, "Samsung Galaxy S23", 41999.99m, 150, 3, null, null },
-                    { 3, 1, null, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(796), "Apple iPhone 15 128 GB Mavi", 39999.99m, true, true, false, "Apple iPhone 15 128 GB Mavi", 49999.99m, 150, 3, null, null }
+                    { 1, 1, null, null, new DateTime(2025, 3, 6, 14, 58, 59, 878, DateTimeKind.Local).AddTicks(4550), "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu", 54999.99m, true, true, false, "iPhone 14 Pro", 56999.99m, 100, 3, null, null },
+                    { 2, 2, null, null, new DateTime(2025, 3, 6, 14, 58, 59, 878, DateTimeKind.Local).AddTicks(4559), "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu", 39999.99m, true, true, false, "Samsung Galaxy S23", 41999.99m, 150, 3, null, null },
+                    { 3, 1, null, null, new DateTime(2025, 3, 6, 14, 58, 59, 878, DateTimeKind.Local).AddTicks(4562), "Apple iPhone 15 128 GB Mavi", 39999.99m, true, true, false, "Apple iPhone 15 128 GB Mavi", 49999.99m, 150, 3, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -528,15 +535,20 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "EntityId", "EntityType", "IsDeleted", "Path", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(843), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg", null, null },
-                    { 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(847), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg", null, null },
-                    { 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(849), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg", null, null }
+                    { 1, null, new DateTime(2025, 3, 6, 14, 58, 59, 878, DateTimeKind.Local).AddTicks(4606), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg", null, null },
+                    { 2, null, new DateTime(2025, 3, 6, 14, 58, 59, 878, DateTimeKind.Local).AddTicks(4645), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg", null, null },
+                    { 3, null, new DateTime(2025, 3, 6, 14, 58, 59, 878, DateTimeKind.Local).AddTicks(4648), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg", null, null }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_UserId",
                 table: "Addresses",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Brands_SubCategoryId",
+                table: "Brands",
+                column: "SubCategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CartItems_CartId",
@@ -666,13 +678,13 @@ namespace MarketWorld.Infrastructure.Migrations
                 name: "Brands");
 
             migrationBuilder.DropTable(
-                name: "SubCategories");
-
-            migrationBuilder.DropTable(
                 name: "PropertyTypes");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "SubCategories");
 
             migrationBuilder.DropTable(
                 name: "Categories");
