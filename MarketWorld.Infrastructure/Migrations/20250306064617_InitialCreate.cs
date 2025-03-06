@@ -455,8 +455,8 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7199), false, "Apple", null, null },
-                    { 2, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7201), false, "Samsung", null, null }
+                    { 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6209), false, "Apple", null, null },
+                    { 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6213), false, "Samsung", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -464,11 +464,11 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "Description", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(6979), "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar", false, "Elektronik", null, null },
-                    { 2, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(6994), "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları", false, "Giyim & Aksesuar", null, null },
-                    { 3, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(6995), "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili", false, "Ev & Yaşam", null, null },
-                    { 4, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(6996), "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri", false, "Kozmetik & Kişisel Bakım", null, null },
-                    { 5, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(6997), "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri", false, "Spor & Outdoor", null, null }
+                    { 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5897), "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar", false, "Elektronik", null, null },
+                    { 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5918), "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları", false, "Giyim & Aksesuar", null, null },
+                    { 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5921), "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili", false, "Ev & Yaşam", null, null },
+                    { 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5922), "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri", false, "Kozmetik & Kişisel Bakım", null, null },
+                    { 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(5924), "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri", false, "Spor & Outdoor", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -476,8 +476,8 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "Description", "IsActive", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 375, DateTimeKind.Local).AddTicks(124), "Ürün renk seçenekleri", true, false, "Renk", null, null },
-                    { 2, null, new DateTime(2025, 3, 5, 21, 1, 32, 375, DateTimeKind.Local).AddTicks(132), "Ürün beden seçenekleri", true, false, "Beden", null, null }
+                    { 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 328, DateTimeKind.Local).AddTicks(7425), "Ürün renk seçenekleri", true, false, "Renk", null, null },
+                    { 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 328, DateTimeKind.Local).AddTicks(7436), "Ürün beden seçenekleri", true, false, "Beden", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -485,32 +485,32 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedById", "CreatedDate", "Description", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7105), "Dizüstü, masaüstü bilgisayarlar ve tabletler", false, "Bilgisayarlar & Tabletler", null, null },
-                    { 2, 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7141), "Yazıcılar, tarayıcılar ve projeksiyon cihazları", false, "Yazıcılar & Projeksiyon", null, null },
-                    { 3, 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7142), "Akıllı telefonlar ve aksesuarları", false, "Telefonlar", null, null },
-                    { 4, 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7143), "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar", false, "Beyaz Eşya", null, null },
-                    { 5, 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7144), "Klimalar, ısıtıcılar ve hava temizleyiciler", false, "Klima ve Isıtıcılar", null, null },
-                    { 6, 2, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7145), "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar", false, "Ayakkabı & Çanta", null, null },
-                    { 7, 2, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7146), "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim", false, "Kadın Giyim", null, null },
-                    { 8, 2, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7148), "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim", false, "Erkek Giyim", null, null },
-                    { 9, 2, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7149), "Kız ve erkek çocuk giyim ürünleri", false, "Çocuk Giyim", null, null },
-                    { 10, 3, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7150), "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları", false, "Mobilya", null, null },
-                    { 11, 3, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7151), "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri", false, "Ev Tekstili", null, null },
-                    { 12, 3, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7153), "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri", false, "Dekorasyon & Aydınlatma", null, null },
-                    { 13, 3, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7154), "Pişirme, servis ve saklama ürünleri, mutfak aletleri", false, "Mutfak Gereçleri", null, null },
-                    { 14, 3, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7155), "Banyo aksesuarları, temizlik ve düzenleme ürünleri", false, "Banyo & Ev Gereçleri", null, null },
-                    { 15, 3, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7156), "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri", false, "Kırtasiye & Ofis", null, null },
-                    { 16, 4, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7157), "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri", false, "Parfüm & Deodorant", null, null },
-                    { 17, 4, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7158), "Saç bakım ve şekillendirme ürünleri", false, "Saç Şekillendirme", null, null },
-                    { 18, 4, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7159), "Yüz ve vücut bakım ürünleri, kremler ve serumlar", false, "Cilt Bakımı", null, null },
-                    { 19, 4, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7160), "Renkli kozmetik ve makyaj malzemeleri", false, "Makyaj", null, null },
-                    { 20, 4, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7161), "Vitamin, takviye gıdalar ve medikal ürünler", false, "Sağlık & Medikal Ürünler", null, null },
-                    { 21, 4, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7162), "Diş bakım ürünleri ve ağız bakım ürünleri", false, "Ağız & Diş Bakımı", null, null },
-                    { 22, 5, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7163), "Fitness ekipmanları, kondisyon aletleri ve aksesuarları", false, "Fitness & Kondisyon", null, null },
-                    { 23, 5, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7164), "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar", false, "Spor Giyim & Ayakkabı", null, null },
-                    { 24, 5, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7165), "Kamp malzemeleri, outdoor giyim ve ekipmanlar", false, "Outdoor & Kamp", null, null },
-                    { 25, 5, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7166), "Kayak ekipmanları ve kış sporları malzemeleri", false, "Kış Sporları", null, null },
-                    { 26, 5, null, new DateTime(2025, 3, 5, 21, 1, 32, 374, DateTimeKind.Local).AddTicks(7167), "Yüzme ve su sporları ekipmanları", false, "Su Sporları", null, null }
+                    { 1, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6110), "Dizüstü, masaüstü bilgisayarlar ve tabletler", false, "Bilgisayarlar & Tabletler", null, null },
+                    { 2, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6113), "Yazıcılar, tarayıcılar ve projeksiyon cihazları", false, "Yazıcılar & Projeksiyon", null, null },
+                    { 3, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6115), "Akıllı telefonlar ve aksesuarları", false, "Telefonlar", null, null },
+                    { 4, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6117), "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar", false, "Beyaz Eşya", null, null },
+                    { 5, 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6118), "Klimalar, ısıtıcılar ve hava temizleyiciler", false, "Klima ve Isıtıcılar", null, null },
+                    { 6, 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6120), "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar", false, "Ayakkabı & Çanta", null, null },
+                    { 7, 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6122), "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim", false, "Kadın Giyim", null, null },
+                    { 8, 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6124), "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim", false, "Erkek Giyim", null, null },
+                    { 9, 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6126), "Kız ve erkek çocuk giyim ürünleri", false, "Çocuk Giyim", null, null },
+                    { 10, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6127), "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları", false, "Mobilya", null, null },
+                    { 11, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6129), "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri", false, "Ev Tekstili", null, null },
+                    { 12, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6130), "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri", false, "Dekorasyon & Aydınlatma", null, null },
+                    { 13, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6132), "Pişirme, servis ve saklama ürünleri, mutfak aletleri", false, "Mutfak Gereçleri", null, null },
+                    { 14, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6133), "Banyo aksesuarları, temizlik ve düzenleme ürünleri", false, "Banyo & Ev Gereçleri", null, null },
+                    { 15, 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6135), "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri", false, "Kırtasiye & Ofis", null, null },
+                    { 16, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6137), "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri", false, "Parfüm & Deodorant", null, null },
+                    { 17, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6139), "Saç bakım ve şekillendirme ürünleri", false, "Saç Şekillendirme", null, null },
+                    { 18, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6140), "Yüz ve vücut bakım ürünleri, kremler ve serumlar", false, "Cilt Bakımı", null, null },
+                    { 19, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6142), "Renkli kozmetik ve makyaj malzemeleri", false, "Makyaj", null, null },
+                    { 20, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6143), "Vitamin, takviye gıdalar ve medikal ürünler", false, "Sağlık & Medikal Ürünler", null, null },
+                    { 21, 4, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6145), "Diş bakım ürünleri ve ağız bakım ürünleri", false, "Ağız & Diş Bakımı", null, null },
+                    { 22, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6146), "Fitness ekipmanları, kondisyon aletleri ve aksesuarları", false, "Fitness & Kondisyon", null, null },
+                    { 23, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6149), "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar", false, "Spor Giyim & Ayakkabı", null, null },
+                    { 24, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6150), "Kamp malzemeleri, outdoor giyim ve ekipmanlar", false, "Outdoor & Kamp", null, null },
+                    { 25, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6152), "Kayak ekipmanları ve kış sporları malzemeleri", false, "Kış Sporları", null, null },
+                    { 26, 5, null, new DateTime(2025, 3, 6, 9, 46, 16, 327, DateTimeKind.Local).AddTicks(6153), "Yüzme ve su sporları ekipmanları", false, "Su Sporları", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -518,9 +518,9 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "BrandId", "CategoryId", "CreatedById", "CreatedDate", "Description", "DiscountPrice", "HasDiscount", "IsActive", "IsDeleted", "Name", "Price", "Stock", "SubCategoryId", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, null, null, new DateTime(2025, 3, 5, 21, 1, 32, 375, DateTimeKind.Local).AddTicks(943), "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu", 54999.99m, true, true, false, "iPhone 14 Pro", 56999.99m, 100, 3, null, null },
-                    { 2, 2, null, null, new DateTime(2025, 3, 5, 21, 1, 32, 375, DateTimeKind.Local).AddTicks(947), "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu", 39999.99m, true, true, false, "Samsung Galaxy S23", 41999.99m, 150, 3, null, null },
-                    { 3, 1, null, null, new DateTime(2025, 3, 5, 21, 1, 32, 375, DateTimeKind.Local).AddTicks(950), "Apple iPhone 15 128 GB Mavi", 39999.99m, true, true, false, "Apple iPhone 15 128 GB Mavi", 49999.99m, 150, 3, null, null }
+                    { 1, 1, null, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(775), "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu", 54999.99m, true, true, false, "iPhone 14 Pro", 56999.99m, 100, 3, null, null },
+                    { 2, 2, null, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(789), "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu", 39999.99m, true, true, false, "Samsung Galaxy S23", 41999.99m, 150, 3, null, null },
+                    { 3, 1, null, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(796), "Apple iPhone 15 128 GB Mavi", 39999.99m, true, true, false, "Apple iPhone 15 128 GB Mavi", 49999.99m, 150, 3, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -528,9 +528,9 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "EntityId", "EntityType", "IsDeleted", "Path", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 5, 21, 1, 32, 375, DateTimeKind.Local).AddTicks(972), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg", null, null },
-                    { 2, null, new DateTime(2025, 3, 5, 21, 1, 32, 375, DateTimeKind.Local).AddTicks(974), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg", null, null },
-                    { 3, null, new DateTime(2025, 3, 5, 21, 1, 32, 375, DateTimeKind.Local).AddTicks(975), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg", null, null }
+                    { 1, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(843), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg", null, null },
+                    { 2, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(847), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg", null, null },
+                    { 3, null, new DateTime(2025, 3, 6, 9, 46, 16, 329, DateTimeKind.Local).AddTicks(849), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg", null, null }
                 });
 
             migrationBuilder.CreateIndex(
