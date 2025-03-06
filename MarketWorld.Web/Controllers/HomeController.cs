@@ -18,39 +18,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    public IActionResult About()
-    {
-        return View();
-    }
-    public IActionResult Career()
-    {
-        return View();
-    }
-    public IActionResult Contact()
-    {
-        return View();
-    }
-    public IActionResult Blog()
-    {
-        return View();
-    }
-    public IActionResult OrderTracking()
-    {
-        return View();
-    }
-    public IActionResult ReturnAndExchange()
-    {
-        return View();
-    }
-    public IActionResult Faq()
-    {
-        return View();
-    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
