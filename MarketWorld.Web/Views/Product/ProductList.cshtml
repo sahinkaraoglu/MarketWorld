@@ -1,0 +1,150 @@
+@model List<MarketWorld.Web.Models.ProductViewModel> 
+
+@{
+    var currentAction = ViewContext.RouteData.Values["action"].ToString();
+    var categoryTitle = currentAction switch
+    {
+        "Computers" => "Bilgisayarlar & Tabletler",
+        "Printers" => "Yazıcılar & Projeksiyon",
+        "Phones" => "Telefonlar",
+        "Appliances" => "Beyaz Eşya",
+        "Climate" => "Klima ve Isıtıcılar",
+        "ShoesAndBags" => "Ayakkabı & Çanta",
+        "WomensClothing" => "Kadın Giyim",
+        "MensClothing" => "Erkek Giyim",
+        "KidsClothing" => "Çocuk Giyim",
+        "Furniture" => "Mobilya",
+        "HomeTextile" => "Ev Tekstili",
+        "Decoration" => "Dekorasyon & Aydınlatma",
+        "Kitchen" => "Mutfak Gereçleri",
+        "Bathroom" => "Banyo & Ev Gereçleri",
+        "Stationery" => "Kırtasiye & Ofis",
+        "Perfume" => "Parfüm & Deodorant",
+        "HairCare" => "Saç Şekillendirme",
+        "SkinCare" => "Cilt Bakımı",
+        "Makeup" => "Makyaj",
+        "Health" => "Sağlık & Medikal Ürünler",
+        "DentalCare" => "Ağız & Diş Bakımı",
+        "Fitness" => "Fitness & Kondisyon",
+        "SportswearAndShoes" => "Spor Giyim & Ayakkabı",
+        "OutdoorAndCamp" => "Outdoor & Kamp",
+        "WinterSports" => "Kış Sporları",
+        "WaterSports" => "Su Sporları",
+        _ => "Ürünler"
+    };
+    ViewData["Title"] = categoryTitle;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/phones.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+}
+
+<div class="container py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb phones-breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
+            <li class="breadcrumb-item active">@categoryTitle</li>
+        </ol>
+    </nav>
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Filtreler -->
+            <div class="col-md-3">
+                <div class="card filter-card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">Filtreler</h5>
+                        
+                        <!-- Fiyat Aralığı -->
+                        <div class="filter-section">
+                            <h6 class="filter-section-title">Fiyat Aralığı</h6>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Min">
+                                <input type="number" class="form-control" placeholder="Max">
+                            </div>
+                        </div>
+
+                        <!-- Markalar -->
+                        <div class="filter-section">
+                            <h6 class="filter-section-title">Markalar</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="brand1">
+                                <label class="form-check-label" for="brand1">Marka 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="brand2">
+                                <label class="form-check-label" for="brand2">Marka 2</label>
+                            </div>
+                        </div>
+
+                        <!-- Değerlendirme -->
+                        <div class="filter-section">
+                            <h6 class="filter-section-title">Değerlendirme</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="rating5">
+                                <label class="form-check-label" for="rating5">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="rating4">
+                                <label class="form-check-label" for="rating4">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    @foreach (var product in Model)
+                    {
+                        <div class="col">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" 
+                                         onerror="this.src='/img/default-product.jpg';" />
+                                    <button class="favorite-btn position-absolute top-0 end-0 m-2">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    @if (product.HasFreeShipping)
+                                    {
+                                        <span class="badge free-shipping-badge position-absolute top-0 start-0 m-2">
+                                            <i class="fas fa-truck me-1"></i>ÜCRETSİZ KARGO
+                                        </span>
+                                    }
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">@product.BrandName</h6>
+                                    <h5 class="card-title product-title">@product.Name</h5>
+                                    <div class="product-rating mb-2">
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            <i class="@(i <= product.Rating ? "fas" : "far") fa-star text-warning"></i>
+                                        }
+                                        <span class="rating-count">(@product.ReviewCount)</span>
+                                    </div>
+                                    <p class="card-text product-price">@product.Price.ToString("N0") ₺</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <button class="btn btn-primary w-100">Sepete Ekle</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

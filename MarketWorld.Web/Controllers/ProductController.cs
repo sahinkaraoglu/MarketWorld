@@ -16,54 +16,14 @@ namespace MarketWorld.Web.Controllers
             _context = context;
         }
 
-        public IActionResult Phones()
-        {
-            var products = _context.Products
-                .Where(p => p.SubCategoryId == 3 && p.IsActive)
-                .Include(p => p.Images)
-                .Include(p => p.Brand)
-                .ToList();
 
-            var debugSql = products.Select(p => new
-            {
-                ProductId = p.Id,
-                ImageCount = p.Images?.Count ?? 0,
-                ImagePaths = string.Join(", ", p.Images?.Select(i => i.Path) ?? Enumerable.Empty<string>())
-            }).ToList();
 
-            foreach (var item in debugSql)
-            {
-                System.Diagnostics.Debug.WriteLine($"Product {item.ProductId}: {item.ImageCount} images - Paths: {item.ImagePaths}");
-            }
-
-            //log tablosu oluşturturken, log tablosuna yazdırılan sql sorgularını görebiliriz.
-
-            var phones = products.Select(p => new ProductViewModel
-            {
-                Id = p.Id,
-                BrandId = p.BrandId,
-                BrandName = p.Brand?.Name ?? "Bilinmeyen Marka",
-                Name = p.Name,
-                Price = p.Price,
-                ImageUrl = p.Images.FirstOrDefault() != null ? 
-                          $"/{p.Images.FirstOrDefault().Path}" : 
-                          "/img/default-product.jpg",
-                HasFreeShipping = p.Price > 45000,
-                Rating = 4.5,
-                ReviewCount = 100,
-                Stock = p.Stock,
-                Description = p.Description
-            }).ToList();
-
-            return View(phones);
-        }
-
-        public async Task<IActionResult> WaterSports()
+        private async Task<IActionResult> GetProductsBySubCategoryName(string subCategoryName)
         {
             var products = await _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
-                .Where(p => p.SubCategory.Name == "Su Sporları" && p.IsActive && !p.IsDeleted)
+                .Where(p => p.SubCategory.Name == subCategoryName && p.IsActive && !p.IsDeleted)
                 .Select(p => new ProductViewModel
                 {
                     Id = p.Id,
@@ -76,12 +36,143 @@ namespace MarketWorld.Web.Controllers
                               "/img/default-product.jpg",
                     Rating = 4.5,
                     ReviewCount = 100,
-                    HasFreeShipping = p.Price > 10000,
+                    HasFreeShipping = p.Price > 45000,
                     Stock = p.Stock
                 })
                 .ToListAsync();
 
-            return View(products);
+            return View("ProductList", products);
+        }
+
+
+        public async Task<IActionResult> Computers()
+        {
+            return await GetProductsBySubCategoryName("Bilgisayarlar & Tabletler");
+        }
+
+        public async Task<IActionResult> Printers()
+        {
+            return await GetProductsBySubCategoryName("Yazıcılar & Projeksiyon");
+        }
+
+        public async Task<IActionResult> Phones()
+        {
+            return await GetProductsBySubCategoryName("Telefonlar");
+        }
+
+        public async Task<IActionResult> Appliances()
+        {
+            return await GetProductsBySubCategoryName("Beyaz Eşya");
+        }
+
+        public async Task<IActionResult> Climate()
+        {
+            return await GetProductsBySubCategoryName("Klima ve Isıtıcılar");
+        }
+
+        public async Task<IActionResult> ShoesAndBags()
+        {
+            return await GetProductsBySubCategoryName("Ayakkabı & Çanta");
+        }
+
+        public async Task<IActionResult> WomensClothing()
+        {
+            return await GetProductsBySubCategoryName("Kadın Giyim");
+        }
+
+        public async Task<IActionResult> MensClothing()
+        {
+            return await GetProductsBySubCategoryName("Erkek Giyim");
+        }
+
+        public async Task<IActionResult> KidsClothing()
+        {
+            return await GetProductsBySubCategoryName("Çocuk Giyim");
+        }
+
+        public async Task<IActionResult> Furniture()
+        {
+            return await GetProductsBySubCategoryName("Mobilya");
+        }
+
+        public async Task<IActionResult> HomeTextile()
+        {
+            return await GetProductsBySubCategoryName("Ev Tekstili");
+        }
+
+        public async Task<IActionResult> Decoration()
+        {
+            return await GetProductsBySubCategoryName("Dekorasyon & Aydınlatma");
+        }
+
+        public async Task<IActionResult> Kitchen()
+        {
+            return await GetProductsBySubCategoryName("Mutfak Gereçleri");
+        }
+
+        public async Task<IActionResult> Bathroom()
+        {
+            return await GetProductsBySubCategoryName("Banyo & Ev Gereçleri");
+        }
+
+        public async Task<IActionResult> Stationery()
+        {
+            return await GetProductsBySubCategoryName("Kırtasiye & Ofis");
+        }
+
+        public async Task<IActionResult> Perfume()
+        {
+            return await GetProductsBySubCategoryName("Parfüm & Deodorant");
+        }
+
+        public async Task<IActionResult> HairCare()
+        {
+            return await GetProductsBySubCategoryName("Saç Şekillendirme");
+        }
+
+        public async Task<IActionResult> SkinCare()
+        {
+            return await GetProductsBySubCategoryName("Cilt Bakımı");
+        }
+
+        public async Task<IActionResult> Makeup()
+        {
+            return await GetProductsBySubCategoryName("Makyaj");
+        }
+
+        public async Task<IActionResult> Health()
+        {
+            return await GetProductsBySubCategoryName("Sağlık & Medikal Ürünler");
+        }
+
+        public async Task<IActionResult> DentalCare()
+        {
+            return await GetProductsBySubCategoryName("Ağız & Diş Bakımı");
+        }
+
+        public async Task<IActionResult> Fitness()
+        {
+            return await GetProductsBySubCategoryName("Fitness & Kondisyon");
+        }
+
+        public async Task<IActionResult> SportswearAndShoes()
+        {
+            return await GetProductsBySubCategoryName("Spor Giyim & Ayakkabı");
+        }
+
+        public async Task<IActionResult> OutdoorAndCamp()
+        {
+            return await GetProductsBySubCategoryName("Outdoor & Kamp");
+        }
+
+        public async Task<IActionResult> WinterSports()
+        {
+            return await GetProductsBySubCategoryName("Kış Sporları");
+        }
+
+        public async Task<IActionResult> WaterSports()
+        {
+            return await GetProductsBySubCategoryName("Su Sporları");
         }
     }
 } 

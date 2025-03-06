@@ -31,11 +31,11 @@
                                 Elektronik
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Bilgisayarlar & Tabletler</a></li>
-                                <li><a class="dropdown-item" href="#">Yazıcılar & Projeksiyon</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Computers">Bilgisayarlar & Tabletler</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Printers">Yazıcılar & Projeksiyon</a></li>
                                 <li><a class="dropdown-item" asp-controller="Product" asp-action="Phones">Telefonlar</a></li>
-                                <li><a class="dropdown-item" href="#">Beyaz Eşya</a></li>
-                                <li><a class="dropdown-item" href="#">Klima ve Isıtıcılar</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Appliances">Beyaz Eşya</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Climate">Klima ve Isıtıcılar</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -43,10 +43,10 @@
                                 Giyim & Aksesuar
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Ayakkabı & Çanta</a></li>
-                                <li><a class="dropdown-item" href="#">Kadın Giyim</a></li>
-                                <li><a class="dropdown-item" href="#">Erkek Giyim</a></li>
-                                <li><a class="dropdown-item" href="#">Çocuk Giyim</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="ShoesAndBags">Ayakkabı & Çanta</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="WomensClothing">Kadın Giyim</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="MensClothing">Erkek Giyim</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="KidsClothing">Çocuk Giyim</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -54,12 +54,12 @@
                                 Ev & Yaşam
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Mobilya</a></li>
-                                <li><a class="dropdown-item" href="#">Ev Tekstili</a></li>
-                                <li><a class="dropdown-item" href="#">Dekorasyon & Aydınlatma</a></li>
-                                <li><a class="dropdown-item" href="#">Mutfak Gereçleri</a></li>
-                                <li><a class="dropdown-item" href="#">Banyo & Ev Gereçleri</a></li>
-                                <li><a class="dropdown-item" href="#">Kırtasiye & Ofis</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Furniture">Mobilya</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="HomeTextile">Ev Tekstili</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Decoration">Dekorasyon & Aydınlatma</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Kitchen">Mutfak Gereçleri</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Bathroom">Banyo & Ev Gereçleri</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Stationery">Kırtasiye & Ofis</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -67,12 +67,12 @@
                                 Kozmetik & Kişisel Bakım
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Parfüm & Deodarant</a></li>
-                                <li><a class="dropdown-item" href="#">Saç Şekillendirme</a></li>
-                                <li><a class="dropdown-item" href="#">Cilt Bakımı</a></li>
-                                <li><a class="dropdown-item" href="#">Makyaj</a></li>
-                                <li><a class="dropdown-item" href="#">Sağlık & Medikal Ürünler</a></li>
-                                <li><a class="dropdown-item" href="#">Ağız & Diş Bakımı</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Perfume">Parfüm & Deodorant</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="HairCare">Saç Şekillendirme</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="SkinCare">Cilt Bakımı</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Makeup">Makyaj</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Health">Sağlık & Medikal Ürünler</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="DentalCare">Ağız & Diş Bakımı</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -80,11 +80,11 @@
                                 Spor & Outdoor
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Fitness & Kondisyon</a></li>
-                                <li><a class="dropdown-item" href="#">Spor Giyim & Ayakkabı</a></li>
-                                <li><a class="dropdown-item" href="#">Outdoor & Kamp</a></li>
-                                <li><a class="dropdown-item" href="#">Kış Sporları</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("WaterSports", "Product")">Su Sporları</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Fitness">Fitness & Kondisyon</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="SportswearAndShoes">Spor Giyim & Ayakkabı</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="OutdoorAndCamp">Outdoor & Kamp</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="WinterSports">Kış Sporları</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="WaterSports">Su Sporları</a></li>
                             </ul>
                         </li>
                     </ul>
