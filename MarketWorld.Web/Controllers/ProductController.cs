@@ -176,5 +176,39 @@ namespace MarketWorld.Web.Controllers
         {
             return await GetProductsBySubCategoryName("Su Sporları");
         }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            var product = await _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .FirstOrDefaultAsync(p => p.Id == id && p.IsActive && !p.IsDeleted);
+
+            if (product == null)
+                return NotFound();
+
+            var viewModel = new ProductDetailViewModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                BrandId = product.BrandId,
+                BrandName = product.Brand?.Name,
+                Price = product.Price,
+                DiscountPrice = product.DiscountPrice,
+                HasDiscount = product.HasDiscount,
+                Stock = product.Stock,
+                Rating = 4.5,
+                ReviewCount = 192,
+                Images = product.Images.Select(i => $"/{i.Path}").ToList(),
+                CategoryName = product.SubCategory?.Category?.Name,
+                SubCategoryName = product.SubCategory?.Name,
+                HasFreeShipping = product.Price > 45000
+            };
+
+            return View(viewModel);
+        }
     }
 } 

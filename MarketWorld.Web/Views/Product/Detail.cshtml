@@ -1,0 +1,161 @@
+@using MarketWorld.Web.Models
+@model ProductDetailViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/product-detail.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+}
+
+<div class="container py-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
+            <li class="breadcrumb-item"><a href="#">@Model.CategoryName</a></li>
+            <li class="breadcrumb-item"><a href="#">@Model.SubCategoryName</a></li>
+            <li class="breadcrumb-item active">@Model.Name</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="product-images">
+                <div class="main-image mb-3">
+                    <img src="@Model.Images.FirstOrDefault()" class="img-fluid" alt="@Model.Name"
+                         onerror="this.src='/img/default-product.jpg';" />
+                </div>
+                <div class="thumbnail-images">
+                    @foreach (var image in Model.Images)
+                    {
+                        <div class="thumbnail">
+                            <img src="@image" alt="@Model.Name" class="img-fluid"
+                                 onerror="this.src='/img/default-product.jpg';" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="product-info">
+                <h1 class="product-title text-start">
+                    <span class="brand-name text-primary d-block">@Model.BrandName</span>
+                    <span class="product-name">@Model.Name</span>
+                </h1>
+
+                <div class="product-description mb-4">
+                    <p class="text-muted">@Model.Description</p>
+                </div>
+
+                <div class="product-rating mb-4">
+                    <div class="stars d-flex align-items-center">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= Model.Rating)
+                            {
+                                <i class="fas fa-star text-warning"></i>
+                            }
+                            else if (i - Model.Rating < 1)
+                            {
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            }
+                            else
+                            {
+                                <i class="far fa-star text-warning"></i>
+                            }
+                        }
+                        <span class="rating-value ms-2">@Model.Rating</span>
+                        <span class="review-count text-muted ms-2">(@Model.ReviewCount Müşteri Değerlendirmesi)</span>
+                    </div>
+                </div>
+
+                <div class="product-price mb-4">
+                    @if (Model.HasDiscount && Model.DiscountPrice.HasValue)
+                    {
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="discounted-price">@Model.DiscountPrice.Value.ToString("N2") TL</div>
+                            <div class="original-price text-decoration-line-through text-muted">@Model.Price.ToString("N2") TL</div>
+                            <div class="discount-badge bg-danger text-white px-2 py-1 rounded">
+                                %@(((Model.Price - Model.DiscountPrice.Value) / Model.Price * 100).ToString("N0")) İndirim
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="current-price">@Model.Price.ToString("N2") TL</div>
+                    }
+                </div>
+
+                @if (Model.HasFreeShipping)
+                {
+                    <div class="shipping-info mb-4">
+                        <div class="free-shipping d-flex align-items-center">
+                            <i class="fas fa-truck me-2"></i>
+                            <div>
+                                <span class="fw-bold">Ücretsiz Kargo</span>
+                                <p class="text-muted mb-0 small">24 saat içinde kargoya verilir</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.Stock > 0)
+                {
+                    <div class="stock-info mb-4">
+                        <div class="d-flex align-items-center text-success">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <span>Stokta @Model.Stock adet mevcut</span>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="stock-info mb-4">
+                        <div class="d-flex align-items-center text-danger">
+                            <i class="fas fa-times-circle me-2"></i>
+                            <span>Stokta ürün kalmadı</span>
+                        </div>
+                    </div>
+                }
+
+                <div class="product-actions">
+                    @if (Model.Stock > 0)
+                    {
+                        <div class="quantity-selector mb-3">
+                            <label class="form-label text-muted small">Adet</label>
+                            <div class="input-group input-group-sm" style="width: 100px;">
+                                <button class="btn btn-outline-secondary" type="button" id="decreaseQuantity">
+                                    <i class="fas fa-minus small"></i>
+                                </button>
+                                <input type="number" class="form-control text-center" value="1" min="1" max="@Model.Stock" id="quantity">
+                                <button class="btn btn-outline-secondary" type="button" id="increaseQuantity">
+                                    <i class="fas fa-plus small"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary flex-grow-1">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                Sepete Ekle
+                            </button>
+                            <button class="btn btn-soft-secondary" title="Favorilere Ekle">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    }
+                    else
+                    {
+                        <button class="btn btn-soft-danger w-100" disabled>
+                            <i class="fas fa-times-circle me-2"></i>
+                            Stokta Yok
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
