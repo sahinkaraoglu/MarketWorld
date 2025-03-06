@@ -17,7 +17,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Price = 56999.99m,
                     Stock = 100,
                     IsActive = true,
-                    Description = "Apple iPhone 14 Pro 256 GB Uzay Siyahı Cep Telefonu",
+                    Description = "Apple iPhone 14 Pro 256 GB Beyaz Cep Telefonu",
                     DiscountPrice = 54999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
