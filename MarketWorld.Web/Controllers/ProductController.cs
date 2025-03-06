@@ -202,7 +202,7 @@ namespace MarketWorld.Web.Controllers
                 Stock = product.Stock,
                 Rating = 4.5,
                 ReviewCount = 192,
-                Images = product.Images.Select(i => $"/{i.Path}").ToList(),
+                Images = product.Images.OrderBy(i => i.Id).Select(i => $"/{i.Path}").ToList(),
                 CategoryName = product.SubCategory?.Category?.Name,
                 SubCategoryName = product.SubCategory?.Name,
                 HasFreeShipping = product.Price > 45000

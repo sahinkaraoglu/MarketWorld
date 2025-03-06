@@ -88,6 +88,30 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 2,
+                    Path = "img/ProducsPicture/Telephones/TelephoneOne/resimiki.jpg",
+                    EntityId = 1,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 3,
+                    Path = "img/ProducsPicture/Telephones/TelephoneOne/resimuc.jpg",
+                    EntityId = 1,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 4,
+                    Path = "img/ProducsPicture/Telephones/TelephoneOne/resimdort.jpg",
+                    EntityId = 1,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 5,
                     Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg",
                     EntityId = 2,
                     EntityType = (int)EntityTypes.Product,
@@ -95,7 +119,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 },
                 new Image
                 {
-                    Id = 3,
+                    Id = 6,
                     Path = "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg",
                     EntityId = 3,
                     EntityType = (int)EntityTypes.Product,
