@@ -1,21 +1,32 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Web.Models;
+using MarketWorld.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using MarketWorld.Application.Services.Interfaces;
 
 namespace MarketWorld.Web.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly MarketWorldDbContext _context;
+    private readonly ICategoryService _categoryService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, MarketWorldDbContext context = null, ICategoryService categoryService = null)
     {
         _logger = logger;
+        _context = context;
+        _categoryService = categoryService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        // kategorileri sub kategorilerle beraber getir
+        // viewcomponent oluþtur ve kategorileri oradan çaðýr
+
+        var categories = await _categoryService.GetCategoriesWithProductsAsync();
+        return View(categories.ToList());
     }
 
 

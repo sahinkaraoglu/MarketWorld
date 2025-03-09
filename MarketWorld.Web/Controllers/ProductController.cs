@@ -184,7 +184,7 @@ namespace MarketWorld.Web.Controllers
                 .Include(p => p.Images)
                 .Include(p => p.SubCategory)
                     .ThenInclude(sc => sc.Category)
-                .FirstOrDefaultAsync(p => p.Id == id && p.IsActive && !p.IsDeleted);
+                .FirstOrDefaultAsync(p =>  p.Id == id && p.IsActive && !p.IsDeleted);
 
             if (product == null)
                 return NotFound();

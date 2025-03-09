@@ -1,4 +1,6 @@
-﻿@{
+﻿@using MarketWorld.Domain.Entities
+@model List<Category>
+@{
     ViewData["Title"] = "Ana Sayfa";
 }
 
@@ -48,19 +50,19 @@
             <div class="header-line"></div>
         </div>
         <div class="row g-4">
-            @foreach (var category in new[] { "Elektronik", "Giyim & Aksesuar", "Ev & Yaşam", "Kozmetik", "Spor" })
+            @foreach (var category in Model)
             {
                 <div class="col-lg-4">
                     <div class="category-box">
                         <div class="category-icon">
-                            <i class="bi bi-@(category.ToLower() == "elektronik" ? "laptop" : 
-                                           category.ToLower().Contains("giyim") ? "handbag" :
-                                           category.ToLower().Contains("ev") ? "house-heart" :
-                                           category.ToLower() == "kozmetik" ? "heart" : "bicycle")"></i>
+                            <i class="bi bi-@(category.Name.ToLower() == "elektronik" ? "laptop" : 
+                                           category.Name.ToLower().Contains("giyim") ? "handbag" :
+                                           category.Name.ToLower().Contains("ev") ? "house-heart" :
+                                           category.Name.ToLower() == "kozmetik" ? "heart" : "bicycle")"></i>
                         </div>
                         <h3>@category</h3>
                         <div class="subcategories">
-                            @foreach (var subCategory in GetSubCategories(category))
+                            @foreach (var subCategory in GetSubCategories(category.Name))
                             {
                                 <a href="#" class="subcategory-link">@subCategory</a>
                             }
@@ -128,20 +130,8 @@
 @functions {
     private string[] GetSubCategories(string category)
     {
-        switch (category)
-        {
-            case "Elektronik":
-                return new[] { "Bilgisayarlar", "Telefonlar", "TV & Ses", "Beyaz Eşya" };
-            case "Giyim & Aksesuar":
-                return new[] { "Kadın", "Erkek", "Çocuk", "Ayakkabı & Çanta" };
-            case "Ev & Yaşam":
-                return new[] { "Mobilya", "Dekorasyon", "Ev Tekstili", "Mutfak" };
-            case "Kozmetik":
-                return new[] { "Parfüm", "Makyaj", "Cilt Bakımı", "Saç Bakımı" };
-            case "Spor":
-                return new[] { "Fitness", "Outdoor", "Spor Giyim", "Spor Aletleri" };
-            default:
-                return new string[] { };
-        }
+        var categories = Model.SelectMany(x => x.SubCategories).Where(x => x.Name == category).ToList();
+        return categories.Select(x => x.Name).ToArray();
+    }
     }
 }

@@ -14,7 +14,10 @@ namespace MarketWorld.Domain.Entities
         public decimal DiscountPrice { get; set; }
         public bool HasDiscount { get; set; } = false;
         public List<Image> Images { get; set; }
-        
+
+        public int CategoryId { get; set; }
+        public Category? Category { get; set; }
+
         public int? SubCategoryId { get; set; }
         public SubCategory? SubCategory { get; set; }
         public Brand? Brand { get; set; }

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace MarketWorld.Application.Interfaces
+namespace MarketWorld.Application.Services.Interfaces
 {
     public interface IProductService
     {
