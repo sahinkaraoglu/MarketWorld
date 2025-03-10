@@ -133,14 +133,14 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9944),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3319),
                             IsDeleted = false,
                             Name = "Apple"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9946),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3321),
                             IsDeleted = false,
                             Name = "Samsung"
                         });
@@ -258,6 +258,10 @@ namespace MarketWorld.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("SeoName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long?>("UpdatedById")
                         .HasColumnType("bigint");
 
@@ -272,42 +276,47 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9707),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3128),
                             Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
                             IsDeleted = false,
-                            Name = "Elektronik"
+                            Name = "Elektronik",
+                            SeoName = "elektronik"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9720),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3140),
                             Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
                             IsDeleted = false,
-                            Name = "Giyim & Aksesuar"
+                            Name = "Giyim & Aksesuar",
+                            SeoName = "giyim-aksesuar"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9721),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3141),
                             Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
                             IsDeleted = false,
-                            Name = "Ev & Yaşam"
+                            Name = "Ev & Yaşam",
+                            SeoName = "ev-yasam"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9722),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3142),
                             Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
                             IsDeleted = false,
-                            Name = "Kozmetik & Kişisel Bakım"
+                            Name = "Kozmetik & Kişisel Bakım",
+                            SeoName = "kozmetik-kisisel-bakim"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9723),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3143),
                             Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
                             IsDeleted = false,
-                            Name = "Spor & Outdoor"
+                            Name = "Spor & Outdoor",
+                            SeoName = "spor-outdoor"
                         });
                 });
 
@@ -355,7 +364,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3878),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8127),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -364,7 +373,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3880),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8129),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -373,7 +382,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3881),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8131),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -382,7 +391,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3883),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8132),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -391,7 +400,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3884),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8196),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -400,7 +409,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3886),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8201),
                             EntityId = 3,
                             EntityType = 1,
                             IsDeleted = false,
@@ -581,7 +590,7 @@ namespace MarketWorld.Infrastructure.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<long?>("CreatedById")
@@ -641,7 +650,8 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3847),
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8095),
                             Description = "Apple iPhone 14 Pro 256 GB Beyaz Cep Telefonu",
                             DiscountPrice = 54999.99m,
                             HasDiscount = true,
@@ -656,7 +666,8 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 2,
                             BrandId = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3851),
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8100),
                             Description = "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu",
                             DiscountPrice = 39999.99m,
                             HasDiscount = true,
@@ -671,7 +682,8 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 3,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(3856),
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(8102),
                             Description = "Apple iPhone 15 128 GB Mavi",
                             DiscountPrice = 39999.99m,
                             HasDiscount = true,
@@ -778,7 +790,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(2973),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(7184),
                             Description = "Ürün renk seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -787,7 +799,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 526, DateTimeKind.Local).AddTicks(2979),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(7193),
                             Description = "Ürün beden seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -867,6 +879,10 @@ namespace MarketWorld.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("SeoName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long?>("UpdatedById")
                         .HasColumnType("bigint");
 
@@ -884,235 +900,261 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9813),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3234),
                             Description = "Dizüstü, masaüstü bilgisayarlar ve tabletler",
                             IsDeleted = false,
-                            Name = "Bilgisayarlar & Tabletler"
+                            Name = "Bilgisayarlar & Tabletler",
+                            SeoName = "bilgisayarlar-tabletler"
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9814),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3236),
                             Description = "Yazıcılar, tarayıcılar ve projeksiyon cihazları",
                             IsDeleted = false,
-                            Name = "Yazıcılar & Projeksiyon"
+                            Name = "Yazıcılar & Projeksiyon",
+                            SeoName = "yazicilar-projeksiyon"
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9816),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3237),
                             Description = "Akıllı telefonlar ve aksesuarları",
                             IsDeleted = false,
-                            Name = "Telefonlar"
+                            Name = "Telefonlar",
+                            SeoName = "telefonlar"
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9817),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3238),
                             Description = "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar",
                             IsDeleted = false,
-                            Name = "Beyaz Eşya"
+                            Name = "Beyaz Eşya",
+                            SeoName = "beyaz-esya"
                         },
                         new
                         {
                             Id = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9820),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3239),
                             Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
                             IsDeleted = false,
-                            Name = "Klima ve Isıtıcılar"
+                            Name = "Klima ve Isıtıcılar",
+                            SeoName = "klima-isitici"
                         },
                         new
                         {
                             Id = 6,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9821),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3240),
                             Description = "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar",
                             IsDeleted = false,
-                            Name = "Ayakkabı & Çanta"
+                            Name = "Ayakkabı & Çanta",
+                            SeoName = "ayakkabi-canta"
                         },
                         new
                         {
                             Id = 7,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9822),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3242),
                             Description = "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
-                            Name = "Kadın Giyim"
+                            Name = "Kadın Giyim",
+                            SeoName = "kadin-giyim"
                         },
                         new
                         {
                             Id = 8,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9823),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3243),
                             Description = "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
-                            Name = "Erkek Giyim"
+                            Name = "Erkek Giyim",
+                            SeoName = "erkek-giyim"
                         },
                         new
                         {
                             Id = 9,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9824),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3244),
                             Description = "Kız ve erkek çocuk giyim ürünleri",
                             IsDeleted = false,
-                            Name = "Çocuk Giyim"
+                            Name = "Çocuk Giyim",
+                            SeoName = "cocuk-giyim"
                         },
                         new
                         {
                             Id = 10,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9826),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3245),
                             Description = "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları",
                             IsDeleted = false,
-                            Name = "Mobilya"
+                            Name = "Mobilya",
+                            SeoName = "mobilya"
                         },
                         new
                         {
                             Id = 11,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9827),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3246),
                             Description = "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri",
                             IsDeleted = false,
-                            Name = "Ev Tekstili"
+                            Name = "Ev Tekstili",
+                            SeoName = "ev-tekstili"
                         },
                         new
                         {
                             Id = 12,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9828),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3248),
                             Description = "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri",
                             IsDeleted = false,
-                            Name = "Dekorasyon & Aydınlatma"
+                            Name = "Dekorasyon & Aydınlatma",
+                            SeoName = "dekorasyon-aydinlatma"
                         },
                         new
                         {
                             Id = 13,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9829),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3249),
                             Description = "Pişirme, servis ve saklama ürünleri, mutfak aletleri",
                             IsDeleted = false,
-                            Name = "Mutfak Gereçleri"
+                            Name = "Mutfak Gereçleri",
+                            SeoName = "mutfak-gerecleri"
                         },
                         new
                         {
                             Id = 14,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9830),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3251),
                             Description = "Banyo aksesuarları, temizlik ve düzenleme ürünleri",
                             IsDeleted = false,
-                            Name = "Banyo & Ev Gereçleri"
+                            Name = "Banyo & Ev Gereçleri",
+                            SeoName = "banyo-ev-gerecleri"
                         },
                         new
                         {
                             Id = 15,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9832),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3252),
                             Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                             IsDeleted = false,
-                            Name = "Kırtasiye & Ofis"
+                            Name = "Kırtasiye & Ofis",
+                            SeoName = "kirtasi-ve-ofis"
                         },
                         new
                         {
                             Id = 16,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9833),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3253),
                             Description = "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri",
                             IsDeleted = false,
-                            Name = "Parfüm & Deodorant"
+                            Name = "Parfüm & Deodorant",
+                            SeoName = "parfum-deodorant"
                         },
                         new
                         {
                             Id = 17,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9834),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3254),
                             Description = "Saç bakım ve şekillendirme ürünleri",
                             IsDeleted = false,
-                            Name = "Saç Şekillendirme"
+                            Name = "Saç Şekillendirme",
+                            SeoName = "sac-sekillendirme"
                         },
                         new
                         {
                             Id = 18,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9835),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3255),
                             Description = "Yüz ve vücut bakım ürünleri, kremler ve serumlar",
                             IsDeleted = false,
-                            Name = "Cilt Bakımı"
+                            Name = "Cilt Bakımı",
+                            SeoName = "cilt-bakimi"
                         },
                         new
                         {
                             Id = 19,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9836),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3256),
                             Description = "Renkli kozmetik ve makyaj malzemeleri",
                             IsDeleted = false,
-                            Name = "Makyaj"
+                            Name = "Makyaj",
+                            SeoName = "makyaj"
                         },
                         new
                         {
                             Id = 20,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9838),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3257),
                             Description = "Vitamin, takviye gıdalar ve medikal ürünler",
                             IsDeleted = false,
-                            Name = "Sağlık & Medikal Ürünler"
+                            Name = "Sağlık & Medikal Ürünler",
+                            SeoName = "saglik-medikal-urunler"
                         },
                         new
                         {
                             Id = 21,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9839),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3258),
                             Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
                             IsDeleted = false,
-                            Name = "Ağız & Diş Bakımı"
+                            Name = "Ağız & Diş Bakımı",
+                            SeoName = "agiz-dis-bakimi"
                         },
                         new
                         {
                             Id = 22,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9840),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3287),
                             Description = "Fitness ekipmanları, kondisyon aletleri ve aksesuarları",
                             IsDeleted = false,
-                            Name = "Fitness & Kondisyon"
+                            Name = "Fitness & Kondisyon",
+                            SeoName = "fitness-kondisyon"
                         },
                         new
                         {
                             Id = 23,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9841),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3289),
                             Description = "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar",
                             IsDeleted = false,
-                            Name = "Spor Giyim & Ayakkabı"
+                            Name = "Spor Giyim & Ayakkabı",
+                            SeoName = "spor-giyim-ayakkabi"
                         },
                         new
                         {
                             Id = 24,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9842),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3290),
                             Description = "Kamp malzemeleri, outdoor giyim ve ekipmanlar",
                             IsDeleted = false,
-                            Name = "Outdoor & Kamp"
+                            Name = "Outdoor & Kamp",
+                            SeoName = "outdoor-kamp"
                         },
                         new
                         {
                             Id = 25,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9843),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3291),
                             Description = "Kayak ekipmanları ve kış sporları malzemeleri",
                             IsDeleted = false,
-                            Name = "Kış Sporları"
+                            Name = "Kış Sporları",
+                            SeoName = "kis-sporlari"
                         },
                         new
                         {
                             Id = 26,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 6, 20, 43, 52, 525, DateTimeKind.Local).AddTicks(9845),
+                            CreatedDate = new DateTime(2025, 3, 10, 15, 15, 7, 111, DateTimeKind.Local).AddTicks(3292),
                             Description = "Yüzme ve su sporları ekipmanları",
                             IsDeleted = false,
-                            Name = "Su Sporları"
+                            Name = "Su Sporları",
+                            SeoName = "su-sporlari"
                         });
                 });
 
@@ -1300,9 +1342,11 @@ namespace MarketWorld.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("MarketWorld.Domain.Entities.Category", null)
+                    b.HasOne("MarketWorld.Domain.Entities.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MarketWorld.Domain.Entities.SubCategory", "SubCategory")
                         .WithMany("Products")
@@ -1310,6 +1354,8 @@ namespace MarketWorld.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Brand");
+
+                    b.Navigation("Category");
 
                     b.Navigation("SubCategory");
                 });

@@ -53,4 +53,10 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "products",
+    pattern: "{subCategoryName}",
+    defaults: new { controller = "Product", action = "ListBySubCategory" }
+);
+
 app.Run();

@@ -21,7 +21,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     DiscountPrice = 54999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 1
                 },
                 new Product
                 {
@@ -35,7 +36,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     DiscountPrice = 39999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 1
                 },
                 new Product
                 {
@@ -49,7 +51,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     DiscountPrice = 39999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 1
                 }
             };
         }

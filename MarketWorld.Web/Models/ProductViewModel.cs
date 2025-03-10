@@ -1,3 +1,5 @@
+using MarketWorld.Domain.Entities;
+
 namespace MarketWorld.Web.Models
 {
     public class ProductViewModel
@@ -14,6 +16,7 @@ namespace MarketWorld.Web.Models
         public int ReviewCount { get; set; }
         public bool HasFreeShipping { get; set; }
         public int Stock { get; set; }
+        public string CategoryName { get; set; }
         public int SubCategoryId { get; set; }
 
 

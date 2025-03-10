@@ -1,0 +1,80 @@
+@model IEnumerable<MarketWorld.Domain.Entities.Category>
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Kategoriler
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+        @foreach (var category in Model)
+        {
+            <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    @category.Name
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (var subCategory in category.SubCategories)
+                    {
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("ListBySubCategory", "Product", new { subCategoryName = subCategory.SeoName })">
+                                @subCategory.Name
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>
+
+<style>
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu > a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
+    
+    dropdownSubmenus.forEach(function(submenu) {
+        submenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var dropdownMenu = this.querySelector('.dropdown-menu');
+            
+            document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(function(menu) {
+                if (menu !== dropdownMenu) {
+                    menu.style.display = 'none';
+                }
+            });
+            
+            if (dropdownMenu) {
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+    });
+});
+</script> 

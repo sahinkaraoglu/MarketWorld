@@ -1,50 +1,19 @@
 @model List<MarketWorld.Web.Models.ProductViewModel> 
 
 @{
-    var currentAction = ViewContext.RouteData.Values["action"].ToString();
-    var categoryTitle = currentAction switch
-    {
-        "Computers" => "Bilgisayarlar & Tabletler",
-        "Printers" => "Yazıcılar & Projeksiyon",
-        "Phones" => "Telefonlar",
-        "Appliances" => "Beyaz Eşya",
-        "Climate" => "Klima ve Isıtıcılar",
-        "ShoesAndBags" => "Ayakkabı & Çanta",
-        "WomensClothing" => "Kadın Giyim",
-        "MensClothing" => "Erkek Giyim",
-        "KidsClothing" => "Çocuk Giyim",
-        "Furniture" => "Mobilya",
-        "HomeTextile" => "Ev Tekstili",
-        "Decoration" => "Dekorasyon & Aydınlatma",
-        "Kitchen" => "Mutfak Gereçleri",
-        "Bathroom" => "Banyo & Ev Gereçleri",
-        "Stationery" => "Kırtasiye & Ofis",
-        "Perfume" => "Parfüm & Deodorant",
-        "HairCare" => "Saç Şekillendirme",
-        "SkinCare" => "Cilt Bakımı",
-        "Makeup" => "Makyaj",
-        "Health" => "Sağlık & Medikal Ürünler",
-        "DentalCare" => "Ağız & Diş Bakımı",
-        "Fitness" => "Fitness & Kondisyon",
-        "SportswearAndShoes" => "Spor Giyim & Ayakkabı",
-        "OutdoorAndCamp" => "Outdoor & Kamp",
-        "WinterSports" => "Kış Sporları",
-        "WaterSports" => "Su Sporları",
-        _ => "Ürünler"
-    };
-    ViewData["Title"] = categoryTitle;
+    ViewData["Title"] = Model.FirstOrDefault()?.CategoryName;
 }
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/phones.css" />
+   <link rel="stylesheet" href="~/css/product.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 }
 
 <div class="container py-3">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb phones-breadcrumb">
+        <ol class="breadcrumb product-breadcrumb">
             <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
-            <li class="breadcrumb-item active">@categoryTitle</li>
+            <li class="breadcrumb-item"><a href="#">@Model.FirstOrDefault()?.CategoryName</a></li>
         </ol>
     </nav>
 
