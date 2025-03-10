@@ -17,7 +17,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Price = 56999.99m,
                     Stock = 100,
                     IsActive = true,
-                    Description = "Apple iPhone 14 Pro 256 GB Beyaz Cep Telefonu",
+                    Description = "Apple iPhone 14 Pro 256 GB",
                     DiscountPrice = 54999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
@@ -30,10 +30,10 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Id = 2,
                     Name = "Samsung Galaxy S23",
                     BrandId = 2,
-                    Price = 41999.99m,
+                    Price = 75999.99m,
                     Stock = 150,
                     IsActive = true,
-                    Description = "Samsung Galaxy S23 Ultra 256 GB Krem Cep Telefonu",
+                    Description = "Samsung Galaxy S23 Ultra 256 GB",
                     DiscountPrice = 39999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
@@ -49,7 +49,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Price = 49999.99m,
                     Stock = 150,
                     IsActive = true,
-                    Description = "Apple iPhone 15 128 GB Mavi",
+                    Description = "Apple iPhone 15 128 GB",
                     DiscountPrice = 39999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
@@ -126,6 +126,30 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 6,
+                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimiki.jpg",
+                    EntityId = 2,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 7,
+                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimuc.jpg",
+                    EntityId = 2,
+                    EntityType = (int) EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 8,
+                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimdort.jpg",
+                    EntityId = 2,
+                    EntityType = (int) EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 9,
                     Path = "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg",
                     EntityId = 3,
                     EntityType = (int)EntityTypes.Product,
