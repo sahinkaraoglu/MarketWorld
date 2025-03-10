@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = Model.FirstOrDefault()?.CategoryName;
+    var brands = ViewBag.Brands as List<MarketWorld.Domain.Entities.Brand> ?? new List<MarketWorld.Domain.Entities.Brand>();
 }
 
 @section Styles {
@@ -37,14 +38,20 @@
                         <!-- Markalar -->
                         <div class="filter-section">
                             <h6 class="filter-section-title">Markalar</h6>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="brand1">
-                                <label class="form-check-label" for="brand1">Marka 1</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="brand2">
-                                <label class="form-check-label" for="brand2">Marka 2</label>
-                            </div>
+                            @if (brands.Any())
+                            {
+                                foreach (var brand in brands)
+                                {
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="@brand.Id" id="brand@(brand.Id)">
+                                        <label class="form-check-label" for="brand@(brand.Id)">@brand.Name</label>
+                                    </div>
+                                }
+                            }
+                            else 
+                            {
+                                <p>Marka bulunamadı</p>
+                            }
                         </div>
 
                         <!-- Değerlendirme -->
@@ -119,4 +126,28 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Marka checkbox'larına olay dinleyicisi ekle
+            $('.filter-section input[type="checkbox"]').on('change', function() {
+                // Seçilen markaları al
+                const selectedBrands = $('.filter-section input[type="checkbox"]:checked').map(function() {
+                    return $(this).val();
+                }).get();
+                
+                // Ürünleri filtrele
+                $('.product-card').each(function() {
+                    const productBrand = $(this).find('.card-subtitle').text().trim();
+                    const shouldShow = selectedBrands.length === 0 || selectedBrands.some(brandId => {
+                        return $(`#brand${brandId}`).next('label').text().trim() === productBrand;
+                    });
+                    
+                    $(this).parent().toggle(shouldShow);
+                });
+            });
+        });
+    </script>
+} 

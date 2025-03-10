@@ -46,8 +46,14 @@ namespace MarketWorld.Web.Controllers
                     CategoryName = p.SubCategory.Category.Name
                 }) .ToListAsync();
 
-            return View("ProductList", products);
+            var brands = await _context.Brands
+                 .Where(b => !b.IsDeleted)
+                 .OrderBy(b => b.Name)
+                 .ToListAsync();
 
+            ViewBag.Brands = brands;
+
+            return View("ProductList", products);
         }
 
         public async Task<IActionResult> ListBySubCategory(string subCategoryName)
