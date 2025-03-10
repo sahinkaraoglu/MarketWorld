@@ -18,6 +18,8 @@ namespace MarketWorld.Web.Models
         public int Stock { get; set; }
         public string CategoryName { get; set; }
         public int SubCategoryId { get; set; }
+        public bool HasDiscount { get; set; }
+        public decimal? DiscountPrice { get; set; }
 
 
     }

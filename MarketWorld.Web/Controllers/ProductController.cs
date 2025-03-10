@@ -43,7 +43,9 @@ namespace MarketWorld.Web.Controllers
                     ReviewCount = 100,
                     HasFreeShipping = p.Price > 45000,
                     Stock = p.Stock,
-                    CategoryName = p.SubCategory.Category.Name
+                    CategoryName = p.SubCategory.Category.Name,
+                    HasDiscount = p.HasDiscount,
+                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null
                 }) .ToListAsync();
 
             var brands = await _context.Brands
