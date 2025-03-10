@@ -34,7 +34,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Stock = 150,
                     IsActive = true,
                     Description = "Samsung Galaxy S23 Ultra 256 GB",
-                    DiscountPrice = 39999.99m,
+                    DiscountPrice = 65999.99m,
                     HasDiscount = true,
                     SubCategoryId = 3,
                     CreatedDate = DateTime.Now,
