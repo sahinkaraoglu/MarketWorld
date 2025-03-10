@@ -30,8 +30,8 @@
                         <div class="filter-section">
                             <h6 class="filter-section-title">Fiyat Aralığı</h6>
                             <div class="input-group mb-3">
-                                <input type="number" class="form-control" placeholder="Min">
-                                <input type="number" class="form-control" placeholder="Max">
+                                <input type="number" class="form-control" placeholder="Min" id="minPrice">
+                                <input type="number" class="form-control" placeholder="Max" id="maxPrice">
                             </div>
                         </div>
 
@@ -131,6 +131,25 @@
 @section Scripts {
     <script>
         $(document).ready(function() {
+            function applyPriceFilter() {
+                const minPrice = parseFloat($('#minPrice').val()) || 0;
+                const maxPrice = parseFloat($('#maxPrice').val()) || Infinity;
+                
+                $('.product-card').each(function() {
+                    const productPriceText = $(this).find('.product-price').text();
+                    const productPrice = parseFloat(productPriceText.replace('₺', '').replace('.', '').trim());
+                    
+                    const priceInRange = productPrice >= minPrice && (maxPrice === Infinity || productPrice <= maxPrice);
+                    
+                    // Marka filtresi ile birlikte çalışması için görünürlük durumunu kontrol et
+                    const isVisibleByBrand = $(this).parent().is(':visible') || !$('.filter-section input[type="checkbox"]:checked').length;
+                    
+                    $(this).parent().toggle(priceInRange && isVisibleByBrand);
+                });
+            }
+            
+            $('#minPrice, #maxPrice').on('input', applyPriceFilter);
+            
             // Marka checkbox'larına olay dinleyicisi ekle
             $('.filter-section input[type="checkbox"]').on('change', function() {
                 // Seçilen markaları al
@@ -147,6 +166,8 @@
                     
                     $(this).parent().toggle(shouldShow);
                 });
+                
+                applyPriceFilter();
             });
         });
     </script>
