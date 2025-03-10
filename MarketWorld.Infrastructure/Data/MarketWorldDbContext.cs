@@ -326,7 +326,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 15,
                     Name = "Kırtasiye & Ofis",
-                    SeoName = "kirtasi-ve-ofis",
+                    SeoName = "kirtasiye-ve-ofis",
                     Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
