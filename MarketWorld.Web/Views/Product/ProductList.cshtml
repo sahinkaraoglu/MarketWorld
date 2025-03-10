@@ -36,7 +36,7 @@
                         </div>
 
                         <!-- Markalar -->
-                        <div class="filter-section">
+                        <div class="filter-section brand-filter">
                             <h6 class="filter-section-title">Markalar</h6>
                             @if (brands.Any())
                             {
@@ -55,10 +55,10 @@
                         </div>
 
                         <!-- Değerlendirme -->
-                        <div class="filter-section">
+                        <div class="filter-section rating-filter">
                             <h6 class="filter-section-title">Değerlendirme</h6>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="rating5">
+                                <input class="form-check-input" type="checkbox" value="5" id="rating5">
                                 <label class="form-check-label" for="rating5">
                                     <i class="fas fa-star text-warning"></i>
                                     <i class="fas fa-star text-warning"></i>
@@ -68,12 +68,42 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="rating4">
+                                <input class="form-check-input" type="checkbox" value="4" id="rating4">
                                 <label class="form-check-label" for="rating4">
                                     <i class="fas fa-star text-warning"></i>
                                     <i class="fas fa-star text-warning"></i>
                                     <i class="fas fa-star text-warning"></i>
                                     <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="3" id="rating3">
+                                <label class="form-check-label" for="rating3">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="2" id="rating2">
+                                <label class="form-check-label" for="rating2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="rating1">
+                                <label class="form-check-label" for="rating1">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
                                     <i class="far fa-star text-warning"></i>
                                 </label>
                             </div>
@@ -124,6 +154,11 @@
                     }
                 </div>
             </div>
+
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
         </div>
     </div>
 </div>
@@ -141,34 +176,98 @@
                     
                     const priceInRange = productPrice >= minPrice && (maxPrice === Infinity || productPrice <= maxPrice);
                     
-                    // Marka filtresi ile birlikte çalışması için görünürlük durumunu kontrol et
-                    const isVisibleByBrand = $(this).parent().is(':visible') || !$('.filter-section input[type="checkbox"]:checked').length;
+                    // Diğer filtrelerle birlikte çalışması için görünürlük durumunu kontrol et
+                    const isVisibleByOtherFilters = $(this).parent().is(':visible') || 
+                        (!$('.brand-filter input[type="checkbox"]:checked').length && 
+                         !$('.rating-filter input[type="checkbox"]:checked').length);
                     
-                    $(this).parent().toggle(priceInRange && isVisibleByBrand);
+                    $(this).parent().toggle(priceInRange && isVisibleByOtherFilters);
                 });
             }
             
             $('#minPrice, #maxPrice').on('input', applyPriceFilter);
             
             // Marka checkbox'larına olay dinleyicisi ekle
-            $('.filter-section input[type="checkbox"]').on('change', function() {
+            $('.brand-filter input[type="checkbox"]').on('change', function() {
+                applyBrandFilter();
+            });
+            
+            // Değerlendirme checkbox'larına olay dinleyicisi ekle
+            $('.rating-filter input[type="checkbox"]').on('change', function() {
+                applyRatingFilter();
+            });
+            
+            function applyBrandFilter() {
                 // Seçilen markaları al
-                const selectedBrands = $('.filter-section input[type="checkbox"]:checked').map(function() {
+                const selectedBrands = $('.brand-filter input[type="checkbox"]:checked').map(function() {
                     return $(this).val();
                 }).get();
                 
                 // Ürünleri filtrele
                 $('.product-card').each(function() {
                     const productBrand = $(this).find('.card-subtitle').text().trim();
-                    const shouldShow = selectedBrands.length === 0 || selectedBrands.some(brandId => {
+                    const shouldShowByBrand = selectedBrands.length === 0 || selectedBrands.some(brandId => {
                         return $(`#brand${brandId}`).next('label').text().trim() === productBrand;
                     });
                     
-                    $(this).parent().toggle(shouldShow);
+                    // Diğer filtrelerle birlikte çalışması için görünürlük durumunu güncelle
+                    const currentVisibility = $(this).parent().is(':visible');
+                    const shouldShowByRating = $('.rating-filter input[type="checkbox"]:checked').length === 0 || 
+                                              isVisibleByRatingFilter($(this));
+                    
+                    $(this).parent().toggle(shouldShowByBrand && shouldShowByRating);
                 });
                 
                 applyPriceFilter();
-            });
+            }
+            
+            function applyRatingFilter() {
+                // Seçilen değerlendirmeleri al
+                const selectedRatings = $('.rating-filter input[type="checkbox"]:checked').map(function() {
+                    return parseInt($(this).val());
+                }).get();
+                
+                // Ürünleri filtrele
+                $('.product-card').each(function() {
+                    const shouldShowByRating = isVisibleByRatingFilter($(this));
+                    
+                    // Diğer filtrelerle birlikte çalışması için görünürlük durumunu güncelle
+                    const shouldShowByBrand = $('.brand-filter input[type="checkbox"]:checked').length === 0 || 
+                                             isVisibleByBrandFilter($(this));
+                    
+                    $(this).parent().toggle(shouldShowByRating && shouldShowByBrand);
+                });
+                
+                applyPriceFilter();
+            }
+            
+            function isVisibleByRatingFilter(productCard) {
+                const selectedRatings = $('.rating-filter input[type="checkbox"]:checked').map(function() {
+                    return parseInt($(this).val());
+                }).get();
+                
+                if (selectedRatings.length === 0) {
+                    return true;
+                }
+                
+                const productRating = productCard.find('.fas.fa-star.text-warning').length;
+                return selectedRatings.includes(productRating);
+            }
+            
+            function isVisibleByBrandFilter(productCard) {
+                const selectedBrands = $('.brand-filter input[type="checkbox"]:checked').map(function() {
+                    return $(this).val();
+                }).get();
+                
+                if (selectedBrands.length === 0) {
+                    return true;
+                }
+                
+                const productBrand = productCard.find('.card-subtitle').text().trim();
+                return selectedBrands.some(brandId => {
+                    return $(`#brand${brandId}`).next('label').text().trim() === productBrand;
+                });
+            }
         });
     </script>
 } 

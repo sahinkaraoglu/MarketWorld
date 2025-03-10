@@ -12,7 +12,7 @@ namespace MarketWorld.Web.Models
         public decimal Price { get; set; }
         public DateTime? CreatedDate { get; set; } = DateTime.Now;
         public string ImageUrl { get; set; }
-        public double Rating { get; set; }
+        public decimal Rating { get; set; }
         public int ReviewCount { get; set; }
         public bool HasFreeShipping { get; set; }
         public int Stock { get; set; }

@@ -12,6 +12,7 @@ namespace MarketWorld.Domain.Entities
         public bool IsActive { get; set; } = true;
         public string Description { get; set; }
         public decimal DiscountPrice { get; set; }
+        public decimal Rating { get; set; }
         public bool HasDiscount { get; set; } = false;
         public List<Image> Images { get; set; }
 

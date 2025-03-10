@@ -39,7 +39,7 @@ namespace MarketWorld.Web.Controllers
                     ImageUrl = p.Images.FirstOrDefault() != null ?
                               $"/{p.Images.FirstOrDefault().Path}" :
                               "/img/default-product.jpg",
-                    Rating = 4.5,
+                    Rating = p.Rating,
                     ReviewCount = 100,
                     HasFreeShipping = p.Price > 45000,
                     Stock = p.Stock,
