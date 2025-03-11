@@ -465,10 +465,10 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "IsDeleted", "Name", "SubCategoryId", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1931), false, "Apple", null, null, null },
-                    { 2, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1935), false, "Samsung", null, null, null },
-                    { 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1936), false, "Xiaomi", null, null, null },
-                    { 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1938), false, "Huawei", null, null, null }
+                    { 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7732), false, "Apple", null, null, null },
+                    { 2, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7736), false, "Samsung", null, null, null },
+                    { 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7738), false, "Xiaomi", null, null, null },
+                    { 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7739), false, "Huawei", null, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -476,11 +476,11 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "Description", "IsDeleted", "Name", "SeoName", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1586), "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar", false, "Elektronik", "elektronik", null, null },
-                    { 2, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1659), "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları", false, "Giyim & Aksesuar", "giyim-aksesuar", null, null },
-                    { 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1662), "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili", false, "Ev & Yaşam", "ev-yasam", null, null },
-                    { 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1664), "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri", false, "Kozmetik & Kişisel Bakım", "kozmetik-kisisel-bakim", null, null },
-                    { 5, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1665), "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri", false, "Spor & Outdoor", "spor-outdoor", null, null }
+                    { 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7361), "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar", false, "Elektronik", "elektronik", null, null },
+                    { 2, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7377), "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları", false, "Giyim & Aksesuar", "giyim-aksesuar", null, null },
+                    { 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7379), "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili", false, "Ev & Yaşam", "ev-yasam", null, null },
+                    { 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7380), "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri", false, "Kozmetik & Kişisel Bakım", "kozmetik-kisisel-bakim", null, null },
+                    { 5, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7382), "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri", false, "Spor & Outdoor", "spor-outdoor", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -488,8 +488,8 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "Description", "IsActive", "IsDeleted", "Name", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 335, DateTimeKind.Local).AddTicks(2324), "Ürün renk seçenekleri", true, false, "Renk", null, null },
-                    { 2, null, new DateTime(2025, 3, 11, 11, 41, 44, 335, DateTimeKind.Local).AddTicks(2330), "Ürün beden seçenekleri", true, false, "Beden", null, null }
+                    { 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 566, DateTimeKind.Local).AddTicks(8430), "Ürün renk seçenekleri", true, false, "Renk", null, null },
+                    { 2, null, new DateTime(2025, 3, 11, 11, 53, 19, 566, DateTimeKind.Local).AddTicks(8441), "Ürün beden seçenekleri", true, false, "Beden", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -497,32 +497,32 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedById", "CreatedDate", "Description", "IsDeleted", "Name", "SeoName", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1841), "Dizüstü, masaüstü bilgisayarlar ve tabletler", false, "Bilgisayarlar & Tabletler", "bilgisayarlar-tabletler", null, null },
-                    { 2, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1844), "Yazıcılar, tarayıcılar ve projeksiyon cihazları", false, "Yazıcılar & Projeksiyon", "yazicilar-projeksiyon", null, null },
-                    { 3, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1846), "Akıllı telefonlar ve aksesuarları", false, "Telefonlar", "telefonlar", null, null },
-                    { 4, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1848), "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar", false, "Beyaz Eşya", "beyaz-esya", null, null },
-                    { 5, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1849), "Klimalar, ısıtıcılar ve hava temizleyiciler", false, "Klima ve Isıtıcılar", "klima-isitici", null, null },
-                    { 6, 2, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1851), "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar", false, "Ayakkabı & Çanta", "ayakkabi-canta", null, null },
-                    { 7, 2, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1852), "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim", false, "Kadın Giyim", "kadin-giyim", null, null },
-                    { 8, 2, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1854), "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim", false, "Erkek Giyim", "erkek-giyim", null, null },
-                    { 9, 2, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1856), "Kız ve erkek çocuk giyim ürünleri", false, "Çocuk Giyim", "cocuk-giyim", null, null },
-                    { 10, 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1857), "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları", false, "Mobilya", "mobilya", null, null },
-                    { 11, 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1859), "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri", false, "Ev Tekstili", "ev-tekstili", null, null },
-                    { 12, 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1860), "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri", false, "Dekorasyon & Aydınlatma", "dekorasyon-aydinlatma", null, null },
-                    { 13, 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1862), "Pişirme, servis ve saklama ürünleri, mutfak aletleri", false, "Mutfak Gereçleri", "mutfak-gerecleri", null, null },
-                    { 14, 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1865), "Banyo aksesuarları, temizlik ve düzenleme ürünleri", false, "Banyo & Ev Gereçleri", "banyo-ev-gerecleri", null, null },
-                    { 15, 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1866), "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri", false, "Kırtasiye & Ofis", "kirtasiye-ve-ofis", null, null },
-                    { 16, 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1868), "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri", false, "Parfüm & Deodorant", "parfum-deodorant", null, null },
-                    { 17, 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1870), "Saç bakım ve şekillendirme ürünleri", false, "Saç Şekillendirme", "sac-sekillendirme", null, null },
-                    { 18, 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1871), "Yüz ve vücut bakım ürünleri, kremler ve serumlar", false, "Cilt Bakımı", "cilt-bakimi", null, null },
-                    { 19, 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1873), "Renkli kozmetik ve makyaj malzemeleri", false, "Makyaj", "makyaj", null, null },
-                    { 20, 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1874), "Vitamin, takviye gıdalar ve medikal ürünler", false, "Sağlık & Medikal Ürünler", "saglik-medikal-urunler", null, null },
-                    { 21, 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1876), "Diş bakım ürünleri ve ağız bakım ürünleri", false, "Ağız & Diş Bakımı", "agiz-dis-bakimi", null, null },
-                    { 22, 5, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1877), "Fitness ekipmanları, kondisyon aletleri ve aksesuarları", false, "Fitness & Kondisyon", "fitness-kondisyon", null, null },
-                    { 23, 5, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1879), "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar", false, "Spor Giyim & Ayakkabı", "spor-giyim-ayakkabi", null, null },
-                    { 24, 5, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1880), "Kamp malzemeleri, outdoor giyim ve ekipmanlar", false, "Outdoor & Kamp", "outdoor-kamp", null, null },
-                    { 25, 5, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1882), "Kayak ekipmanları ve kış sporları malzemeleri", false, "Kış Sporları", "kis-sporlari", null, null },
-                    { 26, 5, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1883), "Yüzme ve su sporları ekipmanları", false, "Su Sporları", "su-sporlari", null, null }
+                    { 1, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7598), "Dizüstü, masaüstü bilgisayarlar ve tabletler", false, "Bilgisayarlar & Tabletler", "bilgisayarlar-tabletler", null, null },
+                    { 2, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7601), "Yazıcılar, tarayıcılar ve projeksiyon cihazları", false, "Yazıcılar & Projeksiyon", "yazicilar-projeksiyon", null, null },
+                    { 3, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7602), "Akıllı telefonlar ve aksesuarları", false, "Telefonlar", "telefonlar", null, null },
+                    { 4, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7604), "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar", false, "Beyaz Eşya", "beyaz-esya", null, null },
+                    { 5, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7606), "Klimalar, ısıtıcılar ve hava temizleyiciler", false, "Klima ve Isıtıcılar", "klima-isitici", null, null },
+                    { 6, 2, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7607), "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar", false, "Ayakkabı & Çanta", "ayakkabi-canta", null, null },
+                    { 7, 2, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7610), "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim", false, "Kadın Giyim", "kadin-giyim", null, null },
+                    { 8, 2, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7649), "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim", false, "Erkek Giyim", "erkek-giyim", null, null },
+                    { 9, 2, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7650), "Kız ve erkek çocuk giyim ürünleri", false, "Çocuk Giyim", "cocuk-giyim", null, null },
+                    { 10, 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7652), "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları", false, "Mobilya", "mobilya", null, null },
+                    { 11, 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7654), "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri", false, "Ev Tekstili", "ev-tekstili", null, null },
+                    { 12, 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7655), "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri", false, "Dekorasyon & Aydınlatma", "dekorasyon-aydinlatma", null, null },
+                    { 13, 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7657), "Pişirme, servis ve saklama ürünleri, mutfak aletleri", false, "Mutfak Gereçleri", "mutfak-gerecleri", null, null },
+                    { 14, 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7658), "Banyo aksesuarları, temizlik ve düzenleme ürünleri", false, "Banyo & Ev Gereçleri", "banyo-ev-gerecleri", null, null },
+                    { 15, 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7660), "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri", false, "Kırtasiye & Ofis", "kirtasiye-ve-ofis", null, null },
+                    { 16, 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7662), "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri", false, "Parfüm & Deodorant", "parfum-deodorant", null, null },
+                    { 17, 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7663), "Saç bakım ve şekillendirme ürünleri", false, "Saç Şekillendirme", "sac-sekillendirme", null, null },
+                    { 18, 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7665), "Yüz ve vücut bakım ürünleri, kremler ve serumlar", false, "Cilt Bakımı", "cilt-bakimi", null, null },
+                    { 19, 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7666), "Renkli kozmetik ve makyaj malzemeleri", false, "Makyaj", "makyaj", null, null },
+                    { 20, 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7668), "Vitamin, takviye gıdalar ve medikal ürünler", false, "Sağlık & Medikal Ürünler", "saglik-medikal-urunler", null, null },
+                    { 21, 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7671), "Diş bakım ürünleri ve ağız bakım ürünleri", false, "Ağız & Diş Bakımı", "agiz-dis-bakimi", null, null },
+                    { 22, 5, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7672), "Fitness ekipmanları, kondisyon aletleri ve aksesuarları", false, "Fitness & Kondisyon", "fitness-kondisyon", null, null },
+                    { 23, 5, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7674), "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar", false, "Spor Giyim & Ayakkabı", "spor-giyim-ayakkabi", null, null },
+                    { 24, 5, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7675), "Kamp malzemeleri, outdoor giyim ve ekipmanlar", false, "Outdoor & Kamp", "outdoor-kamp", null, null },
+                    { 25, 5, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7677), "Kayak ekipmanları ve kış sporları malzemeleri", false, "Kış Sporları", "kis-sporlari", null, null },
+                    { 26, 5, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7678), "Yüzme ve su sporları ekipmanları", false, "Su Sporları", "su-sporlari", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -530,16 +530,17 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "BrandId", "CategoryId", "CreatedById", "CreatedDate", "Description", "DiscountPrice", "HasDiscount", "IsActive", "IsDeleted", "Name", "Price", "Rating", "Stock", "SubCategoryId", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1985), "Apple iPhone 14 Pro 256 GB", 54999.99m, true, true, false, "iPhone 14 Pro", 56999.99m, 5m, 100, 3, null, null },
-                    { 2, 2, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1992), "Samsung Galaxy S23 Ultra 256 GB", 65999.99m, true, true, false, "Samsung Galaxy S23 Ultra", 75999.99m, 5m, 150, 3, null, null },
-                    { 3, 1, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1995), "Apple iPhone 15 128 GB Mavi", 39999.99m, true, true, false, "iPhone 15 128 GB", 49999.99m, 4m, 150, 3, null, null },
-                    { 4, 3, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(1999), "Xiaomi 13T Pro 512 GB", 37999.99m, true, true, false, "Xiaomi 13T Pro", 39999.99m, 3m, 75, 3, null, null },
-                    { 5, 4, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2002), "Huawei P60 Pro 256 GB", 0m, false, true, false, "Huawei P60 Pro", 44999.99m, 4m, 60, 3, null, null },
-                    { 6, 2, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2006), "Samsung Galaxy Z Fold5 512 GB", 84999.99m, true, true, false, "Samsung Galaxy Z Fold5", 89999.99m, 4.9m, 40, 3, null, null },
-                    { 7, 1, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2009), "Apple iPhone 15 Pro Max 512 GB", 0m, false, true, false, "iPhone 15 Pro Max", 92999.99m, 3m, 25, 3, null, null },
-                    { 8, 3, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2052), "Xiaomi Redmi Note 13 Pro+ 256 GB", 27999.99m, true, true, false, "Xiaomi Redmi Note 13 Pro+", 29999.99m, 4.2m, 200, 3, null, null },
-                    { 9, 2, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2055), "Samsung Galaxy A54 128 GB", 18499.99m, true, true, false, "Samsung Galaxy A54", 19999.99m, 4.1m, 300, 3, null, null },
-                    { 10, 4, 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2060), "Huawei Nova 11 Pro 256 GB", 0m, false, true, false, "Huawei Nova 11 Pro", 34999.99m, 5m, 85, 3, null, null }
+                    { 1, 1, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7783), "Apple iPhone 14 Pro 256 GB", 54999.99m, true, true, false, "iPhone 14 Pro", 56999.99m, 5m, 100, 3, null, null },
+                    { 2, 2, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7789), "Samsung Galaxy S23 Ultra 256 GB", 65999.99m, true, true, false, "Samsung Galaxy S23 Ultra", 75999.99m, 5m, 150, 3, null, null },
+                    { 3, 1, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7792), "Apple iPhone 15 128 GB Mavi", 39999.99m, true, true, false, "iPhone 15 128 GB", 49999.99m, 4m, 150, 3, null, null },
+                    { 4, 3, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7795), "Xiaomi 13T Pro 512 GB", 37999.99m, true, true, false, "Xiaomi 13T Pro", 39999.99m, 3m, 75, 3, null, null },
+                    { 5, 4, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7798), "Huawei P60 Pro 256 GB", 0m, false, true, false, "Huawei P60 Pro", 44999.99m, 4m, 60, 3, null, null },
+                    { 6, 2, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7803), "Samsung Galaxy Z Fold5 512 GB", 84999.99m, true, true, false, "Samsung Galaxy Z Fold5", 89999.99m, 4.9m, 40, 3, null, null },
+                    { 7, 1, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7805), "Apple iPhone 15 Pro Max 512 GB", 0m, false, true, false, "iPhone 15 Pro Max", 92999.99m, 3m, 25, 3, null, null },
+                    { 8, 3, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7808), "Xiaomi Redmi Note 13 Pro+ 256 GB", 27999.99m, true, true, false, "Xiaomi Redmi Note 13 Pro+", 29999.99m, 4.2m, 200, 3, null, null },
+                    { 9, 2, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7812), "Samsung Galaxy A54 128 GB", 18499.99m, true, true, false, "Samsung Galaxy A54", 19999.99m, 4.1m, 300, 3, null, null },
+                    { 10, 4, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7817), "Huawei Nova 11 Pro 256 GB", 0m, false, true, false, "Huawei Nova 11 Pro", 34999.99m, 5m, 85, 3, null, null },
+                    { 11, 1, 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7820), "13inc Taşınabilir Bilgisayar Uzay Grisi MC7U4TU/A", 0m, false, true, false, "MacBook Air M2 16GB 256GB SSD", 41599.99m, 5m, 85, 1, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -547,46 +548,50 @@ namespace MarketWorld.Infrastructure.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedDate", "EntityId", "EntityType", "IsDeleted", "Path", "UpdatedById", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2106), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg", null, null },
-                    { 2, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2109), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimiki.jpg", null, null },
-                    { 3, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2111), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimuc.jpg", null, null },
-                    { 4, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2112), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimdort.jpg", null, null },
-                    { 5, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2114), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg", null, null },
-                    { 6, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2117), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimiki.jpg", null, null },
-                    { 7, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2118), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimuc.jpg", null, null },
-                    { 8, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2119), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimdort.jpg", null, null },
-                    { 9, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2121), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg", null, null },
-                    { 10, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2123), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimiki.jpg", null, null },
-                    { 11, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2125), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimuc.jpg", null, null },
-                    { 12, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2126), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimdort.jpg", null, null },
-                    { 13, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2128), 4, 1, false, "img/ProducsPicture/Telephones/TelephoneFour/resimbir.jpg", null, null },
-                    { 14, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2129), 4, 1, false, "img/ProducsPicture/Telephones/TelephoneFour/resimiki.jpg", null, null },
-                    { 15, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2131), 4, 1, false, "img/ProducsPicture/Telephones/TelephoneFour/resimuc.jpg", null, null },
-                    { 16, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2133), 4, 1, false, "img/ProducsPicture/Telephones/TelephoneFour/resimdort.jpg", null, null },
-                    { 17, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2134), 5, 1, false, "img/ProducsPicture/Telephones/TelephoneFive/resimbir.jpg", null, null },
-                    { 18, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2137), 5, 1, false, "img/ProducsPicture/Telephones/TelephoneFive/resimiki.jpg", null, null },
-                    { 19, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2139), 5, 1, false, "img/ProducsPicture/Telephones/TelephoneFive/resimuc.jpg", null, null },
-                    { 20, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2141), 5, 1, false, "img/ProducsPicture/Telephones/TelephoneFive/resimdort.jpg", null, null },
-                    { 21, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2143), 6, 1, false, "img/ProducsPicture/Telephones/TelephoneSix/resimbir.jpg", null, null },
-                    { 22, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2144), 6, 1, false, "img/ProducsPicture/Telephones/TelephoneSix/resimiki.jpg", null, null },
-                    { 23, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2146), 6, 1, false, "img/ProducsPicture/Telephones/TelephoneSix/resimuc.jpg", null, null },
-                    { 24, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2147), 6, 1, false, "img/ProducsPicture/Telephones/TelephoneSix/resimdort.jpg", null, null },
-                    { 25, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2149), 7, 1, false, "img/ProducsPicture/Telephones/TelephoneSeven/resimbir.jpg", null, null },
-                    { 26, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2150), 7, 1, false, "img/ProducsPicture/Telephones/TelephoneSeven/resimiki.jpg", null, null },
-                    { 27, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2152), 7, 1, false, "img/ProducsPicture/Telephones/TelephoneSeven/resimuc.jpg", null, null },
-                    { 28, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2153), 7, 1, false, "img/ProducsPicture/Telephones/TelephoneSeven/resimdort.jpg", null, null },
-                    { 29, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2155), 8, 1, false, "img/ProducsPicture/Telephones/TelephoneEight/resimbir.jpg", null, null },
-                    { 30, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2156), 8, 1, false, "img/ProducsPicture/Telephones/TelephoneEight/resimiki.jpg", null, null },
-                    { 31, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2158), 8, 1, false, "img/ProducsPicture/Telephones/TelephoneEight/resimuc.jpg", null, null },
-                    { 32, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2160), 8, 1, false, "img/ProducsPicture/Telephones/TelephoneEight/resimdort.jpg", null, null },
-                    { 33, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2161), 9, 1, false, "img/ProducsPicture/Telephones/TelephoneNine/resimbir.jpg", null, null },
-                    { 34, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2164), 9, 1, false, "img/ProducsPicture/Telephones/TelephoneNine/resimiki.jpg", null, null },
-                    { 35, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2165), 9, 1, false, "img/ProducsPicture/Telephones/TelephoneNine/resimuc.jpg", null, null },
-                    { 36, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2167), 9, 1, false, "img/ProducsPicture/Telephones/TelephoneNine/resimdort.jpg", null, null },
-                    { 37, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2169), 10, 1, false, "img/ProducsPicture/Telephones/TelephoneTen/resimbir.jpg", null, null },
-                    { 38, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2170), 10, 1, false, "img/ProducsPicture/Telephones/TelephoneTen/resimiki.jpg", null, null },
-                    { 39, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2171), 10, 1, false, "img/ProducsPicture/Telephones/TelephoneTen/resimuc.jpg", null, null },
-                    { 40, null, new DateTime(2025, 3, 11, 11, 41, 44, 334, DateTimeKind.Local).AddTicks(2174), 10, 1, false, "img/ProducsPicture/Telephones/TelephoneTen/resimdort.jpg", null, null }
+                    { 1, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7870), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg", null, null },
+                    { 2, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7873), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimiki.jpg", null, null },
+                    { 3, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7875), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimuc.jpg", null, null },
+                    { 4, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7894), 1, 1, false, "img/ProducsPicture/Telephones/TelephoneOne/resimdort.jpg", null, null },
+                    { 5, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7895), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg", null, null },
+                    { 6, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7898), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimiki.jpg", null, null },
+                    { 7, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7900), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimuc.jpg", null, null },
+                    { 8, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7901), 2, 1, false, "img/ProducsPicture/Telephones/TelephoneTwo/resimdort.jpg", null, null },
+                    { 9, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7903), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg", null, null },
+                    { 10, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7906), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimiki.jpg", null, null },
+                    { 11, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7908), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimuc.jpg", null, null },
+                    { 12, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7910), 3, 1, false, "img/ProducsPicture/Telephones/TelephoneThree/resimdort.jpg", null, null },
+                    { 13, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7912), 4, 1, false, "img/ProducsPicture/Telephones/TelephoneFour/resimbir.jpg", null, null },
+                    { 14, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7914), 4, 1, false, "img/ProducsPicture/Telephones/TelephoneFour/resimiki.jpg", null, null },
+                    { 15, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7916), 4, 1, false, "img/ProducsPicture/Telephones/TelephoneFour/resimuc.jpg", null, null },
+                    { 16, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7921), 4, 1, false, "img/ProducsPicture/Telephones/TelephoneFour/resimdort.jpg", null, null },
+                    { 17, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7924), 5, 1, false, "img/ProducsPicture/Telephones/TelephoneFive/resimbir.jpg", null, null },
+                    { 18, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7928), 5, 1, false, "img/ProducsPicture/Telephones/TelephoneFive/resimiki.jpg", null, null },
+                    { 19, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7929), 5, 1, false, "img/ProducsPicture/Telephones/TelephoneFive/resimuc.jpg", null, null },
+                    { 20, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7931), 5, 1, false, "img/ProducsPicture/Telephones/TelephoneFive/resimdort.jpg", null, null },
+                    { 21, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7933), 6, 1, false, "img/ProducsPicture/Telephones/TelephoneSix/resimbir.jpg", null, null },
+                    { 22, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7934), 6, 1, false, "img/ProducsPicture/Telephones/TelephoneSix/resimiki.jpg", null, null },
+                    { 23, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7936), 6, 1, false, "img/ProducsPicture/Telephones/TelephoneSix/resimuc.jpg", null, null },
+                    { 24, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7937), 6, 1, false, "img/ProducsPicture/Telephones/TelephoneSix/resimdort.jpg", null, null },
+                    { 25, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7939), 7, 1, false, "img/ProducsPicture/Telephones/TelephoneSeven/resimbir.jpg", null, null },
+                    { 26, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7941), 7, 1, false, "img/ProducsPicture/Telephones/TelephoneSeven/resimiki.jpg", null, null },
+                    { 27, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7942), 7, 1, false, "img/ProducsPicture/Telephones/TelephoneSeven/resimuc.jpg", null, null },
+                    { 28, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7944), 7, 1, false, "img/ProducsPicture/Telephones/TelephoneSeven/resimdort.jpg", null, null },
+                    { 29, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7946), 8, 1, false, "img/ProducsPicture/Telephones/TelephoneEight/resimbir.jpg", null, null },
+                    { 30, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7947), 8, 1, false, "img/ProducsPicture/Telephones/TelephoneEight/resimiki.jpg", null, null },
+                    { 31, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7949), 8, 1, false, "img/ProducsPicture/Telephones/TelephoneEight/resimuc.jpg", null, null },
+                    { 32, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7950), 8, 1, false, "img/ProducsPicture/Telephones/TelephoneEight/resimdort.jpg", null, null },
+                    { 33, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7952), 9, 1, false, "img/ProducsPicture/Telephones/TelephoneNine/resimbir.jpg", null, null },
+                    { 34, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7955), 9, 1, false, "img/ProducsPicture/Telephones/TelephoneNine/resimiki.jpg", null, null },
+                    { 35, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7956), 9, 1, false, "img/ProducsPicture/Telephones/TelephoneNine/resimuc.jpg", null, null },
+                    { 36, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7958), 9, 1, false, "img/ProducsPicture/Telephones/TelephoneNine/resimdort.jpg", null, null },
+                    { 37, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7959), 10, 1, false, "img/ProducsPicture/Telephones/TelephoneTen/resimbir.jpg", null, null },
+                    { 38, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7961), 10, 1, false, "img/ProducsPicture/Telephones/TelephoneTen/resimiki.jpg", null, null },
+                    { 39, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7962), 10, 1, false, "img/ProducsPicture/Telephones/TelephoneTen/resimuc.jpg", null, null },
+                    { 40, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7965), 10, 1, false, "img/ProducsPicture/Telephones/TelephoneTen/resimdort.jpg", null, null },
+                    { 41, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7967), 11, 1, false, "img/ProducsPicture/Pc/PcOne/resimbir.jpg", null, null },
+                    { 42, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7969), 11, 1, false, "img/ProducsPicture/Pc/PcOne/resimiki.jpg", null, null },
+                    { 43, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7970), 11, 1, false, "img/ProducsPicture/Pc/PcOne/resimuc.jpg", null, null },
+                    { 44, null, new DateTime(2025, 3, 11, 11, 53, 19, 565, DateTimeKind.Local).AddTicks(7972), 11, 1, false, "img/ProducsPicture/Pc/PcOne/resimdort.jpg", null, null }
                 });
 
             migrationBuilder.CreateIndex(

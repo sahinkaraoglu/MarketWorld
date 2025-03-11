@@ -165,6 +165,21 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     CategoryId = 1,
                     Rating = 5M,
                     CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 11,
+                    Name = "MacBook Air M2 16GB 256GB SSD",
+                    Description = "13inc Taşınabilir Bilgisayar Uzay Grisi MC7U4TU/A",
+                    Price = 41599.99M,
+                    Stock = 85,
+                    BrandId = 1,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
                 }
             };
         }
@@ -534,6 +549,38 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Id = 40,
                     Path = "img/ProducsPicture/Telephones/TelephoneTen/resimdort.jpg",
                     EntityId = 10,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 41,
+                    Path = "img/ProducsPicture/Pc/PcOne/resimbir.jpg",
+                    EntityId = 11,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 42,
+                    Path = "img/ProducsPicture/Pc/PcOne/resimiki.jpg",
+                    EntityId = 11,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 43,
+                    Path = "img/ProducsPicture/Pc/PcOne/resimuc.jpg",
+                    EntityId = 11,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 44,
+                    Path = "img/ProducsPicture/Pc/PcOne/resimdort.jpg",
+                    EntityId = 11,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
                 }
