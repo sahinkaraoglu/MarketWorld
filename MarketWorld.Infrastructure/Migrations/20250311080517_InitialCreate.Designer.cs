@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketWorld.Infrastructure.Migrations
 {
     [DbContext(typeof(MarketWorldDbContext))]
-    [Migration("20250311062741_InitialCreate")]
+    [Migration("20250311080517_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -136,16 +136,30 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4122),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8433),
                             IsDeleted = false,
                             Name = "Apple"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4125),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8436),
                             IsDeleted = false,
                             Name = "Samsung"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8438),
+                            IsDeleted = false,
+                            Name = "Xiaomi"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8439),
+                            IsDeleted = false,
+                            Name = "Huawei"
                         });
                 });
 
@@ -279,7 +293,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3718),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8167),
                             Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
                             IsDeleted = false,
                             Name = "Elektronik",
@@ -288,7 +302,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3733),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8181),
                             Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
                             IsDeleted = false,
                             Name = "Giyim & Aksesuar",
@@ -297,7 +311,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3735),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8183),
                             Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
                             IsDeleted = false,
                             Name = "Ev & Yaşam",
@@ -306,7 +320,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3736),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8185),
                             Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
                             IsDeleted = false,
                             Name = "Kozmetik & Kişisel Bakım",
@@ -315,7 +329,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3738),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8186),
                             Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
                             IsDeleted = false,
                             Name = "Spor & Outdoor",
@@ -367,7 +381,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8497),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8597),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -376,7 +390,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8500),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8601),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -385,7 +399,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8503),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8603),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -394,7 +408,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8505),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8605),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -403,7 +417,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8506),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8607),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -412,7 +426,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8512),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8610),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -421,7 +435,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8514),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8611),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -430,7 +444,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8515),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8613),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -439,11 +453,290 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8517),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8615),
                             EntityId = 3,
                             EntityType = 1,
                             IsDeleted = false,
                             Path = "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8617),
+                            EntityId = 3,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneThree/resimiki.jpg"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8619),
+                            EntityId = 3,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneThree/resimuc.jpg"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8620),
+                            EntityId = 3,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneThree/resimdort.jpg"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8622),
+                            EntityId = 4,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneFour/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8624),
+                            EntityId = 4,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneFour/resimiki.jpg"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8626),
+                            EntityId = 4,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneFour/resimuc.jpg"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8627),
+                            EntityId = 4,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneFour/resimdort.jpg"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8629),
+                            EntityId = 5,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneFive/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8631),
+                            EntityId = 5,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneFive/resimiki.jpg"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8633),
+                            EntityId = 5,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneFive/resimuc.jpg"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8635),
+                            EntityId = 5,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneFive/resimdort.jpg"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8636),
+                            EntityId = 6,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneSix/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8638),
+                            EntityId = 6,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneSix/resimiki.jpg"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8640),
+                            EntityId = 6,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneSix/resimuc.jpg"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8641),
+                            EntityId = 6,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneSix/resimdort.jpg"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8643),
+                            EntityId = 7,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneSeven/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8644),
+                            EntityId = 7,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneSeven/resimiki.jpg"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8646),
+                            EntityId = 7,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneSeven/resimuc.jpg"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8647),
+                            EntityId = 7,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneSeven/resimdort.jpg"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8649),
+                            EntityId = 8,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneEight/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8651),
+                            EntityId = 8,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneEight/resimiki.jpg"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8652),
+                            EntityId = 8,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneEight/resimuc.jpg"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8654),
+                            EntityId = 8,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneEight/resimdort.jpg"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8655),
+                            EntityId = 9,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneNine/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8658),
+                            EntityId = 9,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneNine/resimiki.jpg"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8659),
+                            EntityId = 9,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneNine/resimuc.jpg"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8661),
+                            EntityId = 9,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneNine/resimdort.jpg"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8662),
+                            EntityId = 10,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneTen/resimbir.jpg"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8664),
+                            EntityId = 10,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneTen/resimiki.jpg"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8666),
+                            EntityId = 10,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneTen/resimuc.jpg"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8667),
+                            EntityId = 10,
+                            EntityType = 1,
+                            IsDeleted = false,
+                            Path = "img/ProducsPicture/Telephones/TelephoneTen/resimdort.jpg"
                         });
                 });
 
@@ -620,7 +913,7 @@ namespace MarketWorld.Infrastructure.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<long?>("CreatedById")
@@ -684,7 +977,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 1,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8425),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8486),
                             Description = "Apple iPhone 14 Pro 256 GB",
                             DiscountPrice = 54999.99m,
                             HasDiscount = true,
@@ -692,7 +985,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             IsDeleted = false,
                             Name = "iPhone 14 Pro",
                             Price = 56999.99m,
-                            Rating = 4m,
+                            Rating = 5m,
                             Stock = 100,
                             SubCategoryId = 3
                         },
@@ -701,15 +994,15 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 2,
                             BrandId = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8438),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8492),
                             Description = "Samsung Galaxy S23 Ultra 256 GB",
                             DiscountPrice = 65999.99m,
                             HasDiscount = true,
                             IsActive = true,
                             IsDeleted = false,
-                            Name = "Samsung Galaxy S23",
+                            Name = "Samsung Galaxy S23 Ultra",
                             Price = 75999.99m,
-                            Rating = 3m,
+                            Rating = 5m,
                             Stock = 150,
                             SubCategoryId = 3
                         },
@@ -718,16 +1011,135 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 3,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(8442),
-                            Description = "Apple iPhone 15 128 GB",
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8495),
+                            Description = "Apple iPhone 15 128 GB Mavi",
                             DiscountPrice = 39999.99m,
                             HasDiscount = true,
                             IsActive = true,
                             IsDeleted = false,
-                            Name = "Apple iPhone 15 128 GB Mavi",
+                            Name = "iPhone 15 128 GB",
                             Price = 49999.99m,
-                            Rating = 5m,
+                            Rating = 4m,
                             Stock = 150,
+                            SubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 3,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8499),
+                            Description = "Xiaomi 13T Pro 512 GB",
+                            DiscountPrice = 37999.99m,
+                            HasDiscount = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Xiaomi 13T Pro",
+                            Price = 39999.99m,
+                            Rating = 3m,
+                            Stock = 75,
+                            SubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 4,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8531),
+                            Description = "Huawei P60 Pro 256 GB",
+                            DiscountPrice = 0m,
+                            HasDiscount = false,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Huawei P60 Pro",
+                            Price = 44999.99m,
+                            Rating = 4m,
+                            Stock = 60,
+                            SubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BrandId = 2,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8536),
+                            Description = "Samsung Galaxy Z Fold5 512 GB",
+                            DiscountPrice = 84999.99m,
+                            HasDiscount = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Samsung Galaxy Z Fold5",
+                            Price = 89999.99m,
+                            Rating = 4.9m,
+                            Stock = 40,
+                            SubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BrandId = 1,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8539),
+                            Description = "Apple iPhone 15 Pro Max 512 GB",
+                            DiscountPrice = 0m,
+                            HasDiscount = false,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "iPhone 15 Pro Max",
+                            Price = 92999.99m,
+                            Rating = 3m,
+                            Stock = 25,
+                            SubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BrandId = 3,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8542),
+                            Description = "Xiaomi Redmi Note 13 Pro+ 256 GB",
+                            DiscountPrice = 27999.99m,
+                            HasDiscount = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Xiaomi Redmi Note 13 Pro+",
+                            Price = 29999.99m,
+                            Rating = 4.2m,
+                            Stock = 200,
+                            SubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BrandId = 2,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8545),
+                            Description = "Samsung Galaxy A54 128 GB",
+                            DiscountPrice = 18499.99m,
+                            HasDiscount = true,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Samsung Galaxy A54",
+                            Price = 19999.99m,
+                            Rating = 4.1m,
+                            Stock = 300,
+                            SubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BrandId = 4,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8549),
+                            Description = "Huawei Nova 11 Pro 256 GB",
+                            DiscountPrice = 0m,
+                            HasDiscount = false,
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Huawei Nova 11 Pro",
+                            Price = 34999.99m,
+                            Rating = 5m,
+                            Stock = 85,
                             SubCategoryId = 3
                         });
                 });
@@ -826,7 +1238,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(5074),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 392, DateTimeKind.Local).AddTicks(8509),
                             Description = "Ürün renk seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -835,7 +1247,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 985, DateTimeKind.Local).AddTicks(5080),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 392, DateTimeKind.Local).AddTicks(8517),
                             Description = "Ürün beden seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -936,7 +1348,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3982),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8342),
                             Description = "Dizüstü, masaüstü bilgisayarlar ve tabletler",
                             IsDeleted = false,
                             Name = "Bilgisayarlar & Tabletler",
@@ -946,7 +1358,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3985),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8344),
                             Description = "Yazıcılar, tarayıcılar ve projeksiyon cihazları",
                             IsDeleted = false,
                             Name = "Yazıcılar & Projeksiyon",
@@ -956,7 +1368,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3987),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8346),
                             Description = "Akıllı telefonlar ve aksesuarları",
                             IsDeleted = false,
                             Name = "Telefonlar",
@@ -966,7 +1378,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3988),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8347),
                             Description = "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar",
                             IsDeleted = false,
                             Name = "Beyaz Eşya",
@@ -976,7 +1388,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3990),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8349),
                             Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
                             IsDeleted = false,
                             Name = "Klima ve Isıtıcılar",
@@ -986,7 +1398,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 6,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3992),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8351),
                             Description = "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar",
                             IsDeleted = false,
                             Name = "Ayakkabı & Çanta",
@@ -996,7 +1408,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3994),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8352),
                             Description = "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
                             Name = "Kadın Giyim",
@@ -1006,7 +1418,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 8,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3996),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8354),
                             Description = "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
                             Name = "Erkek Giyim",
@@ -1016,7 +1428,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 9,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3998),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8355),
                             Description = "Kız ve erkek çocuk giyim ürünleri",
                             IsDeleted = false,
                             Name = "Çocuk Giyim",
@@ -1026,7 +1438,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 10,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(3999),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8357),
                             Description = "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları",
                             IsDeleted = false,
                             Name = "Mobilya",
@@ -1036,7 +1448,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 11,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4001),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8359),
                             Description = "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri",
                             IsDeleted = false,
                             Name = "Ev Tekstili",
@@ -1046,7 +1458,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 12,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4003),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8360),
                             Description = "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri",
                             IsDeleted = false,
                             Name = "Dekorasyon & Aydınlatma",
@@ -1056,7 +1468,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 13,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4004),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8362),
                             Description = "Pişirme, servis ve saklama ürünleri, mutfak aletleri",
                             IsDeleted = false,
                             Name = "Mutfak Gereçleri",
@@ -1066,7 +1478,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 14,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4006),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8364),
                             Description = "Banyo aksesuarları, temizlik ve düzenleme ürünleri",
                             IsDeleted = false,
                             Name = "Banyo & Ev Gereçleri",
@@ -1076,7 +1488,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 15,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4008),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8366),
                             Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                             IsDeleted = false,
                             Name = "Kırtasiye & Ofis",
@@ -1086,7 +1498,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 16,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4009),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8368),
                             Description = "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri",
                             IsDeleted = false,
                             Name = "Parfüm & Deodorant",
@@ -1096,7 +1508,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 17,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4011),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8369),
                             Description = "Saç bakım ve şekillendirme ürünleri",
                             IsDeleted = false,
                             Name = "Saç Şekillendirme",
@@ -1106,7 +1518,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 18,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4013),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8371),
                             Description = "Yüz ve vücut bakım ürünleri, kremler ve serumlar",
                             IsDeleted = false,
                             Name = "Cilt Bakımı",
@@ -1116,7 +1528,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 19,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4014),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8373),
                             Description = "Renkli kozmetik ve makyaj malzemeleri",
                             IsDeleted = false,
                             Name = "Makyaj",
@@ -1126,7 +1538,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 20,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4054),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8374),
                             Description = "Vitamin, takviye gıdalar ve medikal ürünler",
                             IsDeleted = false,
                             Name = "Sağlık & Medikal Ürünler",
@@ -1136,7 +1548,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 21,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4057),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8376),
                             Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
                             IsDeleted = false,
                             Name = "Ağız & Diş Bakımı",
@@ -1146,7 +1558,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 22,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4058),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8377),
                             Description = "Fitness ekipmanları, kondisyon aletleri ve aksesuarları",
                             IsDeleted = false,
                             Name = "Fitness & Kondisyon",
@@ -1156,7 +1568,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 23,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4060),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8379),
                             Description = "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar",
                             IsDeleted = false,
                             Name = "Spor Giyim & Ayakkabı",
@@ -1166,7 +1578,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 24,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4062),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8380),
                             Description = "Kamp malzemeleri, outdoor giyim ve ekipmanlar",
                             IsDeleted = false,
                             Name = "Outdoor & Kamp",
@@ -1176,7 +1588,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 25,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4063),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8382),
                             Description = "Kayak ekipmanları ve kış sporları malzemeleri",
                             IsDeleted = false,
                             Name = "Kış Sporları",
@@ -1186,7 +1598,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 26,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 11, 9, 27, 40, 984, DateTimeKind.Local).AddTicks(4065),
+                            CreatedDate = new DateTime(2025, 3, 11, 11, 5, 17, 391, DateTimeKind.Local).AddTicks(8384),
                             Description = "Yüzme ve su sporları ekipmanları",
                             IsDeleted = false,
                             Name = "Su Sporları",
@@ -1380,9 +1792,7 @@ namespace MarketWorld.Infrastructure.Migrations
 
                     b.HasOne("MarketWorld.Domain.Entities.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("MarketWorld.Domain.Entities.SubCategory", "SubCategory")
                         .WithMany("Products")

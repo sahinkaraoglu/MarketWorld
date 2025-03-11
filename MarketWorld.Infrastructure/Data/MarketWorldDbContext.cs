@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MarketWorld.Domain.Entities;
+using MarketWorld.Infrastructure.Data.SeedData;
 
 namespace MarketWorld.Infrastructure.Data
 {
@@ -145,7 +146,7 @@ namespace MarketWorld.Infrastructure.Data
                 .HasForeignKey(sc => sc.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
                 
-            // Kategori seed verileri
+            // Önce kategorileri ekle
             modelBuilder.Entity<Category>().HasData(
                 new Category
                 {
@@ -189,7 +190,7 @@ namespace MarketWorld.Infrastructure.Data
                 }
             );
             
-            // Alt kategori seed verileri
+            // Sonra alt kategorileri ekle
             modelBuilder.Entity<SubCategory>().HasData(
                 // Elektronik kategorisi (CategoryId=1) için alt kategoriler
                 new SubCategory
@@ -436,7 +437,14 @@ namespace MarketWorld.Infrastructure.Data
                 }
             );
 
-            modelBuilder.Entity<Brand>().HasData(Infrastructure.Data.SeedData.ProductSeedData.GetBrands());
+            // Markaları ekle
+            modelBuilder.Entity<Brand>().HasData(ProductSeedData.GetBrands());
+
+            // Ürünleri ekle
+            modelBuilder.Entity<Product>().HasData(ProductSeedData.GetProducts());
+
+            // En son resimleri ekle
+            modelBuilder.Entity<Image>().HasData(ProductSeedData.GetImages());
 
             // Tüm entity'ler için BaseEntity'deki CreatedDate alanını nullable olmaktan çıkarıp 
             // otomatik değer ataması yapalım
@@ -534,9 +542,6 @@ namespace MarketWorld.Infrastructure.Data
                 .WithMany()
                 .HasForeignKey(o => o.BillingAddressId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Product>().HasData(Infrastructure.Data.SeedData.ProductSeedData.GetProducts());
-            modelBuilder.Entity<Image>().HasData(Infrastructure.Data.SeedData.ProductSeedData.GetImages());
 
             // Image ve Product arasındaki ilişki
             modelBuilder.Entity<Image>()
