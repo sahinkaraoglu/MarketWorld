@@ -507,25 +507,11 @@ namespace MarketWorld.Infrastructure.Data
                 .HasForeignKey(pp => pp.PropertyValueId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // PropertyType seed verileri
-            modelBuilder.Entity<PropertyType>().HasData(
-                new PropertyType
-                {
-                    Id = 1,
-                    Name = "Renk",
-                    Description = "Ürün renk seçenekleri",
-                    CreatedDate = DateTime.Now,
-                    IsActive = true
-                },
-                new PropertyType
-                {
-                    Id = 2,
-                    Name = "Beden",
-                    Description = "Ürün beden seçenekleri",
-                    CreatedDate = DateTime.Now,
-                    IsActive = true
-                }
-            );
+            modelBuilder.Entity<PropertyType>().HasData(PropertySeedData.GetPropertyTypes());
+
+            modelBuilder.Entity<PropertyValue>().HasData(PropertySeedData.GetPropertyValues());
+
+            modelBuilder.Entity<ProductProperty>().HasData(PropertySeedData.GetProductProperties());
 
             modelBuilder.Entity<Cart>()
                 .Property(c => c.TotalAmount)

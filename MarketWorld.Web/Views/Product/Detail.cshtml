@@ -43,6 +43,7 @@
             </div>
         </div>
 
+        <!-- Sağ Taraf - Ürün Bilgileri -->
         <div class="col-md-6">
             <div class="product-info">
                 <h1 class="product-title text-start">
@@ -54,6 +55,7 @@
                     <p class="text-muted">@Model.Description</p>
                 </div>
 
+                <!-- Değerlendirme -->
                 <div class="product-rating mb-4">
                     <div class="stars d-flex align-items-center">
                         @for (int i = 1; i <= 5; i++)
@@ -72,15 +74,16 @@
                             }
                         }
                         <span class="rating-value ms-2">@Model.Rating</span>
-                        <span class="review-count text-muted ms-2">(@Model.ReviewCount Müşteri Değerlendirmesi)</span>
+                        <span class="review-count text-muted ms-2">(@Model.ReviewCount Değerlendirme)</span>
                     </div>
                 </div>
 
+                <!-- Fiyat -->
                 <div class="product-price mb-4">
                     @if (Model.HasDiscount && Model.DiscountPrice.HasValue)
                     {
                         <div class="d-flex align-items-center gap-3">
-                            <div class="discounted-price">@Model.DiscountPrice.Value.ToString("N2") TL</div>
+                            <div class="discounted-price h3 mb-0">@Model.DiscountPrice.Value.ToString("N2") TL</div>
                             <div class="original-price text-decoration-line-through text-muted">@Model.Price.ToString("N2") TL</div>
                             <div class="discount-badge bg-danger text-white px-2 py-1 rounded">
                                 %@(((Model.Price - Model.DiscountPrice.Value) / Model.Price * 100).ToString("N0")) İndirim
@@ -89,23 +92,25 @@
                     }
                     else
                     {
-                        <div class="current-price">@Model.Price.ToString("N2") TL</div>
+                        <div class="current-price h3 mb-0">@Model.Price.ToString("N2") TL</div>
                     }
                 </div>
 
+                <!-- Kargo Bilgisi -->
                 @if (Model.HasFreeShipping)
                 {
                     <div class="shipping-info mb-4">
-                        <div class="free-shipping d-flex align-items-center">
-                            <i class="fas fa-truck me-2"></i>
+                        <div class="free-shipping d-flex align-items-center p-3 rounded border">
+                            <i class="fas fa-truck-fast me-3 text-primary"></i>
                             <div>
-                                <span class="fw-bold">Ücretsiz Kargo</span>
-                                <p class="text-muted mb-0 small">24 saat içinde kargoya verilir</p>
+                                <div class="shipping-title">BUGÜN KARGODA</div>
+                                <div class="shipping-info-text">23:59'a kadar verdiğiniz siparişler aynı gün kargolanır</div>
                             </div>
                         </div>
                     </div>
                 }
 
+@*                 <!-- Stok Bilgisi -->
                 @if (Model.Stock > 0)
                 {
                     <div class="stock-info mb-4">
@@ -123,8 +128,76 @@
                             <span>Stokta ürün kalmadı</span>
                         </div>
                     </div>
-                }
+                } *@
 
+                <!-- Ürün Seçenekleri -->
+                <div class="product-options mb-4">
+                    <!-- Renk Seçenekleri -->
+                    <div class="mb-4">
+                        <div class="option-title mb-3">
+                            <span class="fw-semibold">Renk:</span>
+                            <span id="selectedColor" class="selected-value ms-2">@Model.ColorOptions.FirstOrDefault()?.Value</span>
+                        </div>
+                        <div class="color-options">
+                            @foreach (var color in Model.ColorOptions)
+                            {
+                                <div class="color-option-wrapper">
+                                    <input type="radio" 
+                                           class="btn-check" 
+                                           name="colorOption" 
+                                           id="color_@color.Id" 
+                                           value="@color.Value"
+                                           @(color.IsSelected ? "checked" : "")
+                                           @(color.Stock <= 0 ? "disabled" : "")>
+                                    <label class="color-option @(color.Stock <= 0 ? "disabled" : "")" 
+                                           for="color_@color.Id">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <span class="color-name mb-1">@color.Value</span>
+                                            @if (color.Stock <= 0)
+                                            {
+                                                <small class="text-danger">Stokta Yok</small>
+                                            }
+                                        </div>
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Hafıza Seçenekleri -->
+                    <div class="mb-4">
+                        <div class="option-title mb-3">
+                            <span class="fw-semibold">Dahili Hafıza:</span>
+                            <span id="selectedMemory" class="selected-value ms-2">@Model.MemoryOptions.FirstOrDefault()?.Value</span>
+                        </div>
+                        <div class="memory-options">
+                            @foreach (var memory in Model.MemoryOptions)
+                            {
+                                <div class="memory-option-wrapper">
+                                    <input type="radio" 
+                                           class="btn-check" 
+                                           name="memoryOption" 
+                                           id="memory_@memory.Id" 
+                                           value="@memory.Value"
+                                           @(memory.IsSelected ? "checked" : "")
+                                           @(memory.Stock <= 0 ? "disabled" : "")>
+                                    <label class="memory-option @(memory.Stock <= 0 ? "disabled" : "")" 
+                                           for="memory_@memory.Id">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <span class="memory-size">@memory.Value</span>
+                                            @if (memory.Stock <= 0)
+                                            {
+                                                <small class="text-danger">Stokta Yok</small>
+                                            }
+                                        </div>
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adet ve Sepete Ekle -->
                 <div class="product-actions">
                     @if (Model.Stock > 0)
                     {
@@ -146,7 +219,7 @@
                                 <i class="fas fa-shopping-cart me-2"></i>
                                 Sepete Ekle
                             </button>
-                            <button class="btn btn-soft-secondary" title="Favorilere Ekle">
+                            <button class="btn btn-outline-secondary" title="Favorilere Ekle">
                                 <i class="far fa-heart"></i>
                             </button>
                         </div>
@@ -162,4 +235,128 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
+
+<style>
+.option-title {
+    font-size: 1rem;
+}
+
+.selected-value {
+    color: #0d6efd;
+    font-weight: 500;
+}
+
+.color-options, .memory-options {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.color-option, .memory-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+.color-option:hover:not(.disabled),
+.memory-option:hover:not(.disabled) {
+    border-color: #0d6efd;
+    background-color: #f8f9fa;
+}
+
+.color-option.disabled,
+.memory-option.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+}
+
+.btn-check:checked + .color-option,
+.btn-check:checked + .memory-option {
+    border-color: #0d6efd;
+    background-color: #e7f1ff;
+}
+
+.color-name, .memory-size {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+small.text-danger {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.free-shipping {
+    background-color: #f8f9fa;
+    transition: all 0.2s ease;
+}
+
+.free-shipping:hover {
+    background-color: #fff;
+    border-color: #0d6efd !important;
+}
+
+.free-shipping i {
+    font-size: 1.5rem;
+}
+
+.shipping-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0d6efd;
+    letter-spacing: 0.5px;
+}
+
+.shipping-info-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 2px;
+}
+</style>
+
+<script>
+document.querySelectorAll('input[name="colorOption"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        document.getElementById('selectedColor').textContent = this.value;
+        updateProductOptions();
+    });
+});
+
+document.querySelectorAll('input[name="memoryOption"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        document.getElementById('selectedMemory').textContent = this.value;
+        updateProductOptions();
+    });
+});
+
+function updateProductOptions() {
+    const selectedColor = document.querySelector('input[name="colorOption"]:checked')?.value;
+    const selectedMemory = document.querySelector('input[name="memoryOption"]:checked')?.value;
+    
+    if (selectedColor && selectedMemory) {
+        // Burada seçilen renk ve hafızaya göre fiyat güncellemesi yapılabilir
+        // AJAX ile sunucudan yeni fiyat ve stok bilgisi alınabilir
+        console.log(`Seçilen: ${selectedColor} - ${selectedMemory}`);
+    }
+}
+
+// Sayfa yüklendiğinde varsayılan seçimleri göster
+window.addEventListener('load', () => {
+    const defaultColor = document.querySelector('input[name="colorOption"]');
+    const defaultMemory = document.querySelector('input[name="memoryOption"]');
+    
+    if (defaultColor) defaultColor.checked = true;
+    if (defaultMemory) defaultMemory.checked = true;
+    
+    updateProductOptions();
+});
+</script> 

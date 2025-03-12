@@ -20,5 +20,7 @@ namespace MarketWorld.Web.Models
         public string CategoryName { get; set; }
         public string SubCategoryName { get; set; }
         public bool HasFreeShipping { get; set; }
+        public List<ProductPropertyViewModel> ColorOptions { get; set; }
+        public List<ProductPropertyViewModel> MemoryOptions { get; set; }
     }
 } 

@@ -74,10 +74,36 @@ namespace MarketWorld.Web.Controllers
                 .Include(p => p.Images)
                 .Include(p => p.SubCategory)
                     .ThenInclude(sc => sc.Category)
-                .FirstOrDefaultAsync(p =>  p.Id == id && p.IsActive && !p.IsDeleted);
+                .Include(p => p.ProductProperties)
+                    .ThenInclude(pp => pp.PropertyType)
+                .Include(p => p.ProductProperties)
+                    .ThenInclude(pp => pp.PropertyValue)
+                .FirstOrDefaultAsync(p => p.Id == id && p.IsActive && !p.IsDeleted);
 
             if (product == null)
                 return NotFound();
+
+            var colorOptions = product.ProductProperties
+                .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
+                .Select(pp => new ProductPropertyViewModel
+                {
+                    Id = pp.Id,
+                    Value = pp.PropertyValue.Value,
+                    Stock = pp.Stock,
+                    IsSelected = false
+                })
+                .ToList();
+
+            var memoryOptions = product.ProductProperties
+                .Where(pp => pp.PropertyType.Name == "Hafıza" && pp.IsActive)
+                .Select(pp => new ProductPropertyViewModel
+                {
+                    Id = pp.Id,
+                    Value = pp.PropertyValue.Value,
+                    Stock = pp.Stock,
+                    IsSelected = false
+                })
+                .ToList();
 
             var viewModel = new ProductDetailViewModel
             {
@@ -95,7 +121,9 @@ namespace MarketWorld.Web.Controllers
                 Images = product.Images.OrderBy(i => i.Id).Select(i => $"/{i.Path}").ToList(),
                 CategoryName = product.SubCategory?.Category?.Name,
                 SubCategoryName = product.SubCategory?.Name,
-                HasFreeShipping = product.Price > 45000
+                HasFreeShipping = product.Price > 45000,
+                ColorOptions = colorOptions,
+                MemoryOptions = memoryOptions
             };
 
             return View(viewModel);
