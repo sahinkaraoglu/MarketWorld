@@ -43,31 +43,29 @@
 </section>
 
 <!-- Categories -->
-<section class="categories-section py-5">
+<section class="featured-categories">
     <div class="container">
-        <div class="section-header text-center mb-5">
-            <h2 class="display-6 fw-bold">Popüler Kategoriler</h2>
-            <div class="header-line"></div>
+        <div class="featured-categories-header">
+            <h2>Öne Çıkan Kategoriler</h2>
+            <p>İhtiyacınız olan her şey tek bir yerde. Binlerce ürün arasından size en uygun olanı seçin.</p>
         </div>
-        <div class="row g-4">
-            @foreach (var category in Model)
+        <div class="featured-categories-grid">
+            @foreach (var category in Model.Take(6))
             {
-                <div class="col-lg-4">
-                    <div class="category-box">
-                        <div class="category-icon">
-                            <i class="bi bi-@(category.Name.ToLower() == "elektronik" ? "laptop" : 
+                <div class="featured-category-card">
+                    <div class="featured-category-content">
+                        <div class="featured-category-icon">
+                            <i class="bi bi-@(category.Name.ToLower().Contains("elektronik") ? "laptop" : 
                                            category.Name.ToLower().Contains("giyim") ? "handbag" :
-                                           category.Name.ToLower().Contains("ev") ? "house-heart" :
-                                           category.Name.ToLower() == "kozmetik" ? "heart" : "bicycle")"></i>
+                                           category.Name.ToLower().Contains("ev") ? "house" :
+                                           category.Name.ToLower().Contains("kozmetik") ? "heart" :
+                                           category.Name.ToLower().Contains("spor") ? "bicycle" : "grid")"></i>
                         </div>
-                        <h3>@category</h3>
-                        <div class="subcategories">
-                            @foreach (var subCategory in GetSubCategories(category.Name))
-                            {
-                                <a href="#" class="subcategory-link">@subCategory</a>
-                            }
-                        </div>
-                        <a href="#" class="explore-btn">Keşfet <i class="bi bi-arrow-right"></i></a>
+                        <h3 class="featured-category-title">@category.Name</h3>
+                        <p class="featured-category-description">@category.Description</p>
+                        <a href="@Url.Action("Products", "Category", new { categoryId = category.Id })" class="featured-category-link">
+                            Keşfet <i class="bi bi-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             }
