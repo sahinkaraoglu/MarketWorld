@@ -19,8 +19,10 @@ namespace MarketWorld.Web.Models.Admin
 
         [Required(ErrorMessage = "Stok miktarı zorunludur")]
         [Range(0, int.MaxValue, ErrorMessage = "Stok miktarı 0 veya daha büyük olmalıdır")]
+
         public int Stock { get; set; }
 
+        [Required(ErrorMessage = "Açıklama zorunludur")]
         public string Description { get; set; }
 
         public bool IsActive { get; set; }
@@ -31,5 +33,15 @@ namespace MarketWorld.Web.Models.Admin
         public int SubCategoryId { get; set; }
 
         public List<IFormFile> Images { get; set; }
+        
+        public List<ProductPropertyViewModel> ProductProperties { get; set; } = new List<ProductPropertyViewModel>();
+    }
+    
+    public class ProductPropertyViewModel
+    {
+        public int PropertyTypeId { get; set; }
+        public int PropertyValueId { get; set; }
+        public int Stock { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 } 

@@ -115,6 +115,15 @@
                         <label class="form-label">Ürün Resimleri</label>
                         <input type="file" name="Images" class="form-control" multiple accept="image/*">
                     </div>
+                    
+                    <div class="mb-3">
+                        <h5>Ürün Özellikleri</h5>
+                        <div id="propertyContainer">
+                            <button type="button" class="btn btn-sm btn-outline-primary mb-3" id="addPropertyBtn">
+                                <i class="bi bi-plus"></i> Yeni Özellik Ekle
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
@@ -224,6 +233,18 @@
                 }
             });
 
+            $.ajax({
+                url: '/Admin/GetPropertyTypes',
+                method: 'GET',
+                success: function(propertyTypes) {
+                    console.log('Yüklenen özellik tipleri:', propertyTypes);
+                    window.propertyTypes = propertyTypes;
+                },
+                error: function(xhr, status, error) {
+                    console.error('Özellik tipleri yükleme hatası:', error);
+                }
+            });
+
             // Kategori seçildiğinde alt kategorileri yükle
             $('#categorySelect, #editCategorySelect').change(function() {
                 var categoryId = $(this).val();
@@ -266,6 +287,89 @@
                 }
             });
 
+            $('#addPropertyBtn').click(function() {
+                addPropertyRow();
+            });
+
+            function addPropertyRow() {
+                var propertyRowId = Date.now(); // Benzersiz ID oluştur
+                var propertyRow = `
+                    <div class="card mb-3 property-row" id="property-${propertyRowId}">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Özellik Tipi</label>
+                                    <select class="form-select property-type-select" data-row-id="${propertyRowId}">
+                                        <option value="">Özellik Tipi Seçiniz</option>
+                                        ${window.propertyTypes ? window.propertyTypes.map(pt => `<option value="${pt.id}">${pt.name}</option>`).join('') : ''}
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Özellik Değeri</label>
+                                    <select class="form-select property-value-select" data-row-id="${propertyRowId}" disabled>
+                                        <option value="">Önce Özellik Tipi Seçiniz</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Stok</label>
+                                    <input type="number" class="form-control property-stock" data-row-id="${propertyRowId}" min="0" value="0">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Aktif</label>
+                                    <div class="form-check mt-2">
+                                        <input type="checkbox" class="form-check-input property-active" data-row-id="${propertyRowId}" checked>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="form-label">&nbsp;</label>
+                                    <button type="button" class="btn btn-sm btn-danger d-block" onclick="removePropertyRow(${propertyRowId})">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                $('#propertyContainer').append(propertyRow);
+
+                $(`.property-type-select[data-row-id="${propertyRowId}"]`).change(function() {
+                    var propertyTypeId = $(this).val();
+                    var valueSelect = $(`.property-value-select[data-row-id="${propertyRowId}"]`);
+                    
+                    valueSelect.empty().append('<option value="">Özellik Değeri Seçiniz</option>');
+                    valueSelect.prop('disabled', !propertyTypeId);
+                    
+                    if (propertyTypeId) {
+                        $.ajax({
+                            url: '/Admin/GetPropertyValues/' + propertyTypeId,
+                            method: 'GET',
+                            success: function(propertyValues) {
+                                console.log('Gelen özellik değerleri:', propertyValues);
+                                if (propertyValues && propertyValues.length > 0) {
+                                    propertyValues.forEach(function(pv) {
+                                        valueSelect.append(
+                                            $('<option></option>')
+                                                .val(pv.id)
+                                                .text(pv.value)
+                                        );
+                                    });
+                                } else {
+                                    valueSelect.append(
+                                        $('<option></option>')
+                                            .val('')
+                                            .text('Bu özellik tipinde değer yok')
+                                    );
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Özellik değerleri yükleme hatası:', error);
+                                alert('Özellik değerleri yüklenirken bir hata oluştu: ' + error);
+                            }
+                        });
+                    }
+                });
+            }
+
             // Form submit işlemini JavaScript ile yapalım
             $('#addProductForm').submit(function(e) {
                 e.preventDefault();
@@ -286,6 +390,21 @@
                 for (var i = 0; i < files.length; i++) {
                     formData.append('Images', files[i]);
                 }
+
+                $('.property-row').each(function(index) {
+                    var rowId = $(this).attr('id').split('-')[1];
+                    var propertyTypeId = $(`.property-type-select[data-row-id="${rowId}"]`).val();
+                    var propertyValueId = $(`.property-value-select[data-row-id="${rowId}"]`).val();
+                    var stock = $(`.property-stock[data-row-id="${rowId}"]`).val();
+                    var isActive = $(`.property-active[data-row-id="${rowId}"]`).is(':checked');
+                    
+                    if (propertyTypeId && propertyValueId) {
+                        formData.append(`ProductProperties[${index}].PropertyTypeId`, propertyTypeId);
+                        formData.append(`ProductProperties[${index}].PropertyValueId`, propertyValueId);
+                        formData.append(`ProductProperties[${index}].Stock`, stock);
+                        formData.append(`ProductProperties[${index}].IsActive`, isActive);
+                    }
+                });
 
                 $.ajax({
                     url: '/Admin/AddProduct',
@@ -313,6 +432,10 @@
                 });
             });
         });
+
+        function removePropertyRow(rowId) {
+            $(`#property-${rowId}`).remove();
+        }
 
         function editProduct(id) {
             $.ajax({

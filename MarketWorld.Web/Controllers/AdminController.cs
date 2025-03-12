@@ -125,7 +125,8 @@ namespace MarketWorld.Web.Controllers
                 HasDiscount = model.HasDiscount,
                 SubCategoryId = model.SubCategoryId,
                 CreatedDate = DateTime.Now,
-                Images = new List<Image>()
+                Images = new List<Image>(),
+                ProductProperties = new List<ProductProperty>()
             };
 
             if (model.Images != null && model.Images.Any())
@@ -151,6 +152,21 @@ namespace MarketWorld.Web.Controllers
                             EntityId = product.Id
                         });
                     }
+                }
+            }
+
+            if (model.ProductProperties != null && model.ProductProperties.Any())
+            {
+                foreach (var prop in model.ProductProperties)
+                {
+                    product.ProductProperties.Add(new ProductProperty
+                    {
+                        PropertyTypeId = prop.PropertyTypeId,
+                        PropertyValueId = prop.PropertyValueId,
+                        Stock = prop.Stock,
+                        IsActive = prop.IsActive,
+                        CreatedDate = DateTime.Now
+                    });
                 }
             }
 
@@ -213,9 +229,40 @@ namespace MarketWorld.Web.Controllers
             if (product == null)
                 return NotFound();
 
-            _context.Products.Remove(product);
+            product.IsDeleted = true;
             await _context.SaveChangesAsync();
+
             return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPropertyTypes()
+        {
+            var propertyTypes = await _context.PropertyTypes
+                .Where(pt => pt.IsActive && !pt.IsDeleted)
+                .Select(pt => new { id = pt.Id, name = pt.Name })
+                .ToListAsync();
+
+            return Json(propertyTypes);
+        }
+
+        [HttpGet]
+        [Route("Admin/GetPropertyValues/{propertyTypeId}")]
+        public async Task<IActionResult> GetPropertyValues(int propertyTypeId)
+        {
+            try
+            {
+                var propertyValues = await _context.PropertyValues
+                    .Where(pv => pv.PropertyTypeId == propertyTypeId && pv.IsActive && !pv.IsDeleted)
+                    .Select(pv => new { id = pv.Id, value = pv.Value })
+                    .ToListAsync();
+
+                return Json(propertyValues);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Özellik değerleri getirilirken hata oluştu: {ex.Message}");
+            }
         }
     }
 } 
