@@ -142,24 +142,47 @@
                                     <div class="card-body">
                                         <h6 class="card-subtitle mb-2 text-muted">@product.BrandName</h6>
                                         <h5 class="card-title product-title">@product.Name</h5>
-                                        <h5 class="card-title product-title">@product.Description</h5>
                                         <div class="product-rating mb-2">
-                                            @for (int i = 1; i <= 5; i++)
-                                            {
-                                                <i class="@(i <= product.Rating ? "fas" : "far") fa-star text-warning"></i>
-                                            }
-                                            <span class="rating-count">(@product.ReviewCount)</span>
+                                            <div class="stars d-flex align-items-center">
+                                                @{
+                                                    decimal rating = product.Rating;
+                                                    int fullStars = (int)Math.Floor(rating);
+                                                    bool hasHalfStar = (rating - fullStars) >= 0.5m;
+                                                }
+
+                                                @for (var i = 1; i <= 5; i++)
+                                                {
+                                                    if (i <= fullStars)
+                                                    {
+                                                        <i class="fas fa-star text-warning"></i>
+                                                    }
+                                                    else if (i == fullStars + 1 && hasHalfStar)
+                                                    {
+                                                        <i class="fas fa-star-half-alt text-warning"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="far fa-star text-warning"></i>
+                                                    }
+                                                }
+                                                <span class="rating-value ms-2" style="color: #666; font-weight: 500;">@rating.ToString("0.0")</span>
+                                                <span class="review-count text-muted ms-1">(@product.ReviewCount)</span>
+                                            </div>
                                         </div>
                                         @if (product.HasDiscount && product.DiscountPrice.HasValue)
                                         {
                                             <div class="d-flex align-items-center gap-2">
-                                                <p class="card-text product-price mb-0 fw-bold text-danger" style="font-size: 1.2rem;">@product.DiscountPrice.Value.ToString("N0") ₺</p>
-                                                <p class="card-text mb-0 text-decoration-line-through text-muted" style="font-size: 0.9rem;">@product.Price.ToString("N0") ₺</p>
+                                                <p class="card-text product-price mb-0 fw-bold text-danger" style="font-size: 1.2rem;">
+                                                    @product.DiscountPrice.Value.ToString("N2") ₺
+                                                </p>
+                                                <p class="card-text mb-0 text-decoration-line-through text-muted" style="font-size: 0.9rem;">
+                                                    @product.Price.ToString("N2") ₺
+                                                </p>
                                             </div>
                                         }
                                         else
                                         {
-                                            <p class="card-text product-price">@product.Price.ToString("N0") ₺</p>
+                                            <p class="card-text product-price">@product.Price.ToString("N2") ₺</p>
                                         }
                                     </div>
                                     <div class="card-footer bg-transparent border-top-0">
