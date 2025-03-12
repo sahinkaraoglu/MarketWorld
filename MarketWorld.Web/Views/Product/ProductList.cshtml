@@ -14,7 +14,14 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb product-breadcrumb">
             <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
-            <li class="breadcrumb-item"><a href="#">@Model.FirstOrDefault()?.CategoryName</a></li>
+            @if (ViewBag.SearchQuery != null)
+            {
+                <li class="breadcrumb-item active">Arama Sonuçları: "@ViewBag.SearchQuery"</li>
+            }
+            else
+            {
+                <li class="breadcrumb-item"><a href="#">@Model.FirstOrDefault()?.CategoryName</a></li>
+            }
         </ol>
     </nav>
 

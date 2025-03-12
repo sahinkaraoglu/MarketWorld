@@ -12,13 +12,15 @@
                     <h1 class="display-3 fw-bold mb-4">Alışverişin En Şık Adresi</h1>
                     <p class="lead fs-4 mb-5">Binlerce marka, milyonlarca ürün ve özel fırsatlar MarketWorld'de!</p>
                     <div class="search-container">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Ne aramıştınız?">
-                            <button class="btn btn-primary">
-                                <i class="bi bi-search"></i>
-                                <span class="ms-2">Ara</span>
-                            </button>
-                        </div>
+                        <form action="@Url.Action("Search", "Product")" method="get">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="query" placeholder="Ne aramıştınız?" required>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-search"></i>
+                                    <span class="ms-2">Ara</span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

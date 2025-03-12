@@ -138,5 +138,51 @@ namespace MarketWorld.Web.Controllers
             
             return Json(subCategories);
         }
+
+        public async Task<IActionResult> Search(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var products = await _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .Where(p => p.Name.Contains(query) || 
+                           p.Description.Contains(query) ||
+                           p.Brand.Name.Contains(query) ||
+                           p.SubCategory.Name.Contains(query) ||
+                           p.SubCategory.Category.Name.Contains(query))
+                .Select(p => new ProductViewModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    Price = p.Price,
+                    DiscountPrice = p.DiscountPrice,
+                    HasDiscount = p.HasDiscount,
+                    ImageUrl = p.Images.FirstOrDefault() != null ?
+                              $"/{p.Images.FirstOrDefault().Path}" :
+                              "/img/default-product.jpg",
+                    BrandName = p.Brand.Name,
+                    CategoryName = p.SubCategory.Category.Name,
+                    Rating = p.Rating,
+                    ReviewCount = 100,
+                    HasFreeShipping = p.Price > 45000
+                })
+                .ToListAsync();
+
+            var brands = await _context.Brands
+                .Where(b => !b.IsDeleted)
+                .OrderBy(b => b.Name)
+                .ToListAsync();
+
+            ViewBag.Brands = brands;
+            ViewBag.SearchQuery = query;
+            return View("ProductList", products);
+        }
     }
 } 
