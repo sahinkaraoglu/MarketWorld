@@ -192,25 +192,29 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 {
                     Id = 1,
                     Name = "Apple",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    SubCategoryId = 3
                 },
                 new Brand
                 {
                     Id = 2,
                     Name = "Samsung",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    SubCategoryId = 3
                 },
                 new Brand
                 {
                     Id = 3,
                     Name = "Xiaomi",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    SubCategoryId = 3
                 },
                 new Brand
                 {
                     Id = 4,
                     Name = "Huawei",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    SubCategoryId = 3
                 }
             };
         }

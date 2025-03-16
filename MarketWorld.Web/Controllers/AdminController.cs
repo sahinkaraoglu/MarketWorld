@@ -264,5 +264,10 @@ namespace MarketWorld.Web.Controllers
                 return BadRequest($"Özellik değerleri getirilirken hata oluştu: {ex.Message}");
             }
         }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 } 

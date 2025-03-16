@@ -1,0 +1,136 @@
+@{
+    ViewData["Title"] = "Yönetim Paneli";
+}
+
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h1 class="display-5 fw-bold">MarketWorld Yönetim Paneli</h1>
+        </div>
+    </div>
+
+
+    <div class="row g-4">
+        <!-- Ürün Yönetimi -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box bg-primary text-white me-3">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <h5 class="card-title mb-0">Ürün Yönetimi</h5>
+                    </div>
+                    <p class="card-text">Ürünleri ekleyin, düzenleyin ve yönetin. Stok durumlarını takip edin.</p>
+                    <a href="@Url.Action("Products", "Admin")" class="btn btn-primary">Ürünlere Git</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kategori Yönetimi -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box bg-success text-white me-3">
+                            <i class="bi bi-grid"></i>
+                        </div>
+                        <h5 class="card-title mb-0">Kategori Yönetimi</h5>
+                    </div>
+                    <p class="card-text">Kategorileri ve alt kategorileri düzenleyin, yeni kategoriler ekleyin.</p>
+                    <a href="@Url.Action("Categories", "Admin")" class="btn btn-success">Kategorilere Git</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sipariş Yönetimi -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box bg-info text-white me-3">
+                            <i class="bi bi-cart-check"></i>
+                        </div>
+                        <h5 class="card-title mb-0">Sipariş Yönetimi</h5>
+                    </div>
+                    <p class="card-text">Siparişleri görüntüleyin, durumlarını güncelleyin ve takip edin.</p>
+                    <a href="#" class="btn btn-info">Siparişlere Git</a>
+                </div>
+            </div>
+        </div>
+        <p>
+        <!-- Kullanıcı Yönetimi -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box bg-warning text-white me-3">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h5 class="card-title mb-0">Kullanıcı Yönetimi</h5>
+                    </div>
+                    <p class="card-text">Kullanıcıları yönetin, yetkilendirme ve rol atamaları yapın.</p>
+                    <a href="#" class="btn btn-warning">Kullanıcılara Git</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marka Yönetimi -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box bg-danger text-white me-3">
+                            <i class="bi bi-award"></i>
+                        </div>
+                        <h5 class="card-title mb-0">Marka Yönetimi</h5>
+                    </div>
+                    <p class="card-text">Markaları ekleyin, düzenleyin ve kategorilerle ilişkilendirin.</p>
+                    <a href="#" class="btn btn-danger">Markalara Git</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Raporlar -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box bg-secondary text-white me-3">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h5 class="card-title mb-0">Raporlar</h5>
+                    </div>
+                    <p class="card-text">Satış raporları, stok durumu ve müşteri analizlerini görüntüleyin.</p>
+                    <a href="#" class="btn btn-secondary">Raporlara Git</a>
+                </div>
+            </div>
+        </div><p>
+    </div>
+</div>
+
+<style>
+    .icon-box {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .icon-box i {
+        font-size: 24px;
+    }
+    
+    .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: none;
+        border-radius: 12px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+</style>
