@@ -21,6 +21,7 @@ namespace MarketWorld.Web.Controllers
                 .Include(p => p.SubCategory)
                     .ThenInclude(sc => sc.Category)
                 .Include(p => p.Brand)
+                .Include(p => p.Images)
                 .ToListAsync();
 
             var viewModel = products.Select(p => new ProductAdminViewModel
@@ -29,6 +30,9 @@ namespace MarketWorld.Web.Controllers
                 Name = p.Name,
                 Price = p.Price,
                 Stock = p.Stock,
+                ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
+                    $"/{p.Images.FirstOrDefault().Path}" : 
+                    "/img/ProductsPicture/default.jpg",
                 CategoryId = p.SubCategory?.CategoryId ?? 0,
                 CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
                 SubCategoryId = p.SubCategoryId ?? 0,
@@ -136,10 +140,10 @@ namespace MarketWorld.Web.Controllers
                     if (imageFile.Length > 0)
                     {
                         var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-                        var filePath = Path.Combine("wwwroot", "img", "products", fileName);
+                        var filePath = Path.Combine("wwwroot", "img", "ProductsPicture", fileName);
 
                         // Dizin yoksa oluştur
-                        Directory.CreateDirectory(Path.Combine("wwwroot", "img", "products"));
+                        Directory.CreateDirectory(Path.Combine("wwwroot", "img", "ProductsPicture"));
 
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
@@ -148,7 +152,7 @@ namespace MarketWorld.Web.Controllers
 
                         product.Images.Add(new Image
                         {
-                            Path = $"img/products/{fileName}",
+                            Path = $"img/ProductsPicture/{fileName}",
                             EntityId = product.Id
                         });
                     }

@@ -152,7 +152,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 1,
                     Name = "Elektronik",
-                    SeoName = "elektronik",
+                    ShortenedEntityName = "elektronik",
                     Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
                     CreatedDate = DateTime.Now
                 },
@@ -160,7 +160,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 2,
                     Name = "Giyim & Aksesuar",
-                    SeoName = "giyim-aksesuar",
+                    ShortenedEntityName = "giyim-aksesuar",
                     Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
                     CreatedDate = DateTime.Now
                 },
@@ -168,7 +168,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 3,
                     Name = "Ev & Yaşam",
-                    SeoName = "ev-yasam",
+                    ShortenedEntityName = "ev-yasam",
                     Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
                     CreatedDate = DateTime.Now
                 },
@@ -176,7 +176,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 4,
                     Name = "Kozmetik & Kişisel Bakım",
-                    SeoName = "kozmetik-kisisel-bakim",
+                    ShortenedEntityName = "kozmetik-kisisel-bakim",
                     Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
                     CreatedDate = DateTime.Now
                 },
@@ -184,7 +184,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 5,
                     Name = "Spor & Outdoor",
-                    SeoName = "spor-outdoor",
+                    ShortenedEntityName = "spor-outdoor",
                     Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
                     CreatedDate = DateTime.Now
                 }
@@ -197,7 +197,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 1,
                     Name = "Bilgisayarlar & Tabletler",
-                    SeoName = "bilgisayarlar-tabletler",
+                    ShortenedEntityName = "bilgisayarlar-tabletler",
                     Description = "Dizüstü, masaüstü bilgisayarlar ve tabletler",
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
@@ -206,7 +206,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 2,
                     Name = "Yazıcılar & Projeksiyon",
-                    SeoName = "yazicilar-projeksiyon",
+                    ShortenedEntityName = "yazicilar-projeksiyon",
                     Description = "Yazıcılar, tarayıcılar ve projeksiyon cihazları",
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
@@ -215,7 +215,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 3,
                     Name = "Telefonlar",
-                    SeoName = "telefonlar",
+                    ShortenedEntityName = "telefonlar",
                     Description = "Akıllı telefonlar ve aksesuarları",
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
@@ -224,7 +224,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 4,
                     Name = "Beyaz Eşya",
-                    SeoName = "beyaz-esya",
+                    ShortenedEntityName = "beyaz-esya",
                     Description = "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar",
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
@@ -233,7 +233,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 5,
                     Name = "Klima ve Isıtıcılar",
-                    SeoName = "klima-isitici",
+                    ShortenedEntityName = "klima-isitici",
                     Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
                     CategoryId = 1,
                     CreatedDate = DateTime.Now
@@ -244,7 +244,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 6,
                     Name = "Ayakkabı & Çanta",
-                    SeoName = "ayakkabi-canta",
+                    ShortenedEntityName = "ayakkabi-canta",
                     Description = "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar",
                     CategoryId = 2,
                     CreatedDate = DateTime.Now
@@ -253,7 +253,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 7,
                     Name = "Kadın Giyim",
-                    SeoName = "kadin-giyim",
+                    ShortenedEntityName = "kadin-giyim",
                     Description = "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim",
                     CategoryId = 2,
                     CreatedDate = DateTime.Now
@@ -262,7 +262,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 8,
                     Name = "Erkek Giyim",
-                    SeoName = "erkek-giyim",
+                    ShortenedEntityName = "erkek-giyim",
                     Description = "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim",
                     CategoryId = 2,
                     CreatedDate = DateTime.Now
@@ -271,7 +271,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 9,
                     Name = "Çocuk Giyim",
-                    SeoName = "cocuk-giyim",
+                    ShortenedEntityName = "cocuk-giyim",
                     Description = "Kız ve erkek çocuk giyim ürünleri",
                     CategoryId = 2,
                     CreatedDate = DateTime.Now
@@ -282,7 +282,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 10,
                     Name = "Mobilya",
-                    SeoName = "mobilya",
+                    ShortenedEntityName = "mobilya",
                     Description = "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları",
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
@@ -291,7 +291,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 11,
                     Name = "Ev Tekstili",
-                    SeoName = "ev-tekstili",
+                    ShortenedEntityName = "ev-tekstili",
                     Description = "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri",
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
@@ -300,7 +300,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 12,
                     Name = "Dekorasyon & Aydınlatma",
-                    SeoName = "dekorasyon-aydinlatma",
+                    ShortenedEntityName = "dekorasyon-aydinlatma",
                     Description = "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri",
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
@@ -309,7 +309,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 13,
                     Name = "Mutfak Gereçleri",
-                    SeoName = "mutfak-gerecleri",
+                    ShortenedEntityName = "mutfak-gerecleri",
                     Description = "Pişirme, servis ve saklama ürünleri, mutfak aletleri",
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
@@ -318,7 +318,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 14,
                     Name = "Banyo & Ev Gereçleri",
-                    SeoName = "banyo-ev-gerecleri",
+                    ShortenedEntityName = "banyo-ev-gerecleri",
                     Description = "Banyo aksesuarları, temizlik ve düzenleme ürünleri",
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
@@ -327,7 +327,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 15,
                     Name = "Kırtasiye & Ofis",
-                    SeoName = "kirtasiye-ve-ofis",
+                    ShortenedEntityName = "kirtasiye-ve-ofis",
                     Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                     CategoryId = 3,
                     CreatedDate = DateTime.Now
@@ -338,7 +338,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 16,
                     Name = "Parfüm & Deodorant",
-                    SeoName = "parfum-deodorant",
+                    ShortenedEntityName = "parfum-deodorant",
                     Description = "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri",
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
@@ -347,7 +347,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 17,
                     Name = "Saç Şekillendirme",
-                    SeoName = "sac-sekillendirme",
+                    ShortenedEntityName = "sac-sekillendirme",
                     Description = "Saç bakım ve şekillendirme ürünleri",
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
@@ -356,7 +356,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 18,
                     Name = "Cilt Bakımı",
-                    SeoName = "cilt-bakimi",
+                    ShortenedEntityName = "cilt-bakimi",
                     Description = "Yüz ve vücut bakım ürünleri, kremler ve serumlar",
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
@@ -365,7 +365,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 19,
                     Name = "Makyaj",
-                    SeoName = "makyaj",
+                    ShortenedEntityName = "makyaj",
                     Description = "Renkli kozmetik ve makyaj malzemeleri",
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
@@ -374,7 +374,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 20,
                     Name = "Sağlık & Medikal Ürünler",
-                    SeoName = "saglik-medikal-urunler",
+                    ShortenedEntityName = "saglik-medikal-urunler",
                     Description = "Vitamin, takviye gıdalar ve medikal ürünler",
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
@@ -383,7 +383,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 21,
                     Name = "Ağız & Diş Bakımı",
-                    SeoName = "agiz-dis-bakimi",
+                    ShortenedEntityName = "agiz-dis-bakimi",
                     Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
                     CategoryId = 4,
                     CreatedDate = DateTime.Now
@@ -394,7 +394,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 22,
                     Name = "Fitness & Kondisyon",
-                    SeoName = "fitness-kondisyon",
+                    ShortenedEntityName = "fitness-kondisyon",
                     Description = "Fitness ekipmanları, kondisyon aletleri ve aksesuarları",
                     CategoryId = 5,
                     CreatedDate = DateTime.Now
@@ -403,7 +403,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 23,
                     Name = "Spor Giyim & Ayakkabı",
-                    SeoName = "spor-giyim-ayakkabi",
+                    ShortenedEntityName = "spor-giyim-ayakkabi",
                     Description = "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar",
                     CategoryId = 5,
                     CreatedDate = DateTime.Now
@@ -412,7 +412,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 24,
                     Name = "Outdoor & Kamp",
-                    SeoName = "outdoor-kamp",
+                    ShortenedEntityName = "outdoor-kamp",
                     Description = "Kamp malzemeleri, outdoor giyim ve ekipmanlar",
                     CategoryId = 5,
                     CreatedDate = DateTime.Now
@@ -421,7 +421,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 25,
                     Name = "Kış Sporları",
-                    SeoName = "kis-sporlari",
+                    ShortenedEntityName = "kis-sporlari",
                     Description = "Kayak ekipmanları ve kış sporları malzemeleri",
                     CategoryId = 5,
                     CreatedDate = DateTime.Now
@@ -430,7 +430,7 @@ namespace MarketWorld.Infrastructure.Data
                 {
                     Id = 26,
                     Name = "Su Sporları",
-                    SeoName = "su-sporlari",
+                    ShortenedEntityName = "su-sporlari",
                     Description = "Yüzme ve su sporları ekipmanları",
                     CategoryId = 5,
                     CreatedDate = DateTime.Now

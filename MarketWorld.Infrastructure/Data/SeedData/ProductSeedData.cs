@@ -226,7 +226,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 1,
-                    Path = "img/ProducsPicture/Telephones/TelephoneOne/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneOne/resimbir.jpg",
                     EntityId = 1,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -234,7 +234,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 2,
-                    Path = "img/ProducsPicture/Telephones/TelephoneOne/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneOne/resimiki.jpg",
                     EntityId = 1,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -242,7 +242,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 3,
-                    Path = "img/ProducsPicture/Telephones/TelephoneOne/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneOne/resimuc.jpg",
                     EntityId = 1,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -250,7 +250,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 4,
-                    Path = "img/ProducsPicture/Telephones/TelephoneOne/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneOne/resimdort.jpg",
                     EntityId = 1,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -258,7 +258,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 5,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneTwo/resimbir.jpg",
                     EntityId = 2,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -266,7 +266,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 6,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneTwo/resimiki.jpg",
                     EntityId = 2,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -274,7 +274,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 7,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneTwo/resimuc.jpg",
                     EntityId = 2,
                     EntityType = (int) EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -282,7 +282,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 8,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTwo/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneTwo/resimdort.jpg",
                     EntityId = 2,
                     EntityType = (int) EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -290,7 +290,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 9,
-                    Path = "img/ProducsPicture/Telephones/TelephoneThree/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneThree/resimbir.jpg",
                     EntityId = 3,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -298,7 +298,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 10,
-                    Path = "img/ProducsPicture/Telephones/TelephoneThree/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneThree/resimiki.jpg",
                     EntityId = 3,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -306,7 +306,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 11,
-                    Path = "img/ProducsPicture/Telephones/TelephoneThree/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneThree/resimuc.jpg",
                     EntityId = 3,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -314,7 +314,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 12,
-                    Path = "img/ProducsPicture/Telephones/TelephoneThree/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneThree/resimdort.jpg",
                     EntityId = 3,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -323,7 +323,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 13,
-                    Path = "img/ProducsPicture/Telephones/TelephoneFour/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneFour/resimbir.jpg",
                     EntityId = 4,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -331,7 +331,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 14,
-                    Path = "img/ProducsPicture/Telephones/TelephoneFour/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneFour/resimiki.jpg",
                     EntityId = 4,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -339,7 +339,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 15,
-                    Path = "img/ProducsPicture/Telephones/TelephoneFour/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneFour/resimuc.jpg",
                     EntityId = 4,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -347,7 +347,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 16,
-                    Path = "img/ProducsPicture/Telephones/TelephoneFour/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneFour/resimdort.jpg",
                     EntityId = 4,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -357,7 +357,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 17,
-                    Path = "img/ProducsPicture/Telephones/TelephoneFive/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneFive/resimbir.jpg",
                     EntityId = 5,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -365,7 +365,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 18,
-                    Path = "img/ProducsPicture/Telephones/TelephoneFive/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneFive/resimiki.jpg",
                     EntityId = 5,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -373,7 +373,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 19,
-                    Path = "img/ProducsPicture/Telephones/TelephoneFive/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneFive/resimuc.jpg",
                     EntityId = 5,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -381,7 +381,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 20,
-                    Path = "img/ProducsPicture/Telephones/TelephoneFive/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneFive/resimdort.jpg",
                     EntityId = 5,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -391,7 +391,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 21,
-                    Path = "img/ProducsPicture/Telephones/TelephoneSix/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneSix/resimbir.jpg",
                     EntityId = 6,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -399,7 +399,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 22,
-                    Path = "img/ProducsPicture/Telephones/TelephoneSix/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneSix/resimiki.jpg",
                     EntityId = 6,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -407,7 +407,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 23,
-                    Path = "img/ProducsPicture/Telephones/TelephoneSix/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneSix/resimuc.jpg",
                     EntityId = 6,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -415,7 +415,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 24,
-                    Path = "img/ProducsPicture/Telephones/TelephoneSix/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneSix/resimdort.jpg",
                     EntityId = 6,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -425,7 +425,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 25,
-                    Path = "img/ProducsPicture/Telephones/TelephoneSeven/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneSeven/resimbir.jpg",
                     EntityId = 7,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -433,7 +433,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 26,
-                    Path = "img/ProducsPicture/Telephones/TelephoneSeven/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneSeven/resimiki.jpg",
                     EntityId = 7,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -441,7 +441,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 27,
-                    Path = "img/ProducsPicture/Telephones/TelephoneSeven/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneSeven/resimuc.jpg",
                     EntityId = 7,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -449,7 +449,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 28,
-                    Path = "img/ProducsPicture/Telephones/TelephoneSeven/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneSeven/resimdort.jpg",
                     EntityId = 7,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -459,7 +459,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 29,
-                    Path = "img/ProducsPicture/Telephones/TelephoneEight/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneEight/resimbir.jpg",
                     EntityId = 8,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -467,7 +467,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 30,
-                    Path = "img/ProducsPicture/Telephones/TelephoneEight/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneEight/resimiki.jpg",
                     EntityId = 8,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -475,7 +475,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 31,
-                    Path = "img/ProducsPicture/Telephones/TelephoneEight/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneEight/resimuc.jpg",
                     EntityId = 8,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -483,7 +483,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 32,
-                    Path = "img/ProducsPicture/Telephones/TelephoneEight/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneEight/resimdort.jpg",
                     EntityId = 8,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -493,7 +493,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 33,
-                    Path = "img/ProducsPicture/Telephones/TelephoneNine/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneNine/resimbir.jpg",
                     EntityId = 9,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -501,7 +501,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 34,
-                    Path = "img/ProducsPicture/Telephones/TelephoneNine/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneNine/resimiki.jpg",
                     EntityId = 9,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -509,7 +509,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 35,
-                    Path = "img/ProducsPicture/Telephones/TelephoneNine/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneNine/resimuc.jpg",
                     EntityId = 9,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -517,7 +517,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 36,
-                    Path = "img/ProducsPicture/Telephones/TelephoneNine/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneNine/resimdort.jpg",
                     EntityId = 9,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -527,7 +527,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 37,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTen/resimbir.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneTen/resimbir.jpg",
                     EntityId = 10,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -535,7 +535,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 38,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTen/resimiki.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneTen/resimiki.jpg",
                     EntityId = 10,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -543,7 +543,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 39,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTen/resimuc.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneTen/resimuc.jpg",
                     EntityId = 10,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -551,7 +551,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 40,
-                    Path = "img/ProducsPicture/Telephones/TelephoneTen/resimdort.jpg",
+                    Path = "img/ProductsPicture/Telephones/TelephoneTen/resimdort.jpg",
                     EntityId = 10,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -559,7 +559,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 41,
-                    Path = "img/ProducsPicture/Pc/PcOne/resimbir.jpg",
+                    Path = "img/ProductsPicture/Pc/PcOne/resimbir.jpg",
                     EntityId = 11,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -567,7 +567,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 42,
-                    Path = "img/ProducsPicture/Pc/PcOne/resimiki.jpg",
+                    Path = "img/ProductsPicture/Pc/PcOne/resimiki.jpg",
                     EntityId = 11,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -575,7 +575,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 43,
-                    Path = "img/ProducsPicture/Pc/PcOne/resimuc.jpg",
+                    Path = "img/ProductsPicture/Pc/PcOne/resimuc.jpg",
                     EntityId = 11,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
@@ -583,7 +583,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new Image
                 {
                     Id = 44,
-                    Path = "img/ProducsPicture/Pc/PcOne/resimdort.jpg",
+                    Path = "img/ProductsPicture/Pc/PcOne/resimdort.jpg",
                     EntityId = 11,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now

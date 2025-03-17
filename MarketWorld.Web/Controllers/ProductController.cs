@@ -19,14 +19,14 @@ namespace MarketWorld.Web.Controllers
 
         private async Task<IActionResult> GetProductsBySubCategoryName(string subCategoryName)
         {
-            var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.SeoName.ToLower() == subCategoryName.ToLower());
+            var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
 
             var products = await _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
                 .Include(p => p.SubCategory)
                 .ThenInclude(sc => sc.Category)
-                .Where(p => p.SubCategory.SeoName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted)
+                .Where(p => p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted)
                 .Select(p => new ProductViewModel
                 {
                     Id = p.Id,
@@ -133,7 +133,7 @@ namespace MarketWorld.Web.Controllers
         public async Task<IActionResult> ListSubCategories()
         {
             var subCategories = await _context.SubCategories
-                .Select(sc => new { sc.Id, sc.Name, sc.SeoName, sc.CategoryId })
+                .Select(sc => new { sc.Id, sc.Name, sc.ShortenedEntityName, sc.CategoryId })
                 .ToListAsync();
             
             return Json(subCategories);

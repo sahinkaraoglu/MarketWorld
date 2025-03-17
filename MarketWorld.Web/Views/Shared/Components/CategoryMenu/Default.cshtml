@@ -15,7 +15,7 @@
                     @foreach (var subCategory in category.SubCategories)
                     {
                         <li>
-                            <a class="dropdown-item" href="@Url.Action("ListBySubCategory", "Product", new { subCategoryName = subCategory.SeoName })">
+                            <a class="dropdown-item" href="@Url.Action("ListBySubCategory", "Product", new { subCategoryName = subCategory.ShortenedEntityName })">
                                 @subCategory.Name
                             </a>
                         </li>
