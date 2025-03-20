@@ -71,16 +71,16 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new ProductProperty { Id = 2, ProductId = 1, PropertyTypeId = 1, PropertyValueId = 2, Stock = 45, IsActive = true, CreatedDate = DateTime.Now }, // Altın
                 new ProductProperty { Id = 3, ProductId = 1, PropertyTypeId = 1, PropertyValueId = 3, Stock = 40, IsActive = true, CreatedDate = DateTime.Now }, // Gümüş
                 new ProductProperty { Id = 4, ProductId = 1, PropertyTypeId = 1, PropertyValueId = 4, Stock = 35, IsActive = true, CreatedDate = DateTime.Now }, // Mor
-                new ProductProperty { Id = 5, ProductId = 1, PropertyTypeId = 2, PropertyValueId = 5, Stock = 100, IsActive = true, CreatedDate = DateTime.Now }, // 128GB
+                new ProductProperty { Id = 5, ProductId = 1, PropertyTypeId = 3, PropertyValueId = 5, Stock = 100, IsActive = true, CreatedDate = DateTime.Now }, // 128GB
 
                 // 256GB Seçenekleri
-                new ProductProperty { Id = 6, ProductId = 1, PropertyTypeId = 2, PropertyValueId = 6, Stock = 75, IsActive = true, CreatedDate = DateTime.Now }, // 256GB
+                new ProductProperty { Id = 6, ProductId = 1, PropertyTypeId = 3, PropertyValueId = 6, Stock = 75, IsActive = true, CreatedDate = DateTime.Now }, // 256GB
 
                 // 512GB Seçenekleri
-                new ProductProperty { Id = 7, ProductId = 1, PropertyTypeId = 2, PropertyValueId = 7, Stock = 50, IsActive = true, CreatedDate = DateTime.Now }, // 512GB
+                new ProductProperty { Id = 7, ProductId = 1, PropertyTypeId = 3, PropertyValueId = 7, Stock = 50, IsActive = true, CreatedDate = DateTime.Now }, // 512GB
 
                 // 1TB Seçenekleri
-                new ProductProperty { Id = 8, ProductId = 1, PropertyTypeId = 2, PropertyValueId = 8, Stock = 25, IsActive = true, CreatedDate = DateTime.Now }  // 1TB
+                new ProductProperty { Id = 8, ProductId = 1, PropertyTypeId = 3, PropertyValueId = 8, Stock = 25, IsActive = true, CreatedDate = DateTime.Now }  // 1TB
             };
         }
     }
