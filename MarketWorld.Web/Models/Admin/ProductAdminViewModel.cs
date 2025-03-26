@@ -8,7 +8,7 @@ namespace MarketWorld.Web.Models.Admin
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
-        public int Rating { get; set; }
+        public decimal Rating { get; set; }
         public string Status { get; set; }
         public string ImageUrl { get; set; } = "/img/ProductsPicture/default.jpg";
         public int CategoryId { get; set; }

@@ -30,6 +30,8 @@ namespace MarketWorld.Web.Controllers
                 Name = p.Name,
                 Price = p.Price,
                 Stock = p.Stock,
+                Rating = p.Rating,
+                Status = p.IsActive ? "Published" : "Draft",
                 ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
                     $"/{p.Images.FirstOrDefault().Path}" : 
                     "/img/ProductsPicture/default.jpg",

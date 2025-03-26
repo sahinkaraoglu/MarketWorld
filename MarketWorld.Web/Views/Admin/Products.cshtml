@@ -105,21 +105,22 @@
                                         {
                                             <i class="bi bi-star-fill text-warning"></i>
                                         }
+                                        else if (i - product.Rating < 1 && i - product.Rating > 0)
+                                        {
+                                            <i class="bi bi-star-half text-warning"></i>
+                                        }
                                         else
                                         {
                                             <i class="bi bi-star text-warning"></i>
                                         }
                                     }
+                                    <span class="ms-1">(@product.Rating)</span>
                                 </div>
                             </td>
                             <td>
                                 @if (product.Status == "Published")
                                 {
-                                    <span class="badge bg-success-subtle text-success">Yayında</span>
-                                }
-                                else if (product.Status == "Scheduled")
-                                {
-                                    <span class="badge bg-primary-subtle text-primary">Planlandı</span>
+                                    <span class="badge bg-success-subtle text-success">Aktif</span>
                                 }
                                 else
                                 {
