@@ -31,7 +31,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 {
                     Id = 1,
                     FirstName = "Þahin",
-                    Username = "admin",
+                    Username = "sahinkaraoglu",
                     Password = "123",
                     UserRoleId = 1,
                     Email = "admin@admin.com"

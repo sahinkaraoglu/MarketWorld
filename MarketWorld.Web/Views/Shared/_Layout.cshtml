@@ -96,11 +96,22 @@
 
                         @if (Context.Session.GetInt32("UserId").HasValue)
                         {
+                            
                             <li class="nav-item">
                                 <a class="nav-link border border-danger rounded px-3 text-danger" asp-controller="Login" asp-action="Logout">
+                                    <i class="bi bi-box-arrow-right me-1"></i>
                                     Çıkış
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <span class="nav-link">
+                                    <i class="bi bi-person-circle me-1"></i>
+                                    <span>@Context.Session.GetString("Username")</span>
+                                </span>
+                            </li>
+
+
                         }
                         else
                         {

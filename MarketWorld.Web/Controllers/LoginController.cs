@@ -40,6 +40,7 @@ namespace MarketWorld.Web.Controllers
                 // Kullanıcı girişi başarılı
                 HttpContext.Session.SetInt32("UserId", user.Id);
                 HttpContext.Session.SetString("UserEmail", user.Email);
+                HttpContext.Session.SetString("Username", user.Username);
                 return RedirectToAction("Index", "Home");
             }
             else
