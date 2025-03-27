@@ -4,35 +4,34 @@
 
 <link rel="stylesheet" href="~/css/order-tracking.css" />
 
-<div class="container mt-5">
+<div class="container">
     <div class="tracking-header text-center">
-        <i class="bi bi-box-seam display-1 mb-4"></i>
+        <i class="bi bi-box-seam"></i>
         <h1>Sipariş Takibi</h1>
-        <p class="text-muted">Siparişinizin güncel durumunu takip edin</p>
+        <p>Siparişinizin durumunu anlık olarak teslimat sürecini yakından izleyin</p>
     </div>
 
-    <div class="tracking-search mt-4">
+    <div class="tracking-search">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Sipariş takip numaranızı giriniz">
+            <div class="col-md-8">
+                <form class="input-group">
+                    <input type="text" class="form-control" placeholder="Sipariş takip numaranızı giriniz" required>
                     <button class="btn btn-primary" type="submit">
                         <i class="bi bi-search me-2"></i>Sorgula
                     </button>
-                </div>
-                <small class="text-muted mt-2 d-block text-center">Örnek: 1234567890</small>
+                </form>
             </div>
         </div>
     </div>
 
-    <div class="tracking-timeline mt-5">
+    <div class="tracking-timeline">
         <div class="timeline-item completed">
             <div class="timeline-icon">
                 <i class="bi bi-shop"></i>
             </div>
             <div class="timeline-content">
                 <h6>Mağazadan Çıkış</h6>
-                <p>Siparişiniz mağazadan çıkış yaptı</p>
+                <p>Hazırlık sürecinde</p>
                 <small>12 Mart 2024, 14:30</small>
             </div>
         </div>
@@ -43,7 +42,7 @@
             </div>
             <div class="timeline-content">
                 <h6>Transfer Merkezinde</h6>
-                <p>Siparişiniz ana transfer merkezine ulaştı</p>
+                <p>Yönlendirme yapılıyor</p>
                 <small>12 Mart 2024, 18:45</small>
             </div>
         </div>
@@ -54,7 +53,7 @@
             </div>
             <div class="timeline-content">
                 <h6>Dağıtım Merkezinde</h6>
-                <p>Siparişiniz size en yakın dağıtım merkezinde</p>
+                <p>Hazırlanıyor</p>
                 <small>13 Mart 2024, 09:15</small>
             </div>
         </div>
@@ -65,8 +64,8 @@
             </div>
             <div class="timeline-content">
                 <h6>Dağıtıma Çıktı</h6>
-                <p>Siparişiniz dağıtıma çıktı</p>
-                <small>Bekleniyor</small>
+                <p>Yola çıktı</p>
+                <small>Yakında</small>
             </div>
         </div>
 
@@ -76,48 +75,49 @@
             </div>
             <div class="timeline-content">
                 <h6>Teslim Edildi</h6>
-                <p>Siparişiniz adrese teslim edildi</p>
-                <small>Bekleniyor</small>
+                <p>Teslim edildi</p>
+                <small>Yakında</small>
             </div>
         </div>
     </div>
+    <br <br /><br /><br /><br /><br />
 
-    <div class="tracking-info mt-5">
+    <div class="tracking-info">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="info-cards">
                     <div class="info-card">
                         <i class="bi bi-clock-history"></i>
                         <h6>Teslimat Süresi</h6>
-                        <p>2-3 iş günü içinde teslimat</p>
+                        <p>Siparişleriniz ortalama 2-3 iş günü içinde teslim edilir. Acil teslimat seçeneği ile aynı gün teslimat imkanı sunuyoruz.</p>
                     </div>
                     <div class="info-card">
                         <i class="bi bi-shield-check"></i>
                         <h6>Güvenli Teslimat</h6>
-                        <p>Temassız ve güvenli teslimat</p>
+                        <p>Tüm teslimatlarımız temassız ve güvenli bir şekilde gerçekleştirilir. Kargo personelimiz gerekli tüm önlemleri alır.</p>
                     </div>
                     <div class="info-card">
                         <i class="bi bi-geo"></i>
                         <h6>Adres Değişikliği</h6>
-                        <p>Teslimat adresi güncellenebilir</p>
+                        <p>Teslimat adresinizi siparişiniz yola çıkmadan önce değiştirebilirsiniz. Değişiklik talepleriniz için müşteri hizmetlerimizle iletişime geçin.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="help-section mt-5">
+    <div class="help-section">
         <div class="row justify-content-center">
             <div class="col-md-8 text-center">
-                <p class="mb-3">Siparişinizle ilgili sorun mu yaşıyorsunuz?</p>
+                <p>Siparişinizle ilgili sorun mu yaşıyorsunuz?</p>
                 <div class="d-flex justify-content-center gap-3">
-                    <a href="tel:+905550001234" class="btn btn-outline-primary btn-sm">
+                    <a href="tel:+905550001234" class="btn btn-outline-primary">
                         <i class="bi bi-telephone me-2"></i>Sipariş Destek
                     </a>
-                    <button class="btn btn-outline-primary btn-sm">
+                    <button class="btn btn-outline-primary">
                         <i class="bi bi-chat-dots me-2"></i>Canlı Destek
                     </button>
-                    <a href="mailto:siparis@marketworld.com" class="btn btn-outline-primary btn-sm">
+                    <a href="mailto:siparis@marketworld.com" class="btn btn-outline-primary">
                         <i class="bi bi-envelope me-2"></i>Mail Gönder
                     </a>
                 </div>
