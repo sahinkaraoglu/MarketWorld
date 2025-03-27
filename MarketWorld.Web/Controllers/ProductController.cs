@@ -58,13 +58,54 @@ namespace MarketWorld.Web.Controllers
             return View("ProductList", products);
         }
 
-        public async Task<IActionResult> ListBySubCategory(string subCategoryName)
+        public async Task<IActionResult> ListBySubCategory(string subCategoryName, int page = 1)
         {
             if (string.IsNullOrEmpty(subCategoryName))
                 return NotFound();
 
+            var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
+            if (subCategory == null)
+                return NotFound();
 
-            return await GetProductsBySubCategoryName(subCategoryName);
+            var pageSize = 12;
+            var query = _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .Where(p => p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted);
+
+            var totalItems = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            var products = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(p => new ProductViewModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    BrandId = p.BrandId,
+                    BrandName = p.Brand.Name,
+                    Price = p.Price,
+                    ImageUrl = p.Images.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
+                    Rating = p.Rating,
+                    ReviewCount = 100,
+                    HasFreeShipping = p.Price > 45000,
+                    Stock = p.Stock,
+                    CategoryName = p.SubCategory.Category.Name,
+                    HasDiscount = p.HasDiscount,
+                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null
+                })
+                .ToListAsync();
+
+            ViewBag.Brands = await _context.Brands.Where(b => !b.IsDeleted).OrderBy(b => b.Name).ToListAsync();
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.SubCategoryName = subCategoryName;
+
+            return View("ProductList", products);
         }
 
         public async Task<IActionResult> Detail(int id)
