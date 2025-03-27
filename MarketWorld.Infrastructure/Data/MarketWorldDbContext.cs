@@ -15,6 +15,7 @@ namespace MarketWorld.Infrastructure.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
@@ -554,6 +555,16 @@ namespace MarketWorld.Infrastructure.Data
                 .HasForeignKey(b => b.SubCategoryId)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<UserRole>().HasData(UserSeedData.GetUserRoles());
+            modelBuilder.Entity<User>().HasData(UserSeedData.GetUser());
+
+            // User ve UserRole arasındaki ilişki
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.UserRole)
+                .WithMany(ur => ur.Users)
+                .HasForeignKey(u => u.UserRoleId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
