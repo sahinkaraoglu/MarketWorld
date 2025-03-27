@@ -22,9 +22,15 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   padding-top: 76px;
   background-color: #fff;
+  line-height: 1.7;
+  color: #334155;
+}
+
+h1, h2, h3, h4, h5, h6, .nav-link, .btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 :root {
@@ -70,13 +76,14 @@ body {
 }
 
 .nav-link {
-    color: var(--dark) !important;
-    font-weight: 500;
+    color: #333 !important;
+    font-weight: 600;
     position: relative;
-    padding: 0.5rem 0 !important;
+    padding: 0.5rem 1rem !important;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-    letter-spacing: 0.3px;
+    letter-spacing: 0;
+    border-radius: 8px;
 }
 
 .nav-link::after {
@@ -93,7 +100,9 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--primary) !important;
+    color: #0d6efd !important;
+    background-color: rgba(13, 110, 253, 0.1);
+    transform: translateY(-2px) !important;
 }
 
 .nav-link:hover::after {
@@ -127,12 +136,13 @@ body {
 }
 
 .dropdown-menu {
-    min-width: 200px;
-    padding: 0.5rem 0;
+    min-width: 220px;
+    padding: 0.8rem 0;
     border: none;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
     margin-top: 0.5rem;
+    animation: dropdownFade 0.3s ease;
 }
 
 @media (min-width: 992px) {
@@ -169,16 +179,18 @@ body {
 }
 
 .dropdown-item {
-    padding: 0.6rem 1.2rem;
-    color: var(--dark);
+    padding: 0.8rem 1.5rem;
+    color: #333;
+    font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    white-space: normal;
-    line-height: 1.4;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .dropdown-item:hover {
-    background-color: var(--light);
-    color: var(--primary);
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+    transform: translateX(5px) !important;
 }
 
 .dropdown-submenu > .dropdown-toggle:after {
@@ -248,6 +260,10 @@ body {
 .footer h6 {
     color: var(--dark);
     margin-bottom: 1rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
     font-size: 0.9rem;
 }
 
@@ -273,7 +289,9 @@ body {
     margin-left: -10px !important;
 }
 
-.footer p {
+.footer p, .footer a {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
     font-size: 0.85rem;
 }
 
@@ -314,17 +332,23 @@ body {
 .hero-content h1 {
     color: var(--dark);
     line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 3.5rem;
 }
 
 .hero-content p {
     color: var(--secondary);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    line-height: 1.8;
 }
 
 .btn {
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
 }
 
 .btn-primary {
@@ -462,8 +486,11 @@ body {
 }
 
 .section-title h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 @media (max-width: 992px) {
@@ -905,16 +932,21 @@ main {
 }
 
 .featured-category-title {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--dark);
     margin-bottom: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.5px;
 }
 
 .featured-category-description {
     color: var(--secondary);
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
 }
 
 .featured-category-link {
