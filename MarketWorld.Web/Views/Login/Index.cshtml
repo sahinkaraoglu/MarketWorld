@@ -5,40 +5,53 @@
 <div class="login-container">
     <div class="login-box">
         <h1>MarketWorld</h1>
-        <p class="subtitle">Hesabınıza giriş yapın</p>
         
-        @if (TempData["ErrorMessage"] != null)
+        @if (Context.Session.GetInt32("UserId").HasValue)
         {
-            <div class="alert alert-danger">
-                @TempData["ErrorMessage"]
+            <div class="logged-in-container">
+                <p class="welcome-text">Hoş geldiniz, @Context.Session.GetString("UserEmail")</p>
+                <a href="@Url.Action("Logout", "Login")" class="logout-btn">Çıkış Yap</a>
             </div>
         }
-        
-        <form method="post" asp-action="Login" asp-controller="Login">
-            <div class="form-group">
-                <label for="username">E-posta</label>
-                <input type="email" id="username" name="username" placeholder="E-posta adresinizi giriniz" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Parola</label>
-                <div class="password-input">
-                    <input type="password" id="password" name="password" placeholder="Parolanızı girin" required>
-                    <button type="button" class="toggle-password" onclick="togglePassword()">
-                        <i class="fas fa-eye"></i>
-                    </button>
+        else
+        {
+            <p class="subtitle">Hesabınıza giriş yapın</p>
+            
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["ErrorMessage"]
                 </div>
-            </div>
-            <div class="form-group remember-me">
-                <label class="checkbox-container">
-                    <input type="checkbox" id="remember" name="remember">
-                    <span class="checkmark"></span>
-                    Beni Hatırla
-                </label>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="login-btn">Giriş Yap</button>
-            </div>
-        </form>
+            }
+            
+            <form method="post" asp-action="Login" asp-controller="Login">
+                <div class="form-group">
+                    <label for="username">E-posta</label>
+                    <div class="password-input">
+                        <input type="email" id="username" name="username" placeholder="E-posta adresinizi giriniz" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Parola</label>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" placeholder="Parolanızı giriniz" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword()">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group remember-me">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="remember" name="remember">
+                        <span class="checkmark"></span>
+                        Beni Hatırla
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="login-btn">Giriş Yap</button>
+                </div>
+            </form>
+        }
     </div>
 </div>
 
@@ -48,7 +61,7 @@
         justify-content: center;
         align-items: center;
         min-height: 80vh;
-        background-color: ghostwhite ;
+        background-color: ghostwhite;
         padding: 1rem;
         margin-top: -50px;
     }
@@ -172,6 +185,33 @@
         color: #c53030;
         border: 1px solid #feb2b2;
     }
+
+    .logged-in-container {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .welcome-text {
+        color: #2d3748;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .logout-btn {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background: #e53e3e;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: background-color 0.2s;
+    }
+
+    .logout-btn:hover {
+        background: #c53030;
+    }
 </style>
 
 <script>
@@ -191,5 +231,4 @@
     }
 </script>
 
-<!-- Font Awesome için CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 

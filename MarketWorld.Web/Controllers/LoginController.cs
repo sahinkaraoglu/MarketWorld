@@ -1,30 +1,58 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MarketWorld.Infrastructure.Data;
 
 namespace MarketWorld.Web.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly MarketWorldDbContext _context;
+
+        public LoginController(MarketWorldDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
+            // Kullanıcı giriş yapmışsa Anasayfaya yönlendir
+            if (HttpContext.Session.GetInt32("UserId").HasValue)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
-            // TODO: Gerçek kimlik doğrulama işlemleri burada yapılacak
-            // Şimdilik basit bir kontrol yapıyoruz
-            if (username == "admin" && password == "123456")
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                // Başarılı giriş
-                return RedirectToAction("Index", "Panel");
+                TempData["ErrorMessage"] = "E-posta ve şifre alanları zorunludur!";
+                return RedirectToAction("Index");
+            }
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == username && u.Password == password && u.IsActive);
+
+            if (user != null)
+            {
+                // Kullanıcı girişi başarılı
+                HttpContext.Session.SetInt32("UserId", user.Id);
+                HttpContext.Session.SetString("UserEmail", user.Email);
+                return RedirectToAction("Index", "Home");
             }
             else
             {
-                // Başarısız giriş
-                TempData["ErrorMessage"] = "Kullanıcı adı veya parola hatalı!";
+                TempData["ErrorMessage"] = "E-posta veya şifre hatalı!";
                 return RedirectToAction("Index");
             }
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 } 

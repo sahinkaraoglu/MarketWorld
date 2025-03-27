@@ -10,6 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Session servisini ekle
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 // DbContext configuration
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -47,6 +55,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseSession(); // Session middleware'ini ekle
 app.UseAuthorization();
 
 app.MapControllerRoute(

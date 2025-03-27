@@ -94,11 +94,22 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link border border-dark rounded px-3" asp-controller="Login" asp-action="Index">
-                                Giriş
-                            </a>
-                        </li>
+                        @if (Context.Session.GetInt32("UserId").HasValue)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link border border-danger rounded px-3 text-danger" asp-controller="Login" asp-action="Logout">
+                                    Çıkış
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link border border-dark rounded px-3" asp-controller="Login" asp-action="Index">
+                                    Giriş
+                                </a>
+                            </li>
+                        }
 
                     </ul>
 
