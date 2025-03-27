@@ -33,7 +33,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Price = 75999.99M,
                     DiscountPrice = 65999.99M,
                     Stock = 150,
-                    BrandId = 2,
+                    BrandId = 9,
                     SubCategoryId = 3,
                     HasDiscount = true,
                     IsActive = true,
@@ -65,7 +65,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Price = 39999.99M,
                     DiscountPrice = 37999.99M,
                     Stock = 75,
-                    BrandId = 3,
+                    BrandId = 8,
                     SubCategoryId = 3,
                     HasDiscount = true,
                     IsActive = true,
@@ -80,7 +80,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Huawei P60 Pro 256 GB",
                     Price = 44999.99M,
                     Stock = 60,
-                    BrandId = 4,
+                    BrandId = 10,
                     SubCategoryId = 3,
                     HasDiscount = false,
                     IsActive = true,
@@ -96,7 +96,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Price = 89999.99M,
                     DiscountPrice = 84999.99M,
                     Stock = 40,
-                    BrandId = 2,
+                    BrandId = 9,
                     SubCategoryId = 3,
                     HasDiscount = true,
                     IsActive = true,
@@ -127,7 +127,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Price = 29999.99M,
                     DiscountPrice = 27999.99M,
                     Stock = 200,
-                    BrandId = 3,
+                    BrandId = 8,
                     SubCategoryId = 3,
                     HasDiscount = true,
                     IsActive = true,
@@ -143,7 +143,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Price = 19999.99M,
                     DiscountPrice = 18499.99M,
                     Stock = 300,
-                    BrandId = 2,
+                    BrandId = 9,
                     SubCategoryId = 3,
                     HasDiscount = true,
                     IsActive = true,
@@ -158,7 +158,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Huawei Nova 11 Pro 256 GB",
                     Price = 34999.99M,
                     Stock = 85,
-                    BrandId = 4,
+                    BrandId = 10,
                     SubCategoryId = 3,
                     HasDiscount = false,
                     IsActive = true,
@@ -180,6 +180,471 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     CategoryId = 1,
                     Rating = 5M,
                     CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 12,
+                    Name = "Casper Excalibur G870.1270",
+                    Description = "Intel Core i7 12700H 32GB 1TB SSD RTX4060 Freedos 15.6\" Taşınabilir Bilgisayar",
+                    Price = 39999.99M,
+                    Stock = 100,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 13,
+                    Name = "MSI Modern 14 C12MO",
+                    Description = "Intel Core i7 1255U 16GB 512GB SSD Freedos 14\" FHD Taşınabilir Bilgisayar",
+                    Price = 21799.99M,
+                    Stock = 75,
+                    BrandId = 6,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 14,
+                    Name = "Casper Nirvana S100",
+                    Description = "Core i7-13620H 32GB DDR5 RAM 1TB NVME SSD 16\" Freedos Taşınabilir Bilgisayar",
+                    Price = 27299.99M,
+                    Stock = 50,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 15,
+                    Name = "Casper Excalibur G870.1362",
+                    Description = "Intel Core i7 13620H 32GB 1TB SSD RTX4060 Freedos 15.6\" Taşınabilir Bilgisayar",
+                    Price = 50199.99M,
+                    Stock = 60,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 16,
+                    Name = "HP 250 G10",
+                    Description = "Intel Core i5 1334U 16GB 512GB SSD Freedos 15.6\" Taşınabilir Bilgisayar",
+                    Price = 14999.99M,
+                    Stock = 100,
+                    BrandId = 4,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.7M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 17,
+                    Name = "Lenovo Ideapad Slim 3",
+                    Description = "Intel Core i5 13420H 16GB Ddr5 Ram 512 GB SSD 16'' WUXGA IPS Panel Freedos Taşınabilir Bilgisayar",
+                    Price = 19799.99M,
+                    Stock = 80,
+                    BrandId = 5,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.9M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 18,
+                    Name = "Lenovo Ideapad 1",
+                    Description = "AMD Ryzen 7 5700U 16GB 512GB SSD Freedos 15.6\" FHD Taşınabilir Bilgisayar",
+                    Price = 15999.99M,
+                    Stock = 90,
+                    BrandId = 5,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 19,
+                    Name = "MSI Thin 15",
+                    Description = "Intel Core i5 12450H 8GB 512GB SSD RTX2050 Freedos 15.6\" Taşınabilir Bilgisayar",
+                    Price = 24799.99M,
+                    Stock = 70,
+                    BrandId = 6,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 20,
+                    Name = "Casper Nirvana C550",
+                    Description = "Intel Core i7 1255U 16GB 500GB SSD Freedos 15.6\" Taşınabilir Bilgisayar",
+                    Price = 18999.99M,
+                    Stock = 85,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 21,
+                    Name = "Lenovo LOQ 15IRX9",
+                    Description = "Intel Core i7 13650HX 32GB 1TB SSD RTX 4060 8GB (115W) 15.6\" FHD 144Hz IPS Panel Freedos Taşınabilir Bilgisayar",
+                    Price = 59999.99M,
+                    Stock = 45,
+                    BrandId = 5,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 22,
+                    Name = "Casper Excalibur G770",
+                    Description = "Intel Core i5-12450H 32GB RAM 500GB SSD GEN4 RTX3050 Freedos Gaming Laptop",
+                    Price = 31299.99M,
+                    Stock = 65,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 23,
+                    Name = "Casper Nirvana X600",
+                    Description = "AMD Ryzen 5 7430U 16GB 500GB SSD Freedos 15.6\" Taşınabilir Bilgisayar",
+                    Price = 16999.99M,
+                    Stock = 80,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 24,
+                    Name = "Acer Aspire 3",
+                    Description = "Intel Core i7 1255U 16GB 512GB SSD Freedos 15.6\" FHD Taşınabilir Bilgisayar",
+                    Price = 24000.00M,
+                    Stock = 70,
+                    BrandId = 7,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 25,
+                    Name = "Casper Nirvana X600.1270",
+                    Description = "Intel Core i7 12700H 32GB 1TB SSD Freedos 15.6\" Taşınabilir Bilgisayar",
+                    Price = 22999.99M,
+                    Stock = 85,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 26,
+                    Name = "Casper Excalibur G870.1342",
+                    Description = "Intel Core i5-13420H 32GB RAM 500GB NVME SSD GEN4 6GB RTX4050 Freedos Gaming Laptop",
+                    Price = 38499.99M,
+                    Stock = 55,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.1M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 27,
+                    Name = "Casper Excalibur G870.1270",
+                    Description = "Intel Core i7 12700H 32GB 1TB SSD RTX4070 Freedos 15.6\" FHD Taşınabilir Bilgisayar",
+                    Price = 50899.99M,
+                    Stock = 40,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 28,
+                    Name = "HP Victus Gaming 15",
+                    Description = "Intel Core i5 13500H 16GB 512GB SSD RTX4050 Freedos 15.6\" FHD Taşınabilir Bilgisayar",
+                    Price = 33999.99M,
+                    Stock = 90,
+                    BrandId = 4,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 29,
+                    Name = "Lenovo IdeaPad Slim 3",
+                    Description = "Intel Core i5 12450H 8GB 512GB SSD 15.6\" FHD Freedos Taşınabilir Bilgisayar",
+                    Price = 15359.04M,
+                    Stock = 100,
+                    BrandId = 5,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.7M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 30,
+                    Name = "Asus TUF Gaming F15",
+                    Description = "Intel Core i5 12500H 8GB 512GB SSD RTX3050 Freedos 15.6\" FHD Taşınabilir Bilgisayar",
+                    Price = 29898.66M,
+                    Stock = 75,
+                    BrandId = 2,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.7M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 31,
+                    Name = "Apple MacBook Air M1",
+                    Description = "16GB 256GB SSD macOS 13\" Taşınabilir Bilgisayar Uzay Grisi",
+                    Price = 39250.00M,
+                    Stock = 60,
+                    BrandId = 1,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.9M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 32,
+                    Name = "Casper Excalibur G870.1342",
+                    Description = "Intel Core i5-13420H 16GB RAM 1TB NVME SSD 8GB RTX4060 Freedos Gaming Laptop",
+                    Price = 42299.99M,
+                    Stock = 50,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.3M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 33,
+                    Name = "Lenovo Ideapad 5",
+                    Description = "Intel Core i5 13420H 16GB 512GB SSD Freedos 14\" WUXGA Taşınabilir Bilgisayar",
+                    Price = 29999.99M,
+                    Stock = 70,
+                    BrandId = 5,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 34,
+                    Name = "Asus ROG Strix G16",
+                    Description = "Intel Core Ultra 7 255HX 32GB 1TB SSD RTX5070Ti Freedos 16\" Taşınabilir Bilgisayar",
+                    Price = 107999.99M,
+                    Stock = 25,
+                    BrandId = 2,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 35,
+                    Name = "Casper Nirvana X600.1342",
+                    Description = "Intel Core i5-13420H 32GB RAM 500GB NVME SSD Freedos",
+                    Price = 19999.99M,
+                    Stock = 85,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 36,
+                    Name = "Lenovo Thinkbook 16PG5",
+                    Description = "Intel Core i9-14900HX 32GB DDR5 1TB SSD RTX4060 8GB 16 inç 3.2K (3200×2000) 165Hz FreeDos Laptop",
+                    Price = 79999.40M,
+                    Stock = 30,
+                    BrandId = 5,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.7M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 37,
+                    Name = "Casper Nirvana X600.1362",
+                    Description = "Intel Core i7-13620H 16GB RAM 500GB NVME SSD Freedos Laptop",
+                    Price = 22099.99M,
+                    Stock = 75,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 38,
+                    Name = "MSI CYBORG 15",
+                    Description = "Intel Core i5 13420H 16GB 1TB SSD RTX4060 Freedos 15.6\" FHD 144Hz Taşınabilir Bilgisayar",
+                    Price = 37999.99M,
+                    Stock = 60,
+                    BrandId = 6,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.9M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 39,
+                    Name = "Lenovo V15 G4",
+                    Description = "AMD Ryzen 5 7520U 8gb 512GB SSD Freedos 15.6\" Fhd Taşınabilir Bilgisayar",
+                    Price = 13299.99M,
+                    Stock = 95,
+                    BrandId = 5,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.3M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 40,
+                    Name = "Lenovo V15 G4",
+                    Description = "I5-13420H 32GB 1 Tb SSD 15.6 Fhd Windows 11 Pro",
+                    Price = 27749.00M,
+                    Stock = 70,
+                    BrandId = 5,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 41,
+                    Name = "Apple MacBook Air M4",
+                    Description = "16GB 256GB SSD macOS 13\" Taşınabilir Bilgisayar Gece Yarısı",
+                    Price = 49999.99M,
+                    Stock = 45,
+                    BrandId = 1,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 42,
+                    Name = "Casper Excalibur G870.1245",
+                    Description = "Intel Core i5 12450H 16GB 500GB SSD RTX2050 Freedos 15.6\" FHD Taşınabilir Bilgisayar",
+                    Price = 27499.99M,
+                    Stock = 80,
+                    BrandId = 3,
+                    SubCategoryId = 1,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 1,
+                    Rating = 4.4M,
+                    CreatedDate = DateTime.Now
                 }
             };
         }
@@ -192,29 +657,61 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 {
                     Id = 1,
                     Name = "Apple",
-                    CreatedDate = DateTime.Now,
-                    SubCategoryId = 3
+                    CreatedDate = DateTime.Now
                 },
                 new Brand
                 {
                     Id = 2,
-                    Name = "Samsung",
-                    CreatedDate = DateTime.Now,
-                    SubCategoryId = 3
+                    Name = "Asus",
+                    CreatedDate = DateTime.Now
                 },
                 new Brand
                 {
                     Id = 3,
-                    Name = "Xiaomi",
-                    CreatedDate = DateTime.Now,
-                    SubCategoryId = 3
+                    Name = "Casper",
+                    CreatedDate = DateTime.Now
                 },
                 new Brand
                 {
                     Id = 4,
+                    Name = "HP",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 5,
+                    Name = "Lenovo",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 6,
+                    Name = "MSI",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 7,
+                    Name = "Acer",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 8,
+                    Name = "Xiaomi",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 9,
+                    Name = "Samsung",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 10,
                     Name = "Huawei",
-                    CreatedDate = DateTime.Now,
-                    SubCategoryId = 3
+                    CreatedDate = DateTime.Now
                 }
             };
         }
@@ -585,6 +1082,254 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Id = 44,
                     Path = "img/ProductsPicture/Pc/PcOne/resimdort.jpg",
                     EntityId = 11,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 45,
+                    Path = "img/Products/Laptops/Casper_G870.1270.jpg",
+                    EntityId = 12,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 46,
+                    Path = "img/Products/Laptops/MSI_15.6.jpg",
+                    EntityId = 13,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 47,
+                    Path = "img/Products/Laptops/Casper_S100.1362.jpg",
+                    EntityId = 14,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 48,
+                    Path = "img/Products/Laptops/Casper_G870.1362.jpg",
+                    EntityId = 15,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 49,
+                    Path = "img/Products/Laptops/HP_15.6.jpg",
+                    EntityId = 16,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 50,
+                    Path = "img/Products/Laptops/Lenovo_15.6.jpg",
+                    EntityId = 17,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 51,
+                    Path = "img/Products/Laptops/Lenovo_model.jpg",
+                    EntityId = 18,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 52,
+                    Path = "img/Products/Laptops/MSI_model.jpg",
+                    EntityId = 19,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 53,
+                    Path = "img/Products/Laptops/Casper_C550.1255.jpg",
+                    EntityId = 20,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 54,
+                    Path = "img/Products/Laptops/Lenovo_3.2.jpg",
+                    EntityId = 21,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 55,
+                    Path = "img/Products/Laptops/Casper_G770.1245.jpg",
+                    EntityId = 22,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 56,
+                    Path = "img/Products/Laptops/Casper_X600.7430.jpg",
+                    EntityId = 23,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 57,
+                    Path = "img/Products/Laptops/Acer_15.6.jpg",
+                    EntityId = 24,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 58,
+                    Path = "img/Products/Laptops/Casper_X600.1270.jpg",
+                    EntityId = 25,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 59,
+                    Path = "img/Products/Laptops/Casper_G870.1342.jpg",
+                    EntityId = 26,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 60,
+                    Path = "img/Products/Laptops/Casper_G870.1270.jpg",
+                    EntityId = 27,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 61,
+                    Path = "img/Products/Laptops/HP_15.6.jpg",
+                    EntityId = 28,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 62,
+                    Path = "img/Products/Laptops/Lenovo_15.6.jpg",
+                    EntityId = 29,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 63,
+                    Path = "img/Products/Laptops/Asus_15.6.jpg",
+                    EntityId = 30,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 64,
+                    Path = "img/Products/Laptops/Apple_model.jpg",
+                    EntityId = 31,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 65,
+                    Path = "img/Products/Laptops/Casper_G870.1342.jpg",
+                    EntityId = 32,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 66,
+                    Path = "img/Products/Laptops/Lenovo_15.6.jpg",
+                    EntityId = 33,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 67,
+                    Path = "img/Products/Laptops/Asus_model.jpg",
+                    EntityId = 34,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 68,
+                    Path = "img/Products/Laptops/Casper_X600.1342.jpg",
+                    EntityId = 35,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 69,
+                    Path = "img/Products/Laptops/Lenovo_3.2.jpg",
+                    EntityId = 36,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 70,
+                    Path = "img/Products/Laptops/Casper_X600.1362.jpg",
+                    EntityId = 37,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 71,
+                    Path = "img/Products/Laptops/MSI_15.6.jpg",
+                    EntityId = 38,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 72,
+                    Path = "img/Products/Laptops/Lenovo_15.6.jpg",
+                    EntityId = 39,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 73,
+                    Path = "img/Products/Laptops/Lenovo_15.6.jpg",
+                    EntityId = 40,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 74,
+                    Path = "img/Products/Laptops/Apple_model.jpg",
+                    EntityId = 41,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 75,
+                    Path = "img/Products/Laptops/Casper_G870.1245.jpg",
+                    EntityId = 42,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
                 }
