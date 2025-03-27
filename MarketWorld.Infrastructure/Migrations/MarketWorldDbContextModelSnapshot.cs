@@ -133,7 +133,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2359),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3525),
                             IsDeleted = false,
                             Name = "Apple",
                             SubCategoryId = 3
@@ -141,7 +141,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2362),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3528),
                             IsDeleted = false,
                             Name = "Samsung",
                             SubCategoryId = 3
@@ -149,7 +149,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2363),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3529),
                             IsDeleted = false,
                             Name = "Xiaomi",
                             SubCategoryId = 3
@@ -157,7 +157,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2364),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3530),
                             IsDeleted = false,
                             Name = "Huawei",
                             SubCategoryId = 3
@@ -294,7 +294,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2082),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3274),
                             Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
                             IsDeleted = false,
                             Name = "Elektronik",
@@ -303,7 +303,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2098),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3290),
                             Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
                             IsDeleted = false,
                             Name = "Giyim & Aksesuar",
@@ -312,7 +312,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2099),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3291),
                             Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
                             IsDeleted = false,
                             Name = "Ev & Yaşam",
@@ -321,7 +321,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2100),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3292),
                             Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
                             IsDeleted = false,
                             Name = "Kozmetik & Kişisel Bakım",
@@ -330,7 +330,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2102),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3293),
                             Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
                             IsDeleted = false,
                             Name = "Spor & Outdoor",
@@ -382,7 +382,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2490),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3642),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -391,7 +391,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2493),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3645),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -400,7 +400,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2494),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3646),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -409,7 +409,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2495),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3647),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -418,7 +418,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2496),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3648),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -427,7 +427,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2498),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3650),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -436,7 +436,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2500),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3651),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -445,7 +445,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2501),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3652),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -454,7 +454,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2502),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3653),
                             EntityId = 3,
                             EntityType = 1,
                             IsDeleted = false,
@@ -463,7 +463,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2504),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3654),
                             EntityId = 3,
                             EntityType = 1,
                             IsDeleted = false,
@@ -472,7 +472,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2505),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3655),
                             EntityId = 3,
                             EntityType = 1,
                             IsDeleted = false,
@@ -481,7 +481,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2511),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3656),
                             EntityId = 3,
                             EntityType = 1,
                             IsDeleted = false,
@@ -490,7 +490,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2512),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3657),
                             EntityId = 4,
                             EntityType = 1,
                             IsDeleted = false,
@@ -499,7 +499,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2513),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3659),
                             EntityId = 4,
                             EntityType = 1,
                             IsDeleted = false,
@@ -508,7 +508,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2514),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3660),
                             EntityId = 4,
                             EntityType = 1,
                             IsDeleted = false,
@@ -517,7 +517,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2515),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3662),
                             EntityId = 4,
                             EntityType = 1,
                             IsDeleted = false,
@@ -526,7 +526,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2516),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3663),
                             EntityId = 5,
                             EntityType = 1,
                             IsDeleted = false,
@@ -535,7 +535,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2518),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3664),
                             EntityId = 5,
                             EntityType = 1,
                             IsDeleted = false,
@@ -544,7 +544,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2519),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3666),
                             EntityId = 5,
                             EntityType = 1,
                             IsDeleted = false,
@@ -553,7 +553,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2520),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3667),
                             EntityId = 5,
                             EntityType = 1,
                             IsDeleted = false,
@@ -562,7 +562,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2521),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3668),
                             EntityId = 6,
                             EntityType = 1,
                             IsDeleted = false,
@@ -571,7 +571,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2522),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3669),
                             EntityId = 6,
                             EntityType = 1,
                             IsDeleted = false,
@@ -580,7 +580,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2523),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3670),
                             EntityId = 6,
                             EntityType = 1,
                             IsDeleted = false,
@@ -589,7 +589,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2524),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3671),
                             EntityId = 6,
                             EntityType = 1,
                             IsDeleted = false,
@@ -598,7 +598,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2525),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3672),
                             EntityId = 7,
                             EntityType = 1,
                             IsDeleted = false,
@@ -607,7 +607,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2527),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3673),
                             EntityId = 7,
                             EntityType = 1,
                             IsDeleted = false,
@@ -616,7 +616,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2528),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3674),
                             EntityId = 7,
                             EntityType = 1,
                             IsDeleted = false,
@@ -625,7 +625,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2529),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3675),
                             EntityId = 7,
                             EntityType = 1,
                             IsDeleted = false,
@@ -634,7 +634,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2530),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3676),
                             EntityId = 8,
                             EntityType = 1,
                             IsDeleted = false,
@@ -643,7 +643,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2531),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3677),
                             EntityId = 8,
                             EntityType = 1,
                             IsDeleted = false,
@@ -652,7 +652,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2532),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3678),
                             EntityId = 8,
                             EntityType = 1,
                             IsDeleted = false,
@@ -661,7 +661,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2533),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3679),
                             EntityId = 8,
                             EntityType = 1,
                             IsDeleted = false,
@@ -670,7 +670,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2534),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3680),
                             EntityId = 9,
                             EntityType = 1,
                             IsDeleted = false,
@@ -679,7 +679,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2536),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3704),
                             EntityId = 9,
                             EntityType = 1,
                             IsDeleted = false,
@@ -688,7 +688,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2537),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3705),
                             EntityId = 9,
                             EntityType = 1,
                             IsDeleted = false,
@@ -697,7 +697,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2538),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3706),
                             EntityId = 9,
                             EntityType = 1,
                             IsDeleted = false,
@@ -706,7 +706,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2539),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3708),
                             EntityId = 10,
                             EntityType = 1,
                             IsDeleted = false,
@@ -715,7 +715,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2540),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3709),
                             EntityId = 10,
                             EntityType = 1,
                             IsDeleted = false,
@@ -724,7 +724,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2541),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3710),
                             EntityId = 10,
                             EntityType = 1,
                             IsDeleted = false,
@@ -733,7 +733,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2543),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3711),
                             EntityId = 10,
                             EntityType = 1,
                             IsDeleted = false,
@@ -742,7 +742,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2544),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3712),
                             EntityId = 11,
                             EntityType = 1,
                             IsDeleted = false,
@@ -751,7 +751,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2545),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3713),
                             EntityId = 11,
                             EntityType = 1,
                             IsDeleted = false,
@@ -760,7 +760,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2546),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3714),
                             EntityId = 11,
                             EntityType = 1,
                             IsDeleted = false,
@@ -769,7 +769,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2547),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3715),
                             EntityId = 11,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1014,7 +1014,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 1,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2395),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3592),
                             Description = "Apple iPhone 14 Pro 256 GB",
                             DiscountPrice = 54999.99m,
                             HasDiscount = true,
@@ -1031,7 +1031,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 2,
                             BrandId = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2399),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3596),
                             Description = "Samsung Galaxy S23 Ultra 256 GB",
                             DiscountPrice = 65999.99m,
                             HasDiscount = true,
@@ -1048,7 +1048,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 3,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2402),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3598),
                             Description = "Apple iPhone 15 128 GB Mavi",
                             DiscountPrice = 39999.99m,
                             HasDiscount = true,
@@ -1065,7 +1065,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 4,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2405),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3601),
                             Description = "Xiaomi 13T Pro 512 GB",
                             DiscountPrice = 37999.99m,
                             HasDiscount = true,
@@ -1082,7 +1082,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 5,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2411),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3603),
                             Description = "Huawei P60 Pro 256 GB",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -1099,7 +1099,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 6,
                             BrandId = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2415),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3606),
                             Description = "Samsung Galaxy Z Fold5 512 GB",
                             DiscountPrice = 84999.99m,
                             HasDiscount = true,
@@ -1116,7 +1116,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 7,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2417),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3609),
                             Description = "Apple iPhone 15 Pro Max 512 GB",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -1133,7 +1133,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 8,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2419),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3611),
                             Description = "Xiaomi Redmi Note 13 Pro+ 256 GB",
                             DiscountPrice = 27999.99m,
                             HasDiscount = true,
@@ -1150,7 +1150,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 9,
                             BrandId = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2421),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3613),
                             Description = "Samsung Galaxy A54 128 GB",
                             DiscountPrice = 18499.99m,
                             HasDiscount = true,
@@ -1167,7 +1167,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 10,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2424),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3616),
                             Description = "Huawei Nova 11 Pro 256 GB",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -1184,7 +1184,7 @@ namespace MarketWorld.Infrastructure.Migrations
                             Id = 11,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2456),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3618),
                             Description = "13inc Taşınabilir Bilgisayar Uzay Grisi MC7U4TU/A",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -1251,7 +1251,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6255),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7514),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -1262,7 +1262,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6263),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7516),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -1273,7 +1273,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6264),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7517),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -1284,7 +1284,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6264),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7517),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -1295,7 +1295,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6266),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7519),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -1306,7 +1306,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6267),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7521),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -1317,7 +1317,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6268),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7521),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -1328,7 +1328,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6269),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7522),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -1339,7 +1339,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6269),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7523),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -1350,7 +1350,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6270),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7524),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -1361,7 +1361,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6271),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7524),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -1372,7 +1372,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6271),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7525),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -1383,7 +1383,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6272),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7525),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -1394,7 +1394,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6272),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7526),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -1405,7 +1405,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6273),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7526),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -1416,7 +1416,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6273),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7526),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -1427,7 +1427,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6274),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7527),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -1438,7 +1438,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6275),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7528),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -1449,7 +1449,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6275),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7528),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -1460,7 +1460,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6276),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7529),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -1471,7 +1471,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6276),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7529),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -1482,7 +1482,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6277),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7530),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -1493,7 +1493,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6277),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7530),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -1504,7 +1504,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6278),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7530),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -1515,7 +1515,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6278),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7531),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -1526,7 +1526,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6279),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7531),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -1537,7 +1537,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6279),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7532),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -1548,7 +1548,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6279),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7532),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -1559,7 +1559,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6280),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7533),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -1570,7 +1570,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6280),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7533),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -1581,7 +1581,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6281),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7533),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -1592,7 +1592,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6281),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7534),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -1603,7 +1603,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6282),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7578),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -1614,7 +1614,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6283),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7579),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -1625,7 +1625,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6283),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7580),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -1636,7 +1636,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6284),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7580),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -1647,7 +1647,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6284),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7580),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -1658,7 +1658,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6284),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7581),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -1669,7 +1669,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6285),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7581),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -1680,7 +1680,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6285),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7582),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -1691,7 +1691,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6286),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7582),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -1702,7 +1702,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6286),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7583),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -1713,7 +1713,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6287),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7583),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -1724,7 +1724,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6287),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7584),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -1735,7 +1735,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6288),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7585),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -1746,7 +1746,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6288),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7585),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -1757,7 +1757,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6289),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7585),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -1768,7 +1768,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6289),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7586),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -1779,7 +1779,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6290),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7586),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -1790,7 +1790,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6333),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7587),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -1801,7 +1801,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6334),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7587),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -1812,7 +1812,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6334),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7588),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -1823,7 +1823,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6335),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7588),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -1834,7 +1834,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 54,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6335),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7588),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -1845,7 +1845,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 55,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6335),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7589),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -1856,7 +1856,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 56,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6336),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7589),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -1867,7 +1867,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 57,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6337),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7590),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -1878,7 +1878,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 58,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6337),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7590),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -1889,7 +1889,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 59,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6338),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7591),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -1900,7 +1900,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 60,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6338),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7591),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -1911,7 +1911,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 61,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6339),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7592),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -1922,7 +1922,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 62,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6339),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7592),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -1933,7 +1933,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 63,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6339),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7592),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -1944,7 +1944,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 64,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6340),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7593),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -1955,7 +1955,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 65,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6340),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7593),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -1966,7 +1966,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 66,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6342),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7594),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -1977,7 +1977,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 67,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6342),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7595),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -1988,7 +1988,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 68,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6342),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7595),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -1999,7 +1999,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 69,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6343),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7596),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -2010,7 +2010,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 70,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6343),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7596),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -2021,7 +2021,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 71,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6344),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7596),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -2032,7 +2032,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 72,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6344),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7597),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -2043,7 +2043,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 73,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6345),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7597),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -2054,7 +2054,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 74,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6345),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7598),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -2065,7 +2065,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 75,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6346),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7598),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -2076,7 +2076,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 76,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6346),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7599),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -2087,7 +2087,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 77,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6347),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7599),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -2098,7 +2098,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 78,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6347),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7599),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -2109,7 +2109,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 79,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6347),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7600),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -2120,7 +2120,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 80,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6348),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7600),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -2174,7 +2174,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6128),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7392),
                             Description = "Ürün Renk Seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -2183,7 +2183,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6136),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7439),
                             Description = "Beden Seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -2192,7 +2192,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6137),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7441),
                             Description = "Dahili Hafıza",
                             IsActive = true,
                             IsDeleted = false,
@@ -2245,7 +2245,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6167),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7475),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -2254,7 +2254,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6169),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7477),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -2263,7 +2263,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6171),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7478),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -2272,7 +2272,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6172),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7479),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -2281,7 +2281,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6173),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7481),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -2290,7 +2290,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6176),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7483),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -2299,7 +2299,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6177),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7484),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -2308,7 +2308,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6178),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7485),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -2317,7 +2317,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6179),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7486),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -2326,7 +2326,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6180),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7488),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -2335,7 +2335,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6182),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7489),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 3,
@@ -2344,7 +2344,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6183),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7490),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 3,
@@ -2353,7 +2353,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6184),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7491),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 3,
@@ -2362,7 +2362,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(6185),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(7492),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 3,
@@ -2421,7 +2421,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2296),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3462),
                             Description = "Dizüstü, masaüstü bilgisayarlar ve tabletler",
                             IsDeleted = false,
                             Name = "Bilgisayarlar & Tabletler",
@@ -2431,7 +2431,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2298),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3463),
                             Description = "Yazıcılar, tarayıcılar ve projeksiyon cihazları",
                             IsDeleted = false,
                             Name = "Yazıcılar & Projeksiyon",
@@ -2441,7 +2441,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2300),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3465),
                             Description = "Akıllı telefonlar ve aksesuarları",
                             IsDeleted = false,
                             Name = "Telefonlar",
@@ -2451,7 +2451,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2301),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3466),
                             Description = "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar",
                             IsDeleted = false,
                             Name = "Beyaz Eşya",
@@ -2461,7 +2461,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2302),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3467),
                             Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
                             IsDeleted = false,
                             Name = "Klima ve Isıtıcılar",
@@ -2471,7 +2471,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 6,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2303),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3468),
                             Description = "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar",
                             IsDeleted = false,
                             Name = "Ayakkabı & Çanta",
@@ -2481,7 +2481,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2304),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3469),
                             Description = "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
                             Name = "Kadın Giyim",
@@ -2491,7 +2491,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 8,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2306),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3470),
                             Description = "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
                             Name = "Erkek Giyim",
@@ -2501,7 +2501,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 9,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2307),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3472),
                             Description = "Kız ve erkek çocuk giyim ürünleri",
                             IsDeleted = false,
                             Name = "Çocuk Giyim",
@@ -2511,7 +2511,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 10,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2308),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3473),
                             Description = "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları",
                             IsDeleted = false,
                             Name = "Mobilya",
@@ -2521,7 +2521,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 11,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2309),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3474),
                             Description = "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri",
                             IsDeleted = false,
                             Name = "Ev Tekstili",
@@ -2531,7 +2531,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 12,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2310),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3475),
                             Description = "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri",
                             IsDeleted = false,
                             Name = "Dekorasyon & Aydınlatma",
@@ -2541,7 +2541,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 13,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2311),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3476),
                             Description = "Pişirme, servis ve saklama ürünleri, mutfak aletleri",
                             IsDeleted = false,
                             Name = "Mutfak Gereçleri",
@@ -2551,7 +2551,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 14,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2313),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3477),
                             Description = "Banyo aksesuarları, temizlik ve düzenleme ürünleri",
                             IsDeleted = false,
                             Name = "Banyo & Ev Gereçleri",
@@ -2561,7 +2561,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 15,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2314),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3478),
                             Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                             IsDeleted = false,
                             Name = "Kırtasiye & Ofis",
@@ -2571,7 +2571,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 16,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2315),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3479),
                             Description = "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri",
                             IsDeleted = false,
                             Name = "Parfüm & Deodorant",
@@ -2581,7 +2581,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 17,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2316),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3481),
                             Description = "Saç bakım ve şekillendirme ürünleri",
                             IsDeleted = false,
                             Name = "Saç Şekillendirme",
@@ -2591,7 +2591,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 18,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2318),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3482),
                             Description = "Yüz ve vücut bakım ürünleri, kremler ve serumlar",
                             IsDeleted = false,
                             Name = "Cilt Bakımı",
@@ -2601,7 +2601,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 19,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2320),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3483),
                             Description = "Renkli kozmetik ve makyaj malzemeleri",
                             IsDeleted = false,
                             Name = "Makyaj",
@@ -2611,7 +2611,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 20,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2321),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3484),
                             Description = "Vitamin, takviye gıdalar ve medikal ürünler",
                             IsDeleted = false,
                             Name = "Sağlık & Medikal Ürünler",
@@ -2621,7 +2621,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 21,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2322),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3486),
                             Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
                             IsDeleted = false,
                             Name = "Ağız & Diş Bakımı",
@@ -2631,7 +2631,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 22,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2323),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3487),
                             Description = "Fitness ekipmanları, kondisyon aletleri ve aksesuarları",
                             IsDeleted = false,
                             Name = "Fitness & Kondisyon",
@@ -2641,7 +2641,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 23,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2324),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3488),
                             Description = "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar",
                             IsDeleted = false,
                             Name = "Spor Giyim & Ayakkabı",
@@ -2651,7 +2651,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 24,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2325),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3489),
                             Description = "Kamp malzemeleri, outdoor giyim ve ekipmanlar",
                             IsDeleted = false,
                             Name = "Outdoor & Kamp",
@@ -2661,7 +2661,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 25,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2327),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3491),
                             Description = "Kayak ekipmanları ve kış sporları malzemeleri",
                             IsDeleted = false,
                             Name = "Kış Sporları",
@@ -2671,7 +2671,7 @@ namespace MarketWorld.Infrastructure.Migrations
                         {
                             Id = 26,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 3, 20, 18, 15, 6, 692, DateTimeKind.Local).AddTicks(2328),
+                            CreatedDate = new DateTime(2025, 3, 27, 13, 49, 55, 625, DateTimeKind.Local).AddTicks(3492),
                             Description = "Yüzme ve su sporları ekipmanları",
                             IsDeleted = false,
                             Name = "Su Sporları",
