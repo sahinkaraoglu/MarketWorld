@@ -323,7 +323,7 @@
         $(document).ready(function() {
             // Kategorileri yükle
             $.ajax({
-                url: '/Admin/GetCategories',
+                url: '/Panel/GetCategories',
                 method: 'GET',
                 success: function(categories) {
                     console.log('Yüklenen kategoriler:', categories);
@@ -343,7 +343,7 @@
 
             // Markaları yükle
             $.ajax({
-                url: '/Admin/GetBrands',
+                url: '/Panel/GetBrands',
                 method: 'GET',
                 success: function(brands) {
                     console.log('Yüklenen markalar:', brands);
@@ -362,7 +362,7 @@
             });
 
             $.ajax({
-                url: '/Admin/GetPropertyTypes',
+                url: '/Panel/GetPropertyTypes',
                 method: 'GET',
                 success: function(propertyTypes) {
                     console.log('Yüklenen özellik tipleri:', propertyTypes);
@@ -385,7 +385,7 @@
                 
                 if (categoryId) {
                     $.ajax({
-                        url: '/Admin/GetSubCategories/' + categoryId,
+                        url: '/Panel/GetSubCategories/' + categoryId,
                         method: 'GET',
                         success: function(subCategories) {
                             console.log('Gelen alt kategoriler:', subCategories);
@@ -469,7 +469,7 @@
                     
                     if (propertyTypeId) {
                         $.ajax({
-                            url: '/Admin/GetPropertyValues/' + propertyTypeId,
+                            url: '/Panel/GetPropertyValues/' + propertyTypeId,
                             method: 'GET',
                             success: function(propertyValues) {
                                 console.log('Gelen özellik değerleri:', propertyValues);
@@ -535,7 +535,7 @@
                 });
 
                 $.ajax({
-                    url: '/Admin/AddProduct',
+                    url: '/Panel/AddProduct',
                     method: 'POST',
                     data: formData,
                     processData: false,
@@ -567,7 +567,7 @@
 
         function editProduct(id) {
             $.ajax({
-                url: '/Admin/GetProduct/' + id,
+                url: '/Panel/GetProduct/' + id,
                 method: 'GET',
                 success: function(product) {
                     $('#editProductId').val(product.id);
@@ -577,7 +577,7 @@
                     $('#editStock').val(product.stock);
                     
                     $.ajax({
-                        url: '/Admin/GetCategories',
+                        url: '/Panel/GetCategories',
                         method: 'GET',
                         success: function(categories) {
                             $('#editCategorySelect').empty().append('<option value="">Kategori Seçiniz</option>');
@@ -608,7 +608,7 @@
         function deleteProduct(id) {
             if (confirm('Bu ürünü silmek istediğinizden emin misiniz?')) {
                 $.ajax({
-                    url: '/Admin/DeleteProduct/' + id,
+                    url: '/Panel/DeleteProduct/' + id,
                     method: 'POST',
                     success: function() {
                         location.reload();
@@ -633,7 +633,7 @@
             };
 
             $.ajax({
-                url: '/Admin/UpdateProduct',
+                url: '/Panel/UpdateProduct',
                 method: 'POST',
                 data: JSON.stringify(formData),
                 contentType: 'application/json',

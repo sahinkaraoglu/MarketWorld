@@ -6,11 +6,11 @@ using MarketWorld.Web.Models.Admin;
 
 namespace MarketWorld.Web.Controllers
 {
-    public class AdminController : Controller
+    public class PanelController : Controller
     {
         private readonly MarketWorldDbContext _context;
 
-        public AdminController(MarketWorldDbContext context)
+        public PanelController(MarketWorldDbContext context)
         {
             _context = context;
         }
@@ -84,7 +84,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        [Route("Admin/GetSubCategories/{categoryId}")]
+        [Route("Panel/GetSubCategories/{categoryId}")]
         public async Task<IActionResult> GetSubCategories(int categoryId)
         {
             try
@@ -253,7 +253,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        [Route("Admin/GetPropertyValues/{propertyTypeId}")]
+        [Route("Panel/GetPropertyValues/{propertyTypeId}")]
         public async Task<IActionResult> GetPropertyValues(int propertyTypeId)
         {
             try
