@@ -1,0 +1,195 @@
+@{
+    ViewData["Title"] = "Giriş";
+}
+
+<div class="login-container">
+    <div class="login-box">
+        <h1>MarketWorld</h1>
+        <p class="subtitle">Hesabınıza giriş yapın</p>
+        
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+        
+        <form method="post" asp-action="Login" asp-controller="Login">
+            <div class="form-group">
+                <label for="username">E-posta</label>
+                <input type="email" id="username" name="username" placeholder="E-posta adresinizi giriniz" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Parola</label>
+                <div class="password-input">
+                    <input type="password" id="password" name="password" placeholder="Parolanızı girin" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group remember-me">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="remember" name="remember">
+                    <span class="checkmark"></span>
+                    Beni Hatırla
+                </label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="login-btn">Giriş Yap</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        background-color: ghostwhite ;
+        padding: 1rem;
+        margin-top: -50px;
+    }
+
+    .login-box {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 420px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #2d3748;
+        margin-bottom: 0.5rem;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #718096;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #4a5568;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #4299e1;
+        box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+    }
+
+    input::placeholder {
+        color: #a0aec0;
+    }
+
+    .password-input {
+        position: relative;
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #718096;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .remember-me {
+        display: flex;
+        align-items: center;
+    }
+
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: #4a5568;
+    }
+
+    .checkbox-container input {
+        width: auto;
+        margin-right: 0.5rem;
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 0.75rem;
+        background: #2b6cb0;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .login-btn:hover {
+        background: #2c5282;
+    }
+
+    .alert {
+        padding: 0.75rem 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .alert-danger {
+        background-color: #fff5f5;
+        color: #c53030;
+        border: 1px solid #feb2b2;
+    }
+</style>
+
+<script>
+    function togglePassword() {
+        var passwordInput = document.getElementById("password");
+        var icon = document.querySelector(".toggle-password i");
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            passwordInput.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+</script>
+
+<!-- Font Awesome için CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 

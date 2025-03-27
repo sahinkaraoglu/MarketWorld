@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 
