@@ -445,7 +445,7 @@ namespace MarketWorld.Infrastructure.Data
             modelBuilder.Entity<Product>().HasData(ProductSeedData.GetProducts());
 
             // En son resimleri ekle
-            modelBuilder.Entity<Image>().HasData(ProductSeedData.GetImages());
+            modelBuilder.Entity<Image>().HasData(ImageSeedData.GetImages());
 
             // Tüm entity'ler için BaseEntity'deki CreatedDate alanını nullable olmaktan çıkarıp 
             // otomatik değer ataması yapalım
