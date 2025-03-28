@@ -60,5 +60,12 @@ namespace MarketWorld.Infrastructure.Repositories
                 .Include(c => c.SubCategories)
                 .ToListAsync();
         }
+
+        public async Task<Category> GetCategoryByNameAsync(string name)
+        {
+            return await _marketWorldContext.Categories
+                .Include(c => c.SubCategories)
+                .FirstOrDefaultAsync(c => c.Name.ToLower() == name.ToLower());
+        }
     }
 } 

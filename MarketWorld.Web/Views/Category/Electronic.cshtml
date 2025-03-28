@@ -4,62 +4,65 @@
     ViewData["Title"] = "Elektronik Kategorileri";
 }
 
-<div class="container mt-4">
-    <h2 class="text-center mb-4">Elektronik Kategorileri</h2>
-    
-    <div class="row">
+@section Styles {
+    <link rel="stylesheet" href="~/css/electronic.css" />
+}
+
+<div class="electronic-container">
+    <div class="electronic-header">
+        <h1>Elektronik Kategorileri</h1>
+        <p>En yeni elektronik ürünleri keşfedin</p>
+    </div>
+
+    <div class="electronic-grid">
         @foreach (var category in Model)
         {
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">@category.Name</h5>
-                        <p class="card-text">@category.Description</p>
-                        <a href="@Url.Action("Details", "Category", new { id = category.Id })" class="btn btn-primary">
-                            Ürünleri Görüntüle
-                        </a>
-                    </div>
+            <div class="electronic-card">
+                <div class="electronic-card-content">
+                    @if (category.Name == "Bilgisayarlar & Tabletler")
+                    {
+                        <div class="electronic-card-image">
+                            <img src="~/img/CategoryPhoto/computer.jpg" alt="Bilgisayarlar & Tabletler" />
+                        </div>
+                    }
+                    else if (category.Name == "Yazıcılar & Projeksiyon")
+                    {
+                        <div class="electronic-card-image">
+                            <img src="~/img/CategoryPhoto/printer.jpg" alt="Yazıcılar & Projeksiyon" />
+                        </div>
+                    }
+                    else if (category.Name == "Telefonlar")
+                    {
+                        <div class="electronic-card-image">
+                            <img src="~/img/CategoryPhoto/telephone.jpg" alt="Telefonlar" />
+                        </div>
+                    }
+                    else if (category.Name == "Beyaz Eşya")
+                    {
+                        <div class="electronic-card-image">
+                            <img src="~/img/CategoryPhoto/whitefurniture.jpg" alt="Beyaz Eşya" />
+                        </div>
+                    }
+                    else if (category.Name == "Klima ve Isıtıcılar")
+                    {
+                        <div class="electronic-card-image">
+                            <img src="~/img/CategoryPhoto/airconditioner.jpg" alt="Klima ve Isıtıcılar" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="electronic-card-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    }
+                    <h3>@category.Name</h3>
+                    <p>@category.Description</p>
+                    <a href="@Url.Action("Details", "Category", new { id = category.Id })" class="electronic-button">
+                        Ürünleri Görüntüle
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         }
     </div>
 </div>
-
-<style>
-    .card {
-        transition: transform 0.2s;
-        border: none;
-        border-radius: 10px;
-    }
-    
-    .card:hover {
-        transform: translateY(-5px);
-    }
-    
-    .card-title {
-        color: #2c3e50;
-        font-weight: 600;
-    }
-    
-    .btn-primary {
-        background-color: #3498db;
-        border: none;
-        padding: 8px 20px;
-        border-radius: 5px;
-        transition: background-color 0.2s;
-    }
-    
-    .btn-primary:hover {
-        background-color: #2980b9;
-    }
-    
-    .container {
-        max-width: 1200px;
-    }
-    
-    h2 {
-        color: #2c3e50;
-        font-weight: 700;
-        margin-bottom: 30px;
-    }
-</style>

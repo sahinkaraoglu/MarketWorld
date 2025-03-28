@@ -103,5 +103,12 @@ namespace MarketWorld.Web.Controllers
             var subCategories = await _categoryService.GetSubCategoriesByCategoryIdAsync(categoryId);
             return Json(subCategories);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Electronic()
+        {
+            var electronicSubCategories = await _categoryService.GetSubCategoriesByMainCategoryAsync("Elektronik");
+            return View(electronicSubCategories);
+        }
     }
 } 

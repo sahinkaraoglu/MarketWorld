@@ -12,5 +12,6 @@ namespace MarketWorld.Application.Repositories
         Task<IEnumerable<SubCategory>> GetSubCategoriesByCategoryId(int categoryId);
         Task<Category> GetCategoryWithSubCategories(int id);
         Task<IEnumerable<Category>> GetMainCategories();
+        Task<Category> GetCategoryByNameAsync(string name);
     }
 } 

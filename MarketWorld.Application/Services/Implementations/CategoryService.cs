@@ -108,5 +108,14 @@ namespace MarketWorld.Application.Services.Implementations
         {
             return await _unitOfWork.Categories.GetMainCategories();
         }
+
+        public async Task<IEnumerable<SubCategory>> GetSubCategoriesByMainCategoryAsync(string mainCategoryName)
+        {
+            var mainCategory = await _unitOfWork.Categories.GetCategoryByNameAsync(mainCategoryName);
+            if (mainCategory == null)
+                throw new ArgumentException($"Ana kategori bulunamadı: {mainCategoryName}");
+
+            return await _unitOfWork.Categories.GetSubCategoriesByCategoryId(mainCategory.Id);
+        }
     }
 }
