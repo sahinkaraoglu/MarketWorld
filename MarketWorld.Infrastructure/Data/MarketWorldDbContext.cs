@@ -439,7 +439,7 @@ namespace MarketWorld.Infrastructure.Data
             );
 
             // Markaları ekle
-            modelBuilder.Entity<Brand>().HasData(ProductSeedData.GetBrands());
+            modelBuilder.Entity<Brand>().HasData(BrandSeedData.GetBrands());
 
             // Ürünleri ekle
             modelBuilder.Entity<Product>().HasData(ProductSeedData.GetProducts());
