@@ -123,6 +123,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
             var productProperties = new List<ProductProperty>();
             int id = 81;
 
+            // Telefonlar için özellikler (1-10 arası ürünler)
             for (int productId = 1; productId <= 10; productId++)
             {
                 for (int colorId = 1; colorId <= 4; colorId++)
@@ -145,7 +146,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     {
                         Id = id++,
                         ProductId = productId,
-                        PropertyTypeId = 3, 
+                        PropertyTypeId = 3,
                         PropertyValueId = memoryId,
                         Stock = 75,
                         IsActive = true,
@@ -154,61 +155,39 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 }
             }
 
-            // Laptop ürünleri için özellikler
-            for (int productId = 12; productId <= 20; productId++)
+            // Bilgisayarlar için özellikler (11-42 arası ürünler)
+            for (int productId = 11; productId <= 42; productId++)
             {
-                // İşlemci özelliği
-                productProperties.Add(new ProductProperty
+                // Renk seçenekleri
+                for (int colorId = 1; colorId <= 4; colorId++)
                 {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 4,
-                    PropertyValueId = GetProcessorValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 1,
+                        PropertyValueId = colorId,
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+                }
 
-                // RAM özelliği
-                productProperties.Add(new ProductProperty
+                // Hafıza seçenekleri
+                for (int memoryId = 11; memoryId <= 14; memoryId++)
                 {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 5,
-                    PropertyValueId = GetRamValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 3,
+                        PropertyValueId = memoryId,
+                        Stock = 75,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+                }
 
-                // SSD özelliği
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 6,
-                    PropertyValueId = GetSsdValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
-
-                // Ekran özelliği
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 7,
-                    PropertyValueId = GetScreenValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
-            }
-
-            // Yeni laptop ürünleri için özellikler
-            for (int productId = 21; productId <= 42; productId++)
-            {
                 // İşlemci özelliği
                 productProperties.Add(new ProductProperty
                 {

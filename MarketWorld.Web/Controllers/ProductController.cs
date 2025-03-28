@@ -124,7 +124,7 @@ namespace MarketWorld.Web.Controllers
             if (product == null)
                 return NotFound();
 
-            var colorOptions = product.ProductProperties
+            var colorOptions = product.ProductProperties?
                 .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
                 .Select(pp => new ProductPropertyViewModel
                 {
@@ -133,9 +133,9 @@ namespace MarketWorld.Web.Controllers
                     Stock = pp.Stock,
                     IsSelected = false
                 })
-                .ToList();
+                .ToList() ?? new List<ProductPropertyViewModel>();
 
-            var memoryOptions = product.ProductProperties
+            var memoryOptions = product.ProductProperties?
                 .Where(pp => pp.PropertyType.Name == "Hafıza" && pp.IsActive)
                 .Select(pp => new ProductPropertyViewModel
                 {
@@ -144,7 +144,7 @@ namespace MarketWorld.Web.Controllers
                     Stock = pp.Stock,
                     IsSelected = false
                 })
-                .ToList();
+                .ToList() ?? new List<ProductPropertyViewModel>();
 
             var viewModel = new ProductDetailViewModel
             {
