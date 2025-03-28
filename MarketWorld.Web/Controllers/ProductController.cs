@@ -135,16 +135,19 @@ namespace MarketWorld.Web.Controllers
                 })
                 .ToList() ?? new List<ProductPropertyViewModel>();
 
-            var memoryOptions = product.ProductProperties?
-                .Where(pp => pp.PropertyType.Name == "Hafıza" && pp.IsActive)
-                .Select(pp => new ProductPropertyViewModel
-                {
-                    Id = pp.Id,
-                    Value = pp.PropertyValue.Value,
-                    Stock = pp.Stock,
-                    IsSelected = false
-                })
-                .ToList() ?? new List<ProductPropertyViewModel>();
+            // Hafıza seçeneklerini sadece telefonlar için göster (SubCategoryId = 3)
+            var memoryOptions = product.SubCategoryId == 3 ? 
+                product.ProductProperties?
+                    .Where(pp => pp.PropertyType.Name == "Hafıza" && pp.IsActive)
+                    .Select(pp => new ProductPropertyViewModel
+                    {
+                        Id = pp.Id,
+                        Value = pp.PropertyValue.Value,
+                        Stock = pp.Stock,
+                        IsSelected = false
+                    })
+                    .ToList() ?? new List<ProductPropertyViewModel>() 
+                : new List<ProductPropertyViewModel>();
 
             var viewModel = new ProductDetailViewModel
             {
