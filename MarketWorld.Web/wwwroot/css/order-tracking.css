@@ -72,10 +72,12 @@
     background: var(--primary);
     border: none;
     font-size: 1.1rem;
+    color: #ffffff;
 }
 
 .tracking-search .btn:hover {
-    background: var(--primary-dark);
+    background: var(--primary);
+    color: #ffffff;
 }
 
 .tracking-timeline {
