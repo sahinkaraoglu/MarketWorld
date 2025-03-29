@@ -174,42 +174,10 @@ namespace MarketWorld.Infrastructure.Data.SeedData
         public static List<ProductProperty> GetProductProperties()
         {
             var productProperties = new List<ProductProperty>();
-            int id = 81;
+            int id = 1;
 
-            // Telefonlar için özellikler (1-10 arası ürünler)
-            for (int productId = 1; productId <= 10; productId++)
-            {
-                for (int colorId = 1; colorId <= 4; colorId++)
-                {
-                    productProperties.Add(new ProductProperty
-                    {
-                        Id = id++,
-                        ProductId = productId,
-                        PropertyTypeId = 1,
-                        PropertyValueId = colorId,
-                        Stock = 50,
-                        IsActive = true,
-                        CreatedDate = DateTime.Now
-                    });
-                }
-
-                for (int memoryId = 11; memoryId <= 14; memoryId++)
-                {
-                    productProperties.Add(new ProductProperty
-                    {
-                        Id = id++,
-                        ProductId = productId,
-                        PropertyTypeId = 3,
-                        PropertyValueId = memoryId,
-                        Stock = 75,
-                        IsActive = true,
-                        CreatedDate = DateTime.Now
-                    });
-                }
-            }
-
-            // Bilgisayarlar için özellikler (11-42 arası ürünler)
-            for (int productId = 11; productId <= 42; productId++)
+            // Laptoplar için özellikler (1-31 arası ürünler)
+            for (int productId = 1; productId <= 31; productId++)
             {
                 // Renk seçenekleri
                 for (int colorId = 1; colorId <= 4; colorId++)
@@ -221,21 +189,6 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                         PropertyTypeId = 1,
                         PropertyValueId = colorId,
                         Stock = 50,
-                        IsActive = true,
-                        CreatedDate = DateTime.Now
-                    });
-                }
-
-                // Hafıza seçenekleri
-                for (int memoryId = 11; memoryId <= 14; memoryId++)
-                {
-                    productProperties.Add(new ProductProperty
-                    {
-                        Id = id++,
-                        ProductId = productId,
-                        PropertyTypeId = 3,
-                        PropertyValueId = memoryId,
-                        Stock = 75,
                         IsActive = true,
                         CreatedDate = DateTime.Now
                     });
@@ -290,8 +243,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 });
             }
 
-            // Yazıcılar için özellikler (43-84 arası ürünler)
-            for (int productId = 43; productId <= 84; productId++)
+            // Yazıcılar için özellikler (32-73 arası ürünler)
+            for (int productId = 32; productId <= 73; productId++)
             {
                 // Renk seçenekleri
                 for (int colorId = 52; colorId <= 54; colorId++)
@@ -368,37 +321,37 @@ namespace MarketWorld.Infrastructure.Data.SeedData
         {
             return productId switch
             {
-                12 => 15, // Intel Core i7 12700H
+                1 => 15, // Intel Core i7 12700H
+                2 => 16, // Intel Core i7 1255U
+                3 => 17, // Intel Core i7 13620H
+                4 => 17, // Intel Core i7 13620H
+                5 => 18, // Intel Core i5 1334U
+                6 => 19, // Intel Core i5 13420H
+                7 => 20, // AMD Ryzen 7 5700U
+                8 => 21, // Intel Core i5 12450H
+                9 => 16, // Intel Core i7 1255U
+                10 => 32, // Intel Core i7 13650HX
+                11 => 21, // Intel Core i5 12450H
+                12 => 36, // AMD Ryzen 5 7430U
                 13 => 16, // Intel Core i7 1255U
-                14 => 17, // Intel Core i7 13620H
-                15 => 17, // Intel Core i7 13620H
-                16 => 18, // Intel Core i5 1334U
-                17 => 19, // Intel Core i5 13420H
-                18 => 20, // AMD Ryzen 7 5700U
+                14 => 15, // Intel Core i7 12700H
+                15 => 19, // Intel Core i5 13420H
+                16 => 15, // Intel Core i7 12700H
+                17 => 33, // Intel Core i5 13500H
+                18 => 21, // Intel Core i5 12450H
                 19 => 21, // Intel Core i5 12450H
                 20 => 16, // Intel Core i7 1255U
-                21 => 32, // Intel Core i7 13650HX
-                22 => 21, // Intel Core i5 12450H
-                23 => 36, // AMD Ryzen 5 7430U
-                24 => 16, // Intel Core i7 1255U
-                25 => 15, // Intel Core i7 12700H
-                26 => 19, // Intel Core i5 13420H
-                27 => 15, // Intel Core i7 12700H
-                28 => 33, // Intel Core i5 13500H
-                29 => 21, // Intel Core i5 12450H
-                30 => 21, // Intel Core i5 12450H
-                31 => 16, // Intel Core i7 1255U
-                32 => 19, // Intel Core i5 13420H
-                33 => 19, // Intel Core i5 13420H
-                34 => 35, // Intel Core Ultra 7 255HX
-                35 => 19, // Intel Core i5 13420H
-                36 => 34, // Intel Core i9-14900HX
-                37 => 17, // Intel Core i7 13620H
-                38 => 19, // Intel Core i5 13420H
-                39 => 36, // AMD Ryzen 5 7520U
-                40 => 19, // Intel Core i5 13420H
-                41 => 16, // Intel Core i7 1255U
-                42 => 21, // Intel Core i5 12450H
+                21 => 19, // Intel Core i5 13420H
+                22 => 19, // Intel Core i5 13420H
+                23 => 35, // Intel Core Ultra 7 255HX
+                24 => 19, // Intel Core i5 13420H
+                25 => 34, // Intel Core i9-14900HX
+                26 => 17, // Intel Core i7 13620H
+                27 => 19, // Intel Core i5 13420H
+                28 => 36, // AMD Ryzen 5 7520U
+                29 => 19, // Intel Core i5 13420H
+                30 => 16, // Intel Core i7 1255U
+                31 => 21, // Intel Core i5 12450H
                 _ => 15
             };
         }
@@ -407,37 +360,37 @@ namespace MarketWorld.Infrastructure.Data.SeedData
         {
             return productId switch
             {
-                12 => 24, // 32GB
+                1 => 24, // 32GB
+                2 => 23, // 16GB
+                3 => 24, // 32GB
+                4 => 24, // 32GB
+                5 => 23, // 16GB
+                6 => 23, // 16GB
+                7 => 23, // 16GB
+                8 => 22, // 8GB
+                9 => 23, // 16GB
+                10 => 24, // 32GB
+                11 => 24, // 32GB
+                12 => 23, // 16GB
                 13 => 23, // 16GB
                 14 => 24, // 32GB
                 15 => 24, // 32GB
-                16 => 23, // 16GB
-                17 => 23, // 16GB
+                16 => 24, // 32GB
+                17 => 24, // 32GB
                 18 => 23, // 16GB
                 19 => 22, // 8GB
-                20 => 23, // 16GB
-                21 => 24, // 32GB
-                22 => 24, // 32GB
+                20 => 22, // 8GB
+                21 => 23, // 16GB
+                22 => 23, // 16GB
                 23 => 23, // 16GB
-                24 => 23, // 16GB
+                24 => 24, // 32GB
                 25 => 24, // 32GB
                 26 => 24, // 32GB
-                27 => 24, // 32GB
+                27 => 23, // 16GB
                 28 => 23, // 16GB
                 29 => 22, // 8GB
-                30 => 22, // 8GB
+                30 => 24, // 32GB
                 31 => 23, // 16GB
-                32 => 23, // 16GB
-                33 => 23, // 16GB
-                34 => 24, // 32GB
-                35 => 24, // 32GB
-                36 => 24, // 32GB
-                37 => 23, // 16GB
-                38 => 23, // 16GB
-                39 => 22, // 8GB
-                40 => 24, // 32GB
-                41 => 23, // 16GB
-                42 => 23, // 16GB
                 _ => 23
             };
         }
@@ -446,37 +399,37 @@ namespace MarketWorld.Infrastructure.Data.SeedData
         {
             return productId switch
             {
-                12 => 28, // 1TB
+                1 => 28, // 1TB
+                2 => 27, // 512GB
+                3 => 28, // 1TB
+                4 => 28, // 1TB
+                5 => 27, // 512GB
+                6 => 27, // 512GB
+                7 => 27, // 512GB
+                8 => 27, // 512GB
+                9 => 26, // 500GB
+                10 => 28, // 1TB
+                11 => 26, // 500GB
+                12 => 26, // 500GB
                 13 => 27, // 512GB
                 14 => 28, // 1TB
-                15 => 28, // 1TB
-                16 => 27, // 512GB
-                17 => 27, // 512GB
-                18 => 27, // 512GB
+                15 => 26, // 500GB
+                16 => 28, // 1TB
+                17 => 28, // 1TB
+                18 => 28, // 1TB
                 19 => 27, // 512GB
-                20 => 26, // 500GB
-                21 => 28, // 1TB
-                22 => 26, // 500GB
-                23 => 26, // 500GB
-                24 => 27, // 512GB
-                25 => 28, // 1TB
-                26 => 26, // 500GB
-                27 => 28, // 1TB
-                28 => 27, // 512GB
+                20 => 27, // 512GB
+                21 => 12, // 256GB
+                22 => 28, // 1TB
+                23 => 27, // 512GB
+                24 => 28, // 1TB
+                25 => 26, // 500GB
+                26 => 28, // 1TB
+                27 => 26, // 500GB
+                28 => 28, // 1TB
                 29 => 27, // 512GB
-                30 => 27, // 512GB
+                30 => 28, // 1TB
                 31 => 12, // 256GB
-                32 => 28, // 1TB
-                33 => 27, // 512GB
-                34 => 28, // 1TB
-                35 => 26, // 500GB
-                36 => 28, // 1TB
-                37 => 26, // 500GB
-                38 => 28, // 1TB
-                39 => 27, // 512GB
-                40 => 28, // 1TB
-                41 => 12, // 256GB
-                42 => 26, // 500GB
                 _ => 27
             };
         }
@@ -485,34 +438,34 @@ namespace MarketWorld.Infrastructure.Data.SeedData
         {
             return productId switch
             {
-                13 => 29, // 14"
-                14 => 31, // 16"
-                17 => 31, // 16"
+                2 => 29, // 14"
+                3 => 31, // 16"
+                6 => 31, // 16"
+                7 => 30, // 15.6"
+                8 => 30, // 15.6"
+                9 => 30, // 15.6"
+                10 => 30, // 15.6"
+                11 => 30, // 15.6"
+                12 => 30, // 15.6"
+                13 => 30, // 15.6"
+                14 => 30, // 15.6"
+                15 => 30, // 15.6"
+                16 => 30, // 15.6"
+                17 => 30, // 15.6"
                 18 => 30, // 15.6"
                 19 => 30, // 15.6"
                 20 => 30, // 15.6"
-                21 => 30, // 15.6"
+                21 => 29, // 13"
                 22 => 30, // 15.6"
-                23 => 30, // 15.6"
-                24 => 30, // 15.6"
+                23 => 29, // 14"
+                24 => 31, // 16"
                 25 => 30, // 15.6"
-                26 => 30, // 15.6"
+                26 => 31, // 16"
                 27 => 30, // 15.6"
                 28 => 30, // 15.6"
                 29 => 30, // 15.6"
                 30 => 30, // 15.6"
                 31 => 29, // 13"
-                32 => 30, // 15.6"
-                33 => 29, // 14"
-                34 => 31, // 16"
-                35 => 30, // 15.6"
-                36 => 31, // 16"
-                37 => 30, // 15.6"
-                38 => 30, // 15.6"
-                39 => 30, // 15.6"
-                40 => 30, // 15.6"
-                41 => 29, // 13"
-                42 => 30, // 15.6"
                 _ => 30
             };
         }
@@ -520,15 +473,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
         private static int GetPrinterTypeValueId(int productId)
         {
             // Ürün ID'sine göre yazıcı tipini belirle
-            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
-                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
-                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
-                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
-                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
-                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
-                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
-                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
-                productId == 83 || productId == 84)
+            if (productId >= 32 && productId <= 73)
             {
                 return 37; // Mürekkep Püskürtmeli
             }
@@ -538,15 +483,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
         private static int GetInkSystemValueId(int productId)
         {
             // Ürün ID'sine göre mürekkep sistemini belirle
-            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
-                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
-                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
-                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
-                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
-                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
-                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
-                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
-                productId == 83 || productId == 84)
+            if (productId >= 32 && productId <= 73)
             {
                 return 40; // Kartuşlu
             }
@@ -556,15 +493,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
         private static int GetPaperSizeValueId(int productId)
         {
             // Ürün ID'sine göre kağıt boyutunu belirle
-            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
-                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
-                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
-                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
-                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
-                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
-                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
-                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
-                productId == 83 || productId == 84)
+            if (productId >= 32 && productId <= 73)
             {
                 return 43; // A4
             }
@@ -576,44 +505,20 @@ namespace MarketWorld.Infrastructure.Data.SeedData
             var functionIds = new List<int> { 46 }; // Tüm yazıcılar yazdırma yapabilir
 
             // Tarama özelliği
-            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
-                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
-                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
-                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
-                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
-                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
-                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
-                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
-                productId == 83 || productId == 84)
+            if (productId >= 32 && productId <= 73)
             {
                 functionIds.Add(47); // Tarama
                 functionIds.Add(48); // Fotokopi
             }
 
             // Wi-Fi özelliği
-            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
-                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
-                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
-                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
-                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
-                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
-                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
-                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
-                productId == 83 || productId == 84)
+            if (productId >= 32 && productId <= 73)
             {
                 functionIds.Add(50); // Wi-Fi
             }
 
             // AirPrint özelliği
-            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
-                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
-                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
-                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
-                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
-                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
-                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
-                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
-                productId == 83 || productId == 84)
+            if (productId >= 32 && productId <= 73)
             {
                 functionIds.Add(51); // AirPrint
             }

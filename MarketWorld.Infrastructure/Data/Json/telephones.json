@@ -1,0 +1,458 @@
+[
+  {
+    "title": "Apple iPhone 13 128 GB Beyaz",
+    "price": "33.799 TL",
+    "image": "https://productimages.hepsiburada.net/s/189/222-222/110000155170588.jpg",
+    "rating": "4,8",
+    "rating_count": "(23801)",
+    "detail_link": "https://www.hepsiburada.com/iphone-13-128-gb-beyaz-p-HBCV00000ODHHO"
+  },
+  {
+    "title": "Samsung Galaxy A06 128 GB 4 GB Ram (Samsung Türkiye Garantili) Siyah",
+    "price": "6.255,85 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000787442617.jpg",
+    "rating": "4,6",
+    "rating_count": "(290)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a06-128-gb-4-gb-ram-samsung-turkiye-garantili-siyah-p-HBCV00006Y95JF"
+  },
+  {
+    "title": "Apple iPhone 13 128 GB Siyah",
+    "price": "33.699 TL",
+    "image": "https://productimages.hepsiburada.net/s/189/222-222/110000155170579.jpg",
+    "rating": "4,8",
+    "rating_count": "(23801)",
+    "detail_link": "https://www.hepsiburada.com/iphone-13-128-gb-siyah-p-HBCV00000ODHHF"
+  },
+  {
+    "title": "Samsung Galaxy A16 128 GB 6 GB Ram (Samsung Türkiye Garantili) Siyah",
+    "price": "8.789 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000822386898.jpg",
+    "rating": "4,8",
+    "rating_count": "(303)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a16-128-gb-6-gb-ram-samsung-turkiye-garantili-siyah-p-HBCV00006Y95JE"
+  },
+  {
+    "title": "Samsung Galaxy A35 256 GB 8 GB Ram (Samsung Türkiye Garantili) Siyah",
+    "price": "14.449 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000649573007.jpg",
+    "rating": "4,7",
+    "rating_count": "(1319)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a35-256-gb-8-gb-ram-samsung-turkiye-garantili-siyah-p-HBCV000062LEFO?magaza=Hepsiburada"
+  },
+  {
+    "title": "HONOR Magic 7 Lite 256 GB 8 GB Ram (Honor Türkiye Garantili) Mor",
+    "price": "15.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000848343228.jpg",
+    "rating": "4,5",
+    "rating_count": "(378)",
+    "detail_link": "https://www.hepsiburada.com/honor-magic-7-lite-256-gb-8-gb-ram-honor-turkiye-garantili-mor-p-HBCV00007KBQMF?magaza=Hepsiburada"
+  },
+  {
+    "title": "Samsung Galaxy A06 128 GB 4 GB Ram (Samsung Türkiye Garantili) Açık Mavi",
+    "price": "6.303,25 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000787423562.jpg",
+    "rating": "4,6",
+    "rating_count": "(290)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a06-128-gb-4-gb-ram-samsung-turkiye-garantili-acik-mavi-p-HBCV00006Y95TG"
+  },
+  {
+    "title": "Samsung Galaxy S24+ 256 GB 12 GB Ram (Samsung Türkiye Garantili) Gri",
+    "price": "41.599 TL",
+    "image": "https://productimages.hepsiburada.net/s/538/222-222/110000596687267.jpg",
+    "rating": "4,7",
+    "rating_count": "(821)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s24-256-gb-12-gb-ram-samsung-turkiye-garantili-gri-p-HBCV00005MLL3F?magaza=Hepsiburada"
+  },
+  {
+    "title": "Samsung Galaxy A16 128 GB 6 GB Ram (Samsung Türkiye Garantili) Gri",
+    "price": "8.789 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000822450792.jpg",
+    "rating": "4,8",
+    "rating_count": "(303)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a16-128-gb-6-gb-ram-samsung-turkiye-garantili-gri-p-HBCV00006Y952I"
+  },
+  {
+    "title": "HONOR Magic 7 Lite 256 GB 8 GB Ram (Honor Türkiye Garantili) Siyah",
+    "price": "15.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000848343227.jpg",
+    "rating": "4,5",
+    "rating_count": "(378)",
+    "detail_link": "https://www.hepsiburada.com/honor-magic-7-lite-256-gb-8-gb-ram-honor-turkiye-garantili-siyah-p-HBCV00007KBQME"
+  },
+  {
+    "title": "Samsung Galaxy S24 FE 128 GB 8 GB Ram (Samsung Türkiye Garantili) Gri",
+    "price": "23.849 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000770122636.jpg",
+    "rating": "4,8",
+    "rating_count": "(606)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s24-fe-128-gb-8-gb-ram-samsung-turkiye-garantili-gri-p-HBCV00006Y95TH"
+  },
+  {
+    "title": "Nothing Phone 1 256 GB 8 GB Ram (Nothing Türkiye Garantili) Siyah",
+    "price": "13.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/406/222-222/110000433609899.jpg",
+    "rating": "4,7",
+    "rating_count": "(225)",
+    "detail_link": "https://www.hepsiburada.com/nothing-phone-1-256-gb-8-gb-ram-nothing-turkiye-garantili-siyah-p-HBCV00004BJC1S?magaza=Hepsiburada"
+  },
+  {
+    "title": "Nothing Phone (2a) 256 GB 12 GB Ram (Nothing Türkiye Garantili) Beyaz",
+    "price": "18.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000648599862.jpg",
+    "rating": "4,6",
+    "rating_count": "(76)",
+    "detail_link": "https://www.hepsiburada.com/nothing-phone-2a-256-gb-12-gb-ram-nothing-turkiye-garantili-beyaz-p-HBCV000062A66Y?magaza=Hepsiburada"
+  },
+  {
+    "title": "Samsung Galaxy A35 128 GB 8 GB Ram (Samsung Türkiye Garantili) Açık Mavi",
+    "price": "13.701,44 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000649581551.jpg",
+    "rating": "4,6",
+    "rating_count": "(456)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a35-128-gb-8-gb-ram-samsung-turkiye-garantili-acik-mavi-p-HBCV000062LHEM"
+  },
+  {
+    "title": "Infinix Infınıx Smart 9 128 GB 4 GB Ram (Infınıx Türkiye Garantili) Nane Yeşili",
+    "price": "5.499 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000829632174.jpg",
+    "rating": "4,4",
+    "rating_count": "(133)",
+    "detail_link": "https://www.hepsiburada.com/infinix-smart-9-128-gb-4-gb-ram-infinix-turkiye-garantili-nane-yesili-p-HBCV00007FI9E0"
+  },
+  {
+    "title": "Samsung Galaxy A55 128 GB 8 GB Ram (Samsung Türkiye Garantili) Siyah",
+    "price": "16.170 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000649786546.jpg",
+    "rating": "4,7",
+    "rating_count": "(678)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a55-128-gb-8-gb-ram-samsung-turkiye-garantili-siyah-p-HBCV000062NCXN"
+  },
+  {
+    "title": "Nothing Phone 2A Plus 256 GB 12 GB Ram (Nothing Türkiye Garantili) Gri",
+    "price": "22.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000894923277.jpg",
+    "rating": "5",
+    "rating_count": "(5)",
+    "detail_link": "https://www.hepsiburada.com/nothing-phone-2a-plus-256-gb-12-gb-ram-nothing-turkiye-garantili-gri-p-HBCV00007UCSW0?magaza=Hepsiburada"
+  },
+  {
+    "title": "Samsung Galaxy S24 Fe 256 GB 8 GB Ram (Samsung Türkiye Garantili) Grafit",
+    "price": "26.299,99 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000770487279.jpg",
+    "rating": "4,8",
+    "rating_count": "(283)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s24-fe-256-gb-8-gb-ram-samsung-turkiye-garantili-grafit-p-HBCV00006Y94ZR"
+  },
+  {
+    "title": "Apple iPhone 16e 128GB Beyaz",
+    "price": "44.799,60 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000926482822.jpg",
+    "rating": "4,8",
+    "rating_count": "(96)",
+    "detail_link": "https://www.hepsiburada.com/iphone-16e-128gb-beyaz-p-HBCV0000823QX8"
+  },
+  {
+    "title": "Samsung Galaxy S24 FE 128 GB 8 GB Ram (Samsung Türkiye Garantili) Mavi",
+    "price": "23.849 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000770487271.jpg",
+    "rating": "4,8",
+    "rating_count": "(606)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s24-fe-128-gb-8-gb-ram-samsung-turkiye-garantili-mavi-p-HBCV00006Y95YQ"
+  },
+  {
+    "title": "Samsung Galaxy S25+ 256 GB 12 GB Ram (Samsung Türkiye Garantili) Lacivert",
+    "price": "54.799 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000884893841.jpg",
+    "rating": "4,9",
+    "rating_count": "(70)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s25-256-gb-12-gb-ram-samsung-turkiye-garantili-lacivert-p-HBCV00007MIEMH"
+  },
+  {
+    "title": "Samsung B310 Dual Sim Lacivert",
+    "price": "1.149 TL",
+    "image": "https://productimages.hepsiburada.net/s/0/222-222/9453551517746.jpg",
+    "rating": "3,5",
+    "rating_count": "(3555)",
+    "detail_link": "https://www.hepsiburada.com/samsung-b310-dual-sim-lacivert-p-HBV000000LK8X"
+  },
+  {
+    "title": "Samsung Galaxy S23 Ultra 512 GB 12 GB Ram (Samsung Türkiye Garantili) Altın",
+    "price": "48.899 TL",
+    "image": "https://productimages.hepsiburada.net/s/356/222-222/110000369646012.jpg",
+    "rating": "4,8",
+    "rating_count": "(859)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s23-ultra-512-gb-12-gb-ram-samsung-turkiye-garantili-altin-p-HBCV00003P2GFP"
+  },
+  {
+    "title": "Redmi Note 14 Pro 12GB 512GB (Xiaomi Türkiye Garantili)",
+    "price": "18.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000871327752.jpg",
+    "rating": "4,4",
+    "rating_count": "(94)",
+    "detail_link": "https://www.hepsiburada.com/redmi-note-14-pro-12gb-512gb-xiaomi-turkiye-garantili-p-HBCV00007PLTJQ"
+  },
+  {
+    "title": "Samsung B310 E  Dual Sim Kamerasız Cep Telefonu Beyaz",
+    "price": "1.149 TL",
+    "image": "https://productimages.hepsiburada.net/s/309/222-222/110000301659025.jpg",
+    "rating": "3,3",
+    "rating_count": "(649)",
+    "detail_link": "https://www.hepsiburada.com/samsung-b310-e-dual-sim-kamerasiz-cep-telefonu-beyaz-p-HBCV000031NWW8"
+  },
+  {
+    "title": "Samsung Galaxy A55 128 GB 8 GB Ram (Samsung Türkiye Garantili) Açık Mavi",
+    "price": "16.507,50 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000649749380.jpg",
+    "rating": "4,7",
+    "rating_count": "(678)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a55-128-gb-8-gb-ram-samsung-turkiye-garantili-acik-mavi-p-HBCV000062N008"
+  },
+  {
+    "title": "Samsung Galaxy A35 128 GB 8 GB Ram (Samsung Türkiye Garantili) Siyah",
+    "price": "13.559 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000649486309.jpg",
+    "rating": "4,6",
+    "rating_count": "(456)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a35-128-gb-8-gb-ram-samsung-turkiye-garantili-siyah-p-HBCV000062KQTO"
+  },
+  {
+    "title": "Redmi Note 14 Pro 8GB 256GB (Xiaomi Türkiye Garantili)",
+    "price": "16.599 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000870881007.jpg",
+    "rating": "4,3",
+    "rating_count": "(62)",
+    "detail_link": "https://www.hepsiburada.com/redmi-note-14-pro-8gb-256gb-xiaomi-turkiye-garantili-p-HBCV00007PN3ZO"
+  },
+  {
+    "title": "Apple iPhone 15 256 GB Mavi",
+    "price": "55.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/462/222-222/110000498573541.jpg",
+    "rating": "4,8",
+    "rating_count": "(2913)",
+    "detail_link": "https://www.hepsiburada.com/iphone-15-256-gb-mavi-p-HBCV00004X9ZCQ"
+  },
+  {
+    "title": "Nothing Phone 1 256 GB 8 GB Ram (Nothing Türkiye Garantili) Siyah",
+    "price": "13.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/406/222-222/110000433609899.jpg",
+    "rating": "4,7",
+    "rating_count": "(225)",
+    "detail_link": "https://www.hepsiburada.com/nothing-phone-1-256-gb-8-gb-ram-nothing-turkiye-garantili-pm-HBC00004BJC1R"
+  },
+  {
+    "title": "Apple iPhone 16 Pro 256GB Beyaz",
+    "price": "84.599 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000767394985.jpg",
+    "rating": "4,8",
+    "rating_count": "(637)",
+    "detail_link": "https://www.hepsiburada.com/iphone-16-pro-256gb-beyaz-p-HBCV00006Y4HBP"
+  },
+  {
+    "title": "Xiaomi 14T Pro 12GB 512GB",
+    "price": "41.000 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000776539525.jpg",
+    "rating": "4,3",
+    "rating_count": "(197)",
+    "detail_link": "https://www.hepsiburada.com/xiaomi-14t-pro-12gb-512gb-p-HBCV00006YA8AZ"
+  },
+  {
+    "title": "Apple iPhone 16 Pro 128GB Beyaz",
+    "price": "78.499 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000767382160.jpg",
+    "rating": "4,7",
+    "rating_count": "(755)",
+    "detail_link": "https://www.hepsiburada.com/iphone-16-pro-128gb-beyaz-p-HBCV00006Y4HBJ"
+  },
+  {
+    "title": "HONOR 200 512 GB 12 GB Ram (Honor Türkiye Garantili) Zümrüt Yeşili",
+    "price": "23.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000841132629.jpg",
+    "rating": "4,7",
+    "rating_count": "(987)",
+    "detail_link": "https://www.hepsiburada.com/honor-200-512-gb-12-gb-ram-honor-turkiye-garantili-zumrut-yesili-p-HBCV00006SHZ2S"
+  },
+  {
+    "title": "Apple iPhone 16 Pro 256GB Siyah",
+    "price": "88.825 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000767381487.jpg",
+    "rating": "4,8",
+    "rating_count": "(637)",
+    "detail_link": "https://www.hepsiburada.com/iphone-16-pro-256gb-siyah-p-HBCV00006Y4HBN"
+  },
+  {
+    "title": "Xiaomi Redmi Note 13 Pro 256GB 8gb Ram (Xiaomi Türkiye Garantili) Mor",
+    "price": "15.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/543/222-222/110000603451960.jpg",
+    "rating": "4,1",
+    "rating_count": "(2709)",
+    "detail_link": "https://www.hepsiburada.com/xiaomi-redmi-note-13-pro-256gb-8gb-ram-xiaomi-turkiye-garantili-mor-p-HBCV00005PZUWC"
+  },
+  {
+    "title": "Samsung Galaxy S25 128 GB 12 GB Ram (Samsung Türkiye Garantili) Lacivert",
+    "price": "45.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000885116730.jpg",
+    "rating": "4,9",
+    "rating_count": "(25)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s25-128-gb-12-gb-ram-samsung-turkiye-garantili-lacivert-p-HBCV00007JDVRH"
+  },
+  {
+    "title": "Apple iPhone 16 256GB Lacivert Taş",
+    "price": "66.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000767669500.jpg",
+    "rating": "4,8",
+    "rating_count": "(414)",
+    "detail_link": "https://www.hepsiburada.com/iphone-16-256gb-lacivert-tas-p-HBCV00006Y4HU5"
+  },
+  {
+    "title": "Xiaomi Redmi Note 14 Pro Plus 5g 512 GB 12 GB Ram (Xiaomi Türkiye Garantili)",
+    "price": "27.250 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000882078676.jpg",
+    "rating": "4,8",
+    "rating_count": "(44)",
+    "detail_link": "https://www.hepsiburada.com/xiaomi-redmi-note-14-pro-plus-5g-512-gb-12-gb-ram-xiaomi-turkiye-garantili-p-HBCV00007R83XF"
+  },
+  {
+    "title": "Apple iPhone 16 Pro Max 512GB Natürel Titanyum",
+    "price": "101.939 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000767800452.jpg",
+    "rating": "4,8",
+    "rating_count": "(255)",
+    "detail_link": "https://www.hepsiburada.com/iphone-16-pro-max-512gb-naturel-titanyum-p-HBCV00006Y4I9R"
+  },
+  {
+    "title": "Samsung Galaxy A04S 64 GB (Samsung Türkiye Garantili) Siyah 64 GB Siyah",
+    "price": "6.839,60 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000679658220.jpg",
+    "rating": "4,6",
+    "rating_count": "(2089)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a04s-64-gb-samsung-turkiye-garantili-siyah-64-gb-siyah-p-HBCV0000319N21"
+  },
+  {
+    "title": "Redmi Note 14 Pro 5G 12GB 512GB (Xiaomi Türkiye Garantili)",
+    "price": "22.500 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000870881157.jpg",
+    "rating": "4,4",
+    "rating_count": "(40)",
+    "detail_link": "https://www.hepsiburada.com/redmi-note-14-pro-5g-12gb-512gb-xiaomi-turkiye-garantili-p-HBCV00007PN67Q"
+  },
+  {
+    "title": "Nothing Phone 1 128 GB 8 GB Ram (Nothing Türkiye Garantili) Siyah",
+    "price": "12.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/512/222-222/110000567413510.jpg",
+    "rating": "4,7",
+    "rating_count": "(95)",
+    "detail_link": "https://www.hepsiburada.com/nothing-phone-1-128-gb-8-gb-ram-nothing-turkiye-garantili-pm-HBC00005EWDXU"
+  },
+  {
+    "title": "Xiaomi Redmi Note 13 Pro 512GB 12GB (Xiaomi Türkiye Garantili) Siyah",
+    "price": "18.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/543/222-222/110000603451969.jpg",
+    "rating": "4,6",
+    "rating_count": "(2558)",
+    "detail_link": "https://www.hepsiburada.com/xiaomi-redmi-note-13-pro-512gb-12gb-xiaomi-turkiye-garantili-siyah-p-HBCV00005PZUWF"
+  },
+  {
+    "title": "Xiaomi Redmi 12 128 GB 8 GB Ram (Xiaomi Türkiye Garantili) Siyah",
+    "price": "8.190 TL",
+    "image": "https://productimages.hepsiburada.net/s/478/222-222/110000521396581.jpg",
+    "rating": "4,6",
+    "rating_count": "(3589)",
+    "detail_link": "https://www.hepsiburada.com/xiaomi-redmi-12-128-gb-8-gb-ram-xiaomi-turkiye-garantili-siyah-p-HBCV000051HDNY"
+  },
+  {
+    "title": "HONOR Magic V3 512 GB 12 GB Ram (Honor Türkiye Garantili) Yeşil",
+    "price": "79.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000819906484.jpg",
+    "rating": "4,8",
+    "rating_count": "(75)",
+    "detail_link": "https://www.hepsiburada.com/honor-magic-v3-512-gb-12-gb-ram-honor-turkiye-garantili-yesil-p-HBCV00007CL0YE"
+  },
+  {
+    "title": "Tecno Spark 30 256 GB 8 GB Ram",
+    "price": "9.199 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000858378067.jpg",
+    "rating": "5",
+    "rating_count": "(4)",
+    "detail_link": "https://www.hepsiburada.com/tecno-spark-30-256-gb-8-gb-ram-p-HBCV00007MS1WI"
+  },
+  {
+    "title": "Samsung Galaxy S25 Ultra 1 Tb 12 GB Ram (Samsung Türkiye Garantili)",
+    "price": "88.999 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000885116718.jpg",
+    "rating": "5",
+    "rating_count": "(21)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s25-ultra-1-tb-12-gb-ram-samsung-turkiye-garantili-p-HBCV00007MIEUP"
+  },
+  {
+    "title": "Apple iPhone 16 Pro 128GB Siyah",
+    "price": "79.324,05 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000767381139.jpg",
+    "rating": "4,7",
+    "rating_count": "(755)",
+    "detail_link": "https://www.hepsiburada.com/iphone-16-pro-128gb-siyah-p-HBCV00006Y4HBH"
+  },
+  {
+    "title": "Reeder P13 Blue Max L 2022 64 GB (Reeder Türkiye Garantili) Beyaz",
+    "price": "3.399 TL",
+    "image": "https://productimages.hepsiburada.net/s/140/222-222/110000092249869.jpg",
+    "rating": "3,8",
+    "rating_count": "(817)",
+    "detail_link": "https://www.hepsiburada.com/reeder-p13-blue-max-l-2022-64-gb-reeder-turkiye-garantili-beyaz-p-HBCV00000ZIWHR"
+  },
+  {
+    "title": "POCO Poco X7  12GB 512GB (Xiaomi Türkiye Garantili)",
+    "price": "17.499 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000857264942.jpg",
+    "rating": "4,6",
+    "rating_count": "(38)",
+    "detail_link": "https://www.hepsiburada.com/poco-x7-12gb-512gb-xiaomi-turkiye-garantili-p-HBCV00007MJ4HL"
+  },
+  {
+    "title": "Oppo A60 8GB 256GB (Oppo Türkiye Garantili) Mavi",
+    "price": "10.199 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000750718416.jpg",
+    "rating": "4,7",
+    "rating_count": "(121)",
+    "detail_link": "https://www.hepsiburada.com/oppo-a60-8gb-256gb-oppo-turkiye-garantili-mavi-p-HBCV00006T7QJC"
+  },
+  {
+    "title": "Samsung Galaxy A25 5G 256 GB 8 GB Ram (Samsung Türkiye Garantili) Siyah",
+    "price": "13.250 TL",
+    "image": "https://productimages.hepsiburada.net/s/538/222-222/110000597041335.jpg",
+    "rating": "4,6",
+    "rating_count": "(395)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-a25-5g-256-gb-8-gb-ram-samsung-turkiye-garantili-siyah-p-HBCV00005MKEXT"
+  },
+  {
+    "title": "Samsung Galaxy S25 256 GB Lacivert",
+    "price": "47.670 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000900489980.jpg",
+    "rating": "5",
+    "rating_count": "(5)",
+    "detail_link": "https://www.hepsiburada.com/samsung-galaxy-s25-256-gb-lacivert-pm-HBC00007VSHAF"
+  },
+  {
+    "title": "Panasonic KX-TU550EXB Katlanabilir Renkli Ekran 4g Tuşlu Cep Telefonu Siyah (2 Yıl Türkiye Distribütör Garantili) Siyah",
+    "price": "4.269 TL",
+    "image": "https://productimages.hepsiburada.net/s/777/222-222/110000685079903.jpg",
+    "rating": "4",
+    "rating_count": "(24)",
+    "detail_link": "https://www.hepsiburada.com/panasonic-kx-tu550exb-katlanabilir-renkli-ekran-4g-tuslu-cep-telefonu-siyah-2-yil-turkiye-distributor-garantili-pm-HBC00006C883D"
+  },
+  {
+    "title": "Reeder S19 Max Pro 256 GB 6 GB Ram (Reeder Türkiye Garantili) Siyah",
+    "price": "4.799 TL",
+    "image": "https://productimages.hepsiburada.net/s/473/222-222/110000515897963.jpg",
+    "rating": "4,1",
+    "rating_count": "(1430)",
+    "detail_link": "https://www.hepsiburada.com/reeder-s19-max-pro-256-gb-6-gb-ram-reeder-turkiye-garantili-siyah-p-HBCV00002FAL3O"
+  },
+  {
+    "title": "Samsung B310E Cep Telefonu (Resmi BTK Kayıtlı)2G VE 3G HATLAR İÇİN  Beyaz",
+    "price": "1.149 TL",
+    "image": "https://productimages.hepsiburada.net/s/283/222-222/110000271762900.jpg",
+    "rating": "3,1",
+    "rating_count": "(1779)",
+    "detail_link": "https://www.hepsiburada.com/samsung-b310e-cep-telefonu-resmi-btk-kayitli-2g-ve-3g-hatlar-icin-beyaz-p-HBCV00002X4SMS"
+  }
+]
