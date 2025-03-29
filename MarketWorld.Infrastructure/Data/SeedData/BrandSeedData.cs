@@ -67,6 +67,18 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Id = 10,
                     Name = "Huawei",
                     CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 11,
+                    Name = "Canon",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 12,
+                    Name = "Epson",
+                    CreatedDate = DateTime.Now
                 }
             };
         }

@@ -65,6 +65,38 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Ekran Boyutu",
                     IsActive = true,
                     CreatedDate = DateTime.Now
+                },
+                new PropertyType
+                {
+                    Id = 8,
+                    Name = "Yazıcı Tipi",
+                    Description = "Yazıcı Teknolojisi",
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new PropertyType
+                {
+                    Id = 9,
+                    Name = "Mürekkep Sistemi",
+                    Description = "Mürekkep/Kartuş Sistemi",
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new PropertyType
+                {
+                    Id = 10,
+                    Name = "Kağıt Boyutu",
+                    Description = "Desteklenen Kağıt Boyutları",
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new PropertyType
+                {
+                    Id = 11,
+                    Name = "Fonksiyonlar",
+                    Description = "Yazıcı Fonksiyonları",
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
                 }
             };
         }
@@ -114,7 +146,25 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new PropertyValue { Id = 33, PropertyTypeId = 4, Value = "Intel Core i5 13500H", CreatedDate = DateTime.Now },
                 new PropertyValue { Id = 34, PropertyTypeId = 4, Value = "Intel Core i9-14900HX", CreatedDate = DateTime.Now },
                 new PropertyValue { Id = 35, PropertyTypeId = 4, Value = "Intel Core Ultra 7 255HX", CreatedDate = DateTime.Now },
-                new PropertyValue { Id = 36, PropertyTypeId = 4, Value = "AMD Ryzen 5 7520U", CreatedDate = DateTime.Now }
+                new PropertyValue { Id = 36, PropertyTypeId = 4, Value = "AMD Ryzen 5 7520U", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 37, PropertyTypeId = 8, Value = "Mürekkep Püskürtmeli", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 38, PropertyTypeId = 8, Value = "Lazer", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 39, PropertyTypeId = 8, Value = "Süblimasyon", CreatedDate = DateTime.Now },
+
+                new PropertyValue { Id = 40, PropertyTypeId = 9, Value = "Kartuşlu", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 41, PropertyTypeId = 9, Value = "Tanklı", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 42, PropertyTypeId = 9, Value = "Dolum Üniteli", CreatedDate = DateTime.Now },
+
+                new PropertyValue { Id = 43, PropertyTypeId = 10, Value = "A4", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 44, PropertyTypeId = 10, Value = "A3", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 45, PropertyTypeId = 10, Value = "A4/A3", CreatedDate = DateTime.Now },
+
+                new PropertyValue { Id = 46, PropertyTypeId = 11, Value = "Yazdırma", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 47, PropertyTypeId = 11, Value = "Tarama", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 48, PropertyTypeId = 11, Value = "Fotokopi", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 49, PropertyTypeId = 11, Value = "Faks", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 50, PropertyTypeId = 11, Value = "Wi-Fi", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 51, PropertyTypeId = 11, Value = "AirPrint", CreatedDate = DateTime.Now }
             };
         }
 
@@ -235,6 +285,62 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 });
+            }
+
+            // Yazıcılar için özellikler (43-84 arası ürünler)
+            for (int productId = 43; productId <= 84; productId++)
+            {
+                // Yazıcı tipi
+                productProperties.Add(new ProductProperty
+                {
+                    Id = id++,
+                    ProductId = productId,
+                    PropertyTypeId = 8,
+                    PropertyValueId = GetPrinterTypeValueId(productId),
+                    Stock = 50,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                });
+
+                // Mürekkep sistemi
+                productProperties.Add(new ProductProperty
+                {
+                    Id = id++,
+                    ProductId = productId,
+                    PropertyTypeId = 9,
+                    PropertyValueId = GetInkSystemValueId(productId),
+                    Stock = 50,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                });
+
+                // Kağıt boyutu
+                productProperties.Add(new ProductProperty
+                {
+                    Id = id++,
+                    ProductId = productId,
+                    PropertyTypeId = 10,
+                    PropertyValueId = GetPaperSizeValueId(productId),
+                    Stock = 50,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                });
+
+                // Fonksiyonlar
+                var functionIds = GetFunctionValueIds(productId);
+                foreach (var functionId in functionIds)
+                {
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 11,
+                        PropertyValueId = functionId,
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+                }
             }
 
             return productProperties;
@@ -391,6 +497,110 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 42 => 30, // 15.6"
                 _ => 30
             };
+        }
+
+        private static int GetPrinterTypeValueId(int productId)
+        {
+            // Ürün ID'sine göre yazıcı tipini belirle
+            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
+                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
+                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
+                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
+                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
+                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
+                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
+                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
+                productId == 83 || productId == 84)
+            {
+                return 37; // Mürekkep Püskürtmeli
+            }
+            return 38; // Lazer
+        }
+
+        private static int GetInkSystemValueId(int productId)
+        {
+            // Ürün ID'sine göre mürekkep sistemini belirle
+            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
+                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
+                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
+                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
+                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
+                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
+                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
+                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
+                productId == 83 || productId == 84)
+            {
+                return 40; // Kartuşlu
+            }
+            return 41; // Tanklı
+        }
+
+        private static int GetPaperSizeValueId(int productId)
+        {
+            // Ürün ID'sine göre kağıt boyutunu belirle
+            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
+                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
+                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
+                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
+                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
+                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
+                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
+                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
+                productId == 83 || productId == 84)
+            {
+                return 43; // A4
+            }
+            return 44; // A3
+        }
+
+        private static List<int> GetFunctionValueIds(int productId)
+        {
+            var functionIds = new List<int> { 46 }; // Tüm yazıcılar yazdırma yapabilir
+
+            // Tarama özelliği
+            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
+                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
+                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
+                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
+                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
+                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
+                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
+                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
+                productId == 83 || productId == 84)
+            {
+                functionIds.Add(47); // Tarama
+                functionIds.Add(48); // Fotokopi
+            }
+
+            // Wi-Fi özelliği
+            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
+                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
+                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
+                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
+                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
+                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
+                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
+                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
+                productId == 83 || productId == 84)
+            {
+                functionIds.Add(50); // Wi-Fi
+            }
+
+            // AirPrint özelliği
+            if (productId == 43 || productId == 44 || productId == 45 || productId == 46 || productId == 47 || 
+                productId == 48 || productId == 49 || productId == 50 || productId == 51 || productId == 52 || 
+                productId == 53 || productId == 54 || productId == 55 || productId == 56 || productId == 57 || 
+                productId == 58 || productId == 59 || productId == 60 || productId == 61 || productId == 62 || 
+                productId == 63 || productId == 64 || productId == 65 || productId == 66 || productId == 67 || 
+                productId == 68 || productId == 69 || productId == 70 || productId == 71 || productId == 72 || 
+                productId == 73 || productId == 74 || productId == 75 || productId == 76 || productId == 77 || 
+                productId == 78 || productId == 79 || productId == 80 || productId == 81 || productId == 82 || 
+                productId == 83 || productId == 84)
+            {
+                functionIds.Add(51); // AirPrint
+            }
+
+            return functionIds;
         }
     }
 } 

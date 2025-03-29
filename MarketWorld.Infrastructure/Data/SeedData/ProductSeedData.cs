@@ -645,6 +645,636 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     CategoryId = 1,
                     Rating = 4.4M,
                     CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 43,
+                    Name = "HP Deskjet Ink Advantage 2878 All-In-One Yazıcı",
+                    Description = "HP Deskjet Ink Advantage 2878 All-In-One Yazıcı",
+                    Price = 2799.00M,
+                    Stock = 100,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.1M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 44,
+                    Name = "Canon Dolan Kartuşlu E414 Yazıcı",
+                    Description = "Canon Dolan Kartuşlu E414 Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 2299.08M,
+                    Stock = 150,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.4M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 45,
+                    Name = "Canon Pixma TR4650",
+                    Description = "Canon Pixma TR4650 Tarayıcı + Fotokopi + Wi-Fi + Faks + Çok Fonksiyonlu Yazıcı",
+                    Price = 3379.00M,
+                    Stock = 75,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.2M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 46,
+                    Name = "Canon Pixma E3640 Wi-Fi",
+                    Description = "Canon Pixma E3640 Wi-Fi Tarayıcı - Fotokopi Çok Fonksiyonlu Mürekkep Püskürtmeli Yazıcı",
+                    Price = 3399.00M,
+                    Stock = 120,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 47,
+                    Name = "Epson L5290 Wi-Fi Renk Tanklı Yazıcı",
+                    Description = "Epson L5290 Wi-Fi Renk Tanklı Yazıcı",
+                    Price = 11983.51M,
+                    Stock = 60,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.4M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 48,
+                    Name = "Epson Tanklı L3150 Photoink",
+                    Description = "Epson Tanklı L3150 Photoink Muadil Mürekkepli Tanklı Yazıcı",
+                    Price = 6033.86M,
+                    Stock = 90,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 49,
+                    Name = "HP Officejet Pro 7720",
+                    Description = "HP Officejet Pro 7720 Fotokopi + Faks + Tarayıcı + Wi-Fi + Airprint + A3 Yazıcı",
+                    Price = 11138.06M,
+                    Stock = 45,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 50,
+                    Name = "Canon E3640 Wifi Yazıcı",
+                    Description = "Canon E3640 Wifi Yazıcı ve Tıpalı Kartuş Sistemi",
+                    Price = 3306.56M,
+                    Stock = 100,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.3M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 51,
+                    Name = "Epson L3151 Tanklı Yazıcı",
+                    Description = "Epson L3151 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 4999.00M,
+                    Stock = 120,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 52,
+                    Name = "HP LaserJet Pro M428f",
+                    Description = "HP LaserJet Pro M428f MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 7999.00M,
+                    Stock = 80,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.3M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 53,
+                    Name = "Canon PIXMA G3110",
+                    Description = "Canon PIXMA G3110 Tanklı Yazıcı",
+                    Price = 3999.00M,
+                    Stock = 150,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.4M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 54,
+                    Name = "Epson L3250 Tanklı Yazıcı",
+                    Description = "Epson L3250 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 4499.00M,
+                    Stock = 100,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 55,
+                    Name = "HP LaserJet Pro M428dw",
+                    Description = "HP LaserJet Pro M428dw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 8999.00M,
+                    Stock = 60,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 56,
+                    Name = "Canon PIXMA G4110",
+                    Description = "Canon PIXMA G4110 Tanklı Yazıcı",
+                    Price = 4499.00M,
+                    Stock = 90,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.3M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 57,
+                    Name = "Epson L4260 Tanklı Yazıcı",
+                    Description = "Epson L4260 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 5499.00M,
+                    Stock = 75,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.7M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 58,
+                    Name = "HP LaserJet Pro M428fnw",
+                    Description = "HP LaserJet Pro M428fnw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 9999.00M,
+                    Stock = 50,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.4M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 59,
+                    Name = "Canon PIXMA G5110",
+                    Description = "Canon PIXMA G5110 Tanklı Yazıcı",
+                    Price = 4999.00M,
+                    Stock = 110,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 60,
+                    Name = "Epson L4266 Tanklı Yazıcı",
+                    Description = "Epson L4266 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 5999.00M,
+                    Stock = 85,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 61,
+                    Name = "HP LaserJet Pro M428fdw",
+                    Description = "HP LaserJet Pro M428fdw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 10999.00M,
+                    Stock = 45,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 62,
+                    Name = "Canon PIXMA G6110",
+                    Description = "Canon PIXMA G6110 Tanklı Yazıcı",
+                    Price = 5499.00M,
+                    Stock = 95,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.4M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 63,
+                    Name = "Epson L4268 Tanklı Yazıcı",
+                    Description = "Epson L4268 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 6499.00M,
+                    Stock = 70,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.7M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 64,
+                    Name = "HP LaserJet Pro M428fdn",
+                    Description = "HP LaserJet Pro M428fdn MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 11999.00M,
+                    Stock = 40,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 65,
+                    Name = "Canon PIXMA G7110",
+                    Description = "Canon PIXMA G7110 Tanklı Yazıcı",
+                    Price = 5999.00M,
+                    Stock = 80,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.5M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 66,
+                    Name = "Epson L4269 Tanklı Yazıcı",
+                    Description = "Epson L4269 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 6999.00M,
+                    Stock = 60,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.8M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 67,
+                    Name = "HP LaserJet Pro M428fdnw",
+                    Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 12999.00M,
+                    Stock = 35,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.7M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 68,
+                    Name = "Canon PIXMA G8110",
+                    Description = "Canon PIXMA G8110 Tanklı Yazıcı",
+                    Price = 6499.00M,
+                    Stock = 70,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 69,
+                    Name = "Epson L4267 Tanklı Yazıcı",
+                    Description = "Epson L4267 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 7499.00M,
+                    Stock = 50,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.9M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 70,
+                    Name = "HP LaserJet Pro M428fdnw",
+                    Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 13999.00M,
+                    Stock = 30,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.8M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 71,
+                    Name = "Canon PIXMA G9110",
+                    Description = "Canon PIXMA G9110 Tanklı Yazıcı",
+                    Price = 6999.00M,
+                    Stock = 60,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.7M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 72,
+                    Name = "Epson L4265 Tanklı Yazıcı",
+                    Description = "Epson L4265 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 7999.00M,
+                    Stock = 45,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.8M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 73,
+                    Name = "HP LaserJet Pro M428fdnw",
+                    Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 14999.00M,
+                    Stock = 25,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.9M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 74,
+                    Name = "Canon PIXMA G1010",
+                    Description = "Canon PIXMA G1010 Tanklı Yazıcı",
+                    Price = 7499.00M,
+                    Stock = 50,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.8M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 75,
+                    Name = "Epson L4264 Tanklı Yazıcı",
+                    Description = "Epson L4264 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 8499.00M,
+                    Stock = 40,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.9M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 76,
+                    Name = "HP LaserJet Pro M428fdnw",
+                    Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 15999.00M,
+                    Stock = 20,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 5.0M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 77,
+                    Name = "Canon PIXMA G1110",
+                    Description = "Canon PIXMA G1110 Tanklı Yazıcı",
+                    Price = 7999.00M,
+                    Stock = 45,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 4.9M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 78,
+                    Name = "Epson L4263 Tanklı Yazıcı",
+                    Description = "Epson L4263 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 8999.00M,
+                    Stock = 35,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 5.0M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 79,
+                    Name = "HP LaserJet Pro M428fdnw",
+                    Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 16999.00M,
+                    Stock = 15,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 5.0M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 80,
+                    Name = "Canon PIXMA G1210",
+                    Description = "Canon PIXMA G1210 Tanklı Yazıcı",
+                    Price = 8499.00M,
+                    Stock = 40,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 5.0M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 81,
+                    Name = "Epson L4262 Tanklı Yazıcı",
+                    Description = "Epson L4262 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 9499.00M,
+                    Stock = 30,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 5.0M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 82,
+                    Name = "HP LaserJet Pro M428fdnw",
+                    Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
+                    Price = 17999.00M,
+                    Stock = 10,
+                    BrandId = 4,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 5.0M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 83,
+                    Name = "Canon PIXMA G1310",
+                    Description = "Canon PIXMA G1310 Tanklı Yazıcı",
+                    Price = 8999.00M,
+                    Stock = 35,
+                    BrandId = 11,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 5.0M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 84,
+                    Name = "Epson L4261 Tanklı Yazıcı",
+                    Description = "Epson L4261 Tanklı Yazıcı / Tarayıcı / Fotokopi",
+                    Price = 9999.00M,
+                    Stock = 25,
+                    BrandId = 12,
+                    SubCategoryId = 2,
+                    HasDiscount = false,
+                    IsActive = true,
+                    CategoryId = 2,
+                    Rating = 5.0M,
+                    CreatedDate = DateTime.Now
                 }
             };
         }
