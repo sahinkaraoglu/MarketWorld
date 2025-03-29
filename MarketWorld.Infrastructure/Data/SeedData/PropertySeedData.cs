@@ -164,7 +164,10 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new PropertyValue { Id = 48, PropertyTypeId = 11, Value = "Fotokopi", CreatedDate = DateTime.Now },
                 new PropertyValue { Id = 49, PropertyTypeId = 11, Value = "Faks", CreatedDate = DateTime.Now },
                 new PropertyValue { Id = 50, PropertyTypeId = 11, Value = "Wi-Fi", CreatedDate = DateTime.Now },
-                new PropertyValue { Id = 51, PropertyTypeId = 11, Value = "AirPrint", CreatedDate = DateTime.Now }
+                new PropertyValue { Id = 51, PropertyTypeId = 11, Value = "AirPrint", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 52, PropertyTypeId = 1, Value = "Siyah", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 53, PropertyTypeId = 1, Value = "Beyaz", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 54, PropertyTypeId = 1, Value = "Gri", CreatedDate = DateTime.Now }
             };
         }
 
@@ -290,6 +293,21 @@ namespace MarketWorld.Infrastructure.Data.SeedData
             // Yazıcılar için özellikler (43-84 arası ürünler)
             for (int productId = 43; productId <= 84; productId++)
             {
+                // Renk seçenekleri
+                for (int colorId = 52; colorId <= 54; colorId++)
+                {
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 1,
+                        PropertyValueId = colorId,
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+                }
+
                 // Yazıcı tipi
                 productProperties.Add(new ProductProperty
                 {
