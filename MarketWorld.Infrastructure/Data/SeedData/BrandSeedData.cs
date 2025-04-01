@@ -79,6 +79,60 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Id = 12,
                     Name = "Epson",
                     CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 13,
+                    Name = "Honor",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 14,
+                    Name = "Nothing",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 15,
+                    Name = "Infinix",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 16,
+                    Name = "Redmi",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 17,
+                    Name = "POCO",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 18,
+                    Name = "Oppo",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 19,
+                    Name = "Panasonic",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 20,
+                    Name = "Reeder",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 21,
+                    Name = "Tecno",
+                    CreatedDate = DateTime.Now
                 }
             };
         }

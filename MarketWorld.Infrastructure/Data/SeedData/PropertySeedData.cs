@@ -167,7 +167,17 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new PropertyValue { Id = 51, PropertyTypeId = 11, Value = "AirPrint", CreatedDate = DateTime.Now },
                 new PropertyValue { Id = 52, PropertyTypeId = 1, Value = "Siyah", CreatedDate = DateTime.Now },
                 new PropertyValue { Id = 53, PropertyTypeId = 1, Value = "Beyaz", CreatedDate = DateTime.Now },
-                new PropertyValue { Id = 54, PropertyTypeId = 1, Value = "Gri", CreatedDate = DateTime.Now }
+                new PropertyValue { Id = 54, PropertyTypeId = 1, Value = "Gri", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 55, PropertyTypeId = 1, Value = "Açık Mavi", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 56, PropertyTypeId = 1, Value = "Lacivert", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 57, PropertyTypeId = 1, Value = "Mavi", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 58, PropertyTypeId = 1, Value = "Mor", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 59, PropertyTypeId = 1, Value = "Altın", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 60, PropertyTypeId = 1, Value = "Nane Yeşili", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 61, PropertyTypeId = 1, Value = "Zümrüt Yeşili", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 62, PropertyTypeId = 1, Value = "Lacivert Taş", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 63, PropertyTypeId = 1, Value = "Natürel Titanyum", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 64, PropertyTypeId = 1, Value = "Grafit", CreatedDate = DateTime.Now }
             };
         }
 
@@ -312,6 +322,36 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                         CreatedDate = DateTime.Now
                     });
                 }
+            }
+
+            // Telefonlar için özellikler (74-129 arası ürünler)
+            for (int productId = 74; productId <= 129; productId++)
+            {
+                // Renk seçenekleri
+                var colorValueId = GetPhoneColorValueId(productId);
+                productProperties.Add(new ProductProperty
+                {
+                    Id = id++,
+                    ProductId = productId,
+                    PropertyTypeId = 1,
+                    PropertyValueId = colorValueId,
+                    Stock = 50,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                });
+
+                // Hafıza özelliği
+                var storageValueId = GetPhoneStorageValueId(productId);
+                productProperties.Add(new ProductProperty
+                {
+                    Id = id++,
+                    ProductId = productId,
+                    PropertyTypeId = 3,
+                    PropertyValueId = storageValueId,
+                    Stock = 50,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                });
             }
 
             return productProperties;
@@ -524,6 +564,134 @@ namespace MarketWorld.Infrastructure.Data.SeedData
             }
 
             return functionIds;
+        }
+
+        private static int GetPhoneColorValueId(int productId)
+        {
+            return productId switch
+            {
+                74 => 53, // Beyaz
+                75 => 52, // Siyah
+                76 => 52, // Siyah
+                77 => 52, // Siyah
+                78 => 52, // Siyah
+                79 => 58, // Mor
+                80 => 55, // Açık Mavi
+                81 => 54, // Gri
+                82 => 54, // Gri
+                83 => 52, // Siyah
+                84 => 54, // Gri
+                85 => 52, // Siyah
+                86 => 53, // Beyaz
+                87 => 55, // Açık Mavi
+                88 => 60, // Nane Yeşili
+                89 => 52, // Siyah
+                90 => 54, // Gri
+                91 => 64, // Grafit
+                92 => 53, // Beyaz
+                93 => 57, // Mavi
+                94 => 56, // Lacivert
+                95 => 56, // Lacivert
+                96 => 59, // Altın
+                97 => 52, // Siyah
+                98 => 53, // Beyaz
+                99 => 55, // Açık Mavi
+                100 => 52, // Siyah
+                101 => 52, // Siyah
+                102 => 57, // Mavi
+                103 => 53, // Beyaz
+                104 => 52, // Siyah
+                105 => 53, // Beyaz
+                106 => 61, // Zümrüt Yeşili
+                107 => 52, // Siyah
+                108 => 58, // Mor
+                109 => 56, // Lacivert
+                110 => 62, // Lacivert Taş
+                111 => 52, // Siyah
+                112 => 63, // Natürel Titanyum
+                113 => 52, // Siyah
+                114 => 52, // Siyah
+                115 => 52, // Siyah
+                116 => 52, // Siyah
+                117 => 52, // Siyah
+                118 => 61, // Yeşil
+                119 => 52, // Siyah
+                120 => 52, // Siyah
+                121 => 52, // Siyah
+                122 => 53, // Beyaz
+                123 => 52, // Siyah
+                124 => 57, // Mavi
+                125 => 52, // Siyah
+                126 => 56, // Lacivert
+                127 => 52, // Siyah
+                128 => 52, // Siyah
+                129 => 53, // Beyaz
+                _ => 52
+            };
+        }
+
+        private static int GetPhoneStorageValueId(int productId)
+        {
+            return productId switch
+            {
+                74 => 11, // 128GB
+                75 => 11, // 128GB
+                76 => 11, // 128GB
+                77 => 11, // 128GB
+                78 => 14, // 256GB
+                79 => 14, // 256GB
+                80 => 11, // 128GB
+                81 => 14, // 256GB
+                82 => 11, // 128GB
+                83 => 14, // 256GB
+                84 => 11, // 128GB
+                85 => 14, // 256GB
+                86 => 14, // 256GB
+                87 => 11, // 128GB
+                88 => 11, // 128GB
+                89 => 11, // 128GB
+                90 => 14, // 256GB
+                91 => 14, // 256GB
+                92 => 11, // 128GB
+                93 => 11, // 128GB
+                94 => 14, // 256GB
+                95 => 11, // 128GB
+                96 => 14, // 512GB
+                97 => 14, // 512GB
+                98 => 11, // 128GB
+                99 => 11, // 128GB
+                100 => 11, // 128GB
+                101 => 14, // 256GB
+                102 => 14, // 256GB
+                103 => 14, // 256GB
+                104 => 14, // 512GB
+                105 => 11, // 128GB
+                106 => 14, // 512GB
+                107 => 14, // 256GB
+                108 => 14, // 256GB
+                109 => 11, // 128GB
+                110 => 14, // 256GB
+                111 => 14, // 512GB
+                112 => 14, // 512GB
+                113 => 11, // 64GB
+                114 => 14, // 512GB
+                115 => 11, // 128GB
+                116 => 14, // 512GB
+                117 => 11, // 128GB
+                118 => 14, // 512GB
+                119 => 14, // 256GB
+                120 => 14, // 1TB
+                121 => 11, // 128GB
+                122 => 11, // 64GB
+                123 => 14, // 512GB
+                124 => 14, // 256GB
+                125 => 14, // 256GB
+                126 => 14, // 256GB
+                127 => 11, // 128GB
+                128 => 14, // 256GB
+                129 => 11, // 128GB
+                _ => 11
+            };
         }
     }
 } 

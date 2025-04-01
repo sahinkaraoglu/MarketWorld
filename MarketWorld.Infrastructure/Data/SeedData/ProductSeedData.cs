@@ -1103,10 +1103,756 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     CategoryId = 2,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 74,
+                    Name = "Apple iPhone 13 128 GB Beyaz",
+                    Description = "Apple iPhone 13 128 GB Beyaz",
+                    Price = 1149,
+                    BrandId = 1,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 75,
+                    Name = "Samsung Galaxy A06 128 GB 4 GB RAM Siyah",
+                    Description = "Samsung Galaxy A06 128 GB 4 GB RAM Siyah",
+                    Price = 1149,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.0M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 76,
+                    Name = "Apple iPhone 13 128 GB Siyah",
+                    Description = "Apple iPhone 13 128 GB Siyah",
+                    Price = 33699,
+                    BrandId = 1,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 77,
+                    Name = "Samsung Galaxy A16 128 GB 6 GB Ram Siyah",
+                    Description = "Samsung Galaxy A16 128 GB 6 GB Ram Siyah",
+                    Price = 8789,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.2M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 78,
+                    Name = "Samsung Galaxy A35 256 GB 8 GB Ram Siyah",
+                    Description = "Samsung Galaxy A35 256 GB 8 GB Ram Siyah",
+                    Price = 14449,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 79,
+                    Name = "HONOR Magic 7 Lite 256 GB 8 GB Ram Mor",
+                    Description = "HONOR Magic 7 Lite 256 GB 8 GB Ram Mor",
+                    Price = 15999,
+                    BrandId = 13,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 80,
+                    Name = "Samsung Galaxy A06 128 GB 4 GB Ram Açık Mavi",
+                    Description = "Samsung Galaxy A06 128 GB 4 GB Ram Açık Mavi",
+                    Price = 6303,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.0M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 81,
+                    Name = "Samsung Galaxy S24+ 256 GB 12 GB Ram Gri",
+                    Description = "Samsung Galaxy S24+ 256 GB 12 GB Ram Gri",
+                    Price = 41599,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.8M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 82,
+                    Name = "Samsung Galaxy A16 128 GB 6 GB Ram Gri",
+                    Description = "Samsung Galaxy A16 128 GB 6 GB Ram Gri",
+                    Price = 8789,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.2M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 83,
+                    Name = "HONOR Magic 7 Lite 256 GB 8 GB Ram Siyah",
+                    Description = "HONOR Magic 7 Lite 256 GB 8 GB Ram Siyah",
+                    Price = 15999,
+                    BrandId = 13,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 84,
+                    Name = "Samsung Galaxy S24 FE 128 GB 8 GB Ram Gri",
+                    Description = "Samsung Galaxy S24 FE 128 GB 8 GB Ram Gri",
+                    Price = 23849,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 85,
+                    Name = "Nothing Phone 1 256 GB 8 GB Ram Siyah",
+                    Description = "Nothing Phone 1 256 GB 8 GB Ram Siyah",
+                    Price = 13999,
+                    BrandId = 14,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 86,
+                    Name = "Nothing Phone (2a) 256 GB 12 GB Ram Beyaz",
+                    Description = "Nothing Phone (2a) 256 GB 12 GB Ram Beyaz",
+                    Price = 18999,
+                    BrandId = 14,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 87,
+                    Name = "Samsung Galaxy A35 128 GB 8 GB Ram Açık Mavi",
+                    Description = "Samsung Galaxy A35 128 GB 8 GB Ram Açık Mavi",
+                    Price = 13701,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 88,
+                    Name = "Infinix Smart 9 128 GB 4 GB Ram Nane Yeşili",
+                    Description = "Infinix Smart 9 128 GB 4 GB Ram Nane Yeşili",
+                    Price = 5499,
+                    BrandId = 15,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.0M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 89,
+                    Name = "Samsung Galaxy A55 128 GB 8 GB Ram Siyah",
+                    Description = "Samsung Galaxy A55 128 GB 8 GB Ram Siyah",
+                    Price = 16170,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 90,
+                    Name = "Nothing Phone 2A Plus 256 GB 12 GB Ram Gri",
+                    Description = "Nothing Phone 2A Plus 256 GB 12 GB Ram Gri",
+                    Price = 22999,
+                    BrandId = 14,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 91,
+                    Name = "Samsung Galaxy S24 Fe 256 GB 8 GB Ram Grafit",
+                    Description = "Samsung Galaxy S24 Fe 256 GB 8 GB Ram Grafit",
+                    Price = 26299,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 92,
+                    Name = "Apple iPhone 16e 128GB Beyaz",
+                    Description = "Apple iPhone 16e 128GB Beyaz",
+                    Price = 44799,
+                    BrandId = 1,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.7M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 93,
+                    Name = "Samsung Galaxy S24 FE 128 GB 8 GB Ram Mavi",
+                    Description = "Samsung Galaxy S24 FE 128 GB 8 GB Ram Mavi",
+                    Price = 23849,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 94,
+                    Name = "Samsung Galaxy S25+ 256 GB 12 GB Ram Lacivert",
+                    Description = "Samsung Galaxy S25+ 256 GB 12 GB Ram Lacivert",
+                    Price = 54799,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.8M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 95,
+                    Name = "Samsung B310 Dual Sim Lacivert",
+                    Description = "Samsung B310 Dual Sim Lacivert",
+                    Price = 1149,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 3.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 96,
+                    Name = "Samsung Galaxy S23 Ultra 512 GB 12 GB Ram Altın",
+                    Description = "Samsung Galaxy S23 Ultra 512 GB 12 GB Ram Altın",
+                    Price = 48899,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.9M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 97,
+                    Name = "Redmi Note 14 Pro 12GB 512GB",
+                    Description = "Redmi Note 14 Pro 12GB 512GB",
+                    Price = 18999,
+                    BrandId = 16,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 98,
+                    Name = "Samsung B310E Dual Sim Kamerasız Cep Telefonu Beyaz",
+                    Description = "Samsung B310E Dual Sim Kamerasız Cep Telefonu Beyaz",
+                    Price = 1149,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 3.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 99,
+                    Name = "Samsung Galaxy A55 128 GB 8 GB Ram Açık Mavi",
+                    Description = "Samsung Galaxy A55 128 GB 8 GB Ram Açık Mavi",
+                    Price = 16507,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 100,
+                    Name = "Samsung Galaxy A35 128 GB 8 GB Ram Siyah",
+                    Description = "Samsung Galaxy A35 128 GB 8 GB Ram Siyah",
+                    Price = 13559,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 101,
+                    Name = "Redmi Note 14 Pro 8GB 256GB",
+                    Description = "Redmi Note 14 Pro 8GB 256GB",
+                    Price = 16599,
+                    BrandId = 16,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 102,
+                    Name = "Apple iPhone 15 256 GB Mavi",
+                    Description = "Apple iPhone 15 256 GB Mavi",
+                    Price = 55999,
+                    BrandId = 1,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.8M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 103,
+                    Name = "Apple iPhone 16 Pro 256GB Beyaz",
+                    Description = "Apple iPhone 16 Pro 256GB Beyaz",
+                    Price = 84599,
+                    BrandId = 1,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.9M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 104,
+                    Name = "Xiaomi 14T Pro 12GB 512GB",
+                    Description = "Xiaomi 14T Pro 12GB 512GB",
+                    Price = 41000,
+                    BrandId = 8,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 105,
+                    Name = "Apple iPhone 16 Pro 128GB Beyaz",
+                    Description = "Apple iPhone 16 Pro 128GB Beyaz",
+                    Price = 78499,
+                    BrandId = 1,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.8M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 106,
+                    Name = "HONOR 200 512 GB 12 GB Ram Zümrüt Yeşili",
+                    Description = "HONOR 200 512 GB 12 GB Ram Zümrüt Yeşili",
+                    Price = 23999,
+                    BrandId = 13,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 107,
+                    Name = "Apple iPhone 16 Pro 256GB Siyah",
+                    Description = "Apple iPhone 16 Pro 256GB Siyah",
+                    Price = 88825,
+                    BrandId = 1,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 108,
+                    Name = "Xiaomi Redmi Note 13 Pro 256GB 8gb Ram Mor",
+                    Description = "Xiaomi Redmi Note 13 Pro 256GB 8gb Ram Mor",
+                    Price = 15999,
+                    BrandId = 16,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 109,
+                    Name = "Samsung Galaxy S25 128 GB 12 GB Ram Lacivert",
+                    Description = "Samsung Galaxy S25 128 GB 12 GB Ram Lacivert",
+                    Price = 45999,
+                    BrandId = 9,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 110,
+                    Name = "Apple iPhone 16 256GB Lacivert Taş",
+                    Description = "Apple iPhone 16 256GB Lacivert Taş",
+                    Price = 66999,
+                    BrandId = 1,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 111,
+                    Name = "Xiaomi Redmi Note 14 Pro Plus 5g 512 GB 12 GB Ram",
+                    Description = "Xiaomi Redmi Note 14 Pro Plus 5g 512 GB 12 GB Ram",
+                    Price = 27250,
+                    BrandId = 16,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 112,
+                    Name = "Apple iPhone 16 Pro Max 512GB Natürel Titanyum",
+                    Description = "Apple iPhone 16 Pro Max 512GB Natürel Titanyum",
+                    Price = 101939,
+                    BrandId = 1,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 113,
+                    Name = "Samsung Galaxy A04S 64 GB Siyah",
+                    Description = "Samsung Galaxy A04S 64 GB Siyah",
+                    Price = 6839,
+                    BrandId = 9,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 114,
+                    Name = "Redmi Note 14 Pro 5G 12GB 512GB",
+                    Description = "Redmi Note 14 Pro 5G 12GB 512GB",
+                    Price = 22500,
+                    BrandId = 16,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 115,
+                    Name = "Nothing Phone 1 128 GB 8 GB Ram Siyah",
+                    Description = "Nothing Phone 1 128 GB 8 GB Ram Siyah",
+                    Price = 12999,
+                    BrandId = 14,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 116,
+                    Name = "Xiaomi Redmi Note 13 Pro 512GB 12GB Siyah",
+                    Description = "Xiaomi Redmi Note 13 Pro 512GB 12GB Siyah",
+                    Price = 18999,
+                    BrandId = 16,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 117,
+                    Name = "Xiaomi Redmi 12 128 GB 8 GB Ram Siyah",
+                    Description = "Xiaomi Redmi 12 128 GB 8 GB Ram Siyah",
+                    Price = 8190,
+                    BrandId = 16,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 118,
+                    Name = "HONOR Magic V3 512 GB 12 GB Ram Yeşil",
+                    Description = "HONOR Magic V3 512 GB 12 GB Ram Yeşil",
+                    Price = 79999,
+                    BrandId = 13,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 119,
+                    Name = "Tecno Spark 30 256 GB 8 GB Ram",
+                    Description = "Tecno Spark 30 256 GB 8 GB Ram",
+                    Price = 9199,
+                    BrandId = 21,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 120,
+                    Name = "Samsung Galaxy S25 Ultra 1 Tb 12 GB Ram",
+                    Description = "Samsung Galaxy S25 Ultra 1 Tb 12 GB Ram",
+                    Price = 88999,
+                    BrandId = 9,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 121,
+                    Name = "Apple iPhone 16 Pro 128GB Siyah",
+                    Description = "Apple iPhone 16 Pro 128GB Siyah",
+                    Price = 79324,
+                    BrandId = 1,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 122,
+                    Name = "Reeder P13 Blue Max L 2022 64 GB Beyaz",
+                    Description = "Reeder P13 Blue Max L 2022 64 GB Beyaz",
+                    Price = 3399,
+                    BrandId = 20,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 123,
+                    Name = "POCO X7 12GB 512GB",
+                    Description = "POCO X7 12GB 512GB",
+                    Price = 17499,
+                    BrandId = 17,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 124,
+                    Name = "Oppo A60 8GB 256GB Mavi",
+                    Description = "Oppo A60 8GB 256GB Mavi",
+                    Price = 10199,
+                    BrandId = 18,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 125,
+                    Name = "Samsung Galaxy A25 5G 256 GB 8 GB Ram Siyah",
+                    Description = "Samsung Galaxy A25 5G 256 GB 8 GB Ram Siyah",
+                    Price = 13250,
+                    BrandId = 9,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 126,
+                    Name = "Samsung Galaxy S25 256 GB Lacivert",
+                    Description = "Samsung Galaxy S25 256 GB Lacivert",
+                    Price = 47670,
+                    BrandId = 9,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 127,
+                    Name = "Panasonic KX-TU550EXB Katlanabilir Renkli Ekran 4g Tuşlu Cep Telefonu Siyah",
+                    Description = "Panasonic KX-TU550EXB Katlanabilir Renkli Ekran 4g Tuşlu Cep Telefonu Siyah",
+                    Price = 4269,
+                    BrandId = 19,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 128,
+                    Name = "Reeder S19 Max Pro 256 GB 6 GB Ram Siyah",
+                    Description = "Reeder S19 Max Pro 256 GB 6 GB Ram Siyah",
+                    Price = 4799,
+                    BrandId = 20,
+                    CategoryId = 3,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 129,
+                    Name = "Samsung B310E Cep Telefonu Beyaz",
+                    Description = "Samsung B310E Cep Telefonu Beyaz",
+                    Price = 1149,
+                    BrandId = 9,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 3.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
                 }
             };
         }
-
-       
     }
 }
