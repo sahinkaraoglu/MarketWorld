@@ -1040,6 +1040,238 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     EntityId = 129,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 130,
+                    Path = "img/Products/WhiteGoods/arelik_6144_i_4_programl_bulak_makinesi.jpg",
+                    EntityId = 130,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 131,
+                    Path = "img/Products/WhiteGoods/kumtel_kumtel_93l_beyaz_bro_tipi_buzdolab_hmb-110.jpg",
+                    EntityId = 131,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 132,
+                    Path = "img/Products/WhiteGoods/regal_bm_310_3_programl_bulak_makinesi.jpg",
+                    EntityId = 132,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 133,
+                    Path = "img/Products/WhiteGoods/arelik_ade_606_2b_yatk_davlumbaz_karbon_filtre_165732003.jpg",
+                    EntityId = 133,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 134,
+                    Path = "img/Products/WhiteGoods/altus_al_7103_md_1000_devir_7_kg_amar_makinesi.jpg",
+                    EntityId = 134,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 135,
+                    Path = "img/Products/WhiteGoods/altus_al_10123_d_c_enerji_10_kg_amar_makinesi.jpg",
+                    EntityId = 135,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 136,
+                    Path = "img/Products/WhiteGoods/hoover_ndeh_10a2tsbe-17_10_kg_wi-fi_bluetooth_balantl_is_pompal_kurutma_makinesi.jpg",
+                    EntityId = 136,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 137,
+                    Path = "img/Products/WhiteGoods/arelik_6144_i_4_programl_bulak_makinesi.jpg",
+                    EntityId = 137,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 138,
+                    Path = "img/Products/WhiteGoods/samsung_ww11bga046aeah_11_kg_1400_devir_amar_makinesi.jpg",
+                    EntityId = 138,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 139,
+                    Path = "img/Products/WhiteGoods/vestel_sp_202-a_su_sebili.jpg",
+                    EntityId = 139,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 140,
+                    Path = "img/Products/WhiteGoods/regal_st_30010_242_lt_statik_buzdolab.jpg",
+                    EntityId = 140,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 141,
+                    Path = "img/Products/WhiteGoods/arelik_yeni_model_gri_buhar_destekli_cam_ankastre_set.jpg",
+                    EntityId = 141,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 142,
+                    Path = "img/Products/WhiteGoods/evora_sanayi_tipi_100_lt_soutmal_artmal_paslanmaz_endstriyel_su_sebili.jpg",
+                    EntityId = 142,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 143,
+                    Path = "img/Products/WhiteGoods/albergio_cam_damacana_kapakl_su_sebil_15_lt_tm_sebillere_uyumlu.jpg",
+                    EntityId = 143,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 144,
+                    Path = "img/Products/WhiteGoods/kiwi_kwp_8520_standl_su_pompas-beyaz.jpg",
+                    EntityId = 144,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 145,
+                    Path = "img/Products/WhiteGoods/vestel_sp_202-a_su_sebili.jpg",
+                    EntityId = 145,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 146,
+                    Path = "img/Products/WhiteGoods/arelik_6144_i_4_programl_bulak_makinesi.jpg",
+                    EntityId = 146,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 147,
+                    Path = "img/Products/WhiteGoods/samsung_ww11bb534dabah_11_kg_1400_devir_bespoke_amar_makinesi_spacemax_ai_kontrol_paneli.jpg",
+                    EntityId = 147,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 148,
+                    Path = "img/Products/WhiteGoods/arelik_6144_i_4_programl_bulak_makinesi.jpg",
+                    EntityId = 148,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 149,
+                    Path = "img/Products/WhiteGoods/kumtel_kumtel_93l_beyaz_bro_tipi_buzdolab_hmb-110.jpg",
+                    EntityId = 149,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 150,
+                    Path = "img/Products/WhiteGoods/vestel_sp_202-a_su_sebili.jpg",
+                    EntityId = 150,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 151,
+                    Path = "img/Products/WhiteGoods/arelik_6144_i_4_programl_bulak_makinesi.jpg",
+                    EntityId = 151,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 152,
+                    Path = "img/Products/WhiteGoods/samsung_ww11bb534dabah_11_kg_1400_devir_bespoke_amar_makinesi_spacemax_ai_kontrol_paneli.jpg",
+                    EntityId = 152,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 153,
+                    Path = "img/Products/WhiteGoods/regal_bm_310_3_programl_bulak_makinesi.jpg",
+                    EntityId = 153,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 154,
+                    Path = "img/Products/WhiteGoods/vestel_sp_202-a_su_sebili.jpg",
+                    EntityId = 154,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 155,
+                    Path = "img/Products/WhiteGoods/arelik_6144_i_4_programl_bulak_makinesi.jpg",
+                    EntityId = 155,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 156,
+                    Path = "img/Products/WhiteGoods/altus_al_7103_md_1000_devir_7_kg_amar_makinesi.jpg",
+                    EntityId = 156,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 157,
+                    Path = "img/Products/WhiteGoods/altus_al_7103_md_1000_devir_7_kg_amar_makinesi.jpg",
+                    EntityId = 157,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 158,
+                    Path = "img/Products/WhiteGoods/altus_al_7103_md_1000_devir_7_kg_amar_makinesi.jpg",
+                    EntityId = 158,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
                 }
             };
         }

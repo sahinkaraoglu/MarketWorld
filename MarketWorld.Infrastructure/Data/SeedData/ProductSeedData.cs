@@ -1851,6 +1851,439 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Rating = 3.5M,
                     IsActive = true,
                     CreatedDate = DateTime.Now
+                new Product
+                {
+                    Id = 130,
+                    Name = "Arçelik 6167 6 Programlı Beyaz Bulaşık Makinesi",
+                    Description = "Arçelik 6167 6 Programlı Beyaz Bulaşık Makinesi",
+                    Price = 25739.01M,
+                    BrandId = 22, // Arçelik
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Bulaşık Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 131,
+                    Name = "Kumtel Beyaz Cam Digital / Dokunmatik Ankastre Set",
+                    Description = "Kumtel Beyaz Cam Digital / Dokunmatik Ankastre Set - 8 Programlı (KO-40 TAHDF Ocak B66-Sf2 Ddt Fırın DA6-835 Davlumbaz)",
+                    Price = 11299M,
+                    BrandId = 23, // Kumtel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Bulaşık Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.1M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 132,
+                    Name = "Regal Bm 310 3 Programlı Bulaşık Makinesi",
+                    Description = "Regal Bm 310 3 Programlı Bulaşık Makinesi",
+                    Price = 11549M,
+                    BrandId = 24, // Regal
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Bulaşık Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 133,
+                    Name = "Profilo BM6320MA D Enerji Sınıfı 6 Programlı Bulaşık Makinesi",
+                    Description = "Profilo BM6320MA D Enerji Sınıfı 6 Programlı Bulaşık Makinesi",
+                    Price = 15999M,
+                    BrandId = 25, // Profilo
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Bulaşık Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.7M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 134,
+                    Name = "Altus AL 7103 MD 1000 Devir 7 kg Çamaşır Makinesi",
+                    Description = "Altus AL 7103 MD 1000 Devir 7 kg Çamaşır Makinesi",
+                    Price = 12479M,
+                    BrandId = 26, // Altus
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Çamaşır Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 135,
+                    Name = "Altus AL 10123 D C Enerji 10 Kg Çamaşır Makinesi",
+                    Description = "Altus AL 10123 D C Enerji 10 Kg Çamaşır Makinesi",
+                    Price = 17028M,
+                    BrandId = 26, // Altus
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Çamaşır Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.7M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 136,
+                    Name = "Hoover NDEH 10A2TSBE-17 10 kg Isı Pompalı Kurutma Makinesi",
+                    Description = "Hoover NDEH 10A2TSBE-17 10 kg Wi-Fi + Bluetooth Bağlantılı Isı Pompalı Kurutma Makinesi",
+                    Price = 14999M,
+                    BrandId = 27, // Hoover
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Kurutma Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 137,
+                    Name = "Arçelik 7103 D 7 Kg 1000 Devir Çamaşır Makinesi",
+                    Description = "Arçelik 7103 D 7 Kg 1000 Devir Çamaşır Makinesi",
+                    Price = 14999M,
+                    BrandId = 22, // Arçelik
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Çamaşır Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 138,
+                    Name = "Uğur UES 507 D/S 3 Kapılı No-Frost Buzdolabı",
+                    Description = "Uğur UES 507 D/S 3 Kapılı No-Frost Buzdolabı",
+                    Price = 29999M,
+                    BrandId = 28, // Uğur
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Buzdolabı alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 139,
+                    Name = "Vestel NF480 EX Siyah No-Frost Buzdolabı",
+                    Description = "Vestel NF480 EX A++ Siyah 453 Lt No-Frost Buzdolabı",
+                    Price = 23599M,
+                    BrandId = 33, // Vestel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Buzdolabı alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 140,
+                    Name = "Regal 90 LT A+ Mini Buzdolabı",
+                    Description = "Regal 90 LT A+ Mini Buzdolabı",
+                    Price = 6499M,
+                    BrandId = 24, // Regal
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Buzdolabı alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 141,
+                    Name = "Arnell Ankastre Set",
+                    Description = "Arnell Ankastre Set (8665 MDOC Ankastre Fırın + 1140-CSBDF 4 Gözlü Ocak + DS3490EC / EC3490 Davlumbaz)",
+                    Price = 13499M,
+                    BrandId = 29, // Arnell
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Ankastre alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.2M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 142,
+                    Name = "Evora Siyah Cam Set",
+                    Description = "Evora 3'lü Siyah Cam Ankastre Set (EAF-6056 Fırın + EAO-8505 Ocak + EAD-9263 Davlumbaz)",
+                    Price = 10990M,
+                    BrandId = 30, // Evora
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Ankastre alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.1M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 143,
+                    Name = "Albergio AL-FO-005-E Ankastre Fırın",
+                    Description = "Albergio AL-FO-005-E Ankastre Fırın",
+                    Price = 5499M,
+                    BrandId = 31, // Albergio
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Ankastre alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.0M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 144,
+                    Name = "Kiwi KSW-4215 Beyaz Soğuk Su Sebili",
+                    Description = "Kiwi KSW-4215 Beyaz Soğuk Su Sebili",
+                    Price = 1299M,
+                    BrandId = 32, // Kiwi
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Su Sebili alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 3.9M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 145,
+                    Name = "Vestel SP 100 Beyaz Soğuk Su Sebili",
+                    Description = "Vestel SP 100 Beyaz Soğuk Su Sebili",
+                    Price = 1499M,
+                    BrandId = 33, // Vestel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Su Sebili alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.0M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 146,
+                    Name = "Arçelik 1100 S Beyaz Su Sebili",
+                    Description = "Arçelik 1100 S Beyaz Su Sebili",
+                    Price = 1999M,
+                    BrandId = 22, // Arçelik
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Su Sebili alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.2M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 147,
+                    Name = "Profilo SP 100 Sıcak/Soğuk Su Sebili",
+                    Description = "Profilo SP 100 Sıcak/Soğuk Su Sebili",
+                    Price = 2299M,
+                    BrandId = 25, // Profilo
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Su Sebili alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 148,
+                    Name = "Arçelik 5500 BT Mini Fırın",
+                    Description = "Arçelik 5500 BT Mini Fırın - 15 Litre",
+                    Price = 4999M,
+                    BrandId = 22, // Arçelik
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Mini Fırın alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 149,
+                    Name = "Kumtel KF3150 Mini Fırın",
+                    Description = "Kumtel KF3150 Mini Fırın - 36 Litre Beyaz",
+                    Price = 2699M,
+                    BrandId = 23, // Kumtel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Mini Fırın alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 150,
+                    Name = "Vestel R8080 Retro Buzdolabı",
+                    Description = "Vestel R8080 Retro Buzdolabı - Kırmızı",
+                    Price = 28900M,
+                    BrandId = 33, // Vestel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Buzdolabı alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.7M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 151,
+                    Name = "Arçelik 9144 YI Ultra Hijyen 9 Kg Çamaşır Makinesi",
+                    Description = "Arçelik 9144 YI Ultra Hijyen 9 Kg 1400 Devir Çamaşır Makinesi",
+                    Price = 21950M,
+                    BrandId = 22, // Arçelik
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Çamaşır Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.8M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 152,
+                    Name = "Profilo CGA242X1TR A++ 9 Kg Çamaşır Makinesi",
+                    Description = "Profilo CGA242X1TR A++ 9 Kg 1200 Devir Çamaşır Makinesi",
+                    Price = 18999M,
+                    BrandId = 25, // Profilo
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Çamaşır Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 153,
+                    Name = "Regal Pratik 2000 Elektrikli Süpürge",
+                    Description = "Regal Pratik 2000 Toz Torbasız Elektrikli Süpürge",
+                    Price = 2999M,
+                    BrandId = 24, // Regal
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Elektrikli Süpürge alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.2M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 154,
+                    Name = "Vestel EKO PLUS Bulaşık Makinesi",
+                    Description = "Vestel BM 5201 X EKO PLUS Bulaşık Makinesi",
+                    Price = 12999M,
+                    BrandId = 33, // Vestel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Bulaşık Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 155,
+                    Name = "Arçelik K 3290 Telve Türk Kahve Makinesi",
+                    Description = "Arçelik K 3290 Telve Otomatik Türk Kahve Makinesi - Siyah",
+                    Price = 3299M,
+                    BrandId = 22, // Arçelik
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Küçük Ev Aletleri alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.9M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 156,
+                    Name = "Altus AL 413 E 4 Programlı Bulaşık Makinesi",
+                    Description = "Altus AL 413 E 4 Programlı Bulaşık Makinesi",
+                    Price = 13499M,
+                    BrandId = 26, // Altus
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Bulaşık Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.1M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 157,
+                    Name = "Hoover HLWOQ 59B-S Çamaşır Kurutma Makinesi",
+                    Description = "Hoover HLWOQ 59B-S 9 Kg Çamaşır Kurutma Makinesi",
+                    Price = 17999M,
+                    BrandId = 27, // Hoover
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Kurutma Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 158,
+                    Name = "Vestel MAYA 10100 ST Çamaşır Makinesi",
+                    Description = "Vestel MAYA 10100 ST 10 Kg 1000 Devir Çamaşır Makinesi",
+                    Price = 14599M,
+                    BrandId = 33, // Vestel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 4, // Çamaşır Makinesi alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
                 }
             };
         }
