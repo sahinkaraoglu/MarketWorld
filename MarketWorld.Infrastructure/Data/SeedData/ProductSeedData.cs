@@ -2286,6 +2286,501 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Rating = 4.5M,
                     IsActive = true,
                     CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 159,
+                    Name = "Airfel LTXM35N 12000 BTU R32 Inverter Duvar Tipi Klima",
+                    Description = "Airfel LTXM35N 12000 BTU R32 Inverter Duvar Tipi Klima",
+                    Price = 25541.01M,
+                    BrandId = 34, // Airfel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 30,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 160,
+                    Name = "Regal Luna A++ 15000 BTU Inverter Duvar Tipi Klima",
+                    Description = "Regal Luna A++ 15000 BTU Inverter Duvar Tipi Klima",
+                    Price = 26499M,
+                    BrandId = 35, // Regal
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 25,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 161,
+                    Name = "Kumtel Bej Fanlı Isıtıcı 2000 W LX - 6331",
+                    Description = "Kumtel Bej Fanlı Isıtıcı 2000 W LX - 6331",
+                    Price = 509M,
+                    BrandId = 36, // Kumtel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 100,
+                    HasDiscount = false,
+                    Rating = 4.2M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 162,
+                    Name = "Bosch Climate CL2000U W 35 E A++ 12000 BTU Duvar Tipi Klima",
+                    Description = "Bosch Climate CL2000U W 35 E A++ 12000 BTU Duvar Tipi Klima",
+                    Price = 26999M,
+                    BrandId = 37, // Bosch
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 20,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 163,
+                    Name = "Kaira DTXR35E A++ 12000 BTU Wifi Inverter Duvar Tipi Klima",
+                    Description = "Kaira DTXR35E A++ 12000 BTU Wifi Inverter Duvar Tipi Klima (Montaj Dahil)",
+                    Price = 25840M,
+                    BrandId = 38, // Kaira
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 15,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 164,
+                    Name = "Kumtel Juniper Portatif Taşınabilir Klima Kmpac-7",
+                    Description = "Kumtel Juniper Portatif Taşınabilir Klima Kmpac-7",
+                    Price = 9999M,
+                    BrandId = 36, // Kumtel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 40,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 165,
+                    Name = "Vestel Flora Doğa 124 A++ Wifi 12000 BTU Inverter Duvar Tipi Klima",
+                    Description = "Vestel Flora Doğa 124 A++ Wifi 12000 BTU Inverter Duvar Tipi Klima",
+                    Price = 26235M,
+                    BrandId = 33, // Vestel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 35,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 166,
+                    Name = "Xiaomi ZMYDFS01DM Şarj Edilebilir Mini Fan",
+                    Description = "Xiaomi ZMYDFS01DM Şarj Edilebilir Mini Fan",
+                    Price = 1889M,
+                    BrandId = 39, // Xiaomi
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 100,
+                    HasDiscount = false,
+                    Rating = 5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 167,
+                    Name = "Kumtel LX-2832 Siyah 1500 Watt Isıtıcı",
+                    Description = "Kumtel LX-2832 Siyah 1500 Watt Isıtıcı",
+                    Price = 549M,
+                    BrandId = 36, // Kumtel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 80,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 168,
+                    Name = "Mirkraft Future 2500 Watt Elektrikli Isıtıcı",
+                    Description = "Mirkraft Future 2500 Watt Elektrikli Isıtıcı - IP24 - LCD Ekran - Uzaktan Kumandalı - 4 Isı Ayarı",
+                    Price = 5559.66M,
+                    BrandId = 40, // Mirkraft
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 25,
+                    HasDiscount = false,
+                    Rating = 5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 169,
+                    Name = "Samsung Premium AR18TSHZHWK A++ 18000 BTU Inverter Duvar Tipi Klima",
+                    Description = "Samsung Premium AR18TSHZHWK A++ 18000 BTU Inverter Duvar Tipi Klima",
+                    Price = 38599M,
+                    BrandId = 41, // Samsung
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 15,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 170,
+                    Name = "Arnell Elektrikli Isıtıcı Quartz",
+                    Description = "Arnell Elektrikli Isıtıcı Quartz Ev Ve Ofis Oda Tipi 3+1 Çubuklu Güvenli Elektrikli Soba - 2600 Watt",
+                    Price = 2218.63M,
+                    BrandId = 42, // Arnell
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 40,
+                    HasDiscount = false,
+                    Rating = 3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 171,
+                    Name = "Kumtel Ks-2760 Quartz Isıtıcı Siyah",
+                    Description = "Kumtel Ks-2760 Quartz Isıtıcı Siyah",
+                    Price = 999M,
+                    BrandId = 36, // Kumtel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 60,
+                    HasDiscount = false,
+                    Rating = 4.1M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 172,
+                    Name = "Zeeful Süper Güç Üfleyici Mini Turbo Jet Fan",
+                    Description = "Zeeful Süper Güç Üfleyici Mini Turbo Jet Fan 130000RPM 52+M/s 4000MAH (Yurt Dışından)",
+                    Price = 1750.32M,
+                    BrandId = 43, // Zeeful
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 173,
+                    Name = "Beko 31225 Ekolojik A++ 12000 BTU Duvar Tipi Klima",
+                    Description = "Beko 31225 Ekolojik A++ 12000 BTU Duvar Tipi Klima",
+                    Price = 27754.65M,
+                    BrandId = 44, // Beko
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 30,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 174,
+                    Name = "Vestel Flora Doğa 244 A++ 24000 BTU Wifi Inverter Duvar Tipi Klima",
+                    Description = "Vestel Flora Doğa 244 A++ 24000 BTU Wifi Inverter Duvar Tipi Klima",
+                    Price = 42362.10M,
+                    BrandId = 33, // Vestel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 20,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 175,
+                    Name = "Arçelik Ekolojik 18325 A++ 18000 BTU Inverter Duvar Tipi Klima",
+                    Description = "Arçelik Ekolojik 18325 A++ 18000 BTU Inverter Duvar Tipi Klima",
+                    Price = 39897M,
+                    BrandId = 45, // Arçelik
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 25,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 176,
+                    Name = "Arnell Elektrikli Isıtıcı Duvar Tip Soba",
+                    Description = "Arnell Elektrikli Isıtıcı Duvar Tip Soba 3000 Watt",
+                    Price = 1431.06M,
+                    BrandId = 42, // Arnell
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 35,
+                    HasDiscount = false,
+                    Rating = 4.8M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 177,
+                    Name = "Baymak Elegant Plus UV 18 A++ 18000 BTU Duvar Tipi Klima",
+                    Description = "Baymak Elegant Plus UV 18 A++ (Montaj Dahil) 18000 BTU Duvar Tipi Klima",
+                    Price = 44989M,
+                    BrandId = 46, // Baymak
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 15,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 178,
+                    Name = "FujiPlus Sakura 12000 Btu Inverter Duvar Tipi Klima",
+                    Description = "FujiPlus Fujiplus Sakura 12000 Btu Inverter Duvar Tipi Klima",
+                    Price = 22777.03M,
+                    BrandId = 47, // FujiPlus
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 20,
+                    HasDiscount = false,
+                    Rating = 3.9M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 179,
+                    Name = "Baymak Aqua Konfor 65 Litre Termosifon",
+                    Description = "Baymak Aqua Konfor 65 Litre Termosifon",
+                    Price = 8439M,
+                    BrandId = 46, // Baymak
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 30,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 180,
+                    Name = "Kumtel Ecoray Ex-25 2500 Watt Duvar Tipi Infrared Isıtıcı",
+                    Description = "Kumtel Ecoray Ex-25 2500 Watt Duvar Tipi Infrared Isıtıcı",
+                    Price = 886.05M,
+                    BrandId = 36, // Kumtel
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 45,
+                    HasDiscount = false,
+                    Rating = 4.3M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 181,
+                    Name = "UFO Ufo Star 2400 W Duvar Tipi Isıtıcı",
+                    Description = "UFO Ufo Star 2400 W Duvar Tipi Isıtıcı - Termostatlı",
+                    Price = 4190M,
+                    BrandId = 48, // UFO
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 40,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 182,
+                    Name = "Abbruch Şarj Edilebilir Taşınabilir Mini El Fanı",
+                    Description = "Abbruch Şarj Edilebilir Taşınabilir Ipli Mini El Fanı Üç Kademe Hızlı Güçlü Soğutucu Pervane Vantilatör",
+                    Price = 289.90M,
+                    BrandId = 49, // Abbruch
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 100,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 183,
+                    Name = "Sinbo SF-6783 Vantilatör",
+                    Description = "Sinbo SF-6783 Vantilatör",
+                    Price = 1200M,
+                    BrandId = 50, // Sinbo
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 60,
+                    HasDiscount = false,
+                    Rating = 3.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 184,
+                    Name = "Beko 31650 Vantilatör",
+                    Description = "Beko 31650 Vantilatör uzaktan kumandalı",
+                    Price = 3259M,
+                    BrandId = 44, // Beko
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 35,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 185,
+                    Name = "UFO Ufo Micatronic 1900 W Kule Tipi Isıtıcı",
+                    Description = "UFO Ufo Micatronic 1900 W Kule Tipi Isıtıcı",
+                    Price = 4390M,
+                    BrandId = 48, // UFO
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 30,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 186,
+                    Name = "UFO Omri 1200 W Termostatlı Isıtıcı",
+                    Description = "UFO Omri 1200 W Termostatlı Hem Yatay Hem Dikey Isıtıcı",
+                    Price = 3400M,
+                    BrandId = 48, // UFO
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 25,
+                    HasDiscount = false,
+                    Rating = 3.9M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 187,
+                    Name = "Kaira DTXR71E A++ 24000 BTU Inverter Duvar Tipi Klima",
+                    Description = "Kaira DTXR71E A++ 24000 BTU Inverter Duvar Tipi Klima (Montaj Dahil)",
+                    Price = 45250.40M,
+                    BrandId = 38, // Kaira
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 15,
+                    HasDiscount = false,
+                    Rating = 4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 188,
+                    Name = "Baymak Duo Tec Compact Premix 24 kw Yoğuşmalı Kombi",
+                    Description = "Baymak Duo Tec Compact Premix 24 kw Yoğuşmalı Kombi (Baca Dahil)",
+                    Price = 27400M,
+                    BrandId = 46, // Baymak
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 20,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 189,
+                    Name = "UFO ISITICI STAR S/19 1900 W",
+                    Description = "UFO ISITICI STAR S/19 1900 W",
+                    Price = 3690M,
+                    BrandId = 48, // UFO
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 35,
+                    HasDiscount = false,
+                    Rating = 4.4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 190,
+                    Name = "Magiceham Lilo Stitch Peluş Sıcak Su Isıtıcısı",
+                    Description = "Magiceham Lilo Stitch Peluş Sıcak Su Isıtıcısı - Lacivert (Yurt Dışından)",
+                    Price = 528.45M,
+                    BrandId = 51, // Magiceham
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 191,
+                    Name = "Xnews A Üstü USB Fan Soğutucu",
+                    Description = "Xnews A Üstü USB Fan Soğutucu Vantilatör Klima USB Girişli Metal Serinlci Fan Mini Vantilatör Fan Klima Fan",
+                    Price = 269.90M,
+                    BrandId = 64, // Xnews
+                    CategoryId = 1, // Beyaz Eşya kategorisi
+                    SubCategoryId = 5, // Klima alt kategorisi
+                    Stock = 100,
+                    HasDiscount = false,
+                    Rating = 5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
                 }
             };
         }

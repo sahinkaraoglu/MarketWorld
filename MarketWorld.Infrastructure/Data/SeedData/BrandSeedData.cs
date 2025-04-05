@@ -205,6 +205,192 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Id = 33,
                     Name = "Vestel",
                     CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 34,
+                    Name = "Airfel",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 35,
+                    Name = "Regal",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 36,
+                    Name = "Kumtel",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 37,
+                    Name = "Bosch",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 38,
+                    Name = "Kaira",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 39,
+                    Name = "Xiaomi",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 40,
+                    Name = "Mirkraft",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 41,
+                    Name = "Samsung",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 42,
+                    Name = "Arnell",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 43,
+                    Name = "Zeeful",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 44,
+                    Name = "Beko",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 45,
+                    Name = "Arçelik",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 46,
+                    Name = "Baymak",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 47,
+                    Name = "FujiPlus",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 48,
+                    Name = "UFO",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 49,
+                    Name = "Abbruch",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 50,
+                    Name = "Sinbo",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 51,
+                    Name = "Magiceham",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 52,
+                    Name = "Demirdöküm",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 53,
+                    Name = "Tekdal",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 54,
+                    Name = "Raks",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 55,
+                    Name = "Hubstein",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 56,
+                    Name = "Mitsubishi",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 57,
+                    Name = "Goldsun",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 58,
+                    Name = "Multiteknik",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 59,
+                    Name = "Bayırtech",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 60,
+                    Name = "Harlem",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 61,
+                    Name = "Veito",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 62,
+                    Name = "Torima",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 63,
+                    Name = "Kiwi",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 64,
+                    Name = "Xnews",
+                    CreatedDate = DateTime.Now
                 }
             };
         }

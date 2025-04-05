@@ -1272,6 +1272,270 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     EntityId = 158,
                     EntityType = (int)EntityTypes.Product,
                     CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 159,
+                    Path = "img/Products/AirConditionerandHeater/airfel_ltxm35n_12000_btu_r32_inverter_duvar_tipi_klima.jpg",
+                    EntityId = 159,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 160,
+                    Path = "img/Products/AirConditionerandHeater/regal_luna_a_15000_btu_inverte_duvar_tipi_klima.jpg",
+                    EntityId = 160,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 161,
+                    Path = "img/Products/AirConditionerandHeater/kumtel_bej_fanl_istc_2000_w_lx_-_6331.jpg",
+                    EntityId = 161,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 162,
+                    Path = "img/Products/AirConditionerandHeater/bosch_climate_cl2000u_w_35_e_a_12000_btu_duvar_tipi_klima.jpg",
+                    EntityId = 162,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 163,
+                    Path = "img/Products/AirConditionerandHeater/kaira_dtxr35e_a_12000_btu_wifi_inverter_duvar_tipi_klima_montaj_dahil.jpg",
+                    EntityId = 163,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 164,
+                    Path = "img/Products/AirConditionerandHeater/kumtel_juniper_portatif_tanabilir_klima_kmpac-7.jpg",
+                    EntityId = 164,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 165,
+                    Path = "img/Products/AirConditionerandHeater/vestel_flora_doa_124_a_wifi_12000_btu_inverter_duvar_tipi_klima.jpg",
+                    EntityId = 165,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 166,
+                    Path = "img/Products/AirConditionerandHeater/xiaomi_zmydfs01dm_arj_edilebilir_mini_fan.jpg",
+                    EntityId = 166,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 167,
+                    Path = "img/Products/AirConditionerandHeater/kumtel_lx-2832_siyah_1500_watt_istc.jpg",
+                    EntityId = 167,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 168,
+                    Path = "img/Products/AirConditionerandHeater/mirkraft_future_2500_watt_elektrikli_istc_-_ip24_-_lcd_ekran_-_uzaktan_kumandal_-_4_is_ayar.jpg",
+                    EntityId = 168,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 169,
+                    Path = "img/Products/AirConditionerandHeater/samsung_premium_ar18tshzhwk_a_18000_btu_inverter_duvar_tipi_klima.jpg",
+                    EntityId = 169,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 170,
+                    Path = "img/Products/AirConditionerandHeater/arnell_elektrikli_istc_quartz_ev_ve_ofis_oda_tipi_31_ubuklu_gvenli_elektrikli_soba_-_2600_watt.jpg",
+                    EntityId = 170,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 171,
+                    Path = "img/Products/AirConditionerandHeater/kumtel_ks-2760_quartz_istc_siyah.jpg",
+                    EntityId = 171,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 172,
+                    Path = "img/Products/AirConditionerandHeater/zeeful_sper_g_fleyici_mini_turbo_jet_fan_130000rpm_52ms_4000mah_yurt_dndan.jpg",
+                    EntityId = 172,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 173,
+                    Path = "img/Products/AirConditionerandHeater/beko_31225_ekolojik_a_12000_btu_duvar_tipi_klima.jpg",
+                    EntityId = 173,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 174,
+                    Path = "img/Products/AirConditionerandHeater/vestel_flora_doa_244_a_24000_btu_wifi_inverter_duvar_tipi_klima.jpg",
+                    EntityId = 174,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 175,
+                    Path = "img/Products/AirConditionerandHeater/arelik_ekolojik_18325_a_18000_btu_inverter_duvar_tipi_klima.jpg",
+                    EntityId = 175,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 176,
+                    Path = "img/Products/AirConditionerandHeater/arnell_elektrikli_istc_duvar_tip_soba_3000_watt.jpg",
+                    EntityId = 176,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 177,
+                    Path = "img/Products/AirConditionerandHeater/baymak_elegant_plus_uv_18_a_montaj_dahil_18000_btu_duvar_tipi_klima.jpg",
+                    EntityId = 177,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 178,
+                    Path = "img/Products/AirConditionerandHeater/fujiplus_fujiplus_sakura_12000_btu_inverter_duvar_tipi_klima.jpg",
+                    EntityId = 178,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 179,
+                    Path = "img/Products/AirConditionerandHeater/baymak_aqua_konfor_65_litre_termosifon.jpg",
+                    EntityId = 179,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 180,
+                    Path = "img/Products/AirConditionerandHeater/kumtel_ecoray_ex-25_2500_watt_duvar_tipi_infrared_istc.jpg",
+                    EntityId = 180,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 181,
+                    Path = "img/Products/AirConditionerandHeater/ufo_ufo_star_2400_w_duvar_tipi_istc_-_termostatl.jpg",
+                    EntityId = 181,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 182,
+                    Path = "img/Products/AirConditionerandHeater/abbruch_arj_edilebilir_tanabilir_ipli_mini_el_fan_kademe_hzl_gl_soutucu_pervane_vantilatr.jpg",
+                    EntityId = 182,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 183,
+                    Path = "img/Products/AirConditionerandHeater/sinbo_sf-6783_vantilatr.jpg",
+                    EntityId = 183,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 184,
+                    Path = "img/Products/AirConditionerandHeater/beko_31650_vantilatr_uzaktan_kumandal.jpg",
+                    EntityId = 184,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 185,
+                    Path = "img/Products/AirConditionerandHeater/ufo_ufo_micatronic_1900_w_kule_tipi_istc.jpg",
+                    EntityId = 185,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 186,
+                    Path = "img/Products/AirConditionerandHeater/ufo_omri_1200_w_termostatl_hem_yatay_hem_dikey_istc.jpg",
+                    EntityId = 186,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 187,
+                    Path = "img/Products/AirConditionerandHeater/kaira_dtxr71e_a_24000_btu_inverter_duvar_tipi_klima_montaj_dahil.jpg",
+                    EntityId = 187,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 188,
+                    Path = "img/Products/AirConditionerandHeater/baymak_duo_tec_compact_premix_24_kw_youmal_kombi_baca_dahil.jpg",
+                    EntityId = 188,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 189,
+                    Path = "img/Products/AirConditionerandHeater/ufo_isitici_star_s19_1900_w.jpg",
+                    EntityId = 189,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 190,
+                    Path = "img/Products/AirConditionerandHeater/magiceham_lilo_stitch_pelu_scak_su_istcs_-_lacivert_yurt_dndan.jpg",
+                    EntityId = 190,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
+                },
+                new Image
+                {
+                    Id = 191,
+                    Path = "img/Products/AirConditionerandHeater/airfel_maestro_optimum_2024_kw_17000_kcal_tam_youmal_kombi.jpg",
+                    EntityId = 191,
+                    EntityType = (int)EntityTypes.Product,
+                    CreatedDate = DateTime.Now
                 }
             };
         }
