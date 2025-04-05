@@ -67,7 +67,7 @@ namespace MarketWorld.Web.Controllers
             if (subCategory == null)
                 return NotFound();
 
-            var pageSize = 8;
+            var pageSize = 9;
             var query = _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
@@ -232,7 +232,7 @@ namespace MarketWorld.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> LoadMoreProducts(string subCategoryName, int page, int[] brandIds = null, int[] ratings = null, decimal minPrice = 0, decimal maxPrice = 0)
         {
-            var pageSize = 8;
+            var pageSize = 9;
             var query = _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
