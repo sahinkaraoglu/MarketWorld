@@ -3,9 +3,8 @@
 @{
     ViewData["Title"] = Model.FirstOrDefault()?.CategoryName;
     var brands = ViewBag.Brands as List<MarketWorld.Domain.Entities.Brand> ?? new List<MarketWorld.Domain.Entities.Brand>();
-    var currentPage = ViewBag.CurrentPage;
-    var totalPages = ViewBag.TotalPages;
     var subCategoryName = ViewBag.SubCategoryName;
+    var currentPage = 1;
 }
 
 @section Styles {
@@ -123,7 +122,7 @@
             </div>
 
             <div class="col-md-9">
-                <div class="row row-cols-1 row-cols-md-3 gy-5">
+                <div class="row row-cols-1 row-cols-md-3 gy-5" id="productContainer">
                     @foreach (var product in Model)
                     {
                         <div class="col mb-4">
@@ -198,184 +197,133 @@
                         </div>
                     }
                 </div>
+                <div id="loadingIndicator" class="text-center mt-4 d-none">
+                    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="visually-hidden">Yükleniyor...</span>
+                    </div>
+                    <p class="mt-2 text-muted">Ürünler yükleniyor...</p>
+                </div>
             </div>
-
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
         </div>
     </div>
-
-    <!-- Sayfalama -->
-    @if (totalPages > 1)
-    {
-        <div class="d-flex justify-content-center mt-4">
-            <nav aria-label="Sayfalama">
-                <ul class="pagination">
-                    @if (currentPage > 1)
-                    {
-                        <li class="page-item">
-                            <a class="page-link" href="@Url.Action("ListBySubCategory", new { subCategoryName, page = currentPage - 1 })">
-                                <i class="bi bi-chevron-left"></i>
-                            </a>
-                        </li>
-                    }
-
-                    @for (int i = 1; i <= totalPages; i++)
-                    {
-                        <li class="page-item @(i == currentPage ? "active" : "")">
-                            <a class="page-link" href="@Url.Action("ListBySubCategory", new { subCategoryName, page = i })">@i</a>
-                        </li>
-                    }
-
-                    @if (currentPage < totalPages)
-                    {
-                        <li class="page-item">
-                            <a class="page-link" href="@Url.Action("ListBySubCategory", new { subCategoryName, page = currentPage + 1 })">
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-                        </li>
-                    }
-                </ul>
-            </nav>
-        </div>
-    }
 </div>
 
 @section Scripts {
     <script>
+        let currentPage = @currentPage;
+        let isLoading = false;
+        let hasMoreProducts = true;
+
         $(document).ready(function() {
-            function applyPriceFilter() {
-                const minPrice = parseFloat($('#minPrice').val()) || 0;
-                const maxPrice = parseFloat($('#maxPrice').val()) || Infinity;
-                
-                $('.product-card').each(function() {
-                    const productPriceText = $(this).find('.product-price').text();
-                    const productPrice = parseFloat(productPriceText.replace('₺', '').replace('.', '').trim());
-                    
-                    const priceInRange = productPrice >= minPrice && (maxPrice === Infinity || productPrice <= maxPrice);
-                    
-                    // Diğer filtrelerle birlikte çalışması için görünürlük durumunu kontrol et
-                    const isVisibleByOtherFilters = $(this).parent().is(':visible') || 
-                        (!$('.brand-filter input[type="checkbox"]:checked').length && 
-                         !$('.rating-filter input[type="checkbox"]:checked').length);
-                    
-                    $(this).parent().toggle(priceInRange && isVisibleByOtherFilters);
-                });
-            }
-            
-            $('#minPrice, #maxPrice').on('input', applyPriceFilter);
-            
-            // Marka checkbox'larına olay dinleyicisi ekle
-            $('.brand-filter input[type="checkbox"]').on('change', function() {
-                applyBrandFilter();
+            // Filtre değişikliklerini dinle
+            $('.filter-section input').on('change', function() {
+                currentPage = 1;
+                $('#productContainer').empty();
+                loadMoreProducts();
             });
-            
-            // Değerlendirme checkbox'larına olay dinleyicisi ekle
-            $('.rating-filter input[type="checkbox"]').on('change', function() {
-                applyRatingFilter();
+
+            // Sonsuz kaydırma
+            $(window).scroll(function() {
+                if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+                    loadMoreProducts();
+                }
             });
-            
-            function applyBrandFilter() {
-                // Seçilen markaları al
-                const selectedBrands = $('.brand-filter input[type="checkbox"]:checked').map(function() {
-                    return $(this).val();
-                }).get();
-                
-                // Ürünleri filtrele
-                $('.product-card').each(function() {
-                    const productBrand = $(this).find('.card-subtitle').text().trim();
-                    const shouldShowByBrand = selectedBrands.length === 0 || selectedBrands.some(brandId => {
-                        return $(`#brand${brandId}`).next('label').text().trim() === productBrand;
+
+            function loadMoreProducts() {
+                if (isLoading || !hasMoreProducts) return;
+
+                isLoading = true;
+                $('#loadingIndicator').removeClass('d-none');
+
+                const filters = {
+                    subCategoryName: '@subCategoryName',
+                    page: currentPage + 1,
+                    brandIds: $('.brand-filter input:checked').map(function() { return $(this).val(); }).get(),
+                    ratings: $('.rating-filter input:checked').map(function() { return parseInt($(this).val()); }).get(),
+                    minPrice: parseFloat($('#minPrice').val()) || 0,
+                    maxPrice: parseFloat($('#maxPrice').val()) || Infinity
+                };
+
+                $.get('@Url.Action("LoadMoreProducts", "Product")', filters)
+                    .done(function(response) {
+                        if (response.products?.length) {
+                            response.products.forEach(p => $('#productContainer').append(createProductCard(p)));
+                            currentPage++;
+                            hasMoreProducts = response.hasMore;
+                        } else {
+                            hasMoreProducts = false;
+                        }
+                    })
+                    .fail(function() {
+                        alert('Ürünler yüklenirken bir hata oluştu.');
+                    })
+                    .always(function() {
+                        isLoading = false;
+                        $('#loadingIndicator').addClass('d-none');
                     });
-                    
-                    // Diğer filtrelerle birlikte çalışması için görünürlük durumunu güncelle
-                    const currentVisibility = $(this).parent().is(':visible');
-                    const shouldShowByRating = $('.rating-filter input[type="checkbox"]:checked').length === 0 || 
-                                              isVisibleByRatingFilter($(this));
-                    
-                    $(this).parent().toggle(shouldShowByBrand && shouldShowByRating);
-                });
-                
-                applyPriceFilter();
-            }
-            
-            function applyRatingFilter() {
-                // Seçilen değerlendirmeleri al
-                const selectedRatings = $('.rating-filter input[type="checkbox"]:checked').map(function() {
-                    return parseInt($(this).val());
-                }).get();
-                
-                // Ürünleri filtrele
-                $('.product-card').each(function() {
-                    const shouldShowByRating = isVisibleByRatingFilter($(this));
-                    
-                    // Diğer filtrelerle birlikte çalışması için görünürlük durumunu güncelle
-                    const shouldShowByBrand = $('.brand-filter input[type="checkbox"]:checked').length === 0 || 
-                                             isVisibleByBrandFilter($(this));
-                    
-                    $(this).parent().toggle(shouldShowByRating && shouldShowByBrand);
-                });
-                
-                applyPriceFilter();
-            }
-            
-            function isVisibleByRatingFilter(productCard) {
-                const selectedRatings = $('.rating-filter input[type="checkbox"]:checked').map(function() {
-                    return parseInt($(this).val());
-                }).get();
-                
-                if (selectedRatings.length === 0) {
-                    return true;
-                }
-                
-                const productRating = productCard.find('.fas.fa-star.text-warning').length;
-                return selectedRatings.includes(productRating);
-            }
-            
-            function isVisibleByBrandFilter(productCard) {
-                const selectedBrands = $('.brand-filter input[type="checkbox"]:checked').map(function() {
-                    return $(this).val();
-                }).get();
-                
-                if (selectedBrands.length === 0) {
-                    return true;
-                }
-                
-                const productBrand = productCard.find('.card-subtitle').text().trim();
-                return selectedBrands.some(brandId => {
-                    return $(`#brand${brandId}`).next('label').text().trim() === productBrand;
-                });
             }
 
+            function createProductCard(p) {
+                return `
+                    <div class="col mb-4">
+                        <div class="card product-card h-100">
+                            <a href="/Product/Detail/${p.id}" class="text-decoration-none">
+                                <div class="position-relative">
+                                    <img src="${p.imageUrl}" class="card-img-top" alt="${p.name}" onerror="this.src='/img/default-product.jpg';" />
+                                    <button class="favorite-btn position-absolute top-0 end-0 m-2"><i class="far fa-heart"></i></button>
+                                    ${p.hasFreeShipping ? '<span class="badge free-shipping-badge position-absolute top-0 start-0 m-2"><i class="fas fa-truck me-1"></i>ÜCRETSİZ KARGO</span>' : ''}
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">${p.brandName}</h6>
+                                    <h5 class="card-title product-title">${p.name}</h5>
+                                    <div class="product-rating mb-2">
+                                        <div class="stars d-flex align-items-center">
+                                            ${Array(5).fill().map((_, i) => 
+                                                i < Math.floor(p.rating) ? '<i class="fas fa-star text-warning"></i>' :
+                                                i === Math.floor(p.rating) && p.rating % 1 >= 0.5 ? '<i class="fas fa-star-half-alt text-warning"></i>' :
+                                                '<i class="far fa-star text-warning"></i>'
+                                            ).join('')}
+                                            <span class="rating-value ms-2" style="color: #666; font-weight: 500;">${p.rating.toFixed(1)}</span>
+                                            <span class="review-count text-muted ms-1">(${p.reviewCount})</span>
+                                        </div>
+                                    </div>
+                                    ${p.hasDiscount && p.discountPrice ? 
+                                        `<div class="d-flex align-items-center gap-2">
+                                            <span class="product-price">${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(p.discountPrice)}</span>
+                                            <span class="original-price text-decoration-line-through text-muted">${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(p.price)}</span>
+                                            <span class="discount-badge">%${Math.round((1 - p.discountPrice / p.price) * 100)}</span>
+                                        </div>` :
+                                        `<span class="product-price">${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(p.price)}</span>`
+                                    }
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="${p.id}">
+                                        <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
+                                    </button>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Sepete ekle butonu işlevselliği
             $('.add-to-cart-btn').click(function(e) {
                 e.preventDefault();
-                var productId = $(this).data('product-id');
+                const productId = $(this).data('product-id');
                 
-                $.ajax({
-                    url: '/Cart/AddToCart',
-                    method: 'POST',
-                    data: {
-                        productId: productId,
-                        quantity: 1
-                    },
-                    success: function(response) {
+                $.post('/Cart/AddToCart', { productId, quantity: 1 })
+                    .done(function(response) {
                         if (response.success) {
                             alert(response.message);
                             $(document).trigger('cartUpdated');
                         } else {
-                            if (response.redirect) {
-                                window.location.href = response.redirect;
-                            } else {
-                                alert(response.message);
-                            }
+                            response.redirect ? window.location.href = response.redirect : alert(response.message);
                         }
-                    },
-                    error: function() {
+                    })
+                    .fail(function() {
                         alert('Bir hata oluştu. Lütfen tekrar deneyin.');
-                    }
-                });
+                    });
             });
         });
     </script>

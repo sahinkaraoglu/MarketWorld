@@ -67,7 +67,7 @@ namespace MarketWorld.Web.Controllers
             if (subCategory == null)
                 return NotFound();
 
-            var pageSize = 12;
+            var pageSize = 8;
             var query = _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
@@ -227,6 +227,69 @@ namespace MarketWorld.Web.Controllers
             ViewBag.Brands = brands;
             ViewBag.SearchQuery = query;
             return View("ProductList", products);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LoadMoreProducts(string subCategoryName, int page, int[] brandIds = null, int[] ratings = null, decimal minPrice = 0, decimal maxPrice = 0)
+        {
+            var pageSize = 8;
+            var query = _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .Where(p => p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted);
+
+            // Filtreleri uygula
+            if (brandIds != null && brandIds.Length > 0)
+            {
+                query = query.Where(p => brandIds.Contains(p.BrandId));
+            }
+
+            if (ratings != null && ratings.Length > 0)
+            {
+                query = query.Where(p => ratings.Contains((int)Math.Floor(p.Rating)));
+            }
+
+            if (minPrice > 0)
+            {
+                query = query.Where(p => p.Price >= minPrice);
+            }
+
+            if (maxPrice > 0)
+            {
+                query = query.Where(p => p.Price <= maxPrice);
+            }
+
+            var totalItems = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            var products = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(p => new ProductViewModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    BrandId = p.BrandId,
+                    BrandName = p.Brand.Name,
+                    Price = p.Price,
+                    ImageUrl = p.Images.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
+                    Rating = p.Rating,
+                    ReviewCount = 100,
+                    HasFreeShipping = p.Price > 45000,
+                    Stock = p.Stock,
+                    CategoryName = p.SubCategory.Category.Name,
+                    HasDiscount = p.HasDiscount,
+                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null
+                })
+                .ToListAsync();
+
+            return Json(new { 
+                products = products,
+                hasMore = page < totalPages
+            });
         }
     }
 } 
