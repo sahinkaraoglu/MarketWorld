@@ -1,4 +1,4 @@
-# MarketWorld 🛍️ (Coming Soon)
+# MarketWorld 🛍️
 
 .NET Core 8.0-based eCommerce platform.
 
