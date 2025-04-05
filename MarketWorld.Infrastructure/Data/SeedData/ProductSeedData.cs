@@ -1851,6 +1851,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Rating = 3.5M,
                     IsActive = true,
                     CreatedDate = DateTime.Now
+                },
                 new Product
                 {
                     Id = 130,
@@ -1893,6 +1894,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Stock = 50,
                     HasDiscount = false,
                     Rating = 4.6M,
+                    IsActive = true,
                     CreatedDate = DateTime.Now
                 },
                 new Product
