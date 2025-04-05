@@ -175,21 +175,23 @@
                                         @if (product.HasDiscount && product.DiscountPrice.HasValue)
                                         {
                                             <div class="d-flex align-items-center gap-2">
-                                                <p class="card-text product-price mb-0 fw-bold text-danger" style="font-size: 1.2rem;">
-                                                    @product.DiscountPrice.Value.ToString("N2") ₺
-                                                </p>
-                                                <p class="card-text mb-0 text-decoration-line-through text-muted" style="font-size: 0.9rem;">
-                                                    @product.Price.ToString("N2") ₺
-                                                </p>
+                                                <span class="product-price">@product.DiscountPrice.Value.ToString("C")</span>
+                                                <span class="original-price text-decoration-line-through text-muted">@product.Price.ToString("C")</span>
+                                                @{
+                                                    var discountPercentage = Math.Round((1 - product.DiscountPrice.Value / product.Price) * 100);
+                                                }
+                                                <span class="discount-badge">%@discountPercentage</span>
                                             </div>
                                         }
                                         else
                                         {
-                                            <p class="card-text product-price">@product.Price.ToString("N2") ₺</p>
+                                            <span class="product-price">@product.Price.ToString("C")</span>
                                         }
                                     </div>
                                     <div class="card-footer bg-transparent border-top-0">
-                                        <button class="btn btn-primary w-100">Sepete Ekle</button>
+                                        <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="@product.Id">
+                                            <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
+                                        </button>
                                     </div>
                                 </a>
                             </div>
@@ -346,6 +348,35 @@
                     return $(`#brand${brandId}`).next('label').text().trim() === productBrand;
                 });
             }
+
+            $('.add-to-cart-btn').click(function(e) {
+                e.preventDefault();
+                var productId = $(this).data('product-id');
+                
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    method: 'POST',
+                    data: {
+                        productId: productId,
+                        quantity: 1
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            $(document).trigger('cartUpdated');
+                        } else {
+                            if (response.redirect) {
+                                window.location.href = response.redirect;
+                            } else {
+                                alert(response.message);
+                            }
+                        }
+                    },
+                    error: function() {
+                        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                    }
+                });
+            });
         });
     </script>
 } 

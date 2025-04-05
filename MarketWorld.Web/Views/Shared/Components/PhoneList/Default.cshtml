@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="mt-auto">
                                     <p class="price mb-3">@product.Price.ToString("N2") TL</p>
-                                    <button class="btn btn-primary add-to-cart-btn w-100">
+                                    <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="@product.Id">
                                         <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
                                     </button>
                                 </div>
@@ -115,4 +115,34 @@
             transform: translateY(-5px);
         }
     </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.add-to-cart-btn').click(function(e) {
+                e.preventDefault();
+                var productId = $(this).data('product-id');
+
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    method: 'POST',
+                    data: {
+                        productId: productId,
+                        quantity: 1
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                        } else {
+                            alert(response.message);
+                            if (response.message.includes('giriş yapın')) {
+                                window.location.href = '/Login';
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 } 

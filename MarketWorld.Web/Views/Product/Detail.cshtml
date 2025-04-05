@@ -12,6 +12,51 @@
 
 @section Scripts {
     <script src="~/js/product-detail.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#addToCartBtn').click(function() {
+                var productId = @Model.Id;
+                var quantity = parseInt($('#quantity').val());
+                var color = $('input[name="colorOption"]:checked').val();
+
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    method: 'POST',
+                    data: {
+                        productId: productId,
+                        quantity: quantity,
+                        color: color
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            $(document).trigger('cartUpdated');
+                        } else {
+                            alert(response.message);
+                            if (response.redirect) {
+                                window.location.href = response.redirect;
+                            }
+                        }
+                    }
+                });
+            });
+
+            $('#decreaseQuantity').click(function() {
+                var currentValue = parseInt($('#quantity').val());
+                if (currentValue > 1) {
+                    $('#quantity').val(currentValue - 1);
+                }
+            });
+
+            $('#increaseQuantity').click(function() {
+                var currentValue = parseInt($('#quantity').val());
+                var maxValue = parseInt($('#quantity').attr('max'));
+                if (currentValue < maxValue) {
+                    $('#quantity').val(currentValue + 1);
+                }
+            });
+        });
+    </script>
 }
 
 <div class="container py-4">
@@ -215,7 +260,7 @@
                         </div>
 
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-grow-1">
+                            <button class="btn btn-primary flex-grow-1" id="addToCartBtn">
                                 <i class="fas fa-shopping-cart me-2"></i>
                                 Sepete Ekle
                             </button>

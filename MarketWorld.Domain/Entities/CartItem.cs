@@ -1,4 +1,5 @@
 using MarketWorld.Domain.Entities.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace MarketWorld.Domain.Entities
 {
@@ -10,7 +11,8 @@ namespace MarketWorld.Domain.Entities
         public int ProductId { get; set; }
         public Product Product { get; set; }
         
-        public decimal Quantity { get; set; }
+        public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
+        public string Color { get; set; }
     }
 } 

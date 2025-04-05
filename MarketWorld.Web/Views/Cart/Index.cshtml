@@ -1,0 +1,301 @@
+@model MarketWorld.Domain.Entities.Cart
+
+@{
+    ViewData["Title"] = "Sepetim";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Sepetim</h2>
+        <span class="badge bg-primary rounded-pill">@(Model?.CartItems?.Count ?? 0) Ürün</span>
+    </div>
+
+    @if (Model?.CartItems == null || !Model.CartItems.Any())
+    {
+        <div class="empty-cart text-center py-5">
+            <div class="mb-4">
+                <i class="fas fa-shopping-cart fa-5x text-primary" style="opacity: 0.2;"></i>
+            </div>
+            <h3 class="mb-3">Sepetiniz Boş</h3>
+            <p class="text-muted mb-4">Sepetinizde henüz ürün bulunmamaktadır.</p>
+            <a href="/" class="btn btn-primary btn-lg px-5">
+                <i class="fas fa-shopping-bag me-2"></i>Alışverişe Başla
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        @foreach (var item in Model.CartItems)
+                        {
+                            <div class="cart-item row align-items-center mb-4 pb-3 border-bottom">
+                                <div class="col-md-3">
+                                    <div class="position-relative">
+                                        <img src="@(item.Product.Images?.FirstOrDefault()?.Path ?? "/img/default-product.jpg")" 
+                                             class="img-fluid rounded" alt="@item.Product.Name">
+                                        <div class="position-absolute top-0 end-0 bg-primary text-white rounded-circle p-2" style="width: 30px; height: 30px; line-height: 16px;">
+                                            @item.Quantity
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 class="mb-2">@item.Product.Name</h5>
+                                    <p class="text-muted mb-1">
+                                        <i class="fas fa-tag me-2"></i>@item.UnitPrice.ToString("C")
+                                    </p>
+                                    @if (!string.IsNullOrEmpty(item.Color))
+                                    {
+                                        <p class="text-muted mb-1">
+                                            <i class="fas fa-palette me-2"></i>Renk: @item.Color
+                                        </p>
+                                    }
+                                    <p class="text-success mb-0">
+                                        <i class="fas fa-check-circle me-2"></i>Stokta Mevcut
+                                    </p>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="quantity-control">
+                                        <button type="button" class="btn decrease-quantity" data-cart-item-id="@item.Id">
+                                            <i class="fas fa-minus fa-sm"></i>
+                                        </button>
+                                        <input type="number" class="form-control quantity-input" 
+                                               value="@item.Quantity" min="1" max="@item.Product.Stock" 
+                                               style="font-size: 14px;" readonly>
+                                        <button type="button" class="btn increase-quantity" data-cart-item-id="@item.Id">
+                                            <i class="fas fa-plus fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <button class="btn btn-outline-danger remove-btn" data-cart-item-id="@item.Id">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm sticky-top" style="top: 20px;">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">
+                            <i class="fas fa-receipt me-2"></i>Sipariş Özeti
+                        </h5>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-muted">Ara Toplam</span>
+                            <span class="fw-bold">@Model.TotalAmount.ToString("C")</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-muted">Kargo</span>
+                            <span class="text-success">
+                                <i class="fas fa-truck me-2"></i>Ücretsiz
+                            </span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between mb-4">
+                            <strong>Toplam</strong>
+                            <strong class="text-primary fs-5">@Model.TotalAmount.ToString("C")</strong>
+                        </div>
+                        <a href="/Order/Checkout" class="btn checkout-btn btn-lg w-100 text-white">
+                            <i class="fas fa-lock me-2"></i>Güvenli Ödeme
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .cart-item {
+        transition: all 0.3s ease;
+    }
+
+        .cart-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        background: #f8f9fa;
+        border-radius: 25px;
+        padding: 2px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        width: fit-content;
+    }
+
+        .quantity-control button {
+            border: none;
+            background: transparent;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+            .quantity-control button:hover {
+                background: #e9ecef;
+                color: #495057;
+            }
+
+        .quantity-control input {
+            border: none;
+            text-align: center;
+            background: transparent;
+            width: 45px;
+            font-weight: 500;
+            color: #495057;
+            padding: 0;
+            margin: 0 2px;
+            -moz-appearance: textfield;
+        }
+
+            .quantity-control input::-webkit-outer-spin-button,
+            .quantity-control input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+    .remove-btn {
+        transition: all 0.3s ease;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+        .remove-btn:hover {
+            transform: scale(1.1);
+            background: #dc3545;
+            color: white !important;
+        }
+
+    .checkout-btn {
+        background: linear-gradient(45deg, #2196F3, #1976D2);
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+        }
+
+    .empty-cart {
+        animation: fadeIn 0.5s ease;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .quantity-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #2196F3;
+        color: white;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Miktar azaltma
+            $('.decrease-quantity').click(function() {
+                var cartItemId = $(this).data('cart-item-id');
+                var quantityInput = $(this).siblings('.quantity-input');
+                var currentQuantity = parseInt(quantityInput.val());
+                
+                if (currentQuantity > 1) {
+                    updateQuantity(cartItemId, currentQuantity - 1);
+                }
+            });
+
+            // Miktar artırma
+            $('.increase-quantity').click(function() {
+                var cartItemId = $(this).data('cart-item-id');
+                var quantityInput = $(this).siblings('.quantity-input');
+                var currentQuantity = parseInt(quantityInput.val());
+                var maxQuantity = parseInt(quantityInput.attr('max'));
+                
+                if (currentQuantity < maxQuantity) {
+                    updateQuantity(cartItemId, currentQuantity + 1);
+                }
+            });
+
+            // Ürün kaldırma
+            $('.remove-btn').click(function() {
+                if (confirm('Bu ürünü sepetinizden kaldırmak istediğinize emin misiniz?')) {
+                    var cartItemId = $(this).data('cart-item-id');
+                    removeItem(cartItemId);
+                }
+            });
+
+            function updateQuantity(cartItemId, quantity) {
+                $.ajax({
+                    url: '/Cart/UpdateQuantity',
+                    method: 'POST',
+                    data: {
+                        cartItemId: cartItemId,
+                        quantity: quantity
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            alert(response.message);
+                        }
+                    }
+                });
+            }
+
+            function removeItem(cartItemId) {
+                $.ajax({
+                    url: '/Cart/RemoveItem',
+                    method: 'POST',
+                    data: {
+                        cartItemId: cartItemId
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            alert(response.message);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+} 
