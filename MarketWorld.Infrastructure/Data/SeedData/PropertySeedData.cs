@@ -1,6 +1,7 @@
 using MarketWorld.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MarketWorld.Infrastructure.Data.SeedData
 {
@@ -177,7 +178,16 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 new PropertyValue { Id = 61, PropertyTypeId = 1, Value = "Zümrüt Yeşili", CreatedDate = DateTime.Now },
                 new PropertyValue { Id = 62, PropertyTypeId = 1, Value = "Lacivert Taş", CreatedDate = DateTime.Now },
                 new PropertyValue { Id = 63, PropertyTypeId = 1, Value = "Natürel Titanyum", CreatedDate = DateTime.Now },
-                new PropertyValue { Id = 64, PropertyTypeId = 1, Value = "Grafit", CreatedDate = DateTime.Now }
+                new PropertyValue { Id = 64, PropertyTypeId = 1, Value = "Grafit", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 65, PropertyTypeId = 1, Value = "Antrasit", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 66, PropertyTypeId = 1, Value = "Inox", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 67, PropertyTypeId = 1, Value = "Kırmızı", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 68, PropertyTypeId = 1, Value = "Turkuaz", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 69, PropertyTypeId = 1, Value = "Pembe", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 70, PropertyTypeId = 1, Value = "Turuncu", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 71, PropertyTypeId = 1, Value = "Sarı", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 72, PropertyTypeId = 1, Value = "Kahverengi", CreatedDate = DateTime.Now },
+                new PropertyValue { Id = 73, PropertyTypeId = 1, Value = "Bej", CreatedDate = DateTime.Now }
             };
         }
 
@@ -189,169 +199,199 @@ namespace MarketWorld.Infrastructure.Data.SeedData
             // Laptoplar için özellikler (1-31 arası ürünler)
             for (int productId = 1; productId <= 31; productId++)
             {
-                // Renk seçenekleri
-                for (int colorId = 1; colorId <= 4; colorId++)
+                // Her bir ürün için özellikler ekleniyor
+                if (ProductSeedData.GetProducts().Any(p => p.Id == productId))
                 {
+                    // Renk seçenekleri
+                    for (int colorId = 1; colorId <= 4; colorId++)
+                    {
+                        productProperties.Add(new ProductProperty
+                        {
+                            Id = id++,
+                            ProductId = productId,
+                            PropertyTypeId = 1,
+                            PropertyValueId = colorId,
+                            Stock = 50,
+                            IsActive = true,
+                            CreatedDate = DateTime.Now
+                        });
+                    }
+
+                    // İşlemci özelliği
                     productProperties.Add(new ProductProperty
                     {
                         Id = id++,
                         ProductId = productId,
-                        PropertyTypeId = 1,
-                        PropertyValueId = colorId,
+                        PropertyTypeId = 4,
+                        PropertyValueId = GetProcessorValueId(productId),
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+
+                    // RAM özelliği
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 5,
+                        PropertyValueId = GetRamValueId(productId),
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+
+                    // SSD özelliği
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 6,
+                        PropertyValueId = GetSsdValueId(productId),
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+
+                    // Ekran özelliği
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 7,
+                        PropertyValueId = GetScreenValueId(productId),
                         Stock = 50,
                         IsActive = true,
                         CreatedDate = DateTime.Now
                     });
                 }
-
-                // İşlemci özelliği
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 4,
-                    PropertyValueId = GetProcessorValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
-
-                // RAM özelliği
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 5,
-                    PropertyValueId = GetRamValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
-
-                // SSD özelliği
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 6,
-                    PropertyValueId = GetSsdValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
-
-                // Ekran özelliği
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 7,
-                    PropertyValueId = GetScreenValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
             }
 
             // Yazıcılar için özellikler (32-73 arası ürünler)
             for (int productId = 32; productId <= 73; productId++)
             {
-                // Renk seçenekleri
-                for (int colorId = 52; colorId <= 54; colorId++)
+                if (ProductSeedData.GetProducts().Any(p => p.Id == productId))
                 {
+                    // Renk seçenekleri
+                    for (int colorId = 52; colorId <= 54; colorId++)
+                    {
+                        productProperties.Add(new ProductProperty
+                        {
+                            Id = id++,
+                            ProductId = productId,
+                            PropertyTypeId = 1,
+                            PropertyValueId = colorId,
+                            Stock = 50,
+                            IsActive = true,
+                            CreatedDate = DateTime.Now
+                        });
+                    }
+
+                    // Yazıcı tipi
                     productProperties.Add(new ProductProperty
                     {
                         Id = id++,
                         ProductId = productId,
-                        PropertyTypeId = 1,
-                        PropertyValueId = colorId,
+                        PropertyTypeId = 8,
+                        PropertyValueId = GetPrinterTypeValueId(productId),
                         Stock = 50,
                         IsActive = true,
                         CreatedDate = DateTime.Now
                     });
-                }
 
-                // Yazıcı tipi
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 8,
-                    PropertyValueId = GetPrinterTypeValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
-
-                // Mürekkep sistemi
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 9,
-                    PropertyValueId = GetInkSystemValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
-
-                // Kağıt boyutu
-                productProperties.Add(new ProductProperty
-                {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 10,
-                    PropertyValueId = GetPaperSizeValueId(productId),
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
-
-                // Fonksiyonlar
-                var functionIds = GetFunctionValueIds(productId);
-                foreach (var functionId in functionIds)
-                {
+                    // Mürekkep sistemi
                     productProperties.Add(new ProductProperty
                     {
                         Id = id++,
                         ProductId = productId,
-                        PropertyTypeId = 11,
-                        PropertyValueId = functionId,
+                        PropertyTypeId = 9,
+                        PropertyValueId = GetInkSystemValueId(productId),
                         Stock = 50,
                         IsActive = true,
                         CreatedDate = DateTime.Now
                     });
+
+                    // Kağıt boyutu
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 10,
+                        PropertyValueId = GetPaperSizeValueId(productId),
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+
+                    // Fonksiyonlar
+                    var functionIds = GetFunctionValueIds(productId);
+                    foreach (var functionId in functionIds)
+                    {
+                        productProperties.Add(new ProductProperty
+                        {
+                            Id = id++,
+                            ProductId = productId,
+                            PropertyTypeId = 11,
+                            PropertyValueId = functionId,
+                            Stock = 50,
+                            IsActive = true,
+                            CreatedDate = DateTime.Now
+                        });
+                    }
                 }
             }
 
             // Telefonlar için özellikler (74-129 arası ürünler)
             for (int productId = 74; productId <= 129; productId++)
             {
-                // Renk seçenekleri
-                var colorValueId = GetPhoneColorValueId(productId);
-                productProperties.Add(new ProductProperty
+                if (ProductSeedData.GetProducts().Any(p => p.Id == productId))
                 {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 1,
-                    PropertyValueId = colorValueId,
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
+                    // Renk seçenekleri
+                    var colorValueId = GetPhoneColorValueId(productId);
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 1,
+                        PropertyValueId = colorValueId,
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
 
-                // Hafıza özelliği
-                var storageValueId = GetPhoneStorageValueId(productId);
-                productProperties.Add(new ProductProperty
+                    // Hafıza özelliği
+                    var storageValueId = GetPhoneStorageValueId(productId);
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 3,
+                        PropertyValueId = storageValueId,
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+                }
+            }
+
+            // Beyaz eşyalar için özellikler (130-200 arası ürünler)
+            for (int productId = 130; productId <= 200; productId++)
+            {
+                if (ProductSeedData.GetProducts().Any(p => p.Id == productId))
                 {
-                    Id = id++,
-                    ProductId = productId,
-                    PropertyTypeId = 3,
-                    PropertyValueId = storageValueId,
-                    Stock = 50,
-                    IsActive = true,
-                    CreatedDate = DateTime.Now
-                });
+                    // Renk seçenekleri
+                    var colorValueId = GetWhiteGoodsColorValueId(productId);
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 1,
+                        PropertyValueId = colorValueId,
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+                }
             }
 
             return productProperties;
@@ -691,6 +731,34 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 128 => 14, // 256GB
                 129 => 11, // 128GB
                 _ => 11
+            };
+        }
+
+        private static int GetWhiteGoodsColorValueId(int productId)
+        {
+            // Beyaz eşyalar için renk dağılımı
+            return productId switch
+            {
+                // Bulaşık Makineleri (130-150)
+                >= 130 and <= 140 => 53, // Beyaz
+                >= 141 and <= 145 => 65, // Antrasit
+                >= 146 and <= 150 => 66, // Inox
+
+                // Çamaşır Makineleri (151-170)
+                >= 151 and <= 160 => 53, // Beyaz
+                >= 161 and <= 165 => 65, // Antrasit
+                >= 166 and <= 170 => 66, // Inox
+
+                // Buzdolapları (171-190)
+                >= 171 and <= 180 => 53, // Beyaz
+                >= 181 and <= 185 => 65, // Antrasit
+                >= 186 and <= 190 => 66, // Inox
+
+                // Fırınlar (191-200)
+                >= 191 and <= 195 => 65, // Antrasit
+                >= 196 and <= 200 => 66, // Inox
+
+                _ => 53 // Varsayılan olarak Beyaz
             };
         }
     }
