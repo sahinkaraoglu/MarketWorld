@@ -57,7 +57,7 @@
                     }
                     <h3>@category.Name</h3>
                     <p>@category.Description</p>
-                    <a href="@Url.Action("Details", "Category", new { id = category.Id })" class="electronic-button">
+                    <a href="@Url.Action("ListBySubCategory", "Product", new { subCategoryName = category.ShortenedEntityName })" class="electronic-button">
                         Ürünleri Görüntüle
                         <i class="fas fa-arrow-right"></i>
                     </a>
