@@ -12,6 +12,16 @@
 
 @section Scripts {
     <script src="~/js/product-detail.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartToast = new bootstrap.Toast(document.getElementById('cartToast'));
+            
+            document.getElementById('addToCartBtn').addEventListener('click', function() {
+                // Sepete ekleme işlemi burada yapılacak
+                cartToast.show();
+            });
+        });
+    </script>
 }
 
 <div class="container py-4">
@@ -321,4 +331,18 @@ small.text-danger {
     color: #6c757d;
     margin-top: 2px;
 }
-</style> 
+</style>
+
+<!-- Toast Bildirimi -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <strong class="me-auto">Başarılı</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Ürün sepete eklendi!
+        </div>
+    </div>
+</div> 

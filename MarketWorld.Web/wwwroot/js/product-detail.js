@@ -118,10 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert(data.message);
+                    const cartToast = new bootstrap.Toast(document.getElementById('cartToast'));
+                    cartToast.show();
                     document.dispatchEvent(new Event('cartUpdated'));
                 } else {
-                    alert(data.message);
                     if (data.redirect) {
                         window.location.href = data.redirect;
                     }
@@ -129,7 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                const errorToast = new bootstrap.Toast(document.getElementById('cartToast'));
+                document.querySelector('.toast-body').textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                document.querySelector('.toast-header i').className = 'fas fa-exclamation-circle text-danger me-2';
+                errorToast.show();
             });
         });
     }
