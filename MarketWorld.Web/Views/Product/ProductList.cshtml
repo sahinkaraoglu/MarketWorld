@@ -123,79 +123,7 @@
 
             <div class="col-md-9">
                 <div class="row row-cols-1 row-cols-md-3 gy-5" id="productContainer">
-                    @foreach (var product in Model)
-                    {
-                        <div class="col mb-4">
-                            <div class="card product-card h-100">
-                                <a href="@Url.Action("Detail", "Product", new { id = product.Id })" class="text-decoration-none">
-                                    <div class="position-relative">
-                                        <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" 
-                                             onerror="this.src='/img/default-product.jpg';" />
-                                        <button class="favorite-btn position-absolute top-0 end-0 m-2">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                        @if (product.HasFreeShipping)
-                                        {
-                                            <span class="badge free-shipping-badge position-absolute top-0 start-0 m-2">
-                                                <i class="fas fa-truck me-1"></i>ÜCRETSİZ KARGO
-                                            </span>
-                                        }
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-subtitle mb-2 text-muted">@product.BrandName</h6>
-                                        <h5 class="card-title product-title">@product.Name</h5>
-                                        <div class="product-rating mb-2">
-                                            <div class="stars d-flex align-items-center">
-                                                @{
-                                                    decimal rating = product.Rating;
-                                                    int fullStars = (int)Math.Floor(rating);
-                                                    bool hasHalfStar = (rating - fullStars) >= 0.5m;
-                                                }
-
-                                                @for (var i = 1; i <= 5; i++)
-                                                {
-                                                    if (i <= fullStars)
-                                                    {
-                                                        <i class="fas fa-star text-warning"></i>
-                                                    }
-                                                    else if (i == fullStars + 1 && hasHalfStar)
-                                                    {
-                                                        <i class="fas fa-star-half-alt text-warning"></i>
-                                                    }
-                                                    else
-                                                    {
-                                                        <i class="far fa-star text-warning"></i>
-                                                    }
-                                                }
-                                                <span class="rating-value ms-2" style="color: #666; font-weight: 500;">@rating.ToString("0.0")</span>
-                                                <span class="review-count text-muted ms-1">(@product.ReviewCount)</span>
-                                            </div>
-                                        </div>
-                                        @if (product.HasDiscount && product.DiscountPrice.HasValue)
-                                        {
-                                            <div class="d-flex align-items-center gap-2">
-                                                <span class="product-price">@product.DiscountPrice.Value.ToString("C")</span>
-                                                <span class="original-price text-decoration-line-through text-muted">@product.Price.ToString("C")</span>
-                                                @{
-                                                    var discountPercentage = Math.Round((1 - product.DiscountPrice.Value / product.Price) * 100);
-                                                }
-                                                <span class="discount-badge">%@discountPercentage</span>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            <span class="product-price">@product.Price.ToString("C")</span>
-                                        }
-                                    </div>
-                                    <div class="card-footer bg-transparent border-top-0">
-                                        <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="@product.Id">
-                                            <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
-                                        </button>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    }
+                    <!-- Ürünler JavaScript ile yüklenecek -->
                 </div>
                 <div id="loadingIndicator" class="text-center mt-4 d-none">
                     <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
@@ -210,16 +138,24 @@
 
 @section Scripts {
     <script>
-        let currentPage = @currentPage;
+        let currentPage = 1;
         let isLoading = false;
         let hasMoreProducts = true;
 
         $(document).ready(function() {
-            // Filtre değişikliklerini dinle
-            $('.filter-section input').on('change', function() {
-                currentPage = 1;
-                $('#productContainer').empty();
-                loadMoreProducts();
+            // Fiyat filtresi değişikliğini dinle
+            $('#minPrice, #maxPrice').on('input', debounce(function() {
+                resetAndReload();
+            }, 500));
+
+            // Marka filtresi değişikliğini dinle
+            $('.brand-filter input[type="checkbox"]').on('change', function() {
+                resetAndReload();
+            });
+
+            // Değerlendirme filtresi değişikliğini dinle
+            $('.rating-filter input[type="checkbox"]').on('change', function() {
+                resetAndReload();
             });
 
             // Sonsuz kaydırma
@@ -229,29 +165,78 @@
                 }
             });
 
+            function resetAndReload() {
+                currentPage = 1;
+                hasMoreProducts = true;
+                $('#productContainer').empty();
+                loadMoreProducts();
+            }
+
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
             function loadMoreProducts() {
                 if (isLoading || !hasMoreProducts) return;
 
                 isLoading = true;
                 $('#loadingIndicator').removeClass('d-none');
 
-                const filters = {
-                    subCategoryName: '@subCategoryName',
-                    page: currentPage + 1,
-                    brandIds: $('.brand-filter input:checked').map(function() { return $(this).val(); }).get(),
-                    ratings: $('.rating-filter input:checked').map(function() { return parseInt($(this).val()); }).get(),
-                    minPrice: parseFloat($('#minPrice').val()) || 0,
-                    maxPrice: parseFloat($('#maxPrice').val()) || Infinity
-                };
+                // Seçili markaları al
+                const selectedBrands = $('.brand-filter input:checked').map(function() {
+                    return $(this).val();
+                }).get();
 
-                $.get('@Url.Action("LoadMoreProducts", "Product")', filters)
+                // Seçili derecelendirmeleri al
+                const selectedRatings = $('.rating-filter input:checked').map(function() {
+                    return $(this).val();
+                }).get();
+
+                // Fiyat aralığını al
+                const minPrice = parseFloat($('#minPrice').val()) || 0;
+                const maxPrice = parseFloat($('#maxPrice').val()) || 0;
+
+                // URL'yi oluştur
+                const url = new URL('@Url.Action("LoadMoreProducts", "Product")', window.location.origin);
+                url.searchParams.append('subCategoryName', '@subCategoryName');
+                url.searchParams.append('page', currentPage);
+                
+                // Marka filtrelerini ekle
+                selectedBrands.forEach(brandId => {
+                    url.searchParams.append('brandIds', brandId);
+                });
+
+                // Derecelendirme filtrelerini ekle
+                selectedRatings.forEach(rating => {
+                    url.searchParams.append('ratings', rating);
+                });
+
+                // Fiyat filtrelerini ekle
+                if (minPrice > 0) url.searchParams.append('minPrice', minPrice);
+                if (maxPrice > 0) url.searchParams.append('maxPrice', maxPrice);
+
+                console.log('İstek URL:', url.toString()); // Debug için
+
+                $.get(url.toString())
                     .done(function(response) {
+                        console.log('Sunucu yanıtı:', response); // Debug için
                         if (response.products?.length) {
                             response.products.forEach(p => $('#productContainer').append(createProductCard(p)));
                             currentPage++;
                             hasMoreProducts = response.hasMore;
                         } else {
                             hasMoreProducts = false;
+                            if (currentPage === 1) {
+                                $('#productContainer').html('<div class="col-12 text-center"><p class="text-muted">Bu kriterlere uygun ürün bulunamadı.</p></div>');
+                            }
                         }
                     })
                     .fail(function() {
@@ -263,41 +248,47 @@
                     });
             }
 
-            function createProductCard(p) {
+            function createProductCard(product) {
+                const priceDisplay = product.hasDiscount && product.discountPrice ? `
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="product-price">${product.discountPrice.toLocaleString('tr-TR', { minimumFractionDigits: 2 })} TL</span>
+                        <span class="original-price text-decoration-line-through text-muted">${product.price.toLocaleString('tr-TR', { minimumFractionDigits: 2 })} TL</span>
+                        <span class="discount-badge">%${Math.round((1 - product.discountPrice / product.price) * 100)}</span>
+                    </div>
+                ` : `
+                    <span class="product-price">${product.price.toLocaleString('tr-TR', { minimumFractionDigits: 2 })} TL</span>
+                `;
+
                 return `
                     <div class="col mb-4">
                         <div class="card product-card h-100">
-                            <a href="/Product/Detail/${p.id}" class="text-decoration-none">
+                            <a href="/Product/Detail/${product.id}" class="text-decoration-none">
                                 <div class="position-relative">
-                                    <img src="${p.imageUrl}" class="card-img-top" alt="${p.name}" onerror="this.src='/img/default-product.jpg';" />
-                                    <button class="favorite-btn position-absolute top-0 end-0 m-2"><i class="far fa-heart"></i></button>
-                                    ${p.hasFreeShipping ? '<span class="badge free-shipping-badge position-absolute top-0 start-0 m-2"><i class="fas fa-truck me-1"></i>ÜCRETSİZ KARGO</span>' : ''}
+                                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}" 
+                                         onerror="this.src='/img/default-product.jpg';" />
+                                    <button class="favorite-btn position-absolute top-0 end-0 m-2">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    ${product.hasFreeShipping ? `
+                                        <span class="badge free-shipping-badge position-absolute top-0 start-0 m-2">
+                                            <i class="fas fa-truck me-1"></i>ÜCRETSİZ KARGO
+                                        </span>
+                                    ` : ''}
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="card-subtitle mb-2 text-muted">${p.brandName}</h6>
-                                    <h5 class="card-title product-title">${p.name}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">${product.brandName}</h6>
+                                    <h5 class="card-title product-title">${product.name}</h5>
                                     <div class="product-rating mb-2">
                                         <div class="stars d-flex align-items-center">
-                                            ${Array(5).fill().map((_, i) => 
-                                                i < Math.floor(p.rating) ? '<i class="fas fa-star text-warning"></i>' :
-                                                i === Math.floor(p.rating) && p.rating % 1 >= 0.5 ? '<i class="fas fa-star-half-alt text-warning"></i>' :
-                                                '<i class="far fa-star text-warning"></i>'
-                                            ).join('')}
-                                            <span class="rating-value ms-2" style="color: #666; font-weight: 500;">${p.rating.toFixed(1)}</span>
-                                            <span class="review-count text-muted ms-1">(${p.reviewCount})</span>
+                                            ${getRatingStars(product.rating)}
+                                            <span class="rating-value ms-2" style="color: #666; font-weight: 500;">${product.rating.toFixed(1)}</span>
+                                            <span class="review-count text-muted ms-1">(${product.reviewCount})</span>
                                         </div>
                                     </div>
-                                    ${p.hasDiscount && p.discountPrice ? 
-                                        `<div class="d-flex align-items-center gap-2">
-                                            <span class="product-price">${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(p.discountPrice)}</span>
-                                            <span class="original-price text-decoration-line-through text-muted">${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(p.price)}</span>
-                                            <span class="discount-badge">%${Math.round((1 - p.discountPrice / p.price) * 100)}</span>
-                                        </div>` :
-                                        `<span class="product-price">${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(p.price)}</span>`
-                                    }
+                                    ${priceDisplay}
                                 </div>
                                 <div class="card-footer bg-transparent border-top-0">
-                                    <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="${p.id}">
+                                    <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="${product.id}">
                                         <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
                                     </button>
                                 </div>
@@ -307,9 +298,27 @@
                 `;
             }
 
+            function getRatingStars(rating) {
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= rating) {
+                        stars += '<i class="fas fa-star text-warning"></i>';
+                    } else if (i - rating < 1) {
+                        stars += '<i class="fas fa-star-half-alt text-warning"></i>';
+                    } else {
+                        stars += '<i class="far fa-star text-warning"></i>';
+                    }
+                }
+                return stars;
+            }
+
+            // Sayfa yüklendiğinde ilk ürünleri yükle
+            loadMoreProducts();
+
             // Sepete ekle butonu işlevselliği
-            $('.add-to-cart-btn').click(function(e) {
+            $(document).on('click', '.add-to-cart-btn', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 const productId = $(this).data('product-id');
                 
                 $.post('/Cart/AddToCart', { productId, quantity: 1 })
@@ -318,7 +327,11 @@
                             alert(response.message);
                             $(document).trigger('cartUpdated');
                         } else {
-                            response.redirect ? window.location.href = response.redirect : alert(response.message);
+                            if (response.redirect) {
+                                window.location.href = response.redirect;
+                            } else {
+                                alert(response.message);
+                            }
                         }
                     })
                     .fail(function() {

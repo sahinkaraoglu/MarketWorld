@@ -241,7 +241,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> LoadMoreProducts(string subCategoryName, int page, int[] brandIds = null, int[] ratings = null, decimal minPrice = 0, decimal maxPrice = 0)
+        public async Task<IActionResult> LoadMoreProducts(string subCategoryName, int page, [FromQuery] List<int> brandIds = null, [FromQuery] List<int> ratings = null, decimal minPrice = 0, decimal maxPrice = 0)
         {
             var pageSize = 9;
             var query = _context.Products
@@ -252,12 +252,12 @@ namespace MarketWorld.Web.Controllers
                 .Where(p => p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted);
 
             // Filtreleri uygula
-            if (brandIds != null && brandIds.Length > 0)
+            if (brandIds != null && brandIds.Any())
             {
                 query = query.Where(p => brandIds.Contains(p.BrandId));
             }
 
-            if (ratings != null && ratings.Length > 0)
+            if (ratings != null && ratings.Any())
             {
                 query = query.Where(p => ratings.Contains((int)Math.Floor(p.Rating)));
             }
@@ -278,29 +278,22 @@ namespace MarketWorld.Web.Controllers
             var products = await query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Select(p => new ProductViewModel
+                .Select(p => new
                 {
-                    Id = p.Id,
-                    Name = p.Name,
-                    Description = p.Description,
-                    BrandId = p.BrandId,
-                    BrandName = p.Brand.Name,
-                    Price = p.Price,
-                    ImageUrl = p.Images.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
-                    Rating = p.Rating,
-                    ReviewCount = 100,
-                    HasFreeShipping = p.Price > 45000,
-                    Stock = p.Stock,
-                    CategoryName = p.SubCategory.Category.Name,
-                    HasDiscount = p.HasDiscount,
-                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null
+                    id = p.Id,
+                    name = p.Name,
+                    brandName = p.Brand.Name,
+                    price = p.Price,
+                    discountPrice = p.DiscountPrice,
+                    hasDiscount = p.HasDiscount,
+                    imageUrl = p.Images.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
+                    rating = p.Rating,
+                    reviewCount = 100, // Örnek değer
+                    hasFreeShipping = p.Price > 45000
                 })
                 .ToListAsync();
 
-            return Json(new { 
-                products = products,
-                hasMore = page < totalPages
-            });
+            return Json(new { products, hasMore = page < totalPages });
         }
     }
 } 
