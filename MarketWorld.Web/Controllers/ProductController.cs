@@ -49,7 +49,10 @@ namespace MarketWorld.Web.Controllers
                 }) .ToListAsync();
 
             var brands = await _context.Brands
-                 .Where(b => !b.IsDeleted)
+                 .Where(b => !b.IsDeleted && _context.Products
+                     .Any(p => p.BrandId == b.Id && 
+                              p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && 
+                              p.IsActive && !p.IsDeleted))
                  .OrderBy(b => b.Name)
                  .ToListAsync();
 
@@ -100,7 +103,15 @@ namespace MarketWorld.Web.Controllers
                 })
                 .ToListAsync();
 
-            ViewBag.Brands = await _context.Brands.Where(b => !b.IsDeleted).OrderBy(b => b.Name).ToListAsync();
+            var brands = await _context.Brands
+                .Where(b => !b.IsDeleted && _context.Products
+                    .Any(p => p.BrandId == b.Id && 
+                             p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && 
+                             p.IsActive && !p.IsDeleted))
+                .OrderBy(b => b.Name)
+                .ToListAsync();
+
+            ViewBag.Brands = brands;
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = totalPages;
             ViewBag.SubCategoryName = subCategoryName;
