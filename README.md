@@ -1,6 +1,9 @@
-# MarketWorld 🛍️
+<h1> 🛍️ MarketWorld </h1>
 
-.NET Core 8.0-based eCommerce platform.
+<div align="center">
+    <h3>eCommerce Platform</h3>
+    <p>Built with .NET Core 8.0 following Clean Architecture principles</p>
+</div>
 
 <div align="center">
     <table>
