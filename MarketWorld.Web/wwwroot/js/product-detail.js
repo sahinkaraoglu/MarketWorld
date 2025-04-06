@@ -60,6 +60,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Renk ve hafıza seçenekleri için event listener'lar
+    document.querySelectorAll('input[name="colorOption"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            document.getElementById('selectedColor').textContent = this.value;
+            updateProductOptions();
+        });
+    });
+
+    document.querySelectorAll('input[name="memoryOption"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            document.getElementById('selectedMemory').textContent = this.value;
+            updateProductOptions();
+        });
+    });
+
+    function updateProductOptions() {
+        const selectedColor = document.querySelector('input[name="colorOption"]:checked')?.value;
+        const selectedMemory = document.querySelector('input[name="memoryOption"]:checked')?.value;
+        
+        if (selectedColor && selectedMemory) {
+            // Burada seçilen renk ve hafızaya göre fiyat güncellemesi yapılabilir
+            // AJAX ile sunucudan yeni fiyat ve stok bilgisi alınabilir
+            console.log(`Seçilen: ${selectedColor} - ${selectedMemory}`);
+        }
+    }
+
+    // Sayfa yüklendiğinde varsayılan seçimleri göster
+    const defaultColor = document.querySelector('input[name="colorOption"]');
+    const defaultMemory = document.querySelector('input[name="memoryOption"]');
+    
+    if (defaultColor) defaultColor.checked = true;
+    if (defaultMemory) defaultMemory.checked = true;
+    
+    updateProductOptions();
+
     // Sepete ekleme işlemi
     const addToCartBtn = document.getElementById('addToCartBtn');
     if (addToCartBtn) {
@@ -68,16 +103,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const quantity = parseInt(quantityInput.value);
             const color = document.querySelector('input[name="colorOption"]:checked')?.value;
 
+            // FormData oluştur
+            const formData = new FormData();
+            formData.append('productId', productId);
+            formData.append('quantity', quantity);
+            if (color) {
+                formData.append('color', color);
+            }
+
             fetch('/Cart/AddToCart', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    productId: productId,
-                    quantity: quantity,
-                    color: color
-                })
+                body: formData
             })
             .then(response => response.json())
             .then(data => {
