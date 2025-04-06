@@ -9,7 +9,7 @@
                 <img src="https://github.com/user-attachments/assets/fe423e47-9134-44cf-bac5-6ebf7c5586fe" alt="mainpage" width="400"/>
             </td>
             <td>
-                <img src="https://github.com/user-attachments/assets/b860ac86-d166-4e03-85dc-af936baa2bff" alt="product-list" width="400"/>
+                <img src="https://github.com/user-attachments/assets/9e63e992-7e7b-4eae-b44b-b604d7633d1c" alt="product-list" width="400"/>
             </td>
         </tr>
         <tr>
