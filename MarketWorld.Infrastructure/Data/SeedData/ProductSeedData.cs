@@ -2781,6 +2781,276 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Rating = 5M,
                     IsActive = true,
                     CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 192,
+                    Name = "Lacoste Sport Court-Master Pro Erkek Siyah Sneaker 744SMA0084 02H",
+                    Description = "Lacoste Sport Court-Master Pro Erkek Siyah Sneaker 744SMA0084 02H",
+                    Price = 3239.10M,
+                    BrandId = 65, // Lacoste
+                    CategoryId = 2, // Ayakkabı ve Çanta kategorisi
+                    SubCategoryId = 6, // Ayakkabı alt kategorisi
+                    Stock = 50,
+                    HasDiscount = false,
+                    Rating = 4.9M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 193,
+                    Name = "Letoon 2104 Günlük Unisex Spor Ayakkabı",
+                    Description = "Letoon 2104 Günlük Unisex Spor Ayakkabı",
+                    Price = 564M,
+                    BrandId = 66, // Letoon
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 100,
+                    HasDiscount = false,
+                    Rating = 4.2M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 194,
+                    Name = "Derilax Hakiki Deri Tam Ortopedik Erkek Ayakkabı",
+                    Description = "Derilax Hakiki Deri Tam Ortopedik Erkek Ayakkabı",
+                    Price = 1200M,
+                    BrandId = 67, // Derilax
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 75,
+                    HasDiscount = false,
+                    Rating = 4.6M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 195,
+                    Name = "Hotiç Hakiki Deri Siyah Erkek Günlük Ayakkabı",
+                    Description = "Hotiç Hakiki Deri Siyah Erkek Günlük Ayakkabı",
+                    Price = 1679.40M,
+                    BrandId = 68, // Hotiç
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 60,
+                    HasDiscount = false,
+                    Rating = 4.1M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 196,
+                    Name = "Ispartalılar 7575 Ortopedik Taban Yumuşak Hakiki Deri Mevsimlik Kışlık Erkek Ayakkabı",
+                    Description = "Ispartalılar 7575 Ortopedik Taban Yumuşak Hakiki Deri Mevsimlik Kışlık Erkek Ayakkabı",
+                    Price = 670.65M,
+                    BrandId = 69, // Ispartalılar
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 80,
+                    HasDiscount = false,
+                    Rating = 4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 197,
+                    Name = "Under Armour Çocuk Ua Bgs Charged Rogue 4 Koşu Ayakkabısı 3027106-400",
+                    Description = "Under Armour Çocuk Ua Bgs Charged Rogue 4 Koşu Ayakkabısı 3027106-400",
+                    Price = 2090M,
+                    BrandId = 70, // Under Armour
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 45,
+                    HasDiscount = false,
+                    Rating = 5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 198,
+                    Name = "Ispartalılar 502 Ortopedik Topuk Masajlı Hakiki Deri Kışlık Erkek Ayakkabı Bağcıklı",
+                    Description = "Ispartalılar 502 Ortopedik Topuk Masajlı Hakiki Deri Kışlık Erkek Ayakkabı Bağcıklı",
+                    Price = 679.15M,
+                    BrandId = 69, // Ispartalılar
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 70,
+                    HasDiscount = false,
+                    Rating = 4M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 199,
+                    Name = "Muggo Samuel Garantili Günlük Klasik Deri Casual Rahat Ortopedik Kalın Taban Erkek Ayakkabı",
+                    Description = "Muggo Samuel Garantili Günlük Klasik Deri Casual Rahat Ortopedik Kalın Taban Erkek Ayakkabı",
+                    Price = 899.90M,
+                    BrandId = 71, // Muggo
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 55,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 200,
+                    Name = "Tomiross Erkek Atlanta Günlük Kullanım Sneaker Ayakkabı ATLNT-5025",
+                    Description = "Tomiross Erkek Atlanta Günlük Kullanım Sneaker Ayakkabı ATLNT-5025",
+                    Price = 699.90M,
+                    BrandId = 72, // Tomiross
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 65,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 201,
+                    Name = "Yaya By Hotic 02ayy296160a100 Siyah Erkek Ayakkabı",
+                    Description = "Yaya By Hotic 02ayy296160a100 Siyah Erkek Ayakkabı",
+                    Price = 899.90M,
+                    BrandId = 73, // Yaya
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 45,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 202,
+                    Name = "Hotic Hakiki Deri Lacivert Erkek Günlük Ayakkabı",
+                    Description = "Hotic Hakiki Deri Lacivert Erkek Günlük Ayakkabı",
+                    Price = 799.90M,
+                    BrandId = 74, // Hotic
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 35,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 203,
+                    Name = "Derilax Deri Tam Ortopedik Erkek Ayakkabı",
+                    Description = "Derilax Deri Tam Ortopedik Erkek Ayakkabı",
+                    Price = 699.90M,
+                    BrandId = 75, // Derilax
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 25,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 204,
+                    Name = "Ispartalılar 909 Tam Ortopedik Taban Hakiki Deri Erkek Ayakkabı",
+                    Description = "Ispartalılar 909 Tam Ortopedik Taban Hakiki Deri Erkek Ayakkabı",
+                    Price = 599.90M,
+                    BrandId = 76, // Ispartalılar
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 15,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 205,
+                    Name = "Selin Soylu Hakiki Deri Erkek Ayakkabı Kışlık Günlük Ayakkabı",
+                    Description = "Selin Soylu Hakiki Deri Erkek Ayakkabı Kışlık Günlük Ayakkabı",
+                    Price = 499.90M,
+                    BrandId = 77, // Selin Soylu
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 5,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 206,
+                    Name = "Sebago Nubuk Koyu Kahve Siyah Erkek Günlük Ayakkabı 7111m5w",
+                    Description = "Sebago Nubuk Koyu Kahve Siyah Erkek Günlük Ayakkabı 7111m5w",
+                    Price = 399.90M,
+                    BrandId = 78, // Sebago
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 10,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 207,
+                    Name = "Lumberjack 4m Navigator 4fx",
+                    Description = "Lumberjack 4m Navigator 4fx",
+                    Price = 299.90M,
+                    BrandId = 79, // Lumberjack
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 20,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 208,
+                    Name = "Sebago Deri Lacivert Erkek Günlük Ayakkabı 70004z0",
+                    Description = "Sebago Deri Lacivert Erkek Günlük Ayakkabı 70004z0",
+                    Price = 199.90M,
+                    BrandId = 78, // Sebago
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 30,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Product
+                {
+                    Id = 209,
+                    Name = "Dakirs Yazlık Erkek Keten Günlük Rahat Hafif Bağcıklı Spor Ayakkabı 40-44",
+                    Description = "Dakirs Yazlık Erkek Keten Günlük Rahat Hafif Bağcıklı Spor Ayakkabı 40-44",
+                    Price = 99.90M,
+                    BrandId = 80, // Dakirs
+                    CategoryId = 2,
+                    SubCategoryId = 6,
+                    Stock = 40,
+                    HasDiscount = false,
+                    Rating = 4.5M,
+                    IsActive = true,
+                    CreatedDate = DateTime.Now
                 }
             };
         }

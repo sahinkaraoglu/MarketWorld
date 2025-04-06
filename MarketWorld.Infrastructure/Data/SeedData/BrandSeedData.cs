@@ -391,6 +391,138 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Id = 64,
                     Name = "Xnews",
                     CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 65,
+                    Name = "Hotic",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 66,
+                    Name = "Derilax",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 67,
+                    Name = "Ispartalılar",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 68,
+                    Name = "Selin Soylu",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 69,
+                    Name = "Sebago",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 70,
+                    Name = "Lumberjack",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 71,
+                    Name = "Dakirs",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 72,
+                    Name = "Letoon",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 73,
+                    Name = "Avva",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 74,
+                    Name = "Rmk",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 75,
+                    Name = "Tamer Tanca",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 76,
+                    Name = "Black Vein",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 77,
+                    Name = "Cabani",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 78,
+                    Name = "Dockers",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 79,
+                    Name = "Dgn",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 80,
+                    Name = "Hons",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 81,
+                    Name = "Daxtors",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 82,
+                    Name = "Tonny Black",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 83,
+                    Name = "Ayakkabıx",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 84,
+                    Name = "Hammer Jack",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 85,
+                    Name = "Kaptan Junior",
+                    CreatedDate = DateTime.Now
+                },
+                new Brand
+                {
+                    Id = 86,
+                    Name = "Calvin Klein",
+                    CreatedDate = DateTime.Now
                 }
             };
         }

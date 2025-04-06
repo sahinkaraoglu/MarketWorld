@@ -394,6 +394,26 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 }
             }
 
+            // Ayakkabılar için özellikler (192-209 arası ürünler)
+            for (int productId = 192; productId <= 209; productId++)
+            {
+                if (ProductSeedData.GetProducts().Any(p => p.Id == productId))
+                {
+                    // Renk seçenekleri
+                    var colorValueId = GetShoesColorValueId(productId);
+                    productProperties.Add(new ProductProperty
+                    {
+                        Id = id++,
+                        ProductId = productId,
+                        PropertyTypeId = 1,
+                        PropertyValueId = colorValueId,
+                        Stock = 50,
+                        IsActive = true,
+                        CreatedDate = DateTime.Now
+                    });
+                }
+            }
+
             return productProperties;
         }
 
@@ -759,6 +779,32 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 >= 196 and <= 200 => 66, // Inox
 
                 _ => 53 // Varsayılan olarak Beyaz
+            };
+        }
+
+        private static int GetShoesColorValueId(int productId)
+        {
+            return productId switch
+            {
+                192 => 52, // Siyah
+                193 => 52, // Siyah
+                194 => 52, // Siyah
+                195 => 52, // Siyah
+                196 => 52, // Siyah
+                197 => 67, // Kırmızı
+                198 => 52, // Siyah
+                199 => 52, // Siyah
+                200 => 52, // Siyah
+                201 => 52, // Siyah
+                202 => 56, // Lacivert
+                203 => 52, // Siyah
+                204 => 52, // Siyah
+                205 => 52, // Siyah
+                206 => 72, // Kahverengi
+                207 => 52, // Siyah
+                208 => 56, // Lacivert
+                209 => 73, // Bej
+                _ => 52
             };
         }
     }
