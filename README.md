@@ -115,8 +115,4 @@ The project is in active development with planned completion in Spring 2024. Cur
 🔄 Payment integration (In Progress)  
 🔄 Admin dashboard (In Progress)  
 📅 Advanced analytics (Planned)  
-📅 Customer reviews system (Planned)  
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+📅 Customer reviews system (Planned)
