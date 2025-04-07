@@ -549,13 +549,6 @@ namespace MarketWorld.Infrastructure.Data
                 .IsRequired()
                 .HasMaxLength(50);
 
-            modelBuilder.Entity<Brand>()
-                .HasOne(b => b.SubCategory)
-                .WithMany()
-                .HasForeignKey(b => b.SubCategoryId)
-                .IsRequired(false)
-                .OnDelete(DeleteBehavior.SetNull);
-
             modelBuilder.Entity<UserRole>().HasData(UserSeedData.GetUserRoles());
             modelBuilder.Entity<User>().HasData(UserSeedData.GetUser());
 
