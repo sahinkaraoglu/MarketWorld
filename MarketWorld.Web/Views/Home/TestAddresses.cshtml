@@ -1,0 +1,73 @@
+@{
+    ViewData["Title"] = "Adres Test Sayfası";
+}
+
+<div class="container py-5">
+    <h1>Adres Test Sayfası</h1>
+    
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            <h4>Hata:</h4>
+            <p>@ViewBag.Error</p>
+            
+            @if (ViewBag.InnerError != null)
+            {
+                <p><strong>Detay:</strong> @ViewBag.InnerError</p>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-success">
+            <h4>Test Sonucu:</h4>
+            <p>@ViewBag.Result</p>
+            <p>Test ID: @ViewBag.TestId</p>
+        </div>
+        
+        <h3>Adresler:</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık</th>
+                    <th>Adres</th>
+                    <th>İl</th>
+                    <th>İlçe</th>
+                    <th>Telefon</th>
+                    <th>Ülke</th>
+                    <th>UserId</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.Addresses != null)
+                {
+                    foreach (var address in ViewBag.Addresses)
+                    {
+                        <tr>
+                            <td>@address.Id</td>
+                            <td>@address.Title</td>
+                            <td>@address.FullAddress</td>
+                            <td>@address.City</td>
+                            <td>@address.District</td>
+                            <td>@address.Phone</td>
+                            <td>@address.Country</td>
+                            <td>@address.UserId</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="8" class="text-center">Hiç adres bulunamadı.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    
+    <div class="mt-4">
+        <a href="/Profile/AddAddress" class="btn btn-primary">Adres Ekleme Formuna Git</a>
+        <a href="/Profile/Addresses" class="btn btn-secondary">Adreslerim Sayfasına Git</a>
+    </div>
+</div> 

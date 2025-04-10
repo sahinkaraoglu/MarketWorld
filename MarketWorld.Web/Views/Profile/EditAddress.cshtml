@@ -1,0 +1,166 @@
+@model MarketWorld.Domain.Entities.Address
+@using MarketWorld.Infrastructure.Data.SeedData
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Adres Düzenle";
+    var addresses = AddressSeedData.GetAddresses();
+    var cities = addresses.Select(a => a.City).Distinct().OrderBy(c => c).ToList();
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="/Profile" class="list-group-item list-group-item-action">
+                            <i class="fas fa-user-circle me-2"></i>Profilim
+                        </a>
+                        <a href="/Profile/Orders" class="list-group-item list-group-item-action">
+                            <i class="fas fa-shopping-bag me-2"></i>Siparişlerim
+                        </a>
+                        <a href="/Profile/Addresses" class="list-group-item list-group-item-action active">
+                            <i class="fas fa-map-marker-alt me-2"></i>Adreslerim
+                        </a>
+                        <a href="/Login/Logout" class="list-group-item list-group-item-action text-danger">
+                            <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-9">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-edit me-2 text-primary"></i>Adres Düzenle
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post" asp-controller="Profile" asp-action="EditAddress">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Adres Başlığı <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="Title" value="@Model.Title" placeholder="Örn: Ev, İş, Yazlık" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Açık Adres <span class="text-danger">*</span></label>
+                            <textarea class="form-control" name="FullAddress" rows="3" placeholder="Mahalle, Sokak, Bina No, Daire No vb." required>@Model.FullAddress</textarea>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">İl <span class="text-danger">*</span></label>
+                                <select class="form-select" name="City" id="citySelect" required>
+                                    @foreach (var city in cities)
+                                    {
+                                        @if (city == Model.City)
+                                        {
+                                            <option value="@city" selected>@city</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@city">@city</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">İlçe <span class="text-danger">*</span></label>
+                                <select class="form-select" name="District" id="districtSelect" required>
+                                    @{
+                                        var districts = AddressSeedData.GetDistrictsByCity(Model.City);
+                                    }
+                                    @foreach (var district in districts)
+                                    {
+                                        @if (district == Model.District)
+                                        {
+                                            <option value="@district" selected>@district</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@district">@district</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Telefon <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" name="Phone" value="@Model.Phone" placeholder="Telefon Numarası" required>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-end mt-4">
+                            <a href="/Profile/Addresses" class="btn btn-outline-secondary me-2">
+                                <i class="fas fa-times me-2"></i>İptal
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Güncelle
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // İl-İlçe verilerini yükle
+            var cityDistrictMap = @Html.Raw(Json.Serialize(AddressSeedData.GetAddresses()
+                .GroupBy(a => a.City)
+                .ToDictionary(
+                    g => g.Key, 
+                    g => g.Select(a => a.District).Distinct().OrderBy(d => d).ToList()
+                )
+            ));
+            
+            console.log('İl-İlçe verileri yüklendi.');
+            
+            document.getElementById('citySelect').addEventListener('change', function() {
+                var selectedCity = this.value;
+                var districtSelect = document.getElementById('districtSelect');
+                console.log('Seçilen il:', selectedCity);
+                
+                // İlçe seçeneğini temizle
+                districtSelect.innerHTML = '';
+                
+                // İlçe seçiniz seçeneğini ekle
+                var defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.text = 'İlçe Seçiniz';
+                districtSelect.appendChild(defaultOption);
+                
+                if (selectedCity && cityDistrictMap[selectedCity]) {
+                    var districts = cityDistrictMap[selectedCity];
+                    
+                    // İlçeleri dropdown'a ekle
+                    districts.forEach(function(district) {
+                        var option = document.createElement('option');
+                        option.value = district;
+                        option.text = district;
+                        
+                        // Eğer model'deki ilçe bu ilçe ise seçili olarak işaretle
+                        if (district === '@Model.District') {
+                            option.selected = true;
+                        }
+                        
+                        districtSelect.appendChild(option);
+                    });
+                    
+                    console.log('İlçe listesi güncellendi, eleman sayısı:', districts.length);
+                }
+            });
+        });
+    </script>
+} 

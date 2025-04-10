@@ -1,0 +1,190 @@
+@model MarketWorld.Domain.Entities.Order
+
+@{
+    ViewData["Title"] = "Sipariş Onayı";
+}
+
+<div class="container py-5">
+    <div class="text-center">
+        <div class="success-animation mb-4">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+        </div>
+
+        <h1 class="display-4 mb-3">Teşekkürler!</h1>
+        <p class="lead mb-4">Siparişiniz başarıyla alındı.</p>
+        
+        <div class="order-info p-4 d-inline-block bg-light rounded mb-5">
+            <h5>Sipariş Numarası: <span class="text-primary">@Model.OrderNumber</span></h5>
+            <p class="small mb-0 text-muted">
+                Sipariş tarihi: @Model.OrderDate.ToString("dd MMMM yyyy, HH:mm")
+            </p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-box me-2"></i>Sipariş Detayları
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="table-responsive mb-4">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Ürün</th>
+                                    <th>Fiyat</th>
+                                    <th>Adet</th>
+                                    <th class="text-end">Toplam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.OrderItems)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="@(item.Product.Images?.FirstOrDefault()?.Path ?? "/img/default-product.jpg")" 
+                                                     class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;" 
+                                                     alt="@item.Product.Name">
+                                                <div>
+                                                    <h6 class="mb-0">@item.Product.Name</h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>@item.UnitPrice.ToString("C")</td>
+                                        <td>@item.Quantity</td>
+                                        <td class="text-end">@((item.Quantity * item.UnitPrice).ToString("C"))</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot class="table-light">
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Ara Toplam:</strong></td>
+                                    <td class="text-end">@Model.TotalAmount.ToString("C")</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Kargo:</strong></td>
+                                    <td class="text-end text-success">Ücretsiz</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Toplam:</strong></td>
+                                    <td class="text-end"><strong class="text-primary">@Model.TotalAmount.ToString("C")</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <h6><i class="fas fa-map-marker-alt me-2"></i>Teslimat Adresi</h6>
+                                <div class="bg-light p-3 rounded">
+                                    <address class="mb-0">
+                                        <strong>@Model.ShippingAddress.Title</strong><br>
+                                        @Model.ShippingAddress.FullAddress<br>
+                                        @Model.ShippingAddress.City<br>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <h6><i class="fas fa-truck me-2"></i>Kargo Durumu</h6>
+                                <div class="bg-light p-3 rounded">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span class="badge bg-primary">@Model.Status.ToString()</span>
+                                        </div>
+                                        <div class="text-muted small">
+                                            Tahmini teslimat: @Model.OrderDate.AddDays(3).ToString("dd MMMM yyyy")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Siparişiniz hakkında bilgi almak için e-posta adresinizi kontrol edebilirsiniz.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="/" class="btn btn-primary me-2">
+                    <i class="fas fa-home me-2"></i>Ana Sayfaya Dön
+                </a>
+                <a href="/Profile/Orders" class="btn btn-outline-primary">
+                    <i class="fas fa-list me-2"></i>Siparişlerim
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .success-animation {
+        margin: 0 auto;
+    }
+    
+    .checkmark {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: block;
+        stroke-width: 2;
+        stroke: #4bb71b;
+        stroke-miterlimit: 10;
+        box-shadow: inset 0px 0px 0px #4bb71b;
+        animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    }
+    
+    .checkmark__circle {
+        stroke-dasharray: 166;
+        stroke-dashoffset: 166;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+        stroke: #4bb71b;
+        fill: none;
+        animation: stroke .6s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards;
+    }
+    
+    .checkmark__check {
+        transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+        animation: stroke .3s cubic-bezier(0.650, 0.000, 0.450, 1.000) .8s forwards;
+    }
+    
+    @@keyframes stroke {
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+    
+    @@keyframes scale {
+        0%, 100% {
+            transform: none;
+        }
+        50% {
+            transform: scale3d(1.1, 1.1, 1);
+        }
+    }
+    
+    @@keyframes fill {
+        100% {
+            box-shadow: inset 0px 0px 0px 30px #4bb71b;
+        }
+    }
+    
+    .order-info {
+        background: linear-gradient(to right, rgba(238, 242, 246, 0.5), rgba(238, 242, 246, 0.8));
+    }
+</style> 

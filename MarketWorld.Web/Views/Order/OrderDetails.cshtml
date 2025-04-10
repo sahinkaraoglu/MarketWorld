@@ -1,0 +1,111 @@
+@model MarketWorld.Domain.Entities.Order
+
+<div class="order-details">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h5 class="mb-1">Sipariş No: <span class="text-primary">@Model.OrderNumber</span></h5>
+            <p class="text-muted small mb-0">Sipariş Tarihi: @Model.OrderDate.ToString("dd MMMM yyyy, HH:mm")</p>
+        </div>
+        <span class="badge @(Model.Status switch {
+            MarketWorld.Domain.Enums.OrderStatus.Pending => "bg-warning",
+            MarketWorld.Domain.Enums.OrderStatus.Processing => "bg-info",
+            MarketWorld.Domain.Enums.OrderStatus.Shipped => "bg-primary",
+            MarketWorld.Domain.Enums.OrderStatus.Delivered => "bg-success",
+            MarketWorld.Domain.Enums.OrderStatus.Cancelled => "bg-danger",
+            _ => "bg-secondary"
+        })">
+            @(Model.Status switch {
+                MarketWorld.Domain.Enums.OrderStatus.Pending => "Beklemede",
+                MarketWorld.Domain.Enums.OrderStatus.Processing => "Hazırlanıyor",
+                MarketWorld.Domain.Enums.OrderStatus.Shipped => "Kargoya Verildi",
+                MarketWorld.Domain.Enums.OrderStatus.Delivered => "Teslim Edildi",
+                MarketWorld.Domain.Enums.OrderStatus.Cancelled => "İptal Edildi",
+                _ => "Belirsiz"
+            })
+        </span>
+    </div>
+
+    <div class="table-responsive mb-4">
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th>Ürün</th>
+                    <th>Fiyat</th>
+                    <th>Adet</th>
+                    <th class="text-end">Toplam</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderItems)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="@(item.Product.Images?.FirstOrDefault()?.Path ?? "/img/default-product.jpg")" 
+                                     class="rounded me-3" style="width: 40px; height: 40px; object-fit: cover;" 
+                                     alt="@item.Product.Name">
+                                <div>
+                                    <span class="fw-medium">@item.Product.Name</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>@item.UnitPrice.ToString("C")</td>
+                        <td>@item.Quantity</td>
+                        <td class="text-end">@((item.Quantity * item.UnitPrice).ToString("C"))</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot class="table-light">
+                <tr>
+                    <td colspan="3" class="text-end"><strong>Ara Toplam:</strong></td>
+                    <td class="text-end">@Model.TotalAmount.ToString("C")</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-end"><strong>Kargo:</strong></td>
+                    <td class="text-end text-success">Ücretsiz</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-end"><strong>Toplam:</strong></td>
+                    <td class="text-end"><strong class="text-primary">@Model.TotalAmount.ToString("C")</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <h6 class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Teslimat Adresi</h6>
+                <div class="p-3 bg-light rounded">
+                    <address class="mb-0">
+                        <strong>@Model.ShippingAddress.Title</strong><br>
+                        @Model.ShippingAddress.FullAddress<br>
+                        @Model.ShippingAddress.City<br>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <h6 class="mb-2"><i class="fas fa-truck me-2"></i>Teslimat Durumu</h6>
+                <div class="p-3 bg-light rounded d-flex justify-content-between align-items-center">
+                    <span>
+                        @(Model.Status switch {
+                            MarketWorld.Domain.Enums.OrderStatus.Delivered => "Teslim Edildi",
+                            MarketWorld.Domain.Enums.OrderStatus.Shipped => "Kargoya Verildi",
+                            MarketWorld.Domain.Enums.OrderStatus.Processing => "Hazırlanıyor",
+                            MarketWorld.Domain.Enums.OrderStatus.Pending => "Onay Bekliyor",
+                            MarketWorld.Domain.Enums.OrderStatus.Cancelled => "İptal Edildi",
+                            _ => "Belirsiz"
+                        })
+                    </span>
+                    <span class="text-muted small">
+                        @(Model.Status == MarketWorld.Domain.Enums.OrderStatus.Delivered 
+                            ? "Teslim Tarihi: " + Model.OrderDate.AddDays(3).ToString("dd.MM.yyyy")
+                            : "Tahmini Teslimat: " + Model.OrderDate.AddDays(3).ToString("dd.MM.yyyy"))
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

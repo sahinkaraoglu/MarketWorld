@@ -1,0 +1,116 @@
+@model MarketWorld.Domain.Entities.User
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Adreslerim";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary text-white rounded-circle p-3 me-3">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">@Model.FirstName @Model.LastName</h5>
+                            <p class="text-muted small mb-0">@Model.Email</p>
+                        </div>
+                    </div>
+                    
+                    <div class="list-group">
+                        <a href="/Profile" class="list-group-item list-group-item-action">
+                            <i class="fas fa-user-circle me-2"></i>Profilim
+                        </a>
+                        <a href="/Profile/Orders" class="list-group-item list-group-item-action">
+                            <i class="fas fa-shopping-bag me-2"></i>Siparişlerim
+                        </a>
+                        <a href="/Profile/Addresses" class="list-group-item list-group-item-action active">
+                            <i class="fas fa-map-marker-alt me-2"></i>Adreslerim
+                        </a>
+                        <a href="/Login/Logout" class="list-group-item list-group-item-action text-danger">
+                            <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-9">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Adreslerim</h5>
+                    <a href="/Profile/AddAddress" class="btn btn-primary btn-sm">
+                        <i class="fas fa-plus me-2"></i>Yeni Adres Ekle
+                    </a>
+                </div>
+                <div class="card-body p-4">
+                    @if (Model.Addresses == null || !Model.Addresses.Any())
+                    {
+                        <div class="text-center py-5">
+                            <div class="mb-4">
+                                <i class="fas fa-map-marker-alt fa-5x text-primary" style="opacity: 0.2;"></i>
+                            </div>
+                            <h5 class="mb-3">Henüz adresiniz bulunmamaktadır</h5>
+                            <p class="text-muted mb-4">Hemen yeni bir adres ekleyerek alışverişe başlayabilirsiniz.</p>
+                            <a href="/Profile/AddAddress" class="btn btn-primary">
+                                <i class="fas fa-plus me-2"></i>Adres Ekle
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            @foreach (var address in Model.Addresses)
+                            {
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 address-card border">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@address.Title</h5>
+                                            <p class="card-subtitle mb-2 text-muted">
+                                                @(address.AddressType == MarketWorld.Domain.Enums.AddressType.Shipping ? "Teslimat Adresi" : "Fatura Adresi")
+                                                @if (address.IsDefault)
+                                                {
+                                                    <span class="badge bg-success ms-2">Varsayılan</span>
+                                                }
+                                            </p>
+                                            <address class="mb-0">
+                                                @address.FullAddress<br>
+                                                @address.District, @address.City<br>
+                                                <span class="text-muted">@address.Phone</span>
+                                            </address>
+                                        </div>
+                                        <div class="card-footer bg-white d-flex justify-content-end">
+                                            <a href="/Profile/EditAddress/@address.Id" class="btn btn-outline-primary btn-sm me-2">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <form asp-controller="Profile" asp-action="DeleteAddress" asp-route-id="@address.Id" method="post" 
+                                                  onsubmit="return confirm('Bu adresi silmek istediğinize emin misiniz?');">
+                                                <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .address-card {
+        transition: all 0.3s ease;
+    }
+    
+    .address-card:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-5px);
+    }
+</style> 

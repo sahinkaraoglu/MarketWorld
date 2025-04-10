@@ -73,14 +73,21 @@ namespace MarketWorld.Infrastructure.Data
                 .HasMaxLength(50);
 
             modelBuilder.Entity<Address>()
-                .Property(a => a.AddressLine1)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            modelBuilder.Entity<Address>()
                 .Property(a => a.City)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            modelBuilder.Entity<Address>()
+                .Property(a => a.FullAddress)
+                .IsRequired(false);
+
+            modelBuilder.Entity<Address>()
+                .Property(a => a.Title)
+                .IsRequired(false);
+
+            modelBuilder.Entity<Address>()
+                .Property(a => a.Phone)
+                .IsRequired(false);
 
             modelBuilder.Entity<Order>()
                 .Property(o => o.OrderNumber)
@@ -444,6 +451,9 @@ namespace MarketWorld.Infrastructure.Data
             // Ürünleri ekle
             modelBuilder.Entity<Product>().HasData(ProductSeedData.GetProducts());
 
+            // Adresleri ekle
+           // modelBuilder.Entity<Address>().HasData(AddressSeedData.GetAddresses());
+
             // En son resimleri ekle
             modelBuilder.Entity<Image>().HasData(ImageSeedData.GetImages());
 
@@ -558,6 +568,12 @@ namespace MarketWorld.Infrastructure.Data
                 .WithMany(ur => ur.Users)
                 .HasForeignKey(u => u.UserRoleId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Address>()
+                .HasOne(a => a.User)
+                .WithMany(u => u.Addresses)
+                .HasForeignKey(a => a.UserId)
+                .IsRequired(false);
         }
     }
 }

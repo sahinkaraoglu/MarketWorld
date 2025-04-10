@@ -1,0 +1,307 @@
+@model MarketWorld.Domain.Entities.Cart
+
+@{
+    ViewData["Title"] = "Ödeme";
+    var addresses = ViewBag.Addresses as IEnumerable<MarketWorld.Domain.Entities.Address>;
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h4 class="mb-4">
+                        <i class="fas fa-map-marker-alt me-2"></i>Adres Bilgileri
+                    </h4>
+
+                    @if (addresses == null || !addresses.Any())
+                    {
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle me-2"></i>Kayıtlı adresiniz bulunmamaktadır.
+                            <a href="/Profile/Addresses" class="alert-link">Adres eklemek için tıklayın.</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <form id="orderForm" method="post" action="/Order/ProcessOrder">
+                            @if (TempData["ErrorMessage"] != null)
+                            {
+                                <div class="alert alert-danger mb-4">
+                                    @TempData["ErrorMessage"]
+                                </div>
+                            }
+
+                            <div class="mb-4">
+                                <label class="form-label">Teslimat Adresi</label>
+                                <div class="row">
+                                    @foreach (var address in addresses)
+                                    {
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-check address-card p-3 border rounded @(address == addresses.First() ? "border-primary" : "")">
+                                                <input class="form-check-input" type="radio" name="shippingAddressId" 
+                                                       id="shipping_@address.Id" value="@address.Id" 
+                                                       @(address == addresses.First() ? "checked" : "")>
+                                                <label class="form-check-label w-100" for="shipping_@address.Id">
+                                                    <strong>@address.Title</strong>
+                                                    <address class="small mb-0 mt-2">
+                                                        @address.FullAddress<br>
+                                                        @address.City<br>
+                                                    </address>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">Fatura Adresi</label>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="sameAddress" checked>
+                                    <label class="form-check-label" for="sameAddress">
+                                        Fatura adresi teslimat adresi ile aynı
+                                    </label>
+                                </div>
+                                <div id="billingAddressContainer" class="row d-none">
+                                    @foreach (var address in addresses)
+                                    {
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-check address-card p-3 border rounded">
+                                                <input class="form-check-input" type="radio" name="billingAddressId" 
+                                                       id="billing_@address.Id" value="@address.Id">
+                                                <label class="form-check-label w-100" for="billing_@address.Id">
+                                                    <strong>@address.Title</strong>
+                                                    <address class="small mb-0 mt-2">
+                                                        @address.FullAddress<br>
+                                                        @address.City<br>
+                                                    </address>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <h4 class="mb-4">
+                                <i class="fas fa-credit-card me-2"></i>Ödeme Yöntemi
+                            </h4>
+                            <div class="mb-4">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-check payment-card p-3 border rounded border-primary">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" 
+                                                   id="payment_creditcard" value="CreditCard" checked>
+                                            <label class="form-check-label w-100" for="payment_creditcard">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-credit-card fa-2x me-3 text-primary"></i>
+                                                    <div>
+                                                        <strong>Kredi Kartı</strong>
+                                                        <p class="small mb-0 text-muted">Güvenli ödeme</p>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-check payment-card p-3 border rounded">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" 
+                                                   id="payment_transfer" value="BankTransfer">
+                                            <label class="form-check-label w-100" for="payment_transfer">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-university fa-2x me-3 text-primary"></i>
+                                                    <div>
+                                                        <strong>Havale / EFT</strong>
+                                                        <p class="small mb-0 text-muted">Banka hesaplarımıza transfer</p>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="creditCardDetails">
+                                <div class="row mb-3">
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label">Kart Üzerindeki İsim</label>
+                                        <input type="text" class="form-control" placeholder="Kart üzerindeki isim">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label">Kart Numarası</label>
+                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Son Kullanma Tarihi</label>
+                                        <input type="text" class="form-control" placeholder="AA/YY">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">CVV</label>
+                                        <input type="text" class="form-control" placeholder="CVV">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="bankTransferDetails" class="d-none">
+                                <div class="alert alert-info">
+                                    <p class="mb-0">
+                                        <strong>Banka Hesap Bilgileri:</strong>
+                                        <br>
+                                        Banka: MarketWorld Bank
+                                        <br>
+                                        IBAN: TR00 0000 0000 0000 0000 0000 00
+                                        <br>
+                                        Hesap Sahibi: MarketWorld A.Ş.
+                                    </p>
+                                </div>
+                                <div class="alert alert-warning">
+                                    <p class="mb-0">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        Ödemeniz onaylandıktan sonra siparişiniz hazırlanacaktır.
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card shadow-sm sticky-top" style="top: 20px;">
+                <div class="card-body p-4">
+                    <h5 class="card-title mb-4">
+                        <i class="fas fa-receipt me-2"></i>Sipariş Özeti
+                    </h5>
+                    
+                    <div class="mb-3">
+                        <div class="small text-muted mb-2">Sepetinizdeki Ürünler (@Model.CartItems.Count)</div>
+                        @foreach (var item in Model.CartItems)
+                        {
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="small">
+                                    @item.Product.Name
+                                    <span class="text-muted">x @item.Quantity</span>
+                                </div>
+                                <div>@((item.UnitPrice * item.Quantity).ToString("C"))</div>
+                            </div>
+                        }
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Ara Toplam</span>
+                        <span class="fw-bold">@Model.TotalAmount.ToString("C")</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Kargo</span>
+                        <span class="text-success">
+                            <i class="fas fa-truck me-2"></i>Ücretsiz
+                        </span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <strong>Toplam</strong>
+                        <strong class="text-primary fs-5">@Model.TotalAmount.ToString("C")</strong>
+                    </div>
+                    
+                    @if (addresses != null && addresses.Any())
+                    {
+                        <button id="completeOrderBtn" type="button" class="btn btn-lg w-100 text-white" 
+                                style="background: linear-gradient(45deg, #2196F3, #1976D2);">
+                            <i class="fas fa-lock me-2"></i>Siparişi Tamamla
+                        </button>
+                    }
+                    else
+                    {
+                        <a href="/Profile/Addresses" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-map-marker-alt me-2"></i>Adres Ekle
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .address-card, .payment-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .address-card:hover, .payment-card:hover {
+        border-color: #2196F3 !important;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    .address-card input:checked ~ label,
+    .payment-card input:checked ~ label {
+        font-weight: 500;
+    }
+
+    .form-check-input:checked {
+        background-color: #2196F3;
+        border-color: #2196F3;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Fatura adresi kontrolü
+            $('#sameAddress').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#billingAddressContainer').addClass('d-none');
+                    // Teslimat adresi seçildiğinde fatura adresi için aynı değeri kullan
+                    var selectedShippingId = $('input[name="shippingAddressId"]:checked').val();
+                    $('input[name="billingAddressId"][value="' + selectedShippingId + '"]').prop('checked', true);
+                } else {
+                    $('#billingAddressContainer').removeClass('d-none');
+                }
+            });
+
+            // Teslimat adresi değiştiğinde, fatura adresi için de değiştir (eğer aynı adres seçeneği işaretliyse)
+            $('input[name="shippingAddressId"]').change(function() {
+                if ($('#sameAddress').is(':checked')) {
+                    var selectedShippingId = $(this).val();
+                    $('input[name="billingAddressId"][value="' + selectedShippingId + '"]').prop('checked', true);
+                }
+            });
+
+            // Adres kartları için tıklama
+            $('.address-card').click(function() {
+                $(this).find('input[type="radio"]').prop('checked', true).trigger('change');
+                $(this).parents('.row').find('.address-card').removeClass('border-primary');
+                $(this).addClass('border-primary');
+            });
+
+            // Ödeme yöntemi kartları için tıklama
+            $('.payment-card').click(function() {
+                $(this).find('input[type="radio"]').prop('checked', true).trigger('change');
+                $(this).parents('.row').find('.payment-card').removeClass('border-primary');
+                $(this).addClass('border-primary');
+            });
+
+            // Ödeme yöntemi değiştiğinde detayları göster/gizle
+            $('input[name="paymentMethod"]').change(function() {
+                if ($(this).val() === 'CreditCard') {
+                    $('#creditCardDetails').removeClass('d-none');
+                    $('#bankTransferDetails').addClass('d-none');
+                } else {
+                    $('#creditCardDetails').addClass('d-none');
+                    $('#bankTransferDetails').removeClass('d-none');
+                }
+            });
+
+            // Siparişi tamamla butonu
+            $('#completeOrderBtn').click(function() {
+                $('#orderForm').submit();
+            });
+        });
+    </script>
+} 

@@ -87,6 +87,29 @@ namespace MarketWorld.Web.Controllers
                     .ThenInclude(ci => ci.Product)
                         .ThenInclude(p => p.Images)
                 .FirstOrDefaultAsync(c => c.UserId == userId);
+            
+            // Kullanıcı bilgilerini ve adreslerini yükle
+            var user = await _context.Users
+                .Include(u => u.Addresses)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+            
+            if (user != null)
+            {
+                // Adresleri ayrı bir ViewBag özelliği olarak ekle
+                ViewBag.UserAddresses = user.Addresses?.ToList() ?? new List<Address>();
+                
+                // Kullanıcı nesnesinde Addresses koleksiyonunu null kontrolü ile liste haline getir
+                if (user.Addresses == null)
+                {
+                    user.Addresses = new List<Address>();
+                }
+            }
+            else
+            {
+                ViewBag.UserAddresses = new List<Address>();
+            }
+            
+            ViewBag.UserProfile = user;
 
             return View(cart);
         }
