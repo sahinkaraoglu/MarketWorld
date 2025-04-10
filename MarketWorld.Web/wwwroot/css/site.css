@@ -587,7 +587,7 @@ main {
 }
 
 .hero-section {
-    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    background: url('/img/mainpage.png') no-repeat center center/cover;
     margin-top: -76px;
     overflow: hidden;
     position: relative;
@@ -596,6 +596,10 @@ main {
 .hero-content {
     position: relative;
     z-index: 2;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
 }
 
 .hero-image {
@@ -605,24 +609,26 @@ main {
 
 .floating-card {
     position: absolute;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     padding: 1.5rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     gap: 1rem;
     animation: float 3s ease-in-out infinite;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .floating-card i {
     font-size: 2rem;
-    color: var(--primary);
+    color: #0d6efd;
 }
 
 .floating-card span {
-    font-weight: 500;
-    color: var(--dark);
+    font-weight: 600;
+    color: #0d6efd;
 }
 
 .card-1 {
@@ -632,7 +638,7 @@ main {
 }
 
 .card-2 {
-    top: 50%;
+    top: 85%;
     right: 15%;
     animation-delay: 0.5s;
 }
@@ -660,7 +666,9 @@ main {
     padding: 0 30px;
     font-size: 1.1rem;
     border: 2px solid #e2e8f0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
 }
 
 .search-container .btn {
