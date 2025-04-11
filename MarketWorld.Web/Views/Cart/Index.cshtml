@@ -63,7 +63,7 @@
                                             <i class="fas fa-minus fa-sm"></i>
                                         </button>
                                         <input type="number" class="form-control quantity-input" 
-                                               value="@item.Quantity" min="1" max="@item.Product.Stock" 
+                                               value="@item.Quantity" min="1" max="@item.Product.GetTotalStock()" 
                                                style="font-size: 14px;" readonly>
                                         <button type="button" class="btn increase-quantity" data-cart-item-id="@item.Id">
                                             <i class="fas fa-plus fa-sm"></i>

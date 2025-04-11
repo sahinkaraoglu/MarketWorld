@@ -67,7 +67,11 @@ namespace MarketWorld.Web.Controllers
             // Stok kontrolü
             foreach (var item in cart.CartItems)
             {
-                if (item.Product.Stock < item.Quantity)
+                var product = await _context.Products
+                    .Include(p => p.ProductProperties)
+                    .FirstOrDefaultAsync(p => p.Id == item.ProductId);
+                    
+                if (product != null && product.GetTotalStock() < item.Quantity)
                 {
                     TempData["ErrorMessage"] = $"{item.Product.Name} için yeterli stok bulunmamaktadır.";
                     return RedirectToAction("Checkout");
@@ -97,8 +101,21 @@ namespace MarketWorld.Web.Controllers
             // Stoklardan düşme
             foreach (var item in cart.CartItems)
             {
-                var product = await _context.Products.FindAsync(item.ProductId);
-                product.Stock -= item.Quantity;
+                var product = await _context.Products
+                    .Include(p => p.ProductProperties)
+                    .FirstOrDefaultAsync(p => p.Id == item.ProductId);
+                
+                if (product != null && product.ProductProperties != null && product.ProductProperties.Any())
+                {
+                    // İlgili renk vb. özelliklere göre stoğu azalt
+                    // Bu örnek için ilk bulunan property'den azaltma yapıyoruz
+                    var property = product.ProductProperties.FirstOrDefault(pp => pp.IsActive);
+                    if (property != null)
+                    {
+                        property.Stock -= item.Quantity;
+                        if (property.Stock < 0) property.Stock = 0;
+                    }
+                }
             }
 
             // Sepeti temizleme

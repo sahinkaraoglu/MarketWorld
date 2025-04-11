@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MarketWorld.Web.Models
 {
@@ -22,5 +23,21 @@ namespace MarketWorld.Web.Models
         public bool HasFreeShipping { get; set; }
         public List<ProductPropertyViewModel> ColorOptions { get; set; }
         public List<ProductPropertyViewModel> MemoryOptions { get; set; }
+        
+        public int GetTotalStock()
+        {
+            var options = new List<ProductPropertyViewModel>();
+            
+            if (ColorOptions != null)
+                options.AddRange(ColorOptions);
+                
+            if (MemoryOptions != null)
+                options.AddRange(MemoryOptions);
+                
+            if (!options.Any())
+                return Stock; // Eğer seçenek yoksa varsayılan stok değerini döndür
+                
+            return options.Sum(o => o.Stock);
+        }
     }
 } 

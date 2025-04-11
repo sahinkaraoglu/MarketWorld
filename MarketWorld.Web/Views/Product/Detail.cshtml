@@ -120,13 +120,13 @@
                     </div>
                 }
 
-@*                 <!-- Stok Bilgisi -->
-                @if (Model.Stock > 0)
+                <!-- Stok Bilgisi -->
+                @if (Model.GetTotalStock() > 0)
                 {
                     <div class="stock-info mb-4">
                         <div class="d-flex align-items-center text-success">
                             <i class="fas fa-check-circle me-2"></i>
-                            <span>Stokta @Model.Stock adet mevcut</span>
+                            <span>Stokta @Model.GetTotalStock() adet mevcut</span>
                         </div>
                     </div>
                 }
@@ -138,7 +138,7 @@
                             <span>Stokta ürün kalmadı</span>
                         </div>
                     </div>
-                } *@
+                }
 
                 <!-- Ürün Seçenekleri -->
                 <div class="product-options mb-4">
@@ -209,7 +209,7 @@
 
                 <!-- Adet ve Sepete Ekle -->
                 <div class="product-actions">
-                    @if (Model.Stock > 0)
+                    @if (Model.GetTotalStock() > 0)
                     {
                         <div class="quantity-selector mb-3">
                             <label class="form-label text-muted small">Adet</label>
@@ -217,7 +217,7 @@
                                 <button class="btn btn-outline-secondary" type="button" id="decreaseQuantity">
                                     <i class="fas fa-minus small"></i>
                                 </button>
-                                <input type="number" class="form-control text-center" value="1" min="1" max="@Model.Stock" id="quantity">
+                                <input type="number" class="form-control text-center" value="1" min="1" max="@Model.GetTotalStock()" id="quantity">
                                 <button class="btn btn-outline-secondary" type="button" id="increaseQuantity">
                                     <i class="fas fa-plus small"></i>
                                 </button>

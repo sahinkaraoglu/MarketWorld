@@ -42,7 +42,7 @@ namespace MarketWorld.Web.Controllers
                     Rating = p.Rating,
                     ReviewCount = 100,
                     HasFreeShipping = p.Price > 45000,
-                    Stock = p.Stock,
+                    Stock = p.GetTotalStock(),
                     CategoryName = p.SubCategory.Category.Name,
                     HasDiscount = p.HasDiscount,
                     DiscountPrice = p.HasDiscount ? p.DiscountPrice : null
@@ -96,7 +96,7 @@ namespace MarketWorld.Web.Controllers
                     Rating = p.Rating,
                     ReviewCount = 100,
                     HasFreeShipping = p.Price > 45000,
-                    Stock = p.Stock,
+                    Stock = p.GetTotalStock(),
                     CategoryName = p.SubCategory.Category.Name,
                     HasDiscount = p.HasDiscount,
                     DiscountPrice = p.HasDiscount ? p.DiscountPrice : null
@@ -170,7 +170,7 @@ namespace MarketWorld.Web.Controllers
                 Price = product.Price,
                 DiscountPrice = product.DiscountPrice,
                 HasDiscount = product.HasDiscount,
-                Stock = product.Stock,
+                Stock = product.GetTotalStock(),
                 Rating = 4.5,
                 ReviewCount = 192,
                 Images = product.Images.OrderBy(i => i.Id).Select(i => $"/{i.Path}").ToList(),

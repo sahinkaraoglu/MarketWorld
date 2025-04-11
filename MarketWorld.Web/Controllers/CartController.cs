@@ -23,13 +23,15 @@ namespace MarketWorld.Web.Controllers
                 return Json(new { success = false, message = "Lütfen önce giriş yapın." });
             }
 
-            var product = await _context.Products.FindAsync(productId);
+            var product = await _context.Products
+                .Include(p => p.ProductProperties)
+                .FirstOrDefaultAsync(p => p.Id == productId);
             if (product == null)
             {
                 return Json(new { success = false, message = "Ürün bulunamadı." });
             }
 
-            if (product.Stock < quantity)
+            if (product.GetTotalStock() < quantity)
             {
                 return Json(new { success = false, message = "Yeterli stok bulunmamaktadır." });
             }
@@ -119,6 +121,7 @@ namespace MarketWorld.Web.Controllers
         {
             var cartItem = await _context.CartItems
                 .Include(ci => ci.Product)
+                .ThenInclude(p => p.ProductProperties)
                 .FirstOrDefaultAsync(ci => ci.Id == cartItemId);
 
             if (cartItem == null)
@@ -126,7 +129,7 @@ namespace MarketWorld.Web.Controllers
                 return Json(new { success = false, message = "Sepet öğesi bulunamadı." });
             }
 
-            if (cartItem.Product.Stock < quantity)
+            if (cartItem.Product.GetTotalStock() < quantity)
             {
                 return Json(new { success = false, message = "Yeterli stok bulunmamaktadır." });
             }

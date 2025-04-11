@@ -29,7 +29,8 @@ namespace MarketWorld.Web.Controllers
                 Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
-                Stock = p.Stock,
+                Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
+                    p.GetTotalStock() : 0,
                 Rating = p.Rating,
                 Status = p.IsActive ? "Published" : "Draft",
                 ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
@@ -125,7 +126,6 @@ namespace MarketWorld.Web.Controllers
                 BrandId = model.BrandId,
                 Price = model.Price,
                 DiscountPrice = model.DiscountPrice ?? 0,
-                Stock = model.Stock,
                 Description = model.Description,
                 IsActive = model.IsActive,
                 HasDiscount = model.HasDiscount,
@@ -199,7 +199,8 @@ namespace MarketWorld.Web.Controllers
                 Id = product.Id,
                 Name = product.Name,
                 Price = product.Price,
-                Stock = product.Stock,
+                Stock = product.ProductProperties != null && product.ProductProperties.Any() ? 
+                    product.GetTotalStock() : 0,
                 CategoryId = product.SubCategory?.CategoryId ?? 0,
                 SubCategoryId = product.SubCategoryId ?? 0,
                 BrandId = product.BrandId
@@ -222,7 +223,29 @@ namespace MarketWorld.Web.Controllers
             product.BrandId = model.BrandId;
             product.SubCategoryId = model.SubCategoryId;
             product.Price = model.Price;
-            product.Stock = model.Stock;
+            
+            // Stock özelliği artık Product sınıfında bulunmuyor, 
+            // Bu yüzden model.Stock değerini ProductProperties koleksiyonuna ekleyelim
+            if (product.ProductProperties == null || !product.ProductProperties.Any())
+            {
+                product.ProductProperties = new List<ProductProperty>();
+                product.ProductProperties.Add(new ProductProperty
+                {
+                    PropertyTypeId = 1, // Varsayılan olarak 1 (renk) için
+                    PropertyValueId = 1, // Varsayılan değer
+                    Stock = model.Stock,
+                    IsActive = true
+                });
+            }
+            else
+            {
+                // İlk property'nin stok değerini güncelle
+                var property = product.ProductProperties.FirstOrDefault();
+                if (property != null)
+                {
+                    property.Stock = model.Stock;
+                }
+            }
 
             await _context.SaveChangesAsync();
             return Ok();

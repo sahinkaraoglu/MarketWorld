@@ -1,5 +1,6 @@
 ﻿using MarketWorld.Domain.Entities.Base;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MarketWorld.Domain.Entities
 {
@@ -8,7 +9,6 @@ namespace MarketWorld.Domain.Entities
         public string Name { get; set; }
         public int BrandId { get; set; }
         public decimal Price { get; set; }
-        public int Stock { get; set; }
         public bool IsActive { get; set; } = true;
         public string Description { get; set; }
         public decimal DiscountPrice { get; set; }
@@ -26,5 +26,13 @@ namespace MarketWorld.Domain.Entities
         public ICollection<OrderItem>? OrderItems { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }
         public ICollection<ProductProperty> ProductProperties { get; set; }
+        
+        public int GetTotalStock()
+        {
+            if (ProductProperties == null || !ProductProperties.Any())
+                return 0;
+                
+            return ProductProperties.Where(pp => pp.IsActive).Sum(pp => pp.Stock);
+        }
     }
 }
