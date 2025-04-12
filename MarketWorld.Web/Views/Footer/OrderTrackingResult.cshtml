@@ -1,0 +1,145 @@
+@model MarketWorld.Domain.Entities.Order
+
+@{
+    ViewData["Title"] = "Sipariş Takip Sonucu";
+}
+
+<link rel="stylesheet" href="~/css/Footer/order-tracking.css" />
+
+<div class="container">
+    <div class="tracking-header text-center">
+        <i class="bi bi-box-seam"></i>
+        <h1>Sipariş Takip Sonucu</h1>
+        <p>Sipariş numarası: <strong>@Model.OrderNumber</strong></p>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-8 text-center">
+            <a href="@Url.Action("OrderTracking", "Footer")" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left me-2"></i>Başka Sipariş Sorgula
+            </a>
+        </div>
+    </div>
+
+    <div class="tracking-timeline">
+        @{
+            bool isPending = Model.Status == MarketWorld.Domain.Enums.OrderStatus.Pending;
+            bool isProcessing = Model.Status == MarketWorld.Domain.Enums.OrderStatus.Processing || 
+                                Model.Status > MarketWorld.Domain.Enums.OrderStatus.Processing;
+            bool isShipped = Model.Status == MarketWorld.Domain.Enums.OrderStatus.Shipped || 
+                             Model.Status > MarketWorld.Domain.Enums.OrderStatus.Shipped;
+            bool isDelivered = Model.Status == MarketWorld.Domain.Enums.OrderStatus.Delivered;
+        }
+
+        <div class="timeline-item @(isPending || isProcessing || isShipped || isDelivered ? "completed" : "")">
+            <div class="timeline-icon">
+                <i class="bi bi-shop"></i>
+            </div>
+            <div class="timeline-content">
+                <h6>Sipariş Alındı</h6>
+                <p>Siparişiniz onaylandı</p>
+                <small>@Model.OrderDate.ToString("dd MMMM yyyy, HH:mm")</small>
+            </div>
+        </div>
+
+        <div class="timeline-item @(isProcessing || isShipped || isDelivered ? "completed" : "")">
+            <div class="timeline-icon">
+                <i class="bi bi-box-seam"></i>
+            </div>
+            <div class="timeline-content">
+                <h6>Hazırlanıyor</h6>
+                <p>Siparişiniz hazırlanıyor</p>
+                <small>@(isProcessing || isShipped || isDelivered ? Model.OrderDate.AddHours(4).ToString("dd MMMM yyyy, HH:mm") : "Beklemede")</small>
+            </div>
+        </div>
+
+        <div class="timeline-item @(isShipped || isDelivered ? "completed" : (isProcessing ? "active" : ""))">
+            <div class="timeline-icon">
+                <i class="bi bi-truck"></i>
+            </div>
+            <div class="timeline-content">
+                <h6>Kargoya Verildi</h6>
+                <p>Siparişiniz kargoda</p>
+                <small>@(isShipped || isDelivered ? Model.OrderDate.AddDays(1).ToString("dd MMMM yyyy, HH:mm") : "Beklemede")</small>
+            </div>
+        </div>
+
+        <div class="timeline-item @(isDelivered ? "completed" : (isShipped ? "active" : ""))">
+            <div class="timeline-icon">
+                <i class="bi bi-house-check"></i>
+            </div>
+            <div class="timeline-content">
+                <h6>Teslim Edildi</h6>
+                <p>Siparişiniz teslim edildi</p>
+                <small>@(isDelivered ? Model.OrderDate.AddDays(3).ToString("dd MMMM yyyy, HH:mm") : "Beklemede")</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-details mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Sipariş Detayları</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Sipariş Tarihi:</span>
+                            <span>@Model.OrderDate.ToString("dd MMMM yyyy, HH:mm")</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Sipariş Durumu:</span>
+                            <span class="badge @(Model.Status switch {
+                                MarketWorld.Domain.Enums.OrderStatus.Pending => "bg-warning",
+                                MarketWorld.Domain.Enums.OrderStatus.Processing => "bg-info",
+                                MarketWorld.Domain.Enums.OrderStatus.Shipped => "bg-primary",
+                                MarketWorld.Domain.Enums.OrderStatus.Delivered => "bg-success",
+                                MarketWorld.Domain.Enums.OrderStatus.Cancelled => "bg-danger",
+                                _ => "bg-secondary"
+                            })">
+                                @(Model.Status switch {
+                                    MarketWorld.Domain.Enums.OrderStatus.Pending => "Beklemede",
+                                    MarketWorld.Domain.Enums.OrderStatus.Processing => "Hazırlanıyor",
+                                    MarketWorld.Domain.Enums.OrderStatus.Shipped => "Kargoya Verildi",
+                                    MarketWorld.Domain.Enums.OrderStatus.Delivered => "Teslim Edildi",
+                                    MarketWorld.Domain.Enums.OrderStatus.Cancelled => "İptal Edildi",
+                                    _ => "Belirsiz"
+                                })
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Tahmini Teslimat:</span>
+                            <span>@Model.OrderDate.AddDays(3).ToString("dd MMMM yyyy")</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Toplam Tutar:</span>
+                            <span class="fw-bold">@Model.TotalAmount.ToString("C")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="help-section">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <p>Siparişinizle ilgili sorun mu yaşıyorsunuz?</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="tel:+905550001234" class="btn btn-outline-primary">
+                        <i class="bi bi-telephone me-2"></i>Sipariş Destek
+                    </a>
+                    <button class="btn btn-outline-primary">
+                        <i class="bi bi-chat-dots me-2"></i>Canlı Destek
+                    </button>
+                    <a href="mailto:siparis@marketworld.com" class="btn btn-outline-primary">
+                        <i class="bi bi-envelope me-2"></i>Mail Gönder
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mb-5"></div> 

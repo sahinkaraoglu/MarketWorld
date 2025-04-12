@@ -1,16 +1,20 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Web.Models;
+using Microsoft.EntityFrameworkCore;
+using MarketWorld.Infrastructure.Data;
 
 namespace MarketWorld.Web.Controllers;
 
 public class FooterController : Controller
 {
     private readonly ILogger<FooterController> _logger;
+    private readonly MarketWorldDbContext _context;
 
-    public FooterController(ILogger<FooterController> logger)
+    public FooterController(ILogger<FooterController> logger, MarketWorldDbContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
@@ -43,6 +47,29 @@ public class FooterController : Controller
     {
         return View();
     }
+
+    [HttpPost]
+    public async Task<IActionResult> OrderTracking(string orderNumber)
+    {
+        if (string.IsNullOrEmpty(orderNumber))
+        {
+            TempData["Error"] = "Lütfen bir sipariş numarası giriniz.";
+            return View();
+        }
+        
+        var order = await _context.Orders
+            .Include(o => o.OrderItems)
+            .FirstOrDefaultAsync(o => o.OrderNumber == orderNumber);
+
+        if (order == null)
+        {
+            TempData["Error"] = "Sipariş bulunamadı. Lütfen numarayı kontrol edip tekrar deneyiniz.";
+            return View();
+        }
+
+        return View("OrderTrackingResult", order);
+    }
+
     public IActionResult ReturnAndExchange()
     {
         return View();

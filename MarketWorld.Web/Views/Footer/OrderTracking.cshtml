@@ -14,75 +14,23 @@
     <div class="tracking-search">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form class="input-group">
-                    <input type="text" class="form-control" placeholder="Sipariş takip numaranızı giriniz" required>
+                <form class="input-group" method="post" action="@Url.Action("OrderTracking", "Footer")">
+                    <input type="text" name="orderNumber" class="form-control" placeholder="Sipariş takip numaranızı giriniz" required>
                     <button class="btn btn-primary" type="submit">
                         <i class="bi bi-search me-2"></i>Sorgula
                     </button>
                 </form>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger mt-3">
+                        @TempData["Error"]
+                    </div>
+                }
             </div>
         </div>
     </div>
 
-    <div class="tracking-timeline">
-        <div class="timeline-item completed">
-            <div class="timeline-icon">
-                <i class="bi bi-shop"></i>
-            </div>
-            <div class="timeline-content">
-                <h6>Mağazadan Çıkış</h6>
-                <p>Hazırlık sürecinde</p>
-                <small>12 Mart 2024, 14:30</small>
-            </div>
-        </div>
-
-        <div class="timeline-item completed">
-            <div class="timeline-icon">
-                <i class="bi bi-box-seam"></i>
-            </div>
-            <div class="timeline-content">
-                <h6>Transfer Merkezinde</h6>
-                <p>Yönlendirme yapılıyor</p>
-                <small>12 Mart 2024, 18:45</small>
-            </div>
-        </div>
-
-        <div class="timeline-item active">
-            <div class="timeline-icon">
-                <i class="bi bi-truck"></i>
-            </div>
-            <div class="timeline-content">
-                <h6>Dağıtım Merkezinde</h6>
-                <p>Hazırlanıyor</p>
-                <small>13 Mart 2024, 09:15</small>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <i class="bi bi-geo-alt"></i>
-            </div>
-            <div class="timeline-content">
-                <h6>Dağıtıma Çıktı</h6>
-                <p>Yola çıktı</p>
-                <small>Yakında</small>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <i class="bi bi-house-check"></i>
-            </div>
-            <div class="timeline-content">
-                <h6>Teslim Edildi</h6>
-                <p>Teslim edildi</p>
-                <small>Yakında</small>
-            </div>
-        </div>
-    </div>
-    <br <br /><br /><br /><br /><br />
-
-    <div class="tracking-info">
+    <div class="tracking-info mt-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="info-cards">
