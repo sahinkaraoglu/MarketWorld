@@ -231,9 +231,17 @@ namespace MarketWorld.Web.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            ViewBag.UserProfile = new
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email
+            };
+
             var orders = await _context.Orders
-                .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.Product)
                 .Where(o => o.UserId == userId)
                 .OrderByDescending(o => o.OrderDate)
                 .ToListAsync();

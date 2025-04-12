@@ -9,14 +9,24 @@
         <div class="col-lg-3">
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary text-white rounded-circle p-3 me-3">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">@ViewBag.UserProfile.FirstName @ViewBag.UserProfile.LastName</h5>
+                            <p class="text-muted small mb-0">@ViewBag.UserProfile.Email</p>
+                        </div>
+                    </div>
+
                     <div class="list-group">
-                        <a href="/Profile" class="list-group-item list-group-item-action">
-                            <i class="fas fa-user-circle me-2"></i>Profilim
+                        <a href="/Account" class="list-group-item list-group-item-action">
+                            <i class="fas fa-user-circle me-2"></i>Hesabım
                         </a>
-                        <a href="/Profile/Orders" class="list-group-item list-group-item-action active">
+                        <a href="/Account/Orders" class="list-group-item list-group-item-action active">
                             <i class="fas fa-shopping-bag me-2"></i>Siparişlerim
                         </a>
-                        <a href="/Profile/Addresses" class="list-group-item list-group-item-action">
+                        <a href="/Account/Addresses" class="list-group-item list-group-item-action">
                             <i class="fas fa-map-marker-alt me-2"></i>Adreslerim
                         </a>
                         <a href="/Login/Logout" class="list-group-item list-group-item-action text-danger">
