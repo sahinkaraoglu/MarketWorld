@@ -22,6 +22,7 @@ namespace MarketWorld.Web.Controllers
                     .ThenInclude(sc => sc.Category)
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
+                .Include(p => p.ProductProperties)
                 .ToListAsync();
 
             var viewModel = products.Select(p => new ProductAdminViewModel
