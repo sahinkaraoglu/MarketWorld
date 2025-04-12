@@ -9,11 +9,11 @@ using MarketWorld.Infrastructure.Data.SeedData;
 
 namespace MarketWorld.Web.Controllers
 {
-    public class ProfileController : Controller
+    public class AccountController : Controller
     {
         private readonly MarketWorldDbContext _context;
 
-        public ProfileController(MarketWorldDbContext context)
+        public AccountController(MarketWorldDbContext context)
         {
             _context = context;
         }
