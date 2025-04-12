@@ -41,6 +41,7 @@ namespace MarketWorld.Web.Controllers
                 HttpContext.Session.SetInt32("UserId", user.Id);
                 HttpContext.Session.SetString("UserEmail", user.Email);
                 HttpContext.Session.SetString("Username", user.Username);
+                HttpContext.Session.SetInt32("UserRoleId", user.UserRoleId);
                 return RedirectToAction("Index", "Home");
             }
             else
