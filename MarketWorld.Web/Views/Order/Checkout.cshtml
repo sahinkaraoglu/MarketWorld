@@ -62,6 +62,12 @@
                                         Fatura adresi teslimat adresi ile aynı
                                     </label>
                                 </div>
+                                
+                                @if (addresses.Any())
+                                {
+                                    <input type="hidden" id="defaultBillingAddressId" name="billingAddressId" value="@addresses.First().Id">
+                                }
+                                
                                 <div id="billingAddressContainer" class="row d-none">
                                     @foreach (var address in addresses)
                                     {
@@ -260,8 +266,13 @@
                     // Teslimat adresi seçildiğinde fatura adresi için aynı değeri kullan
                     var selectedShippingId = $('input[name="shippingAddressId"]:checked').val();
                     $('input[name="billingAddressId"][value="' + selectedShippingId + '"]').prop('checked', true);
+                    
+                    // Hidden input değerini de güncelle
+                    $('#defaultBillingAddressId').val(selectedShippingId);
                 } else {
                     $('#billingAddressContainer').removeClass('d-none');
+                    // Hidden input'u devre dışı bırak, çünkü artık radio button'lar görünür
+                    $('#defaultBillingAddressId').prop('disabled', true);
                 }
             });
 
@@ -270,6 +281,8 @@
                 if ($('#sameAddress').is(':checked')) {
                     var selectedShippingId = $(this).val();
                     $('input[name="billingAddressId"][value="' + selectedShippingId + '"]').prop('checked', true);
+                    
+                    $('#defaultBillingAddressId').val(selectedShippingId);
                 }
             });
 
@@ -300,7 +313,48 @@
 
             // Siparişi tamamla butonu
             $('#completeOrderBtn').click(function() {
-                $('#orderForm').submit();
+                // Form gönderilmeden önce son bir kez fatura adresini kontrol et
+                if ($('#sameAddress').is(':checked')) {
+                    var selectedShippingId = $('input[name="shippingAddressId"]:checked').val();
+                    $('#defaultBillingAddressId').val(selectedShippingId);
+                    // Hidden input'u etkinleştir
+                    $('#defaultBillingAddressId').prop('disabled', false);
+                } else {
+                    // Hidden input'u devre dışı bırak
+                    $('#defaultBillingAddressId').prop('disabled', true);
+                }
+                
+                // Bootstrap modal ekleyelim
+                if (!$('#orderConfirmationModal').length) {
+                    $('body').append(`
+                        <div class="modal fade" id="orderConfirmationModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Sipariş Onayı</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <div class="py-4">
+                                            <i class="fas fa-spinner fa-spin fa-3x text-primary mb-3"></i>
+                                            <h5>Siparişiniz işleniyor...</h5>
+                                            <p class="text-muted">Lütfen bekleyiniz, işleminiz tamamlanıyor.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+                
+                // Modal'ı göster
+                var modal = new bootstrap.Modal(document.getElementById('orderConfirmationModal'));
+                modal.show();
+                
+                // Form gönderimi
+                setTimeout(function() {
+                    $('#orderForm').submit();
+                }, 1500);
             });
         });
     </script>

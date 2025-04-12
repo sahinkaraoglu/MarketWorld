@@ -131,7 +131,8 @@ namespace MarketWorld.Web.Controllers
                 PaymentDate = DateTime.Now,
                 Amount = order.TotalAmount,
                 PaymentMethod = paymentMethod,
-                Status = PaymentStatus.Completed
+                Status = PaymentStatus.Completed,
+                TransactionId = GenerateTransactionId()
             };
 
             _context.Payments.Add(payment);
@@ -192,6 +193,11 @@ namespace MarketWorld.Web.Controllers
         private string GenerateOrderNumber()
         {
             return DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(1000, 9999).ToString();
+        }
+        
+        private string GenerateTransactionId()
+        {
+            return "TRX-" + DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + new Random().Next(1000, 9999).ToString();
         }
     }
 } 
