@@ -12,7 +12,7 @@
                 <img src="https://github.com/user-attachments/assets/434635b2-44bf-451a-b68d-f81addcb8003" alt="mainpage" width="400"/>
             </td>
             <td>
-                <img src="https://github.com/user-attachments/assets/9de207a5-eb11-40dc-84cb-7119c80f4073" alt="product-list" width="400"/>
+                <img src="https://github.com/user-attachments/assets/33b88057-a7bb-446e-b169-a4cd886b73f0" alt="product-list" width="400"/>
             </td>
         </tr>
         <tr>
