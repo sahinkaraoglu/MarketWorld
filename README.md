@@ -9,7 +9,7 @@
     <table>
         <tr>
             <td>
-                <img src="https://github.com/user-attachments/assets/fe423e47-9134-44cf-bac5-6ebf7c5586fe" alt="mainpage" width="400"/>
+                <img src="https://github.com/user-attachments/assets/434635b2-44bf-451a-b68d-f81addcb8003" alt="mainpage" width="400"/>
             </td>
             <td>
                 <img src="https://github.com/user-attachments/assets/9e63e992-7e7b-4eae-b44b-b604d7633d1c" alt="product-list" width="400"/>
