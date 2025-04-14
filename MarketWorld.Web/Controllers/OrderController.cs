@@ -46,7 +46,8 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProcessOrder(int shippingAddressId, int billingAddressId, string paymentMethod)
+        public async Task<IActionResult> ProcessOrder(int shippingAddressId, int billingAddressId, string paymentMethod, 
+            string cardHolderName, string cardNumber, string expiryDate, string cvv)
         {
             var userId = HttpContext.Session.GetInt32("UserId");
             if (!userId.HasValue)
@@ -124,6 +125,24 @@ namespace MarketWorld.Web.Controllers
 
             await _context.SaveChangesAsync();
 
+            // Kredi kartı bilgilerini kaydetme (eğer kredi kartı ile ödeme yapılıyorsa)
+            if (paymentMethod == "CreditCard" && !string.IsNullOrEmpty(cardNumber))
+            {
+                var creditCard = new CreditCard
+                {
+                    CardHolderName = cardHolderName,
+                    CardNumber = cardNumber,
+                    ExpiryDate = expiryDate,
+                    CardType = DetermineCardType(cardNumber),
+                    Cvv = cvv,
+                    UserId = userId.Value,
+                    OrderId = order.Id,
+                    IsDefault = false
+                };
+
+                _context.CreditCards.Add(creditCard);
+            }
+
             // Ödeme işlemi (basitleştirilmiş)
             var payment = new Payment
             {
@@ -198,6 +217,42 @@ namespace MarketWorld.Web.Controllers
         private string GenerateTransactionId()
         {
             return "TRX-" + DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + new Random().Next(1000, 9999).ToString();
+        }
+        
+        private string DetermineCardType(string cardNumber)
+        {
+            // Boşlukları kaldır
+            cardNumber = cardNumber.Replace(" ", "");
+            
+            // Visa kartları 4 ile başlar
+            if (cardNumber.StartsWith("4"))
+            {
+                return "Visa";
+            }
+            // Mastercard kartları 51-55 aralığında başlar
+            else if (cardNumber.StartsWith("51") || cardNumber.StartsWith("52") || 
+                     cardNumber.StartsWith("53") || cardNumber.StartsWith("54") || 
+                     cardNumber.StartsWith("55"))
+            {
+                return "MasterCard";
+            }
+            // American Express kartları 34 veya 37 ile başlar
+            else if (cardNumber.StartsWith("34") || cardNumber.StartsWith("37"))
+            {
+                return "AmericanExpress";
+            }
+            // Discovery kartları 6011, 622126-622925, 644-649 veya 65 ile başlar
+            else if (cardNumber.StartsWith("6011") || 
+                     (cardNumber.Length >= 6 && int.TryParse(cardNumber.Substring(0, 6), out int prefix) && prefix >= 622126 && prefix <= 622925) ||
+                     (cardNumber.StartsWith("64") && cardNumber.Length >= 3 && int.TryParse(cardNumber.Substring(0, 3), out int prefix3) && prefix3 >= 644 && prefix3 <= 649) ||
+                     cardNumber.StartsWith("65"))
+            {
+                return "Discover";
+            }
+            else
+            {
+                return "Other";
+            }
         }
     }
 } 
