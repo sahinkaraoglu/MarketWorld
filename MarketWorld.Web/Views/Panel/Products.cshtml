@@ -34,98 +34,17 @@
                         <th class="text-end pe-4">İŞLEMLER</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach (var product in Model)
-                    {
-                        <tr>
-                            <td class="ps-4">
-                                <input type="checkbox" class="form-check-input">
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="@product.ImageUrl" class="rounded" style="width: 40px; height: 40px; object-fit: cover;"
-                                         onerror="this.src='/img/ProductsPicture/default.jpg';">
-                                    <span class="ms-2">@product.Name</span>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td>
-                                @if (product.Stock < 5)
-                                {
-                                    <span class="text-warning">Low stock</span>
-                                }
-                                @product.Stock
-                            </td>
-                            <td>@product.Price.ToString("C2")</td>
-                            <td>
-                                <div class="rating">
-                                    @for (int i = 1; i <= 5; i++)
-                                    {
-                                        if (i <= product.Rating)
-                                        {
-                                            <i class="bi bi-star-fill text-warning"></i>
-                                        }
-                                        else if (i - product.Rating < 1 && i - product.Rating > 0)
-                                        {
-                                            <i class="bi bi-star-half text-warning"></i>
-                                        }
-                                        else
-                                        {
-                                            <i class="bi bi-star text-warning"></i>
-                                        }
-                                    }
-                                    <span class="ms-1">(@product.Rating)</span>
-                                </div>
-                            </td>
-                            <td>
-                                @if (product.Status == "Published")
-                                {
-                                    <span class="badge bg-success-subtle text-success">Aktif</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-danger-subtle text-danger">Pasif</span>
-                                }
-                            </td>
-                            <td class="text-end pe-4">
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown">
-                                        <i class="bi bi-three-dots"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Düzenle</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i>Sil</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Detail", "Product", new { id = product.Id })"><i class="bi bi-eye me-2"></i>Görüntüle</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    }
+                <tbody id="productTableBody">
+                    <!-- İlk 15 ürün burada gösterilecek -->
                 </tbody>
             </table>
         </div>
     </div>
-
-    <div class="d-flex justify-content-between align-items-center mt-4">
-        <div>
-            <select class="form-select" style="width: 70px;">
-                <option>10</option>
-                <option>25</option>
-                <option>50</option>
-                <option>100</option>
-            </select>
+    
+    <div id="loadingIndicator" class="text-center my-3 d-none">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Yükleniyor...</span>
         </div>
-        <nav>
-            <ul class="pagination mb-0">
-                <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
-            </ul>
-        </nav>
     </div>
 </div>
 
@@ -321,6 +240,120 @@
 @section Scripts {
     <script>
         $(document).ready(function() {
+            let currentPage = 1;
+            let isLoading = false;
+            let hasMoreProducts = true;
+            const PAGE_SIZE = 15;
+            
+            // İlk yüklemede ürünleri getir
+            loadProducts();
+            
+            // Sonsuz kaydırma
+            $(window).scroll(function() {
+                if ($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+                    if (!isLoading && hasMoreProducts) {
+                        loadProducts();
+                    }
+                }
+            });
+            
+            function loadProducts() {
+                if (isLoading) return;
+                
+                isLoading = true;
+                $('#loadingIndicator').removeClass('d-none');
+                
+                $.ajax({
+                    url: '/Panel/LoadMoreProducts',
+                    method: 'GET',
+                    data: {
+                        page: currentPage,
+                        pageSize: PAGE_SIZE
+                    },
+                    success: function(response) {
+                        if (response.products && response.products.length > 0) {
+                            response.products.forEach(function(product) {
+                                appendProductRow(product);
+                            });
+                            
+                            currentPage++;
+                            hasMoreProducts = response.hasMore;
+                        } else {
+                            hasMoreProducts = false;
+                            if (currentPage === 1) {
+                                $('#productTableBody').html('<tr><td colspan="8" class="text-center">Ürün bulunamadı</td></tr>');
+                            }
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Ürünler yüklenirken bir hata oluştu:', error);
+                    },
+                    complete: function() {
+                        isLoading = false;
+                        $('#loadingIndicator').addClass('d-none');
+                    }
+                });
+            }
+            
+            function appendProductRow(product) {
+                let statusBadge = product.status === "Published" ? 
+                    '<span class="badge bg-success-subtle text-success">Aktif</span>' : 
+                    '<span class="badge bg-danger-subtle text-danger">Pasif</span>';
+                
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= product.rating) {
+                        stars += '<i class="bi bi-star-fill text-warning"></i>';
+                    } else if (i - product.rating < 1 && i - product.rating > 0) {
+                        stars += '<i class="bi bi-star-half text-warning"></i>';
+                    } else {
+                        stars += '<i class="bi bi-star text-warning"></i>';
+                    }
+                }
+                
+                let row = `
+                    <tr>
+                        <td class="ps-4">
+                            <input type="checkbox" class="form-check-input">
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="${product.imageUrl}" class="rounded" style="width: 40px; height: 40px; object-fit: cover;"
+                                     onerror="this.src='/img/ProductsPicture/default.jpg';">
+                                <span class="ms-2">${product.name}</span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td>
+                            ${product.stock < 5 ? '<span class="text-warning">Low stock</span> ' : ''}
+                            ${product.stock}
+                        </td>
+                        <td>${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(product.price)}</td>
+                        <td>
+                            <div class="rating">
+                                ${stars}
+                                <span class="ms-1">(${product.rating})</span>
+                            </div>
+                        </td>
+                        <td>${statusBadge}</td>
+                        <td class="text-end pe-4">
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="editProduct(${product.id})"><i class="bi bi-pencil me-2"></i>Düzenle</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="deleteProduct(${product.id})"><i class="bi bi-trash me-2"></i>Sil</a></li>
+                                    <li><a class="dropdown-item" href="/Product/Detail/${product.id}"><i class="bi bi-eye me-2"></i>Görüntüle</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                
+                $('#productTableBody').append(row);
+            }
+
             // Kategorileri yükle
             $.ajax({
                 url: '/Panel/GetCategories',

@@ -295,6 +295,54 @@ namespace MarketWorld.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> LoadMoreProducts(int page = 1, int pageSize = 15)
+        {
+            // Toplam ürün sayısını al
+            var totalProducts = await _context.Products.CountAsync();
+            
+            // Sayfa bazlı ürünleri sorgula
+            var products = await _context.Products
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
+                .Include(p => p.ProductProperties)
+                .OrderByDescending(p => p.CreatedDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            var viewModel = products.Select(p => new ProductAdminViewModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
+                    p.GetTotalStock() : 0,
+                Rating = p.Rating,
+                Status = p.IsActive ? "Published" : "Draft",
+                ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
+                    $"/{p.Images.FirstOrDefault().Path}" : 
+                    "/img/ProductsPicture/default.jpg",
+                CategoryId = p.SubCategory?.CategoryId ?? 0,
+                CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
+                SubCategoryId = p.SubCategoryId ?? 0,
+                SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
+                BrandId = p.BrandId,
+                BrandName = p.Brand?.Name ?? "Markasız"
+            }).ToList();
+
+            bool hasMore = (page * pageSize) < totalProducts;
+
+            return Json(new { 
+                products = viewModel, 
+                hasMore = hasMore,
+                totalCount = totalProducts,
+                currentPage = page
+            });
+        }
+
         public IActionResult Index()
         {
             return View();
