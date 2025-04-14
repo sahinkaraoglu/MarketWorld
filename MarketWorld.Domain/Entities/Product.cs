@@ -1,11 +1,18 @@
 ﻿using MarketWorld.Domain.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace MarketWorld.Domain.Entities
 {
     public class Product : BaseEntity
     {
+        [StringLength(6)]
+        /// <summary>
+        /// Ürün için benzersiz 6 haneli rastgele oluşturulan ürün numarası
+        /// </summary>
+        public string ProductNumber { get; set; } = "000000";
         public string Name { get; set; }
         public int BrandId { get; set; }
         public decimal Price { get; set; }
@@ -33,6 +40,15 @@ namespace MarketWorld.Domain.Entities
                 return 0;
                 
             return ProductProperties.Where(pp => pp.IsActive).Sum(pp => pp.Stock);
+        }
+
+        /// <summary>
+        /// 6 haneli rastgele bir ürün numarası oluşturur
+        /// </summary>
+        public void GenerateRandomProductNumber()
+        {
+            var random = new Random();
+            ProductNumber = random.Next(100000, 1000000).ToString();
         }
     }
 }

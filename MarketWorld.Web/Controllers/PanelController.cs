@@ -135,6 +135,14 @@ namespace MarketWorld.Web.Controllers
                 Images = new List<Image>(),
                 ProductProperties = new List<ProductProperty>()
             };
+            
+            product.GenerateRandomProductNumber();
+            
+            // Veritabanında var mı kontrol et ve benzersiz olana kadar tekrar oluştur
+            while (await _context.Products.AnyAsync(p => p.ProductNumber == product.ProductNumber))
+            {
+                product.GenerateRandomProductNumber();
+            }
 
             if (model.Images != null && model.Images.Any())
             {
@@ -224,6 +232,18 @@ namespace MarketWorld.Web.Controllers
             product.BrandId = model.BrandId;
             product.SubCategoryId = model.SubCategoryId;
             product.Price = model.Price;
+            
+            // Eğer ProductNumber yoksa veya boşsa yeni oluştur
+            if (string.IsNullOrEmpty(product.ProductNumber) || product.ProductNumber == "000000")
+            {
+                product.GenerateRandomProductNumber();
+                
+                // Veritabanında var mı kontrol et ve benzersiz olana kadar tekrar oluştur
+                while (await _context.Products.AnyAsync(p => p.Id != product.Id && p.ProductNumber == product.ProductNumber))
+                {
+                    product.GenerateRandomProductNumber();
+                }
+            }
             
             // Stock özelliği artık Product sınıfında bulunmuyor, 
             // Bu yüzden model.Stock değerini ProductProperties koleksiyonuna ekleyelim
