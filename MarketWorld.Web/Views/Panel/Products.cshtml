@@ -333,7 +333,7 @@
                 }
                 
                 let row = `
-                    <tr>
+                    <tr data-product-id="${product.id}">
                         <td class="ps-4">
                             <input type="checkbox" class="form-check-input">
                         </td>
@@ -362,7 +362,7 @@
                                 <a href="#" class="btn btn-sm btn-outline-primary" onclick="editProduct(${product.id})" title="Düzenle">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${product.id})" title="Sil">
+                                <a href="#" class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${product.id}); return false;" title="Sil">
                                     <i class="bi bi-trash"></i>
                                 </a>
                                 <a href="/Product/Detail/${product.id}" class="btn btn-sm btn-outline-info" title="Görüntüle">
@@ -666,7 +666,9 @@
                     url: '/Panel/DeleteProduct/' + id,
                     method: 'POST',
                     success: function() {
-                        location.reload();
+                        $(`#productTableBody tr[data-product-id="${id}"]`).fadeOut('slow', function() {
+                            $(this).remove();
+                        });
                     },
                     error: function(xhr, status, error) {
                         alert('Ürün silinemedi: ' + error);
