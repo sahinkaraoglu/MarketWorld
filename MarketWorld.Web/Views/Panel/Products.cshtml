@@ -4,7 +4,7 @@
 <div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div class="d-flex align-items-center">
-            <input type="text" class="form-control me-2" placeholder="Ürün Kodu..." style="width: 250px;">
+            <input type="text" id="productNumberSearch" class="form-control me-2" placeholder="Ürün Kodu..." style="width: 250px;">
             <select class="form-select ms-2" style="width: 150px;">
                 <option selected>Durum</option>
                 <option value="all">Tümü</option>
@@ -249,16 +249,31 @@
             // İlk yüklemede ürünleri getir
             loadProducts();
             
+            // Ürün kodu ile arama yapma
+            $('#productNumberSearch').on('input', function() {
+                var productNumber = $(this).val().trim();
+                
+                // Arama yaparken tablodaki mevcut içeriği temizle
+                $('#productTableBody').empty();
+                
+                // Sayfa numarasını sıfırla
+                currentPage = 1;
+                hasMoreProducts = true;
+                
+                // Ürünleri yükle
+                loadProducts(productNumber);
+            });
+            
             // Sonsuz kaydırma
             $(window).scroll(function() {
                 if ($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
                     if (!isLoading && hasMoreProducts) {
-                        loadProducts();
+                        loadProducts($('#productNumberSearch').val().trim());
                     }
                 }
             });
             
-            function loadProducts() {
+            function loadProducts(productNumber = '') {
                 if (isLoading) return;
                 
                 isLoading = true;
@@ -269,7 +284,8 @@
                     method: 'GET',
                     data: {
                         page: currentPage,
-                        pageSize: PAGE_SIZE
+                        pageSize: PAGE_SIZE,
+                        productNumber: productNumber
                     },
                     success: function(response) {
                         if (response.products && response.products.length > 0) {

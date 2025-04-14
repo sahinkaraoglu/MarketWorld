@@ -318,52 +318,65 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> LoadMoreProducts(int page = 1, int pageSize = 15)
+        public async Task<IActionResult> LoadMoreProducts(int page = 1, int pageSize = 15, string productNumber = "")
         {
-            // Toplam ürün sayısını al
-            var totalProducts = await _context.Products.CountAsync();
-            
-            // Sayfa bazlı ürünleri sorgula
-            var products = await _context.Products
-                .Include(p => p.SubCategory)
-                    .ThenInclude(sc => sc.Category)
-                .Include(p => p.Brand)
-                .Include(p => p.Images)
-                .Include(p => p.ProductProperties)
-                .OrderBy(p => p.CreatedDate)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
-
-            var viewModel = products.Select(p => new ProductAdminViewModel
+            try
             {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
-                    p.GetTotalStock() : 0,
-                Rating = p.Rating,
-                Status = p.IsActive ? "Published" : "Draft",
-                ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
-                    $"/{p.Images.FirstOrDefault().Path}" : 
-                    "/img/ProductsPicture/default.jpg",
-                CategoryId = p.SubCategory?.CategoryId ?? 0,
-                CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
-                SubCategoryId = p.SubCategoryId ?? 0,
-                SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
-                BrandId = p.BrandId,
-                BrandName = p.Brand?.Name ?? "Markasız",
-                ProductNumber = p.ProductNumber
-            }).ToList();
+                var query = _context.Products
+                    .Include(p => p.SubCategory)
+                        .ThenInclude(sc => sc.Category)
+                    .Include(p => p.Brand)
+                    .Include(p => p.Images)
+                    .Include(p => p.ProductProperties)
+                    .AsQueryable();
+                
+                // Ürün kodu ile filtreleme
+                if (!string.IsNullOrEmpty(productNumber))
+                {
+                    query = query.Where(p => p.ProductNumber.Contains(productNumber));
+                }
 
-            bool hasMore = (page * pageSize) < totalProducts;
+                var totalCount = await query.CountAsync();
+                
+                var products = await query
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync();
 
-            return Json(new { 
-                products = viewModel, 
-                hasMore = hasMore,
-                totalCount = totalProducts,
-                currentPage = page
-            });
+                var viewModel = products.Select(p => new ProductAdminViewModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Price = p.Price,
+                    Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
+                        p.GetTotalStock() : 0,
+                    Rating = p.Rating,
+                    Status = p.IsActive ? "Published" : "Draft",
+                    ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
+                        $"/{p.Images.FirstOrDefault().Path}" : 
+                        "/img/ProductsPicture/default.jpg",
+                    CategoryId = p.SubCategory?.CategoryId ?? 0,
+                    CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
+                    SubCategoryId = p.SubCategoryId ?? 0,
+                    SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
+                    BrandId = p.BrandId,
+                    BrandName = p.Brand?.Name ?? "Markasız",
+                    ProductNumber = p.ProductNumber
+                }).ToList();
+
+                bool hasMore = (page * pageSize) < totalCount;
+
+                return Json(new { 
+                    products = viewModel, 
+                    hasMore = hasMore,
+                    totalCount = totalCount,
+                    currentPage = page
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Ürünler yüklenirken hata oluştu: {ex.Message}");
+            }
         }
 
         public IActionResult Index()
