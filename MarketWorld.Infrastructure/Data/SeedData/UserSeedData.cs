@@ -31,7 +31,9 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 {
                     Id = 1,
                     FirstName = "Þahin",
+                    LastName = "Karaoðlu",
                     Username = "sahinkaraoglu",
+                    Phone = "1234567890",
                     Password = "123",
                     UserRoleId = 1,
                     Email = "admin@admin.com"
@@ -41,7 +43,9 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                 {
                     Id = 2,
                     FirstName = "Ali",
+                    LastName = "Uzun",
                     Username = "aliuzun",
+                    Phone = "1234567890",
                     Password = "456",
                     UserRoleId = 2,
                     Email = "ali@example.com"
