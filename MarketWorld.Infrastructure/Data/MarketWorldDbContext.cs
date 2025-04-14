@@ -27,6 +27,7 @@ namespace MarketWorld.Infrastructure.Data
         public DbSet<PropertyValue> PropertyValues { get; set; }
         public DbSet<ProductProperty> ProductProperties { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<CreditCard> CreditCards { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -574,6 +575,20 @@ namespace MarketWorld.Infrastructure.Data
                 .WithMany(u => u.Addresses)
                 .HasForeignKey(a => a.UserId)
                 .IsRequired(false);
+
+            // CreditCard ile User arasındaki ilişkiyi tanımla
+            modelBuilder.Entity<CreditCard>()
+                .HasOne(cc => cc.User)
+                .WithMany(u => u.CreditCards)
+                .HasForeignKey(cc => cc.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+                
+            // CreditCard ile Order arasındaki ilişkiyi tanımla
+            modelBuilder.Entity<CreditCard>()
+                .HasOne(cc => cc.Order)
+                .WithMany(o => o.CreditCards)
+                .HasForeignKey(cc => cc.OrderId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

@@ -22,5 +22,6 @@ namespace MarketWorld.Domain.Entities
         public Address BillingAddress { get; set; }
         
         public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<CreditCard> CreditCards { get; set; }
     }
 } 
