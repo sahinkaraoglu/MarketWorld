@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
 using MarketWorld.Domain.Entities;
+using MarketWorld.Web.Attributes;
 
 namespace MarketWorld.Web.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private readonly MarketWorldDbContext _context;
@@ -17,7 +19,7 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId, int quantity = 1, string color = null)
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
+            var userId = (int?)HttpContext.Items["UserId"];
             if (!userId.HasValue)
             {
                 return Json(new { success = false, message = "Lütfen önce giriş yapın." });
@@ -78,7 +80,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
+            var userId = (int?)HttpContext.Items["UserId"];
             if (!userId.HasValue)
             {
                 return RedirectToAction("Index", "Login");
@@ -174,7 +176,7 @@ namespace MarketWorld.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCartCount()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
+            var userId = (int?)HttpContext.Items["UserId"];
             if (!userId.HasValue)
             {
                 return Json(new { count = 0 });

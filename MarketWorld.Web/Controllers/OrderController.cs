@@ -6,9 +6,11 @@ using MarketWorld.Domain.Enums;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using MarketWorld.Web.Attributes;
 
 namespace MarketWorld.Web.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly MarketWorldDbContext _context;
@@ -20,11 +22,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Checkout()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -49,11 +47,7 @@ namespace MarketWorld.Web.Controllers
         public async Task<IActionResult> ProcessOrder(int shippingAddressId, int billingAddressId, string paymentMethod, 
             string cardHolderName, string cardNumber, string expiryDate, string cvv)
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -86,7 +80,7 @@ namespace MarketWorld.Web.Controllers
                 OrderDate = DateTime.Now,
                 Status = OrderStatus.Pending,
                 TotalAmount = cart.TotalAmount,
-                UserId = userId.Value,
+                UserId = userId,
                 ShippingAddressId = shippingAddressId,
                 BillingAddressId = billingAddressId,
                 OrderItems = cart.CartItems.Select(ci => new OrderItem
@@ -135,7 +129,7 @@ namespace MarketWorld.Web.Controllers
                     ExpiryDate = expiryDate,
                     CardType = DetermineCardType(cardNumber),
                     Cvv = cvv,
-                    UserId = userId.Value,
+                    UserId = userId,
                     OrderId = order.Id,
                     IsDefault = false
                 };
@@ -164,11 +158,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> OrderConfirmation(int orderId)
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var order = await _context.Orders
                 .Include(o => o.OrderItems)
@@ -188,11 +178,7 @@ namespace MarketWorld.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetOrderDetails(int id)
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return Json(new { success = false, message = "Oturum bulunamadı." });
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var order = await _context.Orders
                 .Include(o => o.OrderItems)

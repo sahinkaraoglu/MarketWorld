@@ -4,18 +4,43 @@ using MarketWorld.Application.Services.Implementations;
 using MarketWorld.Infrastructure.Data;
 using MarketWorld.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using MarketWorld.Web.Middleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Session servisini ekle
-builder.Services.AddSession(options =>
+// JWT için konfigürasyon 
+var jwtSection = builder.Configuration.GetSection("Jwt");
+builder.Services.Configure<JwtOptions>(jwtSection);
+
+// JWT Authentication ekle
+var jwtSettings = jwtSection.Get<JwtOptions>();
+var key = Encoding.ASCII.GetBytes(jwtSettings.Key);
+
+builder.Services.AddAuthentication(x =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(x =>
+{
+    x.RequireHttpsMetadata = false;
+    x.SaveToken = true;
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = true,
+        ValidIssuer = jwtSettings.Issuer,
+        ValidateAudience = true,
+        ValidAudience = jwtSettings.Audience,
+        ClockSkew = TimeSpan.Zero
+    };
 });
 
 // DbContext configuration
@@ -30,6 +55,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -56,7 +82,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseSession(); // Session middleware'ini ekle
+// JWT Middleware'ini ekle
+app.UseMiddleware<JwtMiddleware>();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -70,3 +99,11 @@ app.MapControllerRoute(
 );
 
 app.Run();
+
+// JWT Options sınıfı
+public class JwtOptions
+{
+    public string Key { get; set; }
+    public string Issuer { get; set; }
+    public string Audience { get; set; }
+}

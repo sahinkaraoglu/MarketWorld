@@ -1,23 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
+using MarketWorld.Application.Services.Interfaces;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace MarketWorld.Web.Controllers
 {
     public class LoginController : Controller
     {
         private readonly MarketWorldDbContext _context;
+        private readonly IJwtService _jwtService;
+        private readonly ILogger<LoginController> _logger;
 
-        public LoginController(MarketWorldDbContext context)
+        public LoginController(MarketWorldDbContext context, IJwtService jwtService, ILogger<LoginController> logger)
         {
             _context = context;
+            _jwtService = jwtService;
+            _logger = logger;
         }
 
         public IActionResult Index()
         {
             // Kullanıcı giriş yapmışsa Anasayfaya yönlendir
-            if (HttpContext.Session.GetInt32("UserId").HasValue)
+            if (HttpContext.Items["UserId"] != null)
             {
+                _logger.LogInformation("Kullanıcı zaten oturum açmış: {UserId}", HttpContext.Items["UserId"]);
                 return RedirectToAction("Index", "Home");
             }
             return View();
@@ -37,14 +45,29 @@ namespace MarketWorld.Web.Controllers
 
             if (user != null)
             {
-                // Kullanıcı girişi başarılı
-                HttpContext.Session.SetInt32("UserId", user.Id);
-                HttpContext.Session.SetString("UserEmail", user.Email);
-                HttpContext.Session.SetString("Username", user.Username);
+                _logger.LogInformation("Kullanıcı giriş başarılı: {UserId}, {UserEmail}", user.Id, user.Email);
+                
+                // JWT token oluştur
+                var token = _jwtService.GenerateJwtToken(user);
+                _logger.LogDebug("Oluşturulan token: {Token}", token);
+                
+                // Token'ı cookie olarak ekle
+                Response.Cookies.Append("X-Access-Token", token, new CookieOptions
+                {
+                    HttpOnly = true,
+                    SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict,
+                    Expires = System.DateTimeOffset.UtcNow.AddDays(7)
+                });
+                
+                // Kullanıcı bilgilerini ViewBag'e ekle
+                ViewBag.Username = user.Username;
+                ViewBag.UserEmail = user.Email;
+                
                 return RedirectToAction("Index", "Home");
             }
             else
             {
+                _logger.LogWarning("Başarısız giriş denemesi: {Email}", username);
                 TempData["ErrorMessage"] = "E-posta veya şifre hatalı!";
                 return RedirectToAction("Index");
             }
@@ -52,7 +75,13 @@ namespace MarketWorld.Web.Controllers
 
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear();
+            if (HttpContext.Items["UserId"] != null)
+            {
+                _logger.LogInformation("Kullanıcı çıkış yapıyor: {UserId}", HttpContext.Items["UserId"]);
+            }
+            
+            // JWT token içeren cookie'yi sil
+            Response.Cookies.Delete("X-Access-Token");
             return RedirectToAction("Index", "Home");
         }
     }

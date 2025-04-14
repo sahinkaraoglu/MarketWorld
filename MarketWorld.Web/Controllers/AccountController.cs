@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using System.Linq;
 using System;
 using MarketWorld.Infrastructure.Data.SeedData;
+using MarketWorld.Web.Attributes;
 
 namespace MarketWorld.Web.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly MarketWorldDbContext _context;
@@ -20,11 +22,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Id == userId);
@@ -34,11 +32,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Addresses()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var user = await _context.Users
                 .Include(u => u.Addresses)
@@ -49,12 +43,6 @@ namespace MarketWorld.Web.Controllers
 
         public IActionResult AddAddress()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
-
             return View();
         }
 
@@ -62,11 +50,7 @@ namespace MarketWorld.Web.Controllers
         [ActionName("AddAddress")]
         public async Task<IActionResult> AddAddressPost()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             // Form verilerini alıyoruz
             var title = Request.Form["Title"].ToString();
@@ -120,7 +104,7 @@ namespace MarketWorld.Web.Controllers
                 // Yeni adres oluştur
                 var address = new Address
                 {
-                    UserId = userId.Value,
+                    UserId = userId,
                     Title = title,
                     FullAddress = fullAddress,
                     City = city,
@@ -151,11 +135,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> EditAddress(int id)
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var address = await _context.Addresses
                 .FirstOrDefaultAsync(a => a.Id == id && a.UserId == userId);
@@ -171,11 +151,7 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> EditAddress(Address address)
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var existingAddress = await _context.Addresses
                 .FirstOrDefaultAsync(a => a.Id == address.Id && a.UserId == userId);
@@ -203,11 +179,7 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteAddress(int id)
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var address = await _context.Addresses
                 .FirstOrDefaultAsync(a => a.Id == id && a.UserId == userId);
@@ -225,11 +197,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Orders()
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            var userId = (int)HttpContext.Items["UserId"];
 
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Id == userId);

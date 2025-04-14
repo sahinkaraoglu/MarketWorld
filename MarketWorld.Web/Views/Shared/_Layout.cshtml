@@ -18,6 +18,8 @@
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
+    @await Component.InvokeAsync("UserInfo")
+    
     <header>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
@@ -97,13 +99,13 @@
                             </a>
                         </li>
 
-                        @if (Context.Session.GetInt32("UserId").HasValue)
+
+                        @if (Context.Items["UserId"] != null)
                         {
-                            
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle"></i>
-                                    <span>@Context.Session.GetString("Username")</span>
+                                    <span>@Context.Items["Username"]</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-user dropdown-menu-end" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" asp-controller="Account" asp-action="Index"><i class="bi bi-person"></i>Hesabım</a></li>
@@ -114,7 +116,6 @@
                                     <li><a class="dropdown-item text-danger" asp-controller="Login" asp-action="Logout"><i class="bi bi-box-arrow-right"></i>Çıkış Yap</a></li>
                                 </ul>
                             </li>
-
                         }
                         else
                         {

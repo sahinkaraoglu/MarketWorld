@@ -6,10 +6,10 @@
     <div class="login-box">
         <h1>MarketWorld</h1>
         
-        @if (Context.Session.GetInt32("UserId").HasValue)
+        @if (Context.Items["UserId"] != null)
         {
             <div class="logged-in-container">
-                <p class="welcome-text">Hoş geldiniz, @Context.Session.GetString("UserEmail")</p>
+                <p class="welcome-text">Hoş geldiniz, @ViewBag.UserEmail</p>
                 <a href="@Url.Action("Logout", "Login")" class="logout-btn">Çıkış Yap</a>
             </div>
         }
