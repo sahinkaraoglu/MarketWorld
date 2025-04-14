@@ -330,7 +330,7 @@ namespace MarketWorld.Web.Controllers
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
                 .Include(p => p.ProductProperties)
-                .OrderByDescending(p => p.CreatedDate)
+                .OrderBy(p => p.CreatedDate)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
