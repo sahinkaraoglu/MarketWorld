@@ -49,9 +49,33 @@
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="@(item.Product.Images?.FirstOrDefault()?.Path ?? "/img/default-product.jpg")" 
+                                                @{
+                                                    var imagePath = "";
+                                                    if (item.Product != null && item.Product.Images != null && item.Product.Images.Any() && !string.IsNullOrEmpty(item.Product.Images.FirstOrDefault()?.Path))
+                                                    {
+                                                        var imageSrc = item.Product.Images.FirstOrDefault().Path;
+                                                        if (imageSrc.StartsWith("~/"))
+                                                        {
+                                                            imagePath = Url.Content(imageSrc);
+                                                        }
+                                                        else if (imageSrc.StartsWith("/"))
+                                                        {
+                                                            imagePath = Url.Content("~" + imageSrc);
+                                                        }
+                                                        else
+                                                        {
+                                                            imagePath = Url.Content("~/" + imageSrc);
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        imagePath = Url.Content("~/img/logo.png");
+                                                    }
+                                                }
+                                                <img src="@imagePath" 
                                                      class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;" 
-                                                     alt="@item.Product.Name">
+                                                     alt="@item.Product.Name" 
+                                                     onerror="this.onerror=null; this.src='@Url.Content("~/img/logo.png")';">
                                                 <div>
                                                     <h6 class="mb-0">@item.Product.Name</h6>
                                                 </div>
