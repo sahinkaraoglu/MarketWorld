@@ -4,7 +4,7 @@
 <div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div class="d-flex align-items-center">
-            <input type="text" class="form-control me-2" placeholder="Ürün Ara..." style="width: 250px;">
+            <input type="text" class="form-control me-2" placeholder="Ürün Kodu..." style="width: 250px;">
             <select class="form-select ms-2" style="width: 150px;">
                 <option selected>Durum</option>
                 <option value="all">Tümü</option>
@@ -25,11 +25,12 @@
                         <th class="ps-4">
                             <input type="checkbox" class="form-check-input">
                         </th>
-                        <th>ÜRÜN</th>
+                        <th>GÖRSEL</th>
                         <th>ÜRÜN KODU</th>
+                        <th>ÜRÜN ADI</th>
                         <th>STOK</th>
                         <th>FİYAT</th>
-                        <th>RATING</th>
+                        <th>DEĞERLENDİRME</th>
                         <th>DURUM</th>
                         <th class="text-end pe-4">İŞLEMLER</th>
                     </tr>
@@ -320,10 +321,9 @@
                             <div class="d-flex align-items-center">
                                 <img src="${product.imageUrl}" class="rounded" style="width: 40px; height: 40px; object-fit: cover;"
                                      onerror="this.src='/img/ProductsPicture/default.jpg';">
-                                </td>
-                                    <td>${product.productNumber}</td>
-                                <td> 
-                                <span class="ms-2">${product.name}</span>
+                                <td>${product.productNumber}</td>
+                                <td><span class="ms-2">${product.name}</span></td>
+                                <td><span class="ms-2">${product.stock}</span></td>
                             </div>
                             ${product.stock < 5 ? '<span class="text-warning">Low stock</span> ' : ''}
                             ${product.stock}
