@@ -358,15 +358,16 @@
                         </td>
                         <td>${statusBadge}</td>
                         <td class="text-end pe-4">
-                            <div class="dropdown">
-                                <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown">
-                                    <i class="bi bi-three-dots"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#" onclick="editProduct(${product.id})"><i class="bi bi-pencil me-2"></i>Düzenle</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="deleteProduct(${product.id})"><i class="bi bi-trash me-2"></i>Sil</a></li>
-                                    <li><a class="dropdown-item" href="/Product/Detail/${product.id}"><i class="bi bi-eye me-2"></i>Görüntüle</a></li>
-                                </ul>
+                            <div class="d-flex gap-1 justify-content-end">
+                                <a href="#" class="btn btn-sm btn-outline-primary" onclick="editProduct(${product.id})" title="Düzenle">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${product.id})" title="Sil">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                                <a href="/Product/Detail/${product.id}" class="btn btn-sm btn-outline-info" title="Görüntüle">
+                                    <i class="bi bi-eye"></i>
+                                </a>
                             </div>
                         </td>
                     </tr>
