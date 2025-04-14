@@ -42,7 +42,8 @@ namespace MarketWorld.Web.Controllers
                 SubCategoryId = p.SubCategoryId ?? 0,
                 SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
                 BrandId = p.BrandId,
-                BrandName = p.Brand?.Name ?? "Markasız"
+                BrandName = p.Brand?.Name ?? "Markasız",
+                ProductNumber = p.ProductNumber
             }).ToList();
 
             return View(viewModel);
@@ -212,7 +213,8 @@ namespace MarketWorld.Web.Controllers
                     product.GetTotalStock() : 0,
                 CategoryId = product.SubCategory?.CategoryId ?? 0,
                 SubCategoryId = product.SubCategoryId ?? 0,
-                BrandId = product.BrandId
+                BrandId = product.BrandId,
+                ProductNumber = product.ProductNumber
             };
 
             return Json(viewModel);
@@ -350,7 +352,8 @@ namespace MarketWorld.Web.Controllers
                 SubCategoryId = p.SubCategoryId ?? 0,
                 SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
                 BrandId = p.BrandId,
-                BrandName = p.Brand?.Name ?? "Markasız"
+                BrandName = p.Brand?.Name ?? "Markasız",
+                ProductNumber = p.ProductNumber
             }).ToList();
 
             bool hasMore = (page * pageSize) < totalProducts;
