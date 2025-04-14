@@ -210,6 +210,10 @@
         .table td {
             vertical-align: middle;
             font-size: 0.875rem;
+            max-width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .rating i {
@@ -337,12 +341,13 @@
                             <div class="d-flex align-items-center">
                                 <img src="${product.imageUrl}" class="rounded" style="width: 40px; height: 40px; object-fit: cover;"
                                      onerror="this.src='/img/ProductsPicture/default.jpg';">
-                                <td>${product.productNumber}</td>
-                                <td><span class="ms-2">${product.name}</span></td>
-                                <td><span class="ms-2">${product.stock}</span></td>
                             </div>
-                            ${product.stock < 5 ? '<span class="text-warning">Low stock</span> ' : ''}
+                        </td>
+                        <td>${product.productNumber}</td>
+                        <td><div class="text-truncate" style="max-width: 200px;" title="${product.name}">${product.name}</div></td>
+                        <td>
                             ${product.stock}
+                            ${product.stock < 5 ? '<br><span class="text-warning">Düşük stok</span>' : ''}
                         </td>
                         <td>${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(product.price)}</td>
                         <td>
