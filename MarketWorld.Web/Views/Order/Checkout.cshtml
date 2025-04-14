@@ -129,24 +129,32 @@
                             <div id="creditCardDetails">
                                 <div class="row mb-3">
                                     <div class="col-12 mb-3">
-                                        <label class="form-label">Kart Üzerindeki İsim</label>
-                                        <input type="text" class="form-control" placeholder="Kart üzerindeki isim">
+                                        <label class="form-label">Kart Üzerindeki İsim <span class="text-danger">*</span></label>
+                                        <input type="text" name="cardHolderName" class="form-control" placeholder="Kart üzerindeki isim" required
+                                               minlength="5" maxlength="50">
+                                        <div class="invalid-feedback">Lütfen kart üzerindeki ismi giriniz</div>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-12 mb-3">
-                                        <label class="form-label">Kart Numarası</label>
-                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                        <label class="form-label">Kart Numarası <span class="text-danger">*</span></label>
+                                        <input type="text" name="cardNumber" id="cardNumber" class="form-control" placeholder="xxxx xxxx xxxx xxxx" required
+                                               pattern="[0-9\s]{13,19}" maxlength="19">
+                                        <div class="invalid-feedback">Geçerli bir kart numarası giriniz</div>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">Son Kullanma Tarihi</label>
-                                        <input type="text" class="form-control" placeholder="AA/YY">
+                                        <label class="form-label">Son Kullanma Tarihi <span class="text-danger">*</span></label>
+                                        <input type="text" name="expiryDate" id="expiryDate" class="form-control" placeholder="AA/YY" required
+                                               pattern="(0[1-9]|1[0-2])\/[0-9]{2}" maxlength="5">
+                                        <div class="invalid-feedback">Geçerli bir son kullanma tarihi giriniz (AA/YY)</div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">CVV</label>
-                                        <input type="text" class="form-control" placeholder="CVV">
+                                        <label class="form-label">CVV <span class="text-danger">*</span></label>
+                                        <input type="text" name="cvv" id="cvv" class="form-control" placeholder="CVV" required
+                                               pattern="[0-9]{3,4}" maxlength="4">
+                                        <div class="invalid-feedback">Geçerli bir CVV giriniz</div>
                                     </div>
                                 </div>
                             </div>
@@ -310,9 +318,96 @@
                     $('#bankTransferDetails').removeClass('d-none');
                 }
             });
+            
+            // Kredi kartı numarası maskeleme (xxxx xxxx xxxx xxxx)
+            $('#cardNumber').on('input', function() {
+                var value = $(this).val().replace(/\D/g, '').substring(0, 16);
+                var formattedValue = '';
+                
+                for (var i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formattedValue += ' ';
+                    }
+                    formattedValue += value.charAt(i);
+                }
+                
+                $(this).val(formattedValue);
+            });
+            
+            // Son kullanma tarihi maskeleme (AA/YY)
+            $('#expiryDate').on('input', function() {
+                var value = $(this).val().replace(/\D/g, '').substring(0, 4);
+                var formattedValue = '';
+                
+                if (value.length > 0) {
+                    formattedValue = value.substring(0, 2);
+                    if (value.length > 2) {
+                        formattedValue += '/' + value.substring(2);
+                    }
+                }
+                
+                $(this).val(formattedValue);
+            });
+            
+            // CVV sadece sayı girişi için
+            $('#cvv').on('input', function() {
+                $(this).val($(this).val().replace(/\D/g, '').substring(0, 4));
+            });
+            
+            // Form doğrulama
+            $('#orderForm').on('submit', function(e) {
+                if ($('input[name="paymentMethod"]:checked').val() === 'CreditCard') {
+                    // Form elementlerini kontrol et
+                    var formValid = true;
+                    
+                    $('#creditCardDetails input[required]').each(function() {
+                        if (!this.checkValidity()) {
+                            formValid = false;
+                            $(this).addClass('is-invalid');
+                        } else {
+                            $(this).removeClass('is-invalid');
+                        }
+                    });
+                    
+                    if (!formValid) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Modal'ı kapat
+                        if ($('#orderConfirmationModal').length) {
+                            bootstrap.Modal.getInstance(document.getElementById('orderConfirmationModal')).hide();
+                        }
+                        
+                        return false;
+                    }
+                }
+                
+                return true;
+            });
 
             // Siparişi tamamla butonu
             $('#completeOrderBtn').click(function() {
+                // Form doğrulamasını manuel olarak çalıştır
+                if ($('input[name="paymentMethod"]:checked').val() === 'CreditCard') {
+                    var formValid = true;
+                    
+                    $('#creditCardDetails input[required]').each(function() {
+                        if (!this.checkValidity()) {
+                            formValid = false;
+                            $(this).addClass('is-invalid');
+                        } else {
+                            $(this).removeClass('is-invalid');
+                        }
+                    });
+                    
+                    if (!formValid) {
+                        $('html, body').animate({
+                            scrollTop: $('#creditCardDetails').offset().top - 100
+                        }, 300);
+                        return false;
+                    }
+                }
+                
                 // Form gönderilmeden önce son bir kez fatura adresini kontrol et
                 if ($('#sameAddress').is(':checked')) {
                     var selectedShippingId = $('input[name="shippingAddressId"]:checked').val();
