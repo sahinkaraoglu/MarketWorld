@@ -9,9 +9,6 @@ namespace MarketWorld.Domain.Entities
     public class Product : BaseEntity
     {
         [StringLength(6)]
-        /// <summary>
-        /// Ürün için benzersiz 6 haneli rastgele oluşturulan ürün numarası
-        /// </summary>
         public string ProductNumber { get; set; } = "000000";
         public string Name { get; set; }
         public int BrandId { get; set; }

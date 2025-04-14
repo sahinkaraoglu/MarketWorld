@@ -163,6 +163,7 @@ namespace MarketWorld.Web.Controllers
             var viewModel = new ProductDetailViewModel
             {
                 Id = product.Id,
+                ProductNumber = product.ProductNumber,
                 Name = product.Name,
                 Description = product.Description,
                 BrandId = product.BrandId,

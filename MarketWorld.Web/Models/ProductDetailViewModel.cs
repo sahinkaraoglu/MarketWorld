@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace MarketWorld.Web.Models
@@ -7,6 +8,9 @@ namespace MarketWorld.Web.Models
     public class ProductDetailViewModel
     {
         public int Id { get; set; }
+
+        [StringLength(6)]
+        public string ProductNumber { get; set; } = "000000";
         public string Name { get; set; }
         public string Description { get; set; }
         public int BrandId { get; set; }
