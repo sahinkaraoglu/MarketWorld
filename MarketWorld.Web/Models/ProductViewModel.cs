@@ -20,6 +20,7 @@ namespace MarketWorld.Web.Models
         public int SubCategoryId { get; set; }
         public bool HasDiscount { get; set; }
         public decimal? DiscountPrice { get; set; }
+        public string ProductNumber { get; set; } = "000000";
 
 
     }

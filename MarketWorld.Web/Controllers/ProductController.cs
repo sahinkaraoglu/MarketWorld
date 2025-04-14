@@ -45,7 +45,8 @@ namespace MarketWorld.Web.Controllers
                     Stock = p.GetTotalStock(),
                     CategoryName = p.SubCategory.Category.Name,
                     HasDiscount = p.HasDiscount,
-                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null
+                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
+                    ProductNumber = p.ProductNumber
                 }) .ToListAsync();
 
             var brands = await _context.Brands
@@ -99,7 +100,8 @@ namespace MarketWorld.Web.Controllers
                     Stock = p.GetTotalStock(),
                     CategoryName = p.SubCategory.Category.Name,
                     HasDiscount = p.HasDiscount,
-                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null
+                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
+                    ProductNumber = p.ProductNumber
                 })
                 .ToListAsync();
 
@@ -116,7 +118,7 @@ namespace MarketWorld.Web.Controllers
             ViewBag.TotalPages = totalPages;
             ViewBag.SubCategoryName = subCategoryName;
 
-            return View("ProductList", products);
+            return await GetProductsBySubCategoryName(subCategoryName);
         }
 
         public async Task<IActionResult> Detail(int id)
@@ -290,7 +292,8 @@ namespace MarketWorld.Web.Controllers
                     imageUrl = p.Images.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
                     rating = p.Rating,
                     reviewCount = 100, // Örnek değer
-                    hasFreeShipping = p.Price > 45000
+                    hasFreeShipping = p.Price > 45000,
+                    productNumber = p.ProductNumber
                 })
                 .ToListAsync();
 
