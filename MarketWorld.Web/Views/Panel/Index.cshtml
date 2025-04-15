@@ -2,135 +2,342 @@
     ViewData["Title"] = "Yönetim Paneli";
 }
 
-<div class="container mt-5 pt-5">
-    <div class="row">
-        <div class="col-12 mb-4">
-            <center><h1 class="display-5 fw-bold">MarketWorld Yönetim Paneli</h1></center>
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="dashboard-title">MarketWorld Yönetim Paneli</h1>
+                    <p class="dashboard-subtitle">Online mağazanızı tek yerden yönetin</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">24</span>
+                            <span class="stat-label">Yeni Sipariş</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">₺8.4K</span>
+                            <span class="stat-label">Bugünkü Gelir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-
-    <div class="row g-4">
-        <!-- Ürün Yönetimi -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="icon-box bg-primary text-white me-3">
-                            <i class="bi bi-box-seam"></i>
-                        </div>
-                        <h5 class="card-title mb-0">Ürün Yönetimi</h5>
+    <div class="container dashboard-content">
+        <div class="row g-3">
+            <!-- Ürün Yönetimi -->
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <div class="card-icon product-icon">
+                        <i class="bi bi-box-seam"></i>
                     </div>
-                    <p class="card-text">Ürünleri ekleyin, düzenleyin ve yönetin. Stok durumlarını takip edin.</p>
-                    <a href="@Url.Action("Products", "Panel")" class="btn btn-primary">Ürünlere Git</a>
+                    <div class="card-content">
+                        <h3>Ürün Yönetimi</h3>
+                        <p class="card-desc">Ürünleri ekleyin, düzenleyin ve stokları takip edin</p>
+                        <div class="card-stats">
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">156</span>
+                                <span class="mini-stat-label">Ürün</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">23</span>
+                                <span class="mini-stat-label">Stok Az</span>
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Products", "Panel")" class="dashboard-btn">Ürünlere Git</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori Yönetimi -->
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <div class="card-icon category-icon">
+                        <i class="bi bi-grid"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Kategori Yönetimi</h3>
+                        <p class="card-desc">Kategorileri düzenleyin ve yenilerini ekleyin</p>
+                        <div class="card-stats">
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">18</span>
+                                <span class="mini-stat-label">Ana Kategori</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">42</span>
+                                <span class="mini-stat-label">Alt Kategori</span>
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Categories", "Panel")" class="dashboard-btn">Kategorilere Git</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sipariş Yönetimi -->
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <div class="card-icon order-icon">
+                        <i class="bi bi-cart-check"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Sipariş Yönetimi</h3>
+                        <p class="card-desc">Siparişleri görüntüleyin ve durumlarını takip edin</p>
+                        <div class="card-stats">
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">24</span>
+                                <span class="mini-stat-label">Yeni</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">12</span>
+                                <span class="mini-stat-label">Kargoda</span>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-btn">Siparişlere Git</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kullanıcı Yönetimi -->
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <div class="card-icon user-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Kullanıcı Yönetimi</h3>
+                        <p class="card-desc">Kullanıcıları yönetin ve rol atamaları yapın</p>
+                        <div class="card-stats">
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">1250</span>
+                                <span class="mini-stat-label">Toplam</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">18</span>
+                                <span class="mini-stat-label">Yeni</span>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-btn">Kullanıcılara Git</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marka Yönetimi -->
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <div class="card-icon brand-icon">
+                        <i class="bi bi-award"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Marka Yönetimi</h3>
+                        <p class="card-desc">Markaları ekleyin ve kategorilerle ilişkilendirin</p>
+                        <div class="card-stats">
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">45</span>
+                                <span class="mini-stat-label">Toplam</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">8</span>
+                                <span class="mini-stat-label">Çok Satan</span>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-btn">Markalara Git</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raporlar -->
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <div class="card-icon report-icon">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Raporlar</h3>
+                        <p class="card-desc">Satış raporları ve müşteri analizlerini görüntüleyin</p>
+                        <div class="card-stats">
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">₺84K</span>
+                                <span class="mini-stat-label">Aylık</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value">328</span>
+                                <span class="mini-stat-label">Sipariş</span>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-btn">Raporlara Git</a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Kategori Yönetimi -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="icon-box bg-success text-white me-3">
-                            <i class="bi bi-grid"></i>
-                        </div>
-                        <h5 class="card-title mb-0">Kategori Yönetimi</h5>
-                    </div>
-                    <p class="card-text">Kategorileri ve alt kategorileri düzenleyin, yeni kategoriler ekleyin.</p>
-                    <a href="@Url.Action("Categories", "Panel")" class="btn btn-success">Kategorilere Git</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sipariş Yönetimi -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="icon-box bg-info text-white me-3">
-                            <i class="bi bi-cart-check"></i>
-                        </div>
-                        <h5 class="card-title mb-0">Sipariş Yönetimi</h5>
-                    </div>
-                    <p class="card-text">Siparişleri görüntüleyin, durumlarını güncelleyin ve takip edin.</p>
-                    <a href="#" class="btn btn-info">Siparişlere Git</a>
-                </div>
-            </div>
-        </div>
-        <p>
-        <!-- Kullanıcı Yönetimi -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="icon-box bg-warning text-white me-3">
-                            <i class="bi bi-people"></i>
-                        </div>
-                        <h5 class="card-title mb-0">Kullanıcı Yönetimi</h5>
-                    </div>
-                    <p class="card-text">Kullanıcıları yönetin, yetkilendirme ve rol atamaları yapın.</p>
-                    <a href="#" class="btn btn-warning">Kullanıcılara Git</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Marka Yönetimi -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="icon-box bg-danger text-white me-3">
-                            <i class="bi bi-award"></i>
-                        </div>
-                        <h5 class="card-title mb-0">Marka Yönetimi</h5>
-                    </div>
-                    <p class="card-text">Markaları ekleyin, düzenleyin ve kategorilerle ilişkilendirin.</p>
-                    <a href="#" class="btn btn-danger">Markalara Git</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Raporlar -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="icon-box bg-secondary text-white me-3">
-                            <i class="bi bi-graph-up"></i>
-                        </div>
-                        <h5 class="card-title mb-0">Raporlar</h5>
-                    </div>
-                    <p class="card-text">Satış raporları, stok durumu ve müşteri analizlerini görüntüleyin.</p>
-                    <a href="#" class="btn btn-secondary">Raporlara Git</a>
-                </div>
-            </div>
-        </div><p>
     </div>
 </div>
 
 <style>
-    .icon-box {
-        width: 48px;
-        height: 48px;
-        border-radius: 12px;
+    .dashboard-container {
+        background-color: #f8f9fa;
+    }
+    
+    .dashboard-header {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        color: white;
+        padding: 20px 0 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .dashboard-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 2px;
+    }
+    
+    .dashboard-subtitle {
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .quick-stats {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        text-align: center;
+        background: rgba(255,255,255,0.2);
+        padding: 6px 15px;
+        border-radius: 8px;
+    }
+    
+    .stat-value {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+        opacity: 0.9;
+    }
+    
+    .dashboard-content {
+        padding-bottom: 30px;
+    }
+    
+    .dashboard-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+    
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .card-icon {
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 22px;
+        color: white;
     }
     
-    .icon-box i {
-        font-size: 24px;
+    .product-icon { background: linear-gradient(135deg, #4e73df, #224abe); }
+    .category-icon { background: linear-gradient(135deg, #1cc88a, #169a6b); }
+    .order-icon { background: linear-gradient(135deg, #36b9cc, #258391); }
+    .user-icon { background: linear-gradient(135deg, #f6c23e, #dda20a); }
+    .brand-icon { background: linear-gradient(135deg, #e74a3b, #be3529); }
+    .report-icon { background: linear-gradient(135deg, #5a5c69, #373840); }
+    
+    .card-content {
+        padding: 15px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
     
-    .card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        border: none;
-        border-radius: 12px;
+    .card-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        font-weight: 600;
     }
     
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    .card-desc {
+        margin-bottom: 12px;
+        color: #6c757d;
+        line-height: 1.3;
+        font-size: 0.85rem;
+    }
+    
+    .card-stats {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        margin-top: auto;
+    }
+    
+    .mini-stat {
+        background: #f8f9fa;
+        padding: 6px 10px;
+        border-radius: 6px;
+        flex: 1;
+    }
+    
+    .mini-stat-value {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #333;
+    }
+    
+    .mini-stat-label {
+        font-size: 0.7rem;
+        color: #6c757d;
+    }
+    
+    .dashboard-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        background: #2c3e50;
+        transition: all 0.3s ease;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+    
+    .dashboard-btn:hover {
+        background: #4ca1af;
+        transform: translateY(-2px);
+        color: white;
+    }
+    
+    @@media (max-width: 992px) {
+        .quick-stats {
+            justify-content: flex-start;
+            margin-top: 15px;
+        }
+    }
+    
+    @@media (max-width: 768px) {
+        .dashboard-header {
+            padding: 20px 0 15px;
+        }
+        
+        .dashboard-title {
+            font-size: 1.5rem;
+        }
     }
 </style>
