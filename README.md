@@ -62,6 +62,7 @@
 - **Database**: Microsoft SQL Server
 - **ORM**: Entity Framework Core 8.0
 - **Architecture**: Clean Architecture with Domain-Driven Design
+- - **API**: RESTful API endpoints
 
 ### Frontend
 - **Framework**: ASP.NET MVC
@@ -84,6 +85,7 @@ MarketWorld/
 ├── MarketWorld.Domain/         # Core business logic and entities
 ├── MarketWorld.Application/    # Application business rules and interfaces
 ├── MarketWorld.Infrastructure/ # External concerns implementation
+├── MarketWorld.API/           # API endpoints for external integrations
 └── MarketWorld.Web/           # User interface and web application
 ```
 
@@ -105,14 +107,12 @@ MarketWorld/
 
 ## 📈 Current Status
 
-The project is in active development with planned completion in Spring 2024. Current implementation status:
-
 ✅ User authentication and authorization  
 ✅ Product catalog management  
 ✅ Shopping cart functionality  
 ✅ Category and subcategory management  
 ✅ Basic order processing  
-🔄 Payment integration (In Progress)  
-🔄 Admin dashboard (In Progress)  
-📅 Advanced analytics (Planned)  
-📅 Customer reviews system (Planned)
+✅ Payment integration (In Progress)  
+✅ Admin dashboard (In Progress)  
+✅ Advanced analytics (Planned)  
+✅ Customer reviews system (Planned)
