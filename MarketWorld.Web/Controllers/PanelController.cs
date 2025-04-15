@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
 using MarketWorld.Domain.Entities;
 using MarketWorld.Web.Models.Admin;
+using MarketWorld.Web.Models;  // UserViewModel için
 
 namespace MarketWorld.Web.Controllers
 {
@@ -715,6 +716,178 @@ namespace MarketWorld.Web.Controllers
             {
                 return View("Error", ex.Message);
             }
+        }
+
+        // Kullanıcı listesi sayfası
+        public async Task<IActionResult> Users()
+        {
+            var users = await _context.Users
+                .Include(u => u.UserRole)
+                .Select(u => new UserViewModel
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    Email = u.Email,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Role = u.UserRole.Role,
+                    IsActive = u.IsActive,
+                    RegistrationDate = u.CreatedDate
+                })
+                .ToListAsync();
+            
+            // Kullanıcı istatistikleri
+            ViewBag.TotalUsersCount = users.Count;
+            ViewBag.ActiveUsersCount = users.Count(u => u.IsActive);
+            ViewBag.NewUsersCount = users.Count(u => u.RegistrationDate >= DateTime.Now.AddDays(-30));
+            
+            return View(users);
+        }
+
+        // Kullanıcı bilgilerini getir
+        [HttpGet]
+        [Route("Panel/GetUser/{id}")]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            var user = await _context.Users
+                .Include(u => u.UserRole)
+                .FirstOrDefaultAsync(u => u.Id == id);
+            
+            if (user == null)
+            {
+                return NotFound();
+            }
+            
+            var viewModel = new UserViewModel
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Role = user.UserRole.Role,
+                IsActive = user.IsActive,
+                RegistrationDate = user.CreatedDate
+            };
+            
+            return Json(viewModel);
+        }
+
+        // Yeni kullanıcı ekle
+        [HttpPost]
+        [Route("Panel/AddUser")]
+        public async Task<IActionResult> AddUser([FromBody] UserViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new { success = false, message = "Geçersiz veri" });
+            }
+            
+            // Email ve kullanıcı adı benzersiz olmalı
+            if (await _context.Users.AnyAsync(u => u.Email == model.Email))
+            {
+                return BadRequest(new { success = false, message = "Bu email adresi zaten kullanımda" });
+            }
+            
+            if (await _context.Users.AnyAsync(u => u.Username == model.Username))
+            {
+                return BadRequest(new { success = false, message = "Bu kullanıcı adı zaten kullanımda" });
+            }
+            
+            // Şifre doğrulama kontrolünü client tarafında da yaptık ama burada da kontrol edelim
+            if (string.IsNullOrEmpty(model.Password) || model.Password != model.ConfirmPassword)
+            {
+                return BadRequest(new { success = false, message = "Şifreler eşleşmiyor" });
+            }
+            var userRole = await _context.UserRoles.FirstOrDefaultAsync(r => r.Role == model.Role);
+            // Yeni kullanıcı oluştur
+            var user = new User
+            {
+                Username = model.Username,
+                Email = model.Email,
+                FirstName = model.FirstName ?? "",
+                LastName = model.LastName ?? "",
+                UserRoleId = userRole.Id,
+                IsActive = model.IsActive,
+                CreatedDate = DateTime.Now
+            };
+            
+            // Şifreyi hash'le
+            user.Password = model.Password;
+            
+            // Veritabanına ekle
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            
+            return Json(new { success = true, message = "Kullanıcı başarıyla eklendi" });
+        }
+
+        // Kullanıcı güncelle
+        [HttpPost]
+        [Route("Panel/UpdateUser")]
+        public async Task<IActionResult> UpdateUser([FromBody] UserViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new { success = false, message = "Geçersiz veri" });
+            }
+            
+            var user = await _context.Users.FindAsync(model.Id);
+            
+            if (user == null)
+            {
+                return NotFound(new { success = false, message = "Kullanıcı bulunamadı" });
+            }
+            
+            // Email ve kullanıcı adı benzersiz olmalı (kendisi hariç)
+            if (await _context.Users.AnyAsync(u => u.Email == model.Email && u.Id != model.Id))
+            {
+                return BadRequest(new { success = false, message = "Bu email adresi zaten kullanımda" });
+            }
+            
+            if (await _context.Users.AnyAsync(u => u.Username == model.Username && u.Id != model.Id))
+            {
+                return BadRequest(new { success = false, message = "Bu kullanıcı adı zaten kullanımda" });
+            }
+            
+            // Kullanıcı bilgilerini güncelle
+            user.Username = model.Username;
+            user.Email = model.Email;
+            user.FirstName = model.FirstName ?? user.FirstName;
+            user.LastName = model.LastName ?? user.LastName;
+            user.UserRoleId = await _context.UserRoles.Where(r => r.Role == model.Role).Select(r => r.Id).FirstOrDefaultAsync();
+            user.IsActive = model.IsActive;
+            user.UpdatedDate = DateTime.Now;
+            
+            // Şifre sadece dolu gönderilmişse güncelle
+            if (!string.IsNullOrEmpty(model.Password))
+            {
+                user.Password = model.Password;
+            }
+            
+            await _context.SaveChangesAsync();
+            
+            return Json(new { success = true, message = "Kullanıcı başarıyla güncellendi" });
+        }
+
+        // Kullanıcı sil
+        [HttpPost]
+        [Route("Panel/DeleteUser/{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            
+            if (user == null)
+            {
+                return NotFound(new { success = false, message = "Kullanıcı bulunamadı" });
+            }
+            
+            // Databaseden tamamen silmek yerine IsDeleted flag'i koyabilirsiniz
+            // Bu örnekte tamamen siliyoruz
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            
+            return Json(new { success = true, message = "Kullanıcı başarıyla silindi" });
         }
     }
 } 
