@@ -15,6 +15,72 @@ namespace MarketWorld.Web.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            // Ürün istatistikleri
+            ViewBag.ProductsCount = await _context.Products.CountAsync();
+            
+            // Stok az olan ürün sayısını hesaplama - GetTotalStock() veritabanında çalışmadığı için önce veriyi çekiyoruz
+            var products = await _context.Products
+                .Include(p => p.ProductProperties)
+                .Where(p => p.IsActive)
+                .ToListAsync();
+                
+            ViewBag.LowStockCount = products.Count(p => p.GetTotalStock() < 10);
+                
+            // Kategori istatistikleri
+            ViewBag.CategoriesCount = await _context.Categories.CountAsync();
+            ViewBag.SubCategoriesCount = await _context.SubCategories.CountAsync();
+            
+            // Sipariş istatistikleri
+            var orders = await _context.Orders.ToListAsync();
+            
+            // Debug için sipariş detaylarını kontrol et
+            foreach (var order in orders)
+            {
+                System.Diagnostics.Debug.WriteLine($"Sipariş ID: {order.Id}, Durum: {order.Status}, Tarih: {order.CreatedDate}");
+            }
+            
+            // Sipariş sayılarını yeniden hesapla
+            ViewBag.NewOrdersCount = orders.Count;
+            ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Shipped);
+            
+            // Kullanıcı istatistikleri
+            ViewBag.TotalUsersCount = await _context.Users.CountAsync();
+            ViewBag.NewUsersCount = await _context.Users
+                .Where(u => u.CreatedDate >= DateTime.Now.AddDays(-7))
+                .CountAsync();
+                
+            // Marka istatistikleri
+            ViewBag.BrandsCount = await _context.Brands.CountAsync();
+            
+            // Çok satan markaları hesapla
+            var topSellerBrands = await _context.OrderItems
+                .Include(oi => oi.Product)
+                .ThenInclude(p => p.Brand)
+                .Where(oi => oi.Product.Brand != null)
+                .GroupBy(oi => oi.Product.BrandId)
+                .Select(g => new { BrandId = g.Key, Count = g.Count() })
+                .OrderByDescending(x => x.Count)
+                .Take(10)
+                .CountAsync();
+                
+            ViewBag.TopSellerBrandsCount = topSellerBrands;
+            
+            // Gelir istatistikleri
+            var monthlyOrders = orders.Where(o => o.CreatedDate >= DateTime.Now.AddMonths(-1));
+            var monthlyRevenue = monthlyOrders.Sum(o => o.TotalAmount);
+            ViewBag.MonthlyRevenue = monthlyRevenue.ToString("0.#K");
+            ViewBag.MonthlyOrdersCount = monthlyOrders.Count();
+            
+            // Günlük istatistikler
+            var todayOrders = orders.Where(o => o.CreatedDate == DateTime.Today);
+            var todayRevenue = todayOrders.Sum(o => o.TotalAmount);
+            ViewBag.TodayRevenue = todayRevenue.ToString("0.#K");
+            
+            return View();
+        }
+
         public async Task<IActionResult> Products()
         {
             var products = await _context.Products
@@ -525,11 +591,6 @@ namespace MarketWorld.Web.Controllers
             {
                 return Json(new { success = false, message = ex.Message });
             }
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
 
         public async Task<IActionResult> Orders(int? status = null)

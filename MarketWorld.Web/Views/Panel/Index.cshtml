@@ -13,11 +13,11 @@
                @*  <div class="col-lg-4">
                     <div class="quick-stats">
                         <div class="stat-item">
-                            <span class="stat-value">24</span>
+                            <span class="stat-value">@ViewBag.NewOrdersCount</span>
                             <span class="stat-label">Yeni Sipariş</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-value">₺8.4K</span>
+                            <span class="stat-value">₺@ViewBag.TodayRevenue</span>
                             <span class="stat-label">Bugünkü Gelir</span>
                         </div>
                     </div>
@@ -39,11 +39,11 @@
                         <p class="card-desc">Ürünleri ekleyin, düzenleyin ve stokları takip edin</p>
                         <div class="card-stats">
                             <div class="mini-stat">
-                                <span class="mini-stat-value">156</span>
+                                <span class="mini-stat-value">@ViewBag.ProductsCount</span>
                                 <span class="mini-stat-label">Ürün</span>
                             </div>
                             <div class="mini-stat">
-                                <span class="mini-stat-value">23</span>
+                                <span class="mini-stat-value">@ViewBag.LowStockCount</span>
                                 <span class="mini-stat-label">Stok Az</span>
                             </div>
                         </div>
@@ -63,11 +63,11 @@
                         <p class="card-desc">Kategorileri düzenleyin ve yenilerini ekleyin</p>
                         <div class="card-stats">
                             <div class="mini-stat">
-                                <span class="mini-stat-value">18</span>
+                                <span class="mini-stat-value">@ViewBag.CategoriesCount</span>
                                 <span class="mini-stat-label">Ana Kategori</span>
                             </div>
                             <div class="mini-stat">
-                                <span class="mini-stat-value">42</span>
+                                <span class="mini-stat-value">@ViewBag.SubCategoriesCount</span>
                                 <span class="mini-stat-label">Alt Kategori</span>
                             </div>
                         </div>
@@ -87,11 +87,11 @@
                         <p class="card-desc">Siparişleri görüntüleyin ve durumlarını takip edin</p>
                         <div class="card-stats">
                             <div class="mini-stat">
-                                <span class="mini-stat-value">24</span>
+                                <span class="mini-stat-value">@ViewBag.NewOrdersCount</span>
                                 <span class="mini-stat-label">Yeni</span>
                             </div>
                             <div class="mini-stat">
-                                <span class="mini-stat-value">12</span>
+                                <span class="mini-stat-value">@ViewBag.ShippingOrdersCount</span>
                                 <span class="mini-stat-label">Kargoda</span>
                             </div>
                         </div>
@@ -111,15 +111,15 @@
                         <p class="card-desc">Kullanıcıları yönetin ve rol atamaları yapın</p>
                         <div class="card-stats">
                             <div class="mini-stat">
-                                <span class="mini-stat-value">1250</span>
+                                <span class="mini-stat-value">@ViewBag.TotalUsersCount</span>
                                 <span class="mini-stat-label">Toplam</span>
                             </div>
                             <div class="mini-stat">
-                                <span class="mini-stat-value">18</span>
+                                <span class="mini-stat-value">@ViewBag.NewUsersCount</span>
                                 <span class="mini-stat-label">Yeni</span>
                             </div>
                         </div>
-                        <a href="#" class="dashboard-btn">Kullanıcılara Git</a>
+                        <a href="@Url.Action("Users", "Panel")" class="dashboard-btn">Kullanıcılara Git</a>
                     </div>
                 </div>
             </div>
@@ -135,15 +135,15 @@
                         <p class="card-desc">Markaları ekleyin ve kategorilerle ilişkilendirin</p>
                         <div class="card-stats">
                             <div class="mini-stat">
-                                <span class="mini-stat-value">45</span>
+                                <span class="mini-stat-value">@ViewBag.BrandsCount</span>
                                 <span class="mini-stat-label">Toplam</span>
                             </div>
                             <div class="mini-stat">
-                                <span class="mini-stat-value">8</span>
+                                <span class="mini-stat-value">@ViewBag.TopSellerBrandsCount</span>
                                 <span class="mini-stat-label">Çok Satan</span>
                             </div>
                         </div>
-                        <a href="#" class="dashboard-btn">Markalara Git</a>
+                        <a href="@Url.Action("Brands", "Panel")" class="dashboard-btn">Markalara Git</a>
                     </div>
                 </div>
             </div>
@@ -159,15 +159,15 @@
                         <p class="card-desc">Satış raporları ve müşteri analizlerini görüntüleyin</p>
                         <div class="card-stats">
                             <div class="mini-stat">
-                                <span class="mini-stat-value">₺84K</span>
+                                <span class="mini-stat-value">₺@ViewBag.MonthlyRevenue</span>
                                 <span class="mini-stat-label">Aylık</span>
                             </div>
                             <div class="mini-stat">
-                                <span class="mini-stat-value">328</span>
+                                <span class="mini-stat-value">@ViewBag.MonthlyOrdersCount</span>
                                 <span class="mini-stat-label">Sipariş</span>
                             </div>
                         </div>
-                        <a href="#" class="dashboard-btn">Raporlara Git</a>
+                        <a href="@Url.Action("Reports", "Panel")" class="dashboard-btn">Raporlara Git</a>
                     </div>
                 </div>
             </div>
