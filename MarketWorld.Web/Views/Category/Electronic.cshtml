@@ -6,12 +6,13 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/css/CategoryMenu/electronic.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 }
 
 <div class="electronic-container">
     <div class="electronic-header">
         <h1>Elektronik Kategorileri</h1>
-        <p>En yeni elektronik ürünleri keşfedin</p>
+        <p>En yeni ve kaliteli elektronik ürünleri keşfederek teknoloji dünyasının tüm yeniliklerine sahip olun</p>
     </div>
 
     <div class="electronic-grid">
@@ -24,11 +25,19 @@
                         <div class="electronic-card-image">
                             <img src="~/img/CategoryPhoto/computer.jpg" alt="Bilgisayarlar & Tabletler" />
                         </div>
+                        <div class="electronic-card-tags">
+                            <span class="electronic-tag">Laptop</span>
+                            <span class="electronic-tag">Tablet</span>
+                        </div>
                     }
                     else if (category.Name == "Yazıcılar & Projeksiyon")
                     {
                         <div class="electronic-card-image">
                             <img src="~/img/CategoryPhoto/printer.jpg" alt="Yazıcılar & Projeksiyon" />
+                        </div>
+                        <div class="electronic-card-tags">
+                            <span class="electronic-tag">Yazıcı</span>
+                            <span class="electronic-tag">Projeksiyon</span>
                         </div>
                     }
                     else if (category.Name == "Telefonlar")
@@ -36,11 +45,18 @@
                         <div class="electronic-card-image">
                             <img src="~/img/CategoryPhoto/telephone.jpg" alt="Telefonlar" />
                         </div>
+                        <div class="electronic-card-tags">
+                            <span class="electronic-tag">Akıllı Telefon</span>
+                        </div>
                     }
                     else if (category.Name == "Beyaz Eşya")
                     {
                         <div class="electronic-card-image">
                             <img src="~/img/CategoryPhoto/whitefurniture.jpg" alt="Beyaz Eşya" />
+                        </div>
+                        <div class="electronic-card-tags">
+                            <span class="electronic-tag">Buzdolabı</span>
+                            <span class="electronic-tag">Çamaşır Makinesi</span>
                         </div>
                     }
                     else if (category.Name == "Klima ve Isıtıcılar")
@@ -48,11 +64,18 @@
                         <div class="electronic-card-image">
                             <img src="~/img/CategoryPhoto/airconditioner.jpg" alt="Klima ve Isıtıcılar" />
                         </div>
+                        <div class="electronic-card-tags">
+                            <span class="electronic-tag">Klima</span>
+                            <span class="electronic-tag">Isıtıcı</span>
+                        </div>
                     }
                     else
                     {
                         <div class="electronic-card-icon">
                             <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="electronic-card-tags">
+                            <span class="electronic-tag">Elektronik</span>
                         </div>
                     }
                     <h3>@category.Name</h3>
