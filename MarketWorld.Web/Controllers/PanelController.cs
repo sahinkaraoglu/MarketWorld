@@ -318,7 +318,81 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> LoadMoreProducts(int page = 1, int pageSize = 15, string productNumber = "")
+        public async Task<IActionResult> GetProducts(int page = 1, int pageSize = 30, string productNumber = "", string status = "")
+        {
+            try
+            {
+                var query = _context.Products
+                    .Include(p => p.SubCategory)
+                        .ThenInclude(sc => sc.Category)
+                    .Include(p => p.Brand)
+                    .Include(p => p.Images)
+                    .Include(p => p.ProductProperties)
+                    .AsQueryable();
+                
+                // Ürün kodu ile filtreleme
+                if (!string.IsNullOrEmpty(productNumber))
+                {
+                    query = query.Where(p => p.ProductNumber.Contains(productNumber));
+                }
+
+                // Durum ile filtreleme
+                if (!string.IsNullOrEmpty(status))
+                {
+                    if (status == "active")
+                    {
+                        query = query.Where(p => p.IsActive);
+                    }
+                    else if (status == "inactive")
+                    {
+                        query = query.Where(p => !p.IsActive);
+                    }
+                }
+
+                var totalProducts = await query.CountAsync();
+                var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
+                
+                var products = await query
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync();
+
+                var viewModel = products.Select(p => new ProductAdminViewModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Price = p.Price,
+                    Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
+                        p.GetTotalStock() : 0,
+                    Rating = p.Rating,
+                    Status = p.IsActive ? "Published" : "Draft",
+                    ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
+                        $"/{p.Images.FirstOrDefault().Path}" : 
+                        "/img/ProductsPicture/default.jpg",
+                    CategoryId = p.SubCategory?.CategoryId ?? 0,
+                    CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
+                    SubCategoryId = p.SubCategoryId ?? 0,
+                    SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
+                    BrandId = p.BrandId,
+                    BrandName = p.Brand?.Name ?? "Markasız",
+                    ProductNumber = p.ProductNumber
+                }).ToList();
+
+                return Json(new { 
+                    products = viewModel, 
+                    totalPages = totalPages,
+                    totalProducts = totalProducts,
+                    currentPage = page
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Ürünler yüklenirken bir hata oluştu: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LoadMoreProducts(int page = 1, int pageSize = 30, string productNumber = "")
         {
             try
             {

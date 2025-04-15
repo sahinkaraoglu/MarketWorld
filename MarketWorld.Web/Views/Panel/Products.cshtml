@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div class="d-flex align-items-center">
             <input type="text" id="productNumberSearch" class="form-control me-2" placeholder="Ürün Kodu..." style="width: 250px;">
-            <select class="form-select ms-2" style="width: 150px;">
+            <select class="form-select ms-2" id="statusFilter" style="width: 150px;">
                 <option selected>Durum</option>
                 <option value="all">Tümü</option>
                 <option value="active">Aktif</option>
@@ -36,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
-                    <!-- İlk 15 ürün burada gösterilecek -->
+                    <!-- Ürünler burada listelenecek -->
                 </tbody>
             </table>
         </div>
@@ -46,6 +46,18 @@
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Yükleniyor...</span>
         </div>
+    </div>
+    
+    <!-- Sayfalama kontrolleri -->
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <div class="text-muted">
+            <span id="totalProductCount">0</span> Ürün
+        </div>
+        <nav aria-label="Sayfa navigasyonu">
+            <ul class="pagination" id="pagination">
+                <!-- Sayfa numaraları burada oluşturulacak -->
+            </ul>
+        </nav>
     </div>
 </div>
 
@@ -240,56 +252,59 @@
         .dropdown-item i {
             width: 1rem;
         }
+        
+        .pagination .page-link {
+            color: #6c757d;
+            border-color: #dee2e6;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            color: #fff;
+        }
+        
+        .pagination .page-link:focus {
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
     </style>
 }
 @section Scripts {
     <script>
         $(document).ready(function() {
             let currentPage = 1;
-            let isLoading = false;
-            let hasMoreProducts = true;
-            const PAGE_SIZE = 15;
+            const PAGE_SIZE = 30;
+            let totalPages = 0;
+            let totalProducts = 0;
             
             // İlk yüklemede ürünleri getir
-            loadProducts();
+            loadProducts(1);
             
             // Ürün kodu ile arama yapma
             $('#productNumberSearch').on('input', function() {
-                var productNumber = $(this).val().trim();
-                
-                // Arama yaparken tablodaki mevcut içeriği temizle
+                loadProducts(1);
+            });
+            
+            // Durum filtresi değiştiğinde
+            $('#statusFilter').change(function() {
+                loadProducts(1);
+            });
+            
+            function loadProducts(page) {
+                $('#loadingIndicator').removeClass('d-none');
                 $('#productTableBody').empty();
                 
-                // Sayfa numarasını sıfırla
-                currentPage = 1;
-                hasMoreProducts = true;
-                
-                // Ürünleri yükle
-                loadProducts(productNumber);
-            });
-            
-            // Sonsuz kaydırma
-            $(window).scroll(function() {
-                if ($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
-                    if (!isLoading && hasMoreProducts) {
-                        loadProducts($('#productNumberSearch').val().trim());
-                    }
-                }
-            });
-            
-            function loadProducts(productNumber = '') {
-                if (isLoading) return;
-                
-                isLoading = true;
-                $('#loadingIndicator').removeClass('d-none');
+                let productNumber = $('#productNumberSearch').val().trim();
+                let statusFilter = $('#statusFilter').val();
                 
                 $.ajax({
-                    url: '/Panel/LoadMoreProducts',
+                    url: '/Panel/GetProducts',
                     method: 'GET',
                     data: {
-                        page: currentPage,
+                        page: page,
                         pageSize: PAGE_SIZE,
-                        productNumber: productNumber
+                        productNumber: productNumber,
+                        status: statusFilter
                     },
                     success: function(response) {
                         if (response.products && response.products.length > 0) {
@@ -297,21 +312,80 @@
                                 appendProductRow(product);
                             });
                             
-                            currentPage++;
-                            hasMoreProducts = response.hasMore;
+                            // Sayfalama bilgilerini güncelle
+                            currentPage = page;
+                            totalPages = response.totalPages;
+                            totalProducts = response.totalProducts;
+                            
+                            // Sayfa numaralarını oluştur
+                            renderPagination();
+                            
+                            // Toplam ürün sayısını göster
+                            $('#totalProductCount').text(totalProducts);
                         } else {
-                            hasMoreProducts = false;
-                            if (currentPage === 1) {
-                                $('#productTableBody').html('<tr><td colspan="8" class="text-center">Ürün bulunamadı</td></tr>');
-                            }
+                            $('#productTableBody').html('<tr><td colspan="9" class="text-center">Ürün bulunamadı</td></tr>');
+                            $('#pagination').empty();
+                            $('#totalProductCount').text('0');
                         }
                     },
                     error: function(xhr, status, error) {
                         console.error('Ürünler yüklenirken bir hata oluştu:', error);
+                        $('#productTableBody').html('<tr><td colspan="9" class="text-center text-danger">Ürünler yüklenirken bir hata oluştu</td></tr>');
                     },
                     complete: function() {
-                        isLoading = false;
                         $('#loadingIndicator').addClass('d-none');
+                    }
+                });
+            }
+            
+            function renderPagination() {
+                $('#pagination').empty();
+                
+                // Önceki sayfa butonu
+                let prevDisabled = currentPage === 1 ? 'disabled' : '';
+                $('#pagination').append(`
+                    <li class="page-item ${prevDisabled}">
+                        <a class="page-link" href="#" data-page="${currentPage - 1}" aria-label="Önceki">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                `);
+                
+                // Sayfa numaraları
+                let startPage = Math.max(1, currentPage - 2);
+                let endPage = Math.min(totalPages, startPage + 4);
+                
+                // Başlangıç sayfası ayarlanırken, toplam 5 sayfa gösterilmesini sağla
+                if (endPage - startPage < 4 && startPage > 1) {
+                    startPage = Math.max(1, endPage - 4);
+                }
+                
+                for (let i = startPage; i <= endPage; i++) {
+                    let active = i === currentPage ? 'active' : '';
+                    $('#pagination').append(`
+                        <li class="page-item ${active}">
+                            <a class="page-link" href="#" data-page="${i}">${i}</a>
+                        </li>
+                    `);
+                }
+                
+                // Sonraki sayfa butonu
+                let nextDisabled = currentPage === totalPages || totalPages === 0 ? 'disabled' : '';
+                $('#pagination').append(`
+                    <li class="page-item ${nextDisabled}">
+                        <a class="page-link" href="#" data-page="${currentPage + 1}" aria-label="Sonraki">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                `);
+                
+                // Sayfa numaralarına tıklama olayı
+                $('.page-link').click(function(e) {
+                    e.preventDefault();
+                    
+                    if (!$(this).parent().hasClass('disabled')) {
+                        let page = $(this).data('page');
+                        loadProducts(page);
                     }
                 });
             }
