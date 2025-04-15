@@ -155,6 +155,33 @@ namespace MarketWorld.Web.Controllers
             return Json(brands);
         }
 
+        public async Task<IActionResult> Brands()
+        {
+            // Aktif ve toplam marka sayılarını hesapla
+            ViewBag.TotalBrandsCount = await _context.Brands.CountAsync();
+            ViewBag.ActiveBrandsCount = await _context.Brands.Where(b => !b.IsDeleted).CountAsync();
+            
+            // Çok satan markaları hesapla
+            var topSellerBrands = await _context.OrderItems
+                .Include(oi => oi.Product)
+                .ThenInclude(p => p.Brand)
+                .Where(oi => oi.Product.Brand != null)
+                .GroupBy(oi => oi.Product.BrandId)
+                .Select(g => new { BrandId = g.Key, Count = g.Count() })
+                .OrderByDescending(x => x.Count)
+                .Take(10)
+                .CountAsync();
+                
+            ViewBag.TopSellerBrandsCount = topSellerBrands;
+            
+            // Markaları getir
+            var brands = await _context.Brands
+                .Include(b => b.Products)
+                .ToListAsync();
+                
+            return View(brands);
+        }
+
         [HttpGet]
         [Route("Panel/GetSubCategories/{categoryId}")]
         public async Task<IActionResult> GetSubCategories(int categoryId)

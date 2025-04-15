@@ -1,0 +1,335 @@
+@model IEnumerable<MarketWorld.Domain.Entities.Brand>
+@{
+    ViewData["Title"] = "Marka Yönetimi";
+}
+
+<div class="brands-container">
+    <div class="brands-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="brands-title">Marka Yönetimi</h1>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBrandModal">
+                    <i class="bi bi-plus-circle"></i> Yeni Marka Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container brands-content">
+        <div class="card mb-4">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h5 class="mb-0"><i class="bi bi-award me-2"></i>Tüm Markalar</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" id="brandSearchInput" class="form-control" placeholder="Marka ara...">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover brand-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Marka Adı</th>
+                                <th>Ürün Sayısı</th>
+                                <th>Oluşturma Tarihi</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                foreach (var brand in Model)
+                                {
+                                    <tr>
+                                        <td>@brand.Id</td>
+                                        <td>@brand.Name</td>
+                                        <td>@(brand.Products?.Count ?? 0)</td>
+                                        <td>@brand.CreatedDate?.ToShortDateString()</td>
+                                        <td>
+                                            <span class="badge bg-@(!brand.IsDeleted ? "success" : "secondary")">
+                                                @(!brand.IsDeleted ? "Aktif" : "Pasif")
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-outline-primary" 
+                                                        data-bs-toggle="modal" data-bs-target="#editBrandModal" 
+                                                        data-brand-id="@brand.Id">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-outline-danger" 
+                                                        data-bs-toggle="modal" data-bs-target="#deleteBrandModal" 
+                                                        data-brand-id="@brand.Id">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="6" class="text-center">Henüz kayıtlı marka bulunmamaktadır.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <nav aria-label="Marka sayfaları">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Sonraki</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="stat-icon bg-primary">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="card-subtitle mb-1">Toplam Marka</h6>
+                                <h2 class="card-title mb-0">@ViewBag.TotalBrandsCount</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="stat-icon bg-success">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="card-subtitle mb-1">Aktif Markalar</h6>
+                                <h2 class="card-title mb-0">@ViewBag.ActiveBrandsCount</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="stat-icon bg-warning">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="card-subtitle mb-1">Trend Markalar</h6>
+                                <h2 class="card-title mb-0">@ViewBag.TopSellerBrandsCount</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Yeni Marka Ekleme Modal -->
+<div class="modal fade" id="addBrandModal" tabindex="-1" aria-labelledby="addBrandModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addBrandModalLabel">Yeni Marka Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addBrandForm">
+                    <div class="mb-3">
+                        <label for="brandName" class="form-label">Marka Adı</label>
+                        <input type="text" class="form-control" id="brandName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brandIsActive" class="form-label">Durum</label>
+                        <select class="form-select" id="brandIsActive">
+                            <option value="false">Aktif</option>
+                            <option value="true">Pasif</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" id="saveNewBrand">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Marka Düzenleme Modal -->
+<div class="modal fade" id="editBrandModal" tabindex="-1" aria-labelledby="editBrandModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editBrandModalLabel">Marka Düzenle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editBrandForm">
+                    <input type="hidden" id="editBrandId">
+                    <div class="mb-3">
+                        <label for="editBrandName" class="form-label">Marka Adı</label>
+                        <input type="text" class="form-control" id="editBrandName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBrandIsActive" class="form-label">Durum</label>
+                        <select class="form-select" id="editBrandIsActive">
+                            <option value="false">Aktif</option>
+                            <option value="true">Pasif</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" id="updateBrand">Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Marka Silme Modal -->
+<div class="modal fade" id="deleteBrandModal" tabindex="-1" aria-labelledby="deleteBrandModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteBrandModalLabel">Marka Sil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bu markayı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</p>
+                <input type="hidden" id="deleteBrandId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBrand">Sil</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .brands-container {
+        background-color: #f8f9fa;
+    }
+    
+    .brands-header {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        color: white;
+        padding: 20px 0 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .brands-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+    
+    .brands-content {
+        padding-bottom: 30px;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 24px;
+        color: white;
+    }
+    
+    .stat-card {
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .brand-table th {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+    
+    .brand-table td {
+        vertical-align: middle;
+    }
+</style>
+
+<script>
+    // AJAX işlemleri ve modal etkileşimleri için gerekli JavaScript kodları buraya gelecek
+    $(document).ready(function() {
+        // Marka arama fonksiyonu
+        $("#brandSearchInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".brand-table tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        
+        // Düzenleme modalı açıldığında
+        $('#editBrandModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var brandId = button.data('brand-id');
+            // AJAX ile marka bilgilerini getirme işlemi yapılacak
+            $('#editBrandId').val(brandId);
+        });
+        
+        // Silme modalı açıldığında
+        $('#deleteBrandModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var brandId = button.data('brand-id');
+            $('#deleteBrandId').val(brandId);
+        });
+        
+        // Yeni marka kaydetme
+        $('#saveNewBrand').on('click', function() {
+            // AJAX ile kaydetme işlemi yapılacak
+        });
+        
+        // Marka güncelleme
+        $('#updateBrand').on('click', function() {
+            // AJAX ile güncelleme işlemi yapılacak
+        });
+        
+        // Marka silme
+        $('#confirmDeleteBrand').on('click', function() {
+            // AJAX ile silme işlemi yapılacak
+        });
+    });
+</script>
