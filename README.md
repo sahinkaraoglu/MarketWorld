@@ -62,7 +62,7 @@
 - **Database**: Microsoft SQL Server
 - **ORM**: Entity Framework Core 8.0
 - **Architecture**: Clean Architecture with Domain-Driven Design
-- - **API**: RESTful API endpoints
+- **API**: RESTful API endpoints
 
 ### Frontend
 - **Framework**: ASP.NET MVC
