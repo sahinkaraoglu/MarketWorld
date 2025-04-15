@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td>
-                <img src="https://github.com/user-attachments/assets/eae08856-4fd0-4c6f-a65f-23244d96b59b" alt="category" width="400"/>
+                <img src="https://github.com/user-attachments/assets/689b161c-c80a-452d-986d-5a25e718a61c" alt="category" width="400"/>
             </td>
             <td>
                 <img src="https://github.com/user-attachments/assets/e787d6e2-d270-4c88-915f-e9f475e9fc7c" alt="panel" width="400"/>
