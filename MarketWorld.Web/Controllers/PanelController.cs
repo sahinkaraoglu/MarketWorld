@@ -458,6 +458,7 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         [Route("Panel/DeleteCategory/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
+        {
             try
             {
                 var category = await _context.Categories
@@ -529,6 +530,130 @@ namespace MarketWorld.Web.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public async Task<IActionResult> Orders(int? status = null)
+        {
+            try
+            {
+                var query = _context.Orders
+                    .Include(o => o.User)
+                    .Include(o => o.OrderItems)
+                    .AsQueryable();
+                
+                // Durum filtresini uygula
+                if (status.HasValue)
+                {
+                    query = query.Where(o => (int)o.Status == status.Value);
+                }
+                
+                var orders = await query
+                    .OrderByDescending(o => o.OrderDate)
+                    .ToListAsync();
+
+                return View(orders);
+            }
+            catch (Exception ex)
+            {
+                // Hata durumunda boş liste gönderiyoruz, böylece sayfa hata vermeden açılır
+                return View(new List<Order>());
+            }
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> GetOrderDetails(int id)
+        {
+            try
+            {
+                var order = await _context.Orders
+                    .Include(o => o.User)
+                    .Include(o => o.OrderItems)
+                        .ThenInclude(oi => oi.Product)
+                            .ThenInclude(p => p.Images)
+                    .Include(o => o.ShippingAddress)
+                    .Include(o => o.BillingAddress)
+                    .FirstOrDefaultAsync(o => o.Id == id);
+
+                if (order == null)
+                {
+                    return PartialView("_OrderNotFound");
+                }
+
+                return PartialView("_OrderDetails", order);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Sipariş detayları yüklenirken bir hata oluştu." });
+            }
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> GetOrderStatus(int id)
+        {
+            try
+            {
+                var order = await _context.Orders.FindAsync(id);
+                if (order == null)
+                {
+                    return Json(new { success = false, message = "Sipariş bulunamadı" });
+                }
+
+                return Json(new { success = true, status = (int)order.Status });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> UpdateOrderStatus(int orderId, int status, string note)
+        {
+            try
+            {
+                var order = await _context.Orders.FindAsync(orderId);
+                if (order == null)
+                {
+                    return Json(new { success = false, message = "Sipariş bulunamadı" });
+                }
+
+                order.Status = (MarketWorld.Domain.Enums.OrderStatus)status;
+                // Not işleme eklenebilir
+                
+                await _context.SaveChangesAsync();
+                
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> PrintOrder(int id)
+        {
+            try
+            {
+                var order = await _context.Orders
+                    .Include(o => o.User)
+                    .Include(o => o.OrderItems)
+                        .ThenInclude(oi => oi.Product)
+                    .Include(o => o.ShippingAddress)
+                    .Include(o => o.BillingAddress)
+                    .FirstOrDefaultAsync(o => o.Id == id);
+
+                if (order == null)
+                {
+                    return NotFound();
+                }
+
+                return View("PrintOrder", order);
+            }
+            catch (Exception ex)
+            {
+                return View("Error", ex.Message);
+            }
         }
     }
 } 

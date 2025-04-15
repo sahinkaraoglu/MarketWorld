@@ -1,0 +1,538 @@
+@model IEnumerable<MarketWorld.Domain.Entities.Order>
+
+@{
+    ViewData["Title"] = "Sipariş Yönetimi";
+    
+    var allOrdersCount = Model.Count();
+    var newOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Pending);
+    var processingOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Processing);
+    var shippedOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Shipped);
+    var deliveredOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Delivered);
+    var cancelledOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Cancelled);
+    
+    decimal totalAmount = Model.Sum(o => o.TotalAmount);
+}
+
+<div class="orders-container">
+    <div class="orders-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="orders-title">Sipariş Yönetimi</h1>
+                    <p class="orders-subtitle">Tüm siparişleri görüntüleyin ve yönetin</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="orders-actions">
+                        <div class="dropdown">
+                            <button class="btn btn-filter dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-funnel"></i> Filtrele
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel")">Tüm Siparişler</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Pending })">Yeni Siparişler</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Processing })">Hazırlanan Siparişler</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Shipped })">Kargoya Verilen</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Delivered })">Tamamlanan</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Cancelled })">İptal Edilen</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-export">
+                            <i class="bi bi-download"></i> Dışa Aktar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container orders-content">
+        <div class="orders-stats">
+            <div class="row g-3">
+                <div class="col-md-2">
+                    <div class="stat-card all">
+                        <div class="stat-value">@allOrdersCount</div>
+                        <div class="stat-label">Tüm Siparişler</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stat-card new">
+                        <div class="stat-value">@newOrdersCount</div>
+                        <div class="stat-label">Yeni</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stat-card preparing">
+                        <div class="stat-value">@processingOrdersCount</div>
+                        <div class="stat-label">Hazırlanıyor</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stat-card shipping">
+                        <div class="stat-value">@shippedOrdersCount</div>
+                        <div class="stat-label">Kargoda</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stat-card completed">
+                        <div class="stat-value">@deliveredOrdersCount</div>
+                        <div class="stat-label">Tamamlanan</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stat-card cancelled">
+                        <div class="stat-value">@cancelledOrdersCount</div>
+                        <div class="stat-label">İptal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="orders-table-container">
+            <div class="orders-search mb-3">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" id="orderSearch" placeholder="Sipariş no, müşteri adı veya telefon numarası ile ara...">
+                </div>
+            </div>
+            
+            <table class="table orders-table">
+                <thead>
+                    <tr>
+                        <th>Sipariş No</th>
+                        <th>Tarih</th>
+                        <th>Müşteri</th>
+                        <th>Toplam</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td><a href="#" class="order-link view-order" data-order-id="@order.Id">#@order.OrderNumber</a></td>
+                            <td>@order.OrderDate.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>@(order.User != null ? $"{order.User.FirstName} {order.User.LastName}" : "Belirsiz Kullanıcı")</td>
+                            <td>@order.TotalAmount.ToString("C0")</td>
+                            <td>
+                                @switch (order.Status)
+                                {
+                                    case MarketWorld.Domain.Enums.OrderStatus.Pending:
+                                        <span class="order-status new">Yeni</span>
+                                        break;
+                                    case MarketWorld.Domain.Enums.OrderStatus.Processing:
+                                        <span class="order-status preparing">Hazırlanıyor</span>
+                                        break;
+                                    case MarketWorld.Domain.Enums.OrderStatus.Shipped:
+                                        <span class="order-status shipping">Kargoda</span>
+                                        break;
+                                    case MarketWorld.Domain.Enums.OrderStatus.Delivered:
+                                        <span class="order-status completed">Tamamlandı</span>
+                                        break;
+                                    case MarketWorld.Domain.Enums.OrderStatus.Cancelled:
+                                        <span class="order-status cancelled">İptal</span>
+                                        break;
+                                    default:
+                                        <span class="order-status">Belirsiz</span>
+                                        break;
+                                }
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn btn-sm btn-view view-order" data-order-id="@order.Id" title="Görüntüle"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-sm btn-edit edit-order" data-order-id="@order.Id" title="Düzenle"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn btn-sm btn-print print-order" data-order-id="@order.Id" title="Yazdır"><i class="bi bi-printer"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center py-4">
+                                <div class="alert alert-info mb-0">
+                                    <i class="bi bi-info-circle me-2"></i> Henüz sipariş bulunmamaktadır.
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+            <div class="orders-pagination">
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Sonraki</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sipariş Detay Modal -->
+<div class="modal fade" id="orderDetailModal" tabindex="-1" aria-labelledby="orderDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderDetailModalLabel">Sipariş Detayı</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body" id="orderDetailContent">
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Yükleniyor...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sipariş Düzenleme Modal -->
+<div class="modal fade" id="orderEditModal" tabindex="-1" aria-labelledby="orderEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderEditModalLabel">Sipariş Durumunu Güncelle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateOrderForm">
+                    <input type="hidden" id="editOrderId" name="orderId" />
+                    
+                    <div class="mb-3">
+                        <label for="orderStatus" class="form-label">Sipariş Durumu</label>
+                        <select class="form-select" id="orderStatus" name="status">
+                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Pending)">Yeni</option>
+                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Processing)">Hazırlanıyor</option>
+                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Shipped)">Kargoya Verildi</option>
+                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Delivered)">Teslim Edildi</option>
+                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Cancelled)">İptal Edildi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="orderNote" class="form-label">Not (Opsiyonel)</label>
+                        <textarea class="form-control" id="orderNote" name="note" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" id="saveOrderStatus">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .orders-container {
+        background-color: #f8f9fa;
+        min-height: 100vh;
+    }
+    
+    .orders-header {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        color: white;
+        padding: 20px 0 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .orders-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 2px;
+    }
+    
+    .orders-subtitle {
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .orders-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+    
+    .btn-filter, .btn-export {
+        padding: 8px 15px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-filter {
+        background-color: rgba(255,255,255,0.2);
+        color: white;
+        border: none;
+    }
+    
+    .btn-export {
+        background-color: rgba(255,255,255,0.3);
+        color: white;
+        border: none;
+    }
+    
+    .orders-content {
+        padding-bottom: 30px;
+    }
+    
+    .orders-stats {
+        margin-bottom: 25px;
+    }
+    
+    .stat-card {
+        padding: 12px;
+        border-radius: 8px;
+        text-align: center;
+        color: white;
+        height: 100%;
+    }
+    
+    .stat-card.all { background: linear-gradient(135deg, #4e73df, #224abe); }
+    .stat-card.new { background: linear-gradient(135deg, #36b9cc, #258391); }
+    .stat-card.preparing { background: linear-gradient(135deg, #f6c23e, #dda20a); }
+    .stat-card.shipping { background: linear-gradient(135deg, #1cc88a, #169a6b); }
+    .stat-card.completed { background: linear-gradient(135deg, #1cc88a, #169a6b); }
+    .stat-card.cancelled { background: linear-gradient(135deg, #e74a3b, #be3529); }
+    
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 2px;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+        opacity: 0.9;
+    }
+    
+    .orders-table-container {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .orders-search .input-group-text {
+        background-color: white;
+        border-right: none;
+    }
+    
+    .orders-search .form-control {
+        border-left: none;
+    }
+    
+    .orders-search .form-control:focus {
+        box-shadow: none;
+    }
+    
+    .orders-table {
+        margin-bottom: 20px;
+    }
+    
+    .orders-table th {
+        font-weight: 600;
+        color: #495057;
+        border-bottom-width: 1px;
+        font-size: 0.85rem;
+    }
+    
+    .orders-table td {
+        vertical-align: middle;
+        font-size: 0.85rem;
+    }
+    
+    .order-link {
+        font-weight: 600;
+        color: #4e73df;
+        text-decoration: none;
+    }
+    
+    .order-link:hover {
+        color: #224abe;
+        text-decoration: underline;
+    }
+    
+    .payment-status, .order-status {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-block;
+    }
+    
+    .payment-status.completed {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+    
+    .payment-status.pending {
+        background-color: #fff8e1;
+        color: #f57f17;
+    }
+    
+    .payment-status.failed {
+        background-color: #ffebee;
+        color: #c62828;
+    }
+    
+    .order-status.new {
+        background-color: #e3f2fd;
+        color: #1565c0;
+    }
+    
+    .order-status.preparing {
+        background-color: #fff8e1;
+        color: #f57f17;
+    }
+    
+    .order-status.shipping {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+    
+    .order-status.completed {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+    
+    .order-status.cancelled {
+        background-color: #ffebee;
+        color: #c62828;
+    }
+    
+    .actions {
+        display: flex;
+        gap: 5px;
+    }
+    
+    .btn-view, .btn-edit, .btn-print {
+        padding: 5px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+    }
+    
+    .btn-view {
+        background-color: #e3f2fd;
+        color: #1565c0;
+        border: none;
+    }
+    
+    .btn-edit {
+        background-color: #fff8e1;
+        color: #f57f17;
+        border: none;
+    }
+    
+    .btn-print {
+        background-color: #f5f5f5;
+        color: #616161;
+        border: none;
+    }
+    
+    .orders-pagination {
+        display: flex;
+        justify-content: center;
+    }
+    
+    @@media (max-width: 992px) {
+        .orders-actions {
+            justify-content: flex-start;
+            margin-top: 15px;
+        }
+    }
+    
+    @@media (max-width: 768px) {
+        .orders-header {
+            padding: 20px 0 15px;
+        }
+        
+        .orders-title {
+            font-size: 1.5rem;
+        }
+        
+        .stat-card {
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Sipariş detayı görüntüleme
+            $(document).on('click', '.view-order', function() {
+                var orderId = $(this).data('order-id');
+                $('#orderDetailModal').modal('show');
+                
+                // AJAX ile sipariş detayını getir
+                $.get('/Panel/GetOrderDetails/' + orderId, function(response) {
+                    $('#orderDetailContent').html(response);
+                }).fail(function() {
+                    $('#orderDetailContent').html('<div class="alert alert-danger m-3">Sipariş detayları yüklenirken bir hata oluştu.</div>');
+                });
+            });
+            
+            // Sipariş düzenleme modalı
+            $(document).on('click', '.edit-order', function() {
+                var orderId = $(this).data('order-id');
+                $('#editOrderId').val(orderId);
+                
+                // Mevcut durumu getir
+                $.get('/Panel/GetOrderStatus/' + orderId, function(response) {
+                    $('#orderStatus').val(response.status);
+                    $('#orderNote').val(response.note || '');
+                    $('#orderEditModal').modal('show');
+                }).fail(function() {
+                    alert('Sipariş bilgileri yüklenirken bir hata oluştu.');
+                });
+            });
+            
+            // Sipariş durumu güncelleme
+            $('#saveOrderStatus').click(function() {
+                var formData = $('#updateOrderForm').serialize();
+                
+                $.post('/Panel/UpdateOrderStatus', formData, function(response) {
+                    if (response.success) {
+                        $('#orderEditModal').modal('hide');
+                        // Sayfayı yenile
+                        location.reload();
+                    } else {
+                        alert('Hata: ' + response.message);
+                    }
+                }).fail(function() {
+                    alert('Sipariş durumu güncellenirken bir hata oluştu.');
+                });
+            });
+            
+            // Sipariş arama
+            $('#orderSearch').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+                $('.orders-table tbody tr').filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+            
+            // Sipariş yazdırma
+            $(document).on('click', '.print-order', function() {
+                var orderId = $(this).data('order-id');
+                window.open('/Panel/PrintOrder/' + orderId, '_blank');
+            });
+        });
+    </script>
+}
