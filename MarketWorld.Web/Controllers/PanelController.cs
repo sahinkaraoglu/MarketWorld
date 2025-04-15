@@ -53,6 +53,8 @@ namespace MarketWorld.Web.Controllers
         {
             var categories = await _context.Categories
                 .Include(c => c.SubCategories)
+                    .ThenInclude(sc => sc.Products)
+                .Include(c => c.Products)
                 .ToListAsync();
 
             return View(categories);
@@ -450,6 +452,77 @@ namespace MarketWorld.Web.Controllers
             catch (Exception ex)
             {
                 return BadRequest($"Ürünler yüklenirken hata oluştu: {ex.Message}");
+            }
+        }
+
+        [HttpPost]
+        [Route("Panel/DeleteCategory/{id}")]
+        public async Task<IActionResult> DeleteCategory(int id)
+            try
+            {
+                var category = await _context.Categories
+                    .Include(c => c.SubCategories)
+                    .Include(c => c.Products)
+                    .FirstOrDefaultAsync(c => c.Id == id);
+
+                if (category == null)
+                {
+                    return Json(new { success = false, message = "Kategori bulunamadı" });
+                }
+
+                // Alt kategorileri veya ürünleri olan bir kategori silinememeli
+                if ((category.SubCategories != null && category.SubCategories.Any()) || 
+                    (category.Products != null && category.Products.Any()))
+                {
+                    return Json(new { 
+                        success = false, 
+                        message = "Bu kategorinin alt kategorileri veya ürünleri bulunmaktadır. Önce bunları silmelisiniz." 
+                    });
+                }
+
+                _context.Categories.Remove(category);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [Route("Panel/DeleteSubCategory/{id}")]
+        public async Task<IActionResult> DeleteSubCategory(int id)
+        {
+            try
+            {
+                var subCategory = await _context.SubCategories
+                    .Include(sc => sc.Products)
+                    .FirstOrDefaultAsync(sc => sc.Id == id);
+
+                if (subCategory == null)
+                {
+                    return Json(new { success = false, message = "Alt kategori bulunamadı" });
+                }
+
+                // Ürünleri olan bir alt kategori silinememeli
+                if (subCategory.Products != null && subCategory.Products.Any())
+                {
+                    return Json(new { 
+                        success = false, 
+                        message = "Bu alt kategorinin ürünleri bulunmaktadır. Önce ürünleri silmelisiniz." 
+                    });
+                }
+
+                _context.SubCategories.Remove(subCategory);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
             }
         }
 

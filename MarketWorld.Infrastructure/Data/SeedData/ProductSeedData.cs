@@ -502,7 +502,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.1M,
                     CreatedDate = DateTime.Now
                 },
@@ -517,7 +517,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.4M,
                     CreatedDate = DateTime.Now
                 },
@@ -532,7 +532,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.2M,
                     CreatedDate = DateTime.Now
                 },
@@ -547,7 +547,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.6M,
                     CreatedDate = DateTime.Now
                 },
@@ -562,7 +562,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.4M,
                     CreatedDate = DateTime.Now
                 },
@@ -577,7 +577,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.6M,
                     CreatedDate = DateTime.Now
                 },
@@ -592,7 +592,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.6M,
                     CreatedDate = DateTime.Now
                 },
@@ -622,7 +622,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.5M,
                     CreatedDate = DateTime.Now
                 },
@@ -637,7 +637,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.3M,
                     CreatedDate = DateTime.Now
                 },
@@ -652,7 +652,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.4M,
                     CreatedDate = DateTime.Now
                 },
@@ -667,7 +667,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.6M,
                     CreatedDate = DateTime.Now
                 },
@@ -682,7 +682,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.5M,
                     CreatedDate = DateTime.Now
                 },
@@ -697,7 +697,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.3M,
                     CreatedDate = DateTime.Now
                 },
@@ -712,7 +712,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.7M,
                     CreatedDate = DateTime.Now
                 },
@@ -727,7 +727,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.4M,
                     CreatedDate = DateTime.Now
                 },
@@ -742,7 +742,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.5M,
                     CreatedDate = DateTime.Now
                 },
@@ -757,7 +757,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.6M,
                     CreatedDate = DateTime.Now
                 },
@@ -772,7 +772,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.5M,
                     CreatedDate = DateTime.Now
                 },
@@ -787,7 +787,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.4M,
                     CreatedDate = DateTime.Now
                 },
@@ -802,7 +802,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.7M,
                     CreatedDate = DateTime.Now
                 },
@@ -817,7 +817,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.6M,
                     CreatedDate = DateTime.Now
                 },
@@ -832,7 +832,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.5M,
                     CreatedDate = DateTime.Now
                 },
@@ -847,7 +847,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.8M,
                     CreatedDate = DateTime.Now
                 },
@@ -862,7 +862,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.7M,
                     CreatedDate = DateTime.Now
                 },
@@ -877,7 +877,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.6M,
                     CreatedDate = DateTime.Now
                 },
@@ -892,7 +892,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.9M,
                     CreatedDate = DateTime.Now
                 },
@@ -907,7 +907,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.8M,
                     CreatedDate = DateTime.Now
                 },
@@ -922,7 +922,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.7M,
                     CreatedDate = DateTime.Now
                 },
@@ -937,7 +937,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.8M,
                     CreatedDate = DateTime.Now
                 },
@@ -952,7 +952,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.9M,
                     CreatedDate = DateTime.Now
                 },
@@ -967,7 +967,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.8M,
                     CreatedDate = DateTime.Now
                 },
@@ -982,7 +982,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.9M,
                     CreatedDate = DateTime.Now
                 },
@@ -997,7 +997,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
                 },
@@ -1012,7 +1012,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 4.9M,
                     CreatedDate = DateTime.Now
                 },
@@ -1027,7 +1027,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
                 },
@@ -1042,7 +1042,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
                 },
@@ -1057,7 +1057,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
                 },
@@ -1072,7 +1072,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
                 },
@@ -1087,7 +1087,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
                 },
@@ -1102,7 +1102,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
                 },
@@ -1117,7 +1117,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     SubCategoryId = 2,
                     HasDiscount = false,
                     IsActive = true,
-                    CategoryId = 2,
+                    CategoryId = 1,
                     Rating = 5.0M,
                     CreatedDate = DateTime.Now
                 },
@@ -1609,7 +1609,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "HONOR 200 512 GB 12 GB Ram Zümrüt Yeşili",
                     Price = 23999,
                     BrandId = 13,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1621,7 +1622,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Apple iPhone 16 Pro 256GB Siyah",
                     Price = 88825,
                     BrandId = 1,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1633,7 +1635,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Xiaomi Redmi Note 13 Pro 256GB 8gb Ram Mor",
                     Price = 15999,
                     BrandId = 16,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1645,7 +1648,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Samsung Galaxy S25 128 GB 12 GB Ram Lacivert",
                     Price = 45999,
                     BrandId = 9,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1657,7 +1661,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Apple iPhone 16 256GB Lacivert Taş",
                     Price = 66999,
                     BrandId = 1,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1669,7 +1674,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Xiaomi Redmi Note 14 Pro Plus 5g 512 GB 12 GB Ram",
                     Price = 27250,
                     BrandId = 16,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1681,7 +1687,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Apple iPhone 16 Pro Max 512GB Natürel Titanyum",
                     Price = 101939,
                     BrandId = 1,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1693,7 +1700,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Samsung Galaxy A04S 64 GB Siyah",
                     Price = 6839,
                     BrandId = 9,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1705,7 +1713,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Redmi Note 14 Pro 5G 12GB 512GB",
                     Price = 22500,
                     BrandId = 16,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1717,7 +1726,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Nothing Phone 1 128 GB 8 GB Ram Siyah",
                     Price = 12999,
                     BrandId = 14,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1729,7 +1739,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Xiaomi Redmi Note 13 Pro 512GB 12GB Siyah",
                     Price = 18999,
                     BrandId = 16,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1741,7 +1752,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Xiaomi Redmi 12 128 GB 8 GB Ram Siyah",
                     Price = 8190,
                     BrandId = 16,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1753,7 +1765,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "HONOR Magic V3 512 GB 12 GB Ram Yeşil",
                     Price = 79999,
                     BrandId = 13,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1765,7 +1778,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Tecno Spark 30 256 GB 8 GB Ram",
                     Price = 9199,
                     BrandId = 21,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1777,7 +1791,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Samsung Galaxy S25 Ultra 1 Tb 12 GB Ram",
                     Price = 88999,
                     BrandId = 9,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1789,7 +1804,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Apple iPhone 16 Pro 128GB Siyah",
                     Price = 79324,
                     BrandId = 1,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1801,7 +1817,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Reeder P13 Blue Max L 2022 64 GB Beyaz",
                     Price = 3399,
                     BrandId = 20,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1813,7 +1830,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "POCO X7 12GB 512GB",
                     Price = 17499,
                     BrandId = 17,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1825,7 +1843,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Oppo A60 8GB 256GB Mavi",
                     Price = 10199,
                     BrandId = 18,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1837,7 +1856,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Samsung Galaxy A25 5G 256 GB 8 GB Ram Siyah",
                     Price = 13250,
                     BrandId = 9,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1849,7 +1869,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Samsung Galaxy S25 256 GB Lacivert",
                     Price = 47670,
                     BrandId = 9,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1861,7 +1882,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Panasonic KX-TU550EXB Katlanabilir Renkli Ekran 4g Tuşlu Cep Telefonu Siyah",
                     Price = 4269,
                     BrandId = 19,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
@@ -1873,7 +1895,8 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     Description = "Reeder S19 Max Pro 256 GB 6 GB Ram Siyah",
                     Price = 4799,
                     BrandId = 20,
-                    CategoryId = 3,
+                    CategoryId = 1,
+                    SubCategoryId = 3,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 },
