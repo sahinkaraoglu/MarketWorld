@@ -155,7 +155,7 @@ namespace MarketWorld.Web.Controllers
             return Json(brands);
         }
 
-        public async Task<IActionResult> Brands()
+        public async Task<IActionResult> Brands(int page = 1, int pageSize = 20)
         {
             // Aktif ve toplam marka sayılarını hesapla
             ViewBag.TotalBrandsCount = await _context.Brands.CountAsync();
@@ -174,10 +174,22 @@ namespace MarketWorld.Web.Controllers
                 
             ViewBag.TopSellerBrandsCount = topSellerBrands;
             
-            // Markaları getir
+            // Toplam sayfa sayısını hesapla
+            var totalBrands = await _context.Brands.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalBrands / (double)pageSize);
+            
+            // Markaları sayfalayarak getir
             var brands = await _context.Brands
                 .Include(b => b.Products)
+                .OrderBy(b => b.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
+            
+            // Sayfalama bilgilerini ViewBag'e ekle
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
                 
             return View(brands);
         }

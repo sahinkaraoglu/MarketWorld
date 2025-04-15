@@ -89,15 +89,56 @@
 
                 <nav aria-label="Marka sayfaları">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Sonraki</a>
-                        </li>
+                        @if (ViewBag.CurrentPage > 1)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("Brands", "Panel", new { page = ViewBag.CurrentPage - 1 })" aria-label="Önceki">
+                                    <span aria-hidden="true">&laquo;</span> Önceki
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                    <span aria-hidden="true">&laquo;</span> Önceki
+                                </a>
+                            </li>
+                        }
+
+                        @{
+                            int startPage = Math.Max(1, ViewBag.CurrentPage - 2);
+                            int endPage = Math.Min(ViewBag.TotalPages, startPage + 4);
+                            
+                            if (endPage - startPage < 4 && startPage > 1)
+                            {
+                                startPage = Math.Max(1, endPage - 4);
+                            }
+                        }
+                        
+                        @for (int i = startPage; i <= endPage; i++)
+                        {
+                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                <a class="page-link" href="@Url.Action("Brands", "Panel", new { page = i })">@i</a>
+                            </li>
+                        }
+
+                        @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("Brands", "Panel", new { page = ViewBag.CurrentPage + 1 })" aria-label="Sonraki">
+                                    Sonraki <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                    Sonraki <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </nav>
             </div>
@@ -292,7 +333,6 @@
 </style>
 
 <script>
-    // AJAX işlemleri ve modal etkileşimleri için gerekli JavaScript kodları buraya gelecek
     $(document).ready(function() {
         // Marka arama fonksiyonu
         $("#brandSearchInput").on("keyup", function() {
@@ -300,6 +340,13 @@
             $(".brand-table tbody tr").filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
+            
+            // Arama yapıldığında, sonuçlar filtrelendiğinde sayfalama gizlensin
+            if(value.length > 0) {
+                $(".pagination").hide();
+            } else {
+                $(".pagination").show();
+            }
         });
         
         // Düzenleme modalı açıldığında
