@@ -22,23 +22,30 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            // Gerçek User entitysini doğrudan almak ya da ApplicationUser içinden değerler kullanmak yerine
+            // basitleştirilmiş bir çözüm için ViewBag ile gerekli bilgileri alalım
+            ViewBag.UserId = userId;
 
-            return View(user);
+            return View();
         }
 
         public async Task<IActionResult> Addresses()
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
-            var user = await _context.Users
-                .Include(u => u.Addresses)
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            // Kullanıcı adreslerini getir
+            var userAddresses = await _context.Addresses
+                .Where(a => a.UserId == userId)
+                .ToListAsync();
+            
+            // Kullanıcı bilgilerini ViewBag ile gönder (basitleştirilmiş versiyon)
+            ViewBag.UserFirstName = "Kullanıcı";
+            ViewBag.UserLastName = "";
+            ViewBag.UserEmail = "";
 
-            return View(user);
+            return View(userAddresses);
         }
 
         public IActionResult AddAddress()
@@ -50,7 +57,7 @@ namespace MarketWorld.Web.Controllers
         [ActionName("AddAddress")]
         public async Task<IActionResult> AddAddressPost()
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
             // Form verilerini alıyoruz
             var title = Request.Form["Title"].ToString();
@@ -135,7 +142,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> EditAddress(int id)
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
             var address = await _context.Addresses
                 .FirstOrDefaultAsync(a => a.Id == id && a.UserId == userId);
@@ -151,7 +158,7 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> EditAddress(Address address)
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
             var existingAddress = await _context.Addresses
                 .FirstOrDefaultAsync(a => a.Id == address.Id && a.UserId == userId);
@@ -179,7 +186,7 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteAddress(int id)
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
             var address = await _context.Addresses
                 .FirstOrDefaultAsync(a => a.Id == id && a.UserId == userId);
@@ -197,16 +204,14 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Orders()
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
-
+            // Kullanıcı bilgilerini ViewBag ile gönder (basitleştirilmiş)
             ViewBag.UserProfile = new
             {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email
+                FirstName = "Kullanıcı",
+                LastName = "",
+                Email = ""
             };
 
             var orders = await _context.Orders

@@ -1,21 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using MarketWorld.Domain.Entities;
 using MarketWorld.Infrastructure.Data.SeedData;
+using System;
+using System.Linq;
 
 namespace MarketWorld.Infrastructure.Data
 {
-    public class MarketWorldDbContext : DbContext
+    public class MarketWorldDbContext : IdentityDbContext<ApplicationUser>
     {
-        public MarketWorldDbContext(DbContextOptions<MarketWorldDbContext> options)
-            : base(options)
+        public MarketWorldDbContext(DbContextOptions<MarketWorldDbContext> options) : base(options)
         {
         }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
@@ -62,16 +62,6 @@ namespace MarketWorld.Infrastructure.Data
             modelBuilder.Entity<Product>()
                 .Property(p => p.DiscountPrice)
                 .HasColumnType("decimal(18,2)");
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.Email)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.Username)
-                .IsRequired()
-                .HasMaxLength(50);
 
             modelBuilder.Entity<Address>()
                 .Property(a => a.City)
@@ -452,24 +442,11 @@ namespace MarketWorld.Infrastructure.Data
             // Ürünleri ekle
             modelBuilder.Entity<Product>().HasData(ProductSeedData.GetProducts());
 
-            // Adresleri ekle
-           // modelBuilder.Entity<Address>().HasData(AddressSeedData.GetAddresses());
-
             // En son resimleri ekle
             modelBuilder.Entity<Image>().HasData(ImageSeedData.GetImages());
 
             // Tüm entity'ler için BaseEntity'deki CreatedDate alanını nullable olmaktan çıkarıp 
             // otomatik değer ataması yapalım
-            modelBuilder.Entity<User>()
-                .Property(u => u.CreatedDate)
-                .HasDefaultValueSql("GETDATE()")
-                .IsRequired();
-
-            modelBuilder.Entity<Order>()
-                .Property(o => o.CreatedDate)
-                .HasDefaultValueSql("GETDATE()")
-                .IsRequired();
-
             modelBuilder.Entity<Address>()
                 .Property(a => a.CreatedDate)
                 .HasDefaultValueSql("GETDATE()")
@@ -559,16 +536,6 @@ namespace MarketWorld.Infrastructure.Data
                 .Property(b => b.Name)
                 .IsRequired()
                 .HasMaxLength(50);
-
-            modelBuilder.Entity<UserRole>().HasData(UserSeedData.GetUserRoles());
-            modelBuilder.Entity<User>().HasData(UserSeedData.GetUser());
-
-            // User ve UserRole arasındaki ilişki
-            modelBuilder.Entity<User>()
-                .HasOne(u => u.UserRole)
-                .WithMany(ur => ur.Users)
-                .HasForeignKey(u => u.UserRoleId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Address>()
                 .HasOne(a => a.User)

@@ -19,8 +19,8 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId, int quantity = 1, string color = null)
         {
-            var userId = (int?)HttpContext.Items["UserId"];
-            if (!userId.HasValue)
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            if (string.IsNullOrEmpty(userId))
             {
                 return Json(new { success = false, message = "Lütfen önce giriş yapın." });
             }
@@ -46,7 +46,7 @@ namespace MarketWorld.Web.Controllers
             {
                 cart = new Cart
                 {
-                    UserId = userId.Value,
+                    UserId = userId,
                     CartItems = new List<CartItem>(),
                     TotalAmount = 0
                 };
@@ -80,8 +80,8 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userId = (int?)HttpContext.Items["UserId"];
-            if (!userId.HasValue)
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            if (string.IsNullOrEmpty(userId))
             {
                 return RedirectToAction("Index", "Login");
             }
@@ -94,19 +94,17 @@ namespace MarketWorld.Web.Controllers
             
             // Kullanıcı bilgilerini ve adreslerini yükle
             var user = await _context.Users
-                .Include(u => u.Addresses)
                 .FirstOrDefaultAsync(u => u.Id == userId);
+            
+            // Kullanıcıya ait adresleri ayrıca yükle
+            var addresses = await _context.Addresses
+                .Where(a => a.UserId == userId)
+                .ToListAsync();
             
             if (user != null)
             {
                 // Adresleri ayrı bir ViewBag özelliği olarak ekle
-                ViewBag.UserAddresses = user.Addresses?.ToList() ?? new List<Address>();
-                
-                // Kullanıcı nesnesinde Addresses koleksiyonunu null kontrolü ile liste haline getir
-                if (user.Addresses == null)
-                {
-                    user.Addresses = new List<Address>();
-                }
+                ViewBag.UserAddresses = addresses ?? new List<Address>();
             }
             else
             {
@@ -176,8 +174,8 @@ namespace MarketWorld.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCartCount()
         {
-            var userId = (int?)HttpContext.Items["UserId"];
-            if (!userId.HasValue)
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            if (string.IsNullOrEmpty(userId))
             {
                 return Json(new { count = 0 });
             }

@@ -7,6 +7,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
 using MarketWorld.Application.Services.Jwt;
+using Microsoft.AspNetCore.Http.Extensions;
+// Session için extensions sınıfları
+using Microsoft.AspNetCore.Http;
 
 namespace MarketWorld.Web.Middleware
 {
@@ -27,6 +30,20 @@ namespace MarketWorld.Web.Middleware
         {
             var token = context.Request.Cookies["X-Access-Token"];
             
+            // Session kontrolü
+            var sessionUserId = context.Session.GetString("UserId");
+            if (!string.IsNullOrEmpty(sessionUserId))
+            {
+                context.Items["UserId"] = sessionUserId;
+                context.Items["Username"] = context.Session.GetString("Username");
+                context.Items["UserEmail"] = context.Session.GetString("UserEmail");
+                
+                Console.WriteLine($"Session'dan kullanıcı bilgileri yüklendi: UserId={sessionUserId}, Username={context.Session.GetString("Username")}");
+                
+                await _next(context);
+                return;
+            }
+            
             if (!string.IsNullOrEmpty(token))
             {
                 try
@@ -42,31 +59,32 @@ namespace MarketWorld.Web.Middleware
                         }
                     }
                     
-                    // Token doğrulama ve kullanıcı id'sini context'e ekleme
+                    // Token'ı doğrula ve kullanıcı ID'sini al
                     var userId = jwtService.ValidateJwtToken(token);
-                    if (userId != null)
+                    if (!string.IsNullOrEmpty(userId))
                     {
-                        _logger.LogInformation("Oturum açık kullanıcı ID: {UserId}", userId);
-                        context.Items["UserId"] = userId;
-                        
-                        // Kullanıcı bilgilerini veritabanından al
-                        var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
-                        if (user != null)
+                        // Kullanıcıyı veritabanında kontrol et
+                        var user = await dbContext.Users.FindAsync(userId);
+                        if (user != null && user.IsActive)
                         {
-                            _logger.LogInformation("Kullanıcı bilgileri yüklendi: {Username}", user.Username);
+                            // Kullanıcı ID'sini HttpContext.Items'a ekle
+                            context.Items["UserId"] = userId;
+                            context.Items["Username"] = user.UserName;
+                            context.Items["UserEmail"] = user.Email;
                             
-                            // HttpContext.Items'a kullanıcı bilgilerini ekle
-                            context.Items["Username"] = user.Username;
-                            context.Items["Email"] = user.Email;
+                            // Bu değerleri debug için yazdır
+                            Console.WriteLine($"Middleware - UserId: {userId}, Username: {user.UserName}, Email: {user.Email}");
+                            
+                            _logger.LogDebug("Kullanıcı kimliği doğrulandı: {UserId}", userId);
                         }
                         else
                         {
-                            _logger.LogWarning("Token geçerli, fakat kullanıcı {UserId} bulunamadı", userId);
+                            _logger.LogWarning("Kullanıcı bulunamadı veya aktif değil: {UserId}", userId);
                         }
                     }
                     else
                     {
-                        _logger.LogWarning("Token doğrulanamadı");
+                        _logger.LogWarning("Geçersiz token");
                     }
                 }
                 catch (Exception ex)

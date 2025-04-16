@@ -22,7 +22,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Checkout()
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -34,11 +34,11 @@ namespace MarketWorld.Web.Controllers
                 return RedirectToAction("Index", "Cart");
             }
 
-            var user = await _context.Users
-                .Include(u => u.Addresses)
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var userAddresses = await _context.Addresses
+                .Where(a => a.UserId == userId)
+                .ToListAsync();
 
-            ViewBag.Addresses = user.Addresses;
+            ViewBag.Addresses = userAddresses;
             
             return View(cart);
         }
@@ -47,7 +47,7 @@ namespace MarketWorld.Web.Controllers
         public async Task<IActionResult> ProcessOrder(int shippingAddressId, int billingAddressId, string paymentMethod, 
             string cardHolderName, string cardNumber, string expiryDate, string cvv)
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -158,7 +158,7 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> OrderConfirmation(int orderId)
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
             var order = await _context.Orders
                 .Include(o => o.OrderItems)
@@ -178,7 +178,7 @@ namespace MarketWorld.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetOrderDetails(int id)
         {
-            var userId = (int)HttpContext.Items["UserId"];
+            var userId = HttpContext.Items["UserId"].ToString();
 
             var order = await _context.Orders
                 .Include(o => o.OrderItems)

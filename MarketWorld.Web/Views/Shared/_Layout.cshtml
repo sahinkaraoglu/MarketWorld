@@ -20,6 +20,17 @@
 <body>
     @await Component.InvokeAsync("UserInfo")
     
+    @* Debug bilgisi ekleme *@
+    @using Microsoft.AspNetCore.Http
+    @inject IHttpContextAccessor HttpContextAccessor
+    @{
+        var userId = Context.Items.ContainsKey("UserId") ? Context.Items["UserId"] : Context.Session.GetString("UserId");
+        var username = Context.Items.ContainsKey("Username") ? Context.Items["Username"] : Context.Session.GetString("Username");
+        var email = Context.Items.ContainsKey("UserEmail") ? Context.Items["UserEmail"] : Context.Session.GetString("UserEmail");
+        
+        <text><!-- Debug: UserId=@userId, Username=@username, UserEmail=@email --></text>
+    }
+
     <header>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
@@ -100,12 +111,14 @@
                         </li>
 
 
-                        @if (Context.Items["UserId"] != null)
+                        @if (Context.Items.ContainsKey("UserId") && Context.Items["UserId"] != null || 
+                                !string.IsNullOrEmpty(Context.Session.GetString("UserId")))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle"></i>
-                                    <span>@Context.Items["Username"]</span>
+                                    <span>@(Context.Items.ContainsKey("Username") ? Context.Items["Username"] : 
+                                    (!string.IsNullOrEmpty(Context.Session.GetString("Username")) ? Context.Session.GetString("Username") : "Kullanıcı"))</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-user dropdown-menu-end" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" asp-controller="Account" asp-action="Index"><i class="bi bi-person"></i>Hesabım</a></li>

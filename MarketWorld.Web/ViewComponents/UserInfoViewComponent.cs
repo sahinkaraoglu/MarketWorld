@@ -19,28 +19,25 @@ namespace MarketWorld.Web.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            if (HttpContext.Items["UserId"] != null)
+            if (HttpContext.Items.ContainsKey("UserId") && HttpContext.Items["UserId"] != null)
             {
-                var userId = (int)HttpContext.Items["UserId"];
+                var userId = HttpContext.Items["UserId"].ToString();
                 _logger.LogInformation("UserInfoViewComponent: Kullanıcı bilgileri yükleniyor. UserId: {UserId}", userId);
                 
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                ViewBag.UserId = userId;
+                ViewBag.Username = HttpContext.Items.ContainsKey("Username") ? HttpContext.Items["Username"]?.ToString() : "Kullanıcı";
+                ViewBag.UserEmail = HttpContext.Items.ContainsKey("UserEmail") ? HttpContext.Items["UserEmail"]?.ToString() : "";
                 
-                if (user != null)
-                {
-                    _logger.LogInformation("Kullanıcı bilgileri yüklendi: {Username}", user.Username);
-                    ViewBag.UserId = user.Id;
-                    ViewBag.Username = user.Username;
-                    ViewBag.UserEmail = user.Email;
-                }
-                else
-                {
-                    _logger.LogWarning("Kullanıcı ID'si {UserId} olan kullanıcı bulunamadı", userId);
-                }
+                // Debug bilgisi
+                Console.WriteLine($"UserInfoViewComponent - UserId: {userId}, Username: {ViewBag.Username}, Email: {ViewBag.UserEmail}");
+                
+                string username = ViewBag.Username?.ToString() ?? "";
+                _logger.LogInformation("Kullanıcı bilgileri yüklendi: ID: {UserId}, Name: {Username}", userId, username);
             }
             else
             {
                 _logger.LogDebug("Oturum açmış kullanıcı bulunamadı");
+                Console.WriteLine("UserInfoViewComponent - Kullanıcı bulunamadı");
             }
             
             return View();

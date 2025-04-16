@@ -1,10 +1,10 @@
 using MarketWorld.Domain.Entities;
 
-namespace MarketWorld.Application.Services.Jwt
+namespace MarketWorld.Application.Services.Jwt;
+
+public interface IJwtService
 {
-    public interface IJwtService
-    {
-        string GenerateJwtToken(User user);
-        int? ValidateJwtToken(string token);
-    }
+    string? GenerateJwtToken(ApplicationUser user);
+    string GenerateToken(string userId, string email, string userName);
+    string? ValidateJwtToken(string token);
 }

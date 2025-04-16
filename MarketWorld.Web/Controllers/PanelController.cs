@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
 using MarketWorld.Domain.Entities;
 using MarketWorld.Web.Models.Admin;
-using MarketWorld.Web.Models;  // UserViewModel için
+using MarketWorld.Web.Models;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -49,7 +49,7 @@ namespace MarketWorld.Web.Controllers
             // Kullanıcı istatistikleri
             ViewBag.TotalUsersCount = await _context.Users.CountAsync();
             ViewBag.NewUsersCount = await _context.Users
-                .Where(u => u.CreatedDate >= DateTime.Now.AddDays(-7))
+                .Where(u => u.CreateDate >= DateTime.Now.AddDays(-7))
                 .CountAsync();
                 
             // Marka istatistikleri
@@ -761,22 +761,25 @@ namespace MarketWorld.Web.Controllers
         public async Task<IActionResult> Users()
         {
             var users = await _context.Users
-                .Include(u => u.UserRole)
                 .Select(u => new UserViewModel
                 {
-                    Id = u.Id,
-                    Username = u.Username,
+                    Id = int.Parse(u.Id),
+                    Username = u.UserName,
                     Email = u.Email,
                     FirstName = u.FirstName,
                     LastName = u.LastName,
-                    Role = u.UserRole.Role,
+                    Role = _context.UserRoles
+                        .Join(_context.Roles, ur => ur.RoleId, r => r.Id, (ur, r) => new { ur, r })
+                        .Where(x => x.ur.UserId == u.Id)
+                        .Select(x => x.r.Name)
+                        .FirstOrDefault() ?? "Kullanıcı",
                     IsActive = u.IsActive,
-                    RegistrationDate = u.CreatedDate
+                    RegistrationDate = u.CreateDate
                 })
                 .ToListAsync();
             
             // Kullanıcı istatistikleri
-            ViewBag.TotalUsersCount = users.Count;
+            ViewBag.TotalUsersCount = users.Count();
             ViewBag.ActiveUsersCount = users.Count(u => u.IsActive);
             ViewBag.NewUsersCount = users.Count(u => u.RegistrationDate >= DateTime.Now.AddDays(-30));
             
@@ -789,24 +792,29 @@ namespace MarketWorld.Web.Controllers
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _context.Users
-                .Include(u => u.UserRole)
-                .FirstOrDefaultAsync(u => u.Id == id);
+                .FirstOrDefaultAsync(u => u.Id == id.ToString());
             
             if (user == null)
             {
                 return NotFound();
             }
             
+            var roleName = await _context.UserRoles
+                .Join(_context.Roles, ur => ur.RoleId, r => r.Id, (ur, r) => new { ur, r })
+                .Where(x => x.ur.UserId == user.Id)
+                .Select(x => x.r.Name)
+                .FirstOrDefaultAsync() ?? "Kullanıcı";
+            
             var viewModel = new UserViewModel
             {
-                Id = user.Id,
-                Username = user.Username,
+                Id = int.Parse(user.Id),
+                Username = user.UserName,
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                Role = user.UserRole.Role,
+                Role = roleName,
                 IsActive = user.IsActive,
-                RegistrationDate = user.CreatedDate
+                RegistrationDate = user.CreateDate
             };
             
             return Json(viewModel);
@@ -828,7 +836,7 @@ namespace MarketWorld.Web.Controllers
                 return BadRequest(new { success = false, message = "Bu email adresi zaten kullanımda" });
             }
             
-            if (await _context.Users.AnyAsync(u => u.Username == model.Username))
+            if (await _context.Users.AnyAsync(u => u.UserName == model.Username))
             {
                 return BadRequest(new { success = false, message = "Bu kullanıcı adı zaten kullanımda" });
             }
@@ -838,25 +846,43 @@ namespace MarketWorld.Web.Controllers
             {
                 return BadRequest(new { success = false, message = "Şifreler eşleşmiyor" });
             }
-            var userRole = await _context.UserRoles.FirstOrDefaultAsync(r => r.Role == model.Role);
+            
+            // Role Id bul
+            var roleId = await _context.Roles
+                .Where(r => r.Name == model.Role)
+                .Select(r => r.Id)
+                .FirstOrDefaultAsync();
+
             // Yeni kullanıcı oluştur
-            var user = new User
+            var user = new ApplicationUser
             {
-                Username = model.Username,
+                UserName = model.Username,
                 Email = model.Email,
                 FirstName = model.FirstName ?? "",
                 LastName = model.LastName ?? "",
-                UserRoleId = userRole.Id,
                 IsActive = model.IsActive,
-                CreatedDate = DateTime.Now
+                CreateDate = DateTime.Now,
+                EmailConfirmed = model.IsActive
             };
             
-            // Şifreyi hash'le
-            user.Password = model.Password;
+            // Şifreyi hash'le ve kullanıcıyı oluştur
+            var passwordHasher = new Microsoft.AspNetCore.Identity.PasswordHasher<ApplicationUser>();
+            user.PasswordHash = passwordHasher.HashPassword(user, model.Password);
             
             // Veritabanına ekle
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+            
+            // Kullanıcıya rol atama
+            if (!string.IsNullOrEmpty(roleId))
+            {
+                _context.UserRoles.Add(new Microsoft.AspNetCore.Identity.IdentityUserRole<string>
+                {
+                    UserId = user.Id,
+                    RoleId = roleId
+                });
+                await _context.SaveChangesAsync();
+            }
             
             return Json(new { success = true, message = "Kullanıcı başarıyla eklendi" });
         }
@@ -871,7 +897,7 @@ namespace MarketWorld.Web.Controllers
                 return BadRequest(new { success = false, message = "Geçersiz veri" });
             }
             
-            var user = await _context.Users.FindAsync(model.Id);
+            var user = await _context.Users.FindAsync(model.Id.ToString());
             
             if (user == null)
             {
@@ -879,29 +905,52 @@ namespace MarketWorld.Web.Controllers
             }
             
             // Email ve kullanıcı adı benzersiz olmalı (kendisi hariç)
-            if (await _context.Users.AnyAsync(u => u.Email == model.Email && u.Id != model.Id))
+            if (await _context.Users.AnyAsync(u => u.Email == model.Email && u.Id != model.Id.ToString()))
             {
                 return BadRequest(new { success = false, message = "Bu email adresi zaten kullanımda" });
             }
             
-            if (await _context.Users.AnyAsync(u => u.Username == model.Username && u.Id != model.Id))
+            if (await _context.Users.AnyAsync(u => u.UserName == model.Username && u.Id != model.Id.ToString()))
             {
                 return BadRequest(new { success = false, message = "Bu kullanıcı adı zaten kullanımda" });
             }
             
             // Kullanıcı bilgilerini güncelle
-            user.Username = model.Username;
+            user.UserName = model.Username;
             user.Email = model.Email;
             user.FirstName = model.FirstName ?? user.FirstName;
             user.LastName = model.LastName ?? user.LastName;
-            user.UserRoleId = await _context.UserRoles.Where(r => r.Role == model.Role).Select(r => r.Id).FirstOrDefaultAsync();
             user.IsActive = model.IsActive;
-            user.UpdatedDate = DateTime.Now;
+            user.EmailConfirmed = model.IsActive;
+            
+            // Kullanıcı rolü güncelleme 
+            var roleId = await _context.Roles
+                .Where(r => r.Name == model.Role)
+                .Select(r => r.Id)
+                .FirstOrDefaultAsync();
+                
+            if (!string.IsNullOrEmpty(roleId))
+            {
+                // Eski rolleri kaldır
+                var userRoles = await _context.UserRoles
+                    .Where(ur => ur.UserId == user.Id)
+                    .ToListAsync();
+                
+                _context.UserRoles.RemoveRange(userRoles);
+                
+                // Yeni rol ekle
+                _context.UserRoles.Add(new Microsoft.AspNetCore.Identity.IdentityUserRole<string>
+                {
+                    UserId = user.Id,
+                    RoleId = roleId
+                });
+            }
             
             // Şifre sadece dolu gönderilmişse güncelle
             if (!string.IsNullOrEmpty(model.Password))
             {
-                user.Password = model.Password;
+                var passwordHasher = new Microsoft.AspNetCore.Identity.PasswordHasher<ApplicationUser>();
+                user.PasswordHash = passwordHasher.HashPassword(user, model.Password);
             }
             
             await _context.SaveChangesAsync();
@@ -914,15 +963,24 @@ namespace MarketWorld.Web.Controllers
         [Route("Panel/DeleteUser/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(id.ToString());
             
             if (user == null)
             {
                 return NotFound(new { success = false, message = "Kullanıcı bulunamadı" });
             }
             
-            // Databaseden tamamen silmek yerine IsDeleted flag'i koyabilirsiniz
-            // Bu örnekte tamamen siliyoruz
+            // İlişkili rolleri sil
+            var userRoles = await _context.UserRoles
+                .Where(ur => ur.UserId == user.Id)
+                .ToListAsync();
+                
+            if (userRoles.Any())
+            {
+                _context.UserRoles.RemoveRange(userRoles);
+            }
+            
+            // Kullanıcıyı silme veya devre dışı bırakma
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
             
