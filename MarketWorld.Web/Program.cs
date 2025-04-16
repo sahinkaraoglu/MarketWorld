@@ -8,6 +8,7 @@ using MarketWorld.Web.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using MarketWorld.Application.Services.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 

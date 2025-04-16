@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
-using MarketWorld.Application.Services.Interfaces;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using MarketWorld.Application.Services.Jwt;
 
 namespace MarketWorld.Web.Controllers
 {

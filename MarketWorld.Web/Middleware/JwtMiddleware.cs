@@ -1,12 +1,12 @@
 using System;
 using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
-using MarketWorld.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
+using MarketWorld.Application.Services.Jwt;
 
 namespace MarketWorld.Web.Middleware
 {

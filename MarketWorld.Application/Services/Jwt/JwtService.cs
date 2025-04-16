@@ -4,12 +4,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Linq;
-using MarketWorld.Application.Services.Interfaces;
 using MarketWorld.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace MarketWorld.Application.Services.Implementations
+namespace MarketWorld.Application.Services.Jwt
 {
     public class JwtService : IJwtService
     {
@@ -24,7 +23,7 @@ namespace MarketWorld.Application.Services.Implementations
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
-            
+
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -68,17 +67,17 @@ namespace MarketWorld.Application.Services.Implementations
                 }, out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                
+
                 // Önce ClaimTypes.NameIdentifier ile kontrol et
                 var userIdClaim = jwtToken.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
-                
+
                 // Eğer yoksa "nameid" ile kontrol et (JWT'nin standart formatı olabilir)
                 if (userIdClaim == null)
                     userIdClaim = jwtToken.Claims.FirstOrDefault(x => x.Type == "nameid");
-                
+
                 if (userIdClaim == null)
                     return null;
-                
+
                 var userId = int.Parse(userIdClaim.Value);
                 return userId;
             }
@@ -88,4 +87,4 @@ namespace MarketWorld.Application.Services.Implementations
             }
         }
     }
-} 
+}
