@@ -20,7 +20,7 @@
                 <img src="https://github.com/user-attachments/assets/689b161c-c80a-452d-986d-5a25e718a61c" alt="category" width="400"/>
             </td>
             <td>
-                <img src="https://github.com/user-attachments/assets/3773fe8b-ebc6-4b00-a375-d35e2a525399" alt="panel" width="400"/>
+                <img src="https://github.com/user-attachments/assets/b7f0c94e-b6a4-4b08-bd97-1d18b9a9ac2a" alt="panel" width="400"/>
             </td>
         </tr>
     </table>
