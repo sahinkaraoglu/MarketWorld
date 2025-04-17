@@ -95,8 +95,8 @@ namespace MarketWorld.Web.Controllers
                 // Debug bilgisi
                 Console.WriteLine($"Login Controller - Giriş başarılı! UserId: {user.Id}, Username: {user.UserName}, Email: {user.Email}");
                 
-                // ViewBag yerine TempData kullanarak başarılı giriş mesajı ekle
-                TempData["SuccessMessage"] = "Başarıyla giriş yaptınız!";
+                //// ViewBag yerine TempData kullanarak başarılı giriş mesajı ekle
+                //TempData["SuccessMessage"] = "Başarıyla giriş yaptınız!";
                 
                 return RedirectToAction("Index", "Home");
             }
