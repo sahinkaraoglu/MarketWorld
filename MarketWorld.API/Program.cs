@@ -59,6 +59,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 // Service registrations
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 
