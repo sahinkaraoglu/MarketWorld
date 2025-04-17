@@ -7,6 +7,7 @@ public class RegisterModel
     [Required]
     [EmailAddress]
     public string Email { get; set; } = null!;
+    public string UserName { get; set; } = null!;
 
     [Required]
     [StringLength(100, MinimumLength = 6)]
@@ -21,4 +22,5 @@ public class RegisterModel
 
     [Required]
     public string LastName { get; set; } = null!;
+    public string? PhoneNumber { get; set; }
 } 
