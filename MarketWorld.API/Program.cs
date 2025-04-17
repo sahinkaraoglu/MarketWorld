@@ -96,6 +96,14 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// Rolleri seed et
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    await SeedRoles(roleManager);
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -110,4 +118,22 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run(); 
+app.Run();
+
+// Rolleri oluşturmak için yardımcı metot
+async Task SeedRoles(RoleManager<IdentityRole> roleManager)
+{
+    // Admin rolünü kontrol et ve oluştur
+    if (!await roleManager.RoleExistsAsync("Admin"))
+    {
+        await roleManager.CreateAsync(new IdentityRole("Admin"));
+        Console.WriteLine("Admin rolü oluşturuldu.");
+    }
+    
+    // User rolünü kontrol et ve oluştur
+    if (!await roleManager.RoleExistsAsync("User"))
+    {
+        await roleManager.CreateAsync(new IdentityRole("User"));
+        Console.WriteLine("User rolü oluşturuldu.");
+    }
+} 

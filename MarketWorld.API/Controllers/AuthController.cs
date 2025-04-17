@@ -13,15 +13,18 @@ public class AuthController : ControllerBase
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly IJwtService _jwtService;
+    private readonly RoleManager<IdentityRole> _roleManager;
 
     public AuthController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
-        IJwtService jwtService)
+        IJwtService jwtService,
+        RoleManager<IdentityRole> roleManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _jwtService = jwtService;
+        _roleManager = roleManager;
     }
 
     [HttpPost("register")]
@@ -40,6 +43,21 @@ public class AuthController : ControllerBase
 
         if (result.Succeeded)
         {
+            // RoleId değerine göre rol atama
+            string roleName = model.RoleId == 1 ? "Admin" : "User";
+            
+            // Rol varsa kullanıcıya ekle
+            if (await _roleManager.RoleExistsAsync(roleName))
+            {
+                await _userManager.AddToRoleAsync(user, roleName);
+            }
+            // Rol yoksa önce oluştur sonra ekle
+            else
+            {
+                await _roleManager.CreateAsync(new IdentityRole(roleName));
+                await _userManager.AddToRoleAsync(user, roleName);
+            }
+            
             return Ok(new { Message = "Kullanıcı başarıyla oluşturuldu." });
         }
 
