@@ -1,14 +1,17 @@
 ﻿using MarketWorld.Domain.Entities;
-using MarketWorld.API.Models.Auth;
 using MarketWorld.Application.Services.Jwt;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using MarketWorld.API.Models.Auth;
+using MarketWorld.API.Controllers;
+using MarketWorld.Api.Controllers;
 
 namespace MarketWorld.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController : ControllerBase
+public class AuthController : BaseController
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
@@ -82,5 +85,16 @@ public class AuthController : ControllerBase
         }
 
         return BadRequest(new { Message = "Email veya şifre hatalı." });
+    }
+
+    [HttpGet("admin")]
+    [Authorize]
+    public async Task<IActionResult> Admin()
+    {
+        var userId = GetUserId();
+        return Ok(new
+        {
+            userId = userId
+        });
     }
 }
