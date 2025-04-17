@@ -12,7 +12,7 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <div>
-                            <h5 class="mb-0">Kullanıcı</h5>
+                            <h5 class="mb-0">@(ViewBag.FirstName != null ? ViewBag.FirstName : "Kullanıcı") @(ViewBag.LastName ?? "")</h5>
                             <p class="text-muted small mb-0">@ViewBag.UserId</p>
                         </div>
                     </div>
@@ -46,29 +46,29 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-muted">Ad</label>
-                            <div class="form-control bg-light">-</div>
+                            <div class="form-control bg-light">@(ViewBag.FirstName ?? "-")</div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-muted">Soyad</label>
-                            <div class="form-control bg-light">-</div>
+                            <div class="form-control bg-light">@(ViewBag.LastName ?? "-")</div>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-muted">E-posta</label>
-                            <div class="form-control bg-light">-</div>
+                            <div class="form-control bg-light">@(ViewBag.Email ?? "-")</div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-muted">Telefon</label>
-                            <div class="form-control bg-light">-</div>
+                            <div class="form-control bg-light">@(ViewBag.Phone ?? "-")</div>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-muted">Üyelik Tarihi</label>
-                            <div class="form-control bg-light">-</div>
+                            <div class="form-control bg-light">@(ViewBag.CreateDate ?? "-")</div>
                         </div>
                     </div>
                     
