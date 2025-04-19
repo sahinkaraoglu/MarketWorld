@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using MarketWorld.API.Models.Auth;
 using MarketWorld.API.Controllers;
 using MarketWorld.Api.Controllers;
+using System.Linq;
 
 namespace MarketWorld.API.Controllers;
 
@@ -46,22 +47,18 @@ public class AuthController : BaseController
 
         if (result.Succeeded)
         {
-            // RoleId değerine göre rol atama
-            string roleName = model.RoleId == 1 ? "Admin" : "User";
+            // Kullanıcıya rol atama
+            var role = await _roleManager.FindByIdAsync(model.RoleId);
             
-            // Rol varsa kullanıcıya ekle
-            if (await _roleManager.RoleExistsAsync(roleName))
+            if (role != null)
             {
-                await _userManager.AddToRoleAsync(user, roleName);
+                await _userManager.AddToRoleAsync(user, role.Name);
+                return Ok(new { Message = "Kullanıcı başarıyla oluşturuldu." });
             }
-            // Rol yoksa önce oluştur sonra ekle
             else
             {
-                await _roleManager.CreateAsync(new IdentityRole(roleName));
-                await _userManager.AddToRoleAsync(user, roleName);
+                return BadRequest(new { Message = "Belirtilen rol bulunamadı." });
             }
-            
-            return Ok(new { Message = "Kullanıcı başarıyla oluşturuldu." });
         }
 
         return BadRequest(new { Errors = result.Errors });
@@ -96,5 +93,15 @@ public class AuthController : BaseController
         {
             userId = userId
         });
+    }
+    
+    [HttpGet("roles")]
+    public async Task<IActionResult> GetRoles()
+    {
+        var roles = _roleManager.Roles
+            .Select(r => new { Id = r.Id, Name = r.Name })
+            .ToList();
+            
+        return Ok(roles);
     }
 }

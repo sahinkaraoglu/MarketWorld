@@ -24,6 +24,6 @@ public class RegisterModel
     public string LastName { get; set; } = null!;
     public string? PhoneNumber { get; set; }
     
-    // RoleId: 1 = Admin, 2 = User
-    public int RoleId { get; set; } = 2; // Varsayılan olarak User rolü
+    [Required]
+    public string RoleId { get; set; } = null!; // AspNetRoles tablosundaki Id değeri
 } 
