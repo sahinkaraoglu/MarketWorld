@@ -7,6 +7,7 @@ using MarketWorld.API.Models.Auth;
 using MarketWorld.API.Controllers;
 using MarketWorld.Api.Controllers;
 using System.Linq;
+using System;
 
 namespace MarketWorld.API.Controllers;
 
@@ -18,17 +19,20 @@ public class AuthController : BaseController
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly IJwtService _jwtService;
     private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly IConfiguration _configuration;
 
     public AuthController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
         IJwtService jwtService,
-        RoleManager<IdentityRole> roleManager)
+        RoleManager<IdentityRole> roleManager,
+        IConfiguration configuration)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _jwtService = jwtService;
         _roleManager = roleManager;
+        _configuration = configuration;
     }
 
     [HttpPost("register")]
@@ -78,7 +82,18 @@ public class AuthController : BaseController
         if (result.Succeeded)
         {
             var token = _jwtService.GenerateToken(user.Id, user.Email!, user.UserName!);
-            return Ok(new { Token = token });
+            
+            // Token'ın sona erme süresini al (appsettings'deki değere göre)
+            var expiresInMinutes = Convert.ToDouble(_configuration["Jwt:DurationInMinutes"]);
+            var expiresAt = DateTime.Now.AddMinutes(expiresInMinutes);
+            
+            var tokenResponse = new TokenResponse
+            {
+                Token = token,
+                ExpiresAt = expiresAt,
+            };
+            
+            return Ok(tokenResponse);
         }
 
         return BadRequest(new { Message = "Email veya şifre hatalı." });

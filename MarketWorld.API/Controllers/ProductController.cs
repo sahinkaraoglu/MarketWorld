@@ -45,5 +45,14 @@ namespace MarketWorld.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("filter")]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsByProductNumber([FromQuery] string productNumber)
+        {
+            var allProducts = await _productService.GetAllProducts();
+            var filteredProducts = allProducts.Where(p => p.ProductNumber.Contains(productNumber)).ToList();
+     
+            return Ok(filteredProducts);
+        }
     }
 }
