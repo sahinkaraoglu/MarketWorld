@@ -2,8 +2,10 @@ using MarketWorld.Application.Services.Interfaces;
 using MarketWorld.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MarketWorld.API.Controllers
 {
@@ -21,10 +23,26 @@ namespace MarketWorld.API.Controllers
         [HttpGet]
         //[ProducesResponseType(typeof(IEnumerable<Product>), 200)]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts()
+        public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             var products = await _productService.GetAllProducts();
-            return Ok(products);
+            
+            var totalProducts = products.Count();
+            var pagedProducts = products
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+                
+            var result = new
+            {
+                Products = pagedProducts,
+                TotalPages = (int)Math.Ceiling(totalProducts / (double)pageSize),
+                CurrentPage = page,
+                PageSize = pageSize,
+                TotalProducts = totalProducts
+            };
+            
+            return Ok(result);
         }
 
     }
