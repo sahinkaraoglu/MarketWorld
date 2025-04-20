@@ -4,7 +4,7 @@
 <div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div class="d-flex align-items-center">
-            <input type="text" id="productNumberSearch" class="form-control me-2" placeholder="Ürün Kodu..." style="width: 250px;">
+            <input type="text" id="productCodeSearch" class="form-control me-2" placeholder="Ürün Kodu..." style="width: 250px;">
             <select class="form-select ms-2" id="statusFilter" style="width: 150px;">
                 <option selected>Durum</option>
                 <option value="all">Tümü</option>
@@ -281,7 +281,7 @@
             loadProducts(1);
             
             // Ürün kodu ile arama yapma
-            $('#productNumberSearch').on('input', function() {
+            $('#productCodeSearch').on('input', function() {
                 loadProducts(1);
             });
             
@@ -294,7 +294,7 @@
                 $('#loadingIndicator').removeClass('d-none');
                 $('#productTableBody').empty();
                 
-                let productNumber = $('#productNumberSearch').val().trim();
+                let productCode = $('#productCodeSearch').val().trim();
                 let statusFilter = $('#statusFilter').val();
                 
                 $.ajax({
@@ -303,7 +303,7 @@
                     data: {
                         page: page,
                         pageSize: PAGE_SIZE,
-                        productNumber: productNumber,
+                        productCode: productCode,
                         status: statusFilter
                     },
                     success: function(response) {
@@ -417,7 +417,7 @@
                                      onerror="this.src='/img/ProductsPicture/default.jpg';">
                             </div>
                         </td>
-                        <td>${product.productNumber}</td>
+                        <td>${product.productCode}</td>
                         <td><div class="text-truncate" style="max-width: 200px;" title="${product.name}">${product.name}</div></td>
                         <td>
                             ${product.stock}

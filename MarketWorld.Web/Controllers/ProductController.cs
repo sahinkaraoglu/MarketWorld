@@ -46,7 +46,7 @@ namespace MarketWorld.Web.Controllers
                     CategoryName = p.SubCategory.Category.Name,
                     HasDiscount = p.HasDiscount,
                     DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
-                    ProductNumber = p.ProductNumber
+                    ProductCode = p.ProductCode
                 }) .ToListAsync();
 
             var brands = await _context.Brands
@@ -101,7 +101,7 @@ namespace MarketWorld.Web.Controllers
                     CategoryName = p.SubCategory.Category.Name,
                     HasDiscount = p.HasDiscount,
                     DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
-                    ProductNumber = p.ProductNumber
+                    ProductCode = p.ProductCode
                 })
                 .ToListAsync();
 
@@ -165,7 +165,7 @@ namespace MarketWorld.Web.Controllers
             var viewModel = new ProductDetailViewModel
             {
                 Id = product.Id,
-                ProductNumber = product.ProductNumber,
+                ProductCode = product.ProductCode,
                 Name = product.Name,
                 Description = product.Description,
                 BrandId = product.BrandId,
@@ -293,7 +293,7 @@ namespace MarketWorld.Web.Controllers
                     rating = p.Rating,
                     reviewCount = 100, // Örnek değer
                     hasFreeShipping = p.Price > 45000,
-                    productNumber = p.ProductNumber
+                    productCode = p.ProductCode
                 })
                 .ToListAsync();
 

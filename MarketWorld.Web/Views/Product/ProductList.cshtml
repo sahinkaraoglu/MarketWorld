@@ -279,7 +279,7 @@
                                     <h6 class="card-subtitle mb-2 text-muted">${product.brandName}</h6>
                                     <h5 class="card-title product-title">${product.name}</h5>
                                     <div class="product-info mb-2">
-                                        <span class="product-number">Ürün Kodu: ${product.productNumber || '000000'}</span>
+                                        <span class="product-code">Ürün Kodu: ${product.productCode || '000000'}</span>
                                     </div>
                                     <div class="product-rating mb-2">
                                         <div class="stars d-flex align-items-center">
@@ -338,7 +338,7 @@
                         }
                     })
                     .fail(function() {
-                        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                        alert('Sepete Ekle için giriş yapmalısınız.');
                     });
             });
         });

@@ -110,7 +110,7 @@ namespace MarketWorld.Web.Controllers
                 SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
                 BrandId = p.BrandId,
                 BrandName = p.Brand?.Name ?? "Markasız",
-                ProductNumber = p.ProductNumber
+                ProductCode = p.ProductCode
             }).ToList();
 
             return View(viewModel);
@@ -245,12 +245,12 @@ namespace MarketWorld.Web.Controllers
                 ProductProperties = new List<ProductProperty>()
             };
             
-            product.GenerateRandomProductNumber();
+            product.GenerateRandomProductCode();
             
             // Veritabanında var mı kontrol et ve benzersiz olana kadar tekrar oluştur
-            while (await _context.Products.AnyAsync(p => p.ProductNumber == product.ProductNumber))
+            while (await _context.Products.AnyAsync(p => p.ProductCode == product.ProductCode))
             {
-                product.GenerateRandomProductNumber();
+                product.GenerateRandomProductCode();
             }
 
             if (model.Images != null && model.Images.Any())
@@ -322,7 +322,7 @@ namespace MarketWorld.Web.Controllers
                 CategoryId = product.SubCategory?.CategoryId ?? 0,
                 SubCategoryId = product.SubCategoryId ?? 0,
                 BrandId = product.BrandId,
-                ProductNumber = product.ProductNumber
+                ProductCode = product.ProductCode
             };
 
             return Json(viewModel);
@@ -342,16 +342,16 @@ namespace MarketWorld.Web.Controllers
             product.BrandId = model.BrandId;
             product.SubCategoryId = model.SubCategoryId;
             product.Price = model.Price;
-            
-            // Eğer ProductNumber yoksa veya boşsa yeni oluştur
-            if (string.IsNullOrEmpty(product.ProductNumber) || product.ProductNumber == "000000")
+
+            // Eğer ProductCode 0 ise yeni oluştur
+            if (product.ProductCode == 0)
             {
-                product.GenerateRandomProductNumber();
+                product.GenerateRandomProductCode();
                 
                 // Veritabanında var mı kontrol et ve benzersiz olana kadar tekrar oluştur
-                while (await _context.Products.AnyAsync(p => p.Id != product.Id && p.ProductNumber == product.ProductNumber))
+                while (await _context.Products.AnyAsync(p => p.Id != product.Id && p.ProductCode == product.ProductCode))
                 {
-                    product.GenerateRandomProductNumber();
+                    product.GenerateRandomProductCode();
                 }
             }
             
@@ -426,7 +426,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProducts(int page = 1, int pageSize = 30, string productNumber = "", string status = "")
+        public async Task<IActionResult> GetProducts(int page = 1, int pageSize = 30, string productCode = "", string status = "")
         {
             try
             {
@@ -439,9 +439,9 @@ namespace MarketWorld.Web.Controllers
                     .AsQueryable();
                 
                 // Ürün kodu ile filtreleme
-                if (!string.IsNullOrEmpty(productNumber))
+                if (!string.IsNullOrEmpty(productCode) && int.TryParse(productCode, out int productNum))
                 {
-                    query = query.Where(p => p.ProductNumber.Contains(productNumber));
+                    query = query.Where(p => p.ProductCode == productNum);
                 }
 
                 // Durum ile filtreleme
@@ -483,7 +483,7 @@ namespace MarketWorld.Web.Controllers
                     SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
                     BrandId = p.BrandId,
                     BrandName = p.Brand?.Name ?? "Markasız",
-                    ProductNumber = p.ProductNumber
+                    ProductCode = p.ProductCode
                 }).ToList();
 
                 return Json(new { 
@@ -500,7 +500,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> LoadMoreProducts(int page = 1, int pageSize = 30, string productNumber = "")
+        public async Task<IActionResult> LoadMoreProducts(int page = 1, int pageSize = 30, string productCode = "")
         {
             try
             {
@@ -513,9 +513,9 @@ namespace MarketWorld.Web.Controllers
                     .AsQueryable();
                 
                 // Ürün kodu ile filtreleme
-                if (!string.IsNullOrEmpty(productNumber))
+                if (!string.IsNullOrEmpty(productCode) && int.TryParse(productCode, out int productNum))
                 {
-                    query = query.Where(p => p.ProductNumber.Contains(productNumber));
+                    query = query.Where(p => p.ProductCode == productNum);
                 }
 
                 var totalCount = await query.CountAsync();
@@ -543,7 +543,7 @@ namespace MarketWorld.Web.Controllers
                     SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
                     BrandId = p.BrandId,
                     BrandName = p.Brand?.Name ?? "Markasız",
-                    ProductNumber = p.ProductNumber
+                    ProductCode = p.ProductCode
                 }).ToList();
 
                 bool hasMore = (page * pageSize) < totalCount;

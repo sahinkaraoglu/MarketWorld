@@ -33,8 +33,8 @@ namespace MarketWorld.Application.Services.Implementations
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
 
-            // 6 haneli benzersiz rastgele ProductNumber oluştur
-            product.ProductNumber = await GenerateUniqueProductNumber();
+            // 6 haneli benzersiz rastgele ProductCode oluştur
+            product.ProductCode = await GenerateUniqueProductCode();
             
             await _unitOfWork.Products.AddAsync(product);
             await _unitOfWork.SaveChangesAsync();
@@ -46,10 +46,9 @@ namespace MarketWorld.Application.Services.Implementations
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
 
-            // Eğer ProductNumber yoksa ya da boşsa yeni oluştur
-            if (string.IsNullOrEmpty(product.ProductNumber))
+            if (product.ProductCode == 0)
             {
-                product.ProductNumber = await GenerateUniqueProductNumber();
+                product.ProductCode = await GenerateUniqueProductCode();
             }
 
             _unitOfWork.Products.Update(product);
@@ -66,23 +65,23 @@ namespace MarketWorld.Application.Services.Implementations
             await _unitOfWork.SaveChangesAsync();
         }
 
-        // 6 haneli benzersiz rastgele ProductNumber oluşturan yardımcı metod
-        private async Task<string> GenerateUniqueProductNumber()
+        // 6 haneli benzersiz rastgele ProductCode oluşturan yardımcı metod
+        private async Task<int> GenerateUniqueProductCode()
         {
-            string productNumber;
+            int productCode;
             bool isUnique = false;
 
             do
             {
                 // 6 haneli rastgele sayı oluştur (100000-999999 arası)
-                productNumber = _random.Next(100000, 1000000).ToString();
+                productCode = _random.Next(100000, 1000000);
                 
                 // Veritabanında bu numara var mı kontrol et
-                isUnique = !await _unitOfWork.Products.AnyAsync(p => p.ProductNumber == productNumber);
+                isUnique = !await _unitOfWork.Products.AnyAsync(p => p.ProductCode == productCode);
                 
             } while (!isUnique);
 
-            return productNumber;
+            return productCode;
         }
     }
 } 

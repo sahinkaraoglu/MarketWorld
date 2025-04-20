@@ -47,12 +47,73 @@ namespace MarketWorld.API.Controllers
 
         [HttpGet("filter")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProductsByProductNumber([FromQuery] string productNumber)
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsByProductCode([FromQuery] int ProductCode)
         {
             var allProducts = await _productService.GetAllProducts();
-            var filteredProducts = allProducts.Where(p => p.ProductNumber.Contains(productNumber)).ToList();
+            var filteredProducts = allProducts.Where(p => p.ProductCode == ProductCode).ToList();
      
             return Ok(filteredProducts);
         }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<ActionResult<Product>> CreateProduct([FromBody] Product product)
+        {
+            if (product == null)
+                return BadRequest("Ürün verisi boş olamaz.");
+
+            try
+            {
+                var createdProduct = await _productService.CreateProduct(product);
+                return CreatedAtAction(nameof(GetAllProducts), new { id = createdProduct.Id }, createdProduct);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Ürün oluşturulurken bir hata oluştu: {ex.Message}");
+            }
+        }
+        
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<ActionResult> DeleteProduct(int id)
+        {
+            try
+            {
+                var product = await _productService.GetProductById(id);
+                if (product == null)
+                    return NotFound($"ID: {id} ile ürün bulunamadı.");
+
+                await _productService.DeleteProduct(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Ürün silinirken bir hata oluştu: {ex.Message}");
+            }
+        }
+
+        [HttpDelete("number/{ProductCode}")]
+        [Authorize]
+        public async Task<ActionResult> DeleteProductByCode(int ProductCode)
+        {
+            try
+            {
+                var allProducts = await _productService.GetAllProducts();
+                var product = allProducts.FirstOrDefault(p => p.ProductCode == ProductCode);
+                
+                if (product == null)
+                    return NotFound($"Ürün Numarası: {ProductCode} ile ürün bulunamadı.");
+
+                await _productService.DeleteProduct(product.Id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Ürün silinirken bir hata oluştu: {ex.Message}");
+            }
+        }
+
+      
     }
 }

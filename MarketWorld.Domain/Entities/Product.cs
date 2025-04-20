@@ -8,8 +8,7 @@ namespace MarketWorld.Domain.Entities
 {
     public class Product : BaseEntity
     {
-        [StringLength(6)]
-        public string ProductNumber { get; set; } = "000000";
+        public int ProductCode { get; set; } = 0;
         public string Name { get; set; }
         public int BrandId { get; set; }
         public decimal Price { get; set; }
@@ -42,10 +41,10 @@ namespace MarketWorld.Domain.Entities
         /// <summary>
         /// 6 haneli rastgele bir ürün numarası oluşturur
         /// </summary>
-        public void GenerateRandomProductNumber()
+        public void GenerateRandomProductCode()
         {
             var random = new Random();
-            ProductNumber = random.Next(100000, 1000000).ToString();
+            ProductCode = random.Next(100000, 1000000);
         }
     }
 }

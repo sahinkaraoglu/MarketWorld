@@ -17,6 +17,6 @@ namespace MarketWorld.Web.Models.Admin
         public string SubCategoryName { get; set; }
         public int BrandId { get; set; }
         public string BrandName { get; set; }
-        public string ProductNumber { get; set; } = "000000";
+        public int ProductCode { get; set; } = 0;
     }
 } 
