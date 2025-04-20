@@ -5,7 +5,8 @@ namespace MarketWorld.Web.Models
 {
     public class UserViewModel
     {
-        public int Id { get; set; }
+        [Display(Name = "Kullanıcı ID")]
+        public string Id { get; set; }
         
         [Required(ErrorMessage = "Kullanıcı adı gereklidir")]
         public string Username { get; set; }
