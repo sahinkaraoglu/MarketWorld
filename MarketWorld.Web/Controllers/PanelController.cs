@@ -98,6 +98,7 @@ namespace MarketWorld.Web.Controllers
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
                 .Include(p => p.ProductProperties)
+                .Where(p => !p.IsDeleted)
                 .ToListAsync();
 
             var viewModel = products.Select(p => new ProductAdminViewModel
@@ -445,7 +446,8 @@ namespace MarketWorld.Web.Controllers
                 .Include(p => p.SubCategory)
                     .ThenInclude(sc => sc.Category)
                 .Include(p => p.Brand)
-                .FirstOrDefaultAsync(p => p.Id == id);
+                .Where(p => p.Id == id && !p.IsDeleted)
+                .FirstOrDefaultAsync();
 
             if (product == null)
                 return NotFound();
@@ -574,6 +576,7 @@ namespace MarketWorld.Web.Controllers
                     .Include(p => p.Brand)
                     .Include(p => p.Images)
                     .Include(p => p.ProductProperties)
+                    .Where(p => !p.IsDeleted)
                     .AsQueryable();
                 
                 // Ürün kodu ile filtreleme
@@ -648,6 +651,7 @@ namespace MarketWorld.Web.Controllers
                     .Include(p => p.Brand)
                     .Include(p => p.Images)
                     .Include(p => p.ProductProperties)
+                    .Where(p => !p.IsDeleted)
                     .AsQueryable();
                 
                 // Ürün kodu ile filtreleme
