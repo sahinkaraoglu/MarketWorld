@@ -1,9 +1,10 @@
 @model List<MarketWorld.Web.Models.ProductViewModel> 
 
 @{
-    ViewData["Title"] = Model.FirstOrDefault()?.CategoryName;
+    ViewData["Title"] = Model.FirstOrDefault()?.CategoryName ?? "Ürünler";
     var brands = ViewBag.Brands as List<MarketWorld.Domain.Entities.Brand> ?? new List<MarketWorld.Domain.Entities.Brand>();
     var subCategoryName = ViewBag.SubCategoryName;
+    var searchQuery = ViewBag.SearchQuery;
     var currentPage = 1;
 }
 
@@ -123,7 +124,85 @@
 
             <div class="col-md-9">
                 <div class="row row-cols-1 row-cols-md-3 gy-5" id="productContainer">
-                    <!-- Ürünler JavaScript ile yüklenecek -->
+                    <!-- Model'den gelen ürünlerin doğrudan gösterilmesi -->
+                    @if (Model.Any())
+                    {
+                        foreach (var product in Model)
+                        {
+                            <div class="col mb-4">
+                                <div class="card product-card h-100">
+                                    <a href="/Product/Detail/@product.Id" class="text-decoration-none">
+                                        <div class="position-relative">
+                                            <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" 
+                                                onerror="this.src='/img/default-product.jpg';" />
+                                            <button class="favorite-btn position-absolute top-0 end-0 m-2">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            @if (product.HasFreeShipping)
+                                            {
+                                                <span class="badge free-shipping-badge position-absolute top-0 start-0 m-2">
+                                                    <i class="fas fa-truck me-1"></i>ÜCRETSİZ KARGO
+                                                </span>
+                                            }
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-subtitle mb-2 text-muted">@product.BrandName</h6>
+                                            <h5 class="card-title product-title">@product.Name</h5>
+                                            <div class="product-info mb-2">
+                                                <span class="product-code">Ürün Kodu: @(product.ProductCode > 0 ? product.ProductCode.ToString() : "000000")</span>
+                                            </div>
+                                            <div class="product-rating mb-2">
+                                                <div class="stars d-flex align-items-center">
+                                                    @for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        if (i <= product.Rating)
+                                                        {
+                                                            <i class="fas fa-star text-warning"></i>
+                                                        }
+                                                        else if (i - product.Rating < 1)
+                                                        {
+                                                            <i class="fas fa-star-half-alt text-warning"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="far fa-star text-warning"></i>
+                                                        }
+                                                    }
+                                                    <span class="rating-value ms-2" style="color: #666; font-weight: 500;">@(product.Rating.ToString("0.0"))</span>
+                                                    <span class="review-count text-muted ms-1">(@product.ReviewCount)</span>
+                                                </div>
+                                            </div>
+                                            @if (product.HasDiscount && product.DiscountPrice.HasValue)
+                                            {
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span class="product-price">@product.DiscountPrice.Value.ToString("N2") TL</span>
+                                                    <span class="original-price text-decoration-line-through text-muted">@product.Price.ToString("N2") TL</span>
+                                                    <span class="discount-badge">%@Math.Round((1 - product.DiscountPrice.Value / product.Price) * 100)</span>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <span class="product-price">@product.Price.ToString("N2") TL</span>
+                                            }
+                                        </div>
+                                        <div class="card-footer bg-transparent border-top-0">
+                                            <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="@product.Id">
+                                                <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
+                                            </button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else if (searchQuery != null)
+                    {
+                        <div class="col-12 text-center mt-5">
+                            <p class="text-muted">Aradığınız "<strong>@searchQuery</strong>" ile ilgili sonuç bulunamadı.</p>
+                            <p>Farklı arama terimleri deneyebilir veya kategorilere göz atabilirsiniz.</p>
+                            <a href="/" class="btn btn-primary mt-3">Ana Sayfaya Dön</a>
+                        </div>
+                    }
                 </div>
                 <div id="loadingIndicator" class="text-center mt-4 d-none">
                     <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
@@ -143,6 +222,9 @@
         let hasMoreProducts = true;
 
         $(document).ready(function() {
+            // İlk sayfa yüklendiğinde, products zaten sayfada gösterildiği için sayfa numarasını arttır
+            currentPage = 2;
+            
             // Fiyat filtresi değişikliğini dinle
             $('#minPrice, #maxPrice').on('input', debounce(function() {
                 resetAndReload();
@@ -186,6 +268,7 @@
 
             function loadMoreProducts() {
                 if (isLoading || !hasMoreProducts) return;
+                if (!('@subCategoryName') && '@searchQuery' != '') return; // Eğer arama yapılıyorsa ve subCategory yoksa daha fazla ürün yükleme
 
                 isLoading = true;
                 $('#loadingIndicator').removeClass('d-none');
@@ -279,7 +362,7 @@
                                     <h6 class="card-subtitle mb-2 text-muted">${product.brandName}</h6>
                                     <h5 class="card-title product-title">${product.name}</h5>
                                     <div class="product-info mb-2">
-                                        <span class="product-code">Ürün Kodu: ${product.productCode || '000000'}</span>
+                                        <span class="product-code">Ürün Kodu: ${product.productCode > 0 ? product.productCode : '000000'}</span>
                                     </div>
                                     <div class="product-rating mb-2">
                                         <div class="stars d-flex align-items-center">
@@ -314,9 +397,6 @@
                 }
                 return stars;
             }
-
-            // Sayfa yüklendiğinde ilk ürünleri yükle
-            loadMoreProducts();
 
             // Sepete ekle butonu işlevselliği
             $(document).on('click', '.add-to-cart-btn', function(e) {
