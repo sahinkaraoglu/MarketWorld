@@ -199,7 +199,137 @@ namespace MarketWorld.Web.Controllers
             ViewBag.TotalPages = totalPages;
             ViewBag.PageSize = pageSize;
                 
-            return View(brands);
+            return View("Brand/Brands", brands);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditBrand(int id)
+        {
+            var brand = await _context.Brands.FindAsync(id);
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            
+            return View("Brand/EditBrand", brand);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> EditBrand(int id, string name, bool isDeleted)
+        {
+            var brand = await _context.Brands.FindAsync(id);
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            
+            // Validasyon
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                ModelState.AddModelError("Name", "Marka adı boş olamaz");
+                return View("Brand/EditBrand", brand);
+            }
+            
+            try
+            {
+                brand.Name = name;
+                brand.IsDeleted = isDeleted;
+                brand.UpdatedDate = DateTime.Now;
+                
+                await _context.SaveChangesAsync();
+                
+                return RedirectToAction("Brands");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Hata oluştu: {ex.Message}");
+                return View("Brand/EditBrand", brand);
+            }
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> DeleteBrand(int id)
+        {
+            var brand = await _context.Brands.FindAsync(id);
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            
+            return View("Brand/DeleteBrand", brand);
+        }
+        
+        [HttpPost, ActionName("DeleteBrand")]
+        public async Task<IActionResult> DeleteBrandConfirmed(int id)
+        {
+            var brand = await _context.Brands.FindAsync(id);
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            
+            try
+            {
+                // Markayı doğrudan silmek yerine IsDeleted'ı true yapabiliriz
+                brand.IsDeleted = true;
+                brand.UpdatedDate = DateTime.Now;
+                
+                await _context.SaveChangesAsync();
+                
+                return RedirectToAction("Brands");
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = $"Marka silinirken hata oluştu: {ex.Message}";
+                return RedirectToAction("Brands");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult AddBrand()
+        {
+            return View("Brand/AddBrand");
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> AddBrand(string name, bool isDeleted)
+        {
+            // Validasyon
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                ViewBag.Error = "Marka adı boş olamaz";
+                return View("Brand/AddBrand");
+            }
+            
+            // Marka adının benzersiz olup olmadığını kontrol et
+            bool brandExists = await _context.Brands.AnyAsync(b => b.Name.ToLower() == name.ToLower());
+            if (brandExists)
+            {
+                ViewBag.Error = "Bu isimde bir marka zaten var";
+                return View("Brand/AddBrand");
+            }
+            
+            try
+            {
+                // Yeni marka oluştur
+                var brand = new Brand
+                {
+                    Name = name,
+                    IsDeleted = isDeleted,
+                    CreatedDate = DateTime.Now
+                };
+                
+                // Veritabanına ekle
+                _context.Brands.Add(brand);
+                await _context.SaveChangesAsync();
+                
+                return RedirectToAction("Brands");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = $"Marka eklenirken hata oluştu: {ex.Message}";
+                return View("Brand/AddBrand");
+            }
         }
 
         [HttpGet]

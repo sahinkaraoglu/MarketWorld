@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Yeni Marka Ekle";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">
+                <i class="bi bi-plus-circle me-2"></i>Yeni Marka Ekle
+            </h5>
+        </div>
+        <div class="card-body p-4">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger mb-4">
+                    <i class="bi bi-exclamation-circle me-2"></i>@ViewBag.Error
+                </div>
+            }
+            
+            <form method="post" action="/Panel/AddBrand">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Marka Adı</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <div class="form-text">Marka adı benzersiz olmalıdır.</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="isDeleted" class="form-label">Durum</label>
+                    <select class="form-select" id="isDeleted" name="isDeleted">
+                        <option value="false" selected>Aktif</option>
+                        <option value="true">Pasif</option>
+                    </select>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="/Panel/Brands" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-2"></i>Geri Dön
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-circle me-2"></i>Marka Ekle
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 

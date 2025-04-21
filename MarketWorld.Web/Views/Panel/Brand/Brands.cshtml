@@ -8,14 +8,30 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <h1 class="brands-title">Marka Yönetimi</h1>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBrandModal">
+                <a href="/Panel/AddBrand" class="btn btn-primary">
                     <i class="bi bi-plus-circle"></i> Yeni Marka Ekle
-                </button>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="container brands-content">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>@TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+            </div>
+        }
+        
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-circle-fill me-2"></i>@TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+            </div>
+        }
+
         <div class="card mb-4">
             <div class="card-header">
                 <div class="row align-items-center">
@@ -62,16 +78,12 @@
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-primary" 
-                                                        data-bs-toggle="modal" data-bs-target="#editBrandModal" 
-                                                        data-brand-id="@brand.Id">
+                                                <a href="/Panel/EditBrand/@brand.Id" class="btn btn-sm btn-outline-primary">
                                                     <i class="bi bi-pencil"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-sm btn-outline-danger" 
-                                                        data-bs-toggle="modal" data-bs-target="#deleteBrandModal" 
-                                                        data-brand-id="@brand.Id">
+                                                </a>
+                                                <a href="/Panel/DeleteBrand/@brand.Id" class="btn btn-sm btn-outline-danger">
                                                     <i class="bi bi-trash"></i>
-                                                </button>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -194,89 +206,6 @@
     </div>
 </div>
 
-<!-- Yeni Marka Ekleme Modal -->
-<div class="modal fade" id="addBrandModal" tabindex="-1" aria-labelledby="addBrandModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addBrandModalLabel">Yeni Marka Ekle</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-            </div>
-            <div class="modal-body">
-                <form id="addBrandForm">
-                    <div class="mb-3">
-                        <label for="brandName" class="form-label">Marka Adı</label>
-                        <input type="text" class="form-control" id="brandName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="brandIsActive" class="form-label">Durum</label>
-                        <select class="form-select" id="brandIsActive">
-                            <option value="false">Aktif</option>
-                            <option value="true">Pasif</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-primary" id="saveNewBrand">Kaydet</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Marka Düzenleme Modal -->
-<div class="modal fade" id="editBrandModal" tabindex="-1" aria-labelledby="editBrandModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editBrandModalLabel">Marka Düzenle</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-            </div>
-            <div class="modal-body">
-                <form id="editBrandForm">
-                    <input type="hidden" id="editBrandId">
-                    <div class="mb-3">
-                        <label for="editBrandName" class="form-label">Marka Adı</label>
-                        <input type="text" class="form-control" id="editBrandName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editBrandIsActive" class="form-label">Durum</label>
-                        <select class="form-select" id="editBrandIsActive">
-                            <option value="false">Aktif</option>
-                            <option value="true">Pasif</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-primary" id="updateBrand">Güncelle</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Marka Silme Modal -->
-<div class="modal fade" id="deleteBrandModal" tabindex="-1" aria-labelledby="deleteBrandModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteBrandModalLabel">Marka Sil</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-            </div>
-            <div class="modal-body">
-                <p>Bu markayı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</p>
-                <input type="hidden" id="deleteBrandId">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-danger" id="confirmDeleteBrand">Sil</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <style>
     .brands-container {
         background-color: #f8f9fa;
@@ -347,36 +276,6 @@
             } else {
                 $(".pagination").show();
             }
-        });
-        
-        // Düzenleme modalı açıldığında
-        $('#editBrandModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var brandId = button.data('brand-id');
-            // AJAX ile marka bilgilerini getirme işlemi yapılacak
-            $('#editBrandId').val(brandId);
-        });
-        
-        // Silme modalı açıldığında
-        $('#deleteBrandModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var brandId = button.data('brand-id');
-            $('#deleteBrandId').val(brandId);
-        });
-        
-        // Yeni marka kaydetme
-        $('#saveNewBrand').on('click', function() {
-            // AJAX ile kaydetme işlemi yapılacak
-        });
-        
-        // Marka güncelleme
-        $('#updateBrand').on('click', function() {
-            // AJAX ile güncelleme işlemi yapılacak
-        });
-        
-        // Marka silme
-        $('#confirmDeleteBrand').on('click', function() {
-            // AJAX ile silme işlemi yapılacak
         });
     });
 </script>
