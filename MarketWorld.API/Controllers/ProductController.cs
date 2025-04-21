@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using MarketWorld.API.DTOs;
+using AutoMapper;
 
 namespace MarketWorld.API.Controllers
 {
@@ -14,16 +16,18 @@ namespace MarketWorld.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
+        private readonly IMapper _mapper;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, IMapper mapper)
         {
             _productService = productService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         //[ProducesResponseType(typeof(IEnumerable<Product>), 200)]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             var products = await _productService.GetAllProducts();
             
@@ -33,9 +37,11 @@ namespace MarketWorld.API.Controllers
                 .Take(pageSize)
                 .ToList();
                 
+            var productDtos = _mapper.Map<List<ProductDto>>(pagedProducts);
+                
             var result = new
             {
-                Products = pagedProducts,
+                Products = productDtos,
                 TotalPages = (int)Math.Ceiling(totalProducts / (double)pageSize),
                 CurrentPage = page,
                 PageSize = pageSize,
@@ -47,25 +53,29 @@ namespace MarketWorld.API.Controllers
 
         [HttpGet("filter")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProductsByProductCode([FromQuery] int ProductCode)
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProductsByProductCode([FromQuery] int ProductCode)
         {
             var allProducts = await _productService.GetAllProducts();
             var filteredProducts = allProducts.Where(p => p.ProductCode == ProductCode).ToList();
+            
+            var productDtos = _mapper.Map<List<ProductDto>>(filteredProducts);
      
-            return Ok(filteredProducts);
+            return Ok(productDtos);
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<Product>> CreateProduct([FromBody] Product product)
+        public async Task<ActionResult<ProductDto>> CreateProduct([FromBody] ProductDto productDto)
         {
-            if (product == null)
+            if (productDto == null)
                 return BadRequest("Ürün verisi boş olamaz.");
 
             try
             {
+                var product = _mapper.Map<Product>(productDto);
                 var createdProduct = await _productService.CreateProduct(product);
-                return CreatedAtAction(nameof(GetAllProducts), new { id = createdProduct.Id }, createdProduct);
+                var createdProductDto = _mapper.Map<ProductDto>(createdProduct);
+                return CreatedAtAction(nameof(GetAllProducts), new { id = createdProduct.Id }, createdProductDto);
             }
             catch (Exception ex)
             {
@@ -114,6 +124,30 @@ namespace MarketWorld.API.Controllers
             }
         }
 
-      
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ProductDto>> UpdateProduct(int id, [FromBody] ProductDto productDto)
+        {
+            if (productDto == null)
+                return BadRequest("Ürün verisi boş olamaz.");
+
+            if (id != productDto.Id)
+                return BadRequest("Ürün ID'si eşleşmiyor.");
+                
+            try
+            {
+                var existingProduct = await _productService.GetProductById(id);
+                if (existingProduct == null)
+                    return NotFound($"ID: {id} ile ürün bulunamadı.");
+                
+                _mapper.Map(productDto, existingProduct);
+                
+                await _productService.UpdateProduct(existingProduct);
+                return Ok(_mapper.Map<ProductDto>(existingProduct));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Ürün güncellenirken bir hata oluştu: {ex.Message}");
+            }
+        }
     }
 }
