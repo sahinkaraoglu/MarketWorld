@@ -265,5 +265,116 @@ namespace MarketWorld.Web.Controllers
 
             return View(orders);
         }
+
+        public async Task<IActionResult> Edit()
+        {
+            var userId = HttpContext.Items["UserId"].ToString();
+
+            // Kullanıcı bilgilerini veritabanından al
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user != null)
+            {
+                // Veritabanından gelen bilgileri ViewBag ile view'e aktar
+                ViewBag.UserId = userId;
+                ViewBag.FirstName = user.FirstName;
+                ViewBag.LastName = user.LastName;
+                ViewBag.Email = user.Email;
+                ViewBag.Phone = user.PhoneNumber;
+                ViewBag.CreateDate = user.CreateDate.ToString("dd.MM.yyyy");
+            }
+            else
+            {
+                ViewBag.UserId = userId;
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string FirstName, string LastName, string Email, string Phone)
+        {
+            var userId = HttpContext.Items["UserId"].ToString();
+
+            // Kullanıcı bilgilerini veritabanından al
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                ViewBag.Error = "Kullanıcı bulunamadı.";
+                return View();
+            }
+
+            // Validasyon kontrolleri
+            bool isValid = true;
+            if (string.IsNullOrWhiteSpace(FirstName))
+            {
+                ModelState.AddModelError("FirstName", "Ad alanı boş olamaz");
+                isValid = false;
+            }
+            if (string.IsNullOrWhiteSpace(LastName))
+            {
+                ModelState.AddModelError("LastName", "Soyad alanı boş olamaz");
+                isValid = false;
+            }
+            if (string.IsNullOrWhiteSpace(Email))
+            {
+                ModelState.AddModelError("Email", "E-posta alanı boş olamaz");
+                isValid = false;
+            }
+            if (string.IsNullOrWhiteSpace(Phone))
+            {
+                ModelState.AddModelError("Phone", "Telefon alanı boş olamaz");
+                isValid = false;
+            }
+
+            if (!isValid)
+            {
+                ViewBag.Error = "Lütfen tüm zorunlu alanları doldurun";
+                ViewBag.UserId = userId;
+                ViewBag.FirstName = FirstName;
+                ViewBag.LastName = LastName;
+                ViewBag.Email = Email;
+                ViewBag.Phone = Phone;
+                return View();
+            }
+
+            try
+            {
+                // Kullanıcı bilgilerini güncelle
+                user.FirstName = FirstName;
+                user.LastName = LastName;
+                user.Email = Email;
+                user.PhoneNumber = Phone;
+                user.CreateDate = DateTime.Now;
+
+                await _context.SaveChangesAsync();
+
+                // Başarılı mesajını ekle
+                ViewBag.Success = "Hesap bilgileriniz başarıyla güncellendi.";
+                
+                // Güncellenmiş bilgileri ViewBag'e ekle
+                ViewBag.UserId = userId;
+                ViewBag.FirstName = user.FirstName;
+                ViewBag.LastName = user.LastName;
+                ViewBag.Email = user.Email;
+                ViewBag.Phone = user.PhoneNumber;
+                ViewBag.CreateDate = user.CreateDate.ToString("dd.MM.yyyy");
+                
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Bilgiler güncellenirken bir hata oluştu: " + ex.Message;
+                ViewBag.UserId = userId;
+                ViewBag.FirstName = FirstName;
+                ViewBag.LastName = LastName;
+                ViewBag.Email = Email;
+                ViewBag.Phone = Phone;
+                return View();
+            }
+        }
     }
 } 

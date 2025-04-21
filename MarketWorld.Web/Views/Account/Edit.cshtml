@@ -1,0 +1,96 @@
+@{
+    ViewData["Title"] = "Hesap Bilgilerini Düzenle";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary text-white rounded-circle p-3 me-3">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">@(ViewBag.FirstName != null ? ViewBag.FirstName : "Kullanıcı") @(ViewBag.LastName ?? "")</h5>
+                            <p class="text-muted small mb-0">@ViewBag.UserId</p>
+                        </div>
+                    </div>
+                    
+                    <div class="list-group">
+                        <a href="/Account" class="list-group-item list-group-item-action">
+                            <i class="fas fa-user-circle me-2"></i>Hesabım
+                        </a>
+                        <a href="/Account/Orders" class="list-group-item list-group-item-action">
+                            <i class="fas fa-shopping-bag me-2"></i>Siparişlerim
+                        </a>
+                        <a href="/Account/Addresses" class="list-group-item list-group-item-action">
+                            <i class="fas fa-map-marker-alt me-2"></i>Adreslerim
+                        </a>
+                        <a href="/Login/Logout" class="list-group-item list-group-item-action text-danger">
+                            <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-9">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-edit me-2 text-primary"></i>Hesap Bilgilerimi Düzenle
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    @if (ViewBag.Success != null)
+                    {
+                        <div class="alert alert-success">
+                            <i class="fas fa-check-circle me-2"></i>@ViewBag.Success
+                        </div>
+                    }
+                    
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-circle me-2"></i>@ViewBag.Error
+                        </div>
+                    }
+                    
+                    <form method="post" action="/Account/Edit">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Ad</label>
+                                <input type="text" class="form-control" name="FirstName" value="@(ViewBag.FirstName ?? "")" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Soyad</label>
+                                <input type="text" class="form-control" name="LastName" value="@(ViewBag.LastName ?? "")" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">E-posta</label>
+                                <input type="email" class="form-control" name="Email" value="@(ViewBag.Email ?? "")" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Telefon</label>
+                                <input type="tel" class="form-control" name="Phone" value="@(ViewBag.Phone ?? "")" required>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="/Account" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Geri Dön
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Değişiklikleri Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
