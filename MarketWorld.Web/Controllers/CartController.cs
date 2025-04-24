@@ -19,63 +19,75 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId, int quantity = 1, string color = null)
         {
-            var userId = HttpContext.Items["UserId"]?.ToString();
-            if (string.IsNullOrEmpty(userId))
+            try 
             {
-                return Json(new { success = false, message = "Lütfen önce giriş yapın." });
-            }
-
-            var product = await _context.Products
-                .Include(p => p.ProductProperties)
-                .FirstOrDefaultAsync(p => p.Id == productId);
-            if (product == null)
-            {
-                return Json(new { success = false, message = "Ürün bulunamadı." });
-            }
-
-            if (product.GetTotalStock() < quantity)
-            {
-                return Json(new { success = false, message = "Yeterli stok bulunmamaktadır." });
-            }
-
-            var cart = await _context.Carts
-                .Include(c => c.CartItems)
-                .FirstOrDefaultAsync(c => c.UserId == userId);
-
-            if (cart == null)
-            {
-                cart = new Cart
+                var userId = HttpContext.Items["UserId"]?.ToString();
+                if (string.IsNullOrEmpty(userId))
                 {
-                    UserId = userId,
-                    CartItems = new List<CartItem>(),
-                    TotalAmount = 0
-                };
-                _context.Carts.Add(cart);
-            }
+                    return Json(new { success = false, message = "Lütfen önce giriş yapın." });
+                }
 
-            var cartItem = cart.CartItems.FirstOrDefault(ci => ci.ProductId == productId && ci.Color == color);
-            if (cartItem != null)
-            {
-                cartItem.Quantity += quantity;
-            }
-            else
-            {
-                cartItem = new CartItem
+                if (string.IsNullOrEmpty(color))
                 {
-                    ProductId = productId,
-                    Quantity = quantity,
-                    UnitPrice = product.Price,
-                    Color = color
-                };
-                cart.CartItems.Add(cartItem);
+                    return Json(new { success = false, message = "Lütfen bir renk seçiniz." });
+                }
+
+                var product = await _context.Products
+                    .Include(p => p.ProductProperties)
+                    .FirstOrDefaultAsync(p => p.Id == productId);
+                if (product == null)
+                {
+                    return Json(new { success = false, message = "Ürün bulunamadı." });
+                }
+
+                if (product.GetTotalStock() < quantity)
+                {
+                    return Json(new { success = false, message = "Yeterli stok bulunmamaktadır." });
+                }
+
+                var cart = await _context.Carts
+                    .Include(c => c.CartItems)
+                    .FirstOrDefaultAsync(c => c.UserId == userId);
+
+                if (cart == null)
+                {
+                    cart = new Cart
+                    {
+                        UserId = userId,
+                        CartItems = new List<CartItem>(),
+                        TotalAmount = 0
+                    };
+                    _context.Carts.Add(cart);
+                }
+
+                var cartItem = cart.CartItems.FirstOrDefault(ci => ci.ProductId == productId && ci.Color == color);
+                if (cartItem != null)
+                {
+                    cartItem.Quantity += quantity;
+                }
+                else
+                {
+                    cartItem = new CartItem
+                    {
+                        ProductId = productId,
+                        Quantity = quantity,
+                        UnitPrice = product.Price,
+                        Color = color
+                    };
+                    cart.CartItems.Add(cartItem);
+                }
+
+                cart.TotalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice);
+
+                await _context.SaveChangesAsync();
+
+                var count = cart.CartItems.Sum(ci => ci.Quantity);
+                return Json(new { success = true, message = "Ürün sepete eklendi.", count });
             }
-
-            cart.TotalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice);
-
-            await _context.SaveChangesAsync();
-
-            var count = cart.CartItems.Sum(ci => ci.Quantity);
-            return Json(new { success = true, message = "Ürün sepete eklendi.", count });
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Sepete eklerken bir hata oluştu: {ex.Message}. Lütfen daha sonra tekrar deneyin." });
+            }
         }
 
         public async Task<IActionResult> Index()

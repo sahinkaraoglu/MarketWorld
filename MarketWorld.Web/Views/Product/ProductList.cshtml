@@ -186,7 +186,9 @@
                                             }
                                         </div>
                                         <div class="card-footer bg-transparent border-top-0">
-                                            <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="@product.Id">
+                                            <button class="btn btn-primary add-to-cart-btn w-100" 
+                                                    data-product-id="@product.Id"
+                                                    data-product-color="@product.Color">
                                                 <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
                                             </button>
                                         </div>
@@ -216,6 +218,45 @@
 </div>
 
 @section Scripts {
+    <!-- Sepete Ekle Modal -->
+    <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addToCartModalLabel">Ürünü Sepete Ekle</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img src="" alt="" class="product-image img-fluid rounded" style="width: 100%; object-fit: cover;">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="product-details mb-3">
+                                <h6 class="product-name fw-bold"></h6>
+                                <p class="product-price text-primary fw-bold mb-3"></p>
+                                <p class="product-color mb-3">
+                                    <strong>Renk:</strong> <span></span>
+                                </p>
+                                <div class="form-group mb-3">
+                                    <label for="quantity" class="form-label">Adet:</label>
+                                    <input type="number" class="form-control" id="quantity" min="1" value="1">
+                                </div>
+                                <input type="hidden" id="color">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-primary" id="confirmAddToCart">
+                        <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         let currentPage = 1;
         let isLoading = false;
@@ -374,7 +415,9 @@
                                     ${priceDisplay}
                                 </div>
                                 <div class="card-footer bg-transparent border-top-0">
-                                    <button class="btn btn-primary add-to-cart-btn w-100" data-product-id="${product.id}">
+                                    <button class="btn btn-primary add-to-cart-btn w-100" 
+                                            data-product-id="${product.id}"
+                                            data-product-color="${product.color}">
                                         <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
                                     </button>
                                 </div>
@@ -399,27 +442,62 @@
             }
 
             // Sepete ekle butonu işlevselliği
+            let selectedProductId = null;
+            let selectedProductName = '';
+            let selectedProductPrice = '';
+            let selectedProductImage = '';
+            let selectedProductColor = '';
+
             $(document).on('click', '.add-to-cart-btn', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                const productId = $(this).data('product-id');
                 
-                $.post('/Cart/AddToCart', { productId, quantity: 1 })
-                    .done(function(response) {
-                        if (response.success) {
-                            alert(response.message);
-                            $(document).trigger('cartUpdated');
+                const card = $(this).closest('.card');
+                selectedProductId = $(this).data('product-id');
+                selectedProductName = card.find('.product-title').text();
+                selectedProductPrice = card.find('.product-price').text();
+                selectedProductImage = card.find('.card-img-top').attr('src');
+                selectedProductColor = $(this).data('product-color');
+
+                // Modal içeriğini güncelle
+                $('#addToCartModal .product-name').text(selectedProductName);
+                $('#addToCartModal .product-price').text(selectedProductPrice);
+                $('#addToCartModal .product-image').attr('src', selectedProductImage);
+                $('#addToCartModal .product-image').attr('alt', selectedProductName);
+                $('#addToCartModal .product-color span').text(selectedProductColor);
+                $('#addToCartModal #color').val(selectedProductColor);
+                
+                // Modalı göster
+                var modal = new bootstrap.Modal(document.getElementById('addToCartModal'));
+                modal.show();
+            });
+
+            // Sepete Ekle onaylama
+            $('#confirmAddToCart').on('click', function() {
+                const quantity = $('#quantity').val();
+                const color = $('#color').val();
+
+                $.post('/Cart/AddToCart', { 
+                    productId: selectedProductId, 
+                    quantity: quantity,
+                    color: color
+                })
+                .done(function(response) {
+                    if (response.success) {
+                        alert(response.message);
+                        $(document).trigger('cartUpdated');
+                        $('#addToCartModal').modal('hide');
+                    } else {
+                        if (response.redirect) {
+                            window.location.href = response.redirect;
                         } else {
-                            if (response.redirect) {
-                                window.location.href = response.redirect;
-                            } else {
-                                alert(response.message);
-                            }
+                            alert(response.message);
                         }
-                    })
-                    .fail(function() {
-                        alert('Sepete Ekle için giriş yapmalısınız.');
-                    });
+                    }
+                })
+                .fail(function(xhr) {
+                    alert('Sepete eklerken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.');
+                });
             });
         });
     </script>

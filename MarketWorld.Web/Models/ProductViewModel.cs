@@ -21,6 +21,7 @@ namespace MarketWorld.Web.Models
         public bool HasDiscount { get; set; }
         public decimal? DiscountPrice { get; set; }
         public int ProductCode { get; set; }
+        public string Color { get; set; }
 
 
     }

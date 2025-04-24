@@ -46,7 +46,11 @@ namespace MarketWorld.Web.Controllers
                     CategoryName = p.SubCategory.Category.Name,
                     HasDiscount = p.HasDiscount,
                     DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
-                    ProductCode = p.ProductCode
+                    ProductCode = p.ProductCode,
+                    Color = p.ProductProperties
+                        .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
+                        .Select(pp => pp.PropertyValue.Value)
+                        .FirstOrDefault() ?? "Varsayılan"
                 }) .ToListAsync();
 
             var brands = await _context.Brands
@@ -101,7 +105,11 @@ namespace MarketWorld.Web.Controllers
                     CategoryName = p.SubCategory.Category.Name,
                     HasDiscount = p.HasDiscount,
                     DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
-                    ProductCode = p.ProductCode
+                    ProductCode = p.ProductCode,
+                    Color = p.ProductProperties
+                        .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
+                        .Select(pp => pp.PropertyValue.Value)
+                        .FirstOrDefault() ?? "Varsayılan"
                 })
                 .ToListAsync();
 
