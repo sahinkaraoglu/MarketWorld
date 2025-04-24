@@ -6,6 +6,7 @@
     var subCategoryName = ViewBag.SubCategoryName;
     var searchQuery = ViewBag.SearchQuery;
     var currentPage = 1;
+    var isLoggedIn = ViewBag.IsLoggedIn != null ? ViewBag.IsLoggedIn : false;
 }
 
 @section Styles {
@@ -512,35 +513,82 @@
             $('#confirmAddToCart').on('click', function() {
                 const quantity = $('#quantity').val();
                 const color = $('#color').val();
-
-                $.post('/Cart/AddToCart', { 
-                    productId: selectedProductId, 
-                    quantity: quantity,
-                    color: color
-                })
-                .done(function(response) {
-                    if (response.success) {
-                        // Başarılı ekleme durumunda
-                        $('#productDetails, #modalFooter').addClass('d-none');
-                        
-                        // Başarılı mesaj içeriğini güncelle
-                        $('.success-product-image').attr('src', selectedProductImage);
-                        $('.success-product-name').text(selectedProductName);
-                        $('.success-quantity').text(quantity);
-                        $('.success-color').text(selectedProductColor);
-                        
-                        $('#successMessage').removeClass('d-none');
-                        $(document).trigger('cartUpdated');
-                    } else {
-                        if (response.redirect) {
-                            window.location.href = response.redirect;
+                
+                // Kullanıcı durumunu kontrol et
+                const isLoggedIn = @(Json.Serialize(ViewBag.IsLoggedIn));
+                
+                if (!isLoggedIn) {
+                    // Kullanıcı giriş yapmamış
+                    $('#productDetails, #modalFooter').addClass('d-none');
+                    $('#successMessage').html(`
+                        <i class="fas fa-exclamation-circle fa-3x text-warning mb-3"></i>
+                        <h5 class="text-warning mb-3">Giriş Yapmanız Gerekiyor!</h5>
+                        <p class="mb-4">Ürünü sepete eklemek için lütfen giriş yapın.</p>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a href="/Login" class="btn btn-primary">
+                                <i class="fas fa-sign-in-alt me-2"></i>Giriş Yap
+                            </a>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                <i class="fas fa-times me-2"></i>Kapat
+                            </button>
+                        </div>
+                    `).removeClass('d-none');
+                    return;
+                }
+                
+                // Kullanıcı giriş yapmış, sepete ekle işlemine devam et
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    type: 'POST',
+                    data: { 
+                        productId: selectedProductId, 
+                        quantity: quantity,
+                        color: color
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            // Başarılı ekleme durumunda
+                            $('#productDetails, #modalFooter').addClass('d-none');
+                            
+                            // Başarılı mesaj içeriğini güncelle
+                            $('.success-product-image').attr('src', selectedProductImage);
+                            $('.success-product-name').text(selectedProductName);
+                            $('.success-quantity').text(quantity);
+                            $('.success-color').text(selectedProductColor);
+                            
+                            $('#successMessage').removeClass('d-none');
+                            $(document).trigger('cartUpdated');
                         } else {
-                            alert(response.message);
+                            if (response.redirect) {
+                                window.location.href = response.redirect;
+                            } else {
+                                $('#productDetails, #modalFooter').addClass('d-none');
+                                $('#successMessage').html(`
+                                    <i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
+                                    <h5 class="text-danger mb-3">Hata Oluştu</h5>
+                                    <p class="mb-4">${response.message}</p>
+                                    <div class="d-grid gap-2 col-6 mx-auto">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            <i class="fas fa-times me-2"></i>Kapat
+                                        </button>
+                                    </div>
+                                `).removeClass('d-none');
+                            }
                         }
+                    },
+                    error: function() {
+                        $('#productDetails, #modalFooter').addClass('d-none');
+                        $('#successMessage').html(`
+                            <i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
+                            <h5 class="text-danger mb-3">Hata Oluştu</h5>
+                            <p class="mb-4">Ürün sepete eklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.</p>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    <i class="fas fa-times me-2"></i>Kapat
+                                </button>
+                            </div>
+                        `).removeClass('d-none');
                     }
-                })
-                .fail(function(xhr) {
-                    alert('Sepete eklerken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.');
                 });
             });
 

@@ -21,6 +21,9 @@ namespace MarketWorld.Web.Controllers
         {
             var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
 
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
+
             var products = await _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
@@ -74,6 +77,9 @@ namespace MarketWorld.Web.Controllers
             var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
             if (subCategory == null)
                 return NotFound();
+
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
 
             var pageSize = 9;
             var query = _context.Products
@@ -131,6 +137,9 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
+
             var product = await _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Images)
@@ -207,10 +216,11 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Search(string query)
         {
-            if (string.IsNullOrWhiteSpace(query))
-            {
+            if (string.IsNullOrEmpty(query))
                 return RedirectToAction("Index", "Home");
-            }
+
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
 
             var products = await _context.Products
                 .Include(p => p.Brand)
@@ -252,8 +262,15 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> LoadMoreProducts(string subCategoryName, int page, [FromQuery] List<int> brandIds = null, [FromQuery] List<int> ratings = null, decimal minPrice = 0, decimal maxPrice = 0)
+        public async Task<IActionResult> LoadMoreProducts(string subCategoryName, int page = 1, 
+            List<int> brandIds = null, List<decimal> ratings = null, decimal minPrice = 0, decimal maxPrice = 0)
         {
+            if (string.IsNullOrEmpty(subCategoryName))
+                return BadRequest("Alt kategori adı gereklidir.");
+
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
+
             var pageSize = 9;
             var query = _context.Products
                 .Include(p => p.Brand)
@@ -270,7 +287,7 @@ namespace MarketWorld.Web.Controllers
 
             if (ratings != null && ratings.Any())
             {
-                query = query.Where(p => ratings.Contains((int)Math.Floor(p.Rating)));
+                query = query.Where(p => ratings.Contains(p.Rating));
             }
 
             if (minPrice > 0)
