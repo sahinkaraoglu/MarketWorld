@@ -446,6 +446,7 @@ namespace MarketWorld.Web.Controllers
                 .Include(p => p.SubCategory)
                     .ThenInclude(sc => sc.Category)
                 .Include(p => p.Brand)
+                .Include(p => p.ProductProperties)
                 .Where(p => p.Id == id && !p.IsDeleted)
                 .FirstOrDefaultAsync();
 
@@ -474,7 +475,10 @@ namespace MarketWorld.Web.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var product = await _context.Products.FindAsync(model.Id);
+            var product = await _context.Products
+                .Include(p => p.ProductProperties)
+                .FirstOrDefaultAsync(p => p.Id == model.Id);
+                
             if (product == null)
                 return NotFound();
 
@@ -505,7 +509,9 @@ namespace MarketWorld.Web.Controllers
                     PropertyTypeId = 1, // Varsayılan olarak 1 (renk) için
                     PropertyValueId = 1, // Varsayılan değer
                     Stock = model.Stock,
-                    IsActive = true
+                    IsActive = true,
+                    ProductId = product.Id,
+                    CreatedDate = DateTime.Now
                 });
             }
             else

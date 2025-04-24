@@ -703,7 +703,17 @@
                     $('#editName').val(product.name);
                     $('#editBrandId').val(product.brandId);
                     $('#editPrice').val(product.price);
-                    $('#editStock').val(product.stock);
+                    
+                    if (product.stock !== undefined) {
+                        $('#editStock').val(product.stock);
+                        console.log('Stok değeri:', product.stock);
+                    } else {
+                        console.error('Ürün verisinde stock alanı bulunamadı!');
+                        if (product.stockQuantity !== undefined) {
+                            $('#editStock').val(product.stockQuantity);
+                            console.log('stockQuantity değeri kullanıldı:', product.stockQuantity);
+                        }
+                    }
                     
                     $.ajax({
                         url: '/Panel/GetCategories',
