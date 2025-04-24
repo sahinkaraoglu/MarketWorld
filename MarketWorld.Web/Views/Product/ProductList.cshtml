@@ -227,27 +227,63 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <img src="" alt="" class="product-image img-fluid rounded" style="width: 100%; object-fit: cover;">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="product-details mb-3">
-                                <h6 class="product-name fw-bold"></h6>
-                                <p class="product-price text-primary fw-bold mb-3"></p>
-                                <p class="product-color mb-3">
-                                    <strong>Renk:</strong> <span></span>
-                                </p>
-                                <div class="form-group mb-3">
-                                    <label for="quantity" class="form-label">Adet:</label>
-                                    <input type="number" class="form-control" id="quantity" min="1" value="1">
+                    <!-- Başarılı Ekleme Mesajı -->
+                    <div id="successMessage" class="d-none text-center py-4">
+                        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                        <h5 class="text-success mb-3">Ürün Sepete Eklendi!</h5>
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <img src="" alt="" class="success-product-image rounded me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                                            <div class="text-start">
+                                                <h6 class="success-product-name mb-2"></h6>
+                                                <p class="text-muted mb-1 small">
+                                                    <strong>Adet:</strong> <span class="success-quantity"></span>
+                                                </p>
+                                                <p class="text-muted mb-0 small">
+                                                    <strong>Renk:</strong> <span class="success-color"></span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="hidden" id="color">
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-shopping-basket me-2"></i>Alışverişe Devam Et
+                            </button>
+                            <a href="/Cart" class="btn btn-primary">
+                                <i class="fas fa-shopping-cart me-2"></i>Sepete Git
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Ürün Detayları -->
+                    <div id="productDetails">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <img src="" alt="" class="product-image img-fluid rounded" style="width: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="product-details mb-3">
+                                    <h6 class="product-name fw-bold"></h6>
+                                    <p class="product-price text-primary fw-bold mb-3"></p>
+                                    <p class="product-color mb-3">
+                                        <strong>Renk:</strong> <span></span>
+                                    </p>
+                                    <div class="form-group mb-3">
+                                        <label for="quantity" class="form-label">Adet:</label>
+                                        <input type="number" class="form-control" id="quantity" min="1" value="1">
+                                    </div>
+                                    <input type="hidden" id="color">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" id="modalFooter">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
                     <button type="button" class="btn btn-primary" id="confirmAddToCart">
                         <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
@@ -484,9 +520,17 @@
                 })
                 .done(function(response) {
                     if (response.success) {
-                        alert(response.message);
+                        // Başarılı ekleme durumunda
+                        $('#productDetails, #modalFooter').addClass('d-none');
+                        
+                        // Başarılı mesaj içeriğini güncelle
+                        $('.success-product-image').attr('src', selectedProductImage);
+                        $('.success-product-name').text(selectedProductName);
+                        $('.success-quantity').text(quantity);
+                        $('.success-color').text(selectedProductColor);
+                        
+                        $('#successMessage').removeClass('d-none');
                         $(document).trigger('cartUpdated');
-                        $('#addToCartModal').modal('hide');
                     } else {
                         if (response.redirect) {
                             window.location.href = response.redirect;
@@ -498,6 +542,13 @@
                 .fail(function(xhr) {
                     alert('Sepete eklerken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.');
                 });
+            });
+
+            // Modal kapanırken içeriği sıfırla
+            $('#addToCartModal').on('hidden.bs.modal', function () {
+                $('#successMessage').addClass('d-none');
+                $('#productDetails, #modalFooter').removeClass('d-none');
+                $('#quantity').val(1);
             });
         });
     </script>
