@@ -28,6 +28,7 @@ namespace MarketWorld.Infrastructure.Data
         public DbSet<ProductProperty> ProductProperties { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<CreditCard> CreditCards { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -556,6 +557,22 @@ namespace MarketWorld.Infrastructure.Data
                 .WithMany(o => o.CreditCards)
                 .HasForeignKey(cc => cc.OrderId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.Product)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(c => c.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
+                
+            modelBuilder.Entity<Comment>()
+                .Property(c => c.Text)
+                .IsRequired()
+                .HasMaxLength(1000);
+                
+            modelBuilder.Entity<Comment>()
+                .Property(c => c.UserName)
+                .IsRequired()
+                .HasMaxLength(100);
         }
     }
 }

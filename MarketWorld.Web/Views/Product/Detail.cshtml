@@ -20,6 +20,15 @@
                 // Sepete ekleme işlemi burada yapılacak
                 cartToast.show();
             });
+
+            const ratingInputs = document.querySelectorAll('.rating-input');
+            const ratingValue = document.getElementById('ratingValue');
+            
+            ratingInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    ratingValue.value = this.value;
+                });
+            });
         });
     </script>
 }
@@ -247,6 +256,121 @@
             </div>
         </div>
     </div>
+    
+    <!-- Yorumlar Bölümü -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">Ürün Yorumları</h5>
+                </div>
+                <div class="card-body">
+                    <div class="comment-form mb-4">
+                        <h6 class="mb-3">Yorum Ekle</h6>
+                        <form asp-action="AddComment" asp-controller="Product" method="post">
+                            <input type="hidden" name="ProductId" value="@Model.Id" />
+                            <input type="hidden" id="ratingValue" name="Rating" value="5" />
+                            
+                            <div class="form-group mb-3">
+                                <label for="userName" class="form-label">Adınız</label>
+                                <input type="text" class="form-control" id="userName" name="UserName" required>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label class="form-label">Değerlendirmeniz</label>
+                                <div class="rating-stars mb-2">
+                                    <div class="d-flex gap-2">
+                                        @for (int i = 5; i >= 1; i--)
+                                        {
+                                            <div class="form-check">
+                                                <input class="form-check-input rating-input" 
+                                                       type="radio" 
+                                                       name="starRating" 
+                                                       id="star@(i)" 
+                                                       value="@i" 
+                                                       @(i == 5 ? "checked" : "")>
+                                                <label class="form-check-label" for="star@(i)">
+                                                    @for (int j = 1; j <= 5; j++)
+                                                    {
+                                                        if (j <= i)
+                                                        {
+                                                            <i class="fas fa-star text-warning"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="far fa-star text-warning"></i>
+                                                        }
+                                                    }
+                                                </label>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="commentText" class="form-label">Yorumunuz</label>
+                                <textarea class="form-control" id="commentText" name="Text" rows="3" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Yorum Gönder</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Mevcut Yorumlar -->
+                    @if (Model.Comments != null && Model.Comments.Any())
+                    {
+                        <div class="comments-list">
+                            <h6 class="mb-3">Kullanıcı Yorumları (@Model.Comments.Count)</h6>
+                            
+                            @foreach (var comment in Model.Comments.OrderByDescending(c => c.CreatedDate))
+                            {
+                                <div class="comment-item mb-3 pb-3 border-bottom">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="comment-avatar me-2">
+                                                <i class="fas fa-user-circle fa-2x text-muted"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fw-bold">@comment.UserName</div>
+                                                <div class="text-muted small">
+                                                    @(comment.CreatedDate?.ToString("dd.MM.yyyy"))
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment-rating">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (i <= comment.Rating)
+                                                {
+                                                    <i class="fas fa-star text-warning small"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="far fa-star text-warning small"></i>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="comment-text">
+                                        @comment.Text
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="no-comments text-center py-4">
+                            <i class="far fa-comment-dots fa-3x text-muted mb-3"></i>
+                            <h6>Bu ürün için henüz yorum bulunmuyor</h6>
+                            <p class="text-muted">İlk yorumu siz yapın ve diğer müşterilere yardımcı olun.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -332,6 +456,36 @@ small.text-danger {
     font-size: 0.85rem;
     color: #6c757d;
     margin-top: 2px;
+}
+
+.comment-form {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.rating-stars .form-check {
+    margin-right: 1rem;
+}
+
+.comment-avatar {
+    color: #adb5bd;
+}
+
+.comment-item {
+    transition: all 0.2s ease;
+}
+
+.comment-item:hover {
+    background-color: #f8f9fa;
+}
+
+.no-comments {
+    color: #6c757d;
+}
+
+.no-comments i {
+    opacity: 0.5;
 }
 </style>
 

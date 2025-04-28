@@ -149,6 +149,7 @@ namespace MarketWorld.Web.Controllers
                     .ThenInclude(pp => pp.PropertyType)
                 .Include(p => p.ProductProperties)
                     .ThenInclude(pp => pp.PropertyValue)
+                .Include(p => p.Comments.Where(c => c.IsApproved && !c.IsDeleted))
                 .FirstOrDefaultAsync(p => p.Id == id && p.IsActive && !p.IsDeleted);
 
             if (product == null)
@@ -178,6 +179,19 @@ namespace MarketWorld.Web.Controllers
                     })
                     .ToList() ?? new List<ProductPropertyViewModel>() 
                 : new List<ProductPropertyViewModel>();
+                
+            var comments = product.Comments?
+                .Select(c => new CommentViewModel
+                {
+                    Id = c.Id,
+                    Text = c.Text,
+                    Rating = c.Rating,
+                    ProductId = c.ProductId,
+                    ProductCode = c.ProductCode,
+                    UserName = c.UserName,
+                    CreatedDate = c.CreatedDate
+                })
+                .ToList() ?? new List<CommentViewModel>();
 
             var viewModel = new ProductDetailViewModel
             {
@@ -191,17 +205,63 @@ namespace MarketWorld.Web.Controllers
                 DiscountPrice = product.DiscountPrice,
                 HasDiscount = product.HasDiscount,
                 Stock = product.GetTotalStock(),
-                Rating = 4.5,
-                ReviewCount = 192,
+                Rating = product.Comments != null && product.Comments.Any() ? 
+                    (double)product.Comments.Average(c => c.Rating) : 4.5,
+                ReviewCount = product.Comments?.Count ?? 0,
                 Images = product.Images.OrderBy(i => i.Id).Select(i => $"/{i.Path}").ToList(),
                 CategoryName = product.SubCategory?.Category?.Name,
                 SubCategoryName = product.SubCategory?.Name,
                 HasFreeShipping = product.Price > 45000,
                 ColorOptions = colorOptions,
-                MemoryOptions = memoryOptions
+                MemoryOptions = memoryOptions,
+                Comments = comments
             };
 
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddComment(CommentViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var product = await _context.Products
+                    .Include(p => p.Comments)
+                    .FirstOrDefaultAsync(p => p.Id == model.ProductId && p.IsActive && !p.IsDeleted);
+                
+                if (product == null)
+                    return NotFound();
+                
+                var comment = new MarketWorld.Domain.Entities.Comment
+                {
+                    Text = model.Text,
+                    Rating = model.Rating,
+                    ProductId = model.ProductId,
+                    ProductCode = product.ProductCode,
+                    UserName = model.UserName,
+                    IsApproved = true, // Otomatik onaylı (gerçek uygulamada admin onayı gerekebilir)
+                    CreatedDate = DateTime.Now
+                };
+                
+                await _context.AddAsync(comment);
+                await _context.SaveChangesAsync();
+                
+                // Ürünün ortalama puanını güncelle
+                if (product.Comments != null && product.Comments.Any())
+                {
+                    product.Rating = (decimal)product.Comments.Average(c => c.Rating);
+                    _context.Update(product);
+                    await _context.SaveChangesAsync();
+                }
+                
+                TempData["SuccessMessage"] = "Yorumunuz başarıyla eklendi.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Yorumunuz eklenirken bir hata oluştu.";
+            }
+            
+            return RedirectToAction("Detail", new { id = model.ProductId });
         }
 
         // Alt kategorileri listeleyen test metodu

@@ -29,6 +29,7 @@ namespace MarketWorld.Domain.Entities
         public ICollection<OrderItem>? OrderItems { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }
         public ICollection<ProductProperty> ProductProperties { get; set; }
+        public ICollection<Comment> Comments { get; set; }
         
         public int GetTotalStock()
         {
