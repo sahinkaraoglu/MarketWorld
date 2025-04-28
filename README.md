@@ -1,4 +1,4 @@
-# 🛍️ MarketWorld
+# 🛍️ MarketWorld E-Commerce Platform
 
 <div align="center">
     <h3>Modern eCommerce Platform</h3>
@@ -28,10 +28,12 @@
 
 ## ✨ Key Features
 
-- **User Management**
-  - Secure authentication and session management
-  - User roles and permissions (Admin/User)
-  - Profile management with personal information
+- **Advanced User Management**
+  - OAuth2 and JWT-based authentication
+  - Multi-factor authentication (MFA)
+  - Role-based access control (RBAC)
+  - Comprehensive user profiles with preferences
+  - Social media integration
   
 - **Product Management**
   - Rich product catalog with categories and subcategories
@@ -63,6 +65,7 @@
 - **ORM**: Entity Framework Core 8.0
 - **Architecture**: Clean Architecture with Domain-Driven Design
 - **API**: RESTful API endpoints
+- **Authentication**: JWT with OAuth2
 
 ### Frontend
 - **Framework**: ASP.NET MVC
@@ -70,11 +73,13 @@
 - **JavaScript**: jQuery
 - **Styling**: Custom CSS with responsive design
 
-### Security
-- Session-based authentication
-- Password security
-- Role-based access control
-- Secure payment processing
+### Security Features
+- JWT-based authentication
+- OAuth2 integration
+- SQL injection prevention
+- Rate limiting
+- Data encryption at rest
+- Secure payment processing (PCI compliant)
 
 ## 🏗️ Architecture
 
@@ -85,8 +90,8 @@ MarketWorld/
 ├── MarketWorld.Domain/         # Core business logic and entities
 ├── MarketWorld.Application/    # Application business rules and interfaces
 ├── MarketWorld.Infrastructure/ # External concerns implementation
-├── MarketWorld.API/           # API endpoints for external integrations
-└── MarketWorld.Web/           # User interface and web application
+├── MarketWorld.API/             # RESTful API endpoints
+└── MarketWorld.Web/             # MVC Web Application
 ```
 
 ## 🚀 Getting Started
@@ -104,8 +109,10 @@ MarketWorld/
 
 ### Environment URLs
 - Web Application: `https://localhost:7154`
+- API Documentation: `https://localhost:7154/swagger`
+- Admin Dashboard: `https://localhost:7154/admin`
 
-## 📈 Current Status
+## 📈 Project Status
 
 ✅ User authentication and authorization  
 ✅ Product catalog management  
