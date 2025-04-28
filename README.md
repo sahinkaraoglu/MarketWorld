@@ -1,4 +1,4 @@
-# 🛍️ MarketWorld E-Commerce Platform
+# 🛍️ MarketWorld
 
 <div align="center">
     <h3>Modern eCommerce Platform</h3>
