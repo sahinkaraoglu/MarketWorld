@@ -16,20 +16,51 @@
         document.addEventListener('DOMContentLoaded', function() {
             const cartToast = new bootstrap.Toast(document.getElementById('cartToast'));
             
-            document.getElementById('addToCartBtn').addEventListener('click', function() {
-                // Sepete ekleme işlemi burada yapılacak
+            document.getElementById('addToCartBtn')?.addEventListener('click', function() {
                 cartToast.show();
             });
 
-            const ratingInputs = document.querySelectorAll('.rating-input');
+            // Yıldız derecelendirme sistemi
+            const ratingStars = document.querySelectorAll('.rating-stars .form-check-label');
             const ratingValue = document.getElementById('ratingValue');
             
-            ratingInputs.forEach(input => {
-                input.addEventListener('change', function() {
-                    ratingValue.value = this.value;
+            ratingStars.forEach(star => {
+                star.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const value = this.getAttribute('data-rating');
+                    ratingValue.value = value;
+                    
+                    // Seçilen yıldıza kadar olan tüm yıldızları doldur
+                    ratingStars.forEach(s => {
+                        const starValue = s.getAttribute('data-rating');
+                        const starIcon = s.querySelector('i');
+                        if (starValue <= value) {
+                            starIcon.classList.remove('far');
+                            starIcon.classList.add('fas');
+                        } else {
+                            starIcon.classList.remove('fas');
+                            starIcon.classList.add('far');
+                        }
+                    });
+
+                    // Radio butonunu seç
+                    const radio = document.querySelector(`input[name="starRating"][value="${value}"]`);
+                    if (radio) {
+                        radio.checked = true;
+                    }
                 });
             });
         });
+    </script>
+    <script>
+        // Textarea otomatik yükseklik ayarı
+        const textarea = document.getElementById('commentText');
+        if (textarea) {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        }
     </script>
 }
 
@@ -260,60 +291,69 @@
     <!-- Yorumlar Bölümü -->
     <div class="row mt-5">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-white">
-                    <h5 class="mb-0">Ürün Yorumları</h5>
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-header bg-transparent py-3 border-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Ürün Değerlendirmeleri (@Model.ReviewCount)</h5>
+                        <div class="d-flex align-items-center">
+                            <span class="h5 mb-0 me-2">@Model.Rating.ToString("0.0")</span>
+                            <div class="stars">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= Math.Floor(Model.Rating))
+                                    {
+                                        <i class="fas fa-star text-warning"></i>
+                                    }
+                                    else if (i - Model.Rating <= 0.5 && i - Model.Rating > 0)
+                                    {
+                                        <i class="fas fa-star-half-alt text-warning"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="far fa-star text-warning"></i>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="comment-form mb-4">
-                        <h6 class="mb-3">Yorum Ekle</h6>
+                <div class="card-body p-4">
+                    <!-- Yorum Ekleme -->
+                    <div class="comment-form mb-4 p-4">
                         <form asp-action="AddComment" asp-controller="Product" method="post">
                             <input type="hidden" name="ProductId" value="@Model.Id" />
                             <input type="hidden" id="ratingValue" name="Rating" value="5" />
                             
-                            <div class="form-group mb-3">
-                                <label for="userName" class="form-label">Adınız</label>
-                                <input type="text" class="form-control" id="userName" name="UserName" required>
-                            </div>
-                            
-                            <div class="form-group mb-3">
-                                <label class="form-label">Değerlendirmeniz</label>
-                                <div class="rating-stars mb-2">
-                                    <div class="d-flex gap-2">
-                                        @for (int i = 5; i >= 1; i--)
-                                        {
-                                            <div class="form-check">
-                                                <input class="form-check-input rating-input" 
-                                                       type="radio" 
-                                                       name="starRating" 
-                                                       id="star@(i)" 
-                                                       value="@i" 
-                                                       @(i == 5 ? "checked" : "")>
-                                                <label class="form-check-label" for="star@(i)">
-                                                    @for (int j = 1; j <= 5; j++)
-                                                    {
-                                                        if (j <= i)
-                                                        {
-                                                            <i class="fas fa-star text-warning"></i>
-                                                        }
-                                                        else
-                                                        {
-                                                            <i class="far fa-star text-warning"></i>
-                                                        }
-                                                    }
-                                                </label>
-                                            </div>
-                                        }
-                                    </div>
+                            <div class="d-flex gap-3 align-items-center mb-3">
+                                <div class="flex-grow-1">
+                                    <input type="text" class="form-control" id="userName" name="UserName" placeholder="Adınız" required>
+                                </div>
+                                <div class="rating-stars">
+                                    @for (int i = 5; i >= 1; i--)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input rating-input" 
+                                                   type="radio" 
+                                                   name="starRating" 
+                                                   id="star@(i)" 
+                                                   value="@i" 
+                                                   @(i == 5 ? "checked" : "")>
+                                            <label class="form-check-label" 
+                                                   for="star@(i)" 
+                                                   data-rating="@i">
+                                                <i class="@(i == 5 ? "fas" : "far") fa-star text-warning"></i>
+                                            </label>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                             
-                            <div class="form-group mb-3">
-                                <label for="commentText" class="form-label">Yorumunuz</label>
-                                <textarea class="form-control" id="commentText" name="Text" rows="3" required></textarea>
+                            <div class="d-flex gap-3">
+                                <div class="flex-grow-1">
+                                    <textarea class="form-control" id="commentText" name="Text" rows="1" placeholder="Ürün hakkındaki görüşleriniz..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Gönder</button>
                             </div>
-                            
-                            <button type="submit" class="btn btn-primary">Yorum Gönder</button>
                         </form>
                     </div>
                     
@@ -321,50 +361,40 @@
                     @if (Model.Comments != null && Model.Comments.Any())
                     {
                         <div class="comments-list">
-                            <h6 class="mb-3">Kullanıcı Yorumları (@Model.Comments.Count)</h6>
-                            
                             @foreach (var comment in Model.Comments.OrderByDescending(c => c.CreatedDate))
                             {
-                                <div class="comment-item mb-3 pb-3 border-bottom">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <div class="d-flex align-items-center">
-                                            <div class="comment-avatar me-2">
-                                                <i class="fas fa-user-circle fa-2x text-muted"></i>
+                                <div class="comment-item py-2">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div class="d-flex gap-2">
+                                            <div class="user-icon">
+                                                <i class="fas fa-user-circle"></i>
                                             </div>
                                             <div>
-                                                <div class="fw-bold">@comment.UserName</div>
-                                                <div class="text-muted small">
-                                                    @(comment.CreatedDate?.ToString("dd.MM.yyyy"))
-                                                </div>
+                                                <div class="fw-medium">@comment.UserName</div>
+                                                <div class="text-muted small">@(comment.CreatedDate?.ToString("dd/MM/yyyy"))</div>
+                                                <div class="comment-text mt-1">@comment.Text</div>
                                             </div>
                                         </div>
                                         <div class="comment-rating">
                                             @for (int i = 1; i <= 5; i++)
                                             {
-                                                if (i <= comment.Rating)
-                                                {
-                                                    <i class="fas fa-star text-warning small"></i>
-                                                }
-                                                else
-                                                {
-                                                    <i class="far fa-star text-warning small"></i>
-                                                }
+                                                <i class="@(i <= comment.Rating ? "fas" : "far") fa-star text-warning small"></i>
                                             }
                                         </div>
                                     </div>
-                                    <div class="comment-text">
-                                        @comment.Text
-                                    </div>
                                 </div>
+                                @if (comment != Model.Comments.OrderByDescending(c => c.CreatedDate).Last())
+                                {
+                                    <hr class="my-2" />
+                                }
                             }
                         </div>
                     }
                     else
                     {
-                        <div class="no-comments text-center py-4">
-                            <i class="far fa-comment-dots fa-3x text-muted mb-3"></i>
-                            <h6>Bu ürün için henüz yorum bulunmuyor</h6>
-                            <p class="text-muted">İlk yorumu siz yapın ve diğer müşterilere yardımcı olun.</p>
+                        <div class="no-comments text-center py-3">
+                            <i class="far fa-comment-dots fa-2x text-muted mb-2"></i>
+                            <p class="text-muted mb-0">Bu ürün için henüz yorum bulunmuyor. İlk yorumu siz yapın!</p>
                         </div>
                     }
                 </div>
@@ -459,33 +489,150 @@ small.text-danger {
 }
 
 .comment-form {
-    background-color: #f8f9fa;
-    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+}
+
+.comment-form:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.comment-form .form-control {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.625rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: #fff;
+}
+
+.comment-form .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+.comment-form .form-control::placeholder {
+    color: #adb5bd;
+    font-size: 0.95rem;
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
     border-radius: 8px;
 }
 
 .rating-stars .form-check {
-    margin-right: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
-.comment-avatar {
-    color: #adb5bd;
+.rating-stars .form-check-input {
+    display: none;
+}
+
+.rating-stars .form-check-label {
+    cursor: pointer;
+    padding: 4px;
+    transition: transform 0.2s ease;
+}
+
+.rating-stars .form-check-label:hover {
+    transform: scale(1.2);
+}
+
+.rating-stars .form-check-label i {
+    font-size: 1.25rem;
+    color: #ffd700;
+}
+
+.rating-stars .form-check-label:hover i {
+    color: #ffd700;
+}
+
+.btn-primary {
+    padding: 0.625rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    background: #0d6efd;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #0b5ed7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(13,110,253,0.2);
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+    min-height: 42px;
 }
 
 .comment-item {
+    font-size: 0.9rem;
     transition: all 0.2s ease;
+    border-radius: 6px;
+    padding: 12px;
 }
 
 .comment-item:hover {
     background-color: #f8f9fa;
 }
 
+.comment-item .user-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e9ecef;
+    border-radius: 50%;
+    color: #6c757d;
+}
+
+.comment-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #495057;
+}
+
 .no-comments {
     color: #6c757d;
+    font-size: 0.9rem;
+    padding: 2rem 0;
 }
 
 .no-comments i {
     opacity: 0.5;
+    margin-bottom: 1rem;
+}
+
+.stars i {
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.stars i:hover {
+    color: #ffc107;
+}
+
+hr {
+    opacity: 0.1;
+    margin: 0.75rem 0;
+}
+
+.comment-rating {
+    background: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
 }
 </style>
 
