@@ -94,6 +94,12 @@ MarketWorld/
 └── MarketWorld.Web/             # MVC Web Application
 ```
 
+## 🔌 API Endpoints
+
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/7fb9b272-3408-4657-9469-2d00dc82304a" alt="api-endpoints" width="800"/>
+</div>
+
 ## 🚀 Getting Started
 
 ### Prerequisites
