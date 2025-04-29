@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using MarketWorld.API.DTOs;
 using AutoMapper;
+using MarketWorld.Application.Services.Implementations;
 
 namespace MarketWorld.API.Controllers
 {
@@ -30,6 +31,18 @@ namespace MarketWorld.API.Controllers
         {
             var comments = await _commentService.GetAllComments();
             var commentDtos = _mapper.Map<IEnumerable<CommentDto>>(comments);
+            return Ok(commentDtos);
+        }
+
+        [HttpGet("filter")]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<CommentDto>>> GetCommentsByProductCode([FromQuery] int ProductCode)
+        {
+            var allComments = await _commentService.GetAllComments();
+            var filteredComments = allComments.Where(p => p.ProductCode == ProductCode).ToList();
+
+            var commentDtos = _mapper.Map<List<CommentDto>>(filteredComments);
+
             return Ok(commentDtos);
         }
     }
