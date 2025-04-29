@@ -10,6 +10,9 @@ namespace MarketWorld.API.Mappings
         {
             CreateMap<Product, ProductDto>()
                 .ReverseMap(); // ProductDto -> Product
+                
+            CreateMap<Comment, CommentDto>()
+                .ReverseMap(); // CommentDto -> Comment
         }
     }
 } 

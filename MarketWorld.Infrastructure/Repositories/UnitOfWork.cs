@@ -12,6 +12,7 @@ namespace MarketWorld.Infrastructure.Repositories
         private readonly MarketWorldDbContext _context;
         private IProductRepository _productRepository;
         private ICategoryRepository _categoryRepository;
+        private ICommentRepository _commentRepository;
         private IDbContextTransaction _transaction;
 
         public UnitOfWork(MarketWorldDbContext context)
@@ -24,6 +25,9 @@ namespace MarketWorld.Infrastructure.Repositories
 
         public ICategoryRepository Categories => 
             _categoryRepository ??= new CategoryRepository(_context);
+            
+        public ICommentRepository Comments => 
+            _commentRepository ??= new CommentRepository(_context);
 
         public async Task BeginTransactionAsync()
         {
