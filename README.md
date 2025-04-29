@@ -120,12 +120,12 @@ MarketWorld/
 
 ## 📈 Project Status
 
-✅ User authentication and authorization  
-✅ Product catalog management  
-✅ Shopping cart functionality  
-✅ Category and subcategory management  
-✅ Basic order processing  
-✅ Payment integration
-✅ Admin dashboard
-✅ Advanced analytics
-✅ Customer reviews system
+✅ User Authentication and Authorization  
+✅ Product Catalog Management  
+✅ Shopping Cart Functionality  
+✅ Category and Subcategory Management  
+✅ Basic Order Processing  
+✅ Payment Integration  
+✅ Admin Dashboard  
+✅ Advanced Analytics  
+✅ Customer Reviews System  
