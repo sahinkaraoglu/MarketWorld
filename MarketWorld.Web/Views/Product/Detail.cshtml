@@ -23,12 +23,15 @@
             // Yıldız derecelendirme sistemi
             const ratingStars = document.querySelectorAll('.rating-stars .form-check-label');
             const ratingValue = document.getElementById('ratingValue');
+            const commentForm = document.getElementById('commentForm');
+            const ratingWarning = document.getElementById('ratingWarning');
             
             ratingStars.forEach(star => {
                 star.addEventListener('click', function(e) {
                     e.preventDefault();
                     const value = this.getAttribute('data-rating');
                     ratingValue.value = value;
+                    ratingWarning.style.display = 'none';
                     
                     // Seçilen yıldıza kadar olan tüm yıldızları doldur
                     ratingStars.forEach(s => {
@@ -49,6 +52,13 @@
                         radio.checked = true;
                     }
                 });
+            });
+            
+            commentForm.addEventListener('submit', function(e) {
+                if (!ratingValue.value) {
+                    e.preventDefault();
+                    ratingWarning.style.display = 'block';
+                }
             });
         });
     </script>
@@ -320,9 +330,9 @@
                 <div class="card-body p-4">
                     <!-- Yorum Ekleme -->
                     <div class="comment-form mb-4 p-4">
-                        <form asp-action="AddComment" asp-controller="Product" method="post">
+                        <form asp-action="AddComment" asp-controller="Product" method="post" id="commentForm">
                             <input type="hidden" name="ProductId" value="@Model.Id" />
-                            <input type="hidden" id="ratingValue" name="Rating" value="5" />
+                            <input type="hidden" id="ratingValue" name="Rating" value="" />
                             
                             <div class="d-flex gap-3 align-items-center mb-3">
                                 <div class="flex-grow-1">
@@ -336,12 +346,11 @@
                                                    type="radio" 
                                                    name="starRating" 
                                                    id="star@(i)" 
-                                                   value="@i" 
-                                                   @(i == 5 ? "checked" : "")>
+                                                   value="@i">
                                             <label class="form-check-label" 
                                                    for="star@(i)" 
                                                    data-rating="@i">
-                                                <i class="@(i == 5 ? "fas" : "far") fa-star text-warning"></i>
+                                                <i class="far fa-star text-warning"></i>
                                             </label>
                                         </div>
                                     }
@@ -354,6 +363,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary">Gönder</button>
                             </div>
+                            <div id="ratingWarning" class="text-danger mt-2" style="display: none;">Lütfen bir değerlendirme puanı seçiniz!</div>
                         </form>
                     </div>
                     
