@@ -7,9 +7,9 @@ namespace MarketWorld.Application.Services.Interfaces
     public interface ICommentService
     {
         Task<IEnumerable<Comment>> GetAllComments();
-        Task<Comment> GetProductById(int id);
-        Task<Comment> CreateProduct(Comment comment);
-        Task UpdateProduct(Comment comment);
-        Task DeleteProduct(int id);
+        Task<Comment> GetCommentById(int id);
+        Task<Comment> CreateComment(Comment comment);
+        Task UpdateComment(Comment comment);
+        Task DeleteComment(int id);
     }
 }

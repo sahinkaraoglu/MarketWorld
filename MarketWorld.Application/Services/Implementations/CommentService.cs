@@ -21,12 +21,12 @@ namespace MarketWorld.Application.Services.Implementations
             return await _unitOfWork.Comments.GetAllAsync();
         }
 
-        public async Task<Comment> GetProductById(int id)
+        public async Task<Comment> GetCommentById(int id)
         {
             return await _unitOfWork.Comments.GetByIdAsync(id);
         }
 
-        public async Task<Comment> CreateProduct(Comment comment)
+        public async Task<Comment> CreateComment(Comment comment)
         {
             if (comment == null)
                 throw new ArgumentNullException(nameof(comment));
@@ -36,7 +36,7 @@ namespace MarketWorld.Application.Services.Implementations
             return comment;
         }
 
-        public async Task UpdateProduct(Comment comment)
+        public async Task UpdateComment(Comment comment)
         {
             if (comment == null)
                 throw new ArgumentNullException(nameof(comment));
@@ -45,7 +45,7 @@ namespace MarketWorld.Application.Services.Implementations
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task DeleteProduct(int id)
+        public async Task DeleteComment(int id)
         {
             var comment = await _unitOfWork.Comments.GetByIdAsync(id);
             if (comment == null)

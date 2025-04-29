@@ -58,7 +58,7 @@ namespace MarketWorld.API.Controllers
                 if (comment == null)
                     return NotFound($"Yorum Numarasý: {ProductCode} ile yorum bulunamadý.");
 
-                await _commentService.DeleteProduct(comment.Id);
+                await _commentService.DeleteComment(comment.Id);
                 return NoContent();
             }
             catch (Exception ex)

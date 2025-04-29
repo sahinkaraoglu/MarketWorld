@@ -10,7 +10,6 @@ namespace MarketWorld.API.DTOs
         public int Rating { get; set; }
         public bool IsApproved { get; set; } = false;
         public int ProductId { get; set; }
-        public Product Product { get; set; }
         public int ProductCode { get; set; }
         public int? UserId { get; set; }
         public string UserName { get; set; }
