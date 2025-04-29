@@ -84,7 +84,7 @@ namespace MarketWorld.API.Controllers
                 var comment = allComments.FirstOrDefault(p => p.Id == Id);
 
                 if (comment == null)
-                    return NotFound($"Yorum Numarası: {Id} ile yorum bulunamad�.");
+                    return NotFound($"Yorum Numarası: {Id} ile yorum bulunamadı.");
 
                 await _commentService.DeleteComment(comment.Id);
                 return NoContent();
