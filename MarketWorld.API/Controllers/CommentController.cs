@@ -46,6 +46,33 @@ namespace MarketWorld.API.Controllers
             return Ok(commentDtos);
         }
 
+        [HttpPut("{id}")]
+        [Authorize]
+        public async Task<ActionResult<CommentDto>> UpdateComment(int id, [FromBody] CommentDto commentDto)
+        {
+            if (commentDto == null)
+                return BadRequest("Yorum verisi boş olamaz.");
+
+            if (id != commentDto.Id)
+                return BadRequest("Yorum ID'si eşleşmiyor.");
+
+            try
+            {
+                var existingComment = await _commentService.GetCommentById(id);
+                if (existingComment == null)
+                    return NotFound($"ID: {id} ile yorum bulunamadı.");
+
+                _mapper.Map(commentDto, existingComment);
+
+                await _commentService.UpdateComment(existingComment);
+                return Ok(_mapper.Map<CommentDto>(existingComment));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Yorum güncellenirken bir hata oluştu: {ex.Message}");
+            }
+        }
+
         [HttpDelete("number/{ProductCode}")]
         [Authorize]
         public async Task<ActionResult> DeleteCommentByCode(int ProductCode)
@@ -56,14 +83,14 @@ namespace MarketWorld.API.Controllers
                 var comment = allComments.FirstOrDefault(p => p.ProductCode == ProductCode);
 
                 if (comment == null)
-                    return NotFound($"Yorum Numaras�: {ProductCode} ile yorum bulunamad�.");
+                    return NotFound($"Yorum Numaras�: {ProductCode} ile yorum bulunamad�.");
 
                 await _commentService.DeleteComment(comment.Id);
                 return NoContent();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Yorum silinirken bir hata olu�tu: {ex.Message}");
+                return StatusCode(500, $"Yorum silinirken bir hata olu�tu: {ex.Message}");
             }
         }
     }
