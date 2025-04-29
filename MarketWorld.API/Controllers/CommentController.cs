@@ -73,24 +73,25 @@ namespace MarketWorld.API.Controllers
             }
         }
 
-        [HttpDelete("number/{ProductCode}")]
+
+        [HttpDelete("{Id}")]
         [Authorize]
-        public async Task<ActionResult> DeleteCommentByCode(int ProductCode)
+        public async Task<ActionResult> DeleteCommentById(int Id)
         {
             try
             {
                 var allComments = await _commentService.GetAllComments();
-                var comment = allComments.FirstOrDefault(p => p.ProductCode == ProductCode);
+                var comment = allComments.FirstOrDefault(p => p.Id == Id);
 
                 if (comment == null)
-                    return NotFound($"Yorum Numaras�: {ProductCode} ile yorum bulunamad�.");
+                    return NotFound($"Yorum Numarası: {Id} ile yorum bulunamad�.");
 
                 await _commentService.DeleteComment(comment.Id);
                 return NoContent();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Yorum silinirken bir hata olu�tu: {ex.Message}");
+                return StatusCode(500, $"Yorum silinirken bir hata oluştu: {ex.Message}");
             }
         }
     }
