@@ -73,6 +73,25 @@ namespace MarketWorld.API.Controllers
             }
         }
 
+        [HttpPost]
+        [Authorize]
+        public async Task<ActionResult<CommentDto>> CreateComment([FromBody] CommentDto commentDto)
+        {
+            if (commentDto == null)
+                return BadRequest("Yorum verisi boş olamaz.");
+
+            try
+            {
+                var comment = _mapper.Map<Comment>(commentDto);
+                var createdComment = await _commentService.CreateComment(comment);
+                var createdCommentDto = _mapper.Map<CommentDto>(createdComment);
+                return CreatedAtAction(nameof(GetAllComments), new { id = createdComment.Id }, createdCommentDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Yorum oluşturulurken bir hata oluştu: {ex.Message}");
+            }
+        }
 
         [HttpDelete("{Id}")]
         [Authorize]
