@@ -13,6 +13,9 @@ namespace MarketWorld.API.Mappings
                 
             CreateMap<Comment, CommentDto>()
                 .ReverseMap(); // CommentDto -> Comment
+                
+            CreateMap<Brand, BrandDto>()
+                .ReverseMap(); // BrandDto -> Brand
         }
     }
 } 

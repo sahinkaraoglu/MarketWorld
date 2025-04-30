@@ -13,6 +13,7 @@ namespace MarketWorld.Infrastructure.Repositories
         private IProductRepository _productRepository;
         private ICategoryRepository _categoryRepository;
         private ICommentRepository _commentRepository;
+        private IBrandRepository _brandRepository;
         private IDbContextTransaction _transaction;
 
         public UnitOfWork(MarketWorldDbContext context)
@@ -28,6 +29,9 @@ namespace MarketWorld.Infrastructure.Repositories
             
         public ICommentRepository Comments => 
             _commentRepository ??= new CommentRepository(_context);
+            
+        public IBrandRepository Brands => 
+            _brandRepository ??= new BrandRepository(_context);
 
         public async Task BeginTransactionAsync()
         {
