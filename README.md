@@ -97,7 +97,7 @@ MarketWorld/
 ## 🔌 API Endpoints
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/7fb9b272-3408-4657-9469-2d00dc82304a" alt="api-endpoints" width="800"/>
+    <img src="https://github.com/user-attachments/assets/a2ea920b-b166-4f4f-b2ef-c14ddbd3ee73" alt="api-endpoints" width="800"/>
 </div>
 
 ## 🚀 Getting Started
