@@ -65,6 +65,7 @@
 - **Architecture**: Clean Architecture with Domain-Driven Design
 - **API**: RESTful API endpoints
 - **Authentication**: JWT with OAuth2
+- **Object Mapping**: AutoMapper for DTO transformations
 
 ### Frontend
 - **Framework**: ASP.NET MVC
