@@ -80,6 +80,7 @@
 - Rate limiting
 - Data encryption at rest
 - Secure payment processing (PCI compliant)
+- Custom JWT Token Validation Middleware
 
 ## 🏗️ Architecture
 
