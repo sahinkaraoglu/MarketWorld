@@ -33,7 +33,6 @@
   - Multi-factor authentication (MFA)
   - Role-based access control (RBAC)
   - Comprehensive user profiles with preferences
-  - Social media integration
   
 - **Product Management**
   - Rich product catalog with categories and subcategories
@@ -93,7 +92,12 @@ MarketWorld/
 ├── MarketWorld.API/             # RESTful API endpoints
 └── MarketWorld.Web/             # MVC Web Application
 ```
-
+## Repository & Unit of Work
+- Generic `IRepository<T>` interface for basic CRUD operations
+- Unit of Work for transaction management
+- Clean Architecture principles
+- Entity-specific repositories (Product, Category, Brand, Comment)
+  
 ## 🔌 API Endpoints
 
 <div align="center">
