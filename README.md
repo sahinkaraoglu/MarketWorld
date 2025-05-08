@@ -30,7 +30,6 @@
 
 - **Advanced User Management**
   - OAuth2 and JWT-based authentication
-  - Multi-factor authentication (MFA)
   - Role-based access control (RBAC)
   - Comprehensive user profiles with preferences
   
