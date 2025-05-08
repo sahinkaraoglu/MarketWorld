@@ -76,8 +76,6 @@
 - JWT-based authentication
 - OAuth2 integration
 - SQL injection prevention
-- Rate limiting
-- Data encryption at rest
 - Secure payment processing (PCI compliant)
 - Custom JWT Token Validation Middleware
 
