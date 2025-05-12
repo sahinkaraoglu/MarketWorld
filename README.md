@@ -96,6 +96,7 @@ MarketWorld/
 - Unit of Work for transaction management
 - Clean Architecture principles
 - Entity-specific repositories (Product, Category, Brand, Comment)
+- Redis caching for improved performance
   
 ## 🔌 API Endpoints
 
@@ -108,13 +109,15 @@ MarketWorld/
 ### Prerequisites
 - .NET 8.0 SDK
 - SQL Server 2019 or later
+- Redis Server
 - Visual Studio 2022 or later
 
 ### Environment Setup
 1. Clone the repository
 2. Update the connection string in `appsettings.json`
 3. Run Entity Framework migrations
-4. Start the application
+4. Start Redis server
+5. Start the application
 
 ### Environment URLs
 - Web Application: `https://localhost:7154`
@@ -131,4 +134,5 @@ MarketWorld/
 ✅ Payment Integration  
 ✅ Admin Dashboard  
 ✅ Advanced Analytics  
-✅ Customer Reviews System  
+✅ Customer Reviews System
+✅ Redis Caching Implementation
