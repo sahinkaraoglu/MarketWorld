@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutoMapper;
 using MarketWorld.API.Mappings;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,8 +69,17 @@ builder.Services.AddScoped<ICommentService, CommentService>();
 builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<ICacheService, RedisCacheService>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// Redis servisini ekle
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+{
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var redisConnection = configuration.GetConnectionString("Redis");
+    return ConnectionMultiplexer.Connect(redisConnection);
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
