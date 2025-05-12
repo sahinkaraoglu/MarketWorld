@@ -65,7 +65,7 @@
 - **API**: RESTful API endpoints
 - **Authentication**: JWT with OAuth2
 - **Object Mapping**: AutoMapper for DTO transformations
-- **Caching: Redis for distributed caching
+- **Caching**: Redis for distributed caching
 
 ### Frontend
 - **Framework**: ASP.NET MVC
