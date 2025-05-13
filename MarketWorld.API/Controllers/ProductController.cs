@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using System.Linq;
 using MarketWorld.API.DTOs;
 using AutoMapper;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace MarketWorld.API.Controllers
 {
@@ -17,11 +20,14 @@ namespace MarketWorld.API.Controllers
     {
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
+        private readonly IDistributedCache _cache;
+        private const string CacheKey = "all_products";
 
-        public ProductController(IProductService productService, IMapper mapper)
+        public ProductController(IProductService productService, IMapper mapper, IDistributedCache cache)
         {
             _productService = productService;
             _mapper = mapper;
+            _cache = cache;
         }
 
         [HttpGet]
@@ -29,6 +35,14 @@ namespace MarketWorld.API.Controllers
         [Authorize]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
+            string cacheKey = $"{CacheKey}_{page}_{pageSize}";
+            string cachedProducts = await _cache.GetStringAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedProducts))
+            {
+                return Ok(JsonSerializer.Deserialize<object>(cachedProducts));
+            }
+
             var products = await _productService.GetAllProducts();
             
             var totalProducts = products.Count();
@@ -47,6 +61,16 @@ namespace MarketWorld.API.Controllers
                 PageSize = pageSize,
                 TotalProducts = totalProducts
             };
+
+            var cacheOptions = new DistributedCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+
+            await _cache.SetStringAsync(
+                cacheKey,
+                JsonSerializer.Serialize(result),
+                cacheOptions
+            );
             
             return Ok(result);
         }
@@ -61,6 +85,44 @@ namespace MarketWorld.API.Controllers
             var productDtos = _mapper.Map<List<ProductDto>>(filteredProducts);
      
             return Ok(productDtos);
+        }
+
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<ActionResult<ProductDto>> GetProductById(int id)
+        {
+            try
+            {
+                string cacheKey = $"{CacheKey}_single_{id}";
+                string cachedProduct = await _cache.GetStringAsync(cacheKey);
+
+                if (!string.IsNullOrEmpty(cachedProduct))
+                {
+                    return Ok(JsonSerializer.Deserialize<ProductDto>(cachedProduct));
+                }
+
+                var product = await _productService.GetProductById(id);
+                if (product == null)
+                    return NotFound($"ID: {id} ile ürün bulunamadı.");
+
+                var productDto = _mapper.Map<ProductDto>(product);
+
+                var cacheOptions = new DistributedCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                    .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+
+                await _cache.SetStringAsync(
+                    cacheKey,
+                    JsonSerializer.Serialize(productDto),
+                    cacheOptions
+                );
+
+                return Ok(productDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Ürün getirilirken bir hata oluştu: {ex.Message}");
+            }
         }
 
         [HttpPost]
@@ -143,6 +205,67 @@ namespace MarketWorld.API.Controllers
                 
                 await _productService.UpdateProduct(existingProduct);
                 return Ok(_mapper.Map<ProductDto>(existingProduct));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Ürün güncellenirken bir hata oluştu: {ex.Message}");
+            }
+        }
+
+        [HttpPatch("{id}")]
+        [Authorize]
+        [ProducesResponseType(typeof(ProductDto), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<ProductDto>> PatchProduct(int id, [FromBody] JsonPatchDocument<ProductDto> patchDoc)
+        {
+            if (patchDoc == null)
+                return BadRequest("Güncelleme verisi boş olamaz.");
+
+            try
+            {
+                // Önbellekten veya veritabanından ürünü al
+                Product existingProduct = await _productService.GetProductById(id);
+                
+                if (existingProduct == null)
+                    return NotFound($"ID: {id} ile ürün bulunamadı.");
+                
+
+                var productDtoToUpdate = _mapper.Map<ProductDto>(existingProduct);
+
+                patchDoc.ApplyTo(productDtoToUpdate);
+
+                if (productDtoToUpdate.Name == existingProduct.Name)
+                {
+                    return BadRequest($"Güncelleme işlemi başarısız: Değerler değişmedi. Mevcut değer: {existingProduct.Name}");
+                }
+
+                _mapper.Map(productDtoToUpdate, existingProduct);
+                
+                var updateResult = await _productService.UpdateProduct(existingProduct);
+                
+                if (!updateResult)
+                {
+                    return StatusCode(500, "Ürün güncellenirken bir hata oluştu.");
+                }
+
+                string cacheKey = $"{CacheKey}_single_{id}";
+                await _cache.RemoveAsync(cacheKey);
+                
+                var allCacheKeys = $"{CacheKey}_*";
+                await _cache.RemoveAsync(allCacheKeys);
+
+                var updatedProductDto = _mapper.Map<ProductDto>(existingProduct);
+                await _cache.SetStringAsync(
+                    cacheKey,
+                    JsonSerializer.Serialize(updatedProductDto),
+                    new DistributedCacheEntryOptions()
+                        .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                        .SetAbsoluteExpiration(TimeSpan.FromHours(1))
+                );
+
+                return Ok(updatedProductDto);
             }
             catch (Exception ex)
             {

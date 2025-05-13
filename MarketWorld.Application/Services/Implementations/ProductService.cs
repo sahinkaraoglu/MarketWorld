@@ -41,7 +41,7 @@ namespace MarketWorld.Application.Services.Implementations
             return product;
         }
 
-        public async Task UpdateProduct(Product product)
+        public async Task<bool> UpdateProduct(Product product)
         {
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
@@ -52,7 +52,8 @@ namespace MarketWorld.Application.Services.Implementations
             }
 
             _unitOfWork.Products.Update(product);
-            await _unitOfWork.SaveChangesAsync();
+            var result = await _unitOfWork.SaveChangesAsync();
+            return result > 0;
         }
 
         public async Task DeleteProduct(int id)

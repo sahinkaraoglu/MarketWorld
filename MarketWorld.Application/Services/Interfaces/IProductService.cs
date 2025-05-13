@@ -9,7 +9,7 @@ namespace MarketWorld.Application.Services.Interfaces
         Task<IEnumerable<Product>> GetAllProducts();
         Task<Product> GetProductById(int id);
         Task<Product> CreateProduct(Product product);
-        Task UpdateProduct(Product product);
+        Task<bool> UpdateProduct(Product product);
         Task DeleteProduct(int id);
     }
 }
