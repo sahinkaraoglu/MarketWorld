@@ -92,37 +92,16 @@ namespace MarketWorld.Web.Controllers
 
         public async Task<IActionResult> Products()
         {
-            var products = await _context.Products
-                .Include(p => p.SubCategory)
-                    .ThenInclude(sc => sc.Category)
-                .Include(p => p.Brand)
-                .Include(p => p.Images)
-                .Include(p => p.ProductProperties)
+            // Sadece toplam ürün sayısını hesaplayalım
+            var totalProducts = await _context.Products
                 .Where(p => !p.IsDeleted)
-                .ToListAsync();
+                .CountAsync();
+                
+            // Sayfa yükleme verimliliği için ilk sayfada ürünleri getirmeden view'ı döndürüyoruz
+            // Ürünler client tarafında AJAX ile yüklenecek
+            ViewBag.TotalProducts = totalProducts;
 
-            var viewModel = products.Select(p => new ProductAdminViewModel
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
-                    p.GetTotalStock() : 0,
-                Rating = p.Rating,
-                Status = p.IsActive ? "Published" : "Draft",
-                ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
-                    $"/{p.Images.FirstOrDefault().Path}" : 
-                    "/img/ProductsPicture/default.jpg",
-                CategoryId = p.SubCategory?.CategoryId ?? 0,
-                CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
-                SubCategoryId = p.SubCategoryId ?? 0,
-                SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
-                BrandId = p.BrandId,
-                BrandName = p.Brand?.Name ?? "Markasız",
-                ProductCode = p.ProductCode
-            }).ToList();
-
-            return View(viewModel);
+            return View();
         }
 
         public async Task<IActionResult> Categories()
@@ -576,13 +555,26 @@ namespace MarketWorld.Web.Controllers
         {
             try
             {
+                // Performans için Select ile sadece ihtiyaç duyulan verileri çekelim
                 var query = _context.Products
-                    .Include(p => p.SubCategory)
-                        .ThenInclude(sc => sc.Category)
-                    .Include(p => p.Brand)
-                    .Include(p => p.Images)
-                    .Include(p => p.ProductProperties)
+                    .AsNoTracking() // Performans için tracking'i kapatalım
                     .Where(p => !p.IsDeleted)
+                    .Select(p => new {
+                        p.Id,
+                        p.Name,
+                        p.Price,
+                        p.Rating,
+                        p.IsActive,
+                        p.ProductCode,
+                        p.BrandId,
+                        p.SubCategoryId,
+                        BrandName = p.Brand.Name,
+                        SubCategoryName = p.SubCategory.Name,
+                        CategoryId = p.SubCategory.CategoryId,
+                        CategoryName = p.SubCategory.Category.Name,
+                        ImageUrl = p.Images.OrderBy(i => i.Id).FirstOrDefault().Path,
+                        Stock = p.ProductProperties.Where(pp => pp.IsActive).Sum(pp => pp.Stock)
+                    })
                     .AsQueryable();
                 
                 // Ürün kodu ile filtreleme
@@ -608,6 +600,7 @@ namespace MarketWorld.Web.Controllers
                 var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
                 
                 var products = await query
+                    .OrderBy(p => p.Id) // Eski ürünler önce gelecek şekilde sıralama
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToListAsync();
@@ -617,19 +610,16 @@ namespace MarketWorld.Web.Controllers
                     Id = p.Id,
                     Name = p.Name,
                     Price = p.Price,
-                    Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
-                        p.GetTotalStock() : 0,
+                    Stock = p.Stock,
                     Rating = p.Rating,
                     Status = p.IsActive ? "Published" : "Draft",
-                    ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
-                        $"/{p.Images.FirstOrDefault().Path}" : 
-                        "/img/ProductsPicture/default.jpg",
-                    CategoryId = p.SubCategory?.CategoryId ?? 0,
-                    CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
+                    ImageUrl = !string.IsNullOrEmpty(p.ImageUrl) ? $"/{p.ImageUrl}" : "/img/ProductsPicture/default.jpg",
+                    CategoryId = p.CategoryId,
+                    CategoryName = p.CategoryName ?? "Kategorisiz",
                     SubCategoryId = p.SubCategoryId ?? 0,
-                    SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
+                    SubCategoryName = p.SubCategoryName ?? "Alt Kategorisiz",
                     BrandId = p.BrandId,
-                    BrandName = p.Brand?.Name ?? "Markasız",
+                    BrandName = p.BrandName ?? "Markasız",
                     ProductCode = p.ProductCode
                 }).ToList();
 
@@ -669,6 +659,7 @@ namespace MarketWorld.Web.Controllers
                 var totalCount = await query.CountAsync();
                 
                 var products = await query
+                    .OrderBy(p => p.Id) // Eski ürünler önce gelecek şekilde sıralama
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToListAsync();

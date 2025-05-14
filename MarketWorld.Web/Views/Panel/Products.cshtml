@@ -1,5 +1,6 @@
-@model List<MarketWorld.Web.Models.Admin.ProductAdminViewModel>
-
+@{
+    ViewData["Title"] = "Ürün Yönetimi";
+}
 
 <div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -36,7 +37,15 @@
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
-                    <!-- Ürünler burada listelenecek -->
+                    <!-- Ürünler AJAX ile yüklenecek -->
+                    <tr>
+                        <td colspan="9" class="text-center p-5">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Yükleniyor...</span>
+                            </div>
+                            <p class="mt-2">Ürünler yükleniyor...</p>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -51,7 +60,7 @@
     <!-- Sayfalama kontrolleri -->
     <div class="d-flex justify-content-between align-items-center mt-4">
         <div class="text-muted">
-            <span id="totalProductCount">0</span> Ürün
+            <span id="totalProductCount">@ViewBag.TotalProducts</span> Ürün
         </div>
         <nav aria-label="Sayfa navigasyonu">
             <ul class="pagination" id="pagination">
@@ -276,13 +285,21 @@
             const PAGE_SIZE = 30;
             let totalPages = 0;
             let totalProducts = 0;
+            let isLoading = false;
             
-            // İlk yüklemede ürünleri getir
+            // Sayfa ilk yüklendiğinde toplam ürün sayısını ViewBag'den al
+            totalProducts = parseInt($('#totalProductCount').text()) || 0;
+            
+            // Sayfa yüklendiğinde ürünleri getir
             loadProducts(1);
             
-            // Ürün kodu ile arama yapma
+            // Ürün kodu ile arama yapma (tipleme bittikten 500ms sonra çalış)
+            let searchTimeout;
             $('#productCodeSearch').on('input', function() {
-                loadProducts(1);
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    loadProducts(1);
+                }, 500);
             });
             
             // Durum filtresi değiştiğinde
@@ -291,8 +308,25 @@
             });
             
             function loadProducts(page) {
+                // Zaten bir yükleme işlemi varsa tekrar çağırma
+                if (isLoading) return;
+                
+                isLoading = true;
                 $('#loadingIndicator').removeClass('d-none');
-                $('#productTableBody').empty();
+                
+                // İlk kez yükleniyorsa loading göster, yoksa mevcut satırları tut
+                if (page === 1) {
+                    $('#productTableBody').html(`
+                        <tr>
+                            <td colspan="9" class="text-center p-5">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Yükleniyor...</span>
+                                </div>
+                                <p class="mt-2">Ürünler yükleniyor...</p>
+                            </td>
+                        </tr>
+                    `);
+                }
                 
                 let productCode = $('#productCodeSearch').val().trim();
                 let statusFilter = $('#statusFilter').val();
@@ -308,9 +342,16 @@
                     },
                     success: function(response) {
                         if (response.products && response.products.length > 0) {
+                            $('#productTableBody').empty();
+                            
+                            // Ürünleri eklemeden önce batch halinde DOM işlemi yapmak için HTML string oluştur
+                            let rowsHtml = '';
                             response.products.forEach(function(product) {
-                                appendProductRow(product);
+                                rowsHtml += createProductRow(product);
                             });
+                            
+                            // Tek bir DOM manipülasyonu ile tüm satırları ekle
+                            $('#productTableBody').html(rowsHtml);
                             
                             // Sayfalama bilgilerini güncelle
                             currentPage = page;
@@ -334,8 +375,68 @@
                     },
                     complete: function() {
                         $('#loadingIndicator').addClass('d-none');
+                        isLoading = false;
                     }
                 });
+            }
+            
+            // Ürün satırını HTML string olarak oluştur
+            function createProductRow(product) {
+                let statusBadge = product.status === "Published" ? 
+                    '<span class="badge bg-success-subtle text-success">Aktif</span>' : 
+                    '<span class="badge bg-danger-subtle text-danger">Pasif</span>';
+                
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= product.rating) {
+                        stars += '<i class="bi bi-star-fill text-warning"></i>';
+                    } else if (i - product.rating < 1 && i - product.rating > 0) {
+                        stars += '<i class="bi bi-star-half text-warning"></i>';
+                    } else {
+                        stars += '<i class="bi bi-star text-warning"></i>';
+                    }
+                }
+                
+                return `
+                    <tr data-product-id="${product.id}">
+                        <td class="ps-4">
+                            <input type="checkbox" class="form-check-input">
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="${product.imageUrl}" class="rounded" style="width: 40px; height: 40px; object-fit: cover;"
+                                     onerror="this.src='/img/ProductsPicture/default.jpg';">
+                            </div>
+                        </td>
+                        <td>${product.productCode}</td>
+                        <td><div class="text-truncate" style="max-width: 200px;" title="${product.name}">${product.name}</div></td>
+                        <td>
+                            ${product.stock}
+                            ${product.stock < 5 ? '<br><span class="text-warning">Düşük stok</span>' : ''}
+                        </td>
+                        <td>${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(product.price)}</td>
+                        <td>
+                            <div class="rating">
+                                ${stars}
+                                <span class="ms-1">(${product.rating})</span>
+                            </div>
+                        </td>
+                        <td>${statusBadge}</td>
+                        <td class="text-end pe-4">
+                            <div class="d-flex gap-1 justify-content-end">
+                                <a href="#" class="btn btn-sm btn-outline-primary" onclick="editProduct(${product.id})" title="Düzenle">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${product.id}); return false;" title="Sil">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                                <a href="/Product/Detail/${product.id}" class="btn btn-sm btn-outline-info" title="Görüntüle">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                `;
             }
             
             function renderPagination() {
@@ -388,66 +489,6 @@
                         loadProducts(page);
                     }
                 });
-            }
-            
-            function appendProductRow(product) {
-                let statusBadge = product.status === "Published" ? 
-                    '<span class="badge bg-success-subtle text-success">Aktif</span>' : 
-                    '<span class="badge bg-danger-subtle text-danger">Pasif</span>';
-                
-                let stars = '';
-                for (let i = 1; i <= 5; i++) {
-                    if (i <= product.rating) {
-                        stars += '<i class="bi bi-star-fill text-warning"></i>';
-                    } else if (i - product.rating < 1 && i - product.rating > 0) {
-                        stars += '<i class="bi bi-star-half text-warning"></i>';
-                    } else {
-                        stars += '<i class="bi bi-star text-warning"></i>';
-                    }
-                }
-                
-                let row = `
-                    <tr data-product-id="${product.id}">
-                        <td class="ps-4">
-                            <input type="checkbox" class="form-check-input">
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="${product.imageUrl}" class="rounded" style="width: 40px; height: 40px; object-fit: cover;"
-                                     onerror="this.src='/img/ProductsPicture/default.jpg';">
-                            </div>
-                        </td>
-                        <td>${product.productCode}</td>
-                        <td><div class="text-truncate" style="max-width: 200px;" title="${product.name}">${product.name}</div></td>
-                        <td>
-                            ${product.stock}
-                            ${product.stock < 5 ? '<br><span class="text-warning">Düşük stok</span>' : ''}
-                        </td>
-                        <td>${new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(product.price)}</td>
-                        <td>
-                            <div class="rating">
-                                ${stars}
-                                <span class="ms-1">(${product.rating})</span>
-                            </div>
-                        </td>
-                        <td>${statusBadge}</td>
-                        <td class="text-end pe-4">
-                            <div class="d-flex gap-1 justify-content-end">
-                                <a href="#" class="btn btn-sm btn-outline-primary" onclick="editProduct(${product.id})" title="Düzenle">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${product.id}); return false;" title="Sil">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                                <a href="/Product/Detail/${product.id}" class="btn btn-sm btn-outline-info" title="Görüntüle">
-                                    <i class="bi bi-eye"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                `;
-                
-                $('#productTableBody').append(row);
             }
 
             // Kategorileri yükle

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MarketWorld.Domain.Entities;
 using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -140,8 +141,25 @@ namespace MarketWorld.Web.Controllers
 
             if (!string.IsNullOrEmpty(cachedData))
             {
-                var cachedResult = JsonSerializer.Deserialize<object>(cachedData, _jsonOptions);
-                return Ok(cachedResult);
+                // JsonDocument kullanarak daha güvenli erişim
+                using JsonDocument document = JsonDocument.Parse(cachedData);
+                JsonElement root = document.RootElement;
+                
+                // Ürünleri ve diğer bilgileri önce JsonElement olarak al, daha sonra deserialize et
+                var productsElement = root.GetProperty("Products");
+                
+                // Markaları veritabanından doğrudan al
+                var cachedBrands = await GetBrandsForSubCategory(subCategoryName);
+                
+                // ViewBag değerlerini ayarla
+                ViewBag.Brands = cachedBrands;
+                ViewBag.CurrentPage = root.GetProperty("CurrentPage").GetInt32();
+                ViewBag.TotalPages = root.GetProperty("TotalPages").GetInt32();
+                ViewBag.SubCategoryName = subCategoryName;
+                
+                // Ürünleri deserialize et ve view'a gönder
+                var cachedProducts = JsonSerializer.Deserialize<List<ProductViewModel>>(productsElement.GetRawText(), _jsonOptions);
+                return View("ProductList", cachedProducts);
             }
 
             var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
