@@ -5,20 +5,47 @@ using MarketWorld.Infrastructure;
 using MarketWorld.Web.Models;
 using static MarketWorld.Web.Models.CategoryViewModel;
 using ProductViewModel = MarketWorld.Web.Models.ProductViewModel;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MarketWorld.Domain.Entities;
+using System.Text.Json.Serialization;
 
 namespace MarketWorld.Web.Controllers
 {
     public class ProductController : Controller
     {
         private readonly MarketWorldDbContext _context;
+        private readonly IDistributedCache _cache;
+        private const string CacheKey = "web_products";
+        private readonly JsonSerializerOptions _jsonOptions;
 
-        public ProductController(MarketWorldDbContext context)
+        public ProductController(MarketWorldDbContext context, IDistributedCache cache)
         {
             _context = context;
+            _cache = cache;
+            _jsonOptions = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+                MaxDepth = 128
+            };
         }
 
         private async Task<IActionResult> GetProductsBySubCategoryName(string subCategoryName)
         {
+            string cacheKey = $"{CacheKey}_subcategory_{subCategoryName.ToLower()}";
+            string cachedProducts = await _cache.GetStringAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedProducts))
+            {
+                var cachedResult = JsonSerializer.Deserialize<List<ProductViewModel>>(cachedProducts, _jsonOptions);
+                ViewBag.Brands = await GetBrandsForSubCategory(subCategoryName);
+                return View("ProductList", cachedResult);
+            }
+
             var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
 
             var userId = HttpContext.Items["UserId"]?.ToString();
@@ -54,25 +81,68 @@ namespace MarketWorld.Web.Controllers
                         .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
                         .Select(pp => pp.PropertyValue.Value)
                         .FirstOrDefault() ?? "Varsayılan"
-                }) .ToListAsync();
+                }).ToListAsync();
 
-            var brands = await _context.Brands
-                 .Where(b => !b.IsDeleted && _context.Products
-                     .Any(p => p.BrandId == b.Id && 
-                              p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && 
-                              p.IsActive && !p.IsDeleted))
-                 .OrderBy(b => b.Name)
-                 .ToListAsync();
-
+            var brands = await GetBrandsForSubCategory(subCategoryName);
             ViewBag.Brands = brands;
 
+            var cacheOptions = new DistributedCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+
+            await _cache.SetStringAsync(
+                cacheKey,
+                JsonSerializer.Serialize(products, _jsonOptions),
+                cacheOptions
+            );
+
             return View("ProductList", products);
+        }
+
+        private async Task<List<Brand>> GetBrandsForSubCategory(string subCategoryName)
+        {
+            string brandsCacheKey = $"{CacheKey}_brands_{subCategoryName.ToLower()}";
+            string cachedBrands = await _cache.GetStringAsync(brandsCacheKey);
+
+            if (!string.IsNullOrEmpty(cachedBrands))
+            {
+                return JsonSerializer.Deserialize<List<Brand>>(cachedBrands, _jsonOptions);
+            }
+
+            var brands = await _context.Brands
+                .Where(b => !b.IsDeleted && _context.Products
+                    .Any(p => p.BrandId == b.Id && 
+                            p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && 
+                            p.IsActive && !p.IsDeleted))
+                .OrderBy(b => b.Name)
+                .ToListAsync();
+
+            var cacheOptions = new DistributedCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(15))
+                .SetAbsoluteExpiration(TimeSpan.FromHours(2));
+
+            await _cache.SetStringAsync(
+                brandsCacheKey,
+                JsonSerializer.Serialize(brands, _jsonOptions),
+                cacheOptions
+            );
+
+            return brands;
         }
 
         public async Task<IActionResult> ListBySubCategory(string subCategoryName, int page = 1)
         {
             if (string.IsNullOrEmpty(subCategoryName))
                 return NotFound();
+
+            string cacheKey = $"{CacheKey}_subcategory_paged_{subCategoryName.ToLower()}_{page}";
+            string cachedData = await _cache.GetStringAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedData))
+            {
+                var cachedResult = JsonSerializer.Deserialize<object>(cachedData, _jsonOptions);
+                return Ok(cachedResult);
+            }
 
             var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
             if (subCategory == null)
@@ -119,18 +189,32 @@ namespace MarketWorld.Web.Controllers
                 })
                 .ToListAsync();
 
-            var brands = await _context.Brands
-                .Where(b => !b.IsDeleted && _context.Products
-                    .Any(p => p.BrandId == b.Id && 
-                             p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && 
-                             p.IsActive && !p.IsDeleted))
-                .OrderBy(b => b.Name)
-                .ToListAsync();
+            var brands = await GetBrandsForSubCategory(subCategoryName);
+
+            var result = new
+            {
+                Products = products,
+                TotalPages = totalPages,
+                CurrentPage = page,
+                PageSize = pageSize,
+                TotalProducts = totalItems,
+                Brands = brands
+            };
 
             ViewBag.Brands = brands;
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = totalPages;
             ViewBag.SubCategoryName = subCategoryName;
+
+            var cacheOptions = new DistributedCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+
+            await _cache.SetStringAsync(
+                cacheKey,
+                JsonSerializer.Serialize(result, _jsonOptions),
+                cacheOptions
+            );
 
             return await GetProductsBySubCategoryName(subCategoryName);
         }
@@ -139,6 +223,15 @@ namespace MarketWorld.Web.Controllers
         {
             var userId = HttpContext.Items["UserId"]?.ToString();
             ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
+            
+            string cacheKey = $"{CacheKey}_product_detail_{id}";
+            string cachedProduct = await _cache.GetStringAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedProduct))
+            {
+                var cachedViewModel = JsonSerializer.Deserialize<ProductDetailViewModel>(cachedProduct, _jsonOptions);
+                return View(cachedViewModel);
+            }
 
             var product = await _context.Products
                 .Include(p => p.Brand)
@@ -217,6 +310,16 @@ namespace MarketWorld.Web.Controllers
                 Comments = comments
             };
 
+            var cacheOptions = new DistributedCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+
+            await _cache.SetStringAsync(
+                cacheKey,
+                JsonSerializer.Serialize(viewModel, _jsonOptions),
+                cacheOptions
+            );
+
             return View(viewModel);
         }
 
@@ -250,15 +353,33 @@ namespace MarketWorld.Web.Controllers
                 if (product.Comments != null && product.Comments.Any())
                 {
                     product.Rating = (decimal)product.Comments.Average(c => c.Rating);
-                    _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
+
+                // Önbelleği temizle
+                string productDetailCacheKey = $"{CacheKey}_product_detail_{model.ProductId}";
+                await _cache.RemoveAsync(productDetailCacheKey);
                 
-                TempData["SuccessMessage"] = "Yorumunuz başarıyla eklendi.";
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Yorumunuz eklenirken bir hata oluştu.";
+                // İlgili alt kategori önbelleklerini de temizleyelim
+                if (product.SubCategory != null)
+                {
+                    string subCategoryName = product.SubCategory.ShortenedEntityName.ToLower();
+                    string subcategoryCacheKey = $"{CacheKey}_subcategory_{subCategoryName}";
+                    await _cache.RemoveAsync(subcategoryCacheKey);
+                    
+                    // Sayfalanmış önbellekleri temizle
+                    for (int i = 1; i <= 10; i++) 
+                    {
+                        string pagedCacheKey = $"{CacheKey}_subcategory_paged_{subCategoryName}_{i}";
+                        await _cache.RemoveAsync(pagedCacheKey);
+                    }
+
+                    // Markalar önbelleğini de temizleyelim
+                    string brandsCacheKey = $"{CacheKey}_brands_{subCategoryName.ToLower()}";
+                    await _cache.RemoveAsync(brandsCacheKey);
+                }
+                
+                return RedirectToAction("Detail", new { id = model.ProductId });
             }
             
             return RedirectToAction("Detail", new { id = model.ProductId });
@@ -339,7 +460,6 @@ namespace MarketWorld.Web.Controllers
                     .ThenInclude(sc => sc.Category)
                 .Where(p => p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted);
 
-            // Filtreleri uygula
             if (brandIds != null && brandIds.Any())
             {
                 query = query.Where(p => brandIds.Contains(p.BrandId));
