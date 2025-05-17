@@ -7,6 +7,56 @@ namespace MarketWorld.Infrastructure.Data.SeedData
 {
     public static class PropertySeedData
     {
+        // Ayakkabı özellikleri
+        public static readonly PropertyType[] DefaultShoePropertyTypes = new[]
+        {
+            new PropertyType { Id = 1, Name = "Cinsiyet", Description = "Ayakkabının cinsiyet tipi" },
+            new PropertyType { Id = 2, Name = "Materyal", Description = "Ayakkabının yapıldığı materyal" },
+            new PropertyType { Id = 3, Name = "Taban", Description = "Ayakkabı taban özellikleri" },
+            new PropertyType { Id = 4, Name = "Renk", Description = "Ayakkabı rengi" },
+            new PropertyType { Id = 5, Name = "Numara", Description = "Ayakkabı numarası" }
+        };
+
+        // Ayakkabı özellik değerleri
+        public static readonly PropertyValue[] DefaultShoePropertyValues = new[]
+        {
+            // Cinsiyet değerleri
+            new PropertyValue { Id = 1, Value = "Erkek", PropertyTypeId = 1 },
+            new PropertyValue { Id = 2, Value = "Kadın", PropertyTypeId = 1 },
+            new PropertyValue { Id = 3, Value = "Unisex", PropertyTypeId = 1 },
+            new PropertyValue { Id = 4, Value = "Çocuk", PropertyTypeId = 1 },
+
+            // Materyal değerleri
+            new PropertyValue { Id = 5, Value = "Deri", PropertyTypeId = 2 },
+            new PropertyValue { Id = 6, Value = "Süet", PropertyTypeId = 2 },
+            new PropertyValue { Id = 7, Value = "Kumaş", PropertyTypeId = 2 },
+            new PropertyValue { Id = 8, Value = "Sentetik", PropertyTypeId = 2 },
+
+            // Taban değerleri
+            new PropertyValue { Id = 9, Value = "Ortopedik", PropertyTypeId = 3 },
+            new PropertyValue { Id = 10, Value = "Normal", PropertyTypeId = 3 },
+            new PropertyValue { Id = 11, Value = "Masajlı", PropertyTypeId = 3 },
+            new PropertyValue { Id = 12, Value = "Hafif", PropertyTypeId = 3 },
+
+            // Renk değerleri
+            new PropertyValue { Id = 13, Value = "Siyah", PropertyTypeId = 4 },
+            new PropertyValue { Id = 14, Value = "Beyaz", PropertyTypeId = 4 },
+            new PropertyValue { Id = 15, Value = "Kahverengi", PropertyTypeId = 4 },
+            new PropertyValue { Id = 16, Value = "Lacivert", PropertyTypeId = 4 },
+
+            // Numara değerleri
+            new PropertyValue { Id = 17, Value = "36", PropertyTypeId = 5 },
+            new PropertyValue { Id = 18, Value = "37", PropertyTypeId = 5 },
+            new PropertyValue { Id = 19, Value = "38", PropertyTypeId = 5 },
+            new PropertyValue { Id = 20, Value = "39", PropertyTypeId = 5 },
+            new PropertyValue { Id = 21, Value = "40", PropertyTypeId = 5 },
+            new PropertyValue { Id = 22, Value = "41", PropertyTypeId = 5 },
+            new PropertyValue { Id = 23, Value = "42", PropertyTypeId = 5 },
+            new PropertyValue { Id = 24, Value = "43", PropertyTypeId = 5 },
+            new PropertyValue { Id = 25, Value = "44", PropertyTypeId = 5 },
+            new PropertyValue { Id = 26, Value = "45", PropertyTypeId = 5 }
+        };
+
         public static List<PropertyType> GetPropertyTypes()
         {
             return new List<PropertyType>
