@@ -126,7 +126,6 @@ MarketWorld/
 - Admin Dashboard: `https://localhost:7154/admin`
 
 ## 📈 Project Status
-
 ✅ User Authentication and Authorization  
 ✅ Product Catalog Management  
 ✅ Shopping Cart Functionality  
@@ -137,5 +136,3 @@ MarketWorld/
 ✅ Advanced Analytics  
 ✅ Customer Reviews System
 ✅ Redis Caching Implementation
-Deneme
-Deneme2
