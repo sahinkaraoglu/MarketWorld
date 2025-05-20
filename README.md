@@ -137,3 +137,5 @@ MarketWorld/
 ✅ Advanced Analytics  
 ✅ Customer Reviews System
 ✅ Redis Caching Implementation
+Deneme
+Deneme2
