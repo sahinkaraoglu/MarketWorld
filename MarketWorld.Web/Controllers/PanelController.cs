@@ -101,7 +101,7 @@ namespace MarketWorld.Web.Controllers
             // Ürünler client tarafında AJAX ile yüklenecek
             ViewBag.TotalProducts = totalProducts;
 
-            return View();
+            return View("Products/Index");
         }
 
         public async Task<IActionResult> Categories()
