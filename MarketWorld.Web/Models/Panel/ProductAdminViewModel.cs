@@ -18,5 +18,7 @@ namespace MarketWorld.Web.Models.Admin
         public int BrandId { get; set; }
         public string BrandName { get; set; }
         public int ProductCode { get; set; } = 0;
+        public bool IsActive { get; set; } = true;
+        public string Description { get; set; } = "";
     }
 } 

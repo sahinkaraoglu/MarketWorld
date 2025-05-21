@@ -1,0 +1,303 @@
+@{
+    ViewData["Title"] = "Ürün Güncelleme";
+}
+
+<div class="container-fluid p-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">Ürün Güncelleme</h5>
+        </div>
+        <div class="card-body">
+            <form id="editProductForm">
+                <input type="hidden" id="editProductId" name="Id">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Ürün Adı</label>
+                        <input type="text" name="Name" id="editName" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Marka</label>
+                        <select name="BrandId" id="editBrandId" class="form-select" required>
+                            <option value="">Marka Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Kategori</label>
+                        <select id="editCategorySelect" class="form-select" required>
+                            <option value="">Kategori Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Alt Kategori</label>
+                        <select name="SubCategoryId" id="editSubCategoryId" class="form-select" required>
+                            <option value="">Önce Kategori Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Fiyat</label>
+                        <input type="number" name="Price" id="editPrice" class="form-control" step="0.01" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Stok</label>
+                        <input type="number" name="Stock" id="editStock" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Açıklama</label>
+                        <textarea name="Description" id="editDescription" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check mt-4">
+                            <input type="checkbox" name="IsActive" id="editIsActive" class="form-check-input" value="true">
+                            <label class="form-check-label">Aktif</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <a href="/Panel/Products" class="btn btn-secondary me-2">İptal</a>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // URL'den ürün ID'sini al
+            var urlParams = new URLSearchParams(window.location.search);
+            var productId = urlParams.get('id');
+            var productData = null;
+            var categoriesLoaded = false;
+            var subCategoriesLoaded = false;
+            
+            if (!productId) {
+                alert('Ürün ID bulunamadı!');
+                window.location.href = '/Panel/Products';
+                return;
+            }
+            
+            // Önce kategorileri ve markaları yükle
+            var categoriesPromise = loadCategories();
+            var brandsPromise = loadBrands();
+            
+            // Sonra ürün verilerini yükle
+            Promise.all([categoriesPromise, brandsPromise])
+                .then(function() {
+                    loadProductData(productId);
+                })
+                .catch(function(error) {
+                    console.error('Veri yükleme hatası:', error);
+                });
+            
+            // Kategorileri yükle
+            function loadCategories() {
+                return new Promise(function(resolve, reject) {
+                    $.ajax({
+                        url: '/Panel/GetCategories',
+                        method: 'GET',
+                        success: function(categories) {
+                            $('#editCategorySelect').empty().append('<option value="">Kategori Seçiniz</option>');
+                            categories.forEach(function(category) {
+                                $('#editCategorySelect').append(
+                                    $('<option></option>')
+                                        .val(category.id)
+                                        .text(category.name)
+                                );
+                            });
+                            categoriesLoaded = true;
+                            resolve();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Kategori yükleme hatası:', error);
+                            reject(error);
+                        }
+                    });
+                });
+            }
+
+            // Markaları yükle
+            function loadBrands() {
+                return new Promise(function(resolve, reject) {
+                    $.ajax({
+                        url: '/Panel/GetBrands',
+                        method: 'GET',
+                        success: function(brands) {
+                            $('#editBrandId').empty().append('<option value="">Marka Seçiniz</option>');
+                            brands.forEach(function(brand) {
+                                $('#editBrandId').append(
+                                    $('<option></option>')
+                                        .val(brand.id)
+                                        .text(brand.name)
+                                );
+                            });
+                            resolve();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Marka yükleme hatası:', error);
+                            reject(error);
+                        }
+                    });
+                });
+            }
+
+            // Kategori seçildiğinde alt kategorileri yükle
+            $('#editCategorySelect').change(function() {
+                var categoryId = $(this).val();
+                
+                $('#editSubCategoryId').empty().append('<option value="">Alt Kategori Seçiniz</option>');
+                
+                if (categoryId) {
+                    loadSubCategories(categoryId, productData ? productData.subCategoryId : null);
+                }
+            });
+            
+            // Alt kategorileri yükle
+            function loadSubCategories(categoryId, selectedSubCategoryId) {
+                return new Promise(function(resolve, reject) {
+                    $.ajax({
+                        url: '/Panel/GetSubCategories/' + categoryId,
+                        method: 'GET',
+                        success: function(subCategories) {
+                            $('#editSubCategoryId').empty().append('<option value="">Alt Kategori Seçiniz</option>');
+                            
+                            if (subCategories && subCategories.length > 0) {
+                                subCategories.forEach(function(subCategory) {
+                                    $('#editSubCategoryId').append(
+                                        $('<option></option>')
+                                            .val(subCategory.id)
+                                            .text(subCategory.name)
+                                    );
+                                });
+                                
+                                // Eğer seçili alt kategori varsa, onu seç
+                                if (selectedSubCategoryId) {
+                                    $('#editSubCategoryId').val(selectedSubCategoryId);
+                                }
+                            } else {
+                                $('#editSubCategoryId').append(
+                                    $('<option></option>')
+                                        .val('')
+                                        .text('Bu kategoride alt kategori yok')
+                                );
+                            }
+                            
+                            subCategoriesLoaded = true;
+                            resolve();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Alt kategori yükleme hatası:', error);
+                            alert('Alt kategoriler yüklenirken bir hata oluştu: ' + error);
+                            reject(error);
+                        }
+                    });
+                });
+            }
+
+            // Ürün bilgilerini getir
+            function loadProductData(id) {
+                $.ajax({
+                    url: '/Panel/GetProduct/' + id,
+                    method: 'GET',
+                    success: function(product) {
+                        productData = product; // Ürün verilerini global değişkene kaydet
+                        
+                        $('#editProductId').val(product.id);
+                        $('#editName').val(product.name);
+                        $('#editBrandId').val(product.brandId);
+                        $('#editPrice').val(product.price);
+                        $('#editDescription').val(product.description);
+                        $('#editIsActive').prop('checked', product.isActive);
+                        
+                        if (product.stock !== undefined) {
+                            $('#editStock').val(product.stock);
+                        } else if (product.stockQuantity !== undefined) {
+                            $('#editStock').val(product.stockQuantity);
+                        }
+                        
+                        // Kategori seçimini yap
+                        if (product.categoryId) {
+                            $('#editCategorySelect').val(product.categoryId);
+                            
+                            // Alt kategorileri yükle ve seçili alt kategoriyi belirt
+                            loadSubCategories(product.categoryId, product.subCategoryId);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Ürün bilgileri alınamadı: ' + error);
+                        window.location.href = '/Panel/Products';
+                    }
+                });
+            }
+
+            // Form submit işlemi
+            $('#editProductForm').submit(function(e) {
+                e.preventDefault();
+                
+                var isActive = $('#editIsActive').is(':checked');
+                
+                var formData = {
+                    Id: $('#editProductId').val(),
+                    Name: $('#editName').val(),
+                    BrandId: $('#editBrandId').val(),
+                    SubCategoryId: $('#editSubCategoryId').val(),
+                    Price: $('#editPrice').val(),
+                    Stock: $('#editStock').val(),
+                    Description: $('#editDescription').val(),
+                    IsActive: isActive,
+                    Status: isActive ? "Published" : "Draft", // Aktif/Pasif durumuna göre statüyü belirle
+                    BrandName: $('#editBrandId option:selected').text(),
+                    CategoryName: $('#editCategorySelect option:selected').text(),
+                    SubCategoryName: $('#editSubCategoryId option:selected').text(),
+                    ImageUrl: "/img/ProductsPicture/default.jpg",
+                    Rating: 0,
+                    CategoryId: $('#editCategorySelect').val()
+                };
+
+                console.log('Gönderilen veri:', formData);
+
+                $.ajax({
+                    url: '/Panel/UpdateProduct',
+                    method: 'POST',
+                    data: JSON.stringify(formData),
+                    contentType: 'application/json',
+                    success: function(response) {
+                        alert('Ürün başarıyla güncellendi!');
+                        window.location.href = '/Panel/Products';
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Hata detayı:', xhr.responseText);
+                        
+                        // JSON parse denemesi yap
+                        try {
+                            var errorObj = JSON.parse(xhr.responseText);
+                            var errorMessages = [];
+                            
+                            // ModelState hatalarını daha okunabilir formata dönüştür
+                            for (var key in errorObj) {
+                                if (Array.isArray(errorObj[key])) {
+                                    errorObj[key].forEach(function(msg) {
+                                        errorMessages.push(key + ': ' + msg);
+                                    });
+                                } else {
+                                    errorMessages.push(key + ': ' + errorObj[key]);
+                                }
+                            }
+                            
+                            alert('Ürün güncellenemedi:\n' + errorMessages.join('\n'));
+                        } catch (e) {
+                            // JSON parse başarısız olursa orijinal hatayı göster
+                            alert('Ürün güncellenemedi: ' + (xhr.responseText || error));
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

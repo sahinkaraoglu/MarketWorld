@@ -442,7 +442,9 @@ namespace MarketWorld.Web.Controllers
                 CategoryId = product.SubCategory?.CategoryId ?? 0,
                 SubCategoryId = product.SubCategoryId ?? 0,
                 BrandId = product.BrandId,
-                ProductCode = product.ProductCode
+                ProductCode = product.ProductCode,
+                IsActive = product.IsActive,
+                Description = product.Description ?? ""
             };
 
             return Json(viewModel);
@@ -451,6 +453,13 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductAdminViewModel model)
         {
+            ModelState.Remove("Status");
+            ModelState.Remove("BrandName");
+            ModelState.Remove("CategoryName");
+            ModelState.Remove("SubCategoryName");
+            ModelState.Remove("ImageUrl");
+            ModelState.Remove("Rating");
+            
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -465,6 +474,12 @@ namespace MarketWorld.Web.Controllers
             product.BrandId = model.BrandId;
             product.SubCategoryId = model.SubCategoryId;
             product.Price = model.Price;
+            product.IsActive = model.IsActive;
+            
+            if (!string.IsNullOrEmpty(model.Description))
+            {
+                product.Description = model.Description;
+            }
 
             // Eğer ProductCode 0 ise yeni oluştur
             if (product.ProductCode == 0)
@@ -568,6 +583,7 @@ namespace MarketWorld.Web.Controllers
                         p.ProductCode,
                         p.BrandId,
                         p.SubCategoryId,
+                        p.Description,
                         BrandName = p.Brand.Name,
                         SubCategoryName = p.SubCategory.Name,
                         CategoryId = p.SubCategory.CategoryId,
@@ -620,7 +636,9 @@ namespace MarketWorld.Web.Controllers
                     SubCategoryName = p.SubCategoryName ?? "Alt Kategorisiz",
                     BrandId = p.BrandId,
                     BrandName = p.BrandName ?? "Markasız",
-                    ProductCode = p.ProductCode
+                    ProductCode = p.ProductCode,
+                    IsActive = p.IsActive,
+                    Description = p.Description ?? ""
                 }).ToList();
 
                 return Json(new { 
@@ -682,7 +700,9 @@ namespace MarketWorld.Web.Controllers
                     SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
                     BrandId = p.BrandId,
                     BrandName = p.Brand?.Name ?? "Markasız",
-                    ProductCode = p.ProductCode
+                    ProductCode = p.ProductCode,
+                    IsActive = p.IsActive,
+                    Description = p.Description ?? ""
                 }).ToList();
 
                 bool hasMore = (page * pageSize) < totalCount;
@@ -1125,6 +1145,16 @@ namespace MarketWorld.Web.Controllers
             }
             
             return BadRequest(new { success = false, message = "Kullanıcı silme işlemi başarısız: " + string.Join(", ", result.Errors.Select(e => e.Description)) });
+        }
+
+        [HttpGet]
+        public IActionResult ProductsUpdate(int id)
+        {
+            if (id <= 0)
+            {
+                return RedirectToAction("Products");
+            }
+            return View("Products/ProductsUpdate");
         }
     }
 } 
