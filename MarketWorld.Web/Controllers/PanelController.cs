@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
-using MarketWorld.Domain.Entities;
 using MarketWorld.Web.Models.Admin;
 using MarketWorld.Web.Models;
 using Microsoft.AspNetCore.Identity;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -52,7 +52,7 @@ namespace MarketWorld.Web.Controllers
             
             // Sipariş sayılarını yeniden hesapla
             ViewBag.NewOrdersCount = orders.Count;
-            ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Shipped);
+            ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == MarketWorld.Core.Enums.OrderStatus.Shipped);
             
             // Kullanıcı istatistikleri
             ViewBag.TotalUsersCount = await _context.Users.CountAsync();
@@ -877,7 +877,7 @@ namespace MarketWorld.Web.Controllers
                     return Json(new { success = false, message = "Sipariş bulunamadı" });
                 }
 
-                order.Status = (MarketWorld.Domain.Enums.OrderStatus)status;
+                order.Status = (MarketWorld.Core.Enums.OrderStatus)status;
                 // Not işleme eklenebilir
                 
                 await _context.SaveChangesAsync();

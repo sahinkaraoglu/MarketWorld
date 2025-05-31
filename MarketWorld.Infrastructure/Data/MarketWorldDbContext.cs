@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Data.SeedData;
 using System;
 using System.Linq;

@@ -3,7 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MarketWorld.Application\MarketWorld.Application.csproj" />
     <ProjectReference Include="..\MarketWorld.Infrastructure\MarketWorld.Infrastructure.csproj" />
-    <ProjectReference Include="..\MarketWorld.Domain\MarketWorld.Domain.csproj" />
+    <ProjectReference Include="..\MarketWorld.Core\MarketWorld.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

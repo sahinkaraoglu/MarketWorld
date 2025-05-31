@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using MarketWorld.Application.Services.Jwt;
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);

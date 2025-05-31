@@ -1,4 +1,4 @@
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Application.Services.Jwt;
 

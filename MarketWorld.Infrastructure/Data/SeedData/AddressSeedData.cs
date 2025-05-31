@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Infrastructure.Data.SeedData
 {

@@ -1,5 +1,5 @@
-﻿using MarketWorld.Domain.Entities;
-using MarketWorld.Domain.Enums;
+﻿using MarketWorld.Core.Domain.Entities;
+using MarketWorld.Core.Enums;
 
 namespace MarketWorld.Infrastructure.Data.SeedData
 {

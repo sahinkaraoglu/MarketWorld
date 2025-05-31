@@ -1,5 +1,5 @@
 using MarketWorld.Application.Services.Interfaces;
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;

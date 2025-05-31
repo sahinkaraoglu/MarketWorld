@@ -1,4 +1,4 @@
-@model MarketWorld.Domain.Entities.Order
+@model MarketWorld.Core.Domain.Entities.Order
 
 @{
     ViewData["Title"] = "Sipariş Takip Sonucu";
@@ -23,12 +23,12 @@
 
     <div class="tracking-timeline">
         @{
-            bool isPending = Model.Status == MarketWorld.Domain.Enums.OrderStatus.Pending;
-            bool isProcessing = Model.Status == MarketWorld.Domain.Enums.OrderStatus.Processing || 
-                                Model.Status > MarketWorld.Domain.Enums.OrderStatus.Processing;
-            bool isShipped = Model.Status == MarketWorld.Domain.Enums.OrderStatus.Shipped || 
-                             Model.Status > MarketWorld.Domain.Enums.OrderStatus.Shipped;
-            bool isDelivered = Model.Status == MarketWorld.Domain.Enums.OrderStatus.Delivered;
+            bool isPending = Model.Status == MarketWorld.Core.Enums.OrderStatus.Pending;
+            bool isProcessing = Model.Status == MarketWorld.Core.Enums.OrderStatus.Processing || 
+                                Model.Status > MarketWorld.Core.Enums.OrderStatus.Processing;
+            bool isShipped = Model.Status == MarketWorld.Core.Enums.OrderStatus.Shipped || 
+                             Model.Status > MarketWorld.Core.Enums.OrderStatus.Shipped;
+            bool isDelivered = Model.Status == MarketWorld.Core.Enums.OrderStatus.Delivered;
         }
 
         <div class="timeline-item @(isPending || isProcessing || isShipped || isDelivered ? "completed" : "")">
@@ -91,19 +91,19 @@
                         <div class="d-flex justify-content-between mb-3">
                             <span>Sipariş Durumu:</span>
                             <span class="badge @(Model.Status switch {
-                                MarketWorld.Domain.Enums.OrderStatus.Pending => "bg-warning",
-                                MarketWorld.Domain.Enums.OrderStatus.Processing => "bg-info",
-                                MarketWorld.Domain.Enums.OrderStatus.Shipped => "bg-primary",
-                                MarketWorld.Domain.Enums.OrderStatus.Delivered => "bg-success",
-                                MarketWorld.Domain.Enums.OrderStatus.Cancelled => "bg-danger",
+                                MarketWorld.Core.Enums.OrderStatus.Pending => "bg-warning",
+                                MarketWorld.Core.Enums.OrderStatus.Processing => "bg-info",
+                                MarketWorld.Core.Enums.OrderStatus.Shipped => "bg-primary",
+                                MarketWorld.Core.Enums.OrderStatus.Delivered => "bg-success",
+                                MarketWorld.Core.Enums.OrderStatus.Cancelled => "bg-danger",
                                 _ => "bg-secondary"
                             })">
                                 @(Model.Status switch {
-                                    MarketWorld.Domain.Enums.OrderStatus.Pending => "Beklemede",
-                                    MarketWorld.Domain.Enums.OrderStatus.Processing => "Hazırlanıyor",
-                                    MarketWorld.Domain.Enums.OrderStatus.Shipped => "Kargoya Verildi",
-                                    MarketWorld.Domain.Enums.OrderStatus.Delivered => "Teslim Edildi",
-                                    MarketWorld.Domain.Enums.OrderStatus.Cancelled => "İptal Edildi",
+                                    MarketWorld.Core.Enums.OrderStatus.Pending => "Beklemede",
+                                    MarketWorld.Core.Enums.OrderStatus.Processing => "Hazırlanıyor",
+                                    MarketWorld.Core.Enums.OrderStatus.Shipped => "Kargoya Verildi",
+                                    MarketWorld.Core.Enums.OrderStatus.Delivered => "Teslim Edildi",
+                                    MarketWorld.Core.Enums.OrderStatus.Cancelled => "İptal Edildi",
                                     _ => "Belirsiz"
                                 })
                             </span>

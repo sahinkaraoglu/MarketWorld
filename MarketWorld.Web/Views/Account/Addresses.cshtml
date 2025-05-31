@@ -1,4 +1,4 @@
-@model IEnumerable<MarketWorld.Domain.Entities.Address>
+@model IEnumerable<MarketWorld.Core.Domain.Entities.Address>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -73,7 +73,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">@address.Title</h5>
                                             <p class="card-subtitle mb-2 text-muted">
-                                                @(address.AddressType == MarketWorld.Domain.Enums.AddressType.Shipping ? "Teslimat Adresi" : "Fatura Adresi")
+                                                @(address.AddressType == MarketWorld.Core.Enums.AddressType.Shipping ? "Teslimat Adresi" : "Fatura Adresi")
                                                 @if (address.IsDefault)
                                                 {
                                                     <span class="badge bg-success ms-2">Varsayılan</span>

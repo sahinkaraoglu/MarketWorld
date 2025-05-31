@@ -3,7 +3,7 @@ using MarketWorld.Application.Repositories;
 using MarketWorld.Application.Services.Interfaces;
 using MarketWorld.Application.Services.Implementations;
 using MarketWorld.Application.Services.Jwt;
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Data;
 using MarketWorld.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

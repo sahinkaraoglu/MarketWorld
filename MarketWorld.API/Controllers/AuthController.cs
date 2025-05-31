@@ -1,5 +1,4 @@
-﻿using MarketWorld.Domain.Entities;
-using MarketWorld.Application.Services.Jwt;
+﻿using MarketWorld.Application.Services.Jwt;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
@@ -8,6 +7,7 @@ using MarketWorld.API.Controllers;
 using MarketWorld.Api.Controllers;
 using System.Linq;
 using System;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.API.Controllers;
 

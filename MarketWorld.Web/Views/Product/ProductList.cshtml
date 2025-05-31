@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = Model.FirstOrDefault()?.CategoryName ?? "Ürünler";
-    var brands = ViewBag.Brands as List<MarketWorld.Domain.Entities.Brand> ?? new List<MarketWorld.Domain.Entities.Brand>();
+    var brands = ViewBag.Brands as List<MarketWorld.Core.Domain.Entities.Brand> ?? new List<MarketWorld.Core.Domain.Entities.Brand>();
     var subCategoryName = ViewBag.SubCategoryName;
     var searchQuery = ViewBag.SearchQuery;
     var currentPage = 1;

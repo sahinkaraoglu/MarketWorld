@@ -1,9 +1,9 @@
-using MarketWorld.Domain.Entities.Base;
+using MarketWorld.Core.Domain.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MarketWorld.Domain.Entities
+namespace MarketWorld.Core.Domain.Entities
 {
     public class SubCategory : BaseEntity
     {

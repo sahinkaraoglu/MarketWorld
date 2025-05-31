@@ -1,10 +1,10 @@
-﻿using MarketWorld.Domain.Entities.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
+using MarketWorld.Core.Domain.Entities.Base;
 
-namespace MarketWorld.Domain.Entities
+namespace MarketWorld.Core.Domain.Entities
 {
     public class Product : BaseEntity
     {

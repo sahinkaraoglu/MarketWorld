@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
-using MarketWorld.Domain.Entities;
 using System.Threading.Tasks;
 using System.Linq;
 using System;
 using MarketWorld.Infrastructure.Data.SeedData;
 using MarketWorld.Web.Attributes;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -129,7 +129,7 @@ namespace MarketWorld.Web.Controllers
             }
 
             // AddressType ve IsDefault değerlerini dönüştürüyoruz
-            Enum.TryParse<Domain.Enums.AddressType>(Request.Form["AddressType"], out var addressType);
+            Enum.TryParse<Core.Enums.AddressType>(Request.Form["AddressType"], out var addressType);
             bool.TryParse(Request.Form["IsDefault"], out var isDefault);
 
             Console.WriteLine($"Form verileri: {title}, {city}, {district}, {phone}, {addressType}, {isDefault}");

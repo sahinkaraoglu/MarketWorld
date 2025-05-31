@@ -1,14 +1,14 @@
-@model IEnumerable<MarketWorld.Domain.Entities.Order>
+@model IEnumerable<MarketWorld.Core.Domain.Entities.Order>
 
 @{
     ViewData["Title"] = "Sipariş Yönetimi";
     
     var allOrdersCount = Model.Count();
-    var newOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Pending);
-    var processingOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Processing);
-    var shippedOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Shipped);
-    var deliveredOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Delivered);
-    var cancelledOrdersCount = Model.Count(o => o.Status == MarketWorld.Domain.Enums.OrderStatus.Cancelled);
+    var newOrdersCount = Model.Count(o => o.Status == MarketWorld.Core.Enums.OrderStatus.Pending);
+    var processingOrdersCount = Model.Count(o => o.Status == MarketWorld.Core.Enums.OrderStatus.Processing);
+    var shippedOrdersCount = Model.Count(o => o.Status == MarketWorld.Core.Enums.OrderStatus.Shipped);
+    var deliveredOrdersCount = Model.Count(o => o.Status == MarketWorld.Core.Enums.OrderStatus.Delivered);
+    var cancelledOrdersCount = Model.Count(o => o.Status == MarketWorld.Core.Enums.OrderStatus.Cancelled);
     
     decimal totalAmount = Model.Sum(o => o.TotalAmount);
 }
@@ -29,11 +29,11 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="filterDropdown">
                                 <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel")">Tüm Siparişler</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Pending })">Yeni Siparişler</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Processing })">Hazırlanan Siparişler</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Shipped })">Kargoya Verilen</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Delivered })">Tamamlanan</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Domain.Enums.OrderStatus.Cancelled })">İptal Edilen</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Core.Enums.OrderStatus.Pending })">Yeni Siparişler</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Core.Enums.OrderStatus.Processing })">Hazırlanan Siparişler</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Core.Enums.OrderStatus.Shipped })">Kargoya Verilen</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Core.Enums.OrderStatus.Delivered })">Tamamlanan</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Orders", "Panel", new { status = MarketWorld.Core.Enums.OrderStatus.Cancelled })">İptal Edilen</a></li>
                             </ul>
                         </div>
                         <button class="btn btn-export">
@@ -117,19 +117,19 @@
                             <td>
                                 @switch (order.Status)
                                 {
-                                    case MarketWorld.Domain.Enums.OrderStatus.Pending:
+                                    case MarketWorld.Core.Enums.OrderStatus.Pending:
                                         <span class="order-status new">Yeni</span>
                                         break;
-                                    case MarketWorld.Domain.Enums.OrderStatus.Processing:
+                                    case MarketWorld.Core.Enums.OrderStatus.Processing:
                                         <span class="order-status preparing">Hazırlanıyor</span>
                                         break;
-                                    case MarketWorld.Domain.Enums.OrderStatus.Shipped:
+                                    case MarketWorld.Core.Enums.OrderStatus.Shipped:
                                         <span class="order-status shipping">Kargoda</span>
                                         break;
-                                    case MarketWorld.Domain.Enums.OrderStatus.Delivered:
+                                    case MarketWorld.Core.Enums.OrderStatus.Delivered:
                                         <span class="order-status completed">Tamamlandı</span>
                                         break;
-                                    case MarketWorld.Domain.Enums.OrderStatus.Cancelled:
+                                    case MarketWorld.Core.Enums.OrderStatus.Cancelled:
                                         <span class="order-status cancelled">İptal</span>
                                         break;
                                     default:
@@ -216,11 +216,11 @@
                     <div class="mb-3">
                         <label for="orderStatus" class="form-label">Sipariş Durumu</label>
                         <select class="form-select" id="orderStatus" name="status">
-                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Pending)">Yeni</option>
-                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Processing)">Hazırlanıyor</option>
-                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Shipped)">Kargoya Verildi</option>
-                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Delivered)">Teslim Edildi</option>
-                            <option value="@((int)MarketWorld.Domain.Enums.OrderStatus.Cancelled)">İptal Edildi</option>
+                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Pending)">Yeni</option>
+                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Processing)">Hazırlanıyor</option>
+                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Shipped)">Kargoya Verildi</option>
+                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Delivered)">Teslim Edildi</option>
+                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Cancelled)">İptal Edildi</option>
                         </select>
                     </div>
                     

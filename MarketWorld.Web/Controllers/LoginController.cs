@@ -4,9 +4,9 @@ using MarketWorld.Infrastructure.Data;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using MarketWorld.Application.Services.Jwt;
-using MarketWorld.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Web.Controllers
 {

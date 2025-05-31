@@ -1,5 +1,4 @@
 using MarketWorld.Application.Services.Interfaces;
-using MarketWorld.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +10,7 @@ using AutoMapper;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 using Microsoft.AspNetCore.JsonPatch;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.API.Controllers
 {

@@ -1,4 +1,4 @@
-@model MarketWorld.Domain.Entities.Order
+@model MarketWorld.Core.Domain.Entities.Order
 
 <div class="order-details">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -7,19 +7,19 @@
             <p class="text-muted small mb-0">Sipariş Tarihi: @Model.OrderDate.ToString("dd MMMM yyyy, HH:mm")</p>
         </div>
         <span class="badge @(Model.Status switch {
-            MarketWorld.Domain.Enums.OrderStatus.Pending => "bg-warning",
-            MarketWorld.Domain.Enums.OrderStatus.Processing => "bg-info",
-            MarketWorld.Domain.Enums.OrderStatus.Shipped => "bg-primary",
-            MarketWorld.Domain.Enums.OrderStatus.Delivered => "bg-success",
-            MarketWorld.Domain.Enums.OrderStatus.Cancelled => "bg-danger",
+            MarketWorld.Core.Enums.OrderStatus.Pending => "bg-warning",
+            MarketWorld.Core.Enums.OrderStatus.Processing => "bg-info",
+            MarketWorld.Core.Enums.OrderStatus.Shipped => "bg-primary",
+            MarketWorld.Core.Enums.OrderStatus.Delivered => "bg-success",
+            MarketWorld.Core.Enums.OrderStatus.Cancelled => "bg-danger",
             _ => "bg-secondary"
         })">
             @(Model.Status switch {
-                MarketWorld.Domain.Enums.OrderStatus.Pending => "Beklemede",
-                MarketWorld.Domain.Enums.OrderStatus.Processing => "Hazırlanıyor",
-                MarketWorld.Domain.Enums.OrderStatus.Shipped => "Kargoya Verildi",
-                MarketWorld.Domain.Enums.OrderStatus.Delivered => "Teslim Edildi",
-                MarketWorld.Domain.Enums.OrderStatus.Cancelled => "İptal Edildi",
+                MarketWorld.Core.Enums.OrderStatus.Pending => "Beklemede",
+                MarketWorld.Core.Enums.OrderStatus.Processing => "Hazırlanıyor",
+                MarketWorld.Core.Enums.OrderStatus.Shipped => "Kargoya Verildi",
+                MarketWorld.Core.Enums.OrderStatus.Delivered => "Teslim Edildi",
+                MarketWorld.Core.Enums.OrderStatus.Cancelled => "İptal Edildi",
                 _ => "Belirsiz"
             })
         </span>
@@ -91,16 +91,16 @@
                 <div class="p-3 bg-light rounded d-flex justify-content-between align-items-center">
                     <span>
                         @(Model.Status switch {
-                            MarketWorld.Domain.Enums.OrderStatus.Delivered => "Teslim Edildi",
-                            MarketWorld.Domain.Enums.OrderStatus.Shipped => "Kargoya Verildi",
-                            MarketWorld.Domain.Enums.OrderStatus.Processing => "Hazırlanıyor",
-                            MarketWorld.Domain.Enums.OrderStatus.Pending => "Onay Bekliyor",
-                            MarketWorld.Domain.Enums.OrderStatus.Cancelled => "İptal Edildi",
+                            MarketWorld.Core.Enums.OrderStatus.Delivered => "Teslim Edildi",
+                            MarketWorld.Core.Enums.OrderStatus.Shipped => "Kargoya Verildi",
+                            MarketWorld.Core.Enums.OrderStatus.Processing => "Hazırlanıyor",
+                            MarketWorld.Core.Enums.OrderStatus.Pending => "Onay Bekliyor",
+                            MarketWorld.Core.Enums.OrderStatus.Cancelled => "İptal Edildi",
                             _ => "Belirsiz"
                         })
                     </span>
                     <span class="text-muted small">
-                        @(Model.Status == MarketWorld.Domain.Enums.OrderStatus.Delivered 
+                        @(Model.Status == MarketWorld.Core.Enums.OrderStatus.Delivered 
                             ? "Teslim Tarihi: " + Model.OrderDate.AddDays(3).ToString("dd.MM.yyyy")
                             : "Tahmini Teslimat: " + Model.OrderDate.AddDays(3).ToString("dd.MM.yyyy"))
                     </span>

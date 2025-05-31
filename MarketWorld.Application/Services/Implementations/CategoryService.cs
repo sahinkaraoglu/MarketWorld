@@ -1,6 +1,6 @@
 ﻿using MarketWorld.Application.Repositories;
 using MarketWorld.Application.Services.Interfaces;
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

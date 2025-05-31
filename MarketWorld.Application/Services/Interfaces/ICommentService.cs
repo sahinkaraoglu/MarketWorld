@@ -1,4 +1,4 @@
-﻿using MarketWorld.Domain.Entities;
+﻿using MarketWorld.Core.Domain.Entities;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 

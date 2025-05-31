@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using MarketWorld.Domain.Entities;
 using MarketWorld.Application.Services.Interfaces;
 using System.Threading.Tasks;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Web.Controllers
 {

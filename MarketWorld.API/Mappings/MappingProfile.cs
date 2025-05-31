@@ -1,6 +1,6 @@
 using AutoMapper;
 using MarketWorld.API.DTOs;
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.API.Mappings
 {

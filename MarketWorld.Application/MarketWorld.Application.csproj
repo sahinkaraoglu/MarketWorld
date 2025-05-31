@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\MarketWorld.Domain\MarketWorld.Domain.csproj" />
+    <ProjectReference Include="..\MarketWorld.Core\MarketWorld.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

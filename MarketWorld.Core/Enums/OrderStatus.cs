@@ -1,4 +1,4 @@
-namespace MarketWorld.Domain.Enums
+namespace MarketWorld.Core.Enums
 { 
     public enum OrderStatus
     {

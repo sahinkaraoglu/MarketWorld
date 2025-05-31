@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketWorld.Domain.Entities.Base
+namespace MarketWorld.Core.Domain.Entities.Base
 {
     public class BaseEntity
     {

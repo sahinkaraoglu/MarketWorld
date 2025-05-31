@@ -11,9 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MarketWorld.Domain.Entities;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -353,7 +353,7 @@ namespace MarketWorld.Web.Controllers
                 if (product == null)
                     return NotFound();
                 
-                var comment = new MarketWorld.Domain.Entities.Comment
+                var comment = new MarketWorld.Core.Domain.Entities.Comment
                 {
                     Text = model.Text,
                     Rating = model.Rating,

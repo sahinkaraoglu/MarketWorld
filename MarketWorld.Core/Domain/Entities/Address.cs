@@ -1,7 +1,7 @@
-using MarketWorld.Domain.Entities.Base;
-using MarketWorld.Domain.Enums;
+using MarketWorld.Core.Domain.Entities.Base;
+using MarketWorld.Core.Enums;
 
-namespace MarketWorld.Domain.Entities
+namespace MarketWorld.Core.Domain.Entities
 {
     public class Address : BaseEntity
     {

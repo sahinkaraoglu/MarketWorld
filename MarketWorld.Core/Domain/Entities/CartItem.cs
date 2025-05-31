@@ -1,7 +1,7 @@
-using MarketWorld.Domain.Entities.Base;
+using MarketWorld.Core.Domain.Entities.Base;
 using System.ComponentModel.DataAnnotations;
 
-namespace MarketWorld.Domain.Entities
+namespace MarketWorld.Core.Domain.Entities
 {
     public class CartItem : BaseEntity
     {

@@ -1,4 +1,4 @@
-@model IEnumerable<MarketWorld.Domain.Entities.Order>
+@model IEnumerable<MarketWorld.Core.Domain.Entities.Order>
 
 @{
     ViewData["Title"] = "Siparişlerim";
@@ -83,19 +83,19 @@
                                             <td>
                                                 @switch (order.Status)
                                                 {
-                                                    case MarketWorld.Domain.Enums.OrderStatus.Pending:
+                                                    case MarketWorld.Core.Enums.OrderStatus.Pending:
                                                         <span class="badge bg-warning">Beklemede</span>
                                                         break;
-                                                    case MarketWorld.Domain.Enums.OrderStatus.Processing:
+                                                    case MarketWorld.Core.Enums.OrderStatus.Processing:
                                                         <span class="badge bg-info">Hazırlanıyor</span>
                                                         break;
-                                                    case MarketWorld.Domain.Enums.OrderStatus.Shipped:
+                                                    case MarketWorld.Core.Enums.OrderStatus.Shipped:
                                                         <span class="badge bg-primary">Kargoya Verildi</span>
                                                         break;
-                                                    case MarketWorld.Domain.Enums.OrderStatus.Delivered:
+                                                    case MarketWorld.Core.Enums.OrderStatus.Delivered:
                                                         <span class="badge bg-success">Teslim Edildi</span>
                                                         break;
-                                                    case MarketWorld.Domain.Enums.OrderStatus.Cancelled:
+                                                    case MarketWorld.Core.Enums.OrderStatus.Cancelled:
                                                         <span class="badge bg-danger">İptal Edildi</span>
                                                         break;
                                                     default:

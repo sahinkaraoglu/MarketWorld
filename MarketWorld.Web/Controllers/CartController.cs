@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
-using MarketWorld.Domain.Entities;
+using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Web.Attributes;
 
 namespace MarketWorld.Web.Controllers

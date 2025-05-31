@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 
-namespace MarketWorld.Domain.Entities;
+namespace MarketWorld.Core.Domain.Entities;
 
 public class ApplicationUser : IdentityUser
 {
@@ -10,8 +10,6 @@ public class ApplicationUser : IdentityUser
     public string? LastName { get; set; }
     public string? Phone { get; set; }
     
-    // UserRole ilişkisi doğrudan IdentityRole ile sağlanacak
-    // UserRoleId özelliğine gerek yok - Identity rolleri kullanacağız
     
     public bool IsActive { get; set; } = true;
     public DateTime CreateDate { get; set; } = DateTime.UtcNow;

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Infrastructure.Data;
-using MarketWorld.Domain.Entities;
-using MarketWorld.Domain.Enums;
+using MarketWorld.Core.Domain.Entities;
+using MarketWorld.Core.Enums;
 using System;
 using System.Linq;
 using System.Threading.Tasks;

@@ -1,9 +1,9 @@
-using MarketWorld.Domain.Entities.Base;
-using MarketWorld.Domain.Enums;
+using MarketWorld.Core.Domain.Entities.Base;
+using MarketWorld.Core.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace MarketWorld.Domain.Entities
+namespace MarketWorld.Core.Domain.Entities
 {
     public class Order : BaseEntity
     {
