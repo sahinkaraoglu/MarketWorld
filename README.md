@@ -86,7 +86,7 @@ The solution follows Clean Architecture principles with the following layers:
 
 ```plaintext
 MarketWorld/
-├── MarketWorld.Domain/          # Core business logic and entities
+├── MarketWorld.Core/            # Core business logic and entities
 ├── MarketWorld.Application/     # Application business rules and interfaces
 ├── MarketWorld.Infrastructure/  # External concerns implementation
 ├── MarketWorld.API/             # RESTful API endpoints
