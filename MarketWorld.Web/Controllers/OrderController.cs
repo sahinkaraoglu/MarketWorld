@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MarketWorld.Infrastructure.Data;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Core.Enums;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using MarketWorld.Web.Attributes;
+using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.Controllers
 {

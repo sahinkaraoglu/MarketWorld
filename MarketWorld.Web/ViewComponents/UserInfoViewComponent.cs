@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MarketWorld.Infrastructure.Data;
 using System.Threading.Tasks;
+using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.ViewComponents
 {

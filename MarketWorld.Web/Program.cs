@@ -1,7 +1,6 @@
 using MarketWorld.Application.Repositories;
 using MarketWorld.Application.Services.Interfaces;
 using MarketWorld.Application.Services.Implementations;
-using MarketWorld.Infrastructure.Data;
 using MarketWorld.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Web.Middleware;
@@ -11,6 +10,7 @@ using System.Text;
 using MarketWorld.Application.Services.Jwt;
 using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using MarketWorld.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 

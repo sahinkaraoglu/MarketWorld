@@ -5,7 +5,7 @@ using MarketWorld.Infrastructure.Data.SeedData;
 using System;
 using System.Linq;
 
-namespace MarketWorld.Infrastructure.Data
+namespace MarketWorld.Infrastructure.Context
 {
     public class MarketWorldDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MarketWorld.Infrastructure.Data;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using MarketWorld.Application.Services.Jwt;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using MarketWorld.Core.Domain.Entities;
+using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.Controllers
 {

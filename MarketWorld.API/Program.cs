@@ -4,7 +4,6 @@ using MarketWorld.Application.Services.Interfaces;
 using MarketWorld.Application.Services.Implementations;
 using MarketWorld.Application.Services.Jwt;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Infrastructure.Data;
 using MarketWorld.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -14,6 +13,7 @@ using System.Text;
 using AutoMapper;
 using MarketWorld.API.Mappings;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using MarketWorld.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 

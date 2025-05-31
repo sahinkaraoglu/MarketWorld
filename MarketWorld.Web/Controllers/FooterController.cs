@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Web.Models;
 using Microsoft.EntityFrameworkCore;
-using MarketWorld.Infrastructure.Data;
+using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.Controllers;
 

@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using MarketWorld.Infrastructure.Data;
 using MarketWorld.Application.Services.Jwt;
 using Microsoft.AspNetCore.Http.Extensions;
 // Session için extensions sınıfları
 using Microsoft.AspNetCore.Http;
+using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.Middleware
 {

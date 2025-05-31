@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using MarketWorld.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.ViewComponents
 {

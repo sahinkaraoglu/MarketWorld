@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MarketWorld.Infrastructure.Data;
 using MarketWorld.Web.Models.Admin;
 using MarketWorld.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
+using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.Controllers
 {

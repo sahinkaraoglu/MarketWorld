@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MarketWorld.Infrastructure.Data;
 using MarketWorld.Infrastructure;
 using MarketWorld.Web.Models;
 using static MarketWorld.Web.Models.CategoryViewModel;
@@ -14,6 +13,7 @@ using System.Threading.Tasks;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using MarketWorld.Core.Domain.Entities;
+using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.Controllers
 {

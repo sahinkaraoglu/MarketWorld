@@ -1,6 +1,6 @@
 using MarketWorld.Application.Repositories;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Infrastructure.Data;
+using MarketWorld.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
