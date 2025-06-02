@@ -24,16 +24,16 @@
                     </div>
                     
                     <div class="list-group">
-                        <a href="/Account" class="list-group-item list-group-item-action">
+                        <a href="@Url.Action("Index", "Account")" class="list-group-item list-group-item-action">
                             <i class="fas fa-user-circle me-2"></i>Hesabım
                         </a>
-                        <a href="/Account/Orders" class="list-group-item list-group-item-action">
+                        <a href="@Url.Action("Orders", "Account")" class="list-group-item list-group-item-action">
                             <i class="fas fa-shopping-bag me-2"></i>Siparişlerim
                         </a>
-                        <a href="/Account/Addresses" class="list-group-item list-group-item-action active">
+                        <a href="@Url.Action("Addresses", "Account")" class="list-group-item list-group-item-action active">
                             <i class="fas fa-map-marker-alt me-2"></i>Adreslerim
                         </a>
-                        <a href="/Login/Logout" class="list-group-item list-group-item-action text-danger">
+                        <a href="@Url.Action("Logout", "Login")" class="list-group-item list-group-item-action text-danger">
                             <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
                         </a>
                     </div>
@@ -45,7 +45,7 @@
             <div class="card shadow-sm">
                 <div class="card-header bg-white d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Adreslerim</h5>
-                    <a href="/Account/AddAddress" class="btn btn-primary btn-sm">
+                    <a href="@Url.Action("AddAddress", "Account")" class="btn btn-primary btn-sm">
                         <i class="fas fa-plus me-2"></i>Yeni Adres Ekle
                     </a>
                 </div>
@@ -58,7 +58,7 @@
                             </div>
                             <h5 class="mb-3">Henüz adresiniz bulunmamaktadır</h5>
                             <p class="text-muted mb-4">Hemen yeni bir adres ekleyerek alışverişe başlayabilirsiniz.</p>
-                            <a href="/Account/AddAddress" class="btn btn-primary">
+                            <a href="@Url.Action("AddAddress", "Account")" class="btn btn-primary">
                                 <i class="fas fa-plus me-2"></i>Adres Ekle
                             </a>
                         </div>
@@ -86,7 +86,7 @@
                                             </address>
                                         </div>
                                         <div class="card-footer bg-white d-flex justify-content-end">
-                                            <a href="/Account/EditAddress/@address.Id" class="btn btn-outline-primary btn-sm me-2">
+                                            <a href="@Url.Action("EditAddress", "Account", new { id = address.Id })" class="btn btn-outline-primary btn-sm me-2">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <form asp-controller="Account" asp-action="DeleteAddress" asp-route-id="@address.Id" method="post"

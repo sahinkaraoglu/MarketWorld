@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using MarketWorld.Web.Attributes;
 using MarketWorld.Infrastructure.Context;
 
-namespace MarketWorld.Web.Controllers
+namespace MarketWorld.Web.Areas.Admin.Controllers
 {
     [Authorize]
     public class OrderController : Controller
@@ -229,8 +229,8 @@ namespace MarketWorld.Web.Controllers
             }
             // Discovery kartları 6011, 622126-622925, 644-649 veya 65 ile başlar
             else if (cardNumber.StartsWith("6011") || 
-                     (cardNumber.Length >= 6 && int.TryParse(cardNumber.Substring(0, 6), out int prefix) && prefix >= 622126 && prefix <= 622925) ||
-                     (cardNumber.StartsWith("64") && cardNumber.Length >= 3 && int.TryParse(cardNumber.Substring(0, 3), out int prefix3) && prefix3 >= 644 && prefix3 <= 649) ||
+                     cardNumber.Length >= 6 && int.TryParse(cardNumber.Substring(0, 6), out int prefix) && prefix >= 622126 && prefix <= 622925 ||
+                     cardNumber.StartsWith("64") && cardNumber.Length >= 3 && int.TryParse(cardNumber.Substring(0, 3), out int prefix3) && prefix3 >= 644 && prefix3 <= 649 ||
                      cardNumber.StartsWith("65"))
             {
                 return "Discover";

@@ -7,6 +7,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Admin\Views\User\Create.cshtml" />
     <None Include="wwwroot\img\logo.png" />
   </ItemGroup>
 
@@ -25,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Shared\Components\" />
   </ItemGroup>

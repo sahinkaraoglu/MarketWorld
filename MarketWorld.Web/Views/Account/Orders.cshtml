@@ -20,16 +20,16 @@
                     </div>
 
                     <div class="list-group">
-                        <a href="/Account" class="list-group-item list-group-item-action">
+                        <a href="@Url.Action("Index", "Account")" class="list-group-item list-group-item-action">
                             <i class="fas fa-user-circle me-2"></i>Hesabım
                         </a>
-                        <a href="/Account/Orders" class="list-group-item list-group-item-action active">
+                        <a href="@Url.Action("Orders", "Account")" class="list-group-item list-group-item-action active">
                             <i class="fas fa-shopping-bag me-2"></i>Siparişlerim
                         </a>
-                        <a href="/Account/Addresses" class="list-group-item list-group-item-action">
+                        <a href="@Url.Action("Addresses", "Account")" class="list-group-item list-group-item-action">
                             <i class="fas fa-map-marker-alt me-2"></i>Adreslerim
                         </a>
-                        <a href="/Login/Logout" class="list-group-item list-group-item-action text-danger">
+                        <a href="@Url.Action("Logout", "Login")" class="list-group-item list-group-item-action text-danger">
                             <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
                         </a>
                     </div>
@@ -53,7 +53,7 @@
                             </div>
                             <h5 class="mb-3">Henüz siparişiniz bulunmamaktadır</h5>
                             <p class="text-muted mb-4">Ürünlerimize göz atarak hemen alışverişe başlayabilirsiniz.</p>
-                            <a href="/" class="btn btn-primary">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">
                                 <i class="fas fa-shopping-cart me-2"></i>Alışverişe Başla
                             </a>
                         </div>
@@ -150,7 +150,7 @@
                 $('#orderDetailModal').modal('show');
                 
                 // AJAX ile sipariş detayını getir
-                $.get('/Order/GetOrderDetails/' + orderId, function(response) {
+                $.get('@Url.Action("GetOrderDetails", "Order")/' + orderId, function(response) {
                     $('#orderDetailContent').html(response);
                 }).fail(function() {
                     $('#orderDetailContent').html('<div class="alert alert-danger">Sipariş detayları yüklenirken bir hata oluştu.</div>');

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
-namespace MarketWorld.Web.Models.Admin
+namespace MarketWorld.Web.Areas.Admin.Models.Panel
 {
     public class AddProductViewModel
     {

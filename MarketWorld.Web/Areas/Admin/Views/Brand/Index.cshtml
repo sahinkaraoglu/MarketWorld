@@ -3,12 +3,62 @@
     ViewData["Title"] = "Marka Yönetimi";
 }
 
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function deleteBrand(id, name) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: `"${name}" markasını silmek istediğinizden emin misiniz?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'İptal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '@Url.Action("DeleteBrand", "Brand", new { area = "Admin" })',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (response) {
+                            if (response.success) {
+                                Swal.fire(
+                                    'Silindi!',
+                                    'Marka başarıyla silindi.',
+                                    'success'
+                                ).then(() => {
+                                    window.location.reload();
+                                });
+                            } else {
+                                Swal.fire(
+                                    'Hata!',
+                                    response.message || 'Bir hata oluştu.',
+                                    'error'
+                                );
+                            }
+                        },
+                        error: function () {
+                            Swal.fire(
+                                'Hata!',
+                                'Bir hata oluştu.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+}
+
 <div class="brands-container">
     <div class="brands-header">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <h1 class="brands-title">Marka Yönetimi</h1>
-                <a href="/Panel/AddBrand" class="btn btn-primary">
+                <a href="@Url.Action("AddBrand", "Brand", new { area = "Admin" })" class="btn btn-primary">
                     <i class="bi bi-plus-circle"></i> Yeni Marka Ekle
                 </a>
             </div>
@@ -78,12 +128,12 @@
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="/Panel/EditBrand/@brand.Id" class="btn btn-sm btn-outline-primary">
+                                                <a href="@Url.Action("Edit", "Brand", new { area = "Admin", id = brand.Id })" class="btn btn-sm btn-outline-primary">
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
-                                                <a href="/Panel/DeleteBrand/@brand.Id" class="btn btn-sm btn-outline-danger">
+                                                <button onclick="deleteBrand(@brand.Id, '@brand.Name')" class="btn btn-sm btn-outline-danger">
                                                     <i class="bi bi-trash"></i>
-                                                </a>
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -104,7 +154,7 @@
                         @if (ViewBag.CurrentPage > 1)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="@Url.Action("Brands", "Panel", new { page = ViewBag.CurrentPage - 1 })" aria-label="Önceki">
+                                <a class="page-link" href="@Url.Action("Brands", "Brand", new { area = "Admin", page = ViewBag.CurrentPage - 1 })" aria-label="Önceki">
                                     <span aria-hidden="true">&laquo;</span> Önceki
                                 </a>
                             </li>
@@ -131,14 +181,14 @@
                         @for (int i = startPage; i <= endPage; i++)
                         {
                             <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                                <a class="page-link" href="@Url.Action("Brands", "Panel", new { page = i })">@i</a>
+                                <a class="page-link" href="@Url.Action("Brands", "Brand", new { area = "Admin", page = i })">@i</a>
                             </li>
                         }
 
                         @if (ViewBag.CurrentPage < ViewBag.TotalPages)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="@Url.Action("Brands", "Panel", new { page = ViewBag.CurrentPage + 1 })" aria-label="Sonraki">
+                                <a class="page-link" href="@Url.Action("Brands", "Brand", new { area = "Admin", page = ViewBag.CurrentPage + 1 })" aria-label="Sonraki">
                                     Sonraki <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
@@ -278,4 +328,4 @@
             }
         });
     });
-</script>
+</script> 

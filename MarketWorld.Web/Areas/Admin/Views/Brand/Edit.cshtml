@@ -18,7 +18,7 @@
                 </div>
             }
             
-            <form method="post" action="/Panel/EditBrand/@Model.Id">
+            <form method="post" action="@Url.Action("Edit", "Brand", new { area = "Admin", id = Model.Id })">
                 <input type="hidden" name="id" value="@Model.Id" />
                 
                 <div class="mb-3">
@@ -57,7 +57,7 @@
                 }
                 
                 <div class="d-flex justify-content-between mt-4">
-                    <a href="/Panel/Brands" class="btn btn-outline-secondary">
+                    <a href="@Url.Action("Brands", "Brand", new { area = "Admin" })" class="btn btn-outline-secondary">
                         <i class="bi bi-arrow-left me-2"></i>Geri Dön
                     </a>
                     <button type="submit" class="btn btn-primary">

@@ -14,16 +14,16 @@
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
                     <div class="list-group">
-                        <a href="/Account" class="list-group-item list-group-item-action">
+                        <a href="@Url.Action("Index", "Account")" class="list-group-item list-group-item-action">
                             <i class="fas fa-user-circle me-2"></i>Hesabım
                         </a>
-                        <a href="/Account/Orders" class="list-group-item list-group-item-action">
+                        <a href="@Url.Action("Orders", "Account")" class="list-group-item list-group-item-action">
                             <i class="fas fa-shopping-bag me-2"></i>Siparişlerim
                         </a>
-                        <a href="/Account/Addresses" class="list-group-item list-group-item-action active">
+                        <a href="@Url.Action("Addresses", "Account")" class="list-group-item list-group-item-action active">
                             <i class="fas fa-map-marker-alt me-2"></i>Adreslerim
                         </a>
-                        <a href="/Login/Logout" class="list-group-item list-group-item-action text-danger">
+                        <a href="@Url.Action("Logout", "Login")" class="list-group-item list-group-item-action text-danger">
                             <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
                         </a>
                     </div>
@@ -39,7 +39,7 @@
                     </h5>
                 </div>
                 <div class="card-body p-4">
-                    <form method="post" asp-controller="Profile" asp-action="EditAddress">
+                    <form method="post" asp-controller="Account" asp-action="EditAddress">
                         <input type="hidden" name="Id" value="@Model.Id" />
                         
                         <div class="mb-3">
@@ -99,7 +99,7 @@
                         </div>
                         
                         <div class="d-flex justify-content-end mt-4">
-                            <a href="/Profile/Addresses" class="btn btn-outline-secondary me-2">
+                            <a href="@Url.Action("Addresses", "Account")" class="btn btn-outline-secondary me-2">
                                 <i class="fas fa-times me-2"></i>İptal
                             </a>
                             <button type="submit" class="btn btn-primary">

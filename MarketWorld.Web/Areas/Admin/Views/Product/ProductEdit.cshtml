@@ -250,54 +250,23 @@
                     Price: $('#editPrice').val(),
                     Stock: $('#editStock').val(),
                     Description: $('#editDescription').val(),
-                    IsActive: isActive,
-                    Status: isActive ? "Published" : "Draft", // Aktif/Pasif durumuna göre statüyü belirle
-                    BrandName: $('#editBrandId option:selected').text(),
-                    CategoryName: $('#editCategorySelect option:selected').text(),
-                    SubCategoryName: $('#editSubCategoryId option:selected').text(),
-                    ImageUrl: "/img/ProductsPicture/default.jpg",
-                    Rating: 0,
-                    CategoryId: $('#editCategorySelect').val()
+                    IsActive: isActive
                 };
-
-                console.log('Gönderilen veri:', formData);
-
+                
                 $.ajax({
                     url: '/Panel/UpdateProduct',
                     method: 'POST',
-                    data: JSON.stringify(formData),
                     contentType: 'application/json',
+                    data: JSON.stringify(formData),
                     success: function(response) {
                         alert('Ürün başarıyla güncellendi!');
                         window.location.href = '/Panel/Products';
                     },
                     error: function(xhr, status, error) {
-                        console.error('Hata detayı:', xhr.responseText);
-                        
-                        // JSON parse denemesi yap
-                        try {
-                            var errorObj = JSON.parse(xhr.responseText);
-                            var errorMessages = [];
-                            
-                            // ModelState hatalarını daha okunabilir formata dönüştür
-                            for (var key in errorObj) {
-                                if (Array.isArray(errorObj[key])) {
-                                    errorObj[key].forEach(function(msg) {
-                                        errorMessages.push(key + ': ' + msg);
-                                    });
-                                } else {
-                                    errorMessages.push(key + ': ' + errorObj[key]);
-                                }
-                            }
-                            
-                            alert('Ürün güncellenemedi:\n' + errorMessages.join('\n'));
-                        } catch (e) {
-                            // JSON parse başarısız olursa orijinal hatayı göster
-                            alert('Ürün güncellenemedi: ' + (xhr.responseText || error));
-                        }
+                        alert('Ürün güncellenirken bir hata oluştu: ' + error);
                     }
                 });
             });
         });
     </script>
-}
+} 

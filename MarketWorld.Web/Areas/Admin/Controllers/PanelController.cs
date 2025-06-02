@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MarketWorld.Web.Models.Admin;
-using MarketWorld.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
+using MarketWorld.Web.Areas.Admin.Models.Panel;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
@@ -108,7 +107,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             // Ürünler client tarafında AJAX ile yüklenecek
             ViewBag.TotalProducts = totalProducts;
 
-            return View("Products/Index");
+            return View("~/Areas/Admin/Views/Product/Index.cshtml");
         }
 
         [HttpGet]
@@ -121,7 +120,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 .Include(c => c.Products)
                 .ToListAsync();
 
-            return View(categories);
+            return View("Category/Index", categories);
         }
 
         [HttpGet]
@@ -144,194 +143,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("GetBrands")]
-        public async Task<IActionResult> GetBrands()
-        {
-            var brands = await _context.Brands
-                .Select(b => new { id = b.Id, name = b.Name })
-                .ToListAsync();
-            return Json(brands);
-        }
-
-        [HttpGet]
-        [Route("Brands")]
-        public async Task<IActionResult> Brands(int page = 1, int pageSize = 20)
-        {
-            // Aktif ve toplam marka sayılarını hesapla
-            ViewBag.TotalBrandsCount = await _context.Brands.CountAsync();
-            ViewBag.ActiveBrandsCount = await _context.Brands.Where(b => !b.IsDeleted).CountAsync();
-            
-            // Çok satan markaları hesapla
-            var topSellerBrands = await _context.OrderItems
-                .Include(oi => oi.Product)
-                .ThenInclude(p => p.Brand)
-                .Where(oi => oi.Product.Brand != null)
-                .GroupBy(oi => oi.Product.BrandId)
-                .Select(g => new { BrandId = g.Key, Count = g.Count() })
-                .OrderByDescending(x => x.Count)
-                .Take(10)
-                .CountAsync();
-                
-            ViewBag.TopSellerBrandsCount = topSellerBrands;
-            
-            // Toplam sayfa sayısını hesapla
-            var totalBrands = await _context.Brands.CountAsync();
-            var totalPages = (int)Math.Ceiling(totalBrands / (double)pageSize);
-            
-            // Markaları sayfalayarak getir
-            var brands = await _context.Brands
-                .Include(b => b.Products)
-                .OrderBy(b => b.Id)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
-            
-            // Sayfalama bilgilerini ViewBag'e ekle
-            ViewBag.CurrentPage = page;
-            ViewBag.TotalPages = totalPages;
-            ViewBag.PageSize = pageSize;
-                
-            return View("Brand/Brands", brands);
-        }
-
-        [HttpGet]
-        [Route("EditBrand/{id}")]
-        public async Task<IActionResult> EditBrand(int id)
-        {
-            var brand = await _context.Brands.FindAsync(id);
-            if (brand == null)
-            {
-                return NotFound();
-            }
-            
-            return View("Brand/EditBrand", brand);
-        }
-        
-        [HttpPost]
-        [Route("EditBrand/{id}")]
-        public async Task<IActionResult> EditBrand(int id, string name, bool isDeleted)
-        {
-            var brand = await _context.Brands.FindAsync(id);
-            if (brand == null)
-            {
-                return NotFound();
-            }
-            
-            // Validasyon
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                ModelState.AddModelError("Name", "Marka adı boş olamaz");
-                return View("Brand/EditBrand", brand);
-            }
-            
-            try
-            {
-                brand.Name = name;
-                brand.IsDeleted = isDeleted;
-                brand.UpdatedDate = DateTime.Now;
-                
-                await _context.SaveChangesAsync();
-                
-                return RedirectToAction("Brands");
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", $"Hata oluştu: {ex.Message}");
-                return View("Brand/EditBrand", brand);
-            }
-        }
-        
-        [HttpGet]
-        [Route("DeleteBrand/{id}")]
-        public async Task<IActionResult> DeleteBrand(int id)
-        {
-            var brand = await _context.Brands.FindAsync(id);
-            if (brand == null)
-            {
-                return NotFound();
-            }
-            
-            return View("Brand/DeleteBrand", brand);
-        }
-        
-        [HttpPost]
-        [Route("DeleteBrand/{id}")]
-        [ActionName("DeleteBrand")]
-        public async Task<IActionResult> DeleteBrandConfirmed(int id)
-        {
-            var brand = await _context.Brands.FindAsync(id);
-            if (brand == null)
-            {
-                return NotFound();
-            }
-            
-            try
-            {
-                // Markayı doğrudan silmek yerine IsDeleted'ı true yapabiliriz
-                brand.IsDeleted = true;
-                brand.UpdatedDate = DateTime.Now;
-                
-                await _context.SaveChangesAsync();
-                
-                return RedirectToAction("Brands");
-            }
-            catch (Exception ex)
-            {
-                TempData["Error"] = $"Marka silinirken hata oluştu: {ex.Message}";
-                return RedirectToAction("Brands");
-            }
-        }
-
-        [HttpGet]
-        [Route("AddBrand")]
-        public IActionResult AddBrand()
-        {
-            return View("Brand/AddBrand");
-        }
-        
-        [HttpPost]
-        [Route("AddBrand")]
-        public async Task<IActionResult> AddBrand(string name, bool isDeleted)
-        {
-            // Validasyon
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                ViewBag.Error = "Marka adı boş olamaz";
-                return View("Brand/AddBrand");
-            }
-            
-            // Marka adının benzersiz olup olmadığını kontrol et
-            bool brandExists = await _context.Brands.AnyAsync(b => b.Name.ToLower() == name.ToLower());
-            if (brandExists)
-            {
-                ViewBag.Error = "Bu isimde bir marka zaten var";
-                return View("Brand/AddBrand");
-            }
-            
-            try
-            {
-                // Yeni marka oluştur
-                var brand = new Brand
-                {
-                    Name = name,
-                    IsDeleted = isDeleted,
-                    CreatedDate = DateTime.Now
-                };
-                
-                // Veritabanına ekle
-                _context.Brands.Add(brand);
-                await _context.SaveChangesAsync();
-                
-                return RedirectToAction("Brands");
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Error = $"Marka eklenirken hata oluştu: {ex.Message}";
-                return View("Brand/AddBrand");
-            }
-        }
-
+       
         [HttpGet]
         [Route("GetSubCategories/{categoryId}")]
         public async Task<IActionResult> GetSubCategories(int categoryId)
@@ -840,12 +652,12 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                     .OrderByDescending(o => o.OrderDate)
                     .ToListAsync();
 
-                return View(orders);
+                return View("Order/Index", orders);
             }
             catch (Exception ex)
             {
                 // Hata durumunda boş liste gönderiyoruz, böylece sayfa hata vermeden açılır
-                return View(new List<Order>());
+                return View("Order/Index", new List<Order>());
             }
         }
         
@@ -949,238 +761,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             }
         }
 
-        // Kullanıcı listesi sayfası
-        [HttpGet]
-        [Route("Users")]
-        public async Task<IActionResult> Users()
-        {
-            var users = await _userManager.Users
-                .Select(u => new UserViewModel
-                {
-                    Id = u.Id,
-                    Username = u.UserName,
-                    Email = u.Email,
-                    FirstName = u.FirstName,
-                    LastName = u.LastName,
-                    Role = _context.UserRoles
-                        .Join(_context.Roles, ur => ur.RoleId, r => r.Id, (ur, r) => new { ur, r })
-                        .Where(x => x.ur.UserId == u.Id)
-                        .Select(x => x.r.Name)
-                        .FirstOrDefault() ?? "Kullanıcı",
-                    IsActive = u.IsActive,
-                    RegistrationDate = u.CreateDate
-                })
-                .ToListAsync();
-            
-            // Kullanıcı istatistikleri
-            ViewBag.TotalUsersCount = users.Count();
-            ViewBag.ActiveUsersCount = users.Count(u => u.IsActive);
-            ViewBag.NewUsersCount = users.Count(u => u.RegistrationDate >= DateTime.Now.AddDays(-30));
-            
-            return View(users);
-        }
-
-        // Kullanıcı bilgilerini getir
-        [HttpGet]
-        [Route("GetUser/{id}")]
-        public async Task<IActionResult> GetUser(string id)
-        {
-            var user = await _userManager.FindByIdAsync(id);
-            
-            if (user == null)
-            {
-                return NotFound();
-            }
-            
-            var userRoles = await _userManager.GetRolesAsync(user);
-            var roleName = userRoles.FirstOrDefault() ?? "Kullanıcı";
-            
-            return Json(new
-            {
-                id = user.Id,
-                username = user.UserName,
-                email = user.Email,
-                firstName = user.FirstName,
-                lastName = user.LastName,
-                role = roleName,
-                isActive = user.IsActive
-            });
-        }
-
-        // Yeni kullanıcı ekle
-        [HttpPost]
-        [Route("AddUser")]
-        public async Task<IActionResult> AddUser([FromBody] UserViewModel model)
-        {
-            try
-            {
-                if (model == null)
-                {
-                    return BadRequest(new { success = false, message = "Geçersiz veri" });
-                }
-                
-                // Yeni kullanıcı eklerken Id alanı gerekmediği için ModelState'den kaldırıyoruz
-                ModelState.Remove("Id");
-                
-                if (!ModelState.IsValid)
-                {
-                    var validationErrors = string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
-                    return BadRequest(new { success = false, message = $"Geçersiz veri: {validationErrors}" });
-                }
-                
-                // Email ve kullanıcı adı benzersiz olmalı
-                var existingUser = await _userManager.FindByEmailAsync(model.Email);
-                if (existingUser != null)
-                {
-                    return BadRequest(new { success = false, message = "Bu email adresi zaten kullanımda" });
-                }
-                
-                existingUser = await _userManager.FindByNameAsync(model.Username);
-                if (existingUser != null)
-                {
-                    return BadRequest(new { success = false, message = "Bu kullanıcı adı zaten kullanımda" });
-                }
-                
-                // Şifre doğrulama kontrolünü client tarafında da yaptık ama burada da kontrol edelim
-                if (string.IsNullOrEmpty(model.Password) || model.Password != model.ConfirmPassword)
-                {
-                    return BadRequest(new { success = false, message = "Şifreler eşleşmiyor" });
-                }
-                
-                // Yeni kullanıcı oluştur
-                var user = new ApplicationUser
-                {
-                    UserName = model.Username,
-                    Email = model.Email,
-                    FirstName = model.FirstName ?? "",
-                    LastName = model.LastName ?? "",
-                    IsActive = model.IsActive,
-                    EmailConfirmed = model.IsActive,
-                    CreateDate = DateTime.Now
-                };
-                
-                // Kullanıcıyı oluştur
-                var result = await _userManager.CreateAsync(user, model.Password);
-                
-                if (result.Succeeded)
-                {
-                    // Rol kontrolü
-                    if (string.IsNullOrEmpty(model.Role))
-                    {
-                        model.Role = "User"; // Varsayılan rol
-                    }
-                    
-                    // Rol mevcut mu kontrol et
-                    var roleExists = await _roleManager.RoleExistsAsync(model.Role);
-                    if (!roleExists)
-                    {
-                        // Rol yoksa oluştur
-                        await _roleManager.CreateAsync(new IdentityRole(model.Role));
-                    }
-                    
-                    // Kullanıcıya rol atama
-                    await _userManager.AddToRoleAsync(user, model.Role);
-                    
-                    return Json(new { success = true, message = "Kullanıcı başarıyla eklendi" });
-                }
-                
-                var errorMessages = string.Join(", ", result.Errors.Select(e => e.Description));
-                return BadRequest(new { success = false, message = errorMessages });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Sunucu hatası: {ex.Message}" });
-            }
-        }
-
-        // Kullanıcı güncelle
-        [HttpPost]
-        [Route("UpdateUser")]
-        public async Task<IActionResult> UpdateUser([FromBody] UserViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(new { success = false, message = "Geçersiz veri" });
-            }
-            
-            var user = await _userManager.FindByIdAsync(model.Id);
-            
-            if (user == null)
-            {
-                return NotFound(new { success = false, message = "Kullanıcı bulunamadı" });
-            }
-            
-            // Email ve kullanıcı adı benzersiz olmalı (kendisi hariç)
-            var existingUser = await _userManager.FindByEmailAsync(model.Email);
-            if (existingUser != null && existingUser.Id != model.Id)
-            {
-                return BadRequest(new { success = false, message = "Bu email adresi zaten kullanımda" });
-            }
-            
-            existingUser = await _userManager.FindByNameAsync(model.Username);
-            if (existingUser != null && existingUser.Id != model.Id)
-            {
-                return BadRequest(new { success = false, message = "Bu kullanıcı adı zaten kullanımda" });
-            }
-            
-            // Kullanıcı bilgilerini güncelle
-            user.UserName = model.Username;
-            user.Email = model.Email;
-            user.FirstName = model.FirstName ?? user.FirstName;
-            user.LastName = model.LastName ?? user.LastName;
-            user.IsActive = model.IsActive;
-            user.EmailConfirmed = model.IsActive;
-            
-            // Şifre değiştirme işlemi
-            if (!string.IsNullOrEmpty(model.Password))
-            {
-                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var passwordChangeResult = await _userManager.ResetPasswordAsync(user, token, model.Password);
-                
-                if (!passwordChangeResult.Succeeded)
-                {
-                    return BadRequest(new { success = false, message = "Şifre değiştirme işlemi başarısız: " + string.Join(", ", passwordChangeResult.Errors.Select(e => e.Description)) });
-                }
-            }
-            
-            // Kullanıcı güncelleme
-            var updateResult = await _userManager.UpdateAsync(user);
-            
-            if (!updateResult.Succeeded)
-            {
-                return BadRequest(new { success = false, message = "Kullanıcı güncelleme işlemi başarısız: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)) });
-            }
-            
-            // Kullanıcı rolleri güncelleme
-            var userRoles = await _userManager.GetRolesAsync(user);
-            await _userManager.RemoveFromRolesAsync(user, userRoles);
-            await _userManager.AddToRoleAsync(user, model.Role);
-            
-            return Json(new { success = true, message = "Kullanıcı başarıyla güncellendi" });
-        }
-
-        // Kullanıcı silme
-        [HttpPost]
-        [Route("DeleteUser/{id}")]
-        public async Task<IActionResult> DeleteUser(string id)
-        {
-            var user = await _userManager.FindByIdAsync(id);
-            
-            if (user == null)
-            {
-                return NotFound(new { success = false, message = "Kullanıcı bulunamadı" });
-            }
-            
-            // Kullanıcıyı silme
-            var result = await _userManager.DeleteAsync(user);
-            
-            if (result.Succeeded)
-            {
-                return Json(new { success = true, message = "Kullanıcı başarıyla silindi" });
-            }
-            
-            return BadRequest(new { success = false, message = "Kullanıcı silme işlemi başarısız: " + string.Join(", ", result.Errors.Select(e => e.Description)) });
-        }
+       
 
         [HttpGet]
         [Route("ProductsUpdate/{id}")]
@@ -1190,7 +771,14 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             {
                 return RedirectToAction("Products");
             }
-            return View("Products/ProductsUpdate");
+            return View("Product/ProductEdit");
+        }
+
+        [HttpGet]
+        [Route("Reports")]
+        public IActionResult Reports()
+        {
+            return View("Report/Index");
         }
     }
 } 

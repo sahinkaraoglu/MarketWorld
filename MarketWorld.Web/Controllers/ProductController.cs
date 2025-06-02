@@ -322,6 +322,8 @@ namespace MarketWorld.Web.Controllers
                 Images = product.Images.OrderBy(i => i.Id).Select(i => $"/{i.Path}").ToList(),
                 CategoryName = product.SubCategory?.Category?.Name,
                 SubCategoryName = product.SubCategory?.Name,
+                CategoryId = product.SubCategory?.Category?.Id ?? 0,
+                SubCategoryId = product.SubCategoryId,
                 HasFreeShipping = product.Price > 45000,
                 ColorOptions = colorOptions,
                 MemoryOptions = memoryOptions,

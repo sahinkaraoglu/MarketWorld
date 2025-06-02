@@ -1,0 +1,143 @@
+@model MarketWorld.Web.Areas.Admin.Models.Panel.UserViewModel
+@{
+    ViewData["Title"] = "Yeni Kullanıcı";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white py-3">
+                    <h4 class="mb-0 text-primary">
+                        <i class="bi bi-person-plus me-2"></i>Yeni Kullanıcı
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form id="createUserForm" method="post">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="username" class="form-label">Kullanıcı Adı</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">Ad</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Soyad</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="password" class="form-label">Şifre</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="confirmPassword" class="form-label">Şifre Tekrar</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="role" class="form-label">Rol</label>
+                                <select class="form-select" id="role" name="role">
+                                    <option value="User">Kullanıcı</option>
+                                    <option value="Admin">Yönetici</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="isActive" class="form-label">Durum</label>
+                                <select class="form-select" id="isActive" name="isActive">
+                                    <option value="true">Aktif</option>
+                                    <option value="false">Pasif</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="@Url.Action("Index", "User", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
+            $('#createUserForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                if ($('#password').val() !== $('#confirmPassword').val()) {
+                    Swal.fire({
+                        title: 'Hata!',
+                        text: 'Şifreler eşleşmiyor!',
+                        icon: 'error',
+                        confirmButtonColor: '#4e73df'
+                    });
+                    return;
+                }
+
+                var formData = {
+                    username: $('#username').val(),
+                    email: $('#email').val(),
+                    firstName: $('#firstName').val(),
+                    lastName: $('#lastName').val(),
+                    password: $('#password').val(),
+                    confirmPassword: $('#confirmPassword').val(),
+                    role: $('#role').val(),
+                    isActive: $('#isActive').val() === 'true'
+                };
+
+                $.ajax({
+                    url: '@Url.Action("Create", "User", new { area = "Admin" })',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response) {
+                        if (response.success) {
+                            Swal.fire({
+                                title: 'Başarılı!',
+                                text: 'Kullanıcı başarıyla oluşturuldu.',
+                                icon: 'success',
+                                confirmButtonColor: '#4e73df'
+                            }).then(() => {
+                                window.location.href = '@Url.Action("Index", "User", new { area = "Admin" })';
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Hata!',
+                                text: response.message || 'Bir hata oluştu!',
+                                icon: 'error',
+                                confirmButtonColor: '#4e73df'
+                            });
+                        }
+                    },
+                    error: function(xhr) {
+                        let errorMessage = 'Bir hata oluştu!';
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            errorMessage = xhr.responseJSON.message;
+                        }
+                        Swal.fire({
+                            title: 'Hata!',
+                            text: errorMessage,
+                            icon: 'error',
+                            confirmButtonColor: '#4e73df'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
+

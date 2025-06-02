@@ -1,4 +1,4 @@
-namespace MarketWorld.Web.Models
+namespace MarketWorld.Web.Areas.Admin.Models.Panel
 {
     public class AddToCartRequest
     {

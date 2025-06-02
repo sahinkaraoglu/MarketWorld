@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MarketWorld.Web.Models.Admin
+namespace MarketWorld.Web.Areas.Admin.Models.Panel
 {
     public class ProductAdminViewModel
     {
