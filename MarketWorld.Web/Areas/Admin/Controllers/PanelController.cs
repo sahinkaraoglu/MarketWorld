@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
 
-namespace MarketWorld.Web.Controllers
+namespace MarketWorld.Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("Admin/[controller]")]
     public class PanelController : Controller
     {
         private readonly MarketWorldDbContext _context;
@@ -24,6 +26,9 @@ namespace MarketWorld.Web.Controllers
             _roleManager = roleManager;
         }
 
+        [HttpGet]
+        [Route("")]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
             // Ürün istatistikleri
@@ -52,7 +57,7 @@ namespace MarketWorld.Web.Controllers
             
             // Sipariş sayılarını yeniden hesapla
             ViewBag.NewOrdersCount = orders.Count;
-            ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == MarketWorld.Core.Enums.OrderStatus.Shipped);
+            ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == Core.Enums.OrderStatus.Shipped);
             
             // Kullanıcı istatistikleri
             ViewBag.TotalUsersCount = await _context.Users.CountAsync();
@@ -90,6 +95,8 @@ namespace MarketWorld.Web.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("Products")]
         public async Task<IActionResult> Products()
         {
             // Sadece toplam ürün sayısını hesaplayalım
@@ -104,6 +111,8 @@ namespace MarketWorld.Web.Controllers
             return View("Products/Index");
         }
 
+        [HttpGet]
+        [Route("Categories")]
         public async Task<IActionResult> Categories()
         {
             var categories = await _context.Categories
@@ -116,6 +125,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("GetCategories")]
         public async Task<IActionResult> GetCategories()
         {
             try
@@ -135,6 +145,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("GetBrands")]
         public async Task<IActionResult> GetBrands()
         {
             var brands = await _context.Brands
@@ -143,6 +154,8 @@ namespace MarketWorld.Web.Controllers
             return Json(brands);
         }
 
+        [HttpGet]
+        [Route("Brands")]
         public async Task<IActionResult> Brands(int page = 1, int pageSize = 20)
         {
             // Aktif ve toplam marka sayılarını hesapla
@@ -183,6 +196,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("EditBrand/{id}")]
         public async Task<IActionResult> EditBrand(int id)
         {
             var brand = await _context.Brands.FindAsync(id);
@@ -195,6 +209,7 @@ namespace MarketWorld.Web.Controllers
         }
         
         [HttpPost]
+        [Route("EditBrand/{id}")]
         public async Task<IActionResult> EditBrand(int id, string name, bool isDeleted)
         {
             var brand = await _context.Brands.FindAsync(id);
@@ -228,6 +243,7 @@ namespace MarketWorld.Web.Controllers
         }
         
         [HttpGet]
+        [Route("DeleteBrand/{id}")]
         public async Task<IActionResult> DeleteBrand(int id)
         {
             var brand = await _context.Brands.FindAsync(id);
@@ -239,7 +255,9 @@ namespace MarketWorld.Web.Controllers
             return View("Brand/DeleteBrand", brand);
         }
         
-        [HttpPost, ActionName("DeleteBrand")]
+        [HttpPost]
+        [Route("DeleteBrand/{id}")]
+        [ActionName("DeleteBrand")]
         public async Task<IActionResult> DeleteBrandConfirmed(int id)
         {
             var brand = await _context.Brands.FindAsync(id);
@@ -266,12 +284,14 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("AddBrand")]
         public IActionResult AddBrand()
         {
             return View("Brand/AddBrand");
         }
         
         [HttpPost]
+        [Route("AddBrand")]
         public async Task<IActionResult> AddBrand(string name, bool isDeleted)
         {
             // Validasyon
@@ -313,7 +333,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        [Route("Panel/GetSubCategories/{categoryId}")]
+        [Route("GetSubCategories/{categoryId}")]
         public async Task<IActionResult> GetSubCategories(int categoryId)
         {
             try
@@ -341,6 +361,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpPost]
+        [Route("AddProduct")]
         public async Task<IActionResult> AddProduct(AddProductViewModel model)
         {
             if (!ModelState.IsValid)
@@ -419,6 +440,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("GetProduct/{id}")]
         public async Task<IActionResult> GetProduct(int id)
         {
             var product = await _context.Products
@@ -451,6 +473,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpPost]
+        [Route("UpdateProduct")]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductAdminViewModel model)
         {
             ModelState.Remove("Status");
@@ -523,6 +546,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpPost]
+        [Route("DeleteProduct/{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var product = await _context.Products.FindAsync(id);
@@ -536,6 +560,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("GetPropertyTypes")]
         public async Task<IActionResult> GetPropertyTypes()
         {
             var propertyTypes = await _context.PropertyTypes
@@ -547,7 +572,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        [Route("Panel/GetPropertyValues/{propertyTypeId}")]
+        [Route("GetPropertyValues/{propertyTypeId}")]
         public async Task<IActionResult> GetPropertyValues(int propertyTypeId)
         {
             try
@@ -566,6 +591,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("GetProducts")]
         public async Task<IActionResult> GetProducts(int page = 1, int pageSize = 30, string productCode = "", string status = "")
         {
             try
@@ -586,7 +612,7 @@ namespace MarketWorld.Web.Controllers
                         p.Description,
                         BrandName = p.Brand.Name,
                         SubCategoryName = p.SubCategory.Name,
-                        CategoryId = p.SubCategory.CategoryId,
+                        p.SubCategory.CategoryId,
                         CategoryName = p.SubCategory.Category.Name,
                         ImageUrl = p.Images.OrderBy(i => i.Id).FirstOrDefault().Path,
                         Stock = p.ProductProperties.Where(pp => pp.IsActive).Sum(pp => pp.Stock)
@@ -643,8 +669,8 @@ namespace MarketWorld.Web.Controllers
 
                 return Json(new { 
                     products = viewModel, 
-                    totalPages = totalPages,
-                    totalProducts = totalProducts,
+                    totalPages,
+                    totalProducts,
                     currentPage = page
                 });
             }
@@ -655,6 +681,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("LoadMoreProducts")]
         public async Task<IActionResult> LoadMoreProducts(int page = 1, int pageSize = 30, string productCode = "")
         {
             try
@@ -705,12 +732,12 @@ namespace MarketWorld.Web.Controllers
                     Description = p.Description ?? ""
                 }).ToList();
 
-                bool hasMore = (page * pageSize) < totalCount;
+                bool hasMore = page * pageSize < totalCount;
 
                 return Json(new { 
                     products = viewModel, 
-                    hasMore = hasMore,
-                    totalCount = totalCount,
+                    hasMore,
+                    totalCount,
                     currentPage = page
                 });
             }
@@ -721,7 +748,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpPost]
-        [Route("Panel/DeleteCategory/{id}")]
+        [Route("DeleteCategory/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             try
@@ -737,8 +764,8 @@ namespace MarketWorld.Web.Controllers
                 }
 
                 // Alt kategorileri veya ürünleri olan bir kategori silinememeli
-                if ((category.SubCategories != null && category.SubCategories.Any()) || 
-                    (category.Products != null && category.Products.Any()))
+                if (category.SubCategories != null && category.SubCategories.Any() || 
+                    category.Products != null && category.Products.Any())
                 {
                     return Json(new { 
                         success = false, 
@@ -758,7 +785,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpPost]
-        [Route("Panel/DeleteSubCategory/{id}")]
+        [Route("DeleteSubCategory/{id}")]
         public async Task<IActionResult> DeleteSubCategory(int id)
         {
             try
@@ -792,6 +819,8 @@ namespace MarketWorld.Web.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("Orders")]
         public async Task<IActionResult> Orders(int? status = null)
         {
             try
@@ -821,6 +850,7 @@ namespace MarketWorld.Web.Controllers
         }
         
         [HttpGet]
+        [Route("GetOrderDetails/{id}")]
         public async Task<IActionResult> GetOrderDetails(int id)
         {
             try
@@ -848,6 +878,7 @@ namespace MarketWorld.Web.Controllers
         }
         
         [HttpGet]
+        [Route("GetOrderStatus/{id}")]
         public async Task<IActionResult> GetOrderStatus(int id)
         {
             try
@@ -867,6 +898,7 @@ namespace MarketWorld.Web.Controllers
         }
         
         [HttpPost]
+        [Route("UpdateOrderStatus")]
         public async Task<IActionResult> UpdateOrderStatus(int orderId, int status, string note)
         {
             try
@@ -877,7 +909,7 @@ namespace MarketWorld.Web.Controllers
                     return Json(new { success = false, message = "Sipariş bulunamadı" });
                 }
 
-                order.Status = (MarketWorld.Core.Enums.OrderStatus)status;
+                order.Status = (Core.Enums.OrderStatus)status;
                 // Not işleme eklenebilir
                 
                 await _context.SaveChangesAsync();
@@ -891,6 +923,7 @@ namespace MarketWorld.Web.Controllers
         }
         
         [HttpGet]
+        [Route("PrintOrder/{id}")]
         public async Task<IActionResult> PrintOrder(int id)
         {
             try
@@ -917,6 +950,8 @@ namespace MarketWorld.Web.Controllers
         }
 
         // Kullanıcı listesi sayfası
+        [HttpGet]
+        [Route("Users")]
         public async Task<IActionResult> Users()
         {
             var users = await _userManager.Users
@@ -947,7 +982,7 @@ namespace MarketWorld.Web.Controllers
 
         // Kullanıcı bilgilerini getir
         [HttpGet]
-        [Route("Panel/GetUser/{id}")]
+        [Route("GetUser/{id}")]
         public async Task<IActionResult> GetUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -974,7 +1009,7 @@ namespace MarketWorld.Web.Controllers
 
         // Yeni kullanıcı ekle
         [HttpPost]
-        [Route("Panel/AddUser")]
+        [Route("AddUser")]
         public async Task<IActionResult> AddUser([FromBody] UserViewModel model)
         {
             try
@@ -1060,7 +1095,7 @@ namespace MarketWorld.Web.Controllers
 
         // Kullanıcı güncelle
         [HttpPost]
-        [Route("Panel/UpdateUser")]
+        [Route("UpdateUser")]
         public async Task<IActionResult> UpdateUser([FromBody] UserViewModel model)
         {
             if (!ModelState.IsValid)
@@ -1126,7 +1161,7 @@ namespace MarketWorld.Web.Controllers
 
         // Kullanıcı silme
         [HttpPost]
-        [Route("Panel/DeleteUser/{id}")]
+        [Route("DeleteUser/{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -1148,6 +1183,7 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
+        [Route("ProductsUpdate/{id}")]
         public IActionResult ProductsUpdate(int id)
         {
             if (id <= 0)

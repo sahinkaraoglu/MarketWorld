@@ -278,7 +278,7 @@
                 let statusFilter = $('#statusFilter').val();
                 
                 $.ajax({
-                    url: '/Panel/GetProducts',
+                    url: '/Admin/Panel/GetProducts',
                     method: 'GET',
                     data: {
                         page: page,
@@ -437,45 +437,90 @@
                 });
             }
 
-            // Kategorileri yükle
+            // Markaları yükle
             $.ajax({
-                url: '/Panel/GetCategories',
+                url: '/Admin/Panel/GetBrands',
                 method: 'GET',
-                success: function(categories) {
-                    console.log('Yüklenen kategoriler:', categories);
-                    $('#categorySelect').empty().append('<option value="">Kategori Seçiniz</option>');
-                    categories.forEach(function(category) {
-                        $('#categorySelect').append(
-                            $('<option></option>')
-                                .val(category.id)
-                                .text(category.name)
-                        );
+                success: function(brands) {
+                    let options = '<option value="">Marka Seçiniz</option>';
+                    brands.forEach(function(brand) {
+                        options += `<option value="${brand.id}">${brand.name}</option>`;
                     });
-                },
-                error: function(xhr, status, error) {
-                    console.error('Kategori yükleme hatası:', error);
+                    $('select[name="BrandId"]').html(options);
                 }
             });
 
-            // Markaları yükle
+            // Kategorileri yükle
             $.ajax({
-                url: '/Panel/GetBrands',
+                url: '/Admin/Panel/GetCategories',
                 method: 'GET',
-                success: function(brands) {
-                    console.log('Yüklenen markalar:', brands);
-                    $('select[name="BrandId"]').empty().append('<option value="">Marka Seçiniz</option>');
-                    brands.forEach(function(brand) {
-                        $('select[name="BrandId"]').append(
-                            $('<option></option>')
-                                .val(brand.id)
-                                .text(brand.name)
-                        );
+                success: function(categories) {
+                    let options = '<option value="">Kategori Seçiniz</option>';
+                    categories.forEach(function(category) {
+                        options += `<option value="${category.id}">${category.name}</option>`;
                     });
-                },
-                error: function(xhr, status, error) {
-                    console.error('Marka yükleme hatası:', error);
+                    $('#categorySelect').html(options);
                 }
             });
+
+            // Alt kategorileri yükle
+            $('#categorySelect').change(function() {
+                let categoryId = $(this).val();
+                if (categoryId) {
+                    $.ajax({
+                        url: '/Admin/Panel/GetSubCategories/' + categoryId,
+                        method: 'GET',
+                        success: function(subCategories) {
+                            let options = '<option value="">Alt Kategori Seçiniz</option>';
+                            subCategories.forEach(function(subCategory) {
+                                options += `<option value="${subCategory.id}">${subCategory.name}</option>`;
+                            });
+                            $('#subCategorySelect').html(options);
+                        }
+                    });
+                } else {
+                    $('#subCategorySelect').html('<option value="">Önce Kategori Seçiniz</option>');
+                }
+            });
+
+            // Ürün silme işlemi
+            window.deleteProduct = function(id) {
+                if (confirm('Bu ürünü silmek istediğinizden emin misiniz?')) {
+                    $.ajax({
+                        url: '/Admin/Panel/DeleteProduct/' + id,
+                        method: 'POST',
+                        success: function(response) {
+                            loadProducts(currentPage);
+                        },
+                        error: function(xhr, status, error) {
+                            alert('Ürün silinirken bir hata oluştu: ' + error);
+                        }
+                    });
+                }
+            };
+
+            // Ürün düzenleme işlemi
+            window.editProduct = function(id) {
+                $.ajax({
+                    url: '/Admin/Panel/GetProduct/' + id,
+                    method: 'GET',
+                    success: function(product) {
+                        // Ürün bilgilerini doldur
+                        $('#editProductId').val(product.id);
+                        $('#editProductName').val(product.name);
+                        $('#editProductPrice').val(product.price);
+                        $('#editProductStock').val(product.stock);
+                        $('#editProductDescription').val(product.description);
+                        $('#editProductIsActive').prop('checked', product.isActive);
+                        
+                        // Modal'ı göster
+                        $('#editProductModal').modal('show');
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Ürün bilgileri yüklenirken bir hata oluştu: ' + error);
+                    }
+                });
+            };
 
             $.ajax({
                 url: '/Panel/GetPropertyTypes',
@@ -486,48 +531,6 @@
                 },
                 error: function(xhr, status, error) {
                     console.error('Özellik tipleri yükleme hatası:', error);
-                }
-            });
-
-            // Kategori seçildiğinde alt kategorileri yükle
-            $('#categorySelect, #editCategorySelect').change(function() {
-                var categoryId = $(this).val();
-                var targetSelect = $(this).attr('id') === 'categorySelect' ? '#subCategorySelect' : '#editSubCategoryId';
-                
-                console.log('Seçilen kategori ID:', categoryId);
-                console.log('Hedef select:', targetSelect);
-                
-                $(targetSelect).empty().append('<option value="">Alt Kategori Seçiniz</option>');
-                
-                if (categoryId) {
-                    $.ajax({
-                        url: '/Panel/GetSubCategories/' + categoryId,
-                        method: 'GET',
-                        success: function(subCategories) {
-                            console.log('Gelen alt kategoriler:', subCategories);
-                            if (subCategories && subCategories.length > 0) {
-                                subCategories.forEach(function(subCategory) {
-                                    $(targetSelect).append(
-                                        $('<option></option>')
-                                            .val(subCategory.id)
-                                            .text(subCategory.name)
-                                    );
-                                });
-                            } else {
-                                $(targetSelect).append(
-                                    $('<option></option>')
-                                        .val('')
-                                        .text('Bu kategoride alt kategori yok')
-                                );
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Alt kategori yükleme hatası:', error);
-                            console.error('Status:', status);
-                            console.error('Response:', xhr.responseText);
-                            alert('Alt kategoriler yüklenirken bir hata oluştu: ' + error);
-                        }
-                    });
                 }
             });
 
@@ -680,28 +683,5 @@
         function removePropertyRow(rowId) {
             $(`#property-${rowId}`).remove();
         }
-
-        function editProduct(id) {
-            window.location.href = '/Panel/ProductsUpdate?id=' + id;
-        }
-
-        function deleteProduct(id) {
-            if (confirm('Bu ürünü silmek istediğinizden emin misiniz?')) {
-                $.ajax({
-                    url: '/Panel/DeleteProduct/' + id,
-                    method: 'POST',
-                    success: function() {
-                        $(`#productTableBody tr[data-product-id="${id}"]`).fadeOut('slow', function() {
-                            $(this).remove();
-                        });
-                    },
-                    error: function(xhr, status, error) {
-                        alert('Ürün silinemedi: ' + error);
-                    }
-                });
-            }
-        }
-
-        // Düzenleme işlemi artık ProductsUpdate.cshtml üzerinden yapılıyor
     </script>
 } 
