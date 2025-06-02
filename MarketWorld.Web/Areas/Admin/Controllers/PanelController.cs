@@ -771,7 +771,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             {
                 return RedirectToAction("Products");
             }
-            return View("Product/ProductEdit");
+            return View("~/Areas/Admin/Views/Product/Edit.cshtml");
         }
 
         [HttpGet]

@@ -71,8 +71,8 @@
     <script>
         $(document).ready(function() {
             // URL'den ürün ID'sini al
-            var urlParams = new URLSearchParams(window.location.search);
-            var productId = urlParams.get('id');
+            var pathParts = window.location.pathname.split('/');
+            var productId = pathParts[pathParts.length - 1];
             var productData = null;
             var categoriesLoaded = false;
             var subCategoriesLoaded = false;

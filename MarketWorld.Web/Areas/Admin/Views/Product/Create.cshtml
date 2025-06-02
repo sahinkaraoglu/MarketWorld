@@ -1,0 +1,299 @@
+@{
+    ViewData["Title"] = "Yeni Ürün Ekle";
+}
+
+<div class="container-fluid p-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">Yeni Ürün Ekle</h5>
+        </div>
+        <div class="card-body">
+            <form id="addProductForm" asp-controller="Product" asp-action="AddProduct" method="post" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Ürün Adı</label>
+                        <input type="text" name="Name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Marka</label>
+                        <select name="BrandId" class="form-select" required>
+                            <option value="">Marka Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Kategori</label>
+                        <select id="categorySelect" class="form-select" required>
+                            <option value="">Kategori Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Alt Kategori</label>
+                        <select name="SubCategoryId" id="subCategorySelect" class="form-select" required>
+                            <option value="">Önce Kategori Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Fiyat</label>
+                        <input type="number" name="Price" class="form-control" step="0.01" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">İndirimli Fiyat</label>
+                        <input type="number" name="DiscountPrice" class="form-control" step="0.01">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Stok</label>
+                        <input type="number" name="Stock" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Açıklama</label>
+                    <textarea name="Description" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input type="checkbox" name="IsActive" class="form-check-input" value="true" checked>
+                            <input type="hidden" name="IsActive" value="false">
+                            <label class="form-check-label">Aktif</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input type="checkbox" name="HasDiscount" class="form-check-input" value="true">
+                            <input type="hidden" name="HasDiscount" value="false">
+                            <label class="form-check-label">İndirimli</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ürün Resimleri</label>
+                    <input type="file" name="Images" class="form-control" multiple accept="image/*">
+                </div>
+                
+                <div class="mb-3">
+                    <h5>Ürün Özellikleri</h5>
+                    <div id="propertyContainer">
+                        <button type="button" class="btn btn-sm btn-outline-primary mb-3" id="addPropertyBtn">
+                            <i class="bi bi-plus"></i> Yeni Özellik Ekle
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <a href="/Panel/Products" class="btn btn-secondary me-2">İptal</a>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Markaları yükle
+            $.ajax({
+                url: '/Admin/Product/GetBrands',
+                method: 'GET',
+                success: function(brands) {
+                    let options = '<option value="">Marka Seçiniz</option>';
+                    brands.forEach(function(brand) {
+                        options += `<option value="${brand.id}">${brand.name}</option>`;
+                    });
+                    $('select[name="BrandId"]').html(options);
+                }
+            });
+
+            // Kategorileri yükle
+            $.ajax({
+                url: '/Admin/Product/GetCategories',
+                method: 'GET',
+                success: function(categories) {
+                    let options = '<option value="">Kategori Seçiniz</option>';
+                    categories.forEach(function(category) {
+                        options += `<option value="${category.id}">${category.name}</option>`;
+                    });
+                    $('#categorySelect').html(options);
+                }
+            });
+
+            // Alt kategorileri yükle
+            $('#categorySelect').change(function() {
+                let categoryId = $(this).val();
+                if (categoryId) {
+                    $.ajax({
+                        url: '/Admin/Product/GetSubCategories/' + categoryId,
+                        method: 'GET',
+                        success: function(subCategories) {
+                            let options = '<option value="">Alt Kategori Seçiniz</option>';
+                            subCategories.forEach(function(subCategory) {
+                                options += `<option value="${subCategory.id}">${subCategory.name}</option>`;
+                            });
+                            $('#subCategorySelect').html(options);
+                        }
+                    });
+                } else {
+                    $('#subCategorySelect').html('<option value="">Önce Kategori Seçiniz</option>');
+                }
+            });
+
+            // Özellik tiplerini yükle
+            $.ajax({
+                url: '/Admin/Product/GetPropertyTypes',
+                method: 'GET',
+                success: function(propertyTypes) {
+                    window.propertyTypes = propertyTypes;
+                }
+            });
+
+            // Yeni özellik satırı ekle
+            $('#addPropertyBtn').click(function() {
+                addPropertyRow();
+            });
+
+            function addPropertyRow() {
+                var propertyRowId = Date.now();
+                var propertyRow = `
+                    <div class="card mb-3 property-row" id="property-${propertyRowId}">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Özellik Tipi</label>
+                                    <select class="form-select property-type-select" data-row-id="${propertyRowId}">
+                                        <option value="">Özellik Tipi Seçiniz</option>
+                                        ${window.propertyTypes ? window.propertyTypes.map(pt => `<option value="${pt.id}">${pt.name}</option>`).join('') : ''}
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Özellik Değeri</label>
+                                    <select class="form-select property-value-select" data-row-id="${propertyRowId}" disabled>
+                                        <option value="">Önce Özellik Tipi Seçiniz</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Stok</label>
+                                    <input type="number" class="form-control property-stock" data-row-id="${propertyRowId}" min="0" value="0">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Aktif</label>
+                                    <div class="form-check mt-2">
+                                        <input type="checkbox" class="form-check-input property-active" data-row-id="${propertyRowId}" checked>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="form-label">&nbsp;</label>
+                                    <button type="button" class="btn btn-sm btn-danger d-block" onclick="removePropertyRow(${propertyRowId})">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                $('#propertyContainer').append(propertyRow);
+
+                // Özellik tipi değiştiğinde değerleri yükle
+                $(`.property-type-select[data-row-id="${propertyRowId}"]`).change(function() {
+                    var propertyTypeId = $(this).val();
+                    var valueSelect = $(`.property-value-select[data-row-id="${propertyRowId}"]`);
+                    
+                    valueSelect.empty().append('<option value="">Özellik Değeri Seçiniz</option>');
+                    valueSelect.prop('disabled', !propertyTypeId);
+                    
+                    if (propertyTypeId) {
+                        $.ajax({
+                            url: '/Admin/Product/GetPropertyValues/' + propertyTypeId,
+                            method: 'GET',
+                            success: function(propertyValues) {
+                                if (propertyValues && propertyValues.length > 0) {
+                                    propertyValues.forEach(function(pv) {
+                                        valueSelect.append(
+                                            $('<option></option>')
+                                                .val(pv.id)
+                                                .text(pv.value)
+                                        );
+                                    });
+                                } else {
+                                    valueSelect.append(
+                                        $('<option></option>')
+                                            .val('')
+                                            .text('Bu özellik tipinde değer yok')
+                                    );
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Form submit işlemi
+            $('#addProductForm').submit(function(e) {
+                e.preventDefault();
+                
+                var formData = new FormData();
+                formData.append('Name', $('input[name="Name"]').val());
+                formData.append('BrandId', $('select[name="BrandId"]').val());
+                formData.append('SubCategoryId', $('#subCategorySelect').val());
+                formData.append('Price', $('input[name="Price"]').val());
+                formData.append('DiscountPrice', $('input[name="DiscountPrice"]').val() || '0');
+                formData.append('Stock', $('input[name="Stock"]').val());
+                formData.append('Description', $('textarea[name="Description"]').val());
+                formData.append('IsActive', $('input[name="IsActive"]').is(':checked'));
+                formData.append('HasDiscount', $('input[name="HasDiscount"]').is(':checked'));
+
+                // Resimleri ekle
+                var files = $('input[name="Images"]')[0].files;
+                for (var i = 0; i < files.length; i++) {
+                    formData.append('Images', files[i]);
+                }
+
+                // Özellikleri ekle
+                $('.property-row').each(function(index) {
+                    var rowId = $(this).attr('id').split('-')[1];
+                    var propertyTypeId = $(`.property-type-select[data-row-id="${rowId}"]`).val();
+                    var propertyValueId = $(`.property-value-select[data-row-id="${rowId}"]`).val();
+                    var stock = $(`.property-stock[data-row-id="${rowId}"]`).val();
+                    var isActive = $(`.property-active[data-row-id="${rowId}"]`).is(':checked');
+                    
+                    if (propertyTypeId && propertyValueId) {
+                        formData.append(`ProductProperties[${index}].PropertyTypeId`, propertyTypeId);
+                        formData.append(`ProductProperties[${index}].PropertyValueId`, propertyValueId);
+                        formData.append(`ProductProperties[${index}].Stock`, stock);
+                        formData.append(`ProductProperties[${index}].IsActive`, isActive);
+                    }
+                });
+
+                $.ajax({
+                    url: '/Admin/Product/AddProduct',
+                    method: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        window.location.href = '/Panel/Products';
+                    },
+                    error: function(xhr, status, error) {
+                        if (xhr.responseJSON) {
+                            var errors = xhr.responseJSON;
+                            var errorMessages = [];
+                            Object.keys(errors).forEach(function(key) {
+                                errorMessages.push(key + ': ' + errors[key].join(', '));
+                            });
+                            alert('Hata:\n' + errorMessages.join('\n'));
+                        } else {
+                            alert('Bir hata oluştu: ' + error);
+                        }
+                    }
+                });
+            });
+        });
+
+        function removePropertyRow(rowId) {
+            $(`#property-${rowId}`).remove();
+        }
+    </script>
+}
