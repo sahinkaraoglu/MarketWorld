@@ -4,94 +4,215 @@
     ViewData["Title"] = "Kullanıcı Yönetimi";
 }
 
-<div class="container-fluid mt-4">
-    <div class="card shadow-sm">
-        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
-            <h4 class="mb-0 text-primary">
-                <i class="bi bi-people me-2"></i>Kullanıcı Yönetimi
-            </h4>
-            <a href="@Url.Action("Create", "User", new { area = "Admin" })" class="btn btn-primary">
-                <i class="bi bi-person-plus me-2"></i>Yeni Kullanıcı
-            </a>
+<div class="users-container">
+    <div class="users-header-gradient">
+        <div class="container">
+            <div class="users-header-flex">
+                <h1 class="users-title-gradient">Kullanıcı Yönetimi</h1>
+                <a href="@Url.Action("Create", "User", new { area = "Admin" })" class="btn btn-soft-primary">
+                    <i class="bi bi-person-plus"></i> Yeni Kullanıcı Ekle
+                </a>
+            </div>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Kullanıcı Adı</th>
-                            <th>Email</th>
-                            <th>Ad</th>
-                            <th>Soyad</th>
-                            <th>Rol</th>
-                            <th>Durum</th>
-                            <th>Kayıt Tarihi</th>
-                            <th class="text-end">İşlemler</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var user in Model)
-                        {
+    </div>
+
+    <div class="container users-content">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>@TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+            </div>
+        }
+        
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-circle-fill me-2"></i>@TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+            </div>
+        }
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h5 class="mb-0"><i class="bi bi-people me-2"></i>Tüm Kullanıcılar</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" id="userSearchInput" class="form-control" placeholder="Kullanıcı ara...">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover user-table">
+                        <thead>
                             <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="avatar-circle me-2">
-                                            @(user.FirstName?.FirstOrDefault() ?? user.Username.FirstOrDefault())
-                                        </div>
-                                        <span>@user.Username</span>
-                                    </div>
-                                </td>
-                                <td>@user.Email</td>
-                                <td>@user.FirstName</td>
-                                <td>@user.LastName</td>
-                                <td>
-                                    <span class="badge bg-info">@user.Role</span>
-                                </td>
-                                <td>
-                                    @if (user.IsActive)
-                                    {
-                                        <span class="badge bg-success">Aktif</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="badge bg-danger">Pasif</span>
-                                    }
-                                </td>
-                                <td>@user.RegistrationDate?.ToString("dd.MM.yyyy HH:mm")</td>
-                                <td>
-                                    <div class="d-flex justify-content-end gap-2">
-                                        <a href="@Url.Action("Edit", "User", new { area = "Admin", id = user.Id })" 
-                                           class="btn btn-sm btn-warning" 
-                                           data-bs-toggle="tooltip" 
-                                           title="Düzenle">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <button type="button" 
-                                                class="btn btn-sm btn-danger delete-user" 
-                                                data-id="@user.Id"
-                                                data-bs-toggle="tooltip"
-                                                title="Sil">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </div>
-                                </td>
+                                <th>Kullanıcı Adı</th>
+                                <th>Email</th>
+                                <th>Ad</th>
+                                <th>Soyad</th>
+                                <th>Rol</th>
+                                <th>Durum</th>
+                                <th>Kayıt Tarihi</th>
+                                <th>İşlemler</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle me-2">
+                                                @(user.FirstName?.FirstOrDefault() ?? user.Username.FirstOrDefault())
+                                            </div>
+                                            <span>@user.Username</span>
+                                        </div>
+                                    </td>
+                                    <td>@user.Email</td>
+                                    <td>@user.FirstName</td>
+                                    <td>@user.LastName</td>
+                                    <td>
+                                        <span class="badge bg-info">@user.Role</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-@(user.IsActive ? "success" : "secondary")">
+                                            @(user.IsActive ? "Aktif" : "Pasif")
+                                        </span>
+                                    </td>
+                                    <td>@user.RegistrationDate?.ToString("dd.MM.yyyy HH:mm")</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="@Url.Action("Edit", "User", new { area = "Admin", id = user.Id })" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <button onclick="deleteUser(@user.Id, '@user.Username')" class="btn btn-sm btn-outline-danger">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="stat-icon bg-primary">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="card-subtitle mb-1">Toplam Kullanıcı</h6>
+                                <h2 class="card-title mb-0">@Model.Count</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="stat-icon bg-success">
+                                <i class="bi bi-person-check"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="card-subtitle mb-1">Aktif Kullanıcılar</h6>
+                                <h2 class="card-title mb-0">@Model.Count(u => u.IsActive)</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="stat-icon bg-warning">
+                                <i class="bi bi-person-x"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="card-subtitle mb-1">Pasif Kullanıcılar</h6>
+                                <h2 class="card-title mb-0">@Model.Count(u => !u.IsActive)</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <style>
+    .users-container {
+        padding: 2rem 0;
+    }
+
+    .users-header-gradient {
+        background: linear-gradient(90deg, #34495e 0%, #458995 100%);
+        padding: 2rem 0 2rem 0;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+        /* border-radius: 14px; */
+    }
+
+    .users-header-flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .users-title-gradient {
+        color: #fff;
+        font-size: 2.1rem;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .btn-soft-primary {
+        background: rgba(255,255,255,0.15);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.3rem;
+        font-size: 1rem;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-soft-primary:hover, .btn-soft-primary:focus {
+        background: rgba(255,255,255,0.25);
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(44,62,80,0.12);
+        text-decoration: none;
+    }
+
     .card {
         border: none;
         border-radius: 10px;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
     }
 
     .card-header {
-        border-bottom: 1px solid rgba(0,0,0,.125);
+        background-color: #fff;
+        border-bottom: 1px solid #e3e6f0;
+        padding: 1rem 1.25rem;
     }
 
     .table > :not(caption) > * > * {
@@ -103,6 +224,7 @@
         text-transform: uppercase;
         font-size: 0.75rem;
         letter-spacing: 0.5px;
+        color: #5a5c69;
     }
 
     .avatar-circle {
@@ -123,6 +245,10 @@
         font-weight: 500;
     }
 
+    .btn-group {
+        gap: 0.5rem;
+    }
+
     .btn {
         padding: 0.5rem 0.75rem;
         font-size: 0.875rem;
@@ -136,95 +262,101 @@
         background-color: rgba(78, 115, 223, 0.05);
     }
 
-    .delete-user {
-        transition: all 0.2s ease;
+    .stat-card {
+        transition: transform 0.2s ease;
     }
 
-    .delete-user:hover {
-        transform: scale(1.1);
+    .stat-card:hover {
+        transform: translateY(-5px);
     }
 
-    .btn-warning {
-        background-color: #f6c23e;
-        border-color: #f6c23e;
-        color: #fff;
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
     }
 
-    .btn-warning:hover {
-        background-color: #dda20a;
-        border-color: #dda20a;
-        color: #fff;
+    .stat-icon.bg-primary {
+        background: linear-gradient(135deg, #4e73df, #224abe);
     }
 
-    .btn-danger {
-        background-color: #e74a3b;
-        border-color: #e74a3b;
+    .stat-icon.bg-success {
+        background: linear-gradient(135deg, #1cc88a, #13855c);
     }
 
-    .btn-danger:hover {
-        background-color: #be3529;
-        border-color: #be3529;
+    .stat-icon.bg-warning {
+        background: linear-gradient(135deg, #f6c23e, #dda20a);
+    }
+
+    .card-subtitle {
+        color: #858796;
+        font-size: 0.875rem;
+    }
+
+    .card-title {
+        color: #5a5c69;
+        font-size: 1.5rem;
+        font-weight: 700;
     }
 </style>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        $(document).ready(function() {
-            // Tooltip'leri etkinleştir
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl)
-            });
-
-            $('.delete-user').on('click', function() {
-                var userId = $(this).data('id');
-                var username = $(this).closest('tr').find('td:first-child span').text();
-                
-                Swal.fire({
-                    title: 'Emin misiniz?',
-                    text: `"${username}" kullanıcısını silmek istediğinizden emin misiniz?`,
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#e74a3b',
-                    cancelButtonColor: '#6c757d',
-                    confirmButtonText: 'Evet, sil!',
-                    cancelButtonText: 'İptal',
-                    reverseButtons: true
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: '@Url.Action("Delete", "User", new { area = "Admin" })/' + userId,
-                            type: 'POST',
-                            success: function(response) {
-                                if (response.success) {
-                                    Swal.fire({
-                                        title: 'Başarılı!',
-                                        text: 'Kullanıcı başarıyla silindi.',
-                                        icon: 'success',
-                                        confirmButtonColor: '#4e73df'
-                                    }).then(() => {
-                                        location.reload();
-                                    });
-                                } else {
-                                    Swal.fire({
-                                        title: 'Hata!',
-                                        text: response.message || 'Bir hata oluştu!',
-                                        icon: 'error',
-                                        confirmButtonColor: '#4e73df'
-                                    });
-                                }
-                            },
-                            error: function() {
-                                Swal.fire({
-                                    title: 'Hata!',
-                                    text: 'Bir hata oluştu!',
-                                    icon: 'error',
-                                    confirmButtonColor: '#4e73df'
+        function deleteUser(id, username) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: `"${username}" kullanıcısını silmek istediğinizden emin misiniz?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'İptal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '@Url.Action("Delete", "User", new { area = "Admin" })/' + id,
+                        type: 'POST',
+                        success: function(response) {
+                            if (response.success) {
+                                Swal.fire(
+                                    'Silindi!',
+                                    'Kullanıcı başarıyla silindi.',
+                                    'success'
+                                ).then(() => {
+                                    window.location.reload();
                                 });
+                            } else {
+                                Swal.fire(
+                                    'Hata!',
+                                    response.message || 'Bir hata oluştu.',
+                                    'error'
+                                );
                             }
-                        });
-                    }
+                        },
+                        error: function() {
+                            Swal.fire(
+                                'Hata!',
+                                'Bir hata oluştu.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            $("#userSearchInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".user-table tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
         });
