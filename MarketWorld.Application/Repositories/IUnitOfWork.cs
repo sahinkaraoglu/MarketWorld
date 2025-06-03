@@ -7,6 +7,7 @@ namespace MarketWorld.Application.Repositories
     {
         IProductRepository Products { get; }
         ICategoryRepository Categories { get; }
+        ISubCategoryRepository SubCategories { get; }
         ICommentRepository Comments { get; }
         IBrandRepository Brands { get; }
         

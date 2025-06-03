@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
+using MarketWorld.Application.Services.Interfaces;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
@@ -11,16 +10,16 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
     [Route("Admin/[controller]")]
     public class CategoryController : Controller
     {
-        private readonly MarketWorldDbContext _context;
+        private readonly ICategoryService _categoryService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
         public CategoryController(
-            MarketWorldDbContext context,
+            ICategoryService categoryService,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
-            _context = context;
+            _categoryService = categoryService;
             _userManager = userManager;
             _roleManager = roleManager;
         }
@@ -29,12 +28,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("Categories")]
         public async Task<IActionResult> Categories()
         {
-            var categories = await _context.Categories
-                .Include(c => c.SubCategories)
-                    .ThenInclude(sc => sc.Products)
-                .Include(c => c.Products)
-                .ToListAsync();
-
+            var categories = await _categoryService.GetCategoriesWithProductsAsync();
             return View("Category/Index", categories);
         }
 
@@ -44,12 +38,11 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var categories = await _context.Categories
-                    .Select(c => new { id = c.Id, name = c.Name })
-                    .ToListAsync();
+                var categories = await _categoryService.GetAllCategoriesAsync();
+                var categoryDtos = categories.Select(c => new { id = c.Id, name = c.Name });
 
-                System.Diagnostics.Debug.WriteLine($"Bulunan kategori sayısı: {categories.Count}");
-                return Json(categories);
+                System.Diagnostics.Debug.WriteLine($"Bulunan kategori sayısı: {categories.Count()}");
+                return Json(categoryDtos);
             }
             catch (Exception ex)
             {
@@ -58,28 +51,19 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             }
         }
 
-
         [HttpGet]
         [Route("GetSubCategories/{categoryId}")]
         public async Task<IActionResult> GetSubCategories(int categoryId)
         {
             try
             {
-                var category = await _context.Categories
-                    .Include(c => c.SubCategories)
-                    .FirstOrDefaultAsync(c => c.Id == categoryId);
-
-                if (category == null)
-                {
-                    return NotFound($"Kategori bulunamadı: {categoryId}");
-                }
-
-                var subCategories = category.SubCategories
+                var subCategories = await _categoryService.GetSubCategoriesByCategoryIdAsync(categoryId);
+                var subCategoryDtos = subCategories
                     .Where(sc => !sc.IsDeleted)
                     .Select(sc => new { id = sc.Id, name = sc.Name })
                     .ToList();
 
-                return Json(subCategories);
+                return Json(subCategoryDtos);
             }
             catch (Exception ex)
             {
@@ -93,19 +77,14 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var category = await _context.Categories
-                    .Include(c => c.SubCategories)
-                    .Include(c => c.Products)
-                    .FirstOrDefaultAsync(c => c.Id == id);
-
+                var category = await _categoryService.GetCategoryWithProductsAsync(id);
                 if (category == null)
                 {
                     return Json(new { success = false, message = "Kategori bulunamadı" });
                 }
 
                 // Alt kategorileri veya ürünleri olan bir kategori silinememeli
-                if (category.SubCategories != null && category.SubCategories.Any() ||
-                    category.Products != null && category.Products.Any())
+                if ((category.SubCategories?.Count > 0) || (category.Products?.Count > 0))
                 {
                     return Json(new
                     {
@@ -114,9 +93,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                     });
                 }
 
-                _context.Categories.Remove(category);
-                await _context.SaveChangesAsync();
-
+                await _categoryService.DeleteCategoryAsync(id);
                 return Json(new { success = true });
             }
             catch (Exception ex)
@@ -131,17 +108,14 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var subCategory = await _context.SubCategories
-                    .Include(sc => sc.Products)
-                    .FirstOrDefaultAsync(sc => sc.Id == id);
-
+                var subCategory = await _categoryService.GetSubCategoryByIdAsync(id);
                 if (subCategory == null)
                 {
                     return Json(new { success = false, message = "Alt kategori bulunamadı" });
                 }
 
                 // Ürünleri olan bir alt kategori silinememeli
-                if (subCategory.Products != null && subCategory.Products.Any())
+                if (subCategory.Products?.Count > 0)
                 {
                     return Json(new
                     {
@@ -150,9 +124,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                     });
                 }
 
-                _context.SubCategories.Remove(subCategory);
-                await _context.SaveChangesAsync();
-
+                await _categoryService.DeleteSubCategoryAsync(id);
                 return Json(new { success = true });
             }
             catch (Exception ex)
@@ -160,6 +132,5 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
-
     }
 } 

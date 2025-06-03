@@ -117,5 +117,27 @@ namespace MarketWorld.Application.Services.Implementations
 
             return await _unitOfWork.Categories.GetSubCategoriesByCategoryId(mainCategory.Id);
         }
+
+        public async Task<SubCategory> GetSubCategoryByIdAsync(int id)
+        {
+            var subCategory = await _unitOfWork.SubCategories.GetByIdAsync(id);
+            if (subCategory == null)
+                throw new ArgumentException($"Alt kategori bulunamadı. ID: {id}");
+
+            return subCategory;
+        }
+
+        public async Task DeleteSubCategoryAsync(int id)
+        {
+            var subCategory = await GetSubCategoryByIdAsync(id);
+            
+            // Ürünleri kontrol et
+            var subCategoryWithProducts = await _unitOfWork.SubCategories.GetSubCategoryWithProducts(id);
+            if (subCategoryWithProducts.Products?.Count > 0)
+                throw new InvalidOperationException("Ürünleri olan bir alt kategori silinemez.");
+
+            _unitOfWork.SubCategories.Remove(subCategory);
+            await _unitOfWork.SaveChangesAsync();
+        }
     }
 }

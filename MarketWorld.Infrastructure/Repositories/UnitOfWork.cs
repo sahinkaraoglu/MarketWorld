@@ -15,6 +15,8 @@ namespace MarketWorld.Infrastructure.Repositories
         private ICommentRepository _commentRepository;
         private IBrandRepository _brandRepository;
         private IDbContextTransaction _transaction;
+        private ISubCategoryRepository _subCategories;
+        private bool _disposed;
 
         public UnitOfWork(MarketWorldDbContext context)
         {
@@ -32,6 +34,11 @@ namespace MarketWorld.Infrastructure.Repositories
             
         public IBrandRepository Brands => 
             _brandRepository ??= new BrandRepository(_context);
+
+        public ISubCategoryRepository SubCategories
+        {
+            get { return _subCategories ??= new SubCategoryRepository(_context); }
+        }
 
         public async Task BeginTransactionAsync()
         {
@@ -63,8 +70,18 @@ namespace MarketWorld.Infrastructure.Repositories
 
         public void Dispose()
         {
-            _transaction?.Dispose();
-            _context.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed && disposing)
+            {
+                _transaction?.Dispose();
+                _context.Dispose();
+            }
+            _disposed = true;
         }
     }
 } 
