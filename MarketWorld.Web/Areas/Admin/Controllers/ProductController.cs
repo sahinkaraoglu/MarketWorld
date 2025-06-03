@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
+using MarketWorld.Application.Services.Interfaces;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
@@ -11,11 +12,18 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
     [Route("Admin/[controller]")]
     public class ProductController : Controller
     {
-        private readonly MarketWorldDbContext _context;
+        private readonly IProductService _productService;
+        private readonly IPropertyTypeService _propertyTypeService;
+        private readonly IPropertyValueService _propertyValueService;
 
-        public ProductController(MarketWorldDbContext context)
+        public ProductController(
+            IProductService productService,
+            IPropertyTypeService propertyTypeService,
+            IPropertyValueService propertyValueService)
         {
-            _context = context;
+            _productService = productService;
+            _propertyTypeService = propertyTypeService;
+            _propertyValueService = propertyValueService;
         }
 
         [HttpGet]
@@ -23,15 +31,8 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
-            // Sadece toplam ürün sayısını hesaplayalım
-            var totalProducts = await _context.Products
-                .Where(p => !p.IsDeleted)
-                .CountAsync();
-                
-            // Sayfa yükleme verimliliği için ilk sayfada ürünleri getirmeden view'ı döndürüyoruz
-            // Ürünler client tarafında AJAX ile yüklenecek
-            ViewBag.TotalProducts = totalProducts;
-
+            var products = await _productService.GetAllProducts();
+            ViewBag.TotalProducts = products.Count();
             return View("~/Areas/Admin/Views/Product/Index.cshtml");
         }
 
@@ -80,7 +81,8 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             product.GenerateRandomProductCode();
             
             // Veritabanında var mı kontrol et ve benzersiz olana kadar tekrar oluştur
-            while (await _context.Products.AnyAsync(p => p.ProductCode == product.ProductCode))
+            var products = await _productService.GetAllProducts();
+            while (products.Any(p => p.ProductCode == product.ProductCode))
             {
                 product.GenerateRandomProductCode();
             }
@@ -126,9 +128,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 }
             }
 
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-
+            await _productService.CreateProduct(product);
             return RedirectToAction(nameof(Index));
         }
 
@@ -136,13 +136,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("GetProduct/{id}")]
         public async Task<IActionResult> GetProduct(int id)
         {
-            var product = await _context.Products
-                .Include(p => p.SubCategory)
-                    .ThenInclude(sc => sc.Category)
-                .Include(p => p.Brand)
-                .Include(p => p.ProductProperties)
-                .Where(p => p.Id == id && !p.IsDeleted)
-                .FirstOrDefaultAsync();
+            var product = await _productService.GetProductById(id);
 
             if (product == null)
                 return NotFound();
@@ -179,9 +173,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var product = await _context.Products
-                .Include(p => p.ProductProperties)
-                .FirstOrDefaultAsync(p => p.Id == model.Id);
+            var product = await _productService.GetProductById(model.Id);
                 
             if (product == null)
                 return NotFound();
@@ -203,7 +195,8 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 product.GenerateRandomProductCode();
                 
                 // Veritabanında var mı kontrol et ve benzersiz olana kadar tekrar oluştur
-                while (await _context.Products.AnyAsync(p => p.Id != product.Id && p.ProductCode == product.ProductCode))
+                var products = await _productService.GetAllProducts();
+                while (products.Any(p => p.Id != product.Id && p.ProductCode == product.ProductCode))
                 {
                     product.GenerateRandomProductCode();
                 }
@@ -234,7 +227,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 }
             }
 
-            await _context.SaveChangesAsync();
+            await _productService.UpdateProduct(product);
             return Ok();
         }
 
@@ -242,13 +235,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("DeleteProduct/{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-                return NotFound();
-
-            product.IsDeleted = true;
-            await _context.SaveChangesAsync();
-
+            await _productService.DeleteProduct(id);
             return Ok();
         }
 
@@ -258,33 +245,12 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                // Performans için Select ile sadece ihtiyaç duyulan verileri çekelim
-                var query = _context.Products
-                    .AsNoTracking() // Performans için tracking'i kapatalım
-                    .Where(p => !p.IsDeleted)
-                    .Select(p => new {
-                        p.Id,
-                        p.Name,
-                        p.Price,
-                        p.Rating,
-                        p.IsActive,
-                        p.ProductCode,
-                        p.BrandId,
-                        p.SubCategoryId,
-                        p.Description,
-                        BrandName = p.Brand.Name,
-                        SubCategoryName = p.SubCategory.Name,
-                        p.SubCategory.CategoryId,
-                        CategoryName = p.SubCategory.Category.Name,
-                        ImageUrl = p.Images.OrderBy(i => i.Id).FirstOrDefault().Path,
-                        Stock = p.ProductProperties.Where(pp => pp.IsActive).Sum(pp => pp.Stock)
-                    })
-                    .AsQueryable();
+                var products = await _productService.GetAllProducts();
                 
                 // Ürün kodu ile filtreleme
                 if (!string.IsNullOrEmpty(productCode) && int.TryParse(productCode, out int productNum))
                 {
-                    query = query.Where(p => p.ProductCode == productNum);
+                    products = products.Where(p => p.ProductCode == productNum);
                 }
 
                 // Durum ile filtreleme
@@ -292,38 +258,40 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 {
                     if (status == "active")
                     {
-                        query = query.Where(p => p.IsActive);
+                        products = products.Where(p => p.IsActive);
                     }
                     else if (status == "inactive")
                     {
-                        query = query.Where(p => !p.IsActive);
+                        products = products.Where(p => !p.IsActive);
                     }
                 }
 
-                var totalProducts = await query.CountAsync();
+                var totalProducts = products.Count();
                 var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
                 
-                var products = await query
-                    .OrderBy(p => p.Id) // Eski ürünler önce gelecek şekilde sıralama
+                var pagedProducts = products
+                    .OrderBy(p => p.Id)
                     .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToListAsync();
+                    .Take(pageSize);
 
-                var viewModel = products.Select(p => new ProductAdminViewModel
+                var viewModel = pagedProducts.Select(p => new ProductAdminViewModel
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Price = p.Price,
-                    Stock = p.Stock,
+                    Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
+                        p.GetTotalStock() : 0,
                     Rating = p.Rating,
                     Status = p.IsActive ? "Published" : "Draft",
-                    ImageUrl = !string.IsNullOrEmpty(p.ImageUrl) ? $"/{p.ImageUrl}" : "/img/ProductsPicture/default.jpg",
-                    CategoryId = p.CategoryId,
-                    CategoryName = p.CategoryName ?? "Kategorisiz",
+                    ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
+                        $"/{p.Images.FirstOrDefault().Path}" : 
+                        "/img/ProductsPicture/default.jpg",
+                    CategoryId = p.SubCategory?.CategoryId ?? 0,
+                    CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
                     SubCategoryId = p.SubCategoryId ?? 0,
-                    SubCategoryName = p.SubCategoryName ?? "Alt Kategorisiz",
+                    SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
                     BrandId = p.BrandId,
-                    BrandName = p.BrandName ?? "Markasız",
+                    BrandName = p.Brand?.Name ?? "Markasız",
                     ProductCode = p.ProductCode,
                     IsActive = p.IsActive,
                     Description = p.Description ?? ""
@@ -346,12 +314,13 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("GetPropertyTypes")]
         public async Task<IActionResult> GetPropertyTypes()
         {
-            var propertyTypes = await _context.PropertyTypes
+            var propertyTypes = await _propertyTypeService.GetAllPropertyTypesAsync();
+            var result = propertyTypes
                 .Where(pt => pt.IsActive && !pt.IsDeleted)
                 .Select(pt => new { id = pt.Id, name = pt.Name })
-                .ToListAsync();
+                .ToList();
 
-            return Json(propertyTypes);
+            return Json(result);
         }
 
         [HttpGet]
@@ -360,12 +329,13 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var propertyValues = await _context.PropertyValues
-                    .Where(pv => pv.PropertyTypeId == propertyTypeId && pv.IsActive && !pv.IsDeleted)
+                var propertyValues = await _propertyValueService.GetPropertyValuesByTypeIdAsync(propertyTypeId);
+                var result = propertyValues
+                    .Where(pv => pv.IsActive && !pv.IsDeleted)
                     .Select(pv => new { id = pv.Id, value = pv.Value })
-                    .ToListAsync();
+                    .ToList();
 
-                return Json(propertyValues);
+                return Json(result);
             }
             catch (Exception ex)
             {
