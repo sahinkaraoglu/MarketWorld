@@ -1,77 +1,62 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
+using MarketWorld.Application.Services.Interfaces;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class BrandController : Controller
     {
-        private readonly MarketWorldDbContext _context;
+        private readonly IBrandService _brandService;
 
-        public BrandController(MarketWorldDbContext context)
+        public BrandController(IBrandService brandService)
         {
-            _context = context;
+            _brandService = brandService;
         }
 
         [HttpGet]
         [Route("GetBrands")]
         public async Task<IActionResult> GetBrands()
         {
-            var brands = await _context.Brands
-                .Select(b => new { id = b.Id, name = b.Name })
-                .ToListAsync();
-            return Json(brands);
+            var brands = await _brandService.GetAllBrandsAsync();
+            return Json(brands.Select(b => new { id = b.Id, name = b.Name }));
         }
 
         [HttpGet]
         [Route("Brands")]
         public async Task<IActionResult> Brands(int page = 1, int pageSize = 20)
         {
+            var brands = await _brandService.GetAllBrandsAsync();
+            
             // Aktif ve toplam marka sayılarını hesapla
-            ViewBag.TotalBrandsCount = await _context.Brands.CountAsync();
-            ViewBag.ActiveBrandsCount = await _context.Brands.Where(b => !b.IsDeleted).CountAsync();
-
-            // Çok satan markaları hesapla
-            var topSellerBrands = await _context.OrderItems
-                .Include(oi => oi.Product)
-                .ThenInclude(p => p.Brand)
-                .Where(oi => oi.Product.Brand != null)
-                .GroupBy(oi => oi.Product.BrandId)
-                .Select(g => new { BrandId = g.Key, Count = g.Count() })
-                .OrderByDescending(x => x.Count)
-                .Take(10)
-                .CountAsync();
-
-            ViewBag.TopSellerBrandsCount = topSellerBrands;
+            ViewBag.TotalBrandsCount = brands.Count();
+            ViewBag.ActiveBrandsCount = brands.Count(b => !b.IsDeleted);
 
             // Toplam sayfa sayısını hesapla
-            var totalBrands = await _context.Brands.CountAsync();
+            var totalBrands = brands.Count();
             var totalPages = (int)Math.Ceiling(totalBrands / (double)pageSize);
 
             // Markaları sayfalayarak getir
-            var brands = await _context.Brands
-                .Include(b => b.Products)
+            var pagedBrands = brands
                 .OrderBy(b => b.Id)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .ToListAsync();
+                .ToList();
 
             // Sayfalama bilgilerini ViewBag'e ekle
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = totalPages;
             ViewBag.PageSize = pageSize;
 
-            return View("Index", brands);
+            return View("Index", pagedBrands);
         }
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var brand = await _context.Brands.FindAsync(id);
+            var brand = await _brandService.GetBrandByIdAsync(id);
             if (brand == null)
             {
                 return NotFound();
@@ -83,7 +68,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, string name, bool isDeleted)
         {
-            var brand = await _context.Brands.FindAsync(id);
+            var brand = await _brandService.GetBrandByIdAsync(id);
             if (brand == null)
             {
                 return NotFound();
@@ -102,7 +87,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 brand.IsDeleted = isDeleted;
                 brand.UpdatedDate = DateTime.Now;
 
-                await _context.SaveChangesAsync();
+                await _brandService.UpdateBrandAsync(brand);
 
                 return RedirectToAction("Brands");
             }
@@ -116,7 +101,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> DeleteBrand(int id)
         {
-            var brand = await _context.Brands.FindAsync(id);
+            var brand = await _brandService.GetBrandByIdAsync(id);
             if (brand == null)
             {
                 return NotFound();
@@ -131,7 +116,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var brand = await _context.Brands.FindAsync(id);
+                var brand = await _brandService.GetBrandByIdAsync(id);
                 if (brand == null)
                 {
                     return Json(new { success = false, message = "Marka bulunamadı" });
@@ -141,7 +126,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 brand.IsDeleted = true;
                 brand.UpdatedDate = DateTime.Now;
 
-                await _context.SaveChangesAsync();
+                await _brandService.UpdateBrandAsync(brand);
 
                 return Json(new { success = true, message = "Marka başarıyla silindi" });
             }
@@ -168,7 +153,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             }
 
             // Marka adının benzersiz olup olmadığını kontrol et
-            bool brandExists = await _context.Brands.AnyAsync(b => b.Name.ToLower() == name.ToLower());
+            bool brandExists = !await _brandService.IsBrandNameUniqueAsync(name);
             if (brandExists)
             {
                 ViewBag.Error = "Bu isimde bir marka zaten var";
@@ -186,8 +171,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 };
 
                 // Veritabanına ekle
-                _context.Brands.Add(brand);
-                await _context.SaveChangesAsync();
+                await _brandService.CreateBrandAsync(brand);
 
                 return RedirectToAction("Brands");
             }
