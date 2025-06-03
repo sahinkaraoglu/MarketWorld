@@ -10,13 +10,11 @@ namespace MarketWorld.Web.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly MarketWorldDbContext _context;
     private readonly ICategoryService _categoryService;
 
-    public HomeController(ILogger<HomeController> logger, MarketWorldDbContext context = null, ICategoryService categoryService = null)
+    public HomeController(ILogger<HomeController> logger, ICategoryService categoryService = null)
     {
         _logger = logger;
-        _context = context;
         _categoryService = categoryService;
     }
 
