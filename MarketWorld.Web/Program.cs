@@ -99,6 +99,7 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IPropertyTypeService, PropertyTypeService>();
 builder.Services.AddScoped<IPropertyValueService, PropertyValueService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<MarketWorld.Core.Interfaces.Services.ICartService, MarketWorld.Infrastructure.Services.CartService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
