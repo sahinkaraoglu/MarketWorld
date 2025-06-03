@@ -93,7 +93,9 @@
                                             <a href="@Url.Action("Edit", "User", new { area = "Admin", id = user.Id })" class="btn btn-sm btn-outline-primary">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
-                                            <button onclick="deleteUser(@user.Id, '@user.Username')" class="btn btn-sm btn-outline-danger">
+                                            <button type="button" class="btn btn-sm btn-outline-danger delete-user-btn" 
+                                                    data-id="@user.Id" 
+                                                    data-username="@user.Username">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -166,7 +168,6 @@
         padding: 2rem 0 2rem 0;
         margin-bottom: 2rem;
         box-shadow: 0 2px 8px rgba(44,62,80,0.04);
-        /* border-radius: 14px; */
     }
 
     .users-header-flex {
@@ -306,53 +307,61 @@
 </style>
 
 @section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function deleteUser(id, username) {
-            Swal.fire({
-                title: 'Emin misiniz?',
-                text: `"${username}" kullanıcısını silmek istediğinizden emin misiniz?`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Evet, sil!',
-                cancelButtonText: 'İptal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: '@Url.Action("Delete", "User", new { area = "Admin" })/' + id,
-                        type: 'POST',
-                        success: function(response) {
-                            if (response.success) {
-                                Swal.fire(
-                                    'Silindi!',
-                                    'Kullanıcı başarıyla silindi.',
-                                    'success'
-                                ).then(() => {
-                                    window.location.reload();
-                                });
-                            } else {
-                                Swal.fire(
-                                    'Hata!',
-                                    response.message || 'Bir hata oluştu.',
-                                    'error'
-                                );
-                            }
-                        },
-                        error: function() {
-                            Swal.fire(
-                                'Hata!',
-                                'Bir hata oluştu.',
-                                'error'
-                            );
-                        }
-                    });
-                }
-            });
-        }
-
         $(document).ready(function() {
+            $('.delete-user-btn').on('click', function() {
+                const userId = $(this).data('id');
+                const username = $(this).data('username');
+                
+                Swal.fire({
+                    title: 'Emin misiniz?',
+                    text: `"${username}" kullanıcısını silmek istediğinizden emin misiniz?`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Evet, sil!',
+                    cancelButtonText: 'İptal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '@Url.Action("Delete", "User", new { area = "Admin" })/' + userId,
+                            type: 'POST',
+                            success: function(response) {
+                                if (response.success) {
+                                    Swal.fire({
+                                        title: 'Silindi!',
+                                        text: 'Kullanıcı başarıyla silindi.',
+                                        icon: 'success',
+                                        confirmButtonColor: '#3085d6'
+                                    }).then(() => {
+                                        window.location.reload();
+                                    });
+                                } else {
+                                    Swal.fire({
+                                        title: 'Hata!',
+                                        text: response.message || 'Bir hata oluştu.',
+                                        icon: 'error',
+                                        confirmButtonColor: '#3085d6'
+                                    });
+                                }
+                            },
+                            error: function(xhr) {
+                                Swal.fire({
+                                    title: 'Hata!',
+                                    text: 'Bir hata oluştu: ' + (xhr.responseJSON?.message || 'Bilinmeyen hata'),
+                                    icon: 'error',
+                                    confirmButtonColor: '#3085d6'
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Arama fonksiyonu
             $("#userSearchInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $(".user-table tbody tr").filter(function() {
