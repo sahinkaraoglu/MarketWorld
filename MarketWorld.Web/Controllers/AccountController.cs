@@ -43,7 +43,7 @@ namespace MarketWorld.Web.Controllers
                 ViewBag.UserId = userId;
             }
 
-            return View();
+            return View("~/Views/Account/Profile/Index.cshtml");
         }
 
         public async Task<IActionResult> Addresses()
@@ -73,12 +73,12 @@ namespace MarketWorld.Web.Controllers
                 ViewBag.UserEmail = "";
             }
 
-            return View(userAddresses);
+            return View("~/Views/Account/Address/Index.cshtml", userAddresses);
         }
 
         public IActionResult AddAddress()
         {
-            return View();
+            return View("~/Views/Account/Address/Create.cshtml");
         }
 
         [HttpPost]
@@ -125,7 +125,7 @@ namespace MarketWorld.Web.Controllers
             if (!isValid)
             {
                 ViewBag.Error = "Lütfen tüm zorunlu alanları doldurun";
-                return View();
+                return View("~/Views/Account/Address/Create.cshtml");
             }
 
             // AddressType ve IsDefault değerlerini dönüştürüyoruz
@@ -164,7 +164,7 @@ namespace MarketWorld.Web.Controllers
             {
                 Console.WriteLine($"Hata: {ex.Message}");
                 ViewBag.Error = "Adres kaydı sırasında bir hata oluştu: " + ex.Message;
-                return View();
+                return View("~/Views/Account/Address/Create.cshtml");
             }
         }
 
@@ -180,7 +180,7 @@ namespace MarketWorld.Web.Controllers
                 return NotFound();
             }
 
-            return View(address);
+            return View("~/Views/Account/Address/Edit.cshtml", address);
         }
 
         [HttpPost]
@@ -208,7 +208,7 @@ namespace MarketWorld.Web.Controllers
                 return RedirectToAction("Addresses");
             }
 
-            return View(address);
+            return View("~/Views/Account/Address/Edit.cshtml", address);
         }
 
         [HttpPost]
@@ -263,7 +263,7 @@ namespace MarketWorld.Web.Controllers
                 .OrderByDescending(o => o.OrderDate)
                 .ToListAsync();
 
-            return View(orders);
+            return View("~/Views/Account/Order/Index.cshtml", orders);
         }
 
         public async Task<IActionResult> Edit()
@@ -289,7 +289,7 @@ namespace MarketWorld.Web.Controllers
                 ViewBag.UserId = userId;
             }
 
-            return View();
+            return View("~/Views/Account/Profile/Edit.cshtml");
         }
 
         [HttpPost]
@@ -304,7 +304,7 @@ namespace MarketWorld.Web.Controllers
             if (user == null)
             {
                 ViewBag.Error = "Kullanıcı bulunamadı.";
-                return View();
+                return View("~/Views/Account/Profile/Edit.cshtml");
             }
 
             // Validasyon kontrolleri
@@ -338,7 +338,7 @@ namespace MarketWorld.Web.Controllers
                 ViewBag.LastName = LastName;
                 ViewBag.Email = Email;
                 ViewBag.Phone = Phone;
-                return View();
+                return View("~/Views/Account/Profile/Edit.cshtml");
             }
 
             try
@@ -363,7 +363,7 @@ namespace MarketWorld.Web.Controllers
                 ViewBag.Phone = user.PhoneNumber;
                 ViewBag.CreateDate = user.CreateDate.ToString("dd.MM.yyyy");
                 
-                return View();
+                return View("~/Views/Account/Profile/Edit.cshtml");
             }
             catch (Exception ex)
             {
@@ -373,7 +373,7 @@ namespace MarketWorld.Web.Controllers
                 ViewBag.LastName = LastName;
                 ViewBag.Email = Email;
                 ViewBag.Phone = Phone;
-                return View();
+                return View("~/Views/Account/Profile/Edit.cshtml");
             }
         }
     }
