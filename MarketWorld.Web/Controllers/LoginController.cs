@@ -18,7 +18,6 @@ namespace MarketWorld.Web.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         public LoginController(
-            MarketWorldDbContext context, 
             IJwtService jwtService, 
             ILogger<LoginController> logger,
             UserManager<ApplicationUser> userManager,
