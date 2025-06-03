@@ -14,19 +14,20 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
+using MarketWorld.Application.Services.Interfaces;
 
 namespace MarketWorld.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly MarketWorldDbContext _context;
+        private readonly IProductService _productService;
         private readonly IDistributedCache _cache;
         private const string CacheKey = "web_products";
         private readonly JsonSerializerOptions _jsonOptions;
 
-        public ProductController(MarketWorldDbContext context, IDistributedCache cache)
+        public ProductController(IProductService productService, IDistributedCache cache)
         {
-            _context = context;
+            _productService = productService;
             _cache = cache;
             _jsonOptions = new JsonSerializerOptions
             {
@@ -47,42 +48,34 @@ namespace MarketWorld.Web.Controllers
                 return View("ProductList", cachedResult);
             }
 
-            var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
-
-            var userId = HttpContext.Items["UserId"]?.ToString();
-            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
-
-            var products = await _context.Products
-                .Include(p => p.Brand)
-                .Include(p => p.Images)
-                .Include(p => p.SubCategory)
-                .ThenInclude(sc => sc.Category)
-                .Where(p => p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted)
+            var products = await _productService.GetAllProducts();
+            var filteredProducts = products
+                .Where(p => p.SubCategory?.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted)
                 .Select(p => new ProductViewModel
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Description = p.Description,
                     BrandId = p.BrandId,
-                    BrandName = p.Brand.Name,
+                    BrandName = p.Brand?.Name,
                     CreatedDate = p.CreatedDate,
                     Price = p.Price,
-                    ImageUrl = p.Images.FirstOrDefault() != null ?
+                    ImageUrl = p.Images?.FirstOrDefault() != null ?
                               $"/{p.Images.FirstOrDefault().Path}" :
                               "/img/default-product.jpg",
                     Rating = p.Rating,
                     ReviewCount = 100,
                     HasFreeShipping = p.Price > 45000,
                     Stock = p.GetTotalStock(),
-                    CategoryName = p.SubCategory.Category.Name,
+                    CategoryName = p.SubCategory?.Category?.Name,
                     HasDiscount = p.HasDiscount,
                     DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
                     ProductCode = p.ProductCode,
-                    Color = p.ProductProperties
+                    Color = p.ProductProperties?
                         .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
                         .Select(pp => pp.PropertyValue.Value)
                         .FirstOrDefault() ?? "Varsayılan"
-                }).ToListAsync();
+                }).ToList();
 
             var brands = await GetBrandsForSubCategory(subCategoryName);
             ViewBag.Brands = brands;
@@ -97,7 +90,7 @@ namespace MarketWorld.Web.Controllers
                 cacheOptions
             );
 
-            return View("ProductList", products);
+            return View("ProductList", filteredProducts);
         }
 
         private async Task<List<Brand>> GetBrandsForSubCategory(string subCategoryName)
@@ -110,13 +103,14 @@ namespace MarketWorld.Web.Controllers
                 return JsonSerializer.Deserialize<List<Brand>>(cachedBrands, _jsonOptions);
             }
 
-            var brands = await _context.Brands
-                .Where(b => !b.IsDeleted && _context.Products
-                    .Any(p => p.BrandId == b.Id && 
-                            p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && 
-                            p.IsActive && !p.IsDeleted))
+            var products = await _productService.GetAllProducts();
+            var brands = products
+                .Where(p => p.SubCategory?.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted)
+                .Select(p => p.Brand)
+                .Where(b => b != null && !b.IsDeleted)
+                .Distinct()
                 .OrderBy(b => b.Name)
-                .ToListAsync();
+                .ToList();
 
             var cacheOptions = new DistributedCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(15))
@@ -141,46 +135,31 @@ namespace MarketWorld.Web.Controllers
 
             if (!string.IsNullOrEmpty(cachedData))
             {
-                // JsonDocument kullanarak daha güvenli erişim
                 using JsonDocument document = JsonDocument.Parse(cachedData);
                 JsonElement root = document.RootElement;
                 
-                // Ürünleri ve diğer bilgileri önce JsonElement olarak al, daha sonra deserialize et
                 var productsElement = root.GetProperty("Products");
-                
-                // Markaları veritabanından doğrudan al
                 var cachedBrands = await GetBrandsForSubCategory(subCategoryName);
                 
-                // ViewBag değerlerini ayarla
                 ViewBag.Brands = cachedBrands;
                 ViewBag.CurrentPage = root.GetProperty("CurrentPage").GetInt32();
                 ViewBag.TotalPages = root.GetProperty("TotalPages").GetInt32();
                 ViewBag.SubCategoryName = subCategoryName;
                 
-                // Ürünleri deserialize et ve view'a gönder
                 var cachedProducts = JsonSerializer.Deserialize<List<ProductViewModel>>(productsElement.GetRawText(), _jsonOptions);
                 return View("ProductList", cachedProducts);
             }
 
-            var subCategory = await _context.SubCategories.FirstOrDefaultAsync(sc => sc.ShortenedEntityName.ToLower() == subCategoryName.ToLower());
-            if (subCategory == null)
-                return NotFound();
-
-            var userId = HttpContext.Items["UserId"]?.ToString();
-            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
+            var products = await _productService.GetAllProducts();
+            var filteredProducts = products
+                .Where(p => p.SubCategory?.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted)
+                .ToList();
 
             var pageSize = 9;
-            var query = _context.Products
-                .Include(p => p.Brand)
-                .Include(p => p.Images)
-                .Include(p => p.SubCategory)
-                    .ThenInclude(sc => sc.Category)
-                .Where(p => p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted);
-
-            var totalItems = await query.CountAsync();
+            var totalItems = filteredProducts.Count;
             var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
 
-            var products = await query
+            var pagedProducts = filteredProducts
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .Select(p => new ProductViewModel
@@ -189,29 +168,29 @@ namespace MarketWorld.Web.Controllers
                     Name = p.Name,
                     Description = p.Description,
                     BrandId = p.BrandId,
-                    BrandName = p.Brand.Name,
+                    BrandName = p.Brand?.Name,
                     Price = p.Price,
-                    ImageUrl = p.Images.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
+                    ImageUrl = p.Images?.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
                     Rating = p.Rating,
                     ReviewCount = 100,
                     HasFreeShipping = p.Price > 45000,
                     Stock = p.GetTotalStock(),
-                    CategoryName = p.SubCategory.Category.Name,
+                    CategoryName = p.SubCategory?.Category?.Name,
                     HasDiscount = p.HasDiscount,
                     DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
                     ProductCode = p.ProductCode,
-                    Color = p.ProductProperties
+                    Color = p.ProductProperties?
                         .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
                         .Select(pp => pp.PropertyValue.Value)
                         .FirstOrDefault() ?? "Varsayılan"
                 })
-                .ToListAsync();
+                .ToList();
 
             var brands = await GetBrandsForSubCategory(subCategoryName);
 
             var result = new
             {
-                Products = products,
+                Products = pagedProducts,
                 TotalPages = totalPages,
                 CurrentPage = page,
                 PageSize = pageSize,
@@ -251,83 +230,35 @@ namespace MarketWorld.Web.Controllers
                 return View(cachedViewModel);
             }
 
-            var product = await _context.Products
-                .Include(p => p.Brand)
-                .Include(p => p.Images)
-                .Include(p => p.SubCategory)
-                    .ThenInclude(sc => sc.Category)
-                .Include(p => p.ProductProperties)
-                    .ThenInclude(pp => pp.PropertyType)
-                .Include(p => p.ProductProperties)
-                    .ThenInclude(pp => pp.PropertyValue)
-                .Include(p => p.Comments.Where(c => c.IsApproved && !c.IsDeleted))
-                .FirstOrDefaultAsync(p => p.Id == id && p.IsActive && !p.IsDeleted);
-
+            var product = await _productService.GetProductById(id);
             if (product == null)
                 return NotFound();
-
-            var colorOptions = product.ProductProperties?
-                .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
-                .Select(pp => new ProductPropertyViewModel
-                {
-                    Id = pp.Id,
-                    Value = pp.PropertyValue.Value,
-                    Stock = pp.Stock,
-                    IsSelected = false
-                })
-                .ToList() ?? new List<ProductPropertyViewModel>();
-
-            // Hafıza seçeneklerini sadece telefonlar için göster (SubCategoryId = 3)
-            var memoryOptions = product.SubCategoryId == 3 ? 
-                product.ProductProperties?
-                    .Where(pp => pp.PropertyType.Name == "Hafıza" && pp.IsActive)
-                    .Select(pp => new ProductPropertyViewModel
-                    {
-                        Id = pp.Id,
-                        Value = pp.PropertyValue.Value,
-                        Stock = pp.Stock,
-                        IsSelected = false
-                    })
-                    .ToList() ?? new List<ProductPropertyViewModel>() 
-                : new List<ProductPropertyViewModel>();
-                
-            var comments = product.Comments?
-                .Select(c => new CommentViewModel
-                {
-                    Id = c.Id,
-                    Text = c.Text,
-                    Rating = c.Rating,
-                    ProductId = c.ProductId,
-                    ProductCode = c.ProductCode,
-                    UserName = c.UserName,
-                    CreatedDate = c.CreatedDate
-                })
-                .ToList() ?? new List<CommentViewModel>();
 
             var viewModel = new ProductDetailViewModel
             {
                 Id = product.Id,
-                ProductCode = product.ProductCode,
                 Name = product.Name,
                 Description = product.Description,
-                BrandId = product.BrandId,
-                BrandName = product.Brand?.Name,
                 Price = product.Price,
-                DiscountPrice = product.DiscountPrice,
-                HasDiscount = product.HasDiscount,
-                Stock = product.GetTotalStock(),
-                Rating = product.Comments != null && product.Comments.Any() ? 
-                    (double)product.Comments.Average(c => c.Rating) : 4.5,
+                BrandName = product.Brand?.Name,
+                Rating = product.Rating,
                 ReviewCount = product.Comments?.Count ?? 0,
-                Images = product.Images.OrderBy(i => i.Id).Select(i => $"/{i.Path}").ToList(),
+                HasFreeShipping = product.Price > 45000,
+                Stock = product.GetTotalStock(),
                 CategoryName = product.SubCategory?.Category?.Name,
                 SubCategoryName = product.SubCategory?.Name,
-                CategoryId = product.SubCategory?.Category?.Id ?? 0,
-                SubCategoryId = product.SubCategoryId,
-                HasFreeShipping = product.Price > 45000,
-                ColorOptions = colorOptions,
-                MemoryOptions = memoryOptions,
-                Comments = comments
+                HasDiscount = product.HasDiscount,
+                DiscountPrice = product.HasDiscount ? product.DiscountPrice : null,
+                ProductCode = product.ProductCode,
+                Images = product.Images?.Select(i => $"/{i.Path}").ToList() ?? new List<string> { "/img/default-product.jpg" },
+                Properties = product.ProductProperties?
+                    .Where(pp => pp.IsActive)
+                    .Select(pp => new ProductPropertyViewModel
+                    {
+                        TypeName = pp.PropertyType.Name,
+                        Value = pp.PropertyValue.Value,
+                        Stock = pp.Stock
+                    }).ToList() ?? new List<ProductPropertyViewModel>()
             };
 
             var cacheOptions = new DistributedCacheEntryOptions()
@@ -346,73 +277,44 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddComment(CommentViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var product = await _context.Products
-                    .Include(p => p.Comments)
-                    .FirstOrDefaultAsync(p => p.Id == model.ProductId && p.IsActive && !p.IsDeleted);
-                
-                if (product == null)
-                    return NotFound();
-                
-                var comment = new MarketWorld.Core.Domain.Entities.Comment
-                {
-                    Text = model.Text,
-                    Rating = model.Rating,
-                    ProductId = model.ProductId,
-                    ProductCode = product.ProductCode,
-                    UserName = model.UserName,
-                    IsApproved = true, // Otomatik onaylı (gerçek uygulamada admin onayı gerekebilir)
-                    CreatedDate = DateTime.Now
-                };
-                
-                await _context.AddAsync(comment);
-                await _context.SaveChangesAsync();
-                
-                // Ürünün ortalama puanını güncelle
-                if (product.Comments != null && product.Comments.Any())
-                {
-                    product.Rating = (decimal)product.Comments.Average(c => c.Rating);
-                    await _context.SaveChangesAsync();
-                }
-
-                // Önbelleği temizle
-                string productDetailCacheKey = $"{CacheKey}_product_detail_{model.ProductId}";
-                await _cache.RemoveAsync(productDetailCacheKey);
-                
-                // İlgili alt kategori önbelleklerini de temizleyelim
-                if (product.SubCategory != null)
-                {
-                    string subCategoryName = product.SubCategory.ShortenedEntityName.ToLower();
-                    string subcategoryCacheKey = $"{CacheKey}_subcategory_{subCategoryName}";
-                    await _cache.RemoveAsync(subcategoryCacheKey);
-                    
-                    // Sayfalanmış önbellekleri temizle
-                    for (int i = 1; i <= 10; i++) 
-                    {
-                        string pagedCacheKey = $"{CacheKey}_subcategory_paged_{subCategoryName}_{i}";
-                        await _cache.RemoveAsync(pagedCacheKey);
-                    }
-
-                    // Markalar önbelleğini de temizleyelim
-                    string brandsCacheKey = $"{CacheKey}_brands_{subCategoryName.ToLower()}";
-                    await _cache.RemoveAsync(brandsCacheKey);
-                }
-                
+            if (!ModelState.IsValid)
                 return RedirectToAction("Detail", new { id = model.ProductId });
-            }
-            
+
+            var product = await _productService.GetProductById(model.ProductId);
+            if (product == null)
+                return NotFound();
+
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            if (string.IsNullOrEmpty(userId))
+                return RedirectToAction("Login", "Account");
+
+            var comment = new Comment
+            {
+                ProductId = model.ProductId,
+                UserId = int.Parse(userId),
+                Text = model.Text,
+                Rating = model.Rating,
+                CreatedDate = DateTime.Now,
+                UserName = HttpContext.User.Identity?.Name ?? "Anonim"
+            };
+
+            product.Comments.Add(comment);
+            await _productService.UpdateProduct(product);
+
             return RedirectToAction("Detail", new { id = model.ProductId });
         }
 
-        // Alt kategorileri listeleyen test metodu
         public async Task<IActionResult> ListSubCategories()
         {
-            var subCategories = await _context.SubCategories
-                .Select(sc => new { sc.Id, sc.Name, sc.ShortenedEntityName, sc.CategoryId })
-                .ToListAsync();
-            
-            return Json(subCategories);
+            var products = await _productService.GetAllProducts();
+            var subCategories = products
+                .Where(p => p.SubCategory != null)
+                .Select(p => p.SubCategory)
+                .Distinct()
+                .OrderBy(sc => sc.Name)
+                .ToList();
+
+            return View(subCategories);
         }
 
         public async Task<IActionResult> Search(string query)
@@ -420,109 +322,99 @@ namespace MarketWorld.Web.Controllers
             if (string.IsNullOrEmpty(query))
                 return RedirectToAction("Index", "Home");
 
-            var userId = HttpContext.Items["UserId"]?.ToString();
-            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
-
-            var products = await _context.Products
-                .Include(p => p.Brand)
-                .Include(p => p.Images)
-                .Include(p => p.SubCategory)
-                    .ThenInclude(sc => sc.Category)
-                .Where(p => p.Name.Contains(query) || 
-                           p.Description.Contains(query) ||
-                           p.Brand.Name.Contains(query) ||
-                           p.SubCategory.Name.Contains(query) ||
-                           p.SubCategory.Category.Name.Contains(query))
+            var products = await _productService.GetAllProducts();
+            var searchResults = products
+                .Where(p => p.IsActive && !p.IsDeleted && 
+                    (p.Name.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                     p.Description.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                     p.Brand?.Name.Contains(query, StringComparison.OrdinalIgnoreCase) == true))
                 .Select(p => new ProductViewModel
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Description = p.Description,
+                    BrandId = p.BrandId,
+                    BrandName = p.Brand?.Name,
                     Price = p.Price,
-                    DiscountPrice = p.DiscountPrice,
-                    HasDiscount = p.HasDiscount,
-                    ImageUrl = p.Images.FirstOrDefault() != null ?
-                              $"/{p.Images.FirstOrDefault().Path}" :
-                              "/img/default-product.jpg",
-                    BrandName = p.Brand.Name,
-                    CategoryName = p.SubCategory.Category.Name,
+                    ImageUrl = p.Images?.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
                     Rating = p.Rating,
-                    ReviewCount = 100,
-                    HasFreeShipping = p.Price > 45000
+                    ReviewCount = p.Comments?.Count ?? 0,
+                    HasFreeShipping = p.Price > 45000,
+                    Stock = p.GetTotalStock(),
+                    CategoryName = p.SubCategory?.Category?.Name,
+                    HasDiscount = p.HasDiscount,
+                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
+                    ProductCode = p.ProductCode,
+                    Color = p.ProductProperties?
+                        .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
+                        .Select(pp => pp.PropertyValue.Value)
+                        .FirstOrDefault() ?? "Varsayılan"
                 })
-                .ToListAsync();
+                .ToList();
 
-            var brands = await _context.Brands
-                .Where(b => !b.IsDeleted)
-                .OrderBy(b => b.Name)
-                .ToListAsync();
-
-            ViewBag.Brands = brands;
             ViewBag.SearchQuery = query;
-            return View("ProductList", products);
+            return View("ProductList", searchResults);
         }
 
         [HttpGet]
         public async Task<IActionResult> LoadMoreProducts(string subCategoryName, int page = 1, 
             List<int> brandIds = null, List<decimal> ratings = null, decimal minPrice = 0, decimal maxPrice = 0)
         {
-            if (string.IsNullOrEmpty(subCategoryName))
-                return BadRequest("Alt kategori adı gereklidir.");
-
-            var userId = HttpContext.Items["UserId"]?.ToString();
-            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
-
-            var pageSize = 9;
-            var query = _context.Products
-                .Include(p => p.Brand)
-                .Include(p => p.Images)
-                .Include(p => p.SubCategory)
-                    .ThenInclude(sc => sc.Category)
-                .Where(p => p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted);
+            var products = await _productService.GetAllProducts();
+            var filteredProducts = products
+                .Where(p => p.SubCategory?.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && 
+                           p.IsActive && !p.IsDeleted)
+                .ToList();
 
             if (brandIds != null && brandIds.Any())
             {
-                query = query.Where(p => brandIds.Contains(p.BrandId));
+                filteredProducts = filteredProducts.Where(p => brandIds.Contains(p.BrandId)).ToList();
             }
 
             if (ratings != null && ratings.Any())
             {
-                query = query.Where(p => ratings.Contains(p.Rating));
+                filteredProducts = filteredProducts.Where(p => ratings.Contains(Math.Floor(p.Rating))).ToList();
             }
 
             if (minPrice > 0)
             {
-                query = query.Where(p => p.Price >= minPrice);
+                filteredProducts = filteredProducts.Where(p => p.Price >= minPrice).ToList();
             }
 
             if (maxPrice > 0)
             {
-                query = query.Where(p => p.Price <= maxPrice);
+                filteredProducts = filteredProducts.Where(p => p.Price <= maxPrice).ToList();
             }
 
-            var totalItems = await query.CountAsync();
-            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
-
-            var products = await query
+            var pageSize = 9;
+            var pagedProducts = filteredProducts
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Select(p => new
+                .Select(p => new ProductViewModel
                 {
-                    id = p.Id,
-                    name = p.Name,
-                    brandName = p.Brand.Name,
-                    price = p.Price,
-                    discountPrice = p.DiscountPrice,
-                    hasDiscount = p.HasDiscount,
-                    imageUrl = p.Images.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
-                    rating = p.Rating,
-                    reviewCount = 100, // Örnek değer
-                    hasFreeShipping = p.Price > 45000,
-                    productCode = p.ProductCode
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    BrandId = p.BrandId,
+                    BrandName = p.Brand?.Name,
+                    Price = p.Price,
+                    ImageUrl = p.Images?.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
+                    Rating = p.Rating,
+                    ReviewCount = p.Comments?.Count ?? 0,
+                    HasFreeShipping = p.Price > 45000,
+                    Stock = p.GetTotalStock(),
+                    CategoryName = p.SubCategory?.Category?.Name,
+                    HasDiscount = p.HasDiscount,
+                    DiscountPrice = p.HasDiscount ? p.DiscountPrice : null,
+                    ProductCode = p.ProductCode,
+                    Color = p.ProductProperties?
+                        .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
+                        .Select(pp => pp.PropertyValue.Value)
+                        .FirstOrDefault() ?? "Varsayılan"
                 })
-                .ToListAsync();
+                .ToList();
 
-            return Json(new { products, hasMore = page < totalPages });
+            return PartialView("_ProductList", pagedProducts);
         }
     }
 } 

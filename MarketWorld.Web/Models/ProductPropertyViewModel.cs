@@ -4,4 +4,5 @@ public class ProductPropertyViewModel
     public string Value { get; set; }
     public int Stock { get; set; }
     public bool IsSelected { get; set; }
+    public string TypeName { get; set; }
 } 

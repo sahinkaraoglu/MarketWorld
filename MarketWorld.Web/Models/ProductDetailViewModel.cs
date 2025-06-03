@@ -20,7 +20,7 @@ namespace MarketWorld.Web.Models
         public decimal? DiscountPrice { get; set; }
         public bool HasDiscount { get; set; }
         public int Stock { get; set; }
-        public double Rating { get; set; }
+        public decimal Rating { get; set; }
         public int ReviewCount { get; set; }
         public List<string> Images { get; set; }
         public string CategoryName { get; set; }
@@ -29,6 +29,7 @@ namespace MarketWorld.Web.Models
         public List<ProductPropertyViewModel> ColorOptions { get; set; }
         public List<ProductPropertyViewModel> MemoryOptions { get; set; }
         public List<CommentViewModel> Comments { get; set; }
+        public List<ProductPropertyViewModel> Properties { get; set; }
         
         public int GetTotalStock()
         {
