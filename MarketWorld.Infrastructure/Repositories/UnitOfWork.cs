@@ -16,6 +16,8 @@ namespace MarketWorld.Infrastructure.Repositories
         private IBrandRepository _brandRepository;
         private IOrderRepository _orderRepository;
         private ISubCategoryRepository _subCategories;
+        private IPropertyTypeRepository _propertyTypes;
+        private IPropertyValueRepository _propertyValues;
         private IDbContextTransaction _transaction;
         private bool _disposed;
 
@@ -39,10 +41,14 @@ namespace MarketWorld.Infrastructure.Repositories
         public IOrderRepository Orders =>
             _orderRepository ??= new OrderRepository(_context);
 
-        public ISubCategoryRepository SubCategories
-        {
-            get { return _subCategories ??= new SubCategoryRepository(_context); }
-        }
+        public ISubCategoryRepository SubCategories =>
+            _subCategories ??= new SubCategoryRepository(_context);
+
+        public IPropertyTypeRepository PropertyTypes =>
+            _propertyTypes ??= new PropertyTypeRepository(_context);
+
+        public IPropertyValueRepository PropertyValues =>
+            _propertyValues ??= new PropertyValueRepository(_context);
 
         public async Task BeginTransactionAsync()
         {
@@ -53,18 +59,35 @@ namespace MarketWorld.Infrastructure.Repositories
         {
             try
             {
-                await _transaction.CommitAsync();
+                await _context.SaveChangesAsync();
+                if (_transaction != null)
+                {
+                    await _transaction.CommitAsync();
+                }
             }
             catch
             {
-                await _transaction.RollbackAsync();
+                await RollbackAsync();
                 throw;
+            }
+            finally
+            {
+                if (_transaction != null)
+                {
+                    _transaction.Dispose();
+                    _transaction = null;
+                }
             }
         }
 
         public async Task RollbackAsync()
         {
-            await _transaction.RollbackAsync();
+            if (_transaction != null)
+            {
+                await _transaction.RollbackAsync();
+                _transaction.Dispose();
+                _transaction = null;
+            }
         }
 
         public async Task<int> SaveChangesAsync()
@@ -82,8 +105,11 @@ namespace MarketWorld.Infrastructure.Repositories
         {
             if (!_disposed && disposing)
             {
-                _transaction?.Dispose();
                 _context.Dispose();
+                if (_transaction != null)
+                {
+                    _transaction.Dispose();
+                }
             }
             _disposed = true;
         }

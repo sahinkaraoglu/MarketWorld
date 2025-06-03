@@ -11,6 +11,8 @@ namespace MarketWorld.Application.Repositories
         ICommentRepository Comments { get; }
         IBrandRepository Brands { get; }
         IOrderRepository Orders { get; }
+        IPropertyTypeRepository PropertyTypes { get; }
+        IPropertyValueRepository PropertyValues { get; }
         
         Task<int> SaveChangesAsync();
         Task BeginTransactionAsync();
