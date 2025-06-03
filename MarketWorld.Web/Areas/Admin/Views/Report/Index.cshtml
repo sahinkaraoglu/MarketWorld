@@ -1,0 +1,240 @@
+@{
+    ViewData["Title"] = "Raporlar";
+}
+
+<div class="reports-container">
+    <div class="reports-header-gradient">
+        <div class="container">
+            <div class="reports-header-flex">
+                <h1 class="reports-title-gradient">Raporlar</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container reports-content">
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-circle-fill me-2"></i>@TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+            </div>
+        }
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="stat-icon bg-primary">
+                                <i class="bi bi-currency-dollar"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="card-subtitle mb-1">Aylık Gelir</h6>
+                                <h2 class="card-title mb-0">@ViewBag.MonthlyRevenue.ToString("C")</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="stat-icon bg-success">
+                                <i class="bi bi-currency-dollar"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="card-subtitle mb-1">Günlük Gelir</h6>
+                                <h2 class="card-title mb-0">@ViewBag.DailyRevenue.ToString("C")</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-graph-up me-2"></i>En Çok Satan Ürünler</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Ürün</th>
+                                        <th>Adet</th>
+                                        <th>Gelir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var product in ViewBag.TopSellingProducts)
+                                    {
+                                        <tr>
+                                            <td>@product.ProductName</td>
+                                            <td>@product.TotalQuantity</td>
+                                            <td>@product.TotalRevenue.ToString("C")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-graph-up me-2"></i>En Çok Satan Kategoriler</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Kategori</th>
+                                        <th>Adet</th>
+                                        <th>Gelir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var category in ViewBag.TopSellingCategories)
+                                    {
+                                        <tr>
+                                            <td>@category.CategoryName</td>
+                                            <td>@category.TotalQuantity</td>
+                                            <td>@category.TotalRevenue.ToString("C")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-pie-chart me-2"></i>Sipariş Durumu Dağılımı</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Durum</th>
+                                        <th>Adet</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var status in ViewBag.OrderStatusDistribution)
+                                    {
+                                        <tr>
+                                            <td>@status.Status</td>
+                                            <td>@status.Count</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .reports-container {
+        padding: 2rem 0;
+    }
+
+    .reports-header-gradient {
+        background: linear-gradient(90deg, #34495e 0%, #458995 100%);
+        padding: 2rem 0 2rem 0;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+    }
+
+    .reports-header-flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .reports-title-gradient {
+        color: #fff;
+        font-size: 2.1rem;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    }
+
+    .card-header {
+        background-color: #fff;
+        border-bottom: 1px solid #e3e6f0;
+        padding: 1rem 1.25rem;
+    }
+
+    .stat-card {
+        transition: transform 0.2s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .stat-icon.bg-primary {
+        background: linear-gradient(135deg, #4e73df, #224abe);
+    }
+
+    .stat-icon.bg-success {
+        background: linear-gradient(135deg, #1cc88a, #13855c);
+    }
+
+    .card-subtitle {
+        color: #858796;
+        font-size: 0.875rem;
+    }
+
+    .card-title {
+        color: #5a5c69;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .table > :not(caption) > * > * {
+        padding: 1rem;
+    }
+
+    .table thead th {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+        color: #5a5c69;
+    }
+</style>
