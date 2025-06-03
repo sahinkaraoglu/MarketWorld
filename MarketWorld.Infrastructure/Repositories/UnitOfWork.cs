@@ -14,8 +14,9 @@ namespace MarketWorld.Infrastructure.Repositories
         private ICategoryRepository _categoryRepository;
         private ICommentRepository _commentRepository;
         private IBrandRepository _brandRepository;
-        private IDbContextTransaction _transaction;
+        private IOrderRepository _orderRepository;
         private ISubCategoryRepository _subCategories;
+        private IDbContextTransaction _transaction;
         private bool _disposed;
 
         public UnitOfWork(MarketWorldDbContext context)
@@ -34,6 +35,9 @@ namespace MarketWorld.Infrastructure.Repositories
             
         public IBrandRepository Brands => 
             _brandRepository ??= new BrandRepository(_context);
+
+        public IOrderRepository Orders =>
+            _orderRepository ??= new OrderRepository(_context);
 
         public ISubCategoryRepository SubCategories
         {

@@ -1,12 +1,12 @@
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Core.Enums;
-using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Attributes;
+using MarketWorld.Web.Areas.Admin.Models.Panel;
+using MarketWorld.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
@@ -16,18 +16,12 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
     [Authorize]
     public class OrderController : Controller
     {
-        private readonly MarketWorldDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IOrderService _orderService;
 
         public OrderController(
-            MarketWorldDbContext context,
-            UserManager<ApplicationUser> userManager,
-            RoleManager<IdentityRole> roleManager)
+            IOrderService orderService)
         {
-            _context = context;
-            _userManager = userManager;
-            _roleManager = roleManager;
+            _orderService = orderService;
         }
 
         [HttpGet]
@@ -35,12 +29,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
-            var orders = await _context.Orders
-                .Include(o => o.User)
-                .Include(o => o.OrderItems)
-                .OrderByDescending(o => o.OrderDate)
-                .ToListAsync();
-
+            var orders = await _orderService.GetAllOrdersAsync();
             return View(orders);
         }
 
@@ -50,20 +39,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var query = _context.Orders
-                    .Include(o => o.User)
-                    .Include(o => o.OrderItems)
-                    .AsQueryable();
-
-                if (status.HasValue)
-                {
-                    query = query.Where(o => (int)o.Status == status.Value);
-                }
-
-                var orders = await query
-                    .OrderByDescending(o => o.OrderDate)
-                    .ToListAsync();
-
+                var orders = await _orderService.GetOrdersByStatusAsync(status.HasValue ? (OrderStatus)status.Value : null);
                 return View("Order/Index", orders);
             }
             catch (Exception ex)
@@ -78,12 +54,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var order = await _context.Orders.FindAsync(id);
-                if (order == null)
-                {
-                    return Json(new { success = false, message = "Sipariş bulunamadı" });
-                }
-
+                var order = await _orderService.GetOrderByIdAsync(id);
                 return Json(new { success = true, status = (int)order.Status });
             }
             catch (Exception ex)
@@ -98,15 +69,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var order = await _context.Orders.FindAsync(orderId);
-                if (order == null)
-                {
-                    return Json(new { success = false, message = "Sipariş bulunamadı" });
-                }
-
-                order.Status = (Core.Enums.OrderStatus)status;
-                await _context.SaveChangesAsync();
-
+                var order = await _orderService.UpdateOrderStatusAsync(orderId, (OrderStatus)status);
                 return Json(new { success = true });
             }
             catch (Exception ex)
@@ -121,19 +84,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         {
             try
             {
-                var order = await _context.Orders
-                    .Include(o => o.User)
-                    .Include(o => o.OrderItems)
-                        .ThenInclude(oi => oi.Product)
-                    .Include(o => o.ShippingAddress)
-                    .Include(o => o.BillingAddress)
-                    .FirstOrDefaultAsync(o => o.Id == id);
-
-                if (order == null)
-                {
-                    return NotFound();
-                }
-
+                var order = await _orderService.GetOrderWithDetailsAsync(id);
                 return View("PrintOrder", order);
             }
             catch (Exception ex)

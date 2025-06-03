@@ -10,6 +10,7 @@ namespace MarketWorld.Application.Repositories
         ISubCategoryRepository SubCategories { get; }
         ICommentRepository Comments { get; }
         IBrandRepository Brands { get; }
+        IOrderRepository Orders { get; }
         
         Task<int> SaveChangesAsync();
         Task BeginTransactionAsync();
