@@ -13,6 +13,8 @@ namespace MarketWorld.Application.Repositories
         IOrderRepository Orders { get; }
         IPropertyTypeRepository PropertyTypes { get; }
         IPropertyValueRepository PropertyValues { get; }
+        ICartRepository Carts { get; }
+        ICartItemRepository CartItems { get; }
         
         Task<int> SaveChangesAsync();
         Task BeginTransactionAsync();

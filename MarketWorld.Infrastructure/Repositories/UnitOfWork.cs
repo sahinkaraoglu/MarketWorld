@@ -18,6 +18,8 @@ namespace MarketWorld.Infrastructure.Repositories
         private ISubCategoryRepository _subCategories;
         private IPropertyTypeRepository _propertyTypes;
         private IPropertyValueRepository _propertyValues;
+        private ICartRepository _cartRepository;
+        private ICartItemRepository _cartItemRepository;
         private IDbContextTransaction _transaction;
         private bool _disposed;
 
@@ -49,6 +51,12 @@ namespace MarketWorld.Infrastructure.Repositories
 
         public IPropertyValueRepository PropertyValues =>
             _propertyValues ??= new PropertyValueRepository(_context);
+
+        public ICartRepository Carts =>
+            _cartRepository ??= new CartRepository(_context);
+
+        public ICartItemRepository CartItems =>
+            _cartItemRepository ??= new CartItemRepository(_context);
 
         public async Task BeginTransactionAsync()
         {

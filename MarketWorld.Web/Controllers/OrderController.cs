@@ -1,38 +1,38 @@
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Core.Enums;
-using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Attributes;
+using MarketWorld.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MarketWorld.Web.Controllers
 {
-
     public class OrderController : Controller
     {
-        private readonly MarketWorldDbContext _context;
+        private readonly IOrderService _orderService;
+        private readonly ICartService _cartService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
         public OrderController(
-            MarketWorldDbContext context,
+            IOrderService orderService,
+            ICartService cartService,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
-            _context = context;
+            _orderService = orderService;
+            _cartService = cartService;
             _userManager = userManager;
             _roleManager = roleManager;
         }
 
-
         public async Task<IActionResult> Index()
         {
             // Sipariş istatistikleri
-            var orders = await _context.Orders.ToListAsync();
+            var orders = await _orderService.GetAllOrdersAsync();
 
             // Debug için sipariş detaylarını kontrol et
             foreach (var order in orders)
@@ -41,8 +41,8 @@ namespace MarketWorld.Web.Controllers
             }
 
             // Sipariş sayılarını yeniden hesapla
-            ViewBag.NewOrdersCount = orders.Count;
-            ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == Core.Enums.OrderStatus.Shipped);
+            ViewBag.NewOrdersCount = orders.Count();
+            ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == OrderStatus.Shipped);
 
             // Gelir istatistikleri
             var monthlyOrders = orders.Where(o => o.CreatedDate >= DateTime.Now.AddMonths(-1));
@@ -63,26 +63,11 @@ namespace MarketWorld.Web.Controllers
         {
             try
             {
-                var query = _context.Orders
-                    .Include(o => o.User)
-                    .Include(o => o.OrderItems)
-                    .AsQueryable();
-
-                // Durum filtresini uygula
-                if (status.HasValue)
-                {
-                    query = query.Where(o => (int)o.Status == status.Value);
-                }
-
-                var orders = await query
-                    .OrderByDescending(o => o.OrderDate)
-                    .ToListAsync();
-
+                var orders = await _orderService.GetOrdersByStatusAsync(status.HasValue ? (OrderStatus)status.Value : null);
                 return View("Order/Index", orders);
             }
             catch (Exception ex)
             {
-                // Hata durumunda boş liste gönderiyoruz, böylece sayfa hata vermeden açılır
                 return View("Order/Index", new List<Order>());
             }
         }
@@ -93,7 +78,7 @@ namespace MarketWorld.Web.Controllers
         {
             try
             {
-                var order = await _context.Orders.FindAsync(id);
+                var order = await _orderService.GetOrderByIdAsync(id);
                 if (order == null)
                 {
                     return Json(new { success = false, message = "Sipariş bulunamadı" });
@@ -113,17 +98,7 @@ namespace MarketWorld.Web.Controllers
         {
             try
             {
-                var order = await _context.Orders.FindAsync(orderId);
-                if (order == null)
-                {
-                    return Json(new { success = false, message = "Sipariş bulunamadı" });
-                }
-
-                order.Status = (Core.Enums.OrderStatus)status;
-                // Not işleme eklenebilir
-
-                await _context.SaveChangesAsync();
-
+                var order = await _orderService.UpdateOrderStatusAsync(orderId, (OrderStatus)status);
                 return Json(new { success = true });
             }
             catch (Exception ex)
@@ -138,14 +113,7 @@ namespace MarketWorld.Web.Controllers
         {
             try
             {
-                var order = await _context.Orders
-                    .Include(o => o.User)
-                    .Include(o => o.OrderItems)
-                        .ThenInclude(oi => oi.Product)
-                    .Include(o => o.ShippingAddress)
-                    .Include(o => o.BillingAddress)
-                    .FirstOrDefaultAsync(o => o.Id == id);
-
+                var order = await _orderService.GetOrderWithDetailsAsync(id);
                 if (order == null)
                 {
                     return NotFound();
@@ -173,11 +141,7 @@ namespace MarketWorld.Web.Controllers
                 }
 
                 // Sepet bilgilerini getir
-                var cart = await _context.Carts
-                    .Include(c => c.CartItems)
-                        .ThenInclude(ci => ci.Product)
-                    .FirstOrDefaultAsync(c => c.UserId == currentUser.Id);
-
+                var cart = await _cartService.GetUserCartAsync(currentUser.Id);
                 if (cart == null || !cart.CartItems.Any())
                 {
                     return RedirectToAction("Index", "Cart");
@@ -185,14 +149,13 @@ namespace MarketWorld.Web.Controllers
 
                 // Sipariş özeti için gerekli bilgileri hazırla
                 ViewBag.CartItems = cart.CartItems;
-                ViewBag.TotalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.Product.Price);
+                ViewBag.TotalAmount = await _cartService.GetCartTotalAsync(currentUser.Id);
                 ViewBag.User = currentUser;
 
                 return View();
             }
             catch (Exception ex)
             {
-                // Hata durumunda ana sayfaya yönlendir
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -210,11 +173,7 @@ namespace MarketWorld.Web.Controllers
                 }
 
                 // Sepet bilgilerini getir
-                var cart = await _context.Carts
-                    .Include(c => c.CartItems)
-                        .ThenInclude(ci => ci.Product)
-                    .FirstOrDefaultAsync(c => c.UserId == currentUser.Id);
-
+                var cart = await _cartService.GetUserCartAsync(currentUser.Id);
                 if (cart == null || !cart.CartItems.Any())
                 {
                     return RedirectToAction("Index", "Cart");
@@ -225,8 +184,8 @@ namespace MarketWorld.Web.Controllers
                 {
                     UserId = currentUser.Id,
                     OrderDate = DateTime.Now,
-                    Status = Core.Enums.OrderStatus.Pending,
-                    TotalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.Product.Price),
+                    Status = OrderStatus.Pending,
+                    TotalAmount = await _cartService.GetCartTotalAsync(currentUser.Id),
                     ShippingAddress = order.ShippingAddress,
                     BillingAddress = order.BillingAddress,
                     OrderItems = cart.CartItems.Select(ci => new OrderItem
@@ -238,20 +197,17 @@ namespace MarketWorld.Web.Controllers
                 };
 
                 // Siparişi kaydet
-                _context.Orders.Add(newOrder);
+                await _orderService.CreateOrderAsync(newOrder);
 
                 // Sepeti temizle
-                _context.CartItems.RemoveRange(cart.CartItems);
-                await _context.SaveChangesAsync();
+                await _cartService.ClearCartAsync(currentUser.Id);
 
                 // Başarılı sipariş sayfasına yönlendir
                 return RedirectToAction("OrderConfirmation", new { id = newOrder.Id });
             }
             catch (Exception ex)
             {
-                // Hata durumunda checkout sayfasına geri dön
-                ModelState.AddModelError("", "Sipariş oluşturulurken bir hata oluştu.");
-                return View(order);
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -261,14 +217,10 @@ namespace MarketWorld.Web.Controllers
         {
             try
             {
-                var order = await _context.Orders
-                    .Include(o => o.OrderItems)
-                        .ThenInclude(oi => oi.Product)
-                    .FirstOrDefaultAsync(o => o.Id == id);
-
+                var order = await _orderService.GetOrderWithDetailsAsync(id);
                 if (order == null)
                 {
-                    return NotFound();
+                    return RedirectToAction("Index", "Home");
                 }
 
                 return View(order);
