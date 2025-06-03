@@ -4,6 +4,7 @@ using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Core.Enums;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MarketWorld.Application.Services.Implementations
@@ -73,7 +74,7 @@ namespace MarketWorld.Application.Services.Implementations
             return order;
         }
 
-        public async Task<Order> UpdateOrderAsync(Order order)
+        public async Task UpdateOrderAsync(Order order)
         {
             if (order == null)
                 throw new ArgumentNullException(nameof(order));
@@ -83,8 +84,6 @@ namespace MarketWorld.Application.Services.Implementations
 
             _unitOfWork.Orders.Update(order);
             await _unitOfWork.SaveChangesAsync();
-
-            return order;
         }
 
         public async Task DeleteOrderAsync(int id)
@@ -92,6 +91,30 @@ namespace MarketWorld.Application.Services.Implementations
             var order = await GetOrderByIdAsync(id);
             _unitOfWork.Orders.Remove(order);
             await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Brand>> GetTopSellingBrandsAsync(int count)
+        {
+            var orders = await _unitOfWork.Orders.GetAllOrdersWithDetailsAsync();
+            
+            var topBrands = orders
+                .SelectMany(o => o.OrderItems)
+                .Where(oi => oi.Product?.Brand != null)
+                .GroupBy(oi => oi.Product.Brand)
+                .OrderByDescending(g => g.Count())
+                .Take(count)
+                .Select(g => g.Key);
+
+            return topBrands;
+        }
+
+        public async Task<IEnumerable<Order>> GetOrdersByStatusAsync(string status)
+        {
+            if (Enum.TryParse<OrderStatus>(status, out var orderStatus))
+            {
+                return await _unitOfWork.Orders.GetOrdersByStatusAsync(orderStatus);
+            }
+            return await GetAllOrdersAsync();
         }
     }
 } 
