@@ -45,19 +45,6 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             ViewBag.CategoriesCount = await _context.Categories.CountAsync();
             ViewBag.SubCategoriesCount = await _context.SubCategories.CountAsync();
             
-            // Sipariş istatistikleri
-            var orders = await _context.Orders.ToListAsync();
-            
-            // Debug için sipariş detaylarını kontrol et
-            foreach (var order in orders)
-            {
-                System.Diagnostics.Debug.WriteLine($"Sipariş ID: {order.Id}, Durum: {order.Status}, Tarih: {order.CreatedDate}");
-            }
-            
-            // Sipariş sayılarını yeniden hesapla
-            ViewBag.NewOrdersCount = orders.Count;
-            ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == Core.Enums.OrderStatus.Shipped);
-            
             // Kullanıcı istatistikleri
             ViewBag.TotalUsersCount = await _context.Users.CountAsync();
             ViewBag.NewUsersCount = await _context.Users
@@ -79,17 +66,6 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 .CountAsync();
                 
             ViewBag.TopSellerBrandsCount = topSellerBrands;
-            
-            // Gelir istatistikleri
-            var monthlyOrders = orders.Where(o => o.CreatedDate >= DateTime.Now.AddMonths(-1));
-            var monthlyRevenue = monthlyOrders.Sum(o => o.TotalAmount);
-            ViewBag.MonthlyRevenue = monthlyRevenue.ToString("0.#K");
-            ViewBag.MonthlyOrdersCount = monthlyOrders.Count();
-            
-            // Günlük istatistikler
-            var todayOrders = orders.Where(o => o.CreatedDate == DateTime.Today);
-            var todayRevenue = todayOrders.Sum(o => o.TotalAmount);
-            ViewBag.TodayRevenue = todayRevenue.ToString("0.#K");
             
             return View();
         }
@@ -501,135 +477,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
 
        
 
-        [HttpGet]
-        [Route("Orders")]
-        public async Task<IActionResult> Orders(int? status = null)
-        {
-            try
-            {
-                var query = _context.Orders
-                    .Include(o => o.User)
-                    .Include(o => o.OrderItems)
-                    .AsQueryable();
-                
-                // Durum filtresini uygula
-                if (status.HasValue)
-                {
-                    query = query.Where(o => (int)o.Status == status.Value);
-                }
-                
-                var orders = await query
-                    .OrderByDescending(o => o.OrderDate)
-                    .ToListAsync();
-
-                return View("Order/Index", orders);
-            }
-            catch (Exception ex)
-            {
-                // Hata durumunda boş liste gönderiyoruz, böylece sayfa hata vermeden açılır
-                return View("Order/Index", new List<Order>());
-            }
-        }
         
-        [HttpGet]
-        [Route("GetOrderDetails/{id}")]
-        public async Task<IActionResult> GetOrderDetails(int id)
-        {
-            try
-            {
-                var order = await _context.Orders
-                    .Include(o => o.User)
-                    .Include(o => o.OrderItems)
-                        .ThenInclude(oi => oi.Product)
-                            .ThenInclude(p => p.Images)
-                    .Include(o => o.ShippingAddress)
-                    .Include(o => o.BillingAddress)
-                    .FirstOrDefaultAsync(o => o.Id == id);
-
-                if (order == null)
-                {
-                    return PartialView("_OrderNotFound");
-                }
-
-                return PartialView("_OrderDetails", order);
-            }
-            catch (Exception ex)
-            {
-                return Json(new { success = false, message = "Sipariş detayları yüklenirken bir hata oluştu." });
-            }
-        }
-        
-        [HttpGet]
-        [Route("GetOrderStatus/{id}")]
-        public async Task<IActionResult> GetOrderStatus(int id)
-        {
-            try
-            {
-                var order = await _context.Orders.FindAsync(id);
-                if (order == null)
-                {
-                    return Json(new { success = false, message = "Sipariş bulunamadı" });
-                }
-
-                return Json(new { success = true, status = (int)order.Status });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { success = false, message = ex.Message });
-            }
-        }
-        
-        [HttpPost]
-        [Route("UpdateOrderStatus")]
-        public async Task<IActionResult> UpdateOrderStatus(int orderId, int status, string note)
-        {
-            try
-            {
-                var order = await _context.Orders.FindAsync(orderId);
-                if (order == null)
-                {
-                    return Json(new { success = false, message = "Sipariş bulunamadı" });
-                }
-
-                order.Status = (Core.Enums.OrderStatus)status;
-                // Not işleme eklenebilir
-                
-                await _context.SaveChangesAsync();
-                
-                return Json(new { success = true });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { success = false, message = ex.Message });
-            }
-        }
-        
-        [HttpGet]
-        [Route("PrintOrder/{id}")]
-        public async Task<IActionResult> PrintOrder(int id)
-        {
-            try
-            {
-                var order = await _context.Orders
-                    .Include(o => o.User)
-                    .Include(o => o.OrderItems)
-                        .ThenInclude(oi => oi.Product)
-                    .Include(o => o.ShippingAddress)
-                    .Include(o => o.BillingAddress)
-                    .FirstOrDefaultAsync(o => o.Id == id);
-
-                if (order == null)
-                {
-                    return NotFound();
-                }
-
-                return View("PrintOrder", order);
-            }
-            catch (Exception ex)
-            {
-                return View("Error", ex.Message);
-            }
-        }
 
        
 

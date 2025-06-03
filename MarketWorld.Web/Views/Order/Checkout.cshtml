@@ -1,0 +1,147 @@
+@model MarketWorld.Core.Domain.Entities.Order
+
+@{
+    ViewData["Title"] = "Sipariş Tamamlama";
+}
+
+<div class="container mt-4">
+    <h2>Sipariş Tamamlama</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4>Sipariş Özeti</h4>
+                </div>
+                <div class="card-body">
+                    @foreach (var item in ViewBag.CartItems)
+                    {
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h6>@item.Product.Name</h6>
+                                <small>Adet: @item.Quantity</small>
+                            </div>
+                            <div>
+                                <span class="text-muted">@(item.Quantity * item.Product.Price) TL</span>
+                            </div>
+                        </div>
+                    }
+                    <hr />
+                    <div class="d-flex justify-content-between">
+                        <h5>Toplam Tutar:</h5>
+                        <h5>@ViewBag.TotalAmount TL</h5>
+                    </div>
+                </div>
+            </div>
+
+            <form asp-action="Checkout" method="post">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Teslimat Bilgileri</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label asp-for="ShippingAddress.FullName">Ad Soyad</label>
+                            <input asp-for="ShippingAddress.FullName" class="form-control" required />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShippingAddress.FullAddress">Adres</label>
+                            <textarea asp-for="ShippingAddress.FullAddress" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShippingAddress.City">Şehir</label>
+                            <input asp-for="ShippingAddress.City" class="form-control" required />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShippingAddress.PostalCode">Posta Kodu</label>
+                            <input asp-for="ShippingAddress.PostalCode" class="form-control" required />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShippingAddress.Phone">Telefon</label>
+                            <input asp-for="ShippingAddress.Phone" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Fatura Bilgileri</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label asp-for="BillingAddress.FullName">Ad Soyad</label>
+                            <input asp-for="BillingAddress.FullName" class="form-control" required />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="BillingAddress.FullAddress">Adres</label>
+                            <textarea asp-for="BillingAddress.FullAddress" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="BillingAddress.City">Şehir</label>
+                            <input asp-for="BillingAddress.City" class="form-control" required />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="BillingAddress.PostalCode">Posta Kodu</label>
+                            <input asp-for="BillingAddress.PostalCode" class="form-control" required />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="BillingAddress.Phone">Telefon</label>
+                            <input asp-for="BillingAddress.Phone" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Siparişi Tamamla</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Ödeme Bilgileri</h4>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">Ödeme bilgileri burada gösterilecek.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('select[name="paymentMethod"]').change(function () {
+                if ($(this).val() === 'CreditCard') {
+                    $('#creditCardDetails').show();
+                } else {
+                    $('#creditCardDetails').hide();
+                }
+            });
+
+            // Kart numarası formatı
+            $('input[name="cardNumber"]').on('input', function () {
+                var value = $(this).val().replace(/\D/g, '');
+                var formattedValue = '';
+                for (var i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formattedValue += ' ';
+                    }
+                    formattedValue += value[i];
+                }
+                $(this).val(formattedValue);
+            });
+
+            // Son kullanma tarihi formatı
+            $('input[name="expiryDate"]').on('input', function () {
+                var value = $(this).val().replace(/\D/g, '');
+                if (value.length > 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2);
+                }
+                $(this).val(value);
+            });
+        });
+    </script>
+} 
