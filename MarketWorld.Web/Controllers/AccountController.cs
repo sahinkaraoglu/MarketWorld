@@ -1,36 +1,30 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using System.Linq;
 using System;
-using MarketWorld.Infrastructure.Data.SeedData;
 using MarketWorld.Web.Attributes;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Infrastructure.Context;
+using MarketWorld.Core.Interfaces.Services;
 
 namespace MarketWorld.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly MarketWorldDbContext _context;
+        private readonly IAccountService _accountService;
 
-        public AccountController(MarketWorldDbContext context)
+        public AccountController(IAccountService accountService)
         {
-            _context = context;
+            _accountService = accountService;
         }
 
         public async Task<IActionResult> Index()
         {
             var userId = HttpContext.Items["UserId"].ToString();
 
-            // Kullanıcı bilgilerini veritabanından al
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var user = await _accountService.GetUserByIdAsync(userId);
 
             if (user != null)
             {
-                // Veritabanından gelen bilgileri ViewBag ile view'e aktar
                 ViewBag.UserId = userId;
                 ViewBag.FirstName = user.FirstName;
                 ViewBag.LastName = user.LastName;
@@ -50,16 +44,9 @@ namespace MarketWorld.Web.Controllers
         {
             var userId = HttpContext.Items["UserId"].ToString();
 
-            // Kullanıcı bilgilerini veritabanından al
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
-
-            // Kullanıcı adreslerini getir
-            var userAddresses = await _context.Addresses
-                .Where(a => a.UserId == userId)
-                .ToListAsync();
+            var user = await _accountService.GetUserByIdAsync(userId);
+            var userAddresses = await _accountService.GetUserAddressesAsync(userId);
             
-            // Kullanıcı bilgilerini ViewBag ile gönder
             if (user != null)
             {
                 ViewBag.UserFirstName = user.FirstName;
@@ -87,14 +74,12 @@ namespace MarketWorld.Web.Controllers
         {
             var userId = HttpContext.Items["UserId"].ToString();
 
-            // Form verilerini alıyoruz
             var title = Request.Form["Title"].ToString();
             var fullAddress = Request.Form["FullAddress"].ToString();
             var city = Request.Form["City"].ToString();
             var district = Request.Form["District"].ToString();
             var phone = Request.Form["Phone"].ToString();
 
-            // Validasyon kontrolleri
             bool isValid = true;
             if (string.IsNullOrWhiteSpace(title))
             {
@@ -128,15 +113,11 @@ namespace MarketWorld.Web.Controllers
                 return View("~/Views/Account/Address/Create.cshtml");
             }
 
-            // AddressType ve IsDefault değerlerini dönüştürüyoruz
             Enum.TryParse<Core.Enums.AddressType>(Request.Form["AddressType"], out var addressType);
             bool.TryParse(Request.Form["IsDefault"], out var isDefault);
 
-            Console.WriteLine($"Form verileri: {title}, {city}, {district}, {phone}, {addressType}, {isDefault}");
-
             try
             {
-                // Yeni adres oluştur
                 var address = new Address
                 {
                     UserId = userId,
@@ -151,18 +132,20 @@ namespace MarketWorld.Web.Controllers
                     CreatedDate = DateTime.Now
                 };
 
-                // Veritabanına ekle
-                _context.Addresses.Add(address);
-                var result = await _context.SaveChangesAsync();
+                var result = await _accountService.AddAddressAsync(address);
 
-                Console.WriteLine($"Adres kaydedildi: {result} satır etkilendi, ID: {address.Id}");
-
-                // Adresler sayfasına yönlendir
-                return RedirectToAction("Addresses");
+                if (result)
+                {
+                    return RedirectToAction("Addresses");
+                }
+                else
+                {
+                    ViewBag.Error = "Adres kaydedilirken bir hata oluştu";
+                    return View("~/Views/Account/Address/Create.cshtml");
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Hata: {ex.Message}");
                 ViewBag.Error = "Adres kaydı sırasında bir hata oluştu: " + ex.Message;
                 return View("~/Views/Account/Address/Create.cshtml");
             }
@@ -172,8 +155,7 @@ namespace MarketWorld.Web.Controllers
         {
             var userId = HttpContext.Items["UserId"].ToString();
 
-            var address = await _context.Addresses
-                .FirstOrDefaultAsync(a => a.Id == id && a.UserId == userId);
+            var address = await _accountService.GetAddressByIdAsync(id, userId);
 
             if (address == null)
             {
@@ -187,25 +169,15 @@ namespace MarketWorld.Web.Controllers
         public async Task<IActionResult> EditAddress(Address address)
         {
             var userId = HttpContext.Items["UserId"].ToString();
-
-            var existingAddress = await _context.Addresses
-                .FirstOrDefaultAsync(a => a.Id == address.Id && a.UserId == userId);
-
-            if (existingAddress == null)
-            {
-                return NotFound();
-            }
+            address.UserId = userId;
 
             if (ModelState.IsValid)
             {
-                existingAddress.Title = address.Title;
-                existingAddress.FullAddress = address.FullAddress;
-                existingAddress.City = address.City;
-                existingAddress.District = address.District;
-                existingAddress.Phone = address.Phone;
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Addresses");
+                var result = await _accountService.UpdateAddressAsync(address);
+                if (result)
+                {
+                    return RedirectToAction("Addresses");
+                }
             }
 
             return View("~/Views/Account/Address/Edit.cshtml", address);
@@ -216,16 +188,11 @@ namespace MarketWorld.Web.Controllers
         {
             var userId = HttpContext.Items["UserId"].ToString();
 
-            var address = await _context.Addresses
-                .FirstOrDefaultAsync(a => a.Id == id && a.UserId == userId);
-
-            if (address == null)
+            var result = await _accountService.DeleteAddressAsync(id, userId);
+            if (!result)
             {
                 return NotFound();
             }
-
-            _context.Addresses.Remove(address);
-            await _context.SaveChangesAsync();
 
             return RedirectToAction("Addresses");
         }
@@ -234,11 +201,8 @@ namespace MarketWorld.Web.Controllers
         {
             var userId = HttpContext.Items["UserId"].ToString();
 
-            // Kullanıcı bilgilerini veritabanından al
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var user = await _accountService.GetUserByIdAsync(userId);
 
-            // Kullanıcı bilgilerini ViewBag ile gönder
             if (user != null)
             {
                 ViewBag.UserProfile = new
@@ -248,22 +212,8 @@ namespace MarketWorld.Web.Controllers
                     Email = user.Email ?? ""
                 };
             }
-            else
-            {
-                ViewBag.UserProfile = new
-                {
-                    FirstName = "Kullanıcı",
-                    LastName = "",
-                    Email = ""
-                };
-            }
 
-            var orders = await _context.Orders
-                .Where(o => o.UserId == userId)
-                .OrderByDescending(o => o.OrderDate)
-                .ToListAsync();
-
-            return View("~/Views/Account/Order/Index.cshtml", orders);
+            return View("~/Views/Account/Order/Index.cshtml");
         }
 
         public async Task<IActionResult> Edit()
@@ -271,8 +221,7 @@ namespace MarketWorld.Web.Controllers
             var userId = HttpContext.Items["UserId"].ToString();
 
             // Kullanıcı bilgilerini veritabanından al
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var user = await _accountService.GetUserByIdAsync(userId);
 
             if (user != null)
             {
@@ -298,8 +247,7 @@ namespace MarketWorld.Web.Controllers
             var userId = HttpContext.Items["UserId"].ToString();
 
             // Kullanıcı bilgilerini veritabanından al
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var user = await _accountService.GetUserByIdAsync(userId);
 
             if (user == null)
             {
@@ -350,7 +298,7 @@ namespace MarketWorld.Web.Controllers
                 user.PhoneNumber = Phone;
                 user.CreateDate = DateTime.Now;
 
-                await _context.SaveChangesAsync();
+                await _accountService.UpdateUserAsync(user);
 
                 // Başarılı mesajını ekle
                 ViewBag.Success = "Hesap bilgileriniz başarıyla güncellendi.";
