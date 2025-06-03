@@ -1,20 +1,20 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Web.Models;
-using Microsoft.EntityFrameworkCore;
-using MarketWorld.Infrastructure.Context;
+using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Web.Controllers;
 
 public class FooterController : Controller
 {
     private readonly ILogger<FooterController> _logger;
-    private readonly MarketWorldDbContext _context;
+    private readonly IOrderService _orderService;
 
-    public FooterController(ILogger<FooterController> logger, MarketWorldDbContext context)
+    public FooterController(ILogger<FooterController> logger, IOrderService orderService)
     {
         _logger = logger;
-        _context = context;
+        _orderService = orderService;
     }
 
     public IActionResult Index()
@@ -57,9 +57,8 @@ public class FooterController : Controller
             return View();
         }
         
-        var order = await _context.Orders
-            .Include(o => o.OrderItems)
-            .FirstOrDefaultAsync(o => o.OrderNumber == orderNumber);
+        var orders = await _orderService.GetAllOrdersAsync();
+        var order = orders.FirstOrDefault(o => o.OrderNumber == orderNumber);
 
         if (order == null)
         {
