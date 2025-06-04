@@ -46,5 +46,21 @@ namespace MarketWorld.Infrastructure.Repositories
                 .Include(p => p.Category)
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        public override async Task<IEnumerable<Product>> GetAllAsync()
+        {
+            return await _marketWorldContext.Products
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
+                .Include(p => p.ProductProperties)
+                    .ThenInclude(pp => pp.PropertyType)
+                .Include(p => p.ProductProperties)
+                    .ThenInclude(pp => pp.PropertyValue)
+                .Include(p => p.Comments)
+                .AsNoTracking()
+                .ToListAsync();
+        }
     }
 } 

@@ -31,7 +31,7 @@ namespace MarketWorld.Web.Controllers
             _cache = cache;
             _jsonOptions = new JsonSerializerOptions
             {
-                ReferenceHandler = ReferenceHandler.Preserve,
+                ReferenceHandler = ReferenceHandler.IgnoreCycles,
                 MaxDepth = 128
             };
         }
@@ -152,7 +152,9 @@ namespace MarketWorld.Web.Controllers
 
             var products = await _productService.GetAllProducts();
             var filteredProducts = products
-                .Where(p => p.SubCategory?.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted)
+                .Where(p => p.SubCategory != null && 
+                           p.SubCategory.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && 
+                           p.IsActive && !p.IsDeleted)
                 .ToList();
 
             var pageSize = 9;
@@ -172,7 +174,7 @@ namespace MarketWorld.Web.Controllers
                     Price = p.Price,
                     ImageUrl = p.Images?.FirstOrDefault() != null ? $"/{p.Images.FirstOrDefault().Path}" : "/img/default-product.jpg",
                     Rating = p.Rating,
-                    ReviewCount = 100,
+                    ReviewCount = p.Comments?.Count ?? 0,
                     HasFreeShipping = p.Price > 45000,
                     Stock = p.GetTotalStock(),
                     CategoryName = p.SubCategory?.Category?.Name,
@@ -213,7 +215,7 @@ namespace MarketWorld.Web.Controllers
                 cacheOptions
             );
 
-            return await GetProductsBySubCategoryName(subCategoryName);
+            return View("ProductList", pagedProducts);
         }
 
         public async Task<IActionResult> Detail(int id)
