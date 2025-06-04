@@ -400,8 +400,14 @@
                             }
                         }
                     })
-                    .fail(function() {
-                        alert('Ürünler yüklenirken bir hata oluştu.');
+                    .fail(function(jqXHR, textStatus, errorThrown) {
+                        console.error('AJAX Hatası:', {
+                            status: jqXHR.status,
+                            statusText: jqXHR.statusText,
+                            responseText: jqXHR.responseText,
+                            error: errorThrown
+                        });
+                        alert('Ürünler yüklenirken bir hata oluştu. Lütfen sayfayı yenileyip tekrar deneyiniz.');
                     })
                     .always(function() {
                         isLoading = false;

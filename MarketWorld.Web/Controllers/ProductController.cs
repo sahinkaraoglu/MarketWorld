@@ -369,24 +369,16 @@ namespace MarketWorld.Web.Controllers
                 .ToList();
 
             if (brandIds != null && brandIds.Any())
-            {
                 filteredProducts = filteredProducts.Where(p => brandIds.Contains(p.BrandId)).ToList();
-            }
 
             if (ratings != null && ratings.Any())
-            {
                 filteredProducts = filteredProducts.Where(p => ratings.Contains(Math.Floor(p.Rating))).ToList();
-            }
 
             if (minPrice > 0)
-            {
                 filteredProducts = filteredProducts.Where(p => p.Price >= minPrice).ToList();
-            }
 
             if (maxPrice > 0)
-            {
                 filteredProducts = filteredProducts.Where(p => p.Price <= maxPrice).ToList();
-            }
 
             var pageSize = 9;
             var pagedProducts = filteredProducts
@@ -416,7 +408,9 @@ namespace MarketWorld.Web.Controllers
                 })
                 .ToList();
 
-            return PartialView("_ProductList", pagedProducts);
+            bool hasMore = (page * pageSize) < filteredProducts.Count;
+
+            return Json(new { products = pagedProducts, hasMore });
         }
     }
 } 
