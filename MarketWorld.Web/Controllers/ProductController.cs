@@ -108,7 +108,8 @@ namespace MarketWorld.Web.Controllers
                 .Where(p => p.SubCategory?.ShortenedEntityName.ToLower() == subCategoryName.ToLower() && p.IsActive && !p.IsDeleted)
                 .Select(p => p.Brand)
                 .Where(b => b != null && !b.IsDeleted)
-                .Distinct()
+                .GroupBy(b => b.Name)
+                .Select(g => g.First())
                 .OrderBy(b => b.Name)
                 .ToList();
 
