@@ -5,6 +5,8 @@ using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
 using MarketWorld.Application.Services.Interfaces;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
@@ -19,6 +21,8 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         private readonly ICategoryService _categoryService;
         private readonly ISubCategoryService _subCategoryService;
         private readonly IOrderService _orderService;
+        private readonly IDistributedCache _cache;
+        private readonly JsonSerializerOptions _jsonOptions;
 
         public PanelController(
             UserManager<ApplicationUser> userManager,
@@ -27,7 +31,8 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             IBrandService brandService,
             ICategoryService categoryService,
             ISubCategoryService subCategoryService,
-            IOrderService orderService)
+            IOrderService orderService,
+            IDistributedCache cache)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -35,7 +40,9 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             _brandService = brandService;
             _categoryService = categoryService;
             _subCategoryService = subCategoryService;
-            _orderService = orderService;;
+            _orderService = orderService;
+            _cache = cache;
+            _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         }
 
         [HttpGet]
@@ -43,6 +50,19 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
+            string cacheKey = "admin_panel_dashboard";
+            string cachedData = await _cache.GetStringAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedData))
+            {
+                var cachedDashboardData = JsonSerializer.Deserialize<Dictionary<string, int>>(cachedData, _jsonOptions);
+                foreach (var item in cachedDashboardData)
+                {
+                    ViewBag[item.Key] = item.Value;
+                }
+                return View();
+            }
+
             var products = await _productService.GetAllProducts();
             
             // Ürün istatistikleri
@@ -69,6 +89,29 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             // Çok satan markaları hesapla
             var topSellerBrands = await _orderService.GetTopSellingBrandsAsync(10);
             ViewBag.TopSellerBrandsCount = topSellerBrands.Count();
+            
+            // Önbelleğe kaydet
+            var dashboardDataToCache = new Dictionary<string, int>
+            {
+                { "ProductsCount", ViewBag.ProductsCount },
+                { "LowStockCount", ViewBag.LowStockCount },
+                { "CategoriesCount", ViewBag.CategoriesCount },
+                { "SubCategoriesCount", ViewBag.SubCategoriesCount },
+                { "TotalUsersCount", ViewBag.TotalUsersCount },
+                { "NewUsersCount", ViewBag.NewUsersCount },
+                { "BrandsCount", ViewBag.BrandsCount },
+                { "TopSellerBrandsCount", ViewBag.TopSellerBrandsCount }
+            };
+
+            var cacheOptions = new DistributedCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(5))
+                .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+
+            await _cache.SetStringAsync(
+                cacheKey,
+                JsonSerializer.Serialize(dashboardDataToCache, _jsonOptions),
+                cacheOptions
+            );
             
             return View();
         }

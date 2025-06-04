@@ -5,6 +5,8 @@ using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
 using MarketWorld.Application.Services.Interfaces;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
@@ -15,15 +17,20 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         private readonly IProductService _productService;
         private readonly IPropertyTypeService _propertyTypeService;
         private readonly IPropertyValueService _propertyValueService;
+        private readonly IDistributedCache _cache;
+        private readonly JsonSerializerOptions _jsonOptions;
 
         public ProductController(
             IProductService productService,
             IPropertyTypeService propertyTypeService,
-            IPropertyValueService propertyValueService)
+            IPropertyValueService propertyValueService,
+            IDistributedCache cache)
         {
             _productService = productService;
             _propertyTypeService = propertyTypeService;
             _propertyValueService = propertyValueService;
+            _cache = cache;
+            _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         }
 
         [HttpGet]
@@ -136,11 +143,54 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("Products")]
         public async Task<IActionResult> Products()
         {
-            var products = await _productService.GetAllProducts();
-            ViewBag.TotalProducts = products.Count();
-            return View("~/Areas/Admin/Views/Product/Index.cshtml");
-        }
+            string cacheKey = "admin_products_list";
+            string cachedProducts = await _cache.GetStringAsync(cacheKey);
 
+            if (!string.IsNullOrEmpty(cachedProducts))
+            {
+                var cachedResult = JsonSerializer.Deserialize<List<ProductAdminViewModel>>(cachedProducts, _jsonOptions);
+                ViewBag.TotalProducts = cachedResult.Count;
+                return View("~/Areas/Admin/Views/Product/Index.cshtml", cachedResult);
+            }
+
+            var products = await _productService.GetAllProducts();
+            var viewModel = products.Select(p => new ProductAdminViewModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                Stock = p.ProductProperties != null && p.ProductProperties.Any() ? 
+                    p.GetTotalStock() : 0,
+                Rating = p.Rating,
+                Status = p.IsActive ? "Published" : "Draft",
+                ImageUrl = p.Images?.FirstOrDefault()?.Path != null ? 
+                    $"/{p.Images.FirstOrDefault().Path}" : 
+                    "/img/ProductsPicture/default.jpg",
+                CategoryId = p.SubCategory?.CategoryId ?? 0,
+                CategoryName = p.SubCategory?.Category?.Name ?? "Kategorisiz",
+                SubCategoryId = p.SubCategoryId ?? 0,
+                SubCategoryName = p.SubCategory?.Name ?? "Alt Kategorisiz",
+                BrandId = p.BrandId,
+                BrandName = p.Brand?.Name ?? "Markasız",
+                ProductCode = p.ProductCode,
+                IsActive = p.IsActive,
+                Description = p.Description ?? ""
+            }).ToList();
+
+            ViewBag.TotalProducts = viewModel.Count;
+
+            var cacheOptions = new DistributedCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+
+            await _cache.SetStringAsync(
+                cacheKey,
+                JsonSerializer.Serialize(viewModel, _jsonOptions),
+                cacheOptions
+            );
+
+            return View("~/Areas/Admin/Views/Product/Index.cshtml", viewModel);
+        }
 
         [HttpGet]
         [Route("GetProduct/{id}")]
