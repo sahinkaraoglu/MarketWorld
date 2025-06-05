@@ -87,13 +87,18 @@
 </div>
 
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
             $('#editUserForm').on('submit', function(e) {
                 e.preventDefault();
                 
                 if ($('#password').val() !== $('#confirmPassword').val()) {
-                    alert('Şifreler eşleşmiyor!');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Hata!',
+                        text: 'Şifreler eşleşmiyor!'
+                    });
                     return;
                 }
 
@@ -116,13 +121,33 @@
                     data: JSON.stringify(formData),
                     success: function(response) {
                         if (response.success) {
-                            window.location.href = '@Url.Action("Index", "User", new { area = "Admin" })';
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Başarılı!',
+                                text: 'Kullanıcı başarıyla güncellendi.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                window.location.href = '@Url.Action("Index", "User", new { area = "Admin" })';
+                            });
                         } else {
-                            alert(response.message || 'Bir hata oluştu!');
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Hata!',
+                                text: response.message || 'Bir hata oluştu!'
+                            });
                         }
                     },
-                    error: function() {
-                        alert('Bir hata oluştu!');
+                    error: function(xhr) {
+                        let errorMessage = 'Bir hata oluştu!';
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            errorMessage = xhr.responseJSON.message;
+                        }
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Hata!',
+                            text: errorMessage
+                        });
                     }
                 });
             });
