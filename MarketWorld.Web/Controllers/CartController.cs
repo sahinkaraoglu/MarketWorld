@@ -71,10 +71,17 @@ namespace MarketWorld.Web.Controllers
             var user = await _accountService.GetUserByIdAsync(userId);
             var addresses = await _accountService.GetUserAddressesAsync(userId);
             
+            var cart = new Cart
+            {
+                UserId = userId,
+                CartItems = cartItems,
+                TotalAmount = await _cartService.GetCartTotalAsync(userId)
+            };
+            
             ViewBag.UserAddresses = addresses ?? new List<Address>();
             ViewBag.UserProfile = user;
 
-            return View(cartItems);
+            return View(cart);
         }
 
         [HttpPost]
