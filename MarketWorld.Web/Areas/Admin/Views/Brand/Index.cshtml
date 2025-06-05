@@ -3,55 +3,6 @@
     ViewData["Title"] = "Marka Yönetimi";
 }
 
-@section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        function deleteBrand(id, name) {
-            Swal.fire({
-                title: 'Emin misiniz?',
-                text: `"${name}" markasını silmek istediğinizden emin misiniz?`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Evet, sil!',
-                cancelButtonText: 'İptal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: '@Url.Action("DeleteBrand", "Brand", new { area = "Admin" })',
-                        type: 'POST',
-                        data: { id: id },
-                        success: function (response) {
-                            if (response.success) {
-                                Swal.fire(
-                                    'Silindi!',
-                                    'Marka başarıyla silindi.',
-                                    'success'
-                                ).then(() => {
-                                    window.location.reload();
-                                });
-                            } else {
-                                Swal.fire(
-                                    'Hata!',
-                                    response.message || 'Bir hata oluştu.',
-                                    'error'
-                                );
-                            }
-                        },
-                        error: function () {
-                            Swal.fire(
-                                'Hata!',
-                                'Bir hata oluştu.',
-                                'error'
-                            );
-                        }
-                    });
-                }
-            });
-        }
-    </script>
-}
 
 <div class="brands-container">
     <div class="brands-header">
@@ -328,4 +279,55 @@
             }
         });
     });
-</script> 
+</script>
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function deleteBrand(id, name) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: `"${name}" markasını silmek istediğinizden emin misiniz?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'İptal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '@Url.Action("DeleteBrand", "Brand", new { area = "Admin" })',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (response) {
+                            if (response.success) {
+                                Swal.fire(
+                                    'Silindi!',
+                                    'Marka başarıyla silindi.',
+                                    'success'
+                                ).then(() => {
+                                    window.location.reload();
+                                });
+                            } else {
+                                Swal.fire(
+                                    'Hata!',
+                                    response.message || 'Bir hata oluştu.',
+                                    'error'
+                                );
+                            }
+                        },
+                        error: function () {
+                            Swal.fire(
+                                'Hata!',
+                                'Bir hata oluştu.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+}
