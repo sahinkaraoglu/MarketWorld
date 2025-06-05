@@ -68,12 +68,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.querySelectorAll('input[name="memoryOption"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-            document.getElementById('selectedMemory').textContent = this.value;
-            updateProductOptions();
+    // Hafıza seçeneği değişikliği
+    const memoryOptions = document.querySelectorAll('input[name="memoryOption"]');
+    if (memoryOptions.length > 0) {
+        memoryOptions.forEach(option => {
+            option.addEventListener('change', function() {
+                const selectedMemory = document.getElementById('selectedMemory');
+                if (selectedMemory) {
+                    selectedMemory.textContent = this.value;
+                }
+                updateSelectedOptions();
+            });
         });
-    });
+    }
 
     function updateProductOptions() {
         const selectedColor = document.querySelector('input[name="colorOption"]:checked')?.value;

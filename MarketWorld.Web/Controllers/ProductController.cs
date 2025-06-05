@@ -272,6 +272,16 @@ namespace MarketWorld.Web.Controllers
                         IsSelected = false,
                         TypeName = pp.PropertyType.Name
                     }).ToList() ?? new List<ProductPropertyViewModel>(),
+                MemoryOptions = product.ProductProperties?
+                    .Where(pp => pp.PropertyType.Name == "Hafıza" && pp.IsActive)
+                    .Select(pp => new ProductPropertyViewModel
+                    {
+                        Id = pp.Id,
+                        Value = pp.PropertyValue.Value,
+                        Stock = pp.Stock,
+                        IsSelected = false,
+                        TypeName = pp.PropertyType.Name
+                    }).ToList() ?? new List<ProductPropertyViewModel>(),
                 Comments = product.Comments?
                     .Where(c => c.IsApproved)
                     .Select(c => new CommentViewModel
