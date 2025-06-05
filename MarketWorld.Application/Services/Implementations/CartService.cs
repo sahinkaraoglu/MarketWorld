@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarketWorld.Application.Services.Implementations
 {
@@ -20,7 +21,20 @@ namespace MarketWorld.Application.Services.Implementations
         public async Task<List<CartItem>> GetCartItemsAsync(string userId)
         {
             var cart = await _unitOfWork.Carts.GetUserCartWithItemsAsync(userId);
-            return cart?.CartItems.ToList() ?? new List<CartItem>();
+            if (cart == null) return new List<CartItem>();
+
+            var cartItems = await _unitOfWork.CartItems.FindAsync(ci => ci.CartId == cart.Id);
+            var items = cartItems.ToList();
+
+            foreach (var item in items)
+            {
+                if (item.UnitPrice == 0)
+                {
+                    item.UnitPrice = item.Product.Price;
+                }
+            }
+
+            return items;
         }
 
         public async Task<CartItem> GetCartItemByIdAsync(int id, string userId)

@@ -20,6 +20,7 @@ namespace MarketWorld.Infrastructure.Repositories
             return await _marketWorldContext.Carts
                 .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.Product)
+                        .ThenInclude(p => p.Images)
                 .FirstOrDefaultAsync(c => c.UserId == userId);
         }
     }
