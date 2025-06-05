@@ -261,7 +261,27 @@ namespace MarketWorld.Web.Controllers
                         TypeName = pp.PropertyType.Name,
                         Value = pp.PropertyValue.Value,
                         Stock = pp.Stock
-                    }).ToList() ?? new List<ProductPropertyViewModel>()
+                    }).ToList() ?? new List<ProductPropertyViewModel>(),
+                ColorOptions = product.ProductProperties?
+                    .Where(pp => pp.PropertyType.Name == "Renk" && pp.IsActive)
+                    .Select(pp => new ProductPropertyViewModel
+                    {
+                        Id = pp.Id,
+                        Value = pp.PropertyValue.Value,
+                        Stock = pp.Stock,
+                        IsSelected = false,
+                        TypeName = pp.PropertyType.Name
+                    }).ToList() ?? new List<ProductPropertyViewModel>(),
+                Comments = product.Comments?
+                    .Where(c => c.IsApproved)
+                    .Select(c => new CommentViewModel
+                    {
+                        Id = c.Id,
+                        UserName = c.UserName,
+                        Rating = c.Rating,
+                        Text = c.Text,
+                        CreatedDate = c.CreatedDate
+                    }).ToList() ?? new List<CommentViewModel>()
             };
 
             var cacheOptions = new DistributedCacheEntryOptions()

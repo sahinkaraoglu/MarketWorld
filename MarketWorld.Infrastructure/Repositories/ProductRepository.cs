@@ -43,7 +43,15 @@ namespace MarketWorld.Infrastructure.Repositories
         public async Task<Product> GetProductWithDetails(int id)
         {
             return await _marketWorldContext.Products
-                .Include(p => p.Category)
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
+                .Include(p => p.ProductProperties)
+                    .ThenInclude(pp => pp.PropertyType)
+                .Include(p => p.ProductProperties)
+                    .ThenInclude(pp => pp.PropertyValue)
+                .Include(p => p.Comments)
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 

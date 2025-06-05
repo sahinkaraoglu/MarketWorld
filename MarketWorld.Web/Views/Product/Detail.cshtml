@@ -87,16 +87,19 @@
         <div class="col-md-6">
             <div class="product-images">
                 <div class="main-image mb-3">
-                    <img src="@Model.Images.FirstOrDefault()" class="img-fluid" alt="@Model.Name"
+                    <img src="@((Model.Images?.FirstOrDefault() != null ? (Model.Images.FirstOrDefault().StartsWith("/") ? Model.Images.FirstOrDefault() : "/" + Model.Images.FirstOrDefault()) : "/img/default-product.jpg"))" class="img-fluid" alt="@Model.Name"
                          onerror="this.src='/img/default-product.jpg';" />
                 </div>
                 <div class="thumbnail-images">
-                    @foreach (var image in Model.Images)
+                    @if (Model.Images != null && Model.Images.Any())
                     {
-                        <div class="thumbnail">
-                            <img src="@image" alt="@Model.Name" class="img-fluid"
-                                 onerror="this.src='/img/default-product.jpg';" />
-                        </div>
+                        @foreach (var image in Model.Images)
+                        {
+                            <div class="thumbnail">
+                                <img src="@((image.StartsWith("/") ? image : "/" + image))" alt="@Model.Name" class="img-fluid"
+                                     onerror="this.src='/img/default-product.jpg';" />
+                            </div>
+                        }
                     }
                 </div>
             </div>
@@ -197,62 +200,68 @@
                     <div class="mb-4">
                         <div class="option-title mb-3">
                             <span class="fw-semibold">Renk:</span>
-                            <span id="selectedColor" class="selected-value ms-2">@Model.ColorOptions.FirstOrDefault()?.Value</span>
+                            <span id="selectedColor" class="selected-value ms-2">@(Model.ColorOptions?.FirstOrDefault()?.Value ?? "Seçilmedi")</span>
                         </div>
                         <div class="color-options">
-                            @foreach (var color in Model.ColorOptions)
+                            @if (Model.ColorOptions != null && Model.ColorOptions.Any())
                             {
-                                <div class="color-option-wrapper">
-                                    <input type="radio" 
-                                           class="btn-check" 
-                                           name="colorOption" 
-                                           id="color_@color.Id" 
-                                           value="@color.Value"
-                                           @(color.IsSelected ? "checked" : "")
-                                           @(color.Stock <= 0 ? "disabled" : "")>
-                                    <label class="color-option @(color.Stock <= 0 ? "disabled" : "")" 
-                                           for="color_@color.Id">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <span class="color-name mb-1">@color.Value</span>
-                                            @if (color.Stock <= 0)
-                                            {
-                                                <small class="text-danger">Stokta Yok</small>
-                                            }
-                                        </div>
-                                    </label>
-                                </div>
+                                @foreach (var color in Model.ColorOptions)
+                                {
+                                    <div class="color-option-wrapper">
+                                        <input type="radio" 
+                                               class="btn-check" 
+                                               name="colorOption" 
+                                               id="color_@color.Id" 
+                                               value="@color.Value"
+                                               @(color.IsSelected ? "checked" : "")
+                                               @(color.Stock <= 0 ? "disabled" : "")>
+                                        <label class="color-option @(color.Stock <= 0 ? "disabled" : "")" 
+                                               for="color_@color.Id">
+                                            <div class="d-flex flex-column align-items-center">
+                                                <span class="color-name mb-1">@color.Value</span>
+                                                @if (color.Stock <= 0)
+                                                {
+                                                    <small class="text-danger">Stokta Yok</small>
+                                                }
+                                            </div>
+                                        </label>
+                                    </div>
+                                }
                             }
                         </div>
                     </div>
 
                     <!-- Hafıza Seçenekleri -->
                     <div class="mb-4">
-                      @*   <div class="option-title mb-3">
+                        <div class="option-title mb-3">
                             <span class="fw-semibold">Dahili Hafıza:</span>
-                            <span id="selectedMemory" class="selected-value ms-2">@Model.MemoryOptions.FirstOrDefault()?.Value</span>
-                        </div> *@
+                            <span id="selectedMemory" class="selected-value ms-2">@(Model.MemoryOptions?.FirstOrDefault()?.Value ?? "Seçilmedi")</span>
+                        </div>
                         <div class="memory-options">
-                            @foreach (var memory in Model.MemoryOptions)
+                            @if (Model.MemoryOptions != null && Model.MemoryOptions.Any())
                             {
-                                <div class="memory-option-wrapper">
-                                    <input type="radio" 
-                                           class="btn-check" 
-                                           name="memoryOption" 
-                                           id="memory_@memory.Id" 
-                                           value="@memory.Value"
-                                           @(memory.IsSelected ? "checked" : "")
-                                           @(memory.Stock <= 0 ? "disabled" : "")>
-                                    <label class="memory-option @(memory.Stock <= 0 ? "disabled" : "")" 
-                                           for="memory_@memory.Id">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <span class="memory-size">@memory.Value</span>
-                                            @if (memory.Stock <= 0)
-                                            {
-                                                <small class="text-danger">Stokta Yok</small>
-                                            }
-                                        </div>
-                                    </label>
-                                </div>
+                                @foreach (var memory in Model.MemoryOptions)
+                                {
+                                    <div class="memory-option-wrapper">
+                                        <input type="radio" 
+                                               class="btn-check" 
+                                               name="memoryOption" 
+                                               id="memory_@memory.Id" 
+                                               value="@memory.Value"
+                                               @(memory.IsSelected ? "checked" : "")
+                                               @(memory.Stock <= 0 ? "disabled" : "")>
+                                        <label class="memory-option @(memory.Stock <= 0 ? "disabled" : "")" 
+                                               for="memory_@memory.Id">
+                                            <div class="d-flex flex-column align-items-center">
+                                                <span class="memory-size">@memory.Value</span>
+                                                @if (memory.Stock <= 0)
+                                                {
+                                                    <small class="text-danger">Stokta Yok</small>
+                                                }
+                                            </div>
+                                        </label>
+                                    </div>
+                                }
                             }
                         </div>
                     </div>
