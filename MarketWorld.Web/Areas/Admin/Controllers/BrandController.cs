@@ -21,7 +21,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         public async Task<IActionResult> GetBrands()
         {
             var brands = await _brandService.GetAllBrandsAsync();
-            return Json(brands.Select(b => new { id = b.Id, name = b.Name }));
+            return Json(brands.Where(b => !b.IsDeleted).Select(b => new { id = b.Id, name = b.Name }));
         }
 
         [HttpGet]
@@ -35,11 +35,12 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             ViewBag.ActiveBrandsCount = brands.Count(b => !b.IsDeleted);
 
             // Toplam sayfa sayısını hesapla
-            var totalBrands = brands.Count();
+            var totalBrands = brands.Count(b => !b.IsDeleted);
             var totalPages = (int)Math.Ceiling(totalBrands / (double)pageSize);
 
             // Markaları sayfalayarak getir
             var pagedBrands = brands
+                .Where(b => !b.IsDeleted)
                 .OrderBy(b => b.Id)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)

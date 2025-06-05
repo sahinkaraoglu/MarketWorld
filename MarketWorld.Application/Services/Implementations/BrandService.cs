@@ -3,6 +3,7 @@ using MarketWorld.Application.Services.Interfaces;
 using MarketWorld.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MarketWorld.Application.Services.Implementations
@@ -18,7 +19,8 @@ namespace MarketWorld.Application.Services.Implementations
 
         public async Task<IEnumerable<Brand>> GetAllBrandsAsync()
         {
-            return await _unitOfWork.Brands.GetAllAsync();
+            var brands = await _unitOfWork.Brands.GetAllAsync();
+            return brands.Where(b => !b.IsDeleted);
         }
 
         public async Task<Brand> GetBrandByIdAsync(int id)
