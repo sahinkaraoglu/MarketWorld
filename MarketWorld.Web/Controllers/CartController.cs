@@ -39,11 +39,10 @@ namespace MarketWorld.Web.Controllers
                 {
                     ProductId = productId,
                     Quantity = quantity,
-                    Color = color,
-                    UserId = userId
+                    Color = color
                 };
 
-                var result = await _cartService.AddToCartAsync(cartItem);
+                var result = await _cartService.AddToCartAsync(cartItem, userId);
                 if (!result)
                 {
                     return Json(new { success = false, message = "Ürün sepete eklenirken bir hata oluştu." });
@@ -96,8 +95,7 @@ namespace MarketWorld.Web.Controllers
             }
 
             cartItem.Quantity = quantity;
-            cartItem.UserId = userId;
-            var result = await _cartService.UpdateCartItemAsync(cartItem);
+            var result = await _cartService.UpdateCartItemAsync(cartItem, userId);
             if (!result)
             {
                 return Json(new { success = false, message = "Miktar güncellenirken bir hata oluştu." });

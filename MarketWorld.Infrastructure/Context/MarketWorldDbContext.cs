@@ -128,12 +128,6 @@ namespace MarketWorld.Infrastructure.Context
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<CartItem>()
-                .HasOne(ci => ci.User)
-                .WithMany()
-                .HasForeignKey(ci => ci.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<CartItem>()
                 .Property(ci => ci.UnitPrice)
                 .HasColumnType("decimal(18,2)");
 

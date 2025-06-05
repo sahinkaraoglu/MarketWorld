@@ -29,12 +29,12 @@ namespace MarketWorld.Application.Services.Implementations
             return cart?.CartItems.FirstOrDefault(ci => ci.Id == id);
         }
 
-        public async Task<bool> AddToCartAsync(CartItem cartItem)
+        public async Task<bool> AddToCartAsync(CartItem cartItem, string userId)
         {
-            var cart = await _unitOfWork.Carts.GetUserCartWithItemsAsync(cartItem.UserId);
+            var cart = await _unitOfWork.Carts.GetUserCartWithItemsAsync(userId);
             if (cart == null)
             {
-                cart = new Cart { UserId = cartItem.UserId };
+                cart = new Cart { UserId = userId };
                 await _unitOfWork.Carts.AddAsync(cart);
             }
 
@@ -53,9 +53,9 @@ namespace MarketWorld.Application.Services.Implementations
             return true;
         }
 
-        public async Task<bool> UpdateCartItemAsync(CartItem cartItem)
+        public async Task<bool> UpdateCartItemAsync(CartItem cartItem, string userId)
         {
-            var cart = await _unitOfWork.Carts.GetUserCartWithItemsAsync(cartItem.UserId);
+            var cart = await _unitOfWork.Carts.GetUserCartWithItemsAsync(userId);
             if (cart == null)
                 return false;
 
