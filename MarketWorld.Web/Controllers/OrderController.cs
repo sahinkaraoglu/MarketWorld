@@ -141,14 +141,14 @@ namespace MarketWorld.Web.Controllers
                 }
 
                 // Sepet bilgilerini getir
-                var cart = await _cartService.GetUserCartAsync(currentUser.Id);
-                if (cart == null || !cart.CartItems.Any())
+                var cartItems = await _cartService.GetCartItemsAsync(currentUser.Id);
+                if (cartItems == null || !cartItems.Any())
                 {
                     return RedirectToAction("Index", "Cart");
                 }
 
                 // Sipariş özeti için gerekli bilgileri hazırla
-                ViewBag.CartItems = cart.CartItems;
+                ViewBag.CartItems = cartItems;
                 ViewBag.TotalAmount = await _cartService.GetCartTotalAsync(currentUser.Id);
                 ViewBag.User = currentUser;
 
@@ -173,8 +173,8 @@ namespace MarketWorld.Web.Controllers
                 }
 
                 // Sepet bilgilerini getir
-                var cart = await _cartService.GetUserCartAsync(currentUser.Id);
-                if (cart == null || !cart.CartItems.Any())
+                var cartItems = await _cartService.GetCartItemsAsync(currentUser.Id);
+                if (cartItems == null || !cartItems.Any())
                 {
                     return RedirectToAction("Index", "Cart");
                 }
@@ -188,7 +188,7 @@ namespace MarketWorld.Web.Controllers
                     TotalAmount = await _cartService.GetCartTotalAsync(currentUser.Id),
                     ShippingAddress = order.ShippingAddress,
                     BillingAddress = order.BillingAddress,
-                    OrderItems = cart.CartItems.Select(ci => new OrderItem
+                    OrderItems = cartItems.Select(ci => new OrderItem
                     {
                         ProductId = ci.ProductId,
                         Quantity = ci.Quantity,

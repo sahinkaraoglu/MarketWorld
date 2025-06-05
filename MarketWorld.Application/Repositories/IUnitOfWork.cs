@@ -11,10 +11,12 @@ namespace MarketWorld.Application.Repositories
         ICommentRepository Comments { get; }
         IBrandRepository Brands { get; }
         IOrderRepository Orders { get; }
+        IOrderItemRepository OrderItems { get; }
         IPropertyTypeRepository PropertyTypes { get; }
         IPropertyValueRepository PropertyValues { get; }
         ICartRepository Carts { get; }
         ICartItemRepository CartItems { get; }
+        IAddressRepository Addresses { get; }
         
         Task<int> SaveChangesAsync();
         Task BeginTransactionAsync();

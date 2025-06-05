@@ -1,6 +1,6 @@
 using MarketWorld.Core.Domain.Entities;
 
-namespace MarketWorld.Core.Interfaces.Services
+namespace MarketWorld.Application.Services.Interfaces
 {
     public interface IReportService
     {

@@ -15,11 +15,13 @@ namespace MarketWorld.Infrastructure.Repositories
         private ICommentRepository _commentRepository;
         private IBrandRepository _brandRepository;
         private IOrderRepository _orderRepository;
+        private IOrderItemRepository _orderItemRepository;
         private ISubCategoryRepository _subCategories;
         private IPropertyTypeRepository _propertyTypes;
         private IPropertyValueRepository _propertyValues;
         private ICartRepository _cartRepository;
         private ICartItemRepository _cartItemRepository;
+        private IAddressRepository _addressRepository;
         private IDbContextTransaction _transaction;
         private bool _disposed;
 
@@ -43,6 +45,9 @@ namespace MarketWorld.Infrastructure.Repositories
         public IOrderRepository Orders =>
             _orderRepository ??= new OrderRepository(_context);
 
+        public IOrderItemRepository OrderItems =>
+            _orderItemRepository ??= new OrderItemRepository(_context);
+
         public ISubCategoryRepository SubCategories =>
             _subCategories ??= new SubCategoryRepository(_context);
 
@@ -57,6 +62,9 @@ namespace MarketWorld.Infrastructure.Repositories
 
         public ICartItemRepository CartItems =>
             _cartItemRepository ??= new CartItemRepository(_context);
+
+        public IAddressRepository Addresses =>
+            _addressRepository ??= new AddressRepository(_context);
 
         public async Task BeginTransactionAsync()
         {

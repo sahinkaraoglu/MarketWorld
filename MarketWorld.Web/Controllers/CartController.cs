@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Web.Attributes;
-using MarketWorld.Core.Interfaces.Services;
+using MarketWorld.Application.Services.Interfaces;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -40,7 +40,7 @@ namespace MarketWorld.Web.Controllers
                     ProductId = productId,
                     Quantity = quantity,
                     Color = color,
-                    Cart = new Cart { UserId = userId }
+                    UserId = userId
                 };
 
                 var result = await _cartService.AddToCartAsync(cartItem);
@@ -96,7 +96,7 @@ namespace MarketWorld.Web.Controllers
             }
 
             cartItem.Quantity = quantity;
-            cartItem.Cart = new Cart { UserId = userId };
+            cartItem.UserId = userId;
             var result = await _cartService.UpdateCartItemAsync(cartItem);
             if (!result)
             {

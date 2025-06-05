@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 using System;
 using MarketWorld.Web.Attributes;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Core.Interfaces.Services;
+using MarketWorld.Application.Services.Interfaces;
+
 
 namespace MarketWorld.Web.Controllers
 {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Core.Interfaces.Services;
+using MarketWorld.Application.Services.Interfaces;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers

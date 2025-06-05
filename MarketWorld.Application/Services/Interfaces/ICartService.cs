@@ -1,15 +1,17 @@
-using MarketWorld.Core.Domain.Entities;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Application.Services.Interfaces
 {
     public interface ICartService
     {
-        Task<Cart> GetUserCartAsync(string userId);
-        Task<Cart> AddToCartAsync(string userId, int productId, int quantity);
-        Task<Cart> UpdateCartItemQuantityAsync(string userId, int productId, int quantity);
-        Task RemoveFromCartAsync(string userId, int productId);
-        Task ClearCartAsync(string userId);
+        Task<List<CartItem>> GetCartItemsAsync(string userId);
+        Task<CartItem> GetCartItemByIdAsync(int id, string userId);
+        Task<bool> AddToCartAsync(CartItem cartItem);
+        Task<bool> UpdateCartItemAsync(CartItem cartItem);
+        Task<bool> RemoveFromCartAsync(int id, string userId);
+        Task<bool> ClearCartAsync(string userId);
         Task<decimal> GetCartTotalAsync(string userId);
     }
 } 
