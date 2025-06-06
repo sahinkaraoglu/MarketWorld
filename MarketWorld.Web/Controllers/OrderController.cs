@@ -202,28 +202,8 @@ namespace MarketWorld.Web.Controllers
                 // Sepeti temizle
                 await _cartService.ClearCartAsync(currentUser.Id);
 
-                // Başarılı sipariş sayfasına yönlendir
-                return RedirectToAction("OrderConfirmation", new { id = newOrder.Id });
-            }
-            catch (Exception ex)
-            {
+                // Ana sayfaya yönlendir
                 return RedirectToAction("Index", "Home");
-            }
-        }
-
-        [HttpGet]
-        [Route("OrderConfirmation/{id}")]
-        public async Task<IActionResult> OrderConfirmation(int id)
-        {
-            try
-            {
-                var order = await _orderService.GetOrderWithDetailsAsync(id);
-                if (order == null)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-
-                return View(order);
             }
             catch (Exception ex)
             {
