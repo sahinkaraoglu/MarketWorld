@@ -16,17 +16,20 @@ namespace MarketWorld.Web.Controllers
         private readonly ICartService _cartService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IAccountService _accountService;
 
         public OrderController(
             IOrderService orderService,
             ICartService cartService,
             UserManager<ApplicationUser> userManager,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            IAccountService accountService)
         {
             _orderService = orderService;
             _cartService = cartService;
             _userManager = userManager;
             _roleManager = roleManager;
+            _accountService = accountService;
         }
 
         public async Task<IActionResult> Index()
@@ -151,6 +154,7 @@ namespace MarketWorld.Web.Controllers
                 ViewBag.CartItems = cartItems;
                 ViewBag.TotalAmount = await _cartService.GetCartTotalAsync(userId);
                 ViewBag.User = await _userManager.FindByIdAsync(userId);
+                ViewBag.UserAddresses = await _accountService.GetUserAddressesAsync(userId);
 
                 return View();
             }
