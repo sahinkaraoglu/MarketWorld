@@ -134,14 +134,14 @@ namespace MarketWorld.Web.Controllers
             try
             {
                 // Kullanıcının sepetini kontrol et
-                var currentUser = await _userManager.GetUserAsync(User);
-                if (currentUser == null)
+                var userId = HttpContext.Items["UserId"]?.ToString();
+                if (string.IsNullOrEmpty(userId))
                 {
                     return RedirectToAction("Login", "Account");
                 }
 
                 // Sepet bilgilerini getir
-                var cartItems = await _cartService.GetCartItemsAsync(currentUser.Id);
+                var cartItems = await _cartService.GetCartItemsAsync(userId);
                 if (cartItems == null || !cartItems.Any())
                 {
                     return RedirectToAction("Index", "Cart");
@@ -149,8 +149,8 @@ namespace MarketWorld.Web.Controllers
 
                 // Sipariş özeti için gerekli bilgileri hazırla
                 ViewBag.CartItems = cartItems;
-                ViewBag.TotalAmount = await _cartService.GetCartTotalAsync(currentUser.Id);
-                ViewBag.User = currentUser;
+                ViewBag.TotalAmount = await _cartService.GetCartTotalAsync(userId);
+                ViewBag.User = await _userManager.FindByIdAsync(userId);
 
                 return View();
             }
@@ -166,14 +166,14 @@ namespace MarketWorld.Web.Controllers
         {
             try
             {
-                var currentUser = await _userManager.GetUserAsync(User);
-                if (currentUser == null)
+                var userId = HttpContext.Items["UserId"]?.ToString();
+                if (string.IsNullOrEmpty(userId))
                 {
                     return RedirectToAction("Login", "Account");
                 }
 
                 // Sepet bilgilerini getir
-                var cartItems = await _cartService.GetCartItemsAsync(currentUser.Id);
+                var cartItems = await _cartService.GetCartItemsAsync(userId);
                 if (cartItems == null || !cartItems.Any())
                 {
                     return RedirectToAction("Index", "Cart");
@@ -182,10 +182,10 @@ namespace MarketWorld.Web.Controllers
                 // Yeni sipariş oluştur
                 var newOrder = new Order
                 {
-                    UserId = currentUser.Id,
+                    UserId = userId,
                     OrderDate = DateTime.Now,
                     Status = OrderStatus.Pending,
-                    TotalAmount = await _cartService.GetCartTotalAsync(currentUser.Id),
+                    TotalAmount = await _cartService.GetCartTotalAsync(userId),
                     ShippingAddress = order.ShippingAddress,
                     BillingAddress = order.BillingAddress,
                     OrderItems = cartItems.Select(ci => new OrderItem
@@ -200,7 +200,7 @@ namespace MarketWorld.Web.Controllers
                 await _orderService.CreateOrderAsync(newOrder);
 
                 // Sepeti temizle
-                await _cartService.ClearCartAsync(currentUser.Id);
+                await _cartService.ClearCartAsync(userId);
 
                 // Başarılı sipariş sayfasına yönlendir
                 return RedirectToAction("OrderConfirmation", new { id = newOrder.Id });

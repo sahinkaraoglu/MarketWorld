@@ -63,7 +63,7 @@ namespace MarketWorld.Web.Controllers
             var userId = HttpContext.Items["UserId"]?.ToString();
             if (string.IsNullOrEmpty(userId))
             {
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Login", "Account");
             }
 
             var cartItems = await _cartService.GetCartItemsAsync(userId);
