@@ -5,6 +5,37 @@
     var userAddresses = ViewBag.UserAddresses as List<MarketWorld.Core.Domain.Entities.Address>;
 }
 
+<style>
+    .address-card, .payment-card {
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background: #fff;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+    }
+    .address-card:hover, .payment-card:hover {
+        border-color: #2196F3 !important;
+        box-shadow: 0 0 0 0.25rem rgba(33, 150, 243, 0.15);
+    }
+    .address-card.selected, .payment-card.selected {
+        border-color: #2196F3 !important;
+        box-shadow: 0 0 0 0.25rem rgba(33, 150, 243, 0.25);
+    }
+    .address-radio, .payment-radio {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 2;
+    }
+    .form-check-input:checked {
+        background-color: #2196F3;
+        border-color: #2196F3;
+    }
+</style>
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8">
@@ -19,8 +50,8 @@
                                 {
                                     foreach (var address in userAddresses)
                                     {
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" name="ShippingAddressId" id="address_@address.Id" value="@address.Id" @(address.IsDefault ? "checked" : "") required>
+                                        <div class="address-card" onclick="selectAddress(@address.Id)">
+                                            <input class="form-check-input address-radio" type="radio" name="ShippingAddressId" id="address_@address.Id" value="@address.Id" @(address.IsDefault ? "checked" : "") required>
                                             <label class="form-check-label" for="address_@address.Id">
                                                 <strong>@address.Title</strong><br />
                                                 @address.FullAddress<br />
@@ -48,8 +79,8 @@
                                 {
                                     foreach (var address in userAddresses)
                                     {
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" name="BillingAddressId" id="billaddress_@address.Id" value="@address.Id">
+                                        <div class="address-card" onclick="selectBillingAddress(@address.Id)">
+                                            <input class="form-check-input address-radio" type="radio" name="BillingAddressId" id="billaddress_@address.Id" value="@address.Id">
                                             <label class="form-check-label" for="billaddress_@address.Id">
                                                 <strong>@address.Title</strong><br />
                                                 @address.FullAddress<br />
@@ -62,39 +93,47 @@
                         </div>
                         <hr />
                         <h5 class="mb-3"><i class="bi bi-credit-card-2-front"></i> Ödeme Yöntemi</h5>
-                        <ul class="nav nav-tabs mb-3" id="paymentTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="creditcard-tab" data-bs-toggle="tab" data-bs-target="#creditcard" type="button" role="tab">Kredi Kartı</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="eft-tab" data-bs-toggle="tab" data-bs-target="#eft" type="button" role="tab">Havale / EFT</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="paymentTabContent">
-                            <div class="tab-pane fade show active" id="creditcard" role="tabpanel">
-                                <div class="row g-3">
-                                    <div class="col-md-12">
-                                        <label class="form-label">Kart Üzerindeki İsim <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="CardName" required placeholder="Kart üzerindeki isim">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="form-label">Kart Numarası <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="CardNumber" maxlength="19" required placeholder="XXXX XXXX XXXX XXXX">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Son Kullanma Tarihi <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="ExpiryDate" maxlength="5" required placeholder="AA/YY">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">CVV <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="CVV" maxlength="4" required placeholder="CVV">
-                                    </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="payment-card" id="creditCardOption" onclick="selectPayment('credit')">
+                                    <input class="form-check-input payment-radio" type="radio" name="PaymentMethod" id="payment_credit" value="CreditCard" checked>
+                                    <label class="form-check-label" for="payment_credit">
+                                        <i class="bi bi-credit-card-2-front"></i> Kredi Kartı <span class="text-muted small">Güvenli ödeme</span>
+                                    </label>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="eft" role="tabpanel">
-                                <div class="alert alert-info mt-3">
-                                    Banka hesaplarımıza transfer ile ödeme yapabilirsiniz. Sipariş sonrası hesap bilgileri gösterilecektir.
+                            <div class="col-md-6">
+                                <div class="payment-card" id="eftOption" onclick="selectPayment('eft')">
+                                    <input class="form-check-input payment-radio" type="radio" name="PaymentMethod" id="payment_eft" value="EFT">
+                                    <label class="form-check-label" for="payment_eft">
+                                        <i class="bi bi-bank"></i> Havale / EFT <span class="text-muted small">Banka hesabımıza transfer</span>
+                                    </label>
                                 </div>
+                            </div>
+                        </div>
+                        <div id="creditcard" class="payment-detail">
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label class="form-label">Kart Üzerindeki İsim <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="CardName" required placeholder="Kart üzerindeki isim">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label">Kart Numarası <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="CardNumber" maxlength="19" required placeholder="XXXX XXXX XXXX XXXX">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Son Kullanma Tarihi <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="ExpiryDate" maxlength="5" required placeholder="AA/YY">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CVV <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="CVV" maxlength="4" required placeholder="CVV">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="eft" class="payment-detail" style="display:none;">
+                            <div class="alert alert-info mt-3">
+                                Banka hesaplarımıza transfer ile ödeme yapabilirsiniz. Sipariş sonrası hesap bilgileri gösterilecektir.
                             </div>
                         </div>
                         <div class="d-grid gap-2 mt-4">
@@ -139,13 +178,70 @@
 
 @section Scripts {
     <script>
+        function selectAddress(id) {
+            $('.address-card').removeClass('selected');
+            $('#address_' + id).closest('.address-card').addClass('selected');
+            $('#address_' + id).prop('checked', true);
+        }
+        function selectBillingAddress(id) {
+            $('.address-card').removeClass('selected');
+            $('#billaddress_' + id).closest('.address-card').addClass('selected');
+            $('#billaddress_' + id).prop('checked', true);
+        }
+        function selectPayment(type) {
+            $('.payment-card').removeClass('selected');
+            if (type === 'credit') {
+                $('#creditCardOption').addClass('selected');
+                $('#creditcard').show();
+                $('#eft').hide();
+                $('#payment_credit').prop('checked', true);
+            } else {
+                $('#eftOption').addClass('selected');
+                $('#eft').show();
+                $('#creditcard').hide();
+                $('#payment_eft').prop('checked', true);
+            }
+        }
         $(document).ready(function () {
+            // Adres kartı seçili başlat
+            $('.address-card input[type=radio]').each(function () {
+                if ($(this).is(':checked')) {
+                    $(this).closest('.address-card').addClass('selected');
+                }
+            });
+            $('.address-card').click(function () {
+                $('.address-card').removeClass('selected');
+                $(this).addClass('selected');
+                $(this).find('input[type=radio]').prop('checked', true);
+            });
             // Fatura adresi kutucuğu
             $('#sameAsShipping').change(function () {
                 if ($(this).is(':checked')) {
                     $('#billingAddressSection').hide();
                 } else {
                     $('#billingAddressSection').show();
+                }
+            });
+            // Ödeme kartı seçili başlat
+            if ($('#payment_credit').is(':checked')) {
+                $('#creditCardOption').addClass('selected');
+                $('#creditcard').show();
+                $('#eft').hide();
+            } else {
+                $('#eftOption').addClass('selected');
+                $('#eft').show();
+                $('#creditcard').hide();
+            }
+            $('.payment-card').click(function () {
+                $('.payment-card').removeClass('selected');
+                $(this).addClass('selected');
+                $(this).find('input[type=radio]').prop('checked', true);
+                if ($(this).find('input[type=radio]').val() === 'CreditCard') {
+                    $('#creditcard').show();
+                    $('#eft').hide();
+                } else {
+                    $('#eft').show();
+                    $('#creditcard').hide();
                 }
             });
             // Kart numarası formatı
