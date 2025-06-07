@@ -131,7 +131,6 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpGet]
-        [Route("Order/Checkout")]
         public async Task<IActionResult> Checkout()
         {
             try
@@ -165,7 +164,6 @@ namespace MarketWorld.Web.Controllers
         }
 
         [HttpPost]
-        [Route("Checkout")]
         public async Task<IActionResult> Checkout(Order order)
         {
             try
@@ -180,8 +178,26 @@ namespace MarketWorld.Web.Controllers
                 var cartItems = await _cartService.GetCartItemsAsync(userId);
                 if (cartItems == null || !cartItems.Any())
                 {
-                    return RedirectToAction("Index", "Cart");
+                    TempData["OrderError"] = "Sepetinizde ürün yok!";
+                    return RedirectToAction("Checkout");
                 }
+
+                if (order.ShippingAddressId == null)
+                {
+                    TempData["OrderError"] = "Teslimat adresi seçilmedi!";
+                    return RedirectToAction("Checkout");
+                }
+
+                var shippingAddress = await _accountService.GetAddressByIdAsync(order.ShippingAddressId.Value, userId);
+                if (shippingAddress == null)
+                {
+                    TempData["OrderError"] = "Seçili teslimat adresi bulunamadı!";
+                    return RedirectToAction("Checkout");
+                }
+
+                // Sipariş numarası üret
+                var random = new Random();
+                string orderNumber = DateTime.Now.ToString("yyyyMMddHHmmssfff") + random.Next(100, 1000).ToString();
 
                 // Yeni sipariş oluştur
                 var newOrder = new Order
@@ -190,8 +206,9 @@ namespace MarketWorld.Web.Controllers
                     OrderDate = DateTime.Now,
                     Status = OrderStatus.Pending,
                     TotalAmount = await _cartService.GetCartTotalAsync(userId),
-                    ShippingAddress = order.ShippingAddress,
-                    BillingAddress = order.BillingAddress,
+                    ShippingAddressId = shippingAddress.Id,
+                    ShippingAddress = shippingAddress,
+                    OrderNumber = orderNumber,
                     OrderItems = cartItems.Select(ci => new OrderItem
                     {
                         ProductId = ci.ProductId,
@@ -207,25 +224,28 @@ namespace MarketWorld.Web.Controllers
                 await _cartService.ClearCartAsync(userId);
 
                 // Başarılı sipariş sayfasına yönlendir
-                return RedirectToAction("OrderConfirmation", new { id = newOrder.Id });
+                return RedirectToAction("OrderConfirmation", new { orderId = newOrder.Id });
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", "Home");
+                TempData["OrderError"] = ex.ToString();
+                return RedirectToAction("Checkout");
             }
         }
 
         [HttpGet]
-        [Route("OrderConfirmation/{id}")]
-        public async Task<IActionResult> OrderConfirmation(int id)
+        public async Task<IActionResult> OrderConfirmation(int orderId)
         {
             try
             {
-                var order = await _orderService.GetOrderWithDetailsAsync(id);
+                var order = await _orderService.GetOrderWithDetailsAsync(orderId);
                 if (order == null)
                 {
                     return RedirectToAction("Index", "Home");
                 }
+
+                if (order.ShippingAddressId == null)
+                    throw new Exception("ShippingAddressId null geliyor!");
 
                 return View(order);
             }

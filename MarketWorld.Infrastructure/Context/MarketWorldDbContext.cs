@@ -513,12 +513,6 @@ namespace MarketWorld.Infrastructure.Context
                 .HasForeignKey(o => o.ShippingAddressId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Order>()
-                .HasOne(o => o.BillingAddress)
-                .WithMany()
-                .HasForeignKey(o => o.BillingAddressId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             // Image ve Product arasındaki ilişki
             modelBuilder.Entity<Image>()
                 .HasOne<Product>()

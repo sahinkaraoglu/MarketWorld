@@ -1,5 +1,10 @@
 @model MarketWorld.Core.Domain.Entities.Order
 
+@if (TempData["OrderError"] != null)
+{
+    <div class="alert alert-danger">@TempData["OrderError"]</div>
+}
+
 @{
     ViewData["Title"] = "Sipariş Tamamlama";
     var userAddresses = ViewBag.UserAddresses as List<MarketWorld.Core.Domain.Entities.Address>;
@@ -11,7 +16,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h5 class="mb-3"><i class="bi bi-geo-alt-fill"></i> Adres Bilgileri</h5>
-                    <form asp-action="Checkout" method="post" id="checkoutForm">
+                    <form asp-action="Checkout" asp-controller="Order" method="post" id="checkoutForm">
                         <div class="mb-3">
                             <label class="form-label">Teslimat Adresi</label>
                             <div>
@@ -106,6 +111,7 @@
                             </div>
                         </div>
                         <div class="d-grid gap-2 mt-4">
+                            <input type="hidden" name="ShippingAddressId" id="hiddenShippingAddressId" value="" />
                             <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-lock"></i> Siparişi Tamamla</button>
                         </div>
                     </form>
@@ -120,7 +126,7 @@
                         @foreach (var item in ViewBag.CartItems)
                         {
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span>@item.Product.Name <span class="badge bg-secondary">x@item.Quantity</span></span>
+                                <span>@item.Product.Name<span class="badge bg-secondary">@item.Quantity</span> </span>
                                 <span>@(item.Quantity * item.Product.Price) TL</span>
                             </li>
                         }
@@ -266,6 +272,13 @@
                     value = value.substring(0, 2) + '/' + value.substring(2);
                 }
                 $(this).val(value);
+            });
+            // Form submit olmadan önce seçili adresleri hidden inputlara yaz
+            $('#checkoutForm').submit(function () {
+                var shippingId = $('input[name="ShippingAddressId"]:checked').val();
+                var billingId = $('input[name="BillingAddressId"]:checked').val();
+                $('#hiddenShippingAddressId').val(shippingId);
+                $('#hiddenBillingAddressId').val(billingId);
             });
         });
     </script>

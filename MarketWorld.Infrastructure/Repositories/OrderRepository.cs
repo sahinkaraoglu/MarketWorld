@@ -43,6 +43,7 @@ namespace MarketWorld.Infrastructure.Repositories
                 .Include(o => o.OrderItems)
                     .ThenInclude(oi => oi.Product)
                 .Include(o => o.User)
+                .Include(o => o.ShippingAddress)
                 .FirstOrDefaultAsync(o => o.Id == id);
         }
 

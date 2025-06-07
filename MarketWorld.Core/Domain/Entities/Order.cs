@@ -18,9 +18,6 @@ namespace MarketWorld.Core.Domain.Entities
         public int? ShippingAddressId { get; set; }
         public Address ShippingAddress { get; set; }
         
-        public int? BillingAddressId { get; set; }
-        public Address BillingAddress { get; set; }
-        
         public ICollection<OrderItem> OrderItems { get; set; }
         public ICollection<CreditCard> CreditCards { get; set; }
     }
