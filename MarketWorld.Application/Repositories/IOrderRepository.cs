@@ -13,5 +13,6 @@ namespace MarketWorld.Application.Repositories
         Task<Order> GetOrderWithDetailsAsync(int id);
         Task<IEnumerable<Order>> GetOrdersByDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<decimal> GetTotalRevenueByDateRangeAsync(DateTime startDate, DateTime endDate);
+        Task<IEnumerable<Order>> GetUserOrdersAsync(string userId);
     }
 } 

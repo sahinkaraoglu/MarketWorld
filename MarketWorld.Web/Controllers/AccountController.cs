@@ -12,10 +12,12 @@ namespace MarketWorld.Web.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountService _accountService;
+        private readonly IOrderService _orderService;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(IAccountService accountService, IOrderService orderService)
         {
             _accountService = accountService;
+            _orderService = orderService;
         }
 
         public async Task<IActionResult> Index()
@@ -203,6 +205,7 @@ namespace MarketWorld.Web.Controllers
             var userId = HttpContext.Items["UserId"].ToString();
 
             var user = await _accountService.GetUserByIdAsync(userId);
+            var orders = await _orderService.GetUserOrdersAsync(userId);
 
             if (user != null)
             {
@@ -214,7 +217,7 @@ namespace MarketWorld.Web.Controllers
                 };
             }
 
-            return View("~/Views/Account/Order/Index.cshtml");
+            return View("~/Views/Account/Order/Index.cshtml", orders);
         }
 
         public async Task<IActionResult> Edit()

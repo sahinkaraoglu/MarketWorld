@@ -62,5 +62,16 @@ namespace MarketWorld.Infrastructure.Repositories
                 .Where(o => o.CreatedDate >= startDate && o.CreatedDate <= endDate)
                 .SumAsync(o => o.TotalAmount);
         }
+
+        public async Task<IEnumerable<Order>> GetUserOrdersAsync(string userId)
+        {
+            return await _marketWorldContext.Orders
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.Product)
+                .Include(o => o.ShippingAddress)
+                .Where(o => o.UserId == userId)
+                .OrderByDescending(o => o.CreatedDate)
+                .ToListAsync();
+        }
     }
 } 

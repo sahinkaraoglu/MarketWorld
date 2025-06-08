@@ -116,5 +116,10 @@ namespace MarketWorld.Application.Services.Implementations
             }
             return await GetAllOrdersAsync();
         }
+
+        public async Task<IEnumerable<Order>> GetUserOrdersAsync(string userId)
+        {
+            return await _unitOfWork.Orders.GetUserOrdersAsync(userId);
+        }
     }
 } 

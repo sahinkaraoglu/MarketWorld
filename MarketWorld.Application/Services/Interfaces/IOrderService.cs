@@ -16,5 +16,6 @@ namespace MarketWorld.Application.Services.Interfaces
         Task<IEnumerable<Brand>> GetTopSellingBrandsAsync(int count);
         Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus? status);
         Task<Order> UpdateOrderStatusAsync(int orderId, OrderStatus status);
+        Task<IEnumerable<Order>> GetUserOrdersAsync(string userId);
     }
 } 
