@@ -57,12 +57,23 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
 
                 if (!string.IsNullOrEmpty(cachedData))
                 {
-                    var cachedDashboardData = JsonSerializer.Deserialize<Dictionary<string, int>>(cachedData, _jsonOptions);
-                    foreach (var item in cachedDashboardData)
+                    try
                     {
-                        ViewBag.SetValue(item.Key, item.Value);
+                        var cachedDashboardData = JsonSerializer.Deserialize<Dictionary<string, int>>(cachedData, _jsonOptions);
+                        if (cachedDashboardData != null)
+                        {
+                            foreach (var item in cachedDashboardData)
+                            {
+                                ViewBag.SetValue(item.Key, item.Value);
+                            }
+                            return View();
+                        }
                     }
-                    return View();
+                    catch
+                    {
+                        // Önbellek verisi bozuksa yeni veri çekelim
+                        await _cache.RemoveAsync(cacheKey);
+                    }
                 }
 
                 // Sıralı işlem yapısı
@@ -92,14 +103,14 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 // Önbelleğe kaydet
                 var dashboardData = new Dictionary<string, int>
                 {
-                    { "ProductsCount", ViewBag.ProductsCount },
-                    { "LowStockCount", ViewBag.LowStockCount },
-                    { "CategoriesCount", ViewBag.CategoriesCount },
-                    { "SubCategoriesCount", ViewBag.SubCategoriesCount },
-                    { "TotalUsersCount", ViewBag.TotalUsersCount },
-                    { "NewUsersCount", ViewBag.NewUsersCount },
-                    { "BrandsCount", ViewBag.BrandsCount },
-                    { "TopSellerBrandsCount", ViewBag.TopSellerBrandsCount }
+                    { "ProductsCount", (int)ViewBag.ProductsCount },
+                    { "LowStockCount", (int)ViewBag.LowStockCount },
+                    { "CategoriesCount", (int)ViewBag.CategoriesCount },
+                    { "SubCategoriesCount", (int)ViewBag.SubCategoriesCount },
+                    { "TotalUsersCount", (int)ViewBag.TotalUsersCount },
+                    { "NewUsersCount", (int)ViewBag.NewUsersCount },
+                    { "BrandsCount", (int)ViewBag.BrandsCount },
+                    { "TopSellerBrandsCount", (int)ViewBag.TopSellerBrandsCount }
                 };
 
                 var cacheOptions = new DistributedCacheEntryOptions()
