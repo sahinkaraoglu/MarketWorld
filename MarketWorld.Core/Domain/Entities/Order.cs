@@ -11,6 +11,7 @@ namespace MarketWorld.Core.Domain.Entities
         public DateTime OrderDate { get; set; }
         public OrderStatus Status { get; set; }
         public decimal TotalAmount { get; set; }
+        public string Note { get; set; }
         
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
