@@ -165,6 +165,23 @@ namespace MarketWorld.Web.Controllers
                 return NotFound();
             }
 
+            // Adres detaylarını kontrol et ve varsayılan değerleri ata
+            if (string.IsNullOrEmpty(address.FullName))
+            {
+                var user = await _accountService.GetUserByIdAsync(userId);
+                address.FullName = $"{user.FirstName} {user.LastName}".Trim();
+            }
+
+            if (string.IsNullOrEmpty(address.PostalCode))
+            {
+                address.PostalCode = "34000"; // Varsayılan posta kodu
+            }
+
+            if (string.IsNullOrEmpty(address.Country))
+            {
+                address.Country = "Türkiye";
+            }
+
             return View("~/Views/Account/Address/Edit.cshtml", address);
         }
 
@@ -173,6 +190,13 @@ namespace MarketWorld.Web.Controllers
         {
             var userId = HttpContext.Items["UserId"].ToString();
             address.UserId = userId;
+
+            // Form verilerini al
+            address.FullName = Request.Form["FullName"].ToString();
+            address.PostalCode = Request.Form["PostalCode"].ToString();
+            address.Country = Request.Form["Country"].ToString();
+            address.AddressType = (Core.Enums.AddressType)int.Parse(Request.Form["AddressType"].ToString());
+            address.IsDefault = bool.Parse(Request.Form["IsDefault"].ToString());
 
             if (ModelState.IsValid)
             {

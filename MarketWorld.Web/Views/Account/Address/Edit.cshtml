@@ -41,7 +41,16 @@
                 <div class="card-body p-4">
                     <form method="post" asp-controller="Account" asp-action="EditAddress">
                         <input type="hidden" name="Id" value="@Model.Id" />
+                        <input type="hidden" name="UserId" value="@Model.UserId" />
+                        <input type="hidden" name="Country" value="Türkiye" />
+                        <input type="hidden" name="AddressType" value="@((int)Model.AddressType)" />
+                        <input type="hidden" name="IsDefault" value="@Model.IsDefault.ToString().ToLower()" />
                         
+                        <div class="mb-3">
+                            <label class="form-label">Ad Soyad <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="FullName" value="@Model.FullName" placeholder="Ad Soyad" required>
+                        </div>
+
                         <div class="mb-3">
                             <label class="form-label">Adres Başlığı <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="Title" value="@Model.Title" placeholder="Örn: Ev, İş, Yazlık" required>
@@ -95,6 +104,10 @@
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Telefon <span class="text-danger">*</span></label>
                                 <input type="tel" class="form-control" name="Phone" value="@Model.Phone" placeholder="Telefon Numarası" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Posta Kodu <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="PostalCode" value="@Model.PostalCode" placeholder="Posta Kodu" required>
                             </div>
                         </div>
                         

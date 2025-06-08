@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace MarketWorld.Application.Services.Implementations
 {
@@ -60,10 +61,16 @@ namespace MarketWorld.Application.Services.Implementations
                     return false;
 
                 existingAddress.Title = address.Title;
+                existingAddress.FullName = address.FullName;
                 existingAddress.FullAddress = address.FullAddress;
                 existingAddress.City = address.City;
                 existingAddress.District = address.District;
                 existingAddress.Phone = address.Phone;
+                existingAddress.PostalCode = address.PostalCode;
+                existingAddress.Country = address.Country;
+                existingAddress.AddressType = address.AddressType;
+                existingAddress.IsDefault = address.IsDefault;
+                existingAddress.UpdatedDate = DateTime.Now;
 
                 await _unitOfWork.SaveChangesAsync();
                 return true;
