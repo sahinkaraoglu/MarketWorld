@@ -7,6 +7,7 @@ using MarketWorld.Web.Areas.Admin.Models.Panel;
 using MarketWorld.Application.Services.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
+using MarketWorld.Core.Enums;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
@@ -84,6 +85,11 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 var brands = await _brandService.GetAllBrandsAsync() ?? new List<Brand>();
                 var topSellerBrands = await _orderService.GetTopSellingBrandsAsync(10) ?? new List<Brand>();
                 
+                // Sipariş istatistikleri
+                var orders = await _orderService.GetAllOrdersAsync() ?? new List<Order>();
+                ViewBag.NewOrdersCount = orders.Count(o => o.Status == OrderStatus.Pending);
+                ViewBag.ShippingOrdersCount = orders.Count(o => o.Status == OrderStatus.Shipped);
+                
                 // Ürün istatistikleri
                 ViewBag.ProductsCount = products.Count();
                 ViewBag.LowStockCount = products.Count(p => p.GetTotalStock() < 10);
@@ -110,7 +116,9 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                     { "TotalUsersCount", (int)ViewBag.TotalUsersCount },
                     { "NewUsersCount", (int)ViewBag.NewUsersCount },
                     { "BrandsCount", (int)ViewBag.BrandsCount },
-                    { "TopSellerBrandsCount", (int)ViewBag.TopSellerBrandsCount }
+                    { "TopSellerBrandsCount", (int)ViewBag.TopSellerBrandsCount },
+                    { "NewOrdersCount", (int)ViewBag.NewOrdersCount },
+                    { "ShippingOrdersCount", (int)ViewBag.ShippingOrdersCount }
                 };
 
                 var cacheOptions = new DistributedCacheEntryOptions()
@@ -136,6 +144,8 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 ViewBag.NewUsersCount = 0;
                 ViewBag.BrandsCount = 0;
                 ViewBag.TopSellerBrandsCount = 0;
+                ViewBag.NewOrdersCount = 0;
+                ViewBag.ShippingOrdersCount = 0;
                 
                 return View();
             }
