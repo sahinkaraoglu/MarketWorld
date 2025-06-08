@@ -29,7 +29,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Categories()
         {
             var categories = await _categoryService.GetCategoriesWithProductsAsync();
-            return View("Category/Index", categories);
+            return View("Index", categories);
         }
 
         [HttpGet]
