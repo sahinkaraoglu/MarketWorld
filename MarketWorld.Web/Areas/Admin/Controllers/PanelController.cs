@@ -130,11 +130,5 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("Products")]
-        public IActionResult Products()
-        {
-            return RedirectToAction("Products", "Product", new { area = "Admin" });
-        }
     }
 } 
