@@ -39,7 +39,13 @@
                     </h5>
                 </div>
                 <div class="card-body p-4">
-                    <form method="post" action="@Url.Action("AddAddress", "Account")">
+                    <div id="errorMessage" class="alert alert-danger d-none"></div>
+                    <form id="addAddressForm" method="post" asp-controller="Account" asp-action="AddAddress">
+                        <div class="mb-3">
+                            <label class="form-label">Ad Soyad <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="FullName" placeholder="Ad Soyad" required>
+                        </div>
+
                         <div class="mb-3">
                             <label class="form-label">Adres Başlığı <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="Title" placeholder="Örn: Ev, İş, Yazlık" required>
@@ -77,6 +83,13 @@
                             </div>
                             
                             <div class="col-md-6 mb-3">
+                                <label class="form-label">Posta Kodu <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="PostalCode" placeholder="Posta Kodu" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
                                 <label class="form-label">Adres Tipi <span class="text-danger">*</span></label>
                                 <select class="form-select" name="AddressType" required>
                                     <option value="1">Teslimat Adresi</option>
@@ -94,7 +107,7 @@
                             <a href="@Url.Action("Addresses", "Account")" class="btn btn-outline-secondary me-2">
                                 <i class="fas fa-times me-2"></i>İptal
                             </a>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary" id="saveButton">
                                 <i class="fas fa-save me-2"></i>Kaydet
                             </button>
                         </div>
@@ -108,6 +121,68 @@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Form gönderimini izle
+            const form = document.getElementById('addAddressForm');
+            const errorMessage = document.getElementById('errorMessage');
+            const saveButton = document.getElementById('saveButton');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Form verilerini kontrol et
+                const formData = new FormData(form);
+                let isValid = true;
+                let errorText = '';
+
+                // Zorunlu alanları kontrol et
+                for (let [key, value] of formData.entries()) {
+                    if (!value && form.elements[key].hasAttribute('required')) {
+                        isValid = false;
+                        errorText += `${form.elements[key].placeholder || key} alanı zorunludur.\n`;
+                    }
+                }
+
+                if (!isValid) {
+                    errorMessage.textContent = errorText;
+                    errorMessage.classList.remove('d-none');
+                    return;
+                }
+
+                // Form geçerliyse gönder
+                saveButton.disabled = true;
+                saveButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Kaydediliyor...';
+                errorMessage.classList.add('d-none');
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    } else {
+                        return response.json();
+                    }
+                })
+                .then(data => {
+                    if (data) {
+                        if (data.success === false) {
+                            errorMessage.textContent = data.message || 'Kayıt sırasında bir hata oluştu.';
+                            errorMessage.classList.remove('d-none');
+                            saveButton.disabled = false;
+                            saveButton.innerHTML = '<i class="fas fa-save me-2"></i>Kaydet';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    errorMessage.textContent = 'Bir hata oluştu: ' + error.message;
+                    errorMessage.classList.remove('d-none');
+                    saveButton.disabled = false;
+                    saveButton.innerHTML = '<i class="fas fa-save me-2"></i>Kaydet';
+                });
+            });
+
             // İl-İlçe verilerini yükle
             var cityDistrictMap = @Html.Raw(Json.Serialize(AddressSeedData.GetAddresses()
                 .GroupBy(a => a.City)
@@ -117,9 +192,6 @@
                 )
             ));
             
-            console.log('İl-İlçe verileri yüklendi.');
-            
-            // Il dropdown değişikliğini izle
             document.getElementById('citySelect').addEventListener('change', function() {
                 var selectedCity = this.value;
                 var districtSelect = document.getElementById('districtSelect');
@@ -143,8 +215,6 @@
                         option.text = district;
                         districtSelect.appendChild(option);
                     });
-                    
-                    console.log('İlçe listesi güncellendi.');
                 }
             });
         });

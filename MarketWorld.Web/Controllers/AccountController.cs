@@ -7,6 +7,7 @@ using MarketWorld.Application.Services.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Enums;
+using System.Text.Json;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -79,82 +80,109 @@ namespace MarketWorld.Web.Controllers
         [ActionName("AddAddress")]
         public async Task<IActionResult> AddAddressPost()
         {
-            var userId = HttpContext.Items["UserId"].ToString();
-
-            var title = Request.Form["Title"].ToString();
-            var fullAddress = Request.Form["FullAddress"].ToString();
-            var city = Request.Form["City"].ToString();
-            var district = Request.Form["District"].ToString();
-            var phone = Request.Form["Phone"].ToString();
-
-            bool isValid = true;
-            if (string.IsNullOrWhiteSpace(title))
-            {
-                ModelState.AddModelError("Title", "Adres başlığı boş olamaz");
-                isValid = false;
-            }
-            if (string.IsNullOrWhiteSpace(fullAddress))
-            {
-                ModelState.AddModelError("FullAddress", "Açık adres boş olamaz");
-                isValid = false;
-            }
-            if (string.IsNullOrWhiteSpace(city))
-            {
-                ModelState.AddModelError("City", "İl seçimi yapılmalıdır");
-                isValid = false;
-            }
-            if (string.IsNullOrWhiteSpace(district))
-            {
-                ModelState.AddModelError("District", "İlçe seçimi yapılmalıdır");
-                isValid = false;
-            }
-            if (string.IsNullOrWhiteSpace(phone))
-            {
-                ModelState.AddModelError("Phone", "Telefon numarası boş olamaz");
-                isValid = false;
-            }
-
-            if (!isValid)
-            {
-                ViewBag.Error = "Lütfen tüm zorunlu alanları doldurun";
-                return View("~/Views/Account/Address/Create.cshtml");
-            }
-
-            Enum.TryParse<Core.Enums.AddressType>(Request.Form["AddressType"], out var addressType);
-            bool.TryParse(Request.Form["IsDefault"], out var isDefault);
-
             try
             {
+                var userId = HttpContext.Items["UserId"].ToString();
+                if (string.IsNullOrEmpty(userId))
+                {
+                    _logger.LogError("User ID is null or empty");
+                    return Json(new { success = false, message = "Kullanıcı bilgisi bulunamadı. Lütfen tekrar giriş yapın." });
+                }
+
+                _logger.LogInformation($"Adding new address for user. UserId: {userId}");
+
+                var fullName = Request.Form["FullName"].ToString();
+                var title = Request.Form["Title"].ToString();
+                var fullAddress = Request.Form["FullAddress"].ToString();
+                var city = Request.Form["City"].ToString();
+                var district = Request.Form["District"].ToString();
+                var phone = Request.Form["Phone"].ToString();
+                var addressType = Request.Form["AddressType"].ToString();
+                var isDefault = Request.Form["IsDefault"].ToString();
+
+                _logger.LogInformation($"Form data received - FullName: {fullName}, Title: {title}, City: {city}, District: {district}");
+
+                bool isValid = true;
+                if (string.IsNullOrWhiteSpace(fullName))
+                {
+                    ModelState.AddModelError("FullName", "Ad Soyad boş olamaz");
+                    isValid = false;
+                }
+                if (string.IsNullOrWhiteSpace(title))
+                {
+                    ModelState.AddModelError("Title", "Adres başlığı boş olamaz");
+                    isValid = false;
+                }
+                if (string.IsNullOrWhiteSpace(fullAddress))
+                {
+                    ModelState.AddModelError("FullAddress", "Açık adres boş olamaz");
+                    isValid = false;
+                }
+                if (string.IsNullOrWhiteSpace(city))
+                {
+                    ModelState.AddModelError("City", "İl seçimi yapılmalıdır");
+                    isValid = false;
+                }
+                if (string.IsNullOrWhiteSpace(district))
+                {
+                    ModelState.AddModelError("District", "İlçe seçimi yapılmalıdır");
+                    isValid = false;
+                }
+                if (string.IsNullOrWhiteSpace(phone))
+                {
+                    ModelState.AddModelError("Phone", "Telefon numarası boş olamaz");
+                    isValid = false;
+                }
+
+                if (!isValid)
+                {
+                    var errors = string.Join(", ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+                    _logger.LogWarning($"Validation failed: {errors}");
+                    return Json(new { success = false, message = errors });
+                }
+
+                if (!Enum.TryParse<AddressType>(addressType, out var addressTypeEnum))
+                {
+                    _logger.LogWarning($"Invalid address type: {addressType}");
+                    return Json(new { success = false, message = "Geçersiz adres tipi." });
+                }
+
+                bool.TryParse(isDefault, out var isDefaultBool);
+
                 var address = new Address
                 {
                     UserId = userId,
+                    FullName = fullName,
                     Title = title,
                     FullAddress = fullAddress,
                     City = city,
                     District = district,
                     Phone = phone,
                     Country = "Türkiye",
-                    AddressType = addressType,
-                    IsDefault = isDefault,
+                    AddressType = addressTypeEnum,
+                    IsDefault = isDefaultBool,
                     CreatedDate = DateTime.Now
                 };
+
+                _logger.LogInformation($"Creating new address. Address details: {JsonSerializer.Serialize(address)}");
 
                 var result = await _accountService.AddAddressAsync(address);
 
                 if (result)
                 {
-                    return RedirectToAction("Addresses");
+                    _logger.LogInformation($"Address added successfully. UserId: {userId}");
+                    return RedirectToAction(nameof(Addresses));
                 }
-                else
-                {
-                    ViewBag.Error = "Adres kaydedilirken bir hata oluştu";
-                    return View("~/Views/Account/Address/Create.cshtml");
-                }
+
+                _logger.LogWarning($"Failed to add address. UserId: {userId}");
+                return Json(new { success = false, message = "Adres kaydedilirken bir hata oluştu." });
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Adres kaydı sırasında bir hata oluştu: " + ex.Message;
-                return View("~/Views/Account/Address/Create.cshtml");
+                _logger.LogError(ex, "Error adding new address");
+                return Json(new { success = false, message = $"Bir hata oluştu: {ex.Message}" });
             }
         }
 

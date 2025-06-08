@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
 
 namespace MarketWorld.Application.Services.Implementations
 {
@@ -44,13 +45,53 @@ namespace MarketWorld.Application.Services.Implementations
         {
             try
             {
+                _logger.LogInformation($"Adding new address. Address details: {JsonSerializer.Serialize(address)}");
+
+                // Varsayılan değerleri kontrol et
+                if (string.IsNullOrEmpty(address.PostalCode))
+                {
+                    address.PostalCode = "34000";
+                }
+
+                if (string.IsNullOrEmpty(address.Country))
+                {
+                    address.Country = "Türkiye";
+                }
+
+                // Eğer bu adres varsayılan olarak işaretlendiyse, diğer adreslerin varsayılan işaretini kaldır
+                if (address.IsDefault)
+                {
+                    var existingAddresses = await _unitOfWork.Addresses.GetUserAddressesAsync(address.UserId);
+                    foreach (var existingAddress in existingAddresses)
+                    {
+                        if (existingAddress.IsDefault)
+                        {
+                            existingAddress.IsDefault = false;
+                            await _unitOfWork.SaveChangesAsync();
+                            _logger.LogInformation($"Removed default flag from existing address. AddressId: {existingAddress.Id}");
+                        }
+                    }
+                }
+
+                // Adres ekle
                 await _unitOfWork.Addresses.AddAsync(address);
-                await _unitOfWork.SaveChangesAsync();
-                return true;
+                var result = await _unitOfWork.SaveChangesAsync();
+
+                if (result > 0)
+                {
+                    _logger.LogInformation($"Address added successfully. AddressId: {address.Id}");
+                    return true;
+                }
+                else
+                {
+                    _logger.LogWarning("Failed to save address changes to database");
+                    return false;
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                _logger.LogError(ex, $"Error adding new address. UserId: {address.UserId}");
+                throw;
             }
         }
 
