@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
@@ -27,10 +28,35 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [HttpGet]
         [Route("")]
         [Route("Index")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 10)
         {
-            var orders = await _orderService.GetAllOrdersAsync();
-            return View(orders);
+            try
+            {
+                var orders = await _orderService.GetAllOrdersAsync();
+                
+                // Toplam sipariş sayısını hesapla
+                var totalOrders = orders.Count();
+                var totalPages = (int)Math.Ceiling(totalOrders / (double)pageSize);
+
+                // Siparişleri sayfalayarak getir
+                var pagedOrders = orders
+                    .OrderByDescending(o => o.CreatedDate)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
+                // Sayfalama bilgilerini ViewBag'e ekle
+                ViewBag.CurrentPage = page;
+                ViewBag.TotalPages = totalPages;
+                ViewBag.PageSize = pageSize;
+                ViewBag.TotalOrders = totalOrders;
+
+                return View(pagedOrders);
+            }
+            catch (Exception ex)
+            {
+                return View(new List<Order>());
+            }
         }
 
         [HttpGet]
