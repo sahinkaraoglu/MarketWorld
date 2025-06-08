@@ -197,7 +197,7 @@ namespace MarketWorld.Web.Controllers
 
                 // Sipariş numarası üret
                 var random = new Random();
-                string orderNumber = DateTime.Now.ToString("yyyyMMddHH") + random.Next(100, 1000).ToString();
+                string orderNumber = DateTime.Now.ToString("yyMMdd") + random.Next(10, 99).ToString();
 
                 // Yeni sipariş oluştur
                 var newOrder = new Order
