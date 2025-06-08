@@ -279,15 +279,31 @@ namespace MarketWorld.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteAddress(int id)
         {
-            var userId = HttpContext.Items["UserId"].ToString();
-
-            var result = await _accountService.DeleteAddressAsync(id, userId);
-            if (!result)
+            try
             {
-                return NotFound();
-            }
+                var userId = HttpContext.Items["UserId"].ToString();
+                if (string.IsNullOrEmpty(userId))
+                {
+                    _logger.LogError("User ID is null or empty");
+                    return Json(new { success = false, message = "Kullanıcı bilgisi bulunamadı." });
+                }
 
-            return RedirectToAction("Addresses");
+                var result = await _accountService.DeleteAddressAsync(id, userId);
+                
+                if (result)
+                {
+                    _logger.LogInformation($"Address deleted successfully. AddressId: {id}, UserId: {userId}");
+                    return Ok(new { success = true, message = "Adres başarıyla silindi." });
+                }
+                
+                _logger.LogWarning($"Failed to delete address. AddressId: {id}, UserId: {userId}");
+                return Json(new { success = false, message = "Adres silinirken bir hata oluştu." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error deleting address. AddressId: {id}");
+                return Json(new { success = false, message = "Bir hata oluştu." });
+            }
         }
 
         public async Task<IActionResult> Orders()
