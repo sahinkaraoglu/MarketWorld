@@ -39,7 +39,8 @@
                     </h5>
                 </div>
                 <div class="card-body p-4">
-                    <form method="post" asp-controller="Account" asp-action="EditAddress">
+                    <div id="errorMessage" class="alert alert-danger d-none"></div>
+                    <form id="editAddressForm" method="post" asp-controller="Account" asp-action="EditAddress" asp-route-id="@Model.Id">
                         <input type="hidden" name="Id" value="@Model.Id" />
                         <input type="hidden" name="UserId" value="@Model.UserId" />
                         <input type="hidden" name="Country" value="Türkiye" />
@@ -115,7 +116,7 @@
                             <a href="@Url.Action("Addresses", "Account")" class="btn btn-outline-secondary me-2">
                                 <i class="fas fa-times me-2"></i>İptal
                             </a>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary" id="updateButton">
                                 <i class="fas fa-save me-2"></i>Güncelle
                             </button>
                         </div>
@@ -129,6 +130,64 @@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Form gönderimini izle
+            const form = document.getElementById('editAddressForm');
+            const errorMessage = document.getElementById('errorMessage');
+            const updateButton = document.getElementById('updateButton');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Form verilerini kontrol et
+                const formData = new FormData(form);
+                let isValid = true;
+                let errorText = '';
+
+                // Zorunlu alanları kontrol et
+                for (let [key, value] of formData.entries()) {
+                    if (!value && form.elements[key].hasAttribute('required')) {
+                        isValid = false;
+                        errorText += `${form.elements[key].placeholder || key} alanı zorunludur.\n`;
+                    }
+                }
+
+                if (!isValid) {
+                    errorMessage.textContent = errorText;
+                    errorMessage.classList.remove('d-none');
+                    return;
+                }
+
+                // Form geçerliyse gönder
+                updateButton.disabled = true;
+                updateButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Güncelleniyor...';
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    } else {
+                        return response.text();
+                    }
+                })
+                .then(data => {
+                    if (data) {
+                        errorMessage.textContent = 'Güncelleme sırasında bir hata oluştu.';
+                        errorMessage.classList.remove('d-none');
+                        updateButton.disabled = false;
+                        updateButton.innerHTML = '<i class="fas fa-save me-2"></i>Güncelle';
+                    }
+                })
+                .catch(error => {
+                    errorMessage.textContent = 'Bir hata oluştu: ' + error.message;
+                    errorMessage.classList.remove('d-none');
+                    updateButton.disabled = false;
+                    updateButton.innerHTML = '<i class="fas fa-save me-2"></i>Güncelle';
+                });
+            });
+
             // İl-İlçe verilerini yükle
             var cityDistrictMap = @Html.Raw(Json.Serialize(AddressSeedData.GetAddresses()
                 .GroupBy(a => a.City)
@@ -138,12 +197,9 @@
                 )
             ));
             
-            console.log('İl-İlçe verileri yüklendi.');
-            
             document.getElementById('citySelect').addEventListener('change', function() {
                 var selectedCity = this.value;
                 var districtSelect = document.getElementById('districtSelect');
-                console.log('Seçilen il:', selectedCity);
                 
                 // İlçe seçeneğini temizle
                 districtSelect.innerHTML = '';
@@ -170,8 +226,6 @@
                         
                         districtSelect.appendChild(option);
                     });
-                    
-                    console.log('İlçe listesi güncellendi, eleman sayısı:', districts.length);
                 }
             });
         });

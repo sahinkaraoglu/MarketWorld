@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using Microsoft.Extensions.Logging;
 
 namespace MarketWorld.Application.Services.Implementations
 {
@@ -14,11 +15,13 @@ namespace MarketWorld.Application.Services.Implementations
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<AccountService> _logger;
 
-        public AccountService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
+        public AccountService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, ILogger<AccountService> logger)
         {
             _unitOfWork = unitOfWork;
             _userManager = userManager;
+            _logger = logger;
         }
 
         public async Task<ApplicationUser> GetUserByIdAsync(string userId)
@@ -56,12 +59,14 @@ namespace MarketWorld.Application.Services.Implementations
             try
             {
                 var existingAddress = await _unitOfWork.Addresses.GetUserAddressByIdAsync(address.Id, address.UserId);
-
                 if (existingAddress == null)
+                {
+                    _logger.LogWarning($"Address not found. AddressId: {address.Id}, UserId: {address.UserId}");
                     return false;
+                }
 
-                existingAddress.Title = address.Title;
                 existingAddress.FullName = address.FullName;
+                existingAddress.Title = address.Title;
                 existingAddress.FullAddress = address.FullAddress;
                 existingAddress.City = address.City;
                 existingAddress.District = address.District;
@@ -73,11 +78,13 @@ namespace MarketWorld.Application.Services.Implementations
                 existingAddress.UpdatedDate = DateTime.Now;
 
                 await _unitOfWork.SaveChangesAsync();
+                _logger.LogInformation($"Address updated successfully. AddressId: {address.Id}");
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                _logger.LogError(ex, $"Error updating address. AddressId: {address.Id}");
+                throw;
             }
         }
 

@@ -4,7 +4,9 @@ using System;
 using MarketWorld.Web.Attributes;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Application.Services.Interfaces;
-
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
+using MarketWorld.Core.Enums;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -13,11 +15,13 @@ namespace MarketWorld.Web.Controllers
     {
         private readonly IAccountService _accountService;
         private readonly IOrderService _orderService;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(IAccountService accountService, IOrderService orderService)
+        public AccountController(IAccountService accountService, IOrderService orderService, ILogger<AccountController> logger)
         {
             _accountService = accountService;
             _orderService = orderService;
+            _logger = logger;
         }
 
         public async Task<IActionResult> Index()
@@ -154,60 +158,94 @@ namespace MarketWorld.Web.Controllers
             }
         }
 
+        [HttpGet]
         public async Task<IActionResult> EditAddress(int id)
         {
-            var userId = HttpContext.Items["UserId"].ToString();
-
-            var address = await _accountService.GetAddressByIdAsync(id, userId);
-
-            if (address == null)
+            try
             {
-                return NotFound();
-            }
+                var userId = HttpContext.Items["UserId"].ToString();
+                var address = await _accountService.GetAddressByIdAsync(id, userId);
 
-            // Adres detaylarını kontrol et ve varsayılan değerleri ata
-            if (string.IsNullOrEmpty(address.FullName))
+                if (address == null)
+                {
+                    _logger.LogWarning($"Address not found. AddressId: {id}, UserId: {userId}");
+                    return NotFound();
+                }
+
+                // Adres detaylarını kontrol et ve varsayılan değerleri ata
+                if (string.IsNullOrEmpty(address.FullName))
+                {
+                    var user = await _accountService.GetUserByIdAsync(userId);
+                    address.FullName = $"{user.FirstName} {user.LastName}".Trim();
+                }
+
+                if (string.IsNullOrEmpty(address.PostalCode))
+                {
+                    address.PostalCode = "34000"; // Varsayılan posta kodu
+                }
+
+                if (string.IsNullOrEmpty(address.Country))
+                {
+                    address.Country = "Türkiye";
+                }
+
+                _logger.LogInformation($"EditAddress view loaded successfully. AddressId: {id}");
+                return View("~/Views/Account/Address/Edit.cshtml", address);
+            }
+            catch (Exception ex)
             {
-                var user = await _accountService.GetUserByIdAsync(userId);
-                address.FullName = $"{user.FirstName} {user.LastName}".Trim();
+                _logger.LogError(ex, $"Error loading EditAddress view. AddressId: {id}");
+                return View("Error");
             }
-
-            if (string.IsNullOrEmpty(address.PostalCode))
-            {
-                address.PostalCode = "34000"; // Varsayılan posta kodu
-            }
-
-            if (string.IsNullOrEmpty(address.Country))
-            {
-                address.Country = "Türkiye";
-            }
-
-            return View("~/Views/Account/Address/Edit.cshtml", address);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditAddress(Address address)
+        [ActionName("EditAddress")]
+        public async Task<IActionResult> EditAddressPost(int id)
         {
-            var userId = HttpContext.Items["UserId"].ToString();
-            address.UserId = userId;
-
-            // Form verilerini al
-            address.FullName = Request.Form["FullName"].ToString();
-            address.PostalCode = Request.Form["PostalCode"].ToString();
-            address.Country = Request.Form["Country"].ToString();
-            address.AddressType = (Core.Enums.AddressType)int.Parse(Request.Form["AddressType"].ToString());
-            address.IsDefault = bool.Parse(Request.Form["IsDefault"].ToString());
-
-            if (ModelState.IsValid)
+            try
             {
+                var address = new Address
+                {
+                    Id = id,
+                    UserId = HttpContext.Items["UserId"].ToString(),
+                    FullName = Request.Form["FullName"].ToString(),
+                    Title = Request.Form["Title"].ToString(),
+                    FullAddress = Request.Form["FullAddress"].ToString(),
+                    City = Request.Form["City"].ToString(),
+                    District = Request.Form["District"].ToString(),
+                    Phone = Request.Form["Phone"].ToString(),
+                    PostalCode = Request.Form["PostalCode"].ToString(),
+                    Country = Request.Form["Country"].ToString(),
+                    AddressType = (AddressType)int.Parse(Request.Form["AddressType"].ToString()),
+                    IsDefault = bool.Parse(Request.Form["IsDefault"].ToString()),
+                    UpdatedDate = DateTime.Now
+                };
+
+                if (!ModelState.IsValid)
+                {
+                    var errors = string.Join(", ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+                    _logger.LogError($"Model validation failed: {errors}");
+                    return Json(new { success = false, message = errors });
+                }
+
                 var result = await _accountService.UpdateAddressAsync(address);
                 if (result)
                 {
-                    return RedirectToAction("Addresses");
+                    _logger.LogInformation($"Address updated successfully. AddressId: {id}");
+                    return RedirectToAction(nameof(Addresses));
                 }
-            }
 
-            return View("~/Views/Account/Address/Edit.cshtml", address);
+                _logger.LogWarning($"Address update failed. AddressId: {id}");
+                return Json(new { success = false, message = "Adres güncellenirken bir hata oluştu." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error updating address. AddressId: {id}");
+                return Json(new { success = false, message = $"Bir hata oluştu: {ex.Message}" });
+            }
         }
 
         [HttpPost]
