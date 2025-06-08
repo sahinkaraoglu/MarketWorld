@@ -90,7 +90,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 ViewBag.TopSellerBrandsCount = topSellerBrands.Count();
                 
                 // Önbelleğe kaydet
-                var dashboardDataToCache = new Dictionary<string, int>
+                var dashboardData = new Dictionary<string, int>
                 {
                     { "ProductsCount", ViewBag.ProductsCount },
                     { "LowStockCount", ViewBag.LowStockCount },
@@ -103,12 +103,12 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 };
 
                 var cacheOptions = new DistributedCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromMinutes(15))
-                    .SetAbsoluteExpiration(TimeSpan.FromHours(2));
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(5))
+                    .SetAbsoluteExpiration(TimeSpan.FromHours(1));
 
                 await _cache.SetStringAsync(
                     cacheKey,
-                    JsonSerializer.Serialize(dashboardDataToCache, _jsonOptions),
+                    JsonSerializer.Serialize(dashboardData, _jsonOptions),
                     cacheOptions
                 );
                 
