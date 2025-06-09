@@ -5,84 +5,206 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .order-edit-container {
+        padding: 2rem;
+        background-color: #fff;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        color: white;
+        padding: 1.5rem;
+        border-bottom: none;
+    }
+
+    .card-title {
+        color: white;
+        font-weight: 600;
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 2rem;
+        background: white;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-select, .form-control {
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 0.75rem;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    .form-select:focus, .form-control:focus {
+        border-color: #4ca1af;
+        box-shadow: 0 0 0 0.2rem rgba(76, 161, 175, 0.25);
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #4ca1af, #2c3e50);
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+        background: #95a5a6;
+        border: none;
+    }
+
+    .btn-secondary:hover {
+        background: #7f8c8d;
+        transform: translateY(-2px);
+    }
+
+    .form-group {
+        margin-top: 2rem;
+    }
+
+    .mb-3 {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .order-status-select {
+        background-color: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 0.75rem;
+        width: 100%;
+        font-size: 0.9rem;
+        color: #2c3e50;
+    }
+
+    .order-status-select:focus {
+        border-color: #4ca1af;
+        box-shadow: 0 0 0 0.2rem rgba(76, 161, 175, 0.25);
+    }
+
+    .order-note {
+        background-color: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 0.75rem;
+        width: 100%;
+        min-height: 100px;
+        font-size: 0.9rem;
+        color: #2c3e50;
+        resize: vertical;
+    }
+
+    .order-note:focus {
+        border-color: #4ca1af;
+        box-shadow: 0 0 0 0.2rem rgba(76, 161, 175, 0.25);
+    }
+</style>
+
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Sipariş Durumunu Güncelle</h3>
-                </div>
-                <div class="card-body">
-                    <form id="updateOrderForm" method="post">
-                        <input type="hidden" id="editOrderId" name="orderId" value="@Model.Id" />
-                        
-                        <div class="mb-3">
-                            <label for="orderStatus" class="form-label">Sipariş Durumu</label>
-                            <select class="form-select" id="orderStatus" name="status">
-                                @{
-                                    var pendingValue = (int)MarketWorld.Core.Enums.OrderStatus.Pending;
-                                    var processingValue = (int)MarketWorld.Core.Enums.OrderStatus.Processing;
-                                    var shippedValue = (int)MarketWorld.Core.Enums.OrderStatus.Shipped;
-                                    var deliveredValue = (int)MarketWorld.Core.Enums.OrderStatus.Delivered;
-                                    var cancelledValue = (int)MarketWorld.Core.Enums.OrderStatus.Cancelled;
-                                }
-                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Pending)
-                                {
-                                    <option value="@pendingValue" selected>Yeni</option>
-                                }
-                                else
-                                {
-                                    <option value="@pendingValue">Yeni</option>
-                                }
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="order-edit-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Sipariş Durumunu Güncelle</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="updateOrderForm" method="post">
+                            <input type="hidden" id="editOrderId" name="orderId" value="@Model.Id" />
+                            
+                            <div class="mb-3">
+                                <label for="orderStatus" class="form-label">Sipariş Durumu</label>
+                                <select class="order-status-select" id="orderStatus" name="status">
+                                    @{
+                                        var pendingValue = (int)MarketWorld.Core.Enums.OrderStatus.Pending;
+                                        var processingValue = (int)MarketWorld.Core.Enums.OrderStatus.Processing;
+                                        var shippedValue = (int)MarketWorld.Core.Enums.OrderStatus.Shipped;
+                                        var deliveredValue = (int)MarketWorld.Core.Enums.OrderStatus.Delivered;
+                                        var cancelledValue = (int)MarketWorld.Core.Enums.OrderStatus.Cancelled;
+                                    }
+                                    @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Pending)
+                                    {
+                                        <option value="@pendingValue" selected>Yeni</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@pendingValue">Yeni</option>
+                                    }
 
-                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Processing)
-                                {
-                                    <option value="@processingValue" selected>Hazırlanıyor</option>
-                                }
-                                else
-                                {
-                                    <option value="@processingValue">Hazırlanıyor</option>
-                                }
+                                    @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Processing)
+                                    {
+                                        <option value="@processingValue" selected>Hazırlanıyor</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@processingValue">Hazırlanıyor</option>
+                                    }
 
-                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Shipped)
-                                {
-                                    <option value="@shippedValue" selected>Kargoya Verildi</option>
-                                }
-                                else
-                                {
-                                    <option value="@shippedValue">Kargoya Verildi</option>
-                                }
+                                    @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Shipped)
+                                    {
+                                        <option value="@shippedValue" selected>Kargoya Verildi</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@shippedValue">Kargoya Verildi</option>
+                                    }
 
-                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Delivered)
-                                {
-                                    <option value="@deliveredValue" selected>Teslim Edildi</option>
-                                }
-                                else
-                                {
-                                    <option value="@deliveredValue">Teslim Edildi</option>
-                                }
+                                    @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Delivered)
+                                    {
+                                        <option value="@deliveredValue" selected>Teslim Edildi</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@deliveredValue">Teslim Edildi</option>
+                                    }
 
-                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Cancelled)
-                                {
-                                    <option value="@cancelledValue" selected>İptal Edildi</option>
-                                }
-                                else
-                                {
-                                    <option value="@cancelledValue">İptal Edildi</option>
-                                }
-                            </select>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="orderNote" class="form-label">Not (Opsiyonel)</label>
-                            <textarea class="form-control" id="orderNote" name="note" rows="3">@Model.Note</textarea>
-                        </div>
+                                    @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Cancelled)
+                                    {
+                                        <option value="@cancelledValue" selected>İptal Edildi</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@cancelledValue">İptal Edildi</option>
+                                    }
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="orderNote" class="form-label">Not (Opsiyonel)</label>
+                                <textarea class="order-note" id="orderNote" name="note">@Model.Note</textarea>
+                            </div>
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary" id="saveButton">Kaydet</button>
-                            <a href="@Url.Action("Index", "Order", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" id="saveButton">Kaydet</button>
+                                <a href="@Url.Action("Index", "Order", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,13 +214,11 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            // Form submit olayını yakala
             $("#updateOrderForm").submit(function (e) {
                 e.preventDefault();
                 saveOrder();
             });
 
-            // Kaydet butonuna tıklama olayını yakala
             $("#saveButton").click(function (e) {
                 e.preventDefault();
                 saveOrder();
