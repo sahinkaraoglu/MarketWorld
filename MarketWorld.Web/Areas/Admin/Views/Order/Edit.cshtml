@@ -1,0 +1,133 @@
+@model MarketWorld.Core.Domain.Entities.Order
+
+@{
+    ViewData["Title"] = "Sipariş Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Sipariş Durumunu Güncelle</h3>
+                </div>
+                <div class="card-body">
+                    <form id="updateOrderForm" method="post">
+                        <input type="hidden" id="editOrderId" name="orderId" value="@Model.Id" />
+                        
+                        <div class="mb-3">
+                            <label for="orderStatus" class="form-label">Sipariş Durumu</label>
+                            <select class="form-select" id="orderStatus" name="status">
+                                @{
+                                    var pendingValue = (int)MarketWorld.Core.Enums.OrderStatus.Pending;
+                                    var processingValue = (int)MarketWorld.Core.Enums.OrderStatus.Processing;
+                                    var shippedValue = (int)MarketWorld.Core.Enums.OrderStatus.Shipped;
+                                    var deliveredValue = (int)MarketWorld.Core.Enums.OrderStatus.Delivered;
+                                    var cancelledValue = (int)MarketWorld.Core.Enums.OrderStatus.Cancelled;
+                                }
+                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Pending)
+                                {
+                                    <option value="@pendingValue" selected>Yeni</option>
+                                }
+                                else
+                                {
+                                    <option value="@pendingValue">Yeni</option>
+                                }
+
+                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Processing)
+                                {
+                                    <option value="@processingValue" selected>Hazırlanıyor</option>
+                                }
+                                else
+                                {
+                                    <option value="@processingValue">Hazırlanıyor</option>
+                                }
+
+                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Shipped)
+                                {
+                                    <option value="@shippedValue" selected>Kargoya Verildi</option>
+                                }
+                                else
+                                {
+                                    <option value="@shippedValue">Kargoya Verildi</option>
+                                }
+
+                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Delivered)
+                                {
+                                    <option value="@deliveredValue" selected>Teslim Edildi</option>
+                                }
+                                else
+                                {
+                                    <option value="@deliveredValue">Teslim Edildi</option>
+                                }
+
+                                @if (Model.Status == MarketWorld.Core.Enums.OrderStatus.Cancelled)
+                                {
+                                    <option value="@cancelledValue" selected>İptal Edildi</option>
+                                }
+                                else
+                                {
+                                    <option value="@cancelledValue">İptal Edildi</option>
+                                }
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="orderNote" class="form-label">Not (Opsiyonel)</label>
+                            <textarea class="form-control" id="orderNote" name="note" rows="3">@Model.Note</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="saveButton">Kaydet</button>
+                            <a href="@Url.Action("Index", "Order", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Form submit olayını yakala
+            $("#updateOrderForm").submit(function (e) {
+                e.preventDefault();
+                saveOrder();
+            });
+
+            // Kaydet butonuna tıklama olayını yakala
+            $("#saveButton").click(function (e) {
+                e.preventDefault();
+                saveOrder();
+            });
+
+            function saveOrder() {
+                var formData = {
+                    orderId: $("#editOrderId").val(),
+                    status: $("#orderStatus").val(),
+                    note: $("#orderNote").val()
+                };
+
+                $.ajax({
+                    url: '@Url.Action("UpdateOrderStatus", "Order", new { area = "Admin" })',
+                    type: 'POST',
+                    data: formData,
+                    success: function (result) {
+                        if (result.success) {
+                            window.location.href = '@Url.Action("Index", "Order", new { area = "Admin" })';
+                        } else {
+                            toastr.error(result.message || 'Bir hata oluştu.');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Hata:', error);
+                        toastr.error('Bir hata oluştu: ' + error);
+                    }
+                });
+            }
+        });
+    </script>
+}

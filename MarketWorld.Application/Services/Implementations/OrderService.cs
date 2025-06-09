@@ -50,10 +50,11 @@ namespace MarketWorld.Application.Services.Implementations
             return order;
         }
 
-        public async Task<Order> UpdateOrderStatusAsync(int orderId, OrderStatus status)
+        public async Task<Order> UpdateOrderStatusAsync(int orderId, OrderStatus status, string note = null)
         {
             var order = await GetOrderByIdAsync(orderId);
             order.Status = status;
+            order.Note = note;
             order.UpdatedDate = DateTime.Now;
 
             _unitOfWork.Orders.Update(order);

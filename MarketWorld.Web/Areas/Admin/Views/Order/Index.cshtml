@@ -140,7 +140,7 @@
                             <td>
                                 <div class="actions">
                                     <button class="btn btn-sm btn-view view-order" data-order-id="@order.Id" title="Görüntüle"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-edit edit-order" data-order-id="@order.Id" title="Düzenle"><i class="bi bi-pencil"></i></button>
+                                    <a href="@Url.Action("Edit", "Order", new { area = "Admin", id = order.Id })" class="btn btn-sm btn-edit" title="Düzenle"><i class="bi bi-pencil"></i></a>
                                     <button class="btn btn-sm btn-print print-order" data-order-id="@order.Id" title="Yazdır"><i class="bi bi-printer"></i></button>
                                 </div>
                             </td>
@@ -214,43 +214,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Sipariş Düzenleme Modal -->
-<div class="modal fade" id="orderEditModal" tabindex="-1" aria-labelledby="orderEditModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="orderEditModalLabel">Sipariş Durumunu Güncelle</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-            </div>
-            <div class="modal-body">
-                <form id="updateOrderForm">
-                    <input type="hidden" id="editOrderId" name="orderId" />
-                    
-                    <div class="mb-3">
-                        <label for="orderStatus" class="form-label">Sipariş Durumu</label>
-                        <select class="form-select" id="orderStatus" name="status">
-                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Pending)">Yeni</option>
-                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Processing)">Hazırlanıyor</option>
-                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Shipped)">Kargoya Verildi</option>
-                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Delivered)">Teslim Edildi</option>
-                            <option value="@((int)MarketWorld.Core.Enums.OrderStatus.Cancelled)">İptal Edildi</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="orderNote" class="form-label">Not (Opsiyonel)</label>
-                        <textarea class="form-control" id="orderNote" name="note" rows="3"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-primary" id="saveOrderStatus">Kaydet</button>
             </div>
         </div>
     </div>
@@ -492,64 +455,30 @@
 
 @section Scripts {
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Sipariş detayı görüntüleme
-            $(document).on('click', '.view-order', function() {
+            $('.view-order').click(function () {
                 var orderId = $(this).data('order-id');
+                $('#orderDetailContent').html('<div class="text-center py-5"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Yükleniyor...</span></div></div>');
                 $('#orderDetailModal').modal('show');
                 
-                // AJAX ile sipariş detayını getir
-                $.get('/Panel/GetOrderDetails/' + orderId, function(response) {
-                    $('#orderDetailContent').html(response);
-                }).fail(function() {
-                    $('#orderDetailContent').html('<div class="alert alert-danger m-3">Sipariş detayları yüklenirken bir hata oluştu.</div>');
+                $.get('@Url.Action("GetOrderDetails", "Order", new { area = "Admin" })/' + orderId, function (data) {
+                    $('#orderDetailContent').html(data);
                 });
             });
-            
-            // Sipariş düzenleme modalı
-            $(document).on('click', '.edit-order', function() {
-                var orderId = $(this).data('order-id');
-                $('#editOrderId').val(orderId);
-                
-                // Mevcut durumu getir
-                $.get('/Panel/GetOrderStatus/' + orderId, function(response) {
-                    $('#orderStatus').val(response.status);
-                    $('#orderNote').val(response.note || '');
-                    $('#orderEditModal').modal('show');
-                }).fail(function() {
-                    alert('Sipariş bilgileri yüklenirken bir hata oluştu.');
-                });
-            });
-            
-            // Sipariş durumu güncelleme
-            $('#saveOrderStatus').click(function() {
-                var formData = $('#updateOrderForm').serialize();
-                
-                $.post('/Panel/UpdateOrderStatus', formData, function(response) {
-                    if (response.success) {
-                        $('#orderEditModal').modal('hide');
-                        // Sayfayı yenile
-                        location.reload();
-                    } else {
-                        alert('Hata: ' + response.message);
-                    }
-                }).fail(function() {
-                    alert('Sipariş durumu güncellenirken bir hata oluştu.');
-                });
-            });
-            
-            // Sipariş arama
-            $('#orderSearch').on('keyup', function() {
-                var value = $(this).val().toLowerCase();
-                $('.orders-table tbody tr').filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                });
-            });
-            
+
             // Sipariş yazdırma
-            $(document).on('click', '.print-order', function() {
+            $('.print-order').click(function () {
                 var orderId = $(this).data('order-id');
-                window.open('/Panel/PrintOrder/' + orderId, '_blank');
+                window.open('@Url.Action("PrintOrder", "Order", new { area = "Admin" })/' + orderId, '_blank');
+            });
+
+            // Sipariş arama
+            $('#orderSearch').on('keyup', function () {
+                var value = $(this).val().toLowerCase();
+                $('.orders-table tbody tr').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
             });
         });
     </script>

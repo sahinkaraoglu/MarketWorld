@@ -15,7 +15,7 @@ namespace MarketWorld.Application.Services.Interfaces
         Task DeleteOrderAsync(int id);
         Task<IEnumerable<Brand>> GetTopSellingBrandsAsync(int count);
         Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus? status);
-        Task<Order> UpdateOrderStatusAsync(int orderId, OrderStatus status);
+        Task<Order> UpdateOrderStatusAsync(int orderId, OrderStatus status, string note = null);
         Task<IEnumerable<Order>> GetUserOrdersAsync(string userId);
     }
 } 

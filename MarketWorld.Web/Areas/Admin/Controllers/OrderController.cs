@@ -89,13 +89,32 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id)
+        {
+            try
+            {
+                var order = await _orderService.GetOrderByIdAsync(id);
+                if (order == null)
+                {
+                    return NotFound();
+                }
+                return View(order);
+            }
+            catch (Exception ex)
+            {
+                return View("Error", ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("UpdateOrderStatus")]
         public async Task<IActionResult> UpdateOrderStatus(int orderId, int status, string note)
         {
             try
             {
-                var order = await _orderService.UpdateOrderStatusAsync(orderId, (OrderStatus)status);
+                await _orderService.UpdateOrderStatusAsync(orderId, (OrderStatus)status, note);
                 return Json(new { success = true });
             }
             catch (Exception ex)
