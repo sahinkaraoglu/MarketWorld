@@ -103,6 +103,7 @@
                         <th>Müşteri</th>
                         <th>Toplam</th>
                         <th>Durum</th>
+                        <th>Not</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
@@ -137,6 +138,7 @@
                                         break;
                                 }
                             </td>
+                            <td><a href="#" class="order-link view-order" data-order-id="@order.Note">@order.Note</a></td>
                             <td>
                                 <div class="actions">
                                     <button class="btn btn-sm btn-view view-order" data-order-id="@order.Id" title="Görüntüle"><i class="bi bi-eye"></i></button>
