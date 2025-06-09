@@ -234,6 +234,7 @@
 </style>
 
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
             // Miktar azaltma
@@ -261,10 +262,21 @@
 
             // Ürün kaldırma
             $('.remove-btn').click(function() {
-                if (confirm('Bu ürünü sepetinizden kaldırmak istediğinize emin misiniz?')) {
-                    var cartItemId = $(this).data('cart-item-id');
-                    removeItem(cartItemId);
-                }
+                var cartItemId = $(this).data('cart-item-id');
+                Swal.fire({
+                    title: 'Emin misiniz?',
+                    text: "Bu ürünü sepetinizden kaldırmak istediğinize emin misiniz?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dc3545',
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Evet, kaldır',
+                    cancelButtonText: 'İptal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        removeItem(cartItemId);
+                    }
+                });
             });
 
             function updateQuantity(cartItemId, quantity) {
@@ -294,10 +306,30 @@
                     },
                     success: function(response) {
                         if (response.success) {
-                            location.reload();
+                            Swal.fire({
+                                title: 'Başarılı!',
+                                text: 'Ürün sepetinizden kaldırıldı.',
+                                icon: 'success',
+                                confirmButtonColor: '#28a745'
+                            }).then(() => {
+                                location.reload();
+                            });
                         } else {
-                            alert(response.message);
+                            Swal.fire({
+                                title: 'Hata!',
+                                text: response.message,
+                                icon: 'error',
+                                confirmButtonColor: '#dc3545'
+                            });
                         }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: 'Hata!',
+                            text: 'Bir hata oluştu. Lütfen tekrar deneyin.',
+                            icon: 'error',
+                            confirmButtonColor: '#dc3545'
+                        });
                     }
                 });
             }
