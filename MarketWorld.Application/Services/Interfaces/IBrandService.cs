@@ -13,5 +13,6 @@ namespace MarketWorld.Application.Services.Interfaces
         Task UpdateBrandAsync(Brand brand);
         Task DeleteBrandAsync(int id);
         Task<bool> IsBrandNameUniqueAsync(string name);
+        Task<IEnumerable<Brand>> GetBrandsWithProductsAsync();
     }
 } 
