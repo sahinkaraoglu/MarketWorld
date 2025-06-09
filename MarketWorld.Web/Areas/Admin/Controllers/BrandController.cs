@@ -28,7 +28,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         [Route("Brands")]
         public async Task<IActionResult> Brands(int page = 1, int pageSize = 20)
         {
-            var brands = await _brandService.GetBrandsWithProductsAsync();
+            var brands = await _brandService.GetAllBrandsAsync();
             
             // Aktif ve toplam marka sayılarını hesapla
             ViewBag.TotalBrandsCount = brands.Count();

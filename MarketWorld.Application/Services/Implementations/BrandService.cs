@@ -66,10 +66,5 @@ namespace MarketWorld.Application.Services.Implementations
         {
             return await _unitOfWork.Brands.IsBrandNameUnique(name);
         }
-
-        public async Task<IEnumerable<Brand>> GetBrandsWithProductsAsync()
-        {
-            return await _unitOfWork.Brands.GetBrandsWithProducts();
-        }
     }
 }
