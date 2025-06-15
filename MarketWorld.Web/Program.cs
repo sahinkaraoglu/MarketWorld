@@ -11,6 +11,7 @@ using MarketWorld.Application.Services.Jwt;
 using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Infrastructure.Context;
+using MarketWorld.Application.Services.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -150,11 +151,3 @@ app.MapControllerRoute(
 );
 
 app.Run();
-
-// JWT Options sınıfı
-public class JwtOptions
-{
-    public string Key { get; set; }
-    public string Issuer { get; set; }
-    public string Audience { get; set; }
-}
