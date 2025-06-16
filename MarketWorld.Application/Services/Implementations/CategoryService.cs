@@ -3,6 +3,7 @@ using MarketWorld.Application.Services.Interfaces;
 using MarketWorld.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MarketWorld.Application.Services.Implementations
@@ -18,7 +19,7 @@ namespace MarketWorld.Application.Services.Implementations
 
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
-            return await _unitOfWork.Categories.GetAllAsync();
+            return (await _unitOfWork.Categories.GetAllAsync()).Where(c => !c.IsDeleted);
         }
 
         public async Task<Category> GetCategoryByIdAsync(int id)
@@ -81,7 +82,8 @@ namespace MarketWorld.Application.Services.Implementations
             if ((categoryWithDetails.SubCategories?.Count > 0) || (categoryWithDetails.Products?.Count > 0))
                 throw new InvalidOperationException("Alt kategorileri veya ürünleri olan bir kategori silinemez.");
 
-            _unitOfWork.Categories.Remove(category);
+            category.IsDeleted = true;
+            _unitOfWork.Categories.Update(category);
             await _unitOfWork.SaveChangesAsync();
         }
 
@@ -92,7 +94,7 @@ namespace MarketWorld.Application.Services.Implementations
 
         public async Task<IEnumerable<SubCategory>> GetSubCategoriesByCategoryIdAsync(int categoryId)
         {
-            return await _unitOfWork.Categories.GetSubCategoriesByCategoryId(categoryId);
+            return (await _unitOfWork.Categories.GetSubCategoriesByCategoryId(categoryId)).Where(sc => !sc.IsDeleted);
         }
 
         public async Task<Category> GetCategoryWithSubCategoriesAsync(int id)
@@ -136,7 +138,8 @@ namespace MarketWorld.Application.Services.Implementations
             if (subCategoryWithProducts.Products?.Count > 0)
                 throw new InvalidOperationException("Ürünleri olan bir alt kategori silinemez.");
 
-            _unitOfWork.SubCategories.Remove(subCategory);
+            subCategory.IsDeleted = true;
+            _unitOfWork.SubCategories.Update(subCategory);
             await _unitOfWork.SaveChangesAsync();
         }
 

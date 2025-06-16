@@ -101,10 +101,10 @@
                         
                         @foreach (var category in Model)
                         {
-                            if (category.SubCategories != null && category.SubCategories.Any())
+                            if (category.SubCategories != null && category.SubCategories.Any(sc => !sc.IsDeleted))
                             {
                                 hasSubCategories = true;
-                                foreach (var subCategory in category.SubCategories)
+                                foreach (var subCategory in category.SubCategories.Where(sc => !sc.IsDeleted))
                                 {
                                     <tr>
                                         <td>@subCounter</td>
@@ -220,6 +220,9 @@
     }
 </style>
 
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Kategori silme
@@ -227,60 +230,78 @@
             button.addEventListener('click', function() {
                 const categoryId = this.getAttribute('data-id');
                 const categoryName = this.getAttribute('data-name');
-                
-                if (confirm(`"${categoryName}" kategorisini silmek istediğinize emin misiniz?`)) {
-                    // Silme işlemi için AJAX isteği gönder
-                    fetch(`/Panel/DeleteCategory/${categoryId}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Kategori başarıyla silindi.');
-                            location.reload();
-                        } else {
-                            alert(`Hata: ${data.message}`);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Hata:', error);
-                        alert('Kategori silinirken bir hata oluştu.');
-                    });
-                }
+
+                Swal.fire({
+                    title: 'Emin misiniz?',
+                    text: `"${categoryName}" kategorisini silmek istiyor musunuz?`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Evet, sil!',
+                    cancelButtonText: 'İptal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch(`/Admin/Category/DeleteCategory/${categoryId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                Swal.fire('Başarılı!', 'Kategori başarıyla silindi.', 'success').then(() => location.reload());
+                            } else {
+                                Swal.fire('Hata!', data.message, 'error');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Hata:', error);
+                            Swal.fire('Hata!', 'Kategori silinirken bir hata oluştu.', 'error');
+                        });
+                    }
+                });
             });
         });
-        
+
         // Alt kategori silme
         document.querySelectorAll('.delete-subcategory').forEach(button => {
             button.addEventListener('click', function() {
                 const subCategoryId = this.getAttribute('data-id');
                 const subCategoryName = this.getAttribute('data-name');
-                
-                if (confirm(`"${subCategoryName}" alt kategorisini silmek istediğinize emin misiniz?`)) {
-                    // Silme işlemi için AJAX isteği gönder
-                    fetch(`/Panel/DeleteSubCategory/${subCategoryId}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Alt kategori başarıyla silindi.');
-                            location.reload();
-                        } else {
-                            alert(`Hata: ${data.message}`);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Hata:', error);
-                        alert('Alt kategori silinirken bir hata oluştu.');
-                    });
-                }
+
+                Swal.fire({
+                    title: 'Emin misiniz?',
+                    text: `"${subCategoryName}" alt kategorisini silmek istiyor musunuz?`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Evet, sil!',
+                    cancelButtonText: 'İptal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch(`/Admin/Category/DeleteSubCategory/${subCategoryId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                Swal.fire('Başarılı!', 'Alt kategori başarıyla silindi.', 'success').then(() => location.reload());
+                            } else {
+                                Swal.fire('Hata!', data.message, 'error');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Hata:', error);
+                            Swal.fire('Hata!', 'Alt kategori silinirken bir hata oluştu.', 'error');
+                        });
+                    }
+                });
             });
         });
     });
