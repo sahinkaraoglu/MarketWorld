@@ -178,8 +178,8 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Route("Edit")]
-        public async Task<IActionResult> Edit(Category category)
+        [Route("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id, Category category)
         {
             if (ModelState.IsValid)
             {
