@@ -21,5 +21,11 @@ namespace MarketWorld.Infrastructure.Repositories
                 .Include(sc => sc.Products)
                 .FirstOrDefaultAsync(sc => sc.Id == id);
         }
+
+        public async Task<bool> IsSubCategoryNameUnique(string name)
+        {
+            return !await _marketWorldContext.SubCategories
+                .AnyAsync(sc => sc.Name == name && !sc.IsDeleted);
+        }
     }
 } 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
 using MarketWorld.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
 {
@@ -132,5 +133,97 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
+
+        [HttpPost]
+        [Route("UpdateSubCategory")]
+        public async Task<IActionResult> UpdateSubCategory([FromBody] UpdateSubCategoryModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Json(new { success = false, message = "Geçersiz veri" });
+                }
+
+                var subCategory = await _categoryService.GetSubCategoryByIdAsync(model.Id);
+                if (subCategory == null)
+                {
+                    return Json(new { success = false, message = "Alt kategori bulunamadı" });
+                }
+
+                subCategory.Name = model.Name;
+                subCategory.Description = model.Description;
+                subCategory.IsActive = model.IsActive;
+                subCategory.CategoryId = model.CategoryId;
+
+                await _categoryService.UpdateSubCategoryAsync(subCategory);
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        [Route("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var category = await _categoryService.GetCategoryByIdAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return View("CategoryEdit", category);
+        }
+
+        [HttpPost]
+        [Route("Edit")]
+        public async Task<IActionResult> Edit(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                await _categoryService.UpdateCategoryAsync(category);
+                return RedirectToAction(nameof(Categories));
+            }
+            return View("CategoryEdit", category);
+        }
+
+        [HttpGet]
+        [Route("EditSubCategory/{id}")]
+        public async Task<IActionResult> EditSubCategory(int id)
+        {
+            var subCategory = await _categoryService.GetSubCategoryByIdAsync(id);
+            if (subCategory == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.Categories = new SelectList(await _categoryService.GetAllCategoriesAsync(), "Id", "Name");
+            return View("SubCategoryEdit", subCategory);
+        }
+
+        [HttpPost]
+        [Route("EditSubCategory")]
+        public async Task<IActionResult> EditSubCategory(SubCategory subCategory)
+        {
+            if (ModelState.IsValid)
+            {
+                await _categoryService.UpdateSubCategoryAsync(subCategory);
+                return RedirectToAction(nameof(Categories));
+            }
+
+            ViewBag.Categories = new SelectList(await _categoryService.GetAllCategoriesAsync(), "Id", "Name");
+            return View("SubCategoryEdit", subCategory);
+        }
+    }
+
+    public class UpdateSubCategoryModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool IsActive { get; set; }
+        public int CategoryId { get; set; }
     }
 } 

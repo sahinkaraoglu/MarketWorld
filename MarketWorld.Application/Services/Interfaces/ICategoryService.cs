@@ -20,5 +20,6 @@ namespace MarketWorld.Application.Services.Interfaces
         Task<IEnumerable<SubCategory>> GetSubCategoriesByMainCategoryAsync(string mainCategoryName);
         Task<SubCategory> GetSubCategoryByIdAsync(int id);
         Task DeleteSubCategoryAsync(int id);
+        Task UpdateSubCategoryAsync(SubCategory subCategory);
     }
 }

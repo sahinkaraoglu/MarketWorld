@@ -51,13 +51,9 @@
                                     <td><span class="badge bg-success">Aktif</span></td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <button class="btn btn-outline-primary edit-category" 
-                                                    data-id="@category.Id" 
-                                                    data-name="@category.Name" 
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#editCategoryModal">
+                                            <a href="/Admin/Category/Edit/@category.Id" class="btn btn-outline-primary">
                                                 <i class="bi bi-pencil"></i>
-                                            </button>
+                                            </a>
                                             <button class="btn btn-outline-danger delete-category" 
                                                     data-id="@category.Id" 
                                                     data-name="@category.Name">
@@ -118,14 +114,9 @@
                                         <td><span class="badge bg-success">Aktif</span></td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
-                                                <button class="btn btn-outline-primary edit-subcategory" 
-                                                        data-id="@subCategory.Id" 
-                                                        data-name="@subCategory.Name" 
-                                                        data-parent-id="@category.Id"
-                                                        data-bs-toggle="modal" 
-                                                        data-bs-target="#editSubCategoryModal">
+                                                <a href="/Admin/Category/EditSubCategory/@subCategory.Id" class="btn btn-outline-primary">
                                                     <i class="bi bi-pencil"></i>
-                                                </button>
+                                                </a>
                                                 <button class="btn btn-outline-danger delete-subcategory" 
                                                         data-id="@subCategory.Id" 
                                                         data-name="@subCategory.Name">
@@ -147,138 +138,6 @@
                         }
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Yeni Kategori Ekleme Modal -->
-<div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addCategoryModalLabel">Yeni Kategori Ekle</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-            </div>
-            <div class="modal-body">
-                <form id="addCategoryForm" method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="categoryType" class="form-label">Kategori Tipi</label>
-                        <select class="form-select" id="categoryType" name="categoryType">
-                            <option value="main">Ana Kategori</option>
-                            <option value="sub">Alt Kategori</option>
-                        </select>
-                    </div>
-                    <div class="mb-3" id="mainCategorySelect" style="display: none;">
-                        <label for="parentCategory" class="form-label">Ana Kategori</label>
-                        <select class="form-select" id="parentCategory" name="parentCategory">
-                            @foreach (var category in Model)
-                            {
-                                <option value="@category.Id">@category.Name</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="categoryName" class="form-label">Kategori Adı</label>
-                        <input type="text" class="form-control" id="categoryName" name="categoryName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="categoryDescription" class="form-label">Açıklama</label>
-                        <textarea class="form-control" id="categoryDescription" name="categoryDescription" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="categoryStatus" class="form-label">Durum</label>
-                        <select class="form-select" id="categoryStatus" name="categoryStatus">
-                            <option value="active">Aktif</option>
-                            <option value="inactive">Pasif</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-primary" id="saveCategory">Kaydet</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Kategori Düzenleme Modal -->
-<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editCategoryModalLabel">Kategori Düzenle</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-            </div>
-            <div class="modal-body">
-                <form id="editCategoryForm" method="post" enctype="multipart/form-data">
-                    <input type="hidden" id="editCategoryId" name="categoryId">
-                    <div class="mb-3">
-                        <label for="editCategoryName" class="form-label">Kategori Adı</label>
-                        <input type="text" class="form-control" id="editCategoryName" name="categoryName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editCategoryDescription" class="form-label">Açıklama</label>
-                        <textarea class="form-control" id="editCategoryDescription" name="categoryDescription" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editCategoryStatus" class="form-label">Durum</label>
-                        <select class="form-select" id="editCategoryStatus" name="categoryStatus">
-                            <option value="active" selected>Aktif</option>
-                            <option value="inactive">Pasif</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-primary" id="updateCategory">Kaydet</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Alt Kategori Düzenleme Modal -->
-<div class="modal fade" id="editSubCategoryModal" tabindex="-1" aria-labelledby="editSubCategoryModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editSubCategoryModalLabel">Alt Kategori Düzenle</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-            </div>
-            <div class="modal-body">
-                <form id="editSubCategoryForm" method="post">
-                    <input type="hidden" id="editSubCategoryId" name="subCategoryId">
-                    <div class="mb-3">
-                        <label for="editSubCategoryName" class="form-label">Alt Kategori Adı</label>
-                        <input type="text" class="form-control" id="editSubCategoryName" name="subCategoryName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editSubCategoryDescription" class="form-label">Açıklama</label>
-                        <textarea class="form-control" id="editSubCategoryDescription" name="subCategoryDescription" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editParentCategory" class="form-label">Ana Kategori</label>
-                        <select class="form-select" id="editParentCategory" name="parentCategoryId">
-                            @foreach (var category in Model)
-                            {
-                                <option value="@category.Id">@category.Name</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editSubCategoryStatus" class="form-label">Durum</label>
-                        <select class="form-select" id="editSubCategoryStatus" name="subCategoryStatus">
-                            <option value="active" selected>Aktif</option>
-                            <option value="inactive">Pasif</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-primary" id="updateSubCategory">Kaydet</button>
             </div>
         </div>
     </div>
@@ -363,44 +222,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Kategori tipi değiştiğinde ana kategori seçimi göster/gizle
-        const categoryTypeSelect = document.getElementById('categoryType');
-        const mainCategorySelect = document.getElementById('mainCategorySelect');
-        
-        if (categoryTypeSelect) {
-            categoryTypeSelect.addEventListener('change', function() {
-                if (this.value === 'sub') {
-                    mainCategorySelect.style.display = 'block';
-                } else {
-                    mainCategorySelect.style.display = 'none';
-                }
-            });
-        }
-        
-        // Ana kategori düzenleme
-        document.querySelectorAll('.edit-category').forEach(button => {
-            button.addEventListener('click', function() {
-                const categoryId = this.getAttribute('data-id');
-                const categoryName = this.getAttribute('data-name');
-                
-                document.getElementById('editCategoryId').value = categoryId;
-                document.getElementById('editCategoryName').value = categoryName;
-            });
-        });
-        
-        // Alt kategori düzenleme
-        document.querySelectorAll('.edit-subcategory').forEach(button => {
-            button.addEventListener('click', function() {
-                const subCategoryId = this.getAttribute('data-id');
-                const subCategoryName = this.getAttribute('data-name');
-                const parentId = this.getAttribute('data-parent-id');
-                
-                document.getElementById('editSubCategoryId').value = subCategoryId;
-                document.getElementById('editSubCategoryName').value = subCategoryName;
-                document.getElementById('editParentCategory').value = parentId;
-            });
-        });
-        
         // Kategori silme
         document.querySelectorAll('.delete-category').forEach(button => {
             button.addEventListener('click', function() {
