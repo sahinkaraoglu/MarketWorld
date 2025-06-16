@@ -132,45 +132,5 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
-
-        [HttpPost]
-        [Route("UpdateSubCategory")]
-        public async Task<IActionResult> UpdateSubCategory([FromBody] UpdateSubCategoryModel model)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return Json(new { success = false, message = "Geçersiz veri" });
-                }
-
-                var subCategory = await _categoryService.GetSubCategoryByIdAsync(model.Id);
-                if (subCategory == null)
-                {
-                    return Json(new { success = false, message = "Alt kategori bulunamadı" });
-                }
-
-                subCategory.Name = model.Name;
-                subCategory.Description = model.Description;
-                subCategory.IsActive = model.IsActive;
-                subCategory.CategoryId = model.CategoryId;
-
-                await _categoryService.UpdateSubCategoryAsync(subCategory);
-                return Json(new { success = true });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { success = false, message = ex.Message });
-            }
-        }
-    }
-
-    public class UpdateSubCategoryModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool IsActive { get; set; }
-        public int CategoryId { get; set; }
     }
 } 

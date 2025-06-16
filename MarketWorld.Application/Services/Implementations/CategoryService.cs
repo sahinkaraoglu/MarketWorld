@@ -139,21 +139,5 @@ namespace MarketWorld.Application.Services.Implementations
             _unitOfWork.SubCategories.Remove(subCategory);
             await _unitOfWork.SaveChangesAsync();
         }
-
-        public async Task UpdateSubCategoryAsync(SubCategory subCategory)
-        {
-            if (subCategory == null)
-                throw new ArgumentNullException(nameof(subCategory));
-
-            var existingSubCategory = await GetSubCategoryByIdAsync(subCategory.Id);
-            
-            // Ana kategoriyi kontrol et
-            var parentCategory = await GetCategoryByIdAsync(subCategory.CategoryId);
-            if (parentCategory == null)
-                throw new ArgumentException($"Ana kategori bulunamadı. ID: {subCategory.CategoryId}");
-
-            _unitOfWork.SubCategories.Update(subCategory);
-            await _unitOfWork.SaveChangesAsync();
-        }
     }
 }

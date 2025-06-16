@@ -11,8 +11,7 @@ namespace MarketWorld.Core.Domain.Entities
         public string ShortenedEntityName { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
-        public bool IsActive { get; set; }
-
+  
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
         

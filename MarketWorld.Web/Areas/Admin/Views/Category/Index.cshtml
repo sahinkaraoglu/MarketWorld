@@ -4,195 +4,6 @@
     ViewData["Title"] = "Kategori Yönetimi";
 }
 
-@section Scripts {
-    <script>
-        $(document).ready(function () {
-            // Alt kategori düzenleme modalı açıldığında
-            $('.edit-subcategory').on('click', function () {
-                var id = $(this).data('id');
-                var name = $(this).data('name');
-                var parentId = $(this).data('parent-id');
-
-                console.log('Alt kategori düzenleme:', { id, name, parentId }); // Debug için
-
-                $('#editSubCategoryId').val(id);
-                $('#editSubCategoryName').val(name);
-                $('#editSubCategoryParent').val(parentId);
-            });
-
-            // Alt kategori güncelleme butonu tıklandığında
-            $('#updateSubCategory').on('click', function () {
-                var id = parseInt($('#editSubCategoryId').val());
-                var name = $('#editSubCategoryName').val();
-                var description = $('#editSubCategoryDescription').val();
-                var isActive = $('#editSubCategoryStatus').val() === 'active';
-                var categoryId = parseInt($('#editSubCategoryParent').val());
-
-                console.log('Alt kategori güncelleme:', { id, name, description, isActive, categoryId }); // Debug için
-
-                if (!id) {
-                    alert('Alt kategori ID bulunamadı!');
-                    return;
-                }
-
-                var data = {
-                    id: id,
-                    name: name,
-                    description: description,
-                    isActive: isActive,
-                    categoryId: categoryId
-                };
-
-                $.ajax({
-                    url: '/Admin/Category/UpdateSubCategory',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(data),
-                    success: function (response) {
-                        if (response.success) {
-                            $('#editSubCategoryModal').modal('hide');
-                            location.reload();
-                        } else {
-                            alert('Hata: ' + response.message);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('AJAX Hatası:', { xhr, status, error }); // Debug için
-                        alert('Bir hata oluştu: ' + error);
-                    }
-                });
-            });
-
-            // Ana kategori düzenleme modalı açıldığında
-            $('.edit-category').on('click', function () {
-                var id = $(this).data('id');
-                var name = $(this).data('name');
-
-                $('#editCategoryId').val(id);
-                $('#editCategoryName').val(name);
-            });
-
-            // Ana kategori güncelleme butonu tıklandığında
-            $('#updateCategory').on('click', function () {
-                var id = $('#editCategoryId').val();
-                var name = $('#editCategoryName').val();
-                var description = $('#editCategoryDescription').val();
-                var status = $('#editCategoryStatus').val() === 'active';
-
-                var data = {
-                    id: id,
-                    name: name,
-                    description: description,
-                    status: status
-                };
-
-                $.ajax({
-                    url: '/Admin/Category/UpdateCategory',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(data),
-                    success: function (response) {
-                        if (response.success) {
-                            $('#editCategoryModal').modal('hide');
-                            location.reload();
-                        } else {
-                            alert('Hata: ' + response.message);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        alert('Bir hata oluştu: ' + error);
-                    }
-                });
-            });
-
-            // Kategori tipi değiştiğinde ana kategori seçimini göster/gizle
-            $('#categoryType').on('change', function () {
-                if ($(this).val() === 'sub') {
-                    $('#mainCategorySelect').show();
-                } else {
-                    $('#mainCategorySelect').hide();
-                }
-            });
-
-            // Yeni kategori kaydetme butonu tıklandığında
-            $('#saveCategory').on('click', function () {
-                var categoryType = $('#categoryType').val();
-                var name = $('#categoryName').val();
-                var description = $('#categoryDescription').val();
-                var status = $('#categoryStatus').val() === 'active';
-                var parentId = categoryType === 'sub' ? $('#parentCategory').val() : null;
-
-                var data = {
-                    name: name,
-                    description: description,
-                    status: status,
-                    parentCategoryId: parentId
-                };
-
-                $.ajax({
-                    url: '/Admin/Category/CreateCategory',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(data),
-                    success: function (response) {
-                        if (response.success) {
-                            $('#addCategoryModal').modal('hide');
-                            location.reload();
-                        } else {
-                            alert('Hata: ' + response.message);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        alert('Bir hata oluştu: ' + error);
-                    }
-                });
-            });
-
-            // Kategori silme butonu tıklandığında
-            $('.delete-category').on('click', function () {
-                if (confirm('Bu kategoriyi silmek istediğinizden emin misiniz?')) {
-                    var id = $(this).data('id');
-                    $.ajax({
-                        url: '/Admin/Category/DeleteCategory/' + id,
-                        type: 'POST',
-                        success: function (response) {
-                            if (response.success) {
-                                location.reload();
-                            } else {
-                                alert('Hata: ' + response.message);
-                            }
-                        },
-                        error: function (xhr, status, error) {
-                            alert('Bir hata oluştu: ' + error);
-                        }
-                    });
-                }
-            });
-
-            // Alt kategori silme butonu tıklandığında
-            $('.delete-subcategory').on('click', function () {
-                if (confirm('Bu alt kategoriyi silmek istediğinizden emin misiniz?')) {
-                    var id = $(this).data('id');
-                    $.ajax({
-                        url: '/Admin/Category/DeleteSubCategory/' + id,
-                        type: 'POST',
-                        success: function (response) {
-                            if (response.success) {
-                                location.reload();
-                            } else {
-                                alert('Hata: ' + response.message);
-                            }
-                        },
-                        error: function (xhr, status, error) {
-                            alert('Bir hata oluştu: ' + error);
-                        }
-                    });
-                }
-            });
-        });
-    </script>
-}
-
 <div class="categories-container">
     <div class="page-header">
         <div class="container">
@@ -437,19 +248,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
             </div>
             <div class="modal-body">
-                <form id="editSubCategoryForm" method="post" enctype="multipart/form-data">
-                    <input type="hidden" id="editSubCategoryId" name="id">
+                <form id="editSubCategoryForm" method="post">
+                    <input type="hidden" id="editSubCategoryId" name="subCategoryId">
                     <div class="mb-3">
                         <label for="editSubCategoryName" class="form-label">Alt Kategori Adı</label>
-                        <input type="text" class="form-control" id="editSubCategoryName" name="name" required>
+                        <input type="text" class="form-control" id="editSubCategoryName" name="subCategoryName" required>
                     </div>
                     <div class="mb-3">
                         <label for="editSubCategoryDescription" class="form-label">Açıklama</label>
-                        <textarea class="form-control" id="editSubCategoryDescription" name="description" rows="3"></textarea>
+                        <textarea class="form-control" id="editSubCategoryDescription" name="subCategoryDescription" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="editSubCategoryParent" class="form-label">Ana Kategori</label>
-                        <select class="form-select" id="editSubCategoryParent" name="parentCategoryId">
+                        <label for="editParentCategory" class="form-label">Ana Kategori</label>
+                        <select class="form-select" id="editParentCategory" name="parentCategoryId">
                             @foreach (var category in Model)
                             {
                                 <option value="@category.Id">@category.Name</option>
@@ -458,7 +269,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="editSubCategoryStatus" class="form-label">Durum</label>
-                        <select class="form-select" id="editSubCategoryStatus" name="status">
+                        <select class="form-select" id="editSubCategoryStatus" name="subCategoryStatus">
                             <option value="active" selected>Aktif</option>
                             <option value="inactive">Pasif</option>
                         </select>
@@ -549,3 +360,107 @@
         }
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Kategori tipi değiştiğinde ana kategori seçimi göster/gizle
+        const categoryTypeSelect = document.getElementById('categoryType');
+        const mainCategorySelect = document.getElementById('mainCategorySelect');
+        
+        if (categoryTypeSelect) {
+            categoryTypeSelect.addEventListener('change', function() {
+                if (this.value === 'sub') {
+                    mainCategorySelect.style.display = 'block';
+                } else {
+                    mainCategorySelect.style.display = 'none';
+                }
+            });
+        }
+        
+        // Ana kategori düzenleme
+        document.querySelectorAll('.edit-category').forEach(button => {
+            button.addEventListener('click', function() {
+                const categoryId = this.getAttribute('data-id');
+                const categoryName = this.getAttribute('data-name');
+                
+                document.getElementById('editCategoryId').value = categoryId;
+                document.getElementById('editCategoryName').value = categoryName;
+            });
+        });
+        
+        // Alt kategori düzenleme
+        document.querySelectorAll('.edit-subcategory').forEach(button => {
+            button.addEventListener('click', function() {
+                const subCategoryId = this.getAttribute('data-id');
+                const subCategoryName = this.getAttribute('data-name');
+                const parentId = this.getAttribute('data-parent-id');
+                
+                document.getElementById('editSubCategoryId').value = subCategoryId;
+                document.getElementById('editSubCategoryName').value = subCategoryName;
+                document.getElementById('editParentCategory').value = parentId;
+            });
+        });
+        
+        // Kategori silme
+        document.querySelectorAll('.delete-category').forEach(button => {
+            button.addEventListener('click', function() {
+                const categoryId = this.getAttribute('data-id');
+                const categoryName = this.getAttribute('data-name');
+                
+                if (confirm(`"${categoryName}" kategorisini silmek istediğinize emin misiniz?`)) {
+                    // Silme işlemi için AJAX isteği gönder
+                    fetch(`/Panel/DeleteCategory/${categoryId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Kategori başarıyla silindi.');
+                            location.reload();
+                        } else {
+                            alert(`Hata: ${data.message}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Hata:', error);
+                        alert('Kategori silinirken bir hata oluştu.');
+                    });
+                }
+            });
+        });
+        
+        // Alt kategori silme
+        document.querySelectorAll('.delete-subcategory').forEach(button => {
+            button.addEventListener('click', function() {
+                const subCategoryId = this.getAttribute('data-id');
+                const subCategoryName = this.getAttribute('data-name');
+                
+                if (confirm(`"${subCategoryName}" alt kategorisini silmek istediğinize emin misiniz?`)) {
+                    // Silme işlemi için AJAX isteği gönder
+                    fetch(`/Panel/DeleteSubCategory/${subCategoryId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Alt kategori başarıyla silindi.');
+                            location.reload();
+                        } else {
+                            alert(`Hata: ${data.message}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Hata:', error);
+                        alert('Alt kategori silinirken bir hata oluştu.');
+                    });
+                }
+            });
+        });
+    });
+</script>
