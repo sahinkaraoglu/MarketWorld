@@ -47,8 +47,12 @@
                                 <span asp-validation-for="ShortenedEntityName" class="text-danger"></span>
                             </div>
                             <div class="mb-3 form-check">
-                                <input asp-for="IsDeleted" class="form-check-input" />
-                                <label asp-for="IsDeleted" class="form-check-label">Aktif</label>
+                                <input asp-for="IsActive" class="form-check-input" id="isActive" />
+                                <label asp-for="IsActive" class="form-check-label">Aktif</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input asp-for="IsDeleted" class="form-check-input" id="isDeleted" />
+                                <label asp-for="IsDeleted" class="form-check-label">Silinmiş</label>
                             </div>
                             <div class="d-flex justify-content-end gap-2">
                                 <button type="submit" class="btn btn-primary">
@@ -66,32 +70,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-        $(document).ready(function() {
-            $('form').on('submit', function(e) {
-                e.preventDefault();
-                console.log('Form submit ediliyor...');
-                
-                var formData = $(this).serialize();
-                console.log('Form verileri:', formData);
-                
-                $.ajax({
-                    url: $(this).attr('action'),
-                    type: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        console.log('Başarılı:', response);
-                        window.location.href = '@Url.Action("Categories", "Category", new { area = "Admin" })';
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Hata:', error);
-                        console.log('XHR:', xhr.responseText);
-                        alert('Bir hata oluştu: ' + error);
-                    }
-                });
-            });
-        });
-    </script>
 }
 
 <style>

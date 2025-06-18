@@ -42,7 +42,8 @@ namespace MarketWorld.Application.Services.Implementations
 
         public async Task<IEnumerable<Category>> GetCategoriesWithProductsAsync()
         {
-            return await _unitOfWork.Categories.GetCategoriesWithProducts();
+            var categories = await _unitOfWork.Categories.GetCategoriesWithProducts();
+            return categories.Where(c => !c.IsDeleted);
         }
 
         public async Task<Category> CreateCategoryAsync(Category category)
@@ -69,7 +70,13 @@ namespace MarketWorld.Application.Services.Implementations
             if (existingCategory.Name != category.Name && !await IsCategoryNameUniqueAsync(category.Name))
                 throw new InvalidOperationException($"Bu isimde bir kategori zaten mevcut: {category.Name}");
 
-            _unitOfWork.Categories.Update(category);
+            existingCategory.Name = category.Name;
+            existingCategory.Description = category.Description;
+            existingCategory.IsActive = category.IsActive;
+            existingCategory.IsDeleted = category.IsDeleted;
+            existingCategory.ShortenedEntityName = category.ShortenedEntityName;
+
+            _unitOfWork.Categories.Update(existingCategory);
             await _unitOfWork.SaveChangesAsync();
         }
 

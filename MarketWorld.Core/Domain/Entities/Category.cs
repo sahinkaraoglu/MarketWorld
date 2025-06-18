@@ -9,6 +9,7 @@ namespace MarketWorld.Core.Domain.Entities
         public string Name { get; set; }
         public string ShortenedEntityName { get; set; }
         public string Description { get; set; }
+        public bool IsActive { get; set; } = true;
         public ICollection<SubCategory>? SubCategories { get; set; }
         public ICollection<Product>? Products { get; set; }
     }

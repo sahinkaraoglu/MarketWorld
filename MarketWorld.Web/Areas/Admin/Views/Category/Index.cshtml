@@ -48,7 +48,20 @@
                                     <td>@counter</td>
                                     <td>@category.Name</td>
                                     <td>@(category.Products?.Count ?? 0)</td>
-                                    <td><span class="badge bg-success">Aktif</span></td>
+                                    <td>
+                                        @if (category.IsDeleted)
+                                        {
+                                            <span class="badge bg-danger">Silinmiş</span>
+                                        }
+                                        else if (!category.IsActive)
+                                        {
+                                            <span class="badge bg-warning">Pasif</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-success">Aktif</span>
+                                        }
+                                    </td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
                                             <a href="/Admin/Category/Edit/@category.Id" class="btn btn-outline-primary">
