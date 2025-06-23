@@ -8,12 +8,10 @@ namespace MarketWorld.Web.ViewComponents
 {
     public class UserInfoViewComponent : ViewComponent
     {
-        private readonly MarketWorldDbContext _context;
         private readonly ILogger<UserInfoViewComponent> _logger;
 
         public UserInfoViewComponent(MarketWorldDbContext context, ILogger<UserInfoViewComponent> logger)
         {
-            _context = context;
             _logger = logger;
         }
 
