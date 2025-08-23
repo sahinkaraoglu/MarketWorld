@@ -17,11 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3E3A978D-7EA7-477E-AC9E-4D8BEA18E5AA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{47F23E23-BF59-4442-A67A-593FF83DE096}"
-	ProjectSection(SolutionItems) = preProject
-		MarketWorld.Web\Controllers\AccountController.cs = MarketWorld.Web\Controllers\AccountController.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
