@@ -164,7 +164,7 @@ MarketWorld/
 - Custom JWT Token Validation Middleware
 - Role-based authorization across microservices
 
-## �� API Endpoints
+## API Endpoints
 
 ### API Gateway Routes
 - **Identity Service**: `https://localhost:7000/identity/api/*`
@@ -183,7 +183,7 @@ MarketWorld/
     <img src="https://github.com/user-attachments/assets/a2ea920b-b166-4f4f-b2ef-c14ddbd3ee73" alt="api-endpoints" width="800"/>
 </div>
 
-## �� Docker & Containerization
+## Docker & Containerization
 
 ### Docker Compose Services
 ```yaml
