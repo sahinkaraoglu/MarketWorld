@@ -55,7 +55,7 @@
   - User management
   - Sales analytics and reporting
 
-## ��️ Architecture
+## Architecture
 
 ### Monolithic Application (Legacy)
 The solution follows Clean Architecture principles with the following layers:
@@ -136,7 +136,7 @@ MarketWorld/
   - Request aggregation
   - Single entry point for clients
 
-## ��️ Technical Stack
+## Technical Stack
 
 ### Backend
 - **Framework**: .NET 8.0
@@ -298,36 +298,3 @@ cd MarketWorld
 - **MarketWorld.Tests**: Unit tests for core functionality
 - **Integration Tests**: Service-to-service communication tests
 - **API Tests**: Endpoint validation and performance tests
-
-## 📚 Documentation
-
-- **API Documentation**: Swagger/OpenAPI for all services
-- **Architecture Diagrams**: System design and flow documentation
-- **Deployment Guide**: Docker and production deployment
-- **Development Guidelines**: Coding standards and best practices
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-For support and questions:
-- Create an issue in the GitHub repository
-- Contact the development team
-- Check the documentation and wiki
-
----
-
-<div align="center">
-    <p><strong>MarketWorld</strong> - Modern eCommerce Platform with Microservices Architecture</p>
-    <p>Built with ❤️ using .NET 8.0 and Clean Architecture principles</p>
-</div>
