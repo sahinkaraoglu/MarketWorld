@@ -8,7 +8,6 @@ using System.Linq;
 using MarketWorld.API.DTOs;
 using AutoMapper;
 using Microsoft.Extensions.Caching.Memory;
-using System.Text.Json;
 using Microsoft.AspNetCore.JsonPatch;
 using MarketWorld.Core.Domain.Entities;
 

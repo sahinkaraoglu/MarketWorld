@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using MarketWorld.API.Models.Auth;
-using MarketWorld.API.Controllers;
-using MarketWorld.Api.Controllers;
 using System.Linq;
 using System;
 using MarketWorld.Core.Domain.Entities;

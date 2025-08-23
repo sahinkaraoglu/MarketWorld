@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using MarketWorld.API.DTOs;
 using AutoMapper;
-using MarketWorld.Api.Controllers;
+
 
 namespace MarketWorld.API.Controllers
 {
