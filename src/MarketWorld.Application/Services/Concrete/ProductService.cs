@@ -4,6 +4,7 @@ using MarketWorld.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MarketWorld.Application.Services.Concrete
 {
@@ -83,6 +84,103 @@ namespace MarketWorld.Application.Services.Concrete
             } while (!isUnique);
 
             return productCode;
+        }
+        
+        // Product API için gerekli metodlar
+        public async Task<IEnumerable<Product>> GetAllAsync()
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+            return products.Where(p => !p.IsDeleted);
+        }
+        
+        public async Task<Product> GetByIdAsync(int id)
+        {
+            return await _unitOfWork.Products.GetByIdAsync(id);
+        }
+        
+        public async Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId)
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+            return products.Where(p => !p.IsDeleted && p.CategoryId == categoryId);
+        }
+        
+        public async Task<IEnumerable<Product>> GetProductsBySubCategoryAsync(int subCategoryId)
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+            return products.Where(p => !p.IsDeleted && p.SubCategoryId == subCategoryId);
+        }
+        
+        public async Task<IEnumerable<Product>> GetProductsByBrandAsync(int brandId)
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+            return products.Where(p => !p.IsDeleted && p.BrandId == brandId);
+        }
+        
+        public async Task<IEnumerable<Product>> SearchProductsAsync(string query)
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+            return products.Where(p => !p.IsDeleted && 
+                                     (p.Name.Contains(query, StringComparison.OrdinalIgnoreCase) || 
+                                      p.Description.Contains(query, StringComparison.OrdinalIgnoreCase)));
+        }
+        
+        public async Task<IEnumerable<Product>> GetFeaturedProductsAsync(int count = 10)
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+            return products.Where(p => !p.IsDeleted && p.IsActive)
+                          .OrderByDescending(p => p.Rating)
+                          .Take(count);
+        }
+        
+        public async Task<IEnumerable<Product>> GetNewArrivalsAsync(int count = 10)
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+            return products.Where(p => !p.IsDeleted && p.IsActive)
+                          .OrderByDescending(p => p.CreatedDate)
+                          .Take(count);
+        }
+        
+        public async Task<IEnumerable<Product>> GetBestSellersAsync(int count = 10)
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+            return products.Where(p => !p.IsDeleted && p.IsActive)
+                          .OrderByDescending(p => p.Rating)
+                          .Take(count);
+        }
+        
+        public async Task AddAsync(Product product)
+        {
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            // 6 haneli benzersiz rastgele ProductCode oluştur
+            product.ProductCode = await GenerateUniqueProductCode();
+            
+            await _unitOfWork.Products.AddAsync(product);
+            await _unitOfWork.SaveChangesAsync();
+        }
+        
+        public async Task UpdateAsync(Product product)
+        {
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            if (product.ProductCode == 0)
+            {
+                product.ProductCode = await GenerateUniqueProductCode();
+            }
+
+            _unitOfWork.Products.Update(product);
+            await _unitOfWork.SaveChangesAsync();
+        }
+        
+        public async Task DeleteAsync(Product product)
+        {
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            _unitOfWork.Products.Remove(product);
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 } 

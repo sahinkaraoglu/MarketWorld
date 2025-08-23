@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Application.Services.Abstract;
-using MarketWorld.API.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
+using MarketWorld.Product.API.DTOs;
 
 namespace MarketWorld.Product.API.Controllers
 {

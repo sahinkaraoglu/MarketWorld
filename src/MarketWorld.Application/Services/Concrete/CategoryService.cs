@@ -98,6 +98,69 @@ namespace MarketWorld.Application.Services.Concrete
         {
             return await _unitOfWork.Categories.IsCategoryNameUnique(name);
         }
+        
+        // Product API için gerekli metodlar
+        public async Task<IEnumerable<Category>> GetAllAsync()
+        {
+            var categories = await _unitOfWork.Categories.GetAllAsync();
+            return categories.Where(c => !c.IsDeleted);
+        }
+        
+        public async Task<Category> GetByIdAsync(int id)
+        {
+            var category = await _unitOfWork.Categories.GetByIdAsync(id);
+            if (category == null)
+                throw new ArgumentException($"Kategori bulunamadı. ID: {id}");
+
+            return category;
+        }
+        
+        public async Task AddAsync(Category category)
+        {
+            if (category == null)
+                throw new ArgumentNullException(nameof(category));
+
+            if (!await IsCategoryNameUniqueAsync(category.Name))
+                throw new InvalidOperationException($"Bu isimde bir kategori zaten mevcut: {category.Name}");
+
+            await _unitOfWork.Categories.AddAsync(category);
+            await _unitOfWork.SaveChangesAsync();
+        }
+        
+        public async Task UpdateAsync(Category category)
+        {
+            if (category == null)
+                throw new ArgumentNullException(nameof(category));
+
+            var existingCategory = await GetByIdAsync(category.Id);
+            
+            if (existingCategory.Name != category.Name && !await IsCategoryNameUniqueAsync(category.Name))
+                throw new InvalidOperationException($"Bu isimde bir kategori zaten mevcut: {category.Name}");
+
+            existingCategory.Name = category.Name;
+            existingCategory.Description = category.Description;
+            existingCategory.IsActive = category.IsActive;
+            existingCategory.IsDeleted = category.IsDeleted;
+            existingCategory.ShortenedEntityName = category.ShortenedEntityName;
+
+            _unitOfWork.Categories.Update(existingCategory);
+            await _unitOfWork.SaveChangesAsync();
+        }
+        
+        public async Task DeleteAsync(Category category)
+        {
+            if (category == null)
+                throw new ArgumentNullException(nameof(category));
+            
+            // Alt kategorileri ve ürünleri kontrol et
+            var categoryWithDetails = await GetCategoryWithProductsAsync(category.Id);
+            if ((categoryWithDetails.SubCategories?.Count > 0) || (categoryWithDetails.Products?.Count > 0))
+                throw new InvalidOperationException("Alt kategorileri veya ürünleri olan bir kategori silinemez.");
+
+            category.IsDeleted = true;
+            _unitOfWork.Categories.Update(category);
+            await _unitOfWork.SaveChangesAsync();
+        }
 
         public async Task<IEnumerable<SubCategory>> GetSubCategoriesByCategoryIdAsync(int categoryId)
         {

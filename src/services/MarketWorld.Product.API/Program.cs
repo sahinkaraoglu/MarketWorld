@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutoMapper;
-using MarketWorld.API.Mappings;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
+using MarketWorld.Product.API.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
 

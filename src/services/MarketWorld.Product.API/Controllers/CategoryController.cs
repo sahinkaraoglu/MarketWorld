@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Application.Services.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
+using MarketWorld.Product.API.DTOs;
 
 namespace MarketWorld.Product.API.Controllers
 {
@@ -22,7 +23,7 @@ namespace MarketWorld.Product.API.Controllers
         public async Task<IActionResult> GetAllCategories()
         {
             var categories = await _categoryService.GetAllAsync();
-            var categoryDtos = _mapper.Map<List<CategoryViewModel>>(categories);
+            var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
             return Ok(categoryDtos);
         }
 
@@ -33,7 +34,7 @@ namespace MarketWorld.Product.API.Controllers
             if (category == null)
                 return NotFound("Kategori bulunamadı");
 
-            var categoryDto = _mapper.Map<CategoryViewModel>(category);
+            var categoryDto = _mapper.Map<CategoryDto>(category);
             return Ok(categoryDto);
         }
 
@@ -53,7 +54,7 @@ namespace MarketWorld.Product.API.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreateCategory([FromBody] CategoryViewModel categoryDto)
+        public async Task<IActionResult> CreateCategory([FromBody] CategoryDto categoryDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -65,7 +66,7 @@ namespace MarketWorld.Product.API.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, [FromBody] CategoryViewModel categoryDto)
+        public async Task<IActionResult> UpdateCategory(int id, [FromBody] CategoryDto categoryDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

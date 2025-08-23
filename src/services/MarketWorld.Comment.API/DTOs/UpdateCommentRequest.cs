@@ -1,0 +1,10 @@
+using System;
+
+namespace MarketWorld.Comment.API.DTOs
+{
+    public class UpdateCommentRequest
+    {
+        public string Content { get; set; } = string.Empty;
+        public int Rating { get; set; }
+    }
+}

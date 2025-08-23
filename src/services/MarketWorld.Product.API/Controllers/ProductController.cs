@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Application.Services.Abstract;
-using MarketWorld.API.DTOs;
+using MarketWorld.Product.API.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 

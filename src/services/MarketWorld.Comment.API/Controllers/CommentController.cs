@@ -137,17 +137,4 @@ namespace MarketWorld.Comment.API.Controllers
             return Ok("Yorum onaylandı");
         }
     }
-
-    public class CreateCommentRequest
-    {
-        public int ProductId { get; set; }
-        public string Content { get; set; } = string.Empty;
-        public int Rating { get; set; }
-    }
-
-    public class UpdateCommentRequest
-    {
-        public string Content { get; set; } = string.Empty;
-        public int Rating { get; set; }
-    }
 }

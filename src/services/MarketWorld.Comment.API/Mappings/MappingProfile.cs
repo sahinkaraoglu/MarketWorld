@@ -10,6 +10,13 @@ namespace MarketWorld.Comment.API.Mappings
         {
             CreateMap<CommentEntity, CommentDto>()
                 .ReverseMap(); // CommentDto -> Comment
+                
+            // Request sınıfları için mapping
+            CreateMap<CreateCommentRequest, CommentEntity>()
+                .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Content));
+                
+            CreateMap<UpdateCommentRequest, CommentEntity>()
+                .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Content));
         }
     }
 }
