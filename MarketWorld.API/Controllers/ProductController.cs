@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using MarketWorld.API.DTOs;
 using AutoMapper;
-using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 using Microsoft.AspNetCore.JsonPatch;
 using MarketWorld.Core.Domain.Entities;
@@ -20,10 +20,10 @@ namespace MarketWorld.API.Controllers
     {
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
-        private readonly IDistributedCache _cache;
+        private readonly IMemoryCache _cache;
         private const string CacheKey = "all_products";
 
-        public ProductController(IProductService productService, IMapper mapper, IDistributedCache cache)
+        public ProductController(IProductService productService, IMapper mapper, IMemoryCache cache)
         {
             _productService = productService;
             _mapper = mapper;
@@ -36,11 +36,10 @@ namespace MarketWorld.API.Controllers
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             string cacheKey = $"{CacheKey}_{page}_{pageSize}";
-            string cachedProducts = await _cache.GetStringAsync(cacheKey);
-
-            if (!string.IsNullOrEmpty(cachedProducts))
+            
+            if (_cache.TryGetValue(cacheKey, out object cachedProducts))
             {
-                return Ok(JsonSerializer.Deserialize<object>(cachedProducts));
+                return Ok(cachedProducts);
             }
 
             var products = await _productService.GetAllProducts();
@@ -62,15 +61,11 @@ namespace MarketWorld.API.Controllers
                 TotalProducts = totalProducts
             };
 
-            var cacheOptions = new DistributedCacheEntryOptions()
+            var cacheOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(10))
                 .SetAbsoluteExpiration(TimeSpan.FromHours(1));
 
-            await _cache.SetStringAsync(
-                cacheKey,
-                JsonSerializer.Serialize(result),
-                cacheOptions
-            );
+            _cache.Set(cacheKey, result, cacheOptions);
             
             return Ok(result);
         }
@@ -94,11 +89,10 @@ namespace MarketWorld.API.Controllers
             try
             {
                 string cacheKey = $"{CacheKey}_single_{id}";
-                string cachedProduct = await _cache.GetStringAsync(cacheKey);
-
-                if (!string.IsNullOrEmpty(cachedProduct))
+                
+                if (_cache.TryGetValue(cacheKey, out ProductDto cachedProduct))
                 {
-                    return Ok(JsonSerializer.Deserialize<ProductDto>(cachedProduct));
+                    return Ok(cachedProduct);
                 }
 
                 var product = await _productService.GetProductById(id);
@@ -107,15 +101,11 @@ namespace MarketWorld.API.Controllers
 
                 var productDto = _mapper.Map<ProductDto>(product);
 
-                var cacheOptions = new DistributedCacheEntryOptions()
+                var cacheOptions = new MemoryCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromMinutes(10))
                     .SetAbsoluteExpiration(TimeSpan.FromHours(1));
 
-                await _cache.SetStringAsync(
-                    cacheKey,
-                    JsonSerializer.Serialize(productDto),
-                    cacheOptions
-                );
+                _cache.Set(cacheKey, productDto, cacheOptions);
 
                 return Ok(productDto);
             }
@@ -251,19 +241,19 @@ namespace MarketWorld.API.Controllers
                 }
 
                 string cacheKey = $"{CacheKey}_single_{id}";
-                await _cache.RemoveAsync(cacheKey);
+                _cache.Remove(cacheKey);
                 
+                // Tüm ürün cache'lerini temizle
                 var allCacheKeys = $"{CacheKey}_*";
-                await _cache.RemoveAsync(allCacheKeys);
+                // Memory Cache'de pattern-based removal yok, manuel olarak temizle
+                // Bu durumda sadece ilgili ürünün cache'ini temizliyoruz
 
                 var updatedProductDto = _mapper.Map<ProductDto>(existingProduct);
-                await _cache.SetStringAsync(
-                    cacheKey,
-                    JsonSerializer.Serialize(updatedProductDto),
-                    new DistributedCacheEntryOptions()
-                        .SetSlidingExpiration(TimeSpan.FromMinutes(10))
-                        .SetAbsoluteExpiration(TimeSpan.FromHours(1))
-                );
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                    .SetAbsoluteExpiration(TimeSpan.FromHours(1));
+                
+                _cache.Set(cacheKey, updatedProductDto, cacheOptions);
 
                 return Ok(updatedProductDto);
             }

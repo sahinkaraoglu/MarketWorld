@@ -76,12 +76,8 @@ builder.Services.AddScoped<IJwtService, JwtService>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// Redis yapılandırması
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = builder.Configuration.GetConnectionString("Redis");
-    options.InstanceName = "MarketWorld_";
-});
+// Memory Cache yapılandırması
+builder.Services.AddMemoryCache();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -4,7 +4,7 @@ using MarketWorld.Infrastructure;
 using MarketWorld.Web.Models;
 using static MarketWorld.Web.Models.CategoryViewModel;
 using ProductViewModel = MarketWorld.Web.Models.ProductViewModel;
-using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 using System;
 using System.Collections.Generic;
@@ -21,11 +21,11 @@ namespace MarketWorld.Web.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
-        private readonly IDistributedCache _cache;
+        private readonly IMemoryCache _cache;
         private const string CacheKey = "web_products";
         private readonly JsonSerializerOptions _jsonOptions;
 
-        public ProductController(IProductService productService, IDistributedCache cache)
+        public ProductController(IProductService productService, IMemoryCache cache)
         {
             _productService = productService;
             _cache = cache;
@@ -39,13 +39,11 @@ namespace MarketWorld.Web.Controllers
         private async Task<IActionResult> GetProductsBySubCategoryName(string subCategoryName)
         {
             string cacheKey = $"{CacheKey}_subcategory_{subCategoryName.ToLower()}";
-            string cachedProducts = await _cache.GetStringAsync(cacheKey);
-
-            if (!string.IsNullOrEmpty(cachedProducts))
+            
+            if (_cache.TryGetValue(cacheKey, out List<ProductViewModel> cachedProducts))
             {
-                var cachedResult = JsonSerializer.Deserialize<List<ProductViewModel>>(cachedProducts, _jsonOptions);
                 ViewBag.Brands = await GetBrandsForSubCategory(subCategoryName);
-                return View("ProductList", cachedResult);
+                return View("ProductList", cachedProducts);
             }
 
             var products = await _productService.GetAllProducts();
@@ -80,15 +78,11 @@ namespace MarketWorld.Web.Controllers
             var brands = await GetBrandsForSubCategory(subCategoryName);
             ViewBag.Brands = brands;
 
-            var cacheOptions = new DistributedCacheEntryOptions()
+            var cacheOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(10))
                 .SetAbsoluteExpiration(TimeSpan.FromHours(1));
 
-            await _cache.SetStringAsync(
-                cacheKey,
-                JsonSerializer.Serialize(products, _jsonOptions),
-                cacheOptions
-            );
+            _cache.Set(cacheKey, filteredProducts, cacheOptions);
 
             return View("ProductList", filteredProducts);
         }
@@ -96,11 +90,10 @@ namespace MarketWorld.Web.Controllers
         private async Task<List<Brand>> GetBrandsForSubCategory(string subCategoryName)
         {
             string brandsCacheKey = $"{CacheKey}_brands_{subCategoryName.ToLower()}";
-            string cachedBrands = await _cache.GetStringAsync(brandsCacheKey);
-
-            if (!string.IsNullOrEmpty(cachedBrands))
+            
+            if (_cache.TryGetValue(brandsCacheKey, out List<Brand> cachedBrands))
             {
-                return JsonSerializer.Deserialize<List<Brand>>(cachedBrands, _jsonOptions);
+                return cachedBrands;
             }
 
             var products = await _productService.GetAllProducts();
@@ -113,15 +106,11 @@ namespace MarketWorld.Web.Controllers
                 .OrderBy(b => b.Name)
                 .ToList();
 
-            var cacheOptions = new DistributedCacheEntryOptions()
+            var cacheOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(15))
                 .SetAbsoluteExpiration(TimeSpan.FromHours(2));
 
-            await _cache.SetStringAsync(
-                brandsCacheKey,
-                JsonSerializer.Serialize(brands, _jsonOptions),
-                cacheOptions
-            );
+            _cache.Set(brandsCacheKey, brands, cacheOptions);
 
             return brands;
         }
@@ -132,22 +121,18 @@ namespace MarketWorld.Web.Controllers
                 return NotFound();
 
             string cacheKey = $"{CacheKey}_subcategory_paged_{subCategoryName.ToLower()}_{page}";
-            string cachedData = await _cache.GetStringAsync(cacheKey);
-
-            if (!string.IsNullOrEmpty(cachedData))
+            
+            if (_cache.TryGetValue(cacheKey, out object cachedData))
             {
-                using JsonDocument document = JsonDocument.Parse(cachedData);
-                JsonElement root = document.RootElement;
-                
-                var productsElement = root.GetProperty("Products");
+                var cachedResult = (dynamic)cachedData;
+                var cachedProducts = (List<ProductViewModel>)cachedResult.Products;
                 var cachedBrands = await GetBrandsForSubCategory(subCategoryName);
                 
                 ViewBag.Brands = cachedBrands;
-                ViewBag.CurrentPage = root.GetProperty("CurrentPage").GetInt32();
-                ViewBag.TotalPages = root.GetProperty("TotalPages").GetInt32();
+                ViewBag.CurrentPage = cachedResult.CurrentPage;
+                ViewBag.TotalPages = cachedResult.TotalPages;
                 ViewBag.SubCategoryName = subCategoryName;
                 
-                var cachedProducts = JsonSerializer.Deserialize<List<ProductViewModel>>(productsElement.GetRawText(), _jsonOptions);
                 return View("ProductList", cachedProducts);
             }
 
@@ -206,15 +191,11 @@ namespace MarketWorld.Web.Controllers
             ViewBag.TotalPages = totalPages;
             ViewBag.SubCategoryName = subCategoryName;
 
-            var cacheOptions = new DistributedCacheEntryOptions()
+            var cacheOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(10))
                 .SetAbsoluteExpiration(TimeSpan.FromHours(1));
 
-            await _cache.SetStringAsync(
-                cacheKey,
-                JsonSerializer.Serialize(result, _jsonOptions),
-                cacheOptions
-            );
+            _cache.Set(cacheKey, result, cacheOptions);
 
             return View("ProductList", pagedProducts);
         }
@@ -225,12 +206,10 @@ namespace MarketWorld.Web.Controllers
             ViewBag.IsLoggedIn = !string.IsNullOrEmpty(userId);
             
             string cacheKey = $"{CacheKey}_product_detail_{id}";
-            string cachedProduct = await _cache.GetStringAsync(cacheKey);
-
-            if (!string.IsNullOrEmpty(cachedProduct))
+            
+            if (_cache.TryGetValue(cacheKey, out ProductDetailViewModel cachedProduct))
             {
-                var cachedViewModel = JsonSerializer.Deserialize<ProductDetailViewModel>(cachedProduct, _jsonOptions);
-                return View(cachedViewModel);
+                return View(cachedProduct);
             }
 
             var product = await _productService.GetProductById(id);
@@ -294,15 +273,12 @@ namespace MarketWorld.Web.Controllers
                     }).ToList() ?? new List<CommentViewModel>()
             };
 
-            var cacheOptions = new DistributedCacheEntryOptions()
+            var cacheOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(10))
+                .SetAbsoluteExpiration(TimeSpan.FromMinutes(10))
                 .SetAbsoluteExpiration(TimeSpan.FromHours(1));
 
-            await _cache.SetStringAsync(
-                cacheKey,
-                JsonSerializer.Serialize(viewModel, _jsonOptions),
-                cacheOptions
-            );
+            _cache.Set(cacheKey, viewModel, cacheOptions);
 
             return View(viewModel);
         }

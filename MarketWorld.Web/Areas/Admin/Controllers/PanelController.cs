@@ -5,7 +5,7 @@ using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
 using MarketWorld.Application.Services.Interfaces;
-using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 using MarketWorld.Core.Enums;
 
@@ -22,7 +22,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         private readonly ICategoryService _categoryService;
         private readonly ISubCategoryService _subCategoryService;
         private readonly IOrderService _orderService;
-        private readonly IDistributedCache _cache;
+        private readonly IMemoryCache _cache;
         private readonly JsonSerializerOptions _jsonOptions;
 
         public PanelController(
@@ -33,7 +33,7 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             ICategoryService categoryService,
             ISubCategoryService subCategoryService,
             IOrderService orderService,
-            IDistributedCache cache)
+            IMemoryCache cache)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -54,26 +54,16 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
             try
             {
                 string cacheKey = "admin_panel_dashboard";
-                string cachedData = await _cache.GetStringAsync(cacheKey);
-
-                if (!string.IsNullOrEmpty(cachedData))
+                
+                if (_cache.TryGetValue(cacheKey, out Dictionary<string, int> cachedDashboardData))
                 {
-                    try
+                    if (cachedDashboardData != null)
                     {
-                        var cachedDashboardData = JsonSerializer.Deserialize<Dictionary<string, int>>(cachedData, _jsonOptions);
-                        if (cachedDashboardData != null)
+                        foreach (var item in cachedDashboardData)
                         {
-                            foreach (var item in cachedDashboardData)
-                            {
-                                ViewBag.SetValue(item.Key, item.Value);
-                            }
-                            return View();
+                            ViewBag.SetValue(item.Key, item.Value);
                         }
-                    }
-                    catch
-                    {
-                        // Önbellek verisi bozuksa yeni veri çekelim
-                        await _cache.RemoveAsync(cacheKey);
+                        return View();
                     }
                 }
 
@@ -121,15 +111,11 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
                     { "ShippingOrdersCount", (int)ViewBag.ShippingOrdersCount }
                 };
 
-                var cacheOptions = new DistributedCacheEntryOptions()
+                var cacheOptions = new MemoryCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromMinutes(5))
                     .SetAbsoluteExpiration(TimeSpan.FromHours(1));
 
-                await _cache.SetStringAsync(
-                    cacheKey,
-                    JsonSerializer.Serialize(dashboardData, _jsonOptions),
-                    cacheOptions
-                );
+                _cache.Set(cacheKey, dashboardData, cacheOptions);
                 
                 return View();
             }

@@ -65,7 +65,7 @@
 - **API**: RESTful API endpoints
 - **Authentication**: JWT with OAuth2
 - **Object Mapping**: AutoMapper for DTO transformations
-- **Caching**: Redis for distributed caching
+- **Caching**: Memory Cache for in-memory caching
 
 ### Frontend
 - **Framework**: ASP.NET MVC
@@ -97,7 +97,7 @@ MarketWorld/
 - Unit of Work for transaction management
 - Clean Architecture principles
 - Entity-specific repositories (Product, Category, Brand, Comment)
-- Redis caching for improved performance
+- Memory Cache for improved performance
   
 ## 🔌 API Endpoints
 
@@ -110,14 +110,14 @@ MarketWorld/
 ### Prerequisites
 - .NET 8.0 SDK
 - SQL Server 2019 or later
-- Redis Server
+- Memory Cache (Built-in)
 - Visual Studio 2022 or later
 
 ### Environment Setup
 1. Clone the repository
 2. Update the connection string in `appsettings.json`
 3. Run Entity Framework migrations
-4. Start Redis server
+4. Memory Cache is automatically available (no external service needed)
 5. Start the application
 
 ### Environment URLs
@@ -135,4 +135,4 @@ MarketWorld/
 ✅ Admin Dashboard  
 ✅ Advanced Analytics  
 ✅ Customer Reviews System  
-✅ Redis Caching Implementation
+✅ Memory Cache Implementation

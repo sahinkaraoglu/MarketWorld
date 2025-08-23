@@ -5,7 +5,7 @@ using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
 using MarketWorld.Application.Services.Interfaces;
-using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 
 namespace MarketWorld.Web.Areas.Admin.Controllers
@@ -17,14 +17,14 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         private readonly IProductService _productService;
         private readonly IPropertyTypeService _propertyTypeService;
         private readonly IPropertyValueService _propertyValueService;
-        private readonly IDistributedCache _cache;
+        private readonly IMemoryCache _cache;
         private readonly JsonSerializerOptions _jsonOptions;
 
         public ProductController(
             IProductService productService,
             IPropertyTypeService propertyTypeService,
             IPropertyValueService propertyValueService,
-            IDistributedCache cache)
+            IMemoryCache cache)
         {
             _productService = productService;
             _propertyTypeService = propertyTypeService;
@@ -144,13 +144,11 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Products()
         {
             string cacheKey = "admin_products_list";
-            string cachedProducts = await _cache.GetStringAsync(cacheKey);
-
-            if (!string.IsNullOrEmpty(cachedProducts))
+            
+            if (_cache.TryGetValue(cacheKey, out List<ProductAdminViewModel> cachedProducts))
             {
-                var cachedResult = JsonSerializer.Deserialize<List<ProductAdminViewModel>>(cachedProducts, _jsonOptions);
-                ViewBag.TotalProducts = cachedResult.Count;
-                return View("~/Areas/Admin/Views/Product/Index.cshtml", cachedResult);
+                ViewBag.TotalProducts = cachedProducts.Count;
+                return View("~/Areas/Admin/Views/Product/Index.cshtml", cachedProducts);
             }
 
             var products = await _productService.GetAllProducts();
@@ -179,15 +177,11 @@ namespace MarketWorld.Web.Areas.Admin.Controllers
 
             ViewBag.TotalProducts = viewModel.Count;
 
-            var cacheOptions = new DistributedCacheEntryOptions()
+            var cacheOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(10))
                 .SetAbsoluteExpiration(TimeSpan.FromHours(1));
 
-            await _cache.SetStringAsync(
-                cacheKey,
-                JsonSerializer.Serialize(viewModel, _jsonOptions),
-                cacheOptions
-            );
+            _cache.Set(cacheKey, viewModel, cacheOptions);
 
             return View("~/Areas/Admin/Views/Product/Index.cshtml", viewModel);
         }
