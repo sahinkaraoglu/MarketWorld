@@ -1,11 +1,11 @@
 using MarketWorld.Application.Repositories;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using MarketWorld.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MarketWorld.Application.Services.Implementations
+namespace MarketWorld.Application.Services.Concrete
 {
     public class CommentService : ICommentService
     {

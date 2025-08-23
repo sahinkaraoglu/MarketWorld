@@ -1,7 +1,7 @@
 //using MarketWorld.API.Entities;
 using MarketWorld.Application.Repositories;
-using MarketWorld.Application.Services.Interfaces;
-using MarketWorld.Application.Services.Implementations;
+using MarketWorld.Application.Services.Abstract;
+using MarketWorld.Application.Services.Concrete;
 using MarketWorld.Application.Services.Jwt;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Repositories;

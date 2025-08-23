@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using MarketWorld.Core.Domain.Entities;
 
-namespace MarketWorld.Application.Services.Interfaces
+namespace MarketWorld.Application.Services.Abstract
 {
     public interface ICartService
     {

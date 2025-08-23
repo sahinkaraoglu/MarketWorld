@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Web.Models;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using MarketWorld.Core.Domain.Entities;
 
 namespace MarketWorld.Web.Controllers;

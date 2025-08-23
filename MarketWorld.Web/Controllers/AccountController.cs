@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System;
 using MarketWorld.Web.Attributes;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Enums;

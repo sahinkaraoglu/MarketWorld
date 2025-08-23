@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using System.Threading.Tasks;
 using MarketWorld.Core.Domain.Entities;
 

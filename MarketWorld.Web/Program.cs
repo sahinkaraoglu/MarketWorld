@@ -1,6 +1,6 @@
 using MarketWorld.Application.Repositories;
-using MarketWorld.Application.Services.Interfaces;
-using MarketWorld.Application.Services.Implementations;
+using MarketWorld.Application.Services.Abstract;
+using MarketWorld.Application.Services.Concrete;
 using MarketWorld.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using MarketWorld.Web.Middleware;

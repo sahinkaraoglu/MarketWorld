@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Web.Models;
 using Microsoft.EntityFrameworkCore;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using MarketWorld.Infrastructure.Context;
 
 namespace MarketWorld.Web.Controllers;
@@ -21,7 +21,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         // kategorileri sub kategorilerle beraber getir
-        // viewcomponent oluþtur ve kategorileri oradan çaðýr
+        // viewcomponent oluï¿½tur ve kategorileri oradan ï¿½aï¿½ï¿½r
 
         var categories = await _categoryService.GetCategoriesWithProductsAsync();
         return View(categories.ToList());

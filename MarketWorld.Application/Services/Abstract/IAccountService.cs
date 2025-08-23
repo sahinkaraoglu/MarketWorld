@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace MarketWorld.Application.Services.Interfaces
+namespace MarketWorld.Application.Services.Abstract
 {
     public interface IAccountService
     {

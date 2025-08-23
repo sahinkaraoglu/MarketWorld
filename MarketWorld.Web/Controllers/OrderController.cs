@@ -1,7 +1,7 @@
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Core.Enums;
 using MarketWorld.Web.Attributes;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;

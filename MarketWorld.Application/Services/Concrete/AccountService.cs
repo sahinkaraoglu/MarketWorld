@@ -1,5 +1,5 @@
 using MarketWorld.Application.Repositories;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +10,7 @@ using System;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
-namespace MarketWorld.Application.Services.Implementations
+namespace MarketWorld.Application.Services.Concrete
 {
     public class AccountService : IAccountService
     {

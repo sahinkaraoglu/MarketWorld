@@ -1,10 +1,10 @@
 using MarketWorld.Application.Repositories;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MarketWorld.Application.Services.Implementations
+namespace MarketWorld.Application.Services.Concrete
 {
     public class ReportService : IReportService
     {

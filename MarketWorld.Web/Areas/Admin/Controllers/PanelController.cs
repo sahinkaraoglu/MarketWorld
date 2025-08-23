@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Web.Areas.Admin.Models.Panel;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 using MarketWorld.Core.Enums;

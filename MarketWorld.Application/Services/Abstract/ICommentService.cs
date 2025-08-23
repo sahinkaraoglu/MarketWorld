@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace MarketWorld.Application.Services.Interfaces
+namespace MarketWorld.Application.Services.Abstract
 {
     public interface ICommentService
     {

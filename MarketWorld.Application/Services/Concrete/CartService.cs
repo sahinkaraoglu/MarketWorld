@@ -1,5 +1,5 @@
 using MarketWorld.Application.Repositories;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 using MarketWorld.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace MarketWorld.Application.Services.Implementations
+namespace MarketWorld.Application.Services.Concrete
 {
     public class CartService : ICartService
     {

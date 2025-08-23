@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MarketWorld.Application.Services.Interfaces
+namespace MarketWorld.Application.Services.Abstract
 {
     public interface ICategoryService
     {

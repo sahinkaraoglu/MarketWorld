@@ -14,7 +14,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
-using MarketWorld.Application.Services.Interfaces;
+using MarketWorld.Application.Services.Abstract;
 
 namespace MarketWorld.Web.Controllers
 {
