@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\MarketWorld.Application\MarketWorld.Application.csproj" />
-    <ProjectReference Include="..\src\MarketWorld.Infrastructure\MarketWorld.Infrastructure.csproj" />
-    <ProjectReference Include="..\src\MarketWorld.Core\MarketWorld.Core.csproj" />
+    <ProjectReference Include="..\..\src\MarketWorld.Application\MarketWorld.Application.csproj" />
+    <ProjectReference Include="..\..\src\MarketWorld.Infrastructure\MarketWorld.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\MarketWorld.Core\MarketWorld.Core.csproj" />
   </ItemGroup>
 
 </Project> 
