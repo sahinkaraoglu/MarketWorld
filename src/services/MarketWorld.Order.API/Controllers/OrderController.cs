@@ -84,7 +84,7 @@ namespace MarketWorld.Order.API.Controllers
             if (order.UserId != userId && !User.IsInRole("Admin"))
                 return Forbid();
 
-            await _orderService.CancelOrderAsync(id);
+            await _orderService.CancelOrderAsync(id, userId);
             return Ok("Sipariş iptal edildi");
         }
 

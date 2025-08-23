@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using AutoMapper;
-using MarketWorld.API.Mappings;
+
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
 
@@ -54,7 +53,7 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 
 // CORS policy
 builder.Services.AddCors(options =>

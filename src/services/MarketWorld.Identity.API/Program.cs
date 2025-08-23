@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutoMapper;
-using MarketWorld.API.Mappings;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
 
@@ -64,8 +63,6 @@ builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 
-builder.Services.AddAutoMapper(typeof(MappingProfile));
-
 // CORS policy
 builder.Services.AddCors(options =>
 {
@@ -111,13 +108,6 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Rolleri seed et
-using (var scope = app.Services.CreateScope())
-{
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    await SeedRoles(roleManager);
-}
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -133,20 +123,20 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
-
-// Rolleri oluşturmak için yardımcı metot
-async Task SeedRoles(RoleManager<IdentityRole> roleManager)
+// Seed roles on startup
+using (var scope = app.Services.CreateScope())
 {
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    
     if (!await roleManager.RoleExistsAsync("Admin"))
     {
         await roleManager.CreateAsync(new IdentityRole("Admin"));
-        Console.WriteLine("Admin rolü oluşturuldu.");
     }
     
     if (!await roleManager.RoleExistsAsync("User"))
     {
         await roleManager.CreateAsync(new IdentityRole("User"));
-        Console.WriteLine("User rolü oluşturuldu.");
     }
 }
+
+app.Run();

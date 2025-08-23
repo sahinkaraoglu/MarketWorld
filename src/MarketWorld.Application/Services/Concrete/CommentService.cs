@@ -4,6 +4,7 @@ using MarketWorld.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MarketWorld.Application.Services.Concrete
 {
@@ -21,9 +22,25 @@ namespace MarketWorld.Application.Services.Concrete
             return await _unitOfWork.Comments.GetAllAsync();
         }
 
+        public async Task<IEnumerable<Comment>> GetAllAsync()
+        {
+            return await _unitOfWork.Comments.GetAllAsync();
+        }
+
         public async Task<Comment> GetCommentById(int id)
         {
             return await _unitOfWork.Comments.GetByIdAsync(id);
+        }
+
+        public async Task<Comment> GetByIdAsync(int id)
+        {
+            return await _unitOfWork.Comments.GetByIdAsync(id);
+        }
+
+        public async Task<IEnumerable<Comment>> GetCommentsByProductIdAsync(int productId)
+        {
+            var allComments = await _unitOfWork.Comments.GetAllAsync();
+            return allComments.Where(c => c.ProductId == productId);
         }
 
         public async Task<Comment> CreateComment(Comment comment)
@@ -36,7 +53,25 @@ namespace MarketWorld.Application.Services.Concrete
             return comment;
         }
 
+        public async Task AddAsync(Comment comment)
+        {
+            if (comment == null)
+                throw new ArgumentNullException(nameof(comment));
+
+            await _unitOfWork.Comments.AddAsync(comment);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
         public async Task UpdateComment(Comment comment)
+        {
+            if (comment == null)
+                throw new ArgumentNullException(nameof(comment));
+
+            _unitOfWork.Comments.Update(comment);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(Comment comment)
         {
             if (comment == null)
                 throw new ArgumentNullException(nameof(comment));
@@ -50,6 +85,15 @@ namespace MarketWorld.Application.Services.Concrete
             var comment = await _unitOfWork.Comments.GetByIdAsync(id);
             if (comment == null)
                 throw new ArgumentException($"Yorum bulunamadı. ID: {id}");
+
+            _unitOfWork.Comments.Remove(comment);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(Comment comment)
+        {
+            if (comment == null)
+                throw new ArgumentNullException(nameof(comment));
 
             _unitOfWork.Comments.Remove(comment);
             await _unitOfWork.SaveChangesAsync();

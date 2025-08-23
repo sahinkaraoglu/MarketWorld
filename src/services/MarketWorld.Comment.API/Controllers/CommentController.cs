@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Application.Services.Abstract;
-using MarketWorld.API.DTOs;
+using MarketWorld.Comment.API.DTOs;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 using AutoMapper;
+using System.Security.Claims;
+using MarketWorld.Core.Domain.Entities;
+using MarketWorld.Comment.API.Mappings;
 
-namespace MarketWorld.Review.API.Controllers
+namespace MarketWorld.Comment.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -21,10 +23,10 @@ namespace MarketWorld.Review.API.Controllers
         }
 
         [HttpGet("product/{productId}")]
-        public async Task<IActionResult> GetProductComments(int productId)
+        public async Task<IActionResult> GetProductComments(int productId, [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
         {
             var comments = await _commentService.GetCommentsByProductIdAsync(productId);
-            var commentDtos = _mapper.Map<List<CommentDTO>>(comments);
+            var commentDtos = _mapper.Map<List<CommentDto>>(comments);
             return Ok(commentDtos);
         }
 
@@ -35,7 +37,7 @@ namespace MarketWorld.Review.API.Controllers
             if (comment == null)
                 return NotFound("Yorum bulunamadı");
 
-            var commentDto = _mapper.Map<CommentDTO>(comment);
+            var commentDto = _mapper.Map<CommentDto>(comment);
             return Ok(commentDto);
         }
 
@@ -50,13 +52,16 @@ namespace MarketWorld.Review.API.Controllers
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
+            // userId'yi int'e çevir
+            if (!int.TryParse(userId, out int userIdInt))
+                return BadRequest("Geçersiz kullanıcı ID");
+
             var comment = new MarketWorld.Core.Domain.Entities.Comment
             {
                 ProductId = request.ProductId,
-                UserId = userId,
-                Content = request.Content,
-                Rating = request.Rating,
-                CreatedDate = DateTime.UtcNow
+                UserId = userIdInt,
+                Text = request.Content,
+                Rating = request.Rating
             };
 
             await _commentService.AddAsync(comment);
@@ -79,12 +84,11 @@ namespace MarketWorld.Review.API.Controllers
                 return NotFound("Yorum bulunamadı");
 
             // Kullanıcının kendi yorumunu düzenleyebilmesi için kontrol
-            if (existingComment.UserId != userId && !User.IsInRole("Admin"))
+            if (existingComment.UserId.ToString() != userId && !User.IsInRole("Admin"))
                 return Forbid();
 
-            existingComment.Content = request.Content;
+            existingComment.Text = request.Content;
             existingComment.Rating = request.Rating;
-            existingComment.UpdatedDate = DateTime.UtcNow;
 
             await _commentService.UpdateAsync(existingComment);
             return NoContent();
@@ -103,7 +107,7 @@ namespace MarketWorld.Review.API.Controllers
                 return NotFound("Yorum bulunamadı");
 
             // Kullanıcının kendi yorumunu silebilmesi için kontrol
-            if (comment.UserId != userId && !User.IsInRole("Admin"))
+            if (comment.UserId.ToString() != userId && !User.IsInRole("Admin"))
                 return Forbid();
 
             await _commentService.DeleteAsync(comment);
@@ -115,7 +119,7 @@ namespace MarketWorld.Review.API.Controllers
         public async Task<IActionResult> GetAllComments([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
         {
             var comments = await _commentService.GetAllAsync();
-            var commentDtos = _mapper.Map<List<CommentDTO>>(comments);
+            var commentDtos = _mapper.Map<List<CommentDto>>(comments);
             return Ok(commentDtos);
         }
 
@@ -128,7 +132,6 @@ namespace MarketWorld.Review.API.Controllers
                 return NotFound("Yorum bulunamadı");
 
             comment.IsApproved = true;
-            comment.UpdatedDate = DateTime.UtcNow;
 
             await _commentService.UpdateAsync(comment);
             return Ok("Yorum onaylandı");

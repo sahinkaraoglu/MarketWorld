@@ -18,9 +18,10 @@ namespace MarketWorld.Application.Services.Concrete
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<Order>> GetAllOrdersAsync()
+        public async Task<IEnumerable<Order>> GetAllOrdersAsync(int page = 1, int pageSize = 20)
         {
-            return await _unitOfWork.Orders.GetAllOrdersWithDetailsAsync();
+            var orders = await _unitOfWork.Orders.GetAllOrdersWithDetailsAsync();
+            return orders.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
         public async Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus? status)
@@ -121,6 +122,95 @@ namespace MarketWorld.Application.Services.Concrete
         public async Task<IEnumerable<Order>> GetUserOrdersAsync(string userId)
         {
             return await _unitOfWork.Orders.GetUserOrdersAsync(userId);
+        }
+
+        public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(string userId)
+        {
+            return await _unitOfWork.Orders.GetUserOrdersAsync(userId);
+        }
+
+        public async Task<Order> GetByIdAsync(int id)
+        {
+            return await GetOrderByIdAsync(id);
+        }
+
+        public async Task<Order> CreateOrderFromCartAsync(string userId, int shippingAddressId, string paymentMethod)
+        {
+            var cart = await _unitOfWork.Carts.GetCartByUserIdAsync(userId);
+            if (cart == null || !cart.CartItems.Any())
+                throw new ArgumentException("Sepet boş veya bulunamadı");
+
+            var order = new Order
+            {
+                UserId = userId,
+                OrderNumber = GenerateOrderNumber(),
+                OrderDate = DateTime.UtcNow,
+                Status = OrderStatus.Pending,
+                TotalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.Product.Price),
+                Note = "Sepetten oluşturulan sipariş",
+                ShippingAddressId = shippingAddressId
+            };
+
+            // Cart items'ı order items'a çevir
+            order.OrderItems = cart.CartItems.Select(ci => new OrderItem
+            {
+                ProductId = ci.ProductId,
+                Quantity = ci.Quantity,
+                UnitPrice = ci.Product.Price,
+                TotalPrice = ci.Quantity * ci.Product.Price
+            }).ToList();
+
+            await _unitOfWork.Orders.AddAsync(order);
+            
+            // Payment entity'si oluştur
+            var payment = new Payment
+            {
+                PaymentMethod = paymentMethod,
+                Amount = order.TotalAmount,
+                Status = PaymentStatus.Pending,
+                PaymentDate = DateTime.UtcNow,
+                TransactionId = GenerateTransactionId(),
+                OrderId = order.Id
+            };
+
+            await _unitOfWork.SaveChangesAsync();
+            
+            // Sepeti temizle
+            _unitOfWork.Carts.Remove(cart);
+            
+            await _unitOfWork.SaveChangesAsync();
+            return order;
+        }
+
+        public async Task<Order> CancelOrderAsync(int orderId, string userId)
+        {
+            var order = await _unitOfWork.Orders.GetByIdAsync(orderId);
+            if (order == null)
+                throw new ArgumentException($"Sipariş bulunamadı. ID: {orderId}");
+
+            if (order.UserId != userId)
+                throw new UnauthorizedAccessException("Bu siparişi iptal etme yetkiniz yok");
+
+            if (order.Status == OrderStatus.Shipped || order.Status == OrderStatus.Delivered)
+                throw new InvalidOperationException("Kargoya verilmiş veya teslim edilmiş siparişler iptal edilemez");
+
+            order.Status = OrderStatus.Cancelled;
+            order.UpdatedDate = DateTime.UtcNow;
+
+            _unitOfWork.Orders.Update(order);
+            await _unitOfWork.SaveChangesAsync();
+            
+            return order;
+        }
+
+        private string GenerateOrderNumber()
+        {
+            return $"ORD-{DateTime.Now:yyyyMMdd}-{new Random().Next(1000, 9999)}";
+        }
+
+        private string GenerateTransactionId()
+        {
+            return $"TXN-{DateTime.Now:yyyyMMddHHmmss}-{new Random().Next(1000, 9999)}";
         }
     }
 } 

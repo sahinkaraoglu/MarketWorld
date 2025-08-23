@@ -69,6 +69,32 @@ namespace MarketWorld.Application.Services.Jwt
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        public async Task<string> GenerateToken(ApplicationUser user)
+        {
+            if (user == null) return string.Empty;
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
+                new Claim(ClaimTypes.Name, user.UserName ?? string.Empty)
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var expires = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["Jwt:ExpiryInMinutes"] ?? "60"));
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: expires,
+                signingCredentials: credentials
+            );
+
+            return await Task.FromResult(new JwtSecurityTokenHandler().WriteToken(token));
+        }
+
         public string? ValidateJwtToken(string token)
         {
             if (string.IsNullOrEmpty(token))
@@ -99,11 +125,7 @@ namespace MarketWorld.Application.Services.Jwt
                 if (userIdClaim == null)
                     userIdClaim = jwtToken.Claims.FirstOrDefault(x => x.Type == "nameid");
 
-                if (userIdClaim == null)
-                    return null;
-
-                // Artık string olarak kullanıcı ID'sini dönüyoruz (int'e çevirmeden)
-                return userIdClaim.Value;
+                return userIdClaim?.Value;
             }
             catch
             {

@@ -12,6 +12,8 @@ namespace MarketWorld.API.Mappings
                 .ReverseMap(); // ProductDto -> Product
                 
             CreateMap<Comment, CommentDto>()
+                .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Content ?? src.Text))
+                .ForMember(dest => dest.Content, opt => opt.MapFrom(src => src.Text ?? src.Content))
                 .ReverseMap(); // CommentDto -> Comment
                 
             CreateMap<Brand, BrandDto>()

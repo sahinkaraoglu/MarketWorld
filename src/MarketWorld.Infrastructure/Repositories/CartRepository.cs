@@ -23,5 +23,13 @@ namespace MarketWorld.Infrastructure.Repositories
                         .ThenInclude(p => p.Images)
                 .FirstOrDefaultAsync(c => c.UserId == userId);
         }
+
+        public async Task<Cart> GetCartByUserIdAsync(string userId)
+        {
+            return await _marketWorldContext.Carts
+                .Include(c => c.CartItems)
+                    .ThenInclude(ci => ci.Product)
+                .FirstOrDefaultAsync(c => c.UserId == userId);
+        }
     }
 } 

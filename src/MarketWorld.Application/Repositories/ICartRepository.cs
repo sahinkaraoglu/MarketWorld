@@ -6,5 +6,6 @@ namespace MarketWorld.Application.Repositories
     public interface ICartRepository : IRepository<Cart>
     {
         Task<Cart> GetUserCartWithItemsAsync(string userId);
+        Task<Cart> GetCartByUserIdAsync(string userId);
     }
 } 
