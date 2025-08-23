@@ -1,0 +1,98 @@
+version: '3.8'
+
+services:
+  # SQL Server Database
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      - marketworld_network
+
+  # API Gateway
+  gateway:
+    build:
+      context: ./src/services/MarketWorld.Gateway
+      dockerfile: Dockerfile
+    ports:
+      - "7000:80"
+    depends_on:
+      - identity
+      - order
+      - comment
+      - product
+    networks:
+      - marketworld_network
+
+  # Identity Microservice
+  identity:
+    build:
+      context: ./src/services/MarketWorld.Identity.API
+      dockerfile: Dockerfile
+    ports:
+      - "7001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__IdentityConnection=Server=sqlserver;Database=MarketWorld_Identity;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;MultipleActiveResultSets=true
+    depends_on:
+      - sqlserver
+    networks:
+      - marketworld_network
+
+  # Order Microservice
+  order:
+    build:
+      context: ./src/services/MarketWorld.Order.API
+      dockerfile: Dockerfile
+    ports:
+      - "7003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__OrderConnection=Server=sqlserver;Database=MarketWorld_Order;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;MultipleActiveResultSets=true
+    depends_on:
+      - sqlserver
+    networks:
+      - marketworld_network
+
+  # Comment Microservice
+  comment:
+    build:
+      context: ./src/services/MarketWorld.Comment.API
+      dockerfile: Dockerfile
+    ports:
+      - "7004:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__CommentConnection=Server=sqlserver;Database=MarketWorld_Comment;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;MultipleActiveResultSets=true
+    depends_on:
+      - sqlserver
+    networks:
+      - marketworld_network
+
+  # Product Microservice
+  product:
+    build:
+      context: ./src/services/MarketWorld.Product.API
+      dockerfile: Dockerfile
+    ports:
+      - "7005:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__ProductConnection=Server=sqlserver;Database=MarketWorld_Product;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;MultipleActiveResultSets=true
+    depends_on:
+      - sqlserver
+    networks:
+      - marketworld_network
+
+volumes:
+  sqlserver_data:
+
+networks:
+  marketworld_network:
+    driver: bridge
