@@ -107,6 +107,13 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// Otomatik migration - veritabanını otomatik güncelle
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<MarketWorldDbContext>();
+    context.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
