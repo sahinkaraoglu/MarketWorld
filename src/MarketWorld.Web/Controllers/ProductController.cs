@@ -207,10 +207,11 @@ namespace MarketWorld.Web.Controllers
             
             string cacheKey = $"{CacheKey}_product_detail_{id}";
             
-            if (_cache.TryGetValue(cacheKey, out ProductDetailViewModel cachedProduct))
-            {
-                return View(cachedProduct);
-            }
+            // Cache'i geçici olarak devre dışı bırak - yorumları görmek için
+            // if (_cache.TryGetValue(cacheKey, out ProductDetailViewModel cachedProduct))
+            // {
+            //     return View(cachedProduct);
+            // }
 
             var product = await _productService.GetProductById(id);
             if (product == null)
@@ -312,7 +313,8 @@ namespace MarketWorld.Web.Controllers
                 Text = model.Text,
                 Rating = model.Rating,
                 CreatedDate = DateTime.Now,
-                UserName = HttpContext.User.Identity?.Name ?? "Anonim"
+                UserName = HttpContext.User.Identity?.Name ?? "Anonim",
+                IsApproved = true // Yorumları otomatik onayla
             };
 
             product.Comments.Add(comment);
