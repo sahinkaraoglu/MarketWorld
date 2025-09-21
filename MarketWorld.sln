@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketWorld.Tests", "tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "src\Services\OrderService\OrderService.csproj", "{9987BD9B-7B75-F0FE-5CF2-84D264E7B2D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketWorld.Gateway", "src\Services\MarketWorld.Gateway\MarketWorld.Gateway.csproj", "{4979D0C3-1564-AB0F-B5E0-3F3FA8683931}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "src\Services\ApiGateway\ApiGateway.csproj", "{4979D0C3-1564-AB0F-B5E0-3F3FA8683931}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "src\Services\AuthenticationService\AuthenticationService.csproj", "{7B1BAEB7-3D66-9358-9010-C41A480810EB}"
 EndProject

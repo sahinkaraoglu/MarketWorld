@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "MarketWorld.Gateway": {
+    "ApiGateway": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

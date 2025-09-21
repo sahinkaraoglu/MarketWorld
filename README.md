@@ -79,11 +79,10 @@ MarketWorld/
 ├── MarketWorld.Infrastructure/          # Shared infrastructure
 ├── MarketWorld.Web/                     # MVC Web Application
 └── src/Services/                        # Microservices
-    ├── MarketWorld.Gateway/             # API Gateway (Ocelot)
+    ├── ApiGateway/                      # API Gateway (Ocelot)
     ├── AuthenticationService/            # User Management Service
     ├── CatalogService/                  # Product Catalog Service
     ├── OrderService/                    # Order Management Service
-    ├── MarketWorld.Comment.API/         # Review & Rating Service
     └── MarketWorld.API/                 # Legacy API (Monolithic)
 ```
 
@@ -128,7 +127,7 @@ MarketWorld/
   - Review approval system
   - User feedback management
 
-### 5. **MarketWorld.Gateway** (Port: 7000)
+### 5. **ApiGateway** (Port: 7000)
 **Purpose**: API Gateway using Ocelot for routing and aggregation
 - **Features**:
   - Centralized routing to microservices

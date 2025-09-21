@@ -18,7 +18,7 @@ services:
   # API Gateway
   gateway:
     build:
-      context: ./src/Services/MarketWorld.Gateway
+      context: ./src/Services/ApiGateway
       dockerfile: Dockerfile
     ports:
       - "7000:80"
