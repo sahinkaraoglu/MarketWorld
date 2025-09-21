@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace MarketWorld.API.Controllers
+namespace BaseService.Controllers
 {
     public class BaseController : ControllerBase
     {

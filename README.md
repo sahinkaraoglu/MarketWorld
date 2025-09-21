@@ -65,7 +65,7 @@ MarketWorld/
 ├── MarketWorld.Core/            # Core business logic and entities
 ├── MarketWorld.Application/     # Application business rules and interfaces
 ├── MarketWorld.Infrastructure/  # External concerns implementation
-├── MarketWorld.API/             # RESTful API endpoints
+├── BaseService/                 # RESTful API endpoints
 └── MarketWorld.Web/             # MVC Web Application
 ```
 
@@ -83,7 +83,7 @@ MarketWorld/
     ├── AuthenticationService/            # User Management Service
     ├── CatalogService/                  # Product Catalog Service
     ├── OrderService/                    # Order Management Service
-    └── MarketWorld.API/                 # Legacy API (Monolithic)
+    └── BaseService/                     # Legacy API (Monolithic)
 ```
 
 ## 🚀 Microservices Overview

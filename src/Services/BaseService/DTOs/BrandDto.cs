@@ -1,7 +1,7 @@
 using MarketWorld.Core.Domain.Entities;
 using System;
 
-namespace MarketWorld.API.DTOs
+namespace BaseService.DTOs
 {
     public class BrandDto
     {

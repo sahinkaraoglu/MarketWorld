@@ -1,4 +1,4 @@
-//using MarketWorld.API.Entities;
+//using BaseService.Entities;
 using MarketWorld.Application.Repositories;
 using MarketWorld.Application.Services.Abstract;
 using MarketWorld.Application.Services.Concrete;
@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutoMapper;
-using MarketWorld.API.Mappings;
+using BaseService.Mappings;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Infrastructure.Data.SeedData;
@@ -28,7 +28,7 @@ builder.Services.AddControllers()
 // DbContext configuration
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), 
-        b => b.MigrationsAssembly("MarketWorld.API")));
+        b => b.MigrationsAssembly("BaseService")));
 
 // Identity configuration
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>

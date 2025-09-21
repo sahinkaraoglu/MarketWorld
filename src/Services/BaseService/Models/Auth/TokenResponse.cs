@@ -1,6 +1,6 @@
 using System;
 
-namespace MarketWorld.API.Models.Auth
+namespace BaseService.Models.Auth
 {
     public class TokenResponse
     {

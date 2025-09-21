@@ -1,8 +1,8 @@
 using AutoMapper;
-using MarketWorld.API.DTOs;
+using BaseService.DTOs;
 using MarketWorld.Core.Domain.Entities;
 
-namespace MarketWorld.API.Mappings
+namespace BaseService.Mappings
 {
     public class MappingProfile : Profile
     {

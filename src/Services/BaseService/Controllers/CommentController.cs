@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using MarketWorld.API.DTOs;
+using BaseService.DTOs;
 using AutoMapper;
 
 
-namespace MarketWorld.API.Controllers
+namespace BaseService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketWorld.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketWorld.Web", "src\MarketWorld.Web\MarketWorld.Web.csproj", "{102FE7E5-F0F4-4F16-B82C-B1D940A56F22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketWorld.Api", "src\Services\MarketWorld.API\MarketWorld.Api.csproj", "{75A4C34E-21D3-4C57-9EBB-F7E4C5C7B315}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseService", "src\Services\BaseService\BaseService.csproj", "{75A4C34E-21D3-4C57-9EBB-F7E4C5C7B315}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject

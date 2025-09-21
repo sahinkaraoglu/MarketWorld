@@ -5,13 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using MarketWorld.API.DTOs;
+using BaseService.DTOs;
 using AutoMapper;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.JsonPatch;
 using MarketWorld.Core.Domain.Entities;
 
-namespace MarketWorld.API.Controllers
+namespace BaseService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
