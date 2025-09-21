@@ -22,7 +22,8 @@ builder.Services.AddControllers()
 
 // DbContext configuration - Comment için ayrı connection string
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CommentConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CommentConnection"), 
+        b => b.MigrationsAssembly("MarketWorld.Comment.API")));
 
 // JWT configuration
 builder.Services.AddAuthentication(options =>
