@@ -1,4 +1,4 @@
-namespace MarketWorld.Identity.API.Models.Auth
+namespace AuthenticationService.Models.Auth
 {
     public class TokenResponse
     {

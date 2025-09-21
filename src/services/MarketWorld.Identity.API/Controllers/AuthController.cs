@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Application.Services.Abstract;
-using MarketWorld.Identity.API.Models.Auth;
+using AuthenticationService.Models.Auth;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using MarketWorld.Application.Services.Jwt;
 
-namespace MarketWorld.Identity.API.Controllers
+namespace AuthenticationService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

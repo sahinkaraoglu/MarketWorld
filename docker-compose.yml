@@ -18,7 +18,7 @@ services:
   # API Gateway
   gateway:
     build:
-      context: ./src/services/MarketWorld.Gateway
+      context: ./src/Services/MarketWorld.Gateway
       dockerfile: Dockerfile
     ports:
       - "7000:80"
@@ -32,7 +32,7 @@ services:
   # Identity Microservice
   identity:
     build:
-      context: ./src/services/MarketWorld.Identity.API
+      context: ./src/Services/MarketWorld.Identity.API
       dockerfile: Dockerfile
     ports:
       - "7001:80"
@@ -47,7 +47,7 @@ services:
   # Order Microservice
   order:
     build:
-      context: ./src/services/MarketWorld.Order.API
+      context: ./src/Services/MarketWorld.Order.API
       dockerfile: Dockerfile
     ports:
       - "7003:80"
@@ -62,7 +62,7 @@ services:
   # Catalog Microservice
   catalog:
     build:
-      context: ./src/services/MarketWorld.Catalog.API
+      context: ./src/Services/MarketWorld.Catalog.API
       dockerfile: Dockerfile
     ports:
       - "7005:80"

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MarketWorld.Identity.API.Models.Auth
+namespace AuthenticationService.Models.Auth
 {
     public class LoginModel
     {

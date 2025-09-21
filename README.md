@@ -78,7 +78,7 @@ MarketWorld/
 ├── MarketWorld.Application/             # Shared business logic
 ├── MarketWorld.Infrastructure/          # Shared infrastructure
 ├── MarketWorld.Web/                     # MVC Web Application
-└── src/services/                        # Microservices
+└── src/Services/                        # Microservices
     ├── MarketWorld.Gateway/             # API Gateway (Ocelot)
     ├── MarketWorld.Identity.API/        # User Management Service
     ├── MarketWorld.Product.API/         # Product Catalog Service

@@ -26,7 +26,7 @@ builder.Services.AddControllers()
 // DbContext configuration - Identity için ayrı connection string
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"), 
-        b => b.MigrationsAssembly("MarketWorld.Identity.API")));
+        b => b.MigrationsAssembly("AuthenticationService")));
 
 // Identity configuration
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
