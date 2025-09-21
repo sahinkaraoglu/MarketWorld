@@ -295,12 +295,20 @@ namespace MarketWorld.Web.Controllers
 
             var userId = HttpContext.Items["UserId"]?.ToString();
             if (string.IsNullOrEmpty(userId))
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Index", "Login");
+
+            // userId'yi int'e çevir - Identity kullanıcı ID'leri string olduğu için
+            int userIdInt;
+            if (!int.TryParse(userId, out userIdInt))
+            {
+                // Eğer string ID ise (admin-001 gibi), hash'leyerek int'e çevir
+                userIdInt = Math.Abs(userId.GetHashCode());
+            }
 
             var comment = new Comment
             {
                 ProductId = model.ProductId,
-                UserId = int.Parse(userId),
+                UserId = userIdInt,
                 Text = model.Text,
                 Rating = model.Rating,
                 CreatedDate = DateTime.Now,

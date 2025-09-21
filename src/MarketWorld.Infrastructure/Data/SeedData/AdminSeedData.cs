@@ -31,7 +31,7 @@ namespace MarketWorld.Infrastructure.Data.SeedData
             {
                 adminUser = new ApplicationUser
                 {
-                    Id = "admin-001",
+                    Id = Guid.NewGuid().ToString(),
                     UserName = adminEmail,
                     Email = adminEmail,
                     EmailConfirmed = true,
@@ -53,13 +53,21 @@ namespace MarketWorld.Infrastructure.Data.SeedData
                     await userManager.AddToRoleAsync(adminUser, "Admin");
                 }
             }
+            else
+            {
+                // Mevcut admin kullanıcısının Admin rolüne sahip olup olmadığını kontrol et
+                if (!await userManager.IsInRoleAsync(adminUser, "Admin"))
+                {
+                    await userManager.AddToRoleAsync(adminUser, "Admin");
+                }
+            }
         }
 
         public static ApplicationUser GetAdminUser()
         {
             return new ApplicationUser
             {
-                Id = "admin-001",
+                Id = Guid.NewGuid().ToString(),
                 UserName = "admin@marketworld.com",
                 Email = "admin@marketworld.com",
                 EmailConfirmed = true,
