@@ -1,0 +1,188 @@
+/* Footer Styles */
+.footer {
+    background: #f8f9fa;
+    color: #495057;
+    padding: 3rem 0 1rem;
+    margin-top: auto;
+    border-top: 1px solid #dee2e6;
+}
+
+.footer h6 {
+    color: #212529;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.footer p {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer ul li a {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0;
+}
+
+.footer ul li a:hover {
+    transform: translateX(5px);
+}
+
+.footer ul li a i {
+    margin-right: 0.5rem;
+    width: 16px;
+    text-align: center;
+}
+
+.footer-bottom {
+    border-top: 1px solid #dee2e6;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #e9ecef;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: #6c757d;
+}
+
+.social-links a:hover {
+    background: #007bff;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.newsletter-form {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border: 1px solid #dee2e6;
+}
+
+.newsletter-form .form-control {
+    background: #fff;
+    border: 1px solid #ced4da;
+    color: #495057;
+    border-radius: 25px;
+    padding: 0.75rem 1.25rem;
+}
+
+.newsletter-form .form-control::placeholder {
+    color: #6c757d;
+}
+
+.newsletter-form .form-control:focus {
+    background: #fff;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    color: #495057;
+}
+
+.newsletter-form .btn {
+    background: #007bff;
+    border: none;
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form .btn:hover {
+    background: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.contact-info i {
+    margin-right: 0.75rem;
+    color: #007bff;
+    width: 20px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer h5 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer h5:first-child {
+        margin-top: 0;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+    
+    .newsletter-form {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        text-align: center;
+    }
+    
+    .contact-info {
+        justify-content: center;
+    }
+}

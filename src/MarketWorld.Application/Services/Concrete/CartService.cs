@@ -24,6 +24,8 @@ namespace MarketWorld.Application.Services.Concrete
             if (cart == null) return new List<CartItem>();
 
             var cartItems = await _unitOfWork.CartItems.FindAsync(ci => ci.CartId == cart.Id);
+            if (cartItems == null) return new List<CartItem>();
+            
             var items = cartItems.ToList();
 
             foreach (var item in items)
@@ -52,6 +54,12 @@ namespace MarketWorld.Application.Services.Concrete
                 await _unitOfWork.Carts.AddAsync(cart);
             }
 
+            // CartItems null ise boş liste oluştur
+            if (cart.CartItems == null)
+            {
+                cart.CartItems = new List<CartItem>();
+            }
+
             var existingItem = cart.CartItems.FirstOrDefault(ci => ci.ProductId == cartItem.ProductId);
             if (existingItem != null)
             {
@@ -73,7 +81,7 @@ namespace MarketWorld.Application.Services.Concrete
             if (cart == null)
                 return false;
 
-            var existingItem = cart.CartItems.FirstOrDefault(ci => ci.Id == cartItem.Id);
+            var existingItem = cart.CartItems?.FirstOrDefault(ci => ci.Id == cartItem.Id);
             if (existingItem == null)
                 return false;
 
@@ -88,7 +96,7 @@ namespace MarketWorld.Application.Services.Concrete
             if (cart == null)
                 return false;
 
-            var cartItem = cart.CartItems.FirstOrDefault(ci => ci.Id == id);
+            var cartItem = cart.CartItems?.FirstOrDefault(ci => ci.Id == id);
             if (cartItem == null)
                 return false;
 
@@ -103,8 +111,11 @@ namespace MarketWorld.Application.Services.Concrete
             if (cart == null)
                 return false;
 
-            _unitOfWork.CartItems.RemoveRange(cart.CartItems);
-            await _unitOfWork.SaveChangesAsync();
+            if (cart.CartItems != null && cart.CartItems.Any())
+            {
+                _unitOfWork.CartItems.RemoveRange(cart.CartItems);
+                await _unitOfWork.SaveChangesAsync();
+            }
             return true;
         }
 
@@ -114,7 +125,7 @@ namespace MarketWorld.Application.Services.Concrete
             if (cart == null)
                 return 0;
 
-            return cart.CartItems.Sum(ci => ci.Quantity * ci.Product.Price);
+            return cart.CartItems?.Sum(ci => ci.Quantity * ci.Product.Price) ?? 0;
         }
     }
 } 

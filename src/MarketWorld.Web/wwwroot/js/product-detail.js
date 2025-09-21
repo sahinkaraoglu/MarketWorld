@@ -110,13 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const quantity = parseInt(quantityInput.value);
             const color = document.querySelector('input[name="colorOption"]:checked')?.value;
 
+            console.log('Sepete ekleme başlatıldı:', { productId, quantity, color });
+
             // FormData oluştur
             const formData = new FormData();
             formData.append('productId', productId);
             formData.append('quantity', quantity);
-            if (color) {
-                formData.append('color', color);
-            }
+            formData.append('color', color || 'Varsayılan');
 
             fetch('/Cart/AddToCart', {
                 method: 'POST',
@@ -125,12 +125,23 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    // Başarılı mesajı göster
                     const cartToast = new bootstrap.Toast(document.getElementById('cartToast'));
+                    document.querySelector('.toast-body').textContent = data.message || 'Ürün sepete eklendi!';
+                    document.querySelector('.toast-header i').className = 'fas fa-check-circle text-success me-2';
                     cartToast.show();
                     document.dispatchEvent(new Event('cartUpdated'));
                 } else {
+                    // Hata mesajı göster
+                    const cartToast = new bootstrap.Toast(document.getElementById('cartToast'));
+                    document.querySelector('.toast-body').textContent = data.message || 'Bir hata oluştu.';
+                    document.querySelector('.toast-header i').className = 'fas fa-exclamation-circle text-danger me-2';
+                    cartToast.show();
+                    
                     if (data.redirect) {
-                        window.location.href = data.redirect;
+                        setTimeout(() => {
+                            window.location.href = data.redirect;
+                        }, 2000);
                     }
                 }
             })

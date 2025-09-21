@@ -14,11 +14,7 @@
     <script src="~/js/product-detail.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const cartToast = new bootstrap.Toast(document.getElementById('cartToast'));
-            
-            document.getElementById('addToCartBtn')?.addEventListener('click', function() {
-                cartToast.show();
-            });
+            // Sepete ekleme işlemi product-detail.js'de yapılıyor
 
             // Yıldız derecelendirme sistemi
             const ratingStars = document.querySelectorAll('.rating-stars .form-check-label');

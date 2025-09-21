@@ -30,9 +30,10 @@ namespace MarketWorld.Web.Controllers
                     return Json(new { success = false, message = "Lütfen önce giriş yapın." });
                 }
 
+                // Renk seçilmezse varsayılan değer kullan
                 if (string.IsNullOrEmpty(color))
                 {
-                    return Json(new { success = false, message = "Lütfen bir renk seçiniz." });
+                    color = "Varsayılan";
                 }
 
                 var cartItem = new CartItem
@@ -49,7 +50,7 @@ namespace MarketWorld.Web.Controllers
                 }
 
                 var cartItems = await _cartService.GetCartItemsAsync(userId);
-                var count = cartItems.Sum(ci => ci.Quantity);
+                var count = cartItems?.Sum(ci => ci.Quantity) ?? 0;
                 return Json(new { success = true, message = "Ürün sepete eklendi.", count });
             }
             catch (Exception ex)
@@ -103,7 +104,7 @@ namespace MarketWorld.Web.Controllers
 
             var totalAmount = await _cartService.GetCartTotalAsync(userId);
             var cartItems = await _cartService.GetCartItemsAsync(userId);
-            var count = cartItems.Sum(ci => ci.Quantity);
+            var count = cartItems?.Sum(ci => ci.Quantity) ?? 0;
 
             return Json(new { success = true, totalAmount, count });
         }
@@ -121,7 +122,7 @@ namespace MarketWorld.Web.Controllers
 
             var totalAmount = await _cartService.GetCartTotalAsync(userId);
             var cartItems = await _cartService.GetCartItemsAsync(userId);
-            var count = cartItems.Sum(ci => ci.Quantity);
+            var count = cartItems?.Sum(ci => ci.Quantity) ?? 0;
 
             return Json(new { success = true, totalAmount, count });
         }
@@ -136,7 +137,7 @@ namespace MarketWorld.Web.Controllers
             }
 
             var cartItems = await _cartService.GetCartItemsAsync(userId);
-            var count = cartItems.Sum(ci => ci.Quantity);
+            var count = cartItems?.Sum(ci => ci.Quantity) ?? 0;
             return Json(new { count });
         }
     }
