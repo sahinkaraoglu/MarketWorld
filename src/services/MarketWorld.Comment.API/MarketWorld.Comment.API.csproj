@@ -21,4 +21,8 @@
     <ProjectReference Include="..\..\MarketWorld.Application\MarketWorld.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
