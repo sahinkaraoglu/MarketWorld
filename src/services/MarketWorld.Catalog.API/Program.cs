@@ -26,7 +26,7 @@ builder.Services.AddControllers()
 // DbContext configuration - Product için ayrı connection string
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ProductConnection"), 
-        b => b.MigrationsAssembly("MarketWorld.Catalog.API")));
+        b => b.MigrationsAssembly("CatalogService")));
 
 // Identity configuration
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
