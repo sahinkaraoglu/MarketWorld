@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutoMapper;
-using MarketWorld.Comment.API.Mappings;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
+using MarketWorld.Catalog.API.Mappings;
 using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Infrastructure.Data.SeedData;
@@ -23,10 +23,10 @@ builder.Services.AddControllers()
         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
     });
 
-// DbContext configuration - Comment için ayrı connection string
+// DbContext configuration - Product için ayrı connection string
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CommentConnection"), 
-        b => b.MigrationsAssembly("MarketWorld.Comment.API")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ProductConnection"), 
+        b => b.MigrationsAssembly("MarketWorld.Catalog.API")));
 
 // Identity configuration
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -60,11 +60,20 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Comment için gerekli repository ve service'ler
+// Product için gerekli repository ve service'ler
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
+builder.Services.AddScoped<IBrandRepository, BrandRepository>();
+builder.Services.AddScoped<IPropertyTypeRepository, PropertyTypeRepository>();
+builder.Services.AddScoped<IPropertyValueRepository, PropertyValueRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
@@ -79,11 +88,14 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Memory Cache yapılandırması
+builder.Services.AddMemoryCache();
+
 // Swagger configuration
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "MarketWorld Comment API", Version = "v1" });
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "MarketWorld Catalog API", Version = "v1" });
     
     c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {

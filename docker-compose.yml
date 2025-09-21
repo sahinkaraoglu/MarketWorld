@@ -25,8 +25,7 @@ services:
     depends_on:
       - identity
       - order
-      - comment
-      - product
+      - catalog
     networks:
       - marketworld_network
 
@@ -60,31 +59,17 @@ services:
     networks:
       - marketworld_network
 
-  # Comment Microservice
-  comment:
+  # Catalog Microservice
+  catalog:
     build:
-      context: ./src/services/MarketWorld.Comment.API
-      dockerfile: Dockerfile
-    ports:
-      - "7004:80"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__CommentConnection=Server=sqlserver;Database=MarketWorld_Comment;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;MultipleActiveResultSets=true
-    depends_on:
-      - sqlserver
-    networks:
-      - marketworld_network
-
-  # Product Microservice
-  product:
-    build:
-      context: ./src/services/MarketWorld.Product.API
+      context: ./src/services/MarketWorld.Catalog.API
       dockerfile: Dockerfile
     ports:
       - "7005:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__ProductConnection=Server=sqlserver;Database=MarketWorld_Product;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;MultipleActiveResultSets=true
+      - ConnectionStrings__CommentConnection=Server=sqlserver;Database=MarketWorld_Comment;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;MultipleActiveResultSets=true
     depends_on:
       - sqlserver
     networks:

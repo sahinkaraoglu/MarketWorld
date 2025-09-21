@@ -1,6 +1,6 @@
 using System;
 
-namespace MarketWorld.Comment.API.DTOs
+namespace MarketWorld.Catalog.API.DTOs
 {
     public class UpdateCommentRequest
     {

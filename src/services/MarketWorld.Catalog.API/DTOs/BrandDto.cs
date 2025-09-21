@@ -1,6 +1,6 @@
 using System;
 
-namespace MarketWorld.Product.API.DTOs
+namespace MarketWorld.Catalog.API.DTOs
 {
     public class BrandDto
     {

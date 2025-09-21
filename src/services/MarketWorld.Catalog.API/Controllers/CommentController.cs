@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Application.Services.Abstract;
-using MarketWorld.Comment.API.DTOs;
+using MarketWorld.Catalog.API.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using System.Security.Claims;
 using MarketWorld.Core.Domain.Entities;
-using MarketWorld.Comment.API.Mappings;
+using MarketWorld.Catalog.API.Mappings;
 
-namespace MarketWorld.Comment.API.Controllers
+namespace MarketWorld.Catalog.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

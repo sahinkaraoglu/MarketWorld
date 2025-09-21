@@ -26,12 +26,12 @@
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
     },
     {
-      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamPathTemplate": "/api/comment/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7004
+          "Port": 7005
         }
       ],
       "UpstreamPathTemplate": "/comment/{everything}",
@@ -46,7 +46,7 @@
           "Port": 7005
         }
       ],
-      "UpstreamPathTemplate": "/product/{everything}",
+      "UpstreamPathTemplate": "/catalog/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
     }
   ],

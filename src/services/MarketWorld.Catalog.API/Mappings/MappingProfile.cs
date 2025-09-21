@@ -1,9 +1,10 @@
 using AutoMapper;
-using MarketWorld.Product.API.DTOs;
+using MarketWorld.Catalog.API.DTOs;
 using MarketWorld.Core.Domain.Entities;
 using ProductEntity = MarketWorld.Core.Domain.Entities.Product;
+using CommentEntity = MarketWorld.Core.Domain.Entities.Comment;
 
-namespace MarketWorld.Product.API.Mappings
+namespace MarketWorld.Catalog.API.Mappings
 {
     public class MappingProfile : Profile
     {
@@ -21,6 +22,17 @@ namespace MarketWorld.Product.API.Mappings
             // Brand mapping
             CreateMap<Brand, BrandDto>()
                 .ReverseMap();
+                
+            // Comment mapping
+            CreateMap<CommentEntity, CommentDto>()
+                .ReverseMap(); // CommentDto -> Comment
+                
+            // Request sınıfları için mapping
+            CreateMap<CreateCommentRequest, CommentEntity>()
+                .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Content));
+                
+            CreateMap<UpdateCommentRequest, CommentEntity>()
+                .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Content));
         }
     }
 }
