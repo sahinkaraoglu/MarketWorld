@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using MarketWorld.Application.Services.Abstract;
-using MarketWorld.Catalog.API.DTOs;
+using CatalogService.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 
-namespace MarketWorld.Catalog.API.Controllers
+namespace CatalogService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MarketWorld.Catalog.API.DTOs
+namespace CatalogService.DTOs
 {
     public class CategoryDto
     {

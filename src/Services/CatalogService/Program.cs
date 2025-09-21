@@ -9,7 +9,7 @@ using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
-using MarketWorld.Catalog.API.Mappings;
+using CatalogService.Mappings;
 using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Infrastructure.Data.SeedData;

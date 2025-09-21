@@ -24,7 +24,7 @@ builder.Services.AddControllers()
 // DbContext configuration - Order için ayrı connection string
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("OrderConnection"), 
-        b => b.MigrationsAssembly("MarketWorld.Order.API")));
+        b => b.MigrationsAssembly("OrderService")));
 
 // Identity configuration
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>

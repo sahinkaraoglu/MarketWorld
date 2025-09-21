@@ -1,7 +1,7 @@
 using MarketWorld.Core.Domain.Entities;
 using System;
 
-namespace MarketWorld.Catalog.API.DTOs
+namespace CatalogService.DTOs
 {
     public class CommentDto
     {

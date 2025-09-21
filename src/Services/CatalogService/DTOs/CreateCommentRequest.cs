@@ -1,9 +1,10 @@
 using System;
 
-namespace MarketWorld.Catalog.API.DTOs
+namespace CatalogService.DTOs
 {
-    public class UpdateCommentRequest
+    public class CreateCommentRequest
     {
+        public int ProductId { get; set; }
         public string Content { get; set; } = string.Empty;
         public int Rating { get; set; }
     }

@@ -80,16 +80,16 @@ MarketWorld/
 ├── MarketWorld.Web/                     # MVC Web Application
 └── src/Services/                        # Microservices
     ├── MarketWorld.Gateway/             # API Gateway (Ocelot)
-    ├── MarketWorld.Identity.API/        # User Management Service
-    ├── MarketWorld.Product.API/         # Product Catalog Service
-    ├── MarketWorld.Order.API/           # Order Management Service
+    ├── AuthenticationService/            # User Management Service
+    ├── CatalogService/                  # Product Catalog Service
+    ├── OrderService/                    # Order Management Service
     ├── MarketWorld.Comment.API/         # Review & Rating Service
     └── MarketWorld.API/                 # Legacy API (Monolithic)
 ```
 
 ## 🚀 Microservices Overview
 
-### 1. **MarketWorld.Identity.API** (Port: 7001)
+### 1. **AuthenticationService** (Port: 7001)
 **Purpose**: User authentication, authorization, and profile management
 - **Endpoints**: `/identity/api/auth/*`
 - **Features**:
@@ -99,7 +99,7 @@ MarketWorld/
   - User profile management
   - Address management
 
-### 2. **MarketWorld.Product.API** (Port: 7005)
+### 2. **CatalogService** (Port: 7005)
 **Purpose**: Product catalog, categories, and brand management
 - **Endpoints**: `/product/api/*`
 - **Features**:
@@ -109,7 +109,7 @@ MarketWorld/
   - Product search and filtering
   - Featured products and best sellers
 
-### 3. **MarketWorld.Order.API** (Port: 7003)
+### 3. **OrderService** (Port: 7003)
 **Purpose**: Order processing, cart management, and checkout
 - **Endpoints**: `/order/api/*`
 - **Features**:

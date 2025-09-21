@@ -1,10 +1,10 @@
 using AutoMapper;
-using MarketWorld.Catalog.API.DTOs;
+using CatalogService.DTOs;
 using MarketWorld.Core.Domain.Entities;
 using ProductEntity = MarketWorld.Core.Domain.Entities.Product;
 using CommentEntity = MarketWorld.Core.Domain.Entities.Comment;
 
-namespace MarketWorld.Catalog.API.Mappings
+namespace CatalogService.Mappings
 {
     public class MappingProfile : Profile
     {

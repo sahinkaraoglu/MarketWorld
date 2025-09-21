@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using MarketWorld.Core.Domain.Entities;
 using System.Security.Claims;
 
-namespace MarketWorld.Order.API.Controllers
+namespace OrderService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

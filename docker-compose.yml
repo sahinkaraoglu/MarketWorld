@@ -32,7 +32,7 @@ services:
   # Identity Microservice
   identity:
     build:
-      context: ./src/Services/MarketWorld.Identity.API
+      context: ./src/Services/AuthenticationService
       dockerfile: Dockerfile
     ports:
       - "7001:80"
@@ -47,7 +47,7 @@ services:
   # Order Microservice
   order:
     build:
-      context: ./src/Services/MarketWorld.Order.API
+      context: ./src/Services/OrderService
       dockerfile: Dockerfile
     ports:
       - "7003:80"
@@ -62,7 +62,7 @@ services:
   # Catalog Microservice
   catalog:
     build:
-      context: ./src/Services/MarketWorld.Catalog.API
+      context: ./src/Services/CatalogService
       dockerfile: Dockerfile
     ports:
       - "7005:80"

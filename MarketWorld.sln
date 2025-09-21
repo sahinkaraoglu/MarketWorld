@@ -21,13 +21,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketWorld.Tests", "tests\MarketWorld.Tests\MarketWorld.Tests.csproj", "{CA6E332E-C076-4026-A2D3-D781EAE229E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketWorld.Order.API", "src\Services\MarketWorld.Order.API\MarketWorld.Order.API.csproj", "{9987BD9B-7B75-F0FE-5CF2-84D264E7B2D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "src\Services\OrderService\OrderService.csproj", "{9987BD9B-7B75-F0FE-5CF2-84D264E7B2D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketWorld.Gateway", "src\Services\MarketWorld.Gateway\MarketWorld.Gateway.csproj", "{4979D0C3-1564-AB0F-B5E0-3F3FA8683931}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketWorld.Identity.API", "src\Services\MarketWorld.Identity.API\AuthenticationService.csproj", "{7B1BAEB7-3D66-9358-9010-C41A480810EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "src\Services\AuthenticationService\AuthenticationService.csproj", "{7B1BAEB7-3D66-9358-9010-C41A480810EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService", "src\Services\MarketWorld.Catalog.API\CatalogService.csproj", "{CA13502E-5E8A-A9CF-3077-C282015C37A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService", "src\Services\CatalogService\CatalogService.csproj", "{CA13502E-5E8A-A9CF-3077-C282015C37A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
