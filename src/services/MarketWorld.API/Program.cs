@@ -14,6 +14,7 @@ using AutoMapper;
 using MarketWorld.API.Mappings;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
+using MarketWorld.Infrastructure.Data.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,8 @@ builder.Services.AddControllers()
 
 // DbContext configuration
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), 
+        b => b.MigrationsAssembly("MarketWorld.API")));
 
 // Identity configuration
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -118,14 +120,11 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<MarketWorldDbContext>();
     context.Database.Migrate();
-}
-
-// Rolleri seed et
-using (var scope = app.Services.CreateScope())
-{
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    
+    // Admin kullanıcısını oluştur
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-    await SeedRoles(roleManager);
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    await AdminSeedData.SeedAdminUserAsync(userManager, roleManager);
 }
 
 // Configure the HTTP request pipeline.
@@ -143,21 +142,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-// Rolleri oluşturmak için yardımcı metot
-async Task SeedRoles(RoleManager<IdentityRole> roleManager)
-{
-    // Admin rolünü kontrol et ve oluştur
-    if (!await roleManager.RoleExistsAsync("Admin"))
-    {
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
-        Console.WriteLine("Admin rolü oluşturuldu.");
-    }
-    
-    // User rolünü kontrol et ve oluştur
-    if (!await roleManager.RoleExistsAsync("User"))
-    {
-        await roleManager.CreateAsync(new IdentityRole("User"));
-        Console.WriteLine("User rolü oluşturuldu.");
-    }
-} 

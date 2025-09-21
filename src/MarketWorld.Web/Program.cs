@@ -12,6 +12,7 @@ using MarketWorld.Core.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Application.Services.Jwt;
+using MarketWorld.Infrastructure.Data.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,6 +112,11 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<MarketWorldDbContext>();
     context.Database.Migrate();
+    
+    // Admin kullanıcısını oluştur
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    await AdminSeedData.SeedAdminUserAsync(userManager, roleManager);
 }
 
 // Configure the HTTP request pipeline.

@@ -10,6 +10,9 @@ using AutoMapper;
 using MarketWorld.Comment.API.Mappings;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
+using MarketWorld.Core.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using MarketWorld.Infrastructure.Data.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +27,18 @@ builder.Services.AddControllers()
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CommentConnection"), 
         b => b.MigrationsAssembly("MarketWorld.Comment.API")));
+
+// Identity configuration
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequiredLength = 6;
+})
+.AddEntityFrameworkStores<MarketWorldDbContext>()
+.AddDefaultTokenProviders();
 
 // JWT configuration
 builder.Services.AddAuthentication(options =>
@@ -103,6 +118,11 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<MarketWorldDbContext>();
     context.Database.Migrate();
+    
+    // Admin kullanıcısını oluştur
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    await AdminSeedData.SeedAdminUserAsync(userManager, roleManager);
 }
 
 // Configure the HTTP request pipeline.

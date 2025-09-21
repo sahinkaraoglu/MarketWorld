@@ -12,6 +12,7 @@ using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using MarketWorld.Infrastructure.Context;
+using MarketWorld.Infrastructure.Data.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,8 @@ builder.Services.AddControllers()
 
 // DbContext configuration - Identity için ayrı connection string
 builder.Services.AddDbContext<MarketWorldDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"), 
+        b => b.MigrationsAssembly("MarketWorld.Identity.API")));
 
 // Identity configuration
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -130,20 +132,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Seed roles on startup
+// Seed roles and admin user on startup
 using (var scope = app.Services.CreateScope())
 {
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    
-    if (!await roleManager.RoleExistsAsync("Admin"))
-    {
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
-    }
-    
-    if (!await roleManager.RoleExistsAsync("User"))
-    {
-        await roleManager.CreateAsync(new IdentityRole("User"));
-    }
+    await AdminSeedData.SeedAdminUserAsync(userManager, roleManager);
 }
 
 app.Run();
