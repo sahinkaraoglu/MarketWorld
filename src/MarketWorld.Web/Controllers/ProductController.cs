@@ -15,6 +15,9 @@ using System.Text.Json;
 using MarketWorld.Core.Domain.Entities;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Application.Services.Abstract;
+using MarketWorld.Web.Services.Api;
+using MarketWorld.Web.Models.Api;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace MarketWorld.Web.Controllers
 {
@@ -22,13 +25,17 @@ namespace MarketWorld.Web.Controllers
     {
         private readonly IProductService _productService;
         private readonly IMemoryCache _cache;
+        private readonly ICommentApiService _commentApiService;
+        private readonly IAuthApiService _authApiService;
         private const string CacheKey = "web_products";
         private readonly JsonSerializerOptions _jsonOptions;
 
-        public ProductController(IProductService productService, IMemoryCache cache)
+        public ProductController(IProductService productService, IMemoryCache cache, ICommentApiService commentApiService, IAuthApiService authApiService)
         {
             _productService = productService;
             _cache = cache;
+            _commentApiService = commentApiService;
+            _authApiService = authApiService;
             _jsonOptions = new JsonSerializerOptions
             {
                 ReferenceHandler = ReferenceHandler.IgnoreCycles,
@@ -113,6 +120,102 @@ namespace MarketWorld.Web.Controllers
             _cache.Set(brandsCacheKey, brands, cacheOptions);
 
             return brands;
+        }
+
+        private async Task<string?> GetJwtTokenAsync()
+        {
+            try
+            {
+                var userId = HttpContext.Items["UserId"]?.ToString();
+                if (string.IsNullOrEmpty(userId))
+                    return null;
+
+                // 1. Önce HttpContext.Items'dan token'ı almaya çalış (en hızlı)
+                var contextToken = HttpContext.Items["JwtToken"]?.ToString();
+                if (!string.IsNullOrEmpty(contextToken))
+                {
+                    // Token'ı cache'e de kaydet
+                    var tokenResponse = new TokenResponse
+                    {
+                        Token = contextToken,
+                        UserId = userId,
+                        Email = HttpContext.Items["UserEmail"]?.ToString() ?? "",
+                        ExpiresAt = DateTime.UtcNow.AddMinutes(30) // Varsayılan süre
+                    };
+                    
+                    var cacheKey = $"jwt_token_{userId}";
+                    var cacheOptions = new MemoryCacheEntryOptions
+                    {
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(25),
+                        SlidingExpiration = TimeSpan.FromMinutes(5)
+                    };
+                    
+                    _cache.Set(cacheKey, tokenResponse, cacheOptions);
+                    
+                    return contextToken;
+                }
+
+                // 2. Cache'ten token'ı almaya çalış
+                var cachedToken = await _authApiService.GetCachedTokenAsync(userId);
+                if (cachedToken != null && !string.IsNullOrEmpty(cachedToken.Token))
+                {
+                    return cachedToken.Token;
+                }
+
+                // 3. Cookie'den token'ı almaya çalış
+                var cookieToken = Request.Cookies["X-Access-Token"];
+                if (!string.IsNullOrEmpty(cookieToken))
+                {
+                    // Token'ı cache'e kaydet
+                    var tokenResponse = new TokenResponse
+                    {
+                        Token = cookieToken,
+                        UserId = userId,
+                        Email = HttpContext.Items["UserEmail"]?.ToString() ?? "",
+                        ExpiresAt = DateTime.UtcNow.AddMinutes(30)
+                    };
+                    
+                    var cacheKey = $"jwt_token_{userId}";
+                    var cacheOptions = new MemoryCacheEntryOptions
+                    {
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(25),
+                        SlidingExpiration = TimeSpan.FromMinutes(5)
+                    };
+                    
+                    _cache.Set(cacheKey, tokenResponse, cacheOptions);
+                    
+                    return cookieToken;
+                }
+
+                // 4. Hiçbir yerde token yoksa null döndür
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                return null;
+            }
+        }
+
+        private async Task<List<CommentViewModel>> GetProductCommentsFromApi(int productId)
+        {
+            try
+            {
+                var comments = await _commentApiService.GetProductCommentsAsync(productId);
+                return comments.Select(c => new CommentViewModel
+                {
+                    Id = c.Id ?? 0,
+                    UserName = c.UserName,
+                    Rating = c.Rating,
+                    Text = c.Text,
+                    CreatedDate = c.CreatedDate
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                // API'den yorumlar alınamazsa boş liste döndür
+                return new List<CommentViewModel>();
+            }
         }
 
         public async Task<IActionResult> ListBySubCategory(string subCategoryName, int page = 1)
@@ -262,16 +365,7 @@ namespace MarketWorld.Web.Controllers
                         IsSelected = false,
                         TypeName = pp.PropertyType.Name
                     }).ToList() ?? new List<ProductPropertyViewModel>(),
-                Comments = product.Comments?
-                    .Where(c => c.IsApproved)
-                    .Select(c => new CommentViewModel
-                    {
-                        Id = c.Id,
-                        UserName = c.UserName,
-                        Rating = c.Rating,
-                        Text = c.Text,
-                        CreatedDate = c.CreatedDate
-                    }).ToList() ?? new List<CommentViewModel>()
+                Comments = await GetProductCommentsFromApi(product.Id)
             };
 
             var cacheOptions = new MemoryCacheEntryOptions()
@@ -298,29 +392,57 @@ namespace MarketWorld.Web.Controllers
             if (string.IsNullOrEmpty(userId))
                 return RedirectToAction("Index", "Login");
 
-            // userId'yi int'e çevir - Identity kullanıcı ID'leri string olduğu için
-            int userIdInt;
-            if (!int.TryParse(userId, out userIdInt))
+            try
             {
-                // Eğer string ID ise (admin-001 gibi), hash'leyerek int'e çevir
-                userIdInt = Math.Abs(userId.GetHashCode());
+                // JWT token'ı API'den çek ve cache'ten al
+                var token = await GetJwtTokenAsync();
+                
+                // Debug için log ekle
+                Console.WriteLine($"GetJwtTokenAsync sonucu: {token ?? "NULL"}");
+                Console.WriteLine($"HttpContext.Items['JwtToken']: {HttpContext.Items["JwtToken"] ?? "NULL"}");
+                Console.WriteLine($"Cookie X-Access-Token: {Request.Cookies["X-Access-Token"] ?? "NULL"}");
+                Console.WriteLine($"UserId: {userId}");
+                
+                // Token'ı decode etmeye çalış
+                if (!string.IsNullOrEmpty(token))
+                {
+                    try
+                    {
+                        var handler = new JwtSecurityTokenHandler();
+                        var jsonToken = handler.ReadJwtToken(token);
+                        Console.WriteLine($"Token Claims: {string.Join(", ", jsonToken.Claims.Select(c => $"{c.Type}={c.Value}"))}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Token decode hatası: {ex.Message}");
+                    }
+                }
+                
+                if (string.IsNullOrEmpty(token))
+                {
+                    TempData["ErrorMessage"] = "Oturum süresi dolmuş. Lütfen tekrar giriş yapın.";
+                    return RedirectToAction("Index", "Login");
+                }
+
+                // CatalogService'e yorum oluşturma isteği gönder
+                var createCommentRequest = new CreateCommentRequest
+                {
+                    ProductId = model.ProductId,
+                    Content = model.Text,
+                    Rating = model.Rating
+                };
+
+                var result = await _commentApiService.CreateCommentAsync(createCommentRequest, token);
+
+                TempData["SuccessMessage"] = "Yorumunuz başarıyla eklendi.";
+                return RedirectToAction("Detail", new { id = model.ProductId });
             }
-
-            var comment = new Comment
+            catch (Exception ex)
             {
-                ProductId = model.ProductId,
-                UserId = userIdInt,
-                Text = model.Text,
-                Rating = model.Rating,
-                CreatedDate = DateTime.Now,
-                UserName = HttpContext.User.Identity?.Name ?? "Anonim",
-                IsApproved = true // Yorumları otomatik onayla
-            };
-
-            product.Comments.Add(comment);
-            await _productService.UpdateProduct(product);
-
-            return RedirectToAction("Detail", new { id = model.ProductId });
+                // Log the error
+                TempData["ErrorMessage"] = "Yorum eklenirken bir hata oluştu. Lütfen tekrar deneyin.";
+                return RedirectToAction("Detail", new { id = model.ProductId });
+            }
         }
 
         public async Task<IActionResult> ListSubCategories()

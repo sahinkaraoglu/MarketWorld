@@ -71,6 +71,7 @@ namespace MarketWorld.Web.Middleware
                             context.Items["UserId"] = userId;
                             context.Items["Username"] = user.UserName;
                             context.Items["UserEmail"] = user.Email;
+                            context.Items["JwtToken"] = token;
                             
                             // Bu değerleri debug için yazdır
                             Console.WriteLine($"Middleware - UserId: {userId}, Username: {user.UserName}, Email: {user.Email}");

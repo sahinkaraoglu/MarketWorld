@@ -11,19 +11,17 @@ namespace AuthenticationService.Controllers
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
-    {
-        private readonly IAccountService _accountService;
+    {        
         private readonly IJwtService _jwtService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AuthController(
-            IAccountService accountService,
+       public AuthController(
+            
             IJwtService jwtService,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager)
-        {
-            _accountService = accountService;
+        {            
             _jwtService = jwtService;
             _userManager = userManager;
             _signInManager = signInManager;

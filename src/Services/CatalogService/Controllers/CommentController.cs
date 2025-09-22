@@ -48,18 +48,18 @@ namespace CatalogService.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userId))
+            var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdString))
                 return Unauthorized();
 
-            // userId'yi int'e çevir
-            if (!int.TryParse(userId, out int userIdInt))
-                return BadRequest("Geçersiz kullanıcı ID");
+            // GUID'e çevir
+            if (!Guid.TryParse(userIdString, out Guid userId))
+                return BadRequest("Geçersiz kullanıcı ID formatı");
 
             var comment = new MarketWorld.Core.Domain.Entities.Comment
             {
                 ProductId = request.ProductId,
-                UserId = userIdInt,
+                UserId = userId,
                 Text = request.Content,
                 Rating = request.Rating
             };
@@ -75,16 +75,20 @@ namespace CatalogService.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userId))
+            var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdString))
                 return Unauthorized();
+
+            // GUID'e çevir
+            if (!Guid.TryParse(userIdString, out Guid userId))
+                return BadRequest("Geçersiz kullanıcı ID formatı");
 
             var existingComment = await _commentService.GetByIdAsync(id);
             if (existingComment == null)
                 return NotFound("Yorum bulunamadı");
 
             // Kullanıcının kendi yorumunu düzenleyebilmesi için kontrol
-            if (existingComment.UserId.ToString() != userId && !User.IsInRole("Admin"))
+            if (existingComment.UserId != userId && !User.IsInRole("Admin"))
                 return Forbid();
 
             existingComment.Text = request.Content;
@@ -98,16 +102,20 @@ namespace CatalogService.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteComment(int id)
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userId))
+            var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdString))
                 return Unauthorized();
+
+            // GUID'e çevir
+            if (!Guid.TryParse(userIdString, out Guid userId))
+                return BadRequest("Geçersiz kullanıcı ID formatı");
 
             var comment = await _commentService.GetByIdAsync(id);
             if (comment == null)
                 return NotFound("Yorum bulunamadı");
 
             // Kullanıcının kendi yorumunu silebilmesi için kontrol
-            if (comment.UserId.ToString() != userId && !User.IsInRole("Admin"))
+            if (comment.UserId != userId && !User.IsInRole("Admin"))
                 return Forbid();
 
             await _commentService.DeleteAsync(comment);

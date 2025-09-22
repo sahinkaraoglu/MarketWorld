@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CatalogService.Migrations
+namespace AuthenticationService.Migrations
 {
     [DbContext(typeof(MarketWorldDbContext))]
     partial class MarketWorldDbContextModelSnapshot : ModelSnapshot
@@ -214,7 +214,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6005),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1106),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Apple"
@@ -222,7 +222,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6008),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1109),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Asus"
@@ -230,7 +230,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6010),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1110),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Casper"
@@ -238,7 +238,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6011),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1111),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "HP"
@@ -246,7 +246,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6013),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1112),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Lenovo"
@@ -254,7 +254,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6015),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1114),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "MSI"
@@ -262,7 +262,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6017),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1115),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Acer"
@@ -270,7 +270,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6018),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1116),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Xiaomi"
@@ -278,7 +278,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6020),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1117),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Samsung"
@@ -286,7 +286,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6022),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1119),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Huawei"
@@ -294,7 +294,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6023),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1120),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Canon"
@@ -302,7 +302,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6025),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1121),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Epson"
@@ -310,7 +310,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6026),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1122),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Honor"
@@ -318,7 +318,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6027),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1252),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Nothing"
@@ -326,7 +326,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6028),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1253),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Infinix"
@@ -334,7 +334,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6029),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1254),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Redmi"
@@ -342,7 +342,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6030),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1255),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "POCO"
@@ -350,7 +350,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6033),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1257),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Oppo"
@@ -358,7 +358,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6034),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1258),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Panasonic"
@@ -366,7 +366,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6035),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1259),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Reeder"
@@ -374,7 +374,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6036),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1260),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Tecno"
@@ -382,7 +382,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6037),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1261),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Arçelik"
@@ -390,7 +390,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6039),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1262),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kumtel"
@@ -398,7 +398,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6040),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1264),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Regal"
@@ -406,7 +406,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6041),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1265),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Profilo"
@@ -414,7 +414,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6042),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1266),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Altus"
@@ -422,7 +422,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6043),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1267),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Hoover"
@@ -430,7 +430,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6044),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1268),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Uğur"
@@ -438,7 +438,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6045),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1269),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Arnell"
@@ -446,7 +446,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6047),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1270),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Evora"
@@ -454,7 +454,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6049),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1271),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Albergio"
@@ -462,7 +462,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6050),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1272),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kiwi"
@@ -470,7 +470,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6051),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1273),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Vestel"
@@ -478,7 +478,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6053),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1278),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Airfel"
@@ -486,7 +486,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6054),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1279),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Regal"
@@ -494,7 +494,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6056),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1280),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kumtel"
@@ -502,7 +502,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6057),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1281),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Bosch"
@@ -510,7 +510,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6058),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1282),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kaira"
@@ -518,7 +518,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6059),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1283),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Xiaomi"
@@ -526,7 +526,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6060),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1284),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Mirkraft"
@@ -534,7 +534,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6061),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1285),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Samsung"
@@ -542,7 +542,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6062),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1286),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Arnell"
@@ -550,7 +550,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6063),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1287),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Zeeful"
@@ -558,7 +558,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6065),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1288),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Beko"
@@ -566,7 +566,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6066),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1315),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Arçelik"
@@ -574,7 +574,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6067),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1317),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Baymak"
@@ -582,7 +582,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6068),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1318),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "FujiPlus"
@@ -590,7 +590,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6069),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1319),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "UFO"
@@ -598,7 +598,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6071),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1320),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Abbruch"
@@ -606,7 +606,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6072),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1321),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Sinbo"
@@ -614,7 +614,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6073),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1322),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Magiceham"
@@ -622,7 +622,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6075),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1323),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Demirdöküm"
@@ -630,7 +630,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6106),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1324),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Tekdal"
@@ -638,7 +638,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 54,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6107),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1325),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Raks"
@@ -646,7 +646,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 55,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6108),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1327),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Hubstein"
@@ -654,7 +654,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 56,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6110),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1328),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Mitsubishi"
@@ -662,7 +662,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 57,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6111),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1329),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Goldsun"
@@ -670,7 +670,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 58,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6112),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1330),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Multiteknik"
@@ -678,7 +678,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 59,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6113),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1331),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Bayırtech"
@@ -686,7 +686,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 60,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6114),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1332),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Harlem"
@@ -694,7 +694,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 61,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6116),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1333),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Veito"
@@ -702,7 +702,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 62,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6117),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1334),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Torima"
@@ -710,7 +710,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 63,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6118),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1335),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kiwi"
@@ -718,7 +718,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 64,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6119),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1336),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Xnews"
@@ -726,7 +726,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 65,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6120),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1337),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Hotic"
@@ -734,7 +734,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 66,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6123),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1339),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Derilax"
@@ -742,7 +742,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 67,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6124),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1340),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Ispartalılar"
@@ -750,7 +750,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 68,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6125),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1341),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Selin Soylu"
@@ -758,7 +758,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 69,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6126),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1342),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Sebago"
@@ -766,7 +766,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 70,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6127),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1343),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Lumberjack"
@@ -774,7 +774,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 71,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6129),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1344),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Dakirs"
@@ -782,7 +782,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 72,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6130),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1345),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Letoon"
@@ -790,7 +790,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 73,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6131),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1346),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Avva"
@@ -798,7 +798,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 74,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6132),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1347),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Rmk"
@@ -806,7 +806,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 75,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6133),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1348),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Tamer Tanca"
@@ -814,7 +814,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 76,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6134),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1349),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Black Vein"
@@ -822,7 +822,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 77,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6135),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1350),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Cabani"
@@ -830,7 +830,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 78,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6137),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1351),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Dockers"
@@ -838,7 +838,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 79,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6138),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1352),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Dgn"
@@ -846,7 +846,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 80,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6139),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1353),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Hons"
@@ -854,7 +854,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 81,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6140),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1354),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Daxtors"
@@ -862,7 +862,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 82,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6141),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1355),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Tonny Black"
@@ -870,7 +870,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 83,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6143),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1356),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Ayakkabıx"
@@ -878,7 +878,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 84,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6144),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1357),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Hammer Jack"
@@ -886,7 +886,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 85,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6145),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1358),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kaptan Junior"
@@ -894,7 +894,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 86,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6146),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1359),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Calvin Klein"
@@ -1039,7 +1039,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5514),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(738),
                             Description = "Elektronik ürünler, bilgisayarlar, telefonlar ve diğer teknolojik cihazlar",
                             IsActive = true,
                             IsDeleted = false,
@@ -1049,7 +1049,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5533),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(757),
                             Description = "Erkek, kadın ve çocuk giyim ürünleri ve aksesuarları",
                             IsActive = true,
                             IsDeleted = false,
@@ -1059,7 +1059,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5534),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(759),
                             Description = "Ev dekorasyon, mobilya, mutfak eşyaları ve ev tekstili",
                             IsActive = true,
                             IsDeleted = false,
@@ -1069,7 +1069,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5536),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(760),
                             Description = "Kozmetik ürünleri, parfümler ve kişisel bakım ürünleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -1079,7 +1079,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5538),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(761),
                             Description = "Spor ekipmanları, spor giyim ve outdoor aktivite ürünleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -1129,8 +1129,13 @@ namespace CatalogService.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -1246,7 +1251,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7875),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3684),
                             EntityId = 1,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1255,7 +1260,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7880),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3688),
                             EntityId = 2,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1264,7 +1269,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7881),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3689),
                             EntityId = 3,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1273,7 +1278,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7883),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3691),
                             EntityId = 4,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1282,7 +1287,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7884),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3692),
                             EntityId = 5,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1291,7 +1296,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7886),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3695),
                             EntityId = 6,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1300,7 +1305,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7888),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3696),
                             EntityId = 7,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1309,7 +1314,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7890),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3698),
                             EntityId = 8,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1318,7 +1323,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7891),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3699),
                             EntityId = 9,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1327,7 +1332,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7894),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3702),
                             EntityId = 10,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1336,7 +1341,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7895),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3703),
                             EntityId = 11,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1345,7 +1350,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7898),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3704),
                             EntityId = 12,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1354,7 +1359,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7900),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3706),
                             EntityId = 13,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1363,7 +1368,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7902),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3707),
                             EntityId = 14,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1372,7 +1377,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7905),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3708),
                             EntityId = 15,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1381,7 +1386,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7907),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3710),
                             EntityId = 16,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1390,7 +1395,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7909),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3711),
                             EntityId = 17,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1399,7 +1404,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7912),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3713),
                             EntityId = 18,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1408,7 +1413,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7914),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3715),
                             EntityId = 19,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1417,7 +1422,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7915),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3716),
                             EntityId = 20,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1426,7 +1431,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7917),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3718),
                             EntityId = 21,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1435,7 +1440,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7918),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3719),
                             EntityId = 22,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1444,7 +1449,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7920),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3720),
                             EntityId = 23,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1453,7 +1458,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7922),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3722),
                             EntityId = 24,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1462,7 +1467,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7924),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3724),
                             EntityId = 25,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1471,7 +1476,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7925),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3725),
                             EntityId = 26,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1480,7 +1485,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7927),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3726),
                             EntityId = 27,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1489,7 +1494,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7931),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3728),
                             EntityId = 28,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1498,7 +1503,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7933),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3729),
                             EntityId = 29,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1507,7 +1512,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7934),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3730),
                             EntityId = 30,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1516,7 +1521,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7935),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3732),
                             EntityId = 31,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1525,7 +1530,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7937),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3733),
                             EntityId = 32,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1534,7 +1539,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7938),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3734),
                             EntityId = 33,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1543,7 +1548,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7941),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3736),
                             EntityId = 34,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1552,7 +1557,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7943),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3773),
                             EntityId = 35,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1561,7 +1566,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7944),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3774),
                             EntityId = 36,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1570,7 +1575,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7946),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3776),
                             EntityId = 37,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1579,7 +1584,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7947),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3777),
                             EntityId = 38,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1588,7 +1593,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7949),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3779),
                             EntityId = 39,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1597,7 +1602,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7950),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3780),
                             EntityId = 40,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1606,7 +1611,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7951),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3783),
                             EntityId = 41,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1615,7 +1620,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7953),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3784),
                             EntityId = 42,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1624,7 +1629,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7954),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3785),
                             EntityId = 43,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1633,7 +1638,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7955),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3787),
                             EntityId = 44,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1642,7 +1647,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8016),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3788),
                             EntityId = 45,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1651,7 +1656,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8018),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3789),
                             EntityId = 46,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1660,7 +1665,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8019),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3791),
                             EntityId = 47,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1669,7 +1674,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8021),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3792),
                             EntityId = 48,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1678,7 +1683,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8022),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3794),
                             EntityId = 49,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1687,7 +1692,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8024),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3795),
                             EntityId = 50,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1696,7 +1701,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8026),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3796),
                             EntityId = 51,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1705,7 +1710,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8028),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3798),
                             EntityId = 52,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1714,7 +1719,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8031),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3799),
                             EntityId = 53,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1723,7 +1728,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 54,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8033),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3800),
                             EntityId = 54,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1732,7 +1737,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 55,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8035),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3801),
                             EntityId = 55,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1741,7 +1746,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 56,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8036),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3803),
                             EntityId = 56,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1750,7 +1755,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 57,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8038),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3804),
                             EntityId = 57,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1759,7 +1764,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 58,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8040),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3806),
                             EntityId = 58,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1768,7 +1773,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 59,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8042),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3808),
                             EntityId = 59,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1777,7 +1782,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 60,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8043),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3809),
                             EntityId = 60,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1786,7 +1791,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 61,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8045),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3810),
                             EntityId = 61,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1795,7 +1800,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 62,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8047),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3812),
                             EntityId = 62,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1804,7 +1809,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 63,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8048),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3813),
                             EntityId = 63,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1813,7 +1818,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 64,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8049),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3814),
                             EntityId = 64,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1822,7 +1827,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 65,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8051),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3816),
                             EntityId = 65,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1831,7 +1836,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 66,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8053),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3818),
                             EntityId = 66,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1840,7 +1845,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 67,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8056),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3820),
                             EntityId = 67,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1849,7 +1854,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 68,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8058),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3821),
                             EntityId = 68,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1858,7 +1863,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 69,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8059),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3822),
                             EntityId = 69,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1867,7 +1872,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 70,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8061),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3824),
                             EntityId = 70,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1876,7 +1881,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 71,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8062),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3825),
                             EntityId = 71,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1885,7 +1890,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 72,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8063),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3826),
                             EntityId = 72,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1894,7 +1899,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 73,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8065),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3828),
                             EntityId = 73,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1903,7 +1908,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 74,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8066),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3829),
                             EntityId = 74,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1912,7 +1917,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 75,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8068),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3831),
                             EntityId = 75,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1921,7 +1926,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 76,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8069),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3832),
                             EntityId = 76,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1930,7 +1935,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 77,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8071),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3834),
                             EntityId = 77,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1939,7 +1944,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 78,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8072),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3835),
                             EntityId = 78,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1948,7 +1953,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 79,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8073),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3836),
                             EntityId = 79,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1957,7 +1962,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 80,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8075),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3838),
                             EntityId = 80,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1966,7 +1971,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 81,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8076),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3839),
                             EntityId = 81,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1975,7 +1980,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 82,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8077),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3840),
                             EntityId = 82,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1984,7 +1989,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 83,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8079),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3842),
                             EntityId = 83,
                             EntityType = 1,
                             IsDeleted = false,
@@ -1993,7 +1998,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 84,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8080),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3843),
                             EntityId = 84,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2002,7 +2007,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 85,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8083),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3844),
                             EntityId = 85,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2011,7 +2016,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 86,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8085),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3845),
                             EntityId = 86,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2020,7 +2025,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 87,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8086),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3847),
                             EntityId = 87,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2029,7 +2034,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 88,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8088),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3848),
                             EntityId = 88,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2038,7 +2043,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 89,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8089),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3849),
                             EntityId = 89,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2047,7 +2052,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 90,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8091),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3850),
                             EntityId = 90,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2056,7 +2061,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 91,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8092),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3852),
                             EntityId = 91,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2065,7 +2070,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 92,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8093),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3857),
                             EntityId = 92,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2074,7 +2079,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 93,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8094),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3858),
                             EntityId = 93,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2083,7 +2088,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 94,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8096),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3859),
                             EntityId = 94,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2092,7 +2097,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 95,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8097),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3861),
                             EntityId = 95,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2101,7 +2106,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 96,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8099),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3862),
                             EntityId = 96,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2110,7 +2115,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 97,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8101),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3863),
                             EntityId = 97,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2119,7 +2124,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 98,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8103),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3864),
                             EntityId = 98,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2128,7 +2133,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 99,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8105),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3866),
                             EntityId = 99,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2137,7 +2142,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 100,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8107),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3867),
                             EntityId = 100,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2146,7 +2151,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 101,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8108),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3868),
                             EntityId = 101,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2155,7 +2160,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 102,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8113),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3869),
                             EntityId = 102,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2164,7 +2169,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 103,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8115),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3871),
                             EntityId = 103,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2173,7 +2178,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 104,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8116),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3917),
                             EntityId = 104,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2182,7 +2187,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 105,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8117),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3919),
                             EntityId = 105,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2191,7 +2196,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 106,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8119),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3920),
                             EntityId = 106,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2200,7 +2205,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 107,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8120),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3921),
                             EntityId = 107,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2209,7 +2214,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 108,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8122),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3923),
                             EntityId = 108,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2218,7 +2223,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 109,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8123),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3925),
                             EntityId = 109,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2227,7 +2232,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 110,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8124),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3926),
                             EntityId = 110,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2236,7 +2241,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 111,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8126),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3928),
                             EntityId = 111,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2245,7 +2250,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 112,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8127),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3929),
                             EntityId = 112,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2254,7 +2259,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 113,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8156),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3930),
                             EntityId = 113,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2263,7 +2268,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 114,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8158),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3932),
                             EntityId = 114,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2272,7 +2277,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 115,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8160),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3933),
                             EntityId = 115,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2281,7 +2286,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 116,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8161),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3934),
                             EntityId = 116,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2290,7 +2295,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 117,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8163),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3936),
                             EntityId = 117,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2299,7 +2304,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 118,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8164),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3937),
                             EntityId = 118,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2308,7 +2313,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 119,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8167),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3938),
                             EntityId = 119,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2317,7 +2322,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 120,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8168),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3939),
                             EntityId = 120,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2326,7 +2331,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 121,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8170),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3941),
                             EntityId = 121,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2335,7 +2340,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 122,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8171),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3942),
                             EntityId = 122,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2344,7 +2349,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 123,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8175),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3943),
                             EntityId = 123,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2353,7 +2358,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 124,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8177),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3945),
                             EntityId = 124,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2362,7 +2367,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 125,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8178),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3946),
                             EntityId = 125,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2371,7 +2376,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 126,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8180),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3948),
                             EntityId = 126,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2380,7 +2385,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 127,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8181),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3949),
                             EntityId = 127,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2389,7 +2394,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 128,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8182),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3951),
                             EntityId = 128,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2398,7 +2403,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 129,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8184),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3952),
                             EntityId = 129,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2407,7 +2412,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 130,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8187),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3954),
                             EntityId = 130,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2416,7 +2421,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 131,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8189),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3955),
                             EntityId = 131,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2425,7 +2430,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 132,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8190),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3957),
                             EntityId = 132,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2434,7 +2439,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 133,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8192),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3958),
                             EntityId = 133,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2443,7 +2448,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 134,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8194),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3959),
                             EntityId = 134,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2452,7 +2457,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 135,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8195),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3961),
                             EntityId = 135,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2461,7 +2466,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 136,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8202),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3962),
                             EntityId = 136,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2470,7 +2475,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 137,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8204),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3963),
                             EntityId = 137,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2479,7 +2484,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 138,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8207),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3964),
                             EntityId = 138,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2488,7 +2493,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 139,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8208),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3966),
                             EntityId = 139,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2497,7 +2502,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 140,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8210),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3967),
                             EntityId = 140,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2506,7 +2511,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 141,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8211),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3968),
                             EntityId = 141,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2515,7 +2520,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 142,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8213),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3973),
                             EntityId = 142,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2524,7 +2529,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 143,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8214),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3975),
                             EntityId = 143,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2533,7 +2538,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 144,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8216),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3976),
                             EntityId = 144,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2542,7 +2547,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 145,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8219),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3977),
                             EntityId = 145,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2551,7 +2556,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 146,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8220),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3979),
                             EntityId = 146,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2560,7 +2565,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 147,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8222),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3980),
                             EntityId = 147,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2569,7 +2574,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 148,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8223),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3981),
                             EntityId = 148,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2578,7 +2583,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 149,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8225),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3982),
                             EntityId = 149,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2587,7 +2592,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 150,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8226),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3984),
                             EntityId = 150,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2596,7 +2601,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 151,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8228),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3985),
                             EntityId = 151,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2605,7 +2610,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 152,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8229),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3986),
                             EntityId = 152,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2614,7 +2619,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 153,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8232),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3988),
                             EntityId = 153,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2623,7 +2628,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 154,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8233),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3989),
                             EntityId = 154,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2632,7 +2637,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 155,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8234),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3990),
                             EntityId = 155,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2641,7 +2646,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 156,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8236),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3993),
                             EntityId = 156,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2650,7 +2655,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 157,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8238),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3994),
                             EntityId = 157,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2659,7 +2664,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 158,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8240),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3996),
                             EntityId = 158,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2668,7 +2673,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 159,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8241),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3997),
                             EntityId = 159,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2677,7 +2682,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 160,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8243),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3998),
                             EntityId = 160,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2686,7 +2691,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 161,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8244),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3999),
                             EntityId = 161,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2695,7 +2700,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 162,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8246),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4001),
                             EntityId = 162,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2704,7 +2709,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 163,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8247),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4042),
                             EntityId = 163,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2713,7 +2718,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 164,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8248),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4043),
                             EntityId = 164,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2722,7 +2727,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 165,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8250),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4045),
                             EntityId = 165,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2731,7 +2736,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 166,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8251),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4046),
                             EntityId = 166,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2740,7 +2745,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 167,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8252),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4047),
                             EntityId = 167,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2749,7 +2754,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 168,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8254),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4049),
                             EntityId = 168,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2758,7 +2763,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 169,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8255),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4050),
                             EntityId = 169,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2767,7 +2772,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 170,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8258),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4051),
                             EntityId = 170,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2776,7 +2781,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 171,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8259),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4053),
                             EntityId = 171,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2785,7 +2790,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 172,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8290),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4054),
                             EntityId = 172,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2794,7 +2799,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 173,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8292),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4055),
                             EntityId = 173,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2803,7 +2808,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 174,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8293),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4057),
                             EntityId = 174,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2812,7 +2817,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 175,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8295),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4058),
                             EntityId = 175,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2821,7 +2826,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 176,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8296),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4060),
                             EntityId = 176,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2830,7 +2835,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 177,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8298),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4062),
                             EntityId = 177,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2839,7 +2844,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 178,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8299),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4063),
                             EntityId = 178,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2848,7 +2853,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 179,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8300),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4064),
                             EntityId = 179,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2857,7 +2862,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 180,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8302),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4066),
                             EntityId = 180,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2866,7 +2871,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 181,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8303),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4067),
                             EntityId = 181,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2875,7 +2880,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 182,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8305),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4068),
                             EntityId = 182,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2884,7 +2889,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 183,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8306),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4070),
                             EntityId = 183,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2893,7 +2898,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 184,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8307),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4072),
                             EntityId = 184,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2902,7 +2907,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 185,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8309),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4073),
                             EntityId = 185,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2911,7 +2916,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 186,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8310),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4074),
                             EntityId = 186,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2920,7 +2925,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 187,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8313),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4075),
                             EntityId = 187,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2929,7 +2934,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 188,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8314),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4077),
                             EntityId = 188,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2938,7 +2943,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 189,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8316),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4078),
                             EntityId = 189,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2947,7 +2952,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 190,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8317),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4079),
                             EntityId = 190,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2956,7 +2961,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 191,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8319),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4081),
                             EntityId = 191,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2965,7 +2970,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 192,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8320),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4082),
                             EntityId = 192,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2974,7 +2979,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 193,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8321),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4084),
                             EntityId = 193,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2983,7 +2988,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 194,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8323),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4086),
                             EntityId = 194,
                             EntityType = 1,
                             IsDeleted = false,
@@ -2992,7 +2997,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 195,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8324),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4087),
                             EntityId = 195,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3001,7 +3006,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 196,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8325),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4088),
                             EntityId = 196,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3010,7 +3015,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 197,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8327),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4090),
                             EntityId = 197,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3019,7 +3024,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 198,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8328),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4091),
                             EntityId = 198,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3028,7 +3033,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 199,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8329),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4092),
                             EntityId = 199,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3037,7 +3042,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 200,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8331),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4094),
                             EntityId = 200,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3046,7 +3051,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 201,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8332),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4095),
                             EntityId = 201,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3055,7 +3060,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 202,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8333),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4096),
                             EntityId = 202,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3064,7 +3069,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 203,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8335),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4098),
                             EntityId = 203,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3073,7 +3078,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 204,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8336),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4099),
                             EntityId = 204,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3082,7 +3087,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 205,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8338),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4100),
                             EntityId = 205,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3091,7 +3096,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 206,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8339),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4101),
                             EntityId = 206,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3100,7 +3105,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 207,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8340),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4103),
                             EntityId = 207,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3109,7 +3114,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 208,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8342),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4104),
                             EntityId = 208,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3118,7 +3123,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 209,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(8343),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(4106),
                             EntityId = 209,
                             EntityType = 1,
                             IsDeleted = false,
@@ -3363,7 +3368,7 @@ namespace CatalogService.Migrations
                             Id = 1,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6269),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1513),
                             Description = "Intel Core i7 12700H 32GB 1TB SSD RTX4060 Freedos 15.6\" Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3371,7 +3376,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Excalibur G870.1270",
                             Price = 39999.99m,
-                            ProductCode = 107098,
+                            ProductCode = 690455,
                             Rating = 4.5m,
                             SubCategoryId = 1
                         },
@@ -3380,7 +3385,7 @@ namespace CatalogService.Migrations
                             Id = 2,
                             BrandId = 6,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6277),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1520),
                             Description = "Intel Core i7 1255U 16GB 512GB SSD Freedos 14\" FHD Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3388,7 +3393,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "MSI Modern 14 C12MO",
                             Price = 21799.99m,
-                            ProductCode = 710024,
+                            ProductCode = 231356,
                             Rating = 4.5m,
                             SubCategoryId = 1
                         },
@@ -3397,7 +3402,7 @@ namespace CatalogService.Migrations
                             Id = 3,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6284),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1569),
                             Description = "Core i7-13620H 32GB DDR5 RAM 1TB NVME SSD 16\" Freedos Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3405,7 +3410,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Nirvana S100",
                             Price = 27299.99m,
-                            ProductCode = 952676,
+                            ProductCode = 711150,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3414,7 +3419,7 @@ namespace CatalogService.Migrations
                             Id = 4,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6317),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1573),
                             Description = "Intel Core i7 13620H 32GB 1TB SSD RTX4060 Freedos 15.6\" Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3422,7 +3427,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Excalibur G870.1362",
                             Price = 50199.99m,
-                            ProductCode = 541618,
+                            ProductCode = 680643,
                             Rating = 4.5m,
                             SubCategoryId = 1
                         },
@@ -3431,7 +3436,7 @@ namespace CatalogService.Migrations
                             Id = 5,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6321),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1576),
                             Description = "Intel Core i5 1334U 16GB 512GB SSD Freedos 15.6\" Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3439,7 +3444,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP 250 G10",
                             Price = 14999.99m,
-                            ProductCode = 903596,
+                            ProductCode = 445589,
                             Rating = 4.7m,
                             SubCategoryId = 1
                         },
@@ -3448,7 +3453,7 @@ namespace CatalogService.Migrations
                             Id = 6,
                             BrandId = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6326),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1579),
                             Description = "Intel Core i5 13420H 16GB Ddr5 Ram 512 GB SSD 16'' WUXGA IPS Panel Freedos Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3456,7 +3461,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lenovo Ideapad Slim 3",
                             Price = 19799.99m,
-                            ProductCode = 721862,
+                            ProductCode = 685589,
                             Rating = 4.9m,
                             SubCategoryId = 1
                         },
@@ -3465,7 +3470,7 @@ namespace CatalogService.Migrations
                             Id = 7,
                             BrandId = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6333),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1584),
                             Description = "AMD Ryzen 7 5700U 16GB 512GB SSD Freedos 15.6\" FHD Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3473,7 +3478,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lenovo Ideapad 1",
                             Price = 15999.99m,
-                            ProductCode = 203329,
+                            ProductCode = 531959,
                             Rating = 4.6m,
                             SubCategoryId = 1
                         },
@@ -3482,7 +3487,7 @@ namespace CatalogService.Migrations
                             Id = 8,
                             BrandId = 6,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6337),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1589),
                             Description = "Intel Core i5 12450H 8GB 512GB SSD RTX2050 Freedos 15.6\" Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3490,7 +3495,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "MSI Thin 15",
                             Price = 24799.99m,
-                            ProductCode = 630930,
+                            ProductCode = 449017,
                             Rating = 4.5m,
                             SubCategoryId = 1
                         },
@@ -3499,7 +3504,7 @@ namespace CatalogService.Migrations
                             Id = 9,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6343),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1592),
                             Description = "Intel Core i7 1255U 16GB 500GB SSD Freedos 15.6\" Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3507,7 +3512,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Nirvana C550",
                             Price = 18999.99m,
-                            ProductCode = 779471,
+                            ProductCode = 907495,
                             Rating = 4.5m,
                             SubCategoryId = 1
                         },
@@ -3516,7 +3521,7 @@ namespace CatalogService.Migrations
                             Id = 10,
                             BrandId = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6348),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1595),
                             Description = "Intel Core i7 13650HX 32GB 1TB SSD RTX 4060 8GB (115W) 15.6\" FHD 144Hz IPS Panel Freedos Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3524,7 +3529,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lenovo LOQ 15IRX9",
                             Price = 59999.99m,
-                            ProductCode = 569244,
+                            ProductCode = 973976,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3533,7 +3538,7 @@ namespace CatalogService.Migrations
                             Id = 11,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6354),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1597),
                             Description = "Intel Core i5-12450H 32GB RAM 500GB SSD GEN4 RTX3050 Freedos Gaming Laptop",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3541,7 +3546,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Excalibur G770",
                             Price = 31299.99m,
-                            ProductCode = 857135,
+                            ProductCode = 819130,
                             Rating = 4.6m,
                             SubCategoryId = 1
                         },
@@ -3550,7 +3555,7 @@ namespace CatalogService.Migrations
                             Id = 12,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6361),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1601),
                             Description = "AMD Ryzen 5 7430U 16GB 500GB SSD Freedos 15.6\" Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3558,7 +3563,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Nirvana X600",
                             Price = 16999.99m,
-                            ProductCode = 165220,
+                            ProductCode = 530692,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3567,7 +3572,7 @@ namespace CatalogService.Migrations
                             Id = 13,
                             BrandId = 7,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6366),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1603),
                             Description = "Intel Core i7 1255U 16GB 512GB SSD Freedos 15.6\" FHD Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3575,7 +3580,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Acer Aspire 3",
                             Price = 24000.00m,
-                            ProductCode = 246301,
+                            ProductCode = 503164,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3584,7 +3589,7 @@ namespace CatalogService.Migrations
                             Id = 14,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6371),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1612),
                             Description = "Intel Core i7 12700H 32GB 1TB SSD Freedos 15.6\" Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3592,7 +3597,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Nirvana X600.1270",
                             Price = 22999.99m,
-                            ProductCode = 276686,
+                            ProductCode = 943039,
                             Rating = 4.5m,
                             SubCategoryId = 1
                         },
@@ -3601,7 +3606,7 @@ namespace CatalogService.Migrations
                             Id = 15,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6377),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1617),
                             Description = "Intel Core i5-13420H 32GB RAM 500GB NVME SSD GEN4 6GB RTX4050 Freedos Gaming Laptop",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3609,7 +3614,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Excalibur G870.1342",
                             Price = 38499.99m,
-                            ProductCode = 152293,
+                            ProductCode = 434493,
                             Rating = 4.1m,
                             SubCategoryId = 1
                         },
@@ -3618,7 +3623,7 @@ namespace CatalogService.Migrations
                             Id = 16,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6384),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1620),
                             Description = "Intel Core i7 12700H 32GB 1TB SSD RTX4070 Freedos 15.6\" FHD Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3626,7 +3631,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Excalibur G870.1270",
                             Price = 50899.99m,
-                            ProductCode = 799396,
+                            ProductCode = 680247,
                             Rating = 4m,
                             SubCategoryId = 1
                         },
@@ -3635,7 +3640,7 @@ namespace CatalogService.Migrations
                             Id = 17,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6387),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1628),
                             Description = "Intel Core i5 13500H 16GB 512GB SSD RTX4050 Freedos 15.6\" FHD Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3643,7 +3648,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP Victus Gaming 15",
                             Price = 33999.99m,
-                            ProductCode = 343887,
+                            ProductCode = 107805,
                             Rating = 4.6m,
                             SubCategoryId = 1
                         },
@@ -3652,7 +3657,7 @@ namespace CatalogService.Migrations
                             Id = 18,
                             BrandId = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6393),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1631),
                             Description = "Intel Core i5 12450H 8GB 512GB SSD 15.6\" FHD Freedos Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3660,7 +3665,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lenovo IdeaPad Slim 3",
                             Price = 15359.04m,
-                            ProductCode = 481871,
+                            ProductCode = 626191,
                             Rating = 4.7m,
                             SubCategoryId = 1
                         },
@@ -3669,7 +3674,7 @@ namespace CatalogService.Migrations
                             Id = 19,
                             BrandId = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6396),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1634),
                             Description = "Intel Core i5 12500H 8GB 512GB SSD RTX3050 Freedos 15.6\" FHD Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3677,7 +3682,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Asus TUF Gaming F15",
                             Price = 29898.66m,
-                            ProductCode = 737169,
+                            ProductCode = 798983,
                             Rating = 4.7m,
                             SubCategoryId = 1
                         },
@@ -3686,7 +3691,7 @@ namespace CatalogService.Migrations
                             Id = 20,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6400),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1636),
                             Description = "16GB 256GB SSD macOS 13\" Taşınabilir Bilgisayar Uzay Grisi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3694,7 +3699,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple MacBook Air M1",
                             Price = 39250.00m,
-                            ProductCode = 505862,
+                            ProductCode = 713789,
                             Rating = 4.9m,
                             SubCategoryId = 1
                         },
@@ -3703,7 +3708,7 @@ namespace CatalogService.Migrations
                             Id = 21,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6404),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1639),
                             Description = "Intel Core i5-13420H 16GB RAM 1TB NVME SSD 8GB RTX4060 Freedos Gaming Laptop",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3711,7 +3716,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Excalibur G870.1342",
                             Price = 42299.99m,
-                            ProductCode = 803371,
+                            ProductCode = 553808,
                             Rating = 4.3m,
                             SubCategoryId = 1
                         },
@@ -3720,7 +3725,7 @@ namespace CatalogService.Migrations
                             Id = 22,
                             BrandId = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6409),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1641),
                             Description = "Intel Core i5 13420H 16GB 512GB SSD Freedos 14\" WUXGA Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3728,7 +3733,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lenovo Ideapad 5",
                             Price = 29999.99m,
-                            ProductCode = 314136,
+                            ProductCode = 222807,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3737,7 +3742,7 @@ namespace CatalogService.Migrations
                             Id = 23,
                             BrandId = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6413),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1643),
                             Description = "Intel Core Ultra 7 255HX 32GB 1TB SSD RTX5070Ti Freedos 16\" Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3745,7 +3750,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Asus ROG Strix G16",
                             Price = 107999.99m,
-                            ProductCode = 416484,
+                            ProductCode = 772240,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3754,7 +3759,7 @@ namespace CatalogService.Migrations
                             Id = 24,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6418),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1648),
                             Description = "Intel Core i5-13420H 32GB RAM 500GB NVME SSD Freedos",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3762,7 +3767,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Nirvana X600.1342",
                             Price = 19999.99m,
-                            ProductCode = 337126,
+                            ProductCode = 436217,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3771,7 +3776,7 @@ namespace CatalogService.Migrations
                             Id = 25,
                             BrandId = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6423),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1652),
                             Description = "Intel Core i9-14900HX 32GB DDR5 1TB SSD RTX4060 8GB 16 inç 3.2K (3200×2000) 165Hz FreeDos Laptop",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3779,7 +3784,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lenovo Thinkbook 16PG5",
                             Price = 79999.40m,
-                            ProductCode = 572067,
+                            ProductCode = 810027,
                             Rating = 4.7m,
                             SubCategoryId = 1
                         },
@@ -3788,7 +3793,7 @@ namespace CatalogService.Migrations
                             Id = 26,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6429),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1655),
                             Description = "Intel Core i7-13620H 16GB RAM 500GB NVME SSD Freedos Laptop",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3796,7 +3801,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Nirvana X600.1362",
                             Price = 22099.99m,
-                            ProductCode = 652126,
+                            ProductCode = 642581,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3805,7 +3810,7 @@ namespace CatalogService.Migrations
                             Id = 27,
                             BrandId = 6,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6432),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1657),
                             Description = "Intel Core i5 13420H 16GB 1TB SSD RTX4060 Freedos 15.6\" FHD 144Hz Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3813,7 +3818,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "MSI CYBORG 15",
                             Price = 37999.99m,
-                            ProductCode = 892249,
+                            ProductCode = 825886,
                             Rating = 4.9m,
                             SubCategoryId = 1
                         },
@@ -3822,7 +3827,7 @@ namespace CatalogService.Migrations
                             Id = 28,
                             BrandId = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6439),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1659),
                             Description = "AMD Ryzen 5 7520U 8gb 512GB SSD Freedos 15.6\" Fhd Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3830,7 +3835,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lenovo V15 G4",
                             Price = 13299.99m,
-                            ProductCode = 200292,
+                            ProductCode = 587185,
                             Rating = 4.3m,
                             SubCategoryId = 1
                         },
@@ -3839,7 +3844,7 @@ namespace CatalogService.Migrations
                             Id = 29,
                             BrandId = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6444),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1670),
                             Description = "I5-13420H 32GB 1 Tb SSD 15.6 Fhd Windows 11 Pro",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3847,7 +3852,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lenovo V15 G4",
                             Price = 27749.00m,
-                            ProductCode = 186028,
+                            ProductCode = 304428,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3856,7 +3861,7 @@ namespace CatalogService.Migrations
                             Id = 30,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6449),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1734),
                             Description = "16GB 256GB SSD macOS 13\" Taşınabilir Bilgisayar Gece Yarısı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3864,7 +3869,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple MacBook Air M4",
                             Price = 49999.99m,
-                            ProductCode = 261646,
+                            ProductCode = 703629,
                             Rating = 5m,
                             SubCategoryId = 1
                         },
@@ -3873,7 +3878,7 @@ namespace CatalogService.Migrations
                             Id = 31,
                             BrandId = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6454),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1737),
                             Description = "Intel Core i5 12450H 16GB 500GB SSD RTX2050 Freedos 15.6\" FHD Taşınabilir Bilgisayar",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3881,7 +3886,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Casper Excalibur G870.1245",
                             Price = 27499.99m,
-                            ProductCode = 212698,
+                            ProductCode = 782280,
                             Rating = 4.4m,
                             SubCategoryId = 1
                         },
@@ -3890,7 +3895,7 @@ namespace CatalogService.Migrations
                             Id = 32,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6464),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1739),
                             Description = "HP Deskjet Ink Advantage 2878 All-In-One Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3898,7 +3903,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP Deskjet Ink Advantage 2878 All-In-One Yazıcı",
                             Price = 2799.00m,
-                            ProductCode = 947411,
+                            ProductCode = 360803,
                             Rating = 4.1m,
                             SubCategoryId = 2
                         },
@@ -3907,7 +3912,7 @@ namespace CatalogService.Migrations
                             Id = 33,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6469),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1746),
                             Description = "Canon Dolan Kartuşlu E414 Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3915,7 +3920,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon Dolan Kartuşlu E414 Yazıcı",
                             Price = 2299.08m,
-                            ProductCode = 408460,
+                            ProductCode = 259984,
                             Rating = 4.4m,
                             SubCategoryId = 2
                         },
@@ -3924,7 +3929,7 @@ namespace CatalogService.Migrations
                             Id = 34,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6529),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1749),
                             Description = "Canon Pixma TR4650 Tarayıcı + Fotokopi + Wi-Fi + Faks + Çok Fonksiyonlu Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3932,7 +3937,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon Pixma TR4650",
                             Price = 3379.00m,
-                            ProductCode = 230208,
+                            ProductCode = 783842,
                             Rating = 4.2m,
                             SubCategoryId = 2
                         },
@@ -3941,7 +3946,7 @@ namespace CatalogService.Migrations
                             Id = 35,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6536),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1753),
                             Description = "Canon Pixma E3640 Wi-Fi Tarayıcı - Fotokopi Çok Fonksiyonlu Mürekkep Püskürtmeli Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3949,7 +3954,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon Pixma E3640 Wi-Fi",
                             Price = 3399.00m,
-                            ProductCode = 506949,
+                            ProductCode = 648656,
                             Rating = 4.6m,
                             SubCategoryId = 2
                         },
@@ -3958,7 +3963,7 @@ namespace CatalogService.Migrations
                             Id = 36,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6541),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1755),
                             Description = "Epson L5290 Wi-Fi Renk Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3966,7 +3971,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L5290 Wi-Fi Renk Tanklı Yazıcı",
                             Price = 11983.51m,
-                            ProductCode = 187460,
+                            ProductCode = 661069,
                             Rating = 4.4m,
                             SubCategoryId = 2
                         },
@@ -3975,7 +3980,7 @@ namespace CatalogService.Migrations
                             Id = 37,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6549),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1766),
                             Description = "Epson Tanklı L3150 Photoink Muadil Mürekkepli Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -3983,7 +3988,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson Tanklı L3150 Photoink",
                             Price = 6033.86m,
-                            ProductCode = 607854,
+                            ProductCode = 133876,
                             Rating = 4.6m,
                             SubCategoryId = 2
                         },
@@ -3992,7 +3997,7 @@ namespace CatalogService.Migrations
                             Id = 38,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6553),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1769),
                             Description = "HP Officejet Pro 7720 Fotokopi + Faks + Tarayıcı + Wi-Fi + Airprint + A3 Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4000,7 +4005,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP Officejet Pro 7720",
                             Price = 11138.06m,
-                            ProductCode = 884253,
+                            ProductCode = 643005,
                             Rating = 4.6m,
                             SubCategoryId = 2
                         },
@@ -4009,7 +4014,7 @@ namespace CatalogService.Migrations
                             Id = 39,
                             BrandId = 11,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6558),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1771),
                             Description = "Canon E3640 Wifi Yazıcı ve Tıpalı Kartuş Sistemi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4017,7 +4022,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon E3640 Wifi Yazıcı",
                             Price = 3306.56m,
-                            ProductCode = 953157,
+                            ProductCode = 624107,
                             Rating = 4.3m,
                             SubCategoryId = 2
                         },
@@ -4026,7 +4031,7 @@ namespace CatalogService.Migrations
                             Id = 40,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6562),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1775),
                             Description = "Epson L3151 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4034,7 +4039,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L3151 Tanklı Yazıcı",
                             Price = 4999.00m,
-                            ProductCode = 513647,
+                            ProductCode = 840327,
                             Rating = 4.5m,
                             SubCategoryId = 2
                         },
@@ -4043,7 +4048,7 @@ namespace CatalogService.Migrations
                             Id = 41,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6567),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1778),
                             Description = "HP LaserJet Pro M428f MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4051,7 +4056,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428f",
                             Price = 7999.00m,
-                            ProductCode = 482616,
+                            ProductCode = 310455,
                             Rating = 4.3m,
                             SubCategoryId = 2
                         },
@@ -4060,7 +4065,7 @@ namespace CatalogService.Migrations
                             Id = 42,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6574),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1785),
                             Description = "Canon PIXMA G3110 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4068,7 +4073,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G3110",
                             Price = 3999.00m,
-                            ProductCode = 642588,
+                            ProductCode = 851002,
                             Rating = 4.4m,
                             SubCategoryId = 2
                         },
@@ -4077,7 +4082,7 @@ namespace CatalogService.Migrations
                             Id = 43,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6581),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1788),
                             Description = "Epson L3250 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4085,7 +4090,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L3250 Tanklı Yazıcı",
                             Price = 4499.00m,
-                            ProductCode = 351125,
+                            ProductCode = 459740,
                             Rating = 4.6m,
                             SubCategoryId = 2
                         },
@@ -4094,7 +4099,7 @@ namespace CatalogService.Migrations
                             Id = 44,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6585),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1794),
                             Description = "HP LaserJet Pro M428dw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4102,7 +4107,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428dw",
                             Price = 8999.00m,
-                            ProductCode = 867826,
+                            ProductCode = 378527,
                             Rating = 4.5m,
                             SubCategoryId = 2
                         },
@@ -4111,7 +4116,7 @@ namespace CatalogService.Migrations
                             Id = 45,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6598),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1798),
                             Description = "Canon PIXMA G4110 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4119,7 +4124,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G4110",
                             Price = 4499.00m,
-                            ProductCode = 978691,
+                            ProductCode = 650543,
                             Rating = 4.3m,
                             SubCategoryId = 2
                         },
@@ -4128,7 +4133,7 @@ namespace CatalogService.Migrations
                             Id = 46,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6602),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1805),
                             Description = "Epson L4260 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4136,7 +4141,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4260 Tanklı Yazıcı",
                             Price = 5499.00m,
-                            ProductCode = 808045,
+                            ProductCode = 212145,
                             Rating = 4.7m,
                             SubCategoryId = 2
                         },
@@ -4145,7 +4150,7 @@ namespace CatalogService.Migrations
                             Id = 47,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6607),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1940),
                             Description = "HP LaserJet Pro M428fnw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4153,7 +4158,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fnw",
                             Price = 9999.00m,
-                            ProductCode = 659038,
+                            ProductCode = 342705,
                             Rating = 4.4m,
                             SubCategoryId = 2
                         },
@@ -4162,7 +4167,7 @@ namespace CatalogService.Migrations
                             Id = 48,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6610),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1943),
                             Description = "Canon PIXMA G5110 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4170,7 +4175,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G5110",
                             Price = 4999.00m,
-                            ProductCode = 758753,
+                            ProductCode = 577145,
                             Rating = 4.5m,
                             SubCategoryId = 2
                         },
@@ -4179,7 +4184,7 @@ namespace CatalogService.Migrations
                             Id = 49,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6617),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1947),
                             Description = "Epson L4266 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4187,7 +4192,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4266 Tanklı Yazıcı",
                             Price = 5999.00m,
-                            ProductCode = 469013,
+                            ProductCode = 367766,
                             Rating = 4.6m,
                             SubCategoryId = 2
                         },
@@ -4196,7 +4201,7 @@ namespace CatalogService.Migrations
                             Id = 50,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6622),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1950),
                             Description = "HP LaserJet Pro M428fdw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4204,7 +4209,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fdw",
                             Price = 10999.00m,
-                            ProductCode = 613320,
+                            ProductCode = 438185,
                             Rating = 4.5m,
                             SubCategoryId = 2
                         },
@@ -4213,7 +4218,7 @@ namespace CatalogService.Migrations
                             Id = 51,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6627),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1953),
                             Description = "Canon PIXMA G6110 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4221,7 +4226,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G6110",
                             Price = 5499.00m,
-                            ProductCode = 543115,
+                            ProductCode = 714119,
                             Rating = 4.4m,
                             SubCategoryId = 2
                         },
@@ -4230,7 +4235,7 @@ namespace CatalogService.Migrations
                             Id = 52,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6632),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1960),
                             Description = "Epson L4268 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4238,7 +4243,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4268 Tanklı Yazıcı",
                             Price = 6499.00m,
-                            ProductCode = 128769,
+                            ProductCode = 620796,
                             Rating = 4.7m,
                             SubCategoryId = 2
                         },
@@ -4247,7 +4252,7 @@ namespace CatalogService.Migrations
                             Id = 53,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6636),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1965),
                             Description = "HP LaserJet Pro M428fdn MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4255,7 +4260,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fdn",
                             Price = 11999.00m,
-                            ProductCode = 718552,
+                            ProductCode = 903684,
                             Rating = 4.6m,
                             SubCategoryId = 2
                         },
@@ -4264,7 +4269,7 @@ namespace CatalogService.Migrations
                             Id = 54,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6640),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1969),
                             Description = "Canon PIXMA G7110 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4272,7 +4277,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G7110",
                             Price = 5999.00m,
-                            ProductCode = 354814,
+                            ProductCode = 875756,
                             Rating = 4.5m,
                             SubCategoryId = 2
                         },
@@ -4281,7 +4286,7 @@ namespace CatalogService.Migrations
                             Id = 55,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6645),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1971),
                             Description = "Epson L4269 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4289,7 +4294,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4269 Tanklı Yazıcı",
                             Price = 6999.00m,
-                            ProductCode = 774177,
+                            ProductCode = 756120,
                             Rating = 4.8m,
                             SubCategoryId = 2
                         },
@@ -4298,7 +4303,7 @@ namespace CatalogService.Migrations
                             Id = 56,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6649),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1980),
                             Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4306,7 +4311,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fdnw",
                             Price = 12999.00m,
-                            ProductCode = 346001,
+                            ProductCode = 358292,
                             Rating = 4.7m,
                             SubCategoryId = 2
                         },
@@ -4315,7 +4320,7 @@ namespace CatalogService.Migrations
                             Id = 57,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6654),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1983),
                             Description = "Canon PIXMA G8110 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4323,7 +4328,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G8110",
                             Price = 6499.00m,
-                            ProductCode = 285849,
+                            ProductCode = 587884,
                             Rating = 4.6m,
                             SubCategoryId = 2
                         },
@@ -4332,7 +4337,7 @@ namespace CatalogService.Migrations
                             Id = 58,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6660),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1986),
                             Description = "Epson L4267 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4340,7 +4345,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4267 Tanklı Yazıcı",
                             Price = 7499.00m,
-                            ProductCode = 832663,
+                            ProductCode = 853071,
                             Rating = 4.9m,
                             SubCategoryId = 2
                         },
@@ -4349,7 +4354,7 @@ namespace CatalogService.Migrations
                             Id = 59,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6665),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1991),
                             Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4357,7 +4362,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fdnw",
                             Price = 13999.00m,
-                            ProductCode = 243185,
+                            ProductCode = 363398,
                             Rating = 4.8m,
                             SubCategoryId = 2
                         },
@@ -4366,7 +4371,7 @@ namespace CatalogService.Migrations
                             Id = 60,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6668),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1999),
                             Description = "Canon PIXMA G9110 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4374,7 +4379,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G9110",
                             Price = 6999.00m,
-                            ProductCode = 397863,
+                            ProductCode = 371754,
                             Rating = 4.7m,
                             SubCategoryId = 2
                         },
@@ -4383,7 +4388,7 @@ namespace CatalogService.Migrations
                             Id = 61,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6672),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2171),
                             Description = "Epson L4265 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4391,7 +4396,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4265 Tanklı Yazıcı",
                             Price = 7999.00m,
-                            ProductCode = 613322,
+                            ProductCode = 204039,
                             Rating = 4.8m,
                             SubCategoryId = 2
                         },
@@ -4400,7 +4405,7 @@ namespace CatalogService.Migrations
                             Id = 62,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6676),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2178),
                             Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4408,7 +4413,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fdnw",
                             Price = 14999.00m,
-                            ProductCode = 716000,
+                            ProductCode = 803412,
                             Rating = 4.9m,
                             SubCategoryId = 2
                         },
@@ -4417,7 +4422,7 @@ namespace CatalogService.Migrations
                             Id = 63,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6679),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2182),
                             Description = "Canon PIXMA G1010 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4425,7 +4430,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G1010",
                             Price = 7499.00m,
-                            ProductCode = 201239,
+                            ProductCode = 513834,
                             Rating = 4.8m,
                             SubCategoryId = 2
                         },
@@ -4434,7 +4439,7 @@ namespace CatalogService.Migrations
                             Id = 64,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6683),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2188),
                             Description = "Epson L4264 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4442,7 +4447,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4264 Tanklı Yazıcı",
                             Price = 8499.00m,
-                            ProductCode = 249019,
+                            ProductCode = 908984,
                             Rating = 4.9m,
                             SubCategoryId = 2
                         },
@@ -4451,7 +4456,7 @@ namespace CatalogService.Migrations
                             Id = 65,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6685),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2196),
                             Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4459,7 +4464,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fdnw",
                             Price = 15999.00m,
-                            ProductCode = 497702,
+                            ProductCode = 962981,
                             Rating = 5.0m,
                             SubCategoryId = 2
                         },
@@ -4468,7 +4473,7 @@ namespace CatalogService.Migrations
                             Id = 66,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6726),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2202),
                             Description = "Canon PIXMA G1110 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4476,7 +4481,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G1110",
                             Price = 7999.00m,
-                            ProductCode = 743384,
+                            ProductCode = 568571,
                             Rating = 4.9m,
                             SubCategoryId = 2
                         },
@@ -4485,7 +4490,7 @@ namespace CatalogService.Migrations
                             Id = 67,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6731),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2205),
                             Description = "Epson L4263 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4493,7 +4498,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4263 Tanklı Yazıcı",
                             Price = 8999.00m,
-                            ProductCode = 501609,
+                            ProductCode = 892158,
                             Rating = 5.0m,
                             SubCategoryId = 2
                         },
@@ -4502,7 +4507,7 @@ namespace CatalogService.Migrations
                             Id = 68,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6736),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2209),
                             Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4510,7 +4515,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fdnw",
                             Price = 16999.00m,
-                            ProductCode = 992605,
+                            ProductCode = 596229,
                             Rating = 5.0m,
                             SubCategoryId = 2
                         },
@@ -4519,7 +4524,7 @@ namespace CatalogService.Migrations
                             Id = 69,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6739),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2215),
                             Description = "Canon PIXMA G1210 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4527,7 +4532,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G1210",
                             Price = 8499.00m,
-                            ProductCode = 258758,
+                            ProductCode = 932308,
                             Rating = 5.0m,
                             SubCategoryId = 2
                         },
@@ -4536,7 +4541,7 @@ namespace CatalogService.Migrations
                             Id = 70,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6743),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2218),
                             Description = "Epson L4262 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4544,7 +4549,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4262 Tanklı Yazıcı",
                             Price = 9499.00m,
-                            ProductCode = 557902,
+                            ProductCode = 341896,
                             Rating = 5.0m,
                             SubCategoryId = 2
                         },
@@ -4553,7 +4558,7 @@ namespace CatalogService.Migrations
                             Id = 71,
                             BrandId = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6747),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2221),
                             Description = "HP LaserJet Pro M428fdnw MFP Siyah Beyaz Lazer Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4561,7 +4566,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HP LaserJet Pro M428fdnw",
                             Price = 17999.00m,
-                            ProductCode = 811575,
+                            ProductCode = 705466,
                             Rating = 5.0m,
                             SubCategoryId = 2
                         },
@@ -4570,7 +4575,7 @@ namespace CatalogService.Migrations
                             Id = 72,
                             BrandId = 11,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6754),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2224),
                             Description = "Canon PIXMA G1310 Tanklı Yazıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4578,7 +4583,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Canon PIXMA G1310",
                             Price = 8999.00m,
-                            ProductCode = 131228,
+                            ProductCode = 592033,
                             Rating = 5.0m,
                             SubCategoryId = 2
                         },
@@ -4587,7 +4592,7 @@ namespace CatalogService.Migrations
                             Id = 73,
                             BrandId = 12,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6759),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2227),
                             Description = "Epson L4261 Tanklı Yazıcı / Tarayıcı / Fotokopi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4595,7 +4600,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Epson L4261 Tanklı Yazıcı",
                             Price = 9999.00m,
-                            ProductCode = 489661,
+                            ProductCode = 621230,
                             Rating = 5.0m,
                             SubCategoryId = 2
                         },
@@ -4604,7 +4609,7 @@ namespace CatalogService.Migrations
                             Id = 74,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6762),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2230),
                             Description = "Apple iPhone 13 128 GB Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4612,7 +4617,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 13 128 GB Beyaz",
                             Price = 100149m,
-                            ProductCode = 810296,
+                            ProductCode = 396226,
                             Rating = 4.5m,
                             SubCategoryId = 3
                         },
@@ -4621,7 +4626,7 @@ namespace CatalogService.Migrations
                             Id = 75,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6766),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2238),
                             Description = "Samsung Galaxy A06 128 GB 4 GB RAM Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4629,7 +4634,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A06 128 GB 4 GB RAM Siyah",
                             Price = 100149m,
-                            ProductCode = 490586,
+                            ProductCode = 458973,
                             Rating = 4.0m,
                             SubCategoryId = 3
                         },
@@ -4638,7 +4643,7 @@ namespace CatalogService.Migrations
                             Id = 76,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6770),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2241),
                             Description = "Apple iPhone 13 128 GB Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4646,7 +4651,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 13 128 GB Siyah",
                             Price = 33699m,
-                            ProductCode = 771127,
+                            ProductCode = 328087,
                             Rating = 4.5m,
                             SubCategoryId = 3
                         },
@@ -4655,7 +4660,7 @@ namespace CatalogService.Migrations
                             Id = 77,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6777),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2244),
                             Description = "Samsung Galaxy A16 128 GB 6 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4663,7 +4668,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A16 128 GB 6 GB Ram Siyah",
                             Price = 8789m,
-                            ProductCode = 109027,
+                            ProductCode = 203621,
                             Rating = 4.2m,
                             SubCategoryId = 3
                         },
@@ -4672,7 +4677,7 @@ namespace CatalogService.Migrations
                             Id = 78,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6783),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2247),
                             Description = "Samsung Galaxy A35 256 GB 8 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4680,7 +4685,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A35 256 GB 8 GB Ram Siyah",
                             Price = 14449m,
-                            ProductCode = 505670,
+                            ProductCode = 395668,
                             Rating = 4.3m,
                             SubCategoryId = 3
                         },
@@ -4689,7 +4694,7 @@ namespace CatalogService.Migrations
                             Id = 79,
                             BrandId = 13,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6787),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2255),
                             Description = "HONOR Magic 7 Lite 256 GB 8 GB Ram Mor",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4697,7 +4702,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HONOR Magic 7 Lite 256 GB 8 GB Ram Mor",
                             Price = 15999m,
-                            ProductCode = 851768,
+                            ProductCode = 832723,
                             Rating = 4.4m,
                             SubCategoryId = 3
                         },
@@ -4706,7 +4711,7 @@ namespace CatalogService.Migrations
                             Id = 80,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6791),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2259),
                             Description = "Samsung Galaxy A06 128 GB 4 GB Ram Açık Mavi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4714,7 +4719,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A06 128 GB 4 GB Ram Açık Mavi",
                             Price = 6303m,
-                            ProductCode = 722742,
+                            ProductCode = 780041,
                             Rating = 4.0m,
                             SubCategoryId = 3
                         },
@@ -4723,7 +4728,7 @@ namespace CatalogService.Migrations
                             Id = 81,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6795),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2263),
                             Description = "Samsung Galaxy S24+ 256 GB 12 GB Ram Gri",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4731,7 +4736,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S24+ 256 GB 12 GB Ram Gri",
                             Price = 41599m,
-                            ProductCode = 873826,
+                            ProductCode = 384893,
                             Rating = 4.8m,
                             SubCategoryId = 3
                         },
@@ -4740,7 +4745,7 @@ namespace CatalogService.Migrations
                             Id = 82,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6799),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2268),
                             Description = "Samsung Galaxy A16 128 GB 6 GB Ram Gri",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4748,7 +4753,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A16 128 GB 6 GB Ram Gri",
                             Price = 8789m,
-                            ProductCode = 714277,
+                            ProductCode = 612700,
                             Rating = 4.2m,
                             SubCategoryId = 3
                         },
@@ -4757,7 +4762,7 @@ namespace CatalogService.Migrations
                             Id = 83,
                             BrandId = 13,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6804),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2273),
                             Description = "HONOR Magic 7 Lite 256 GB 8 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4765,7 +4770,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HONOR Magic 7 Lite 256 GB 8 GB Ram Siyah",
                             Price = 15999m,
-                            ProductCode = 647026,
+                            ProductCode = 220308,
                             Rating = 4.4m,
                             SubCategoryId = 3
                         },
@@ -4774,7 +4779,7 @@ namespace CatalogService.Migrations
                             Id = 84,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6809),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2277),
                             Description = "Samsung Galaxy S24 FE 128 GB 8 GB Ram Gri",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4782,7 +4787,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S24 FE 128 GB 8 GB Ram Gri",
                             Price = 23849m,
-                            ProductCode = 702324,
+                            ProductCode = 530597,
                             Rating = 4.6m,
                             SubCategoryId = 3
                         },
@@ -4791,7 +4796,7 @@ namespace CatalogService.Migrations
                             Id = 85,
                             BrandId = 14,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6813),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2280),
                             Description = "Nothing Phone 1 256 GB 8 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4799,7 +4804,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Nothing Phone 1 256 GB 8 GB Ram Siyah",
                             Price = 13999m,
-                            ProductCode = 816461,
+                            ProductCode = 227950,
                             Rating = 4.3m,
                             SubCategoryId = 3
                         },
@@ -4808,7 +4813,7 @@ namespace CatalogService.Migrations
                             Id = 86,
                             BrandId = 14,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6816),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2283),
                             Description = "Nothing Phone (2a) 256 GB 12 GB Ram Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4816,7 +4821,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Nothing Phone (2a) 256 GB 12 GB Ram Beyaz",
                             Price = 18999m,
-                            ProductCode = 315461,
+                            ProductCode = 269503,
                             Rating = 4.5m,
                             SubCategoryId = 3
                         },
@@ -4825,7 +4830,7 @@ namespace CatalogService.Migrations
                             Id = 87,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6820),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2286),
                             Description = "Samsung Galaxy A35 128 GB 8 GB Ram Açık Mavi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4833,7 +4838,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A35 128 GB 8 GB Ram Açık Mavi",
                             Price = 13701m,
-                            ProductCode = 796113,
+                            ProductCode = 468685,
                             Rating = 4.3m,
                             SubCategoryId = 3
                         },
@@ -4842,7 +4847,7 @@ namespace CatalogService.Migrations
                             Id = 88,
                             BrandId = 15,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6824),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2288),
                             Description = "Infinix Smart 9 128 GB 4 GB Ram Nane Yeşili",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4850,7 +4855,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Infinix Smart 9 128 GB 4 GB Ram Nane Yeşili",
                             Price = 5499m,
-                            ProductCode = 306954,
+                            ProductCode = 646885,
                             Rating = 4.0m,
                             SubCategoryId = 3
                         },
@@ -4859,7 +4864,7 @@ namespace CatalogService.Migrations
                             Id = 89,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6829),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2295),
                             Description = "Samsung Galaxy A55 128 GB 8 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4867,7 +4872,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A55 128 GB 8 GB Ram Siyah",
                             Price = 16170m,
-                            ProductCode = 399201,
+                            ProductCode = 584648,
                             Rating = 4.4m,
                             SubCategoryId = 3
                         },
@@ -4876,7 +4881,7 @@ namespace CatalogService.Migrations
                             Id = 90,
                             BrandId = 14,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6832),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2342),
                             Description = "Nothing Phone 2A Plus 256 GB 12 GB Ram Gri",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4884,7 +4889,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Nothing Phone 2A Plus 256 GB 12 GB Ram Gri",
                             Price = 22999m,
-                            ProductCode = 481915,
+                            ProductCode = 138106,
                             Rating = 4.5m,
                             SubCategoryId = 3
                         },
@@ -4893,7 +4898,7 @@ namespace CatalogService.Migrations
                             Id = 91,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6838),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2345),
                             Description = "Samsung Galaxy S24 Fe 256 GB 8 GB Ram Grafit",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4901,7 +4906,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S24 Fe 256 GB 8 GB Ram Grafit",
                             Price = 26299m,
-                            ProductCode = 411730,
+                            ProductCode = 481645,
                             Rating = 4.6m,
                             SubCategoryId = 3
                         },
@@ -4910,7 +4915,7 @@ namespace CatalogService.Migrations
                             Id = 92,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6841),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2351),
                             Description = "Apple iPhone 16e 128GB Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4918,7 +4923,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 16e 128GB Beyaz",
                             Price = 44799m,
-                            ProductCode = 374702,
+                            ProductCode = 426563,
                             Rating = 4.7m,
                             SubCategoryId = 3
                         },
@@ -4927,7 +4932,7 @@ namespace CatalogService.Migrations
                             Id = 93,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6847),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2354),
                             Description = "Samsung Galaxy S24 FE 128 GB 8 GB Ram Mavi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4935,7 +4940,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S24 FE 128 GB 8 GB Ram Mavi",
                             Price = 23849m,
-                            ProductCode = 493386,
+                            ProductCode = 246314,
                             Rating = 4.6m,
                             SubCategoryId = 3
                         },
@@ -4944,7 +4949,7 @@ namespace CatalogService.Migrations
                             Id = 94,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6853),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2358),
                             Description = "Samsung Galaxy S25+ 256 GB 12 GB Ram Lacivert",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4952,7 +4957,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S25+ 256 GB 12 GB Ram Lacivert",
                             Price = 54799m,
-                            ProductCode = 752171,
+                            ProductCode = 584816,
                             Rating = 4.8m,
                             SubCategoryId = 3
                         },
@@ -4961,7 +4966,7 @@ namespace CatalogService.Migrations
                             Id = 95,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6892),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2361),
                             Description = "Samsung B310 Dual Sim Lacivert",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4969,7 +4974,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung B310 Dual Sim Lacivert",
                             Price = 1149m,
-                            ProductCode = 207283,
+                            ProductCode = 750069,
                             Rating = 3.5m,
                             SubCategoryId = 3
                         },
@@ -4978,7 +4983,7 @@ namespace CatalogService.Migrations
                             Id = 96,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6897),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2364),
                             Description = "Samsung Galaxy S23 Ultra 512 GB 12 GB Ram Altın",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -4986,7 +4991,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S23 Ultra 512 GB 12 GB Ram Altın",
                             Price = 48899m,
-                            ProductCode = 178192,
+                            ProductCode = 457158,
                             Rating = 4.9m,
                             SubCategoryId = 3
                         },
@@ -4995,7 +5000,7 @@ namespace CatalogService.Migrations
                             Id = 97,
                             BrandId = 16,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6903),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2373),
                             Description = "Redmi Note 14 Pro 12GB 512GB",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5003,7 +5008,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Redmi Note 14 Pro 12GB 512GB",
                             Price = 18999m,
-                            ProductCode = 944989,
+                            ProductCode = 572442,
                             Rating = 4.4m,
                             SubCategoryId = 3
                         },
@@ -5012,7 +5017,7 @@ namespace CatalogService.Migrations
                             Id = 98,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6906),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2376),
                             Description = "Samsung B310E Dual Sim Kamerasız Cep Telefonu Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5020,7 +5025,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung B310E Dual Sim Kamerasız Cep Telefonu Beyaz",
                             Price = 1149m,
-                            ProductCode = 891465,
+                            ProductCode = 216384,
                             Rating = 3.5m,
                             SubCategoryId = 3
                         },
@@ -5029,7 +5034,7 @@ namespace CatalogService.Migrations
                             Id = 99,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6912),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2381),
                             Description = "Samsung Galaxy A55 128 GB 8 GB Ram Açık Mavi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5037,7 +5042,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A55 128 GB 8 GB Ram Açık Mavi",
                             Price = 16507m,
-                            ProductCode = 662790,
+                            ProductCode = 347646,
                             Rating = 4.4m,
                             SubCategoryId = 3
                         },
@@ -5046,7 +5051,7 @@ namespace CatalogService.Migrations
                             Id = 100,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6917),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2385),
                             Description = "Samsung Galaxy A35 128 GB 8 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5054,7 +5059,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A35 128 GB 8 GB Ram Siyah",
                             Price = 13559m,
-                            ProductCode = 870208,
+                            ProductCode = 201955,
                             Rating = 4.3m,
                             SubCategoryId = 3
                         },
@@ -5063,7 +5068,7 @@ namespace CatalogService.Migrations
                             Id = 101,
                             BrandId = 16,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6922),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2393),
                             Description = "Redmi Note 14 Pro 8GB 256GB",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5071,7 +5076,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Redmi Note 14 Pro 8GB 256GB",
                             Price = 16599m,
-                            ProductCode = 391954,
+                            ProductCode = 100022,
                             Rating = 4.4m,
                             SubCategoryId = 3
                         },
@@ -5080,7 +5085,7 @@ namespace CatalogService.Migrations
                             Id = 102,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6927),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2398),
                             Description = "Apple iPhone 15 256 GB Mavi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5088,7 +5093,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 15 256 GB Mavi",
                             Price = 55999m,
-                            ProductCode = 103335,
+                            ProductCode = 996986,
                             Rating = 4.8m,
                             SubCategoryId = 3
                         },
@@ -5097,7 +5102,7 @@ namespace CatalogService.Migrations
                             Id = 103,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6938),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2402),
                             Description = "Apple iPhone 16 Pro 256GB Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5105,7 +5110,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 16 Pro 256GB Beyaz",
                             Price = 84599m,
-                            ProductCode = 364042,
+                            ProductCode = 325530,
                             Rating = 4.9m,
                             SubCategoryId = 3
                         },
@@ -5114,7 +5119,7 @@ namespace CatalogService.Migrations
                             Id = 104,
                             BrandId = 8,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6944),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2405),
                             Description = "Xiaomi 14T Pro 12GB 512GB",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5122,7 +5127,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Xiaomi 14T Pro 12GB 512GB",
                             Price = 41000m,
-                            ProductCode = 879563,
+                            ProductCode = 462475,
                             Rating = 4.5m,
                             SubCategoryId = 3
                         },
@@ -5131,7 +5136,7 @@ namespace CatalogService.Migrations
                             Id = 105,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6950),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2413),
                             Description = "Apple iPhone 16 Pro 128GB Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5139,7 +5144,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 16 Pro 128GB Beyaz",
                             Price = 78499m,
-                            ProductCode = 980314,
+                            ProductCode = 971774,
                             Rating = 4.8m,
                             SubCategoryId = 3
                         },
@@ -5148,7 +5153,7 @@ namespace CatalogService.Migrations
                             Id = 106,
                             BrandId = 13,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6956),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2415),
                             Description = "HONOR 200 512 GB 12 GB Ram Zümrüt Yeşili",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5156,7 +5161,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HONOR 200 512 GB 12 GB Ram Zümrüt Yeşili",
                             Price = 23999m,
-                            ProductCode = 685352,
+                            ProductCode = 251952,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5165,7 +5170,7 @@ namespace CatalogService.Migrations
                             Id = 107,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6963),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2422),
                             Description = "Apple iPhone 16 Pro 256GB Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5173,7 +5178,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 16 Pro 256GB Siyah",
                             Price = 88825m,
-                            ProductCode = 197893,
+                            ProductCode = 109478,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5182,7 +5187,7 @@ namespace CatalogService.Migrations
                             Id = 108,
                             BrandId = 16,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6969),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2424),
                             Description = "Xiaomi Redmi Note 13 Pro 256GB 8gb Ram Mor",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5190,7 +5195,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Xiaomi Redmi Note 13 Pro 256GB 8gb Ram Mor",
                             Price = 15999m,
-                            ProductCode = 370043,
+                            ProductCode = 336145,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5199,7 +5204,7 @@ namespace CatalogService.Migrations
                             Id = 109,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6972),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2427),
                             Description = "Samsung Galaxy S25 128 GB 12 GB Ram Lacivert",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5207,7 +5212,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S25 128 GB 12 GB Ram Lacivert",
                             Price = 45999m,
-                            ProductCode = 116702,
+                            ProductCode = 364427,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5216,7 +5221,7 @@ namespace CatalogService.Migrations
                             Id = 110,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6975),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2431),
                             Description = "Apple iPhone 16 256GB Lacivert Taş",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5224,7 +5229,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 16 256GB Lacivert Taş",
                             Price = 66999m,
-                            ProductCode = 541559,
+                            ProductCode = 716213,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5233,7 +5238,7 @@ namespace CatalogService.Migrations
                             Id = 111,
                             BrandId = 16,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6979),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2434),
                             Description = "Xiaomi Redmi Note 14 Pro Plus 5g 512 GB 12 GB Ram",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5241,7 +5246,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Xiaomi Redmi Note 14 Pro Plus 5g 512 GB 12 GB Ram",
                             Price = 27250m,
-                            ProductCode = 788108,
+                            ProductCode = 839416,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5250,7 +5255,7 @@ namespace CatalogService.Migrations
                             Id = 112,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6983),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2438),
                             Description = "Apple iPhone 16 Pro Max 512GB Natürel Titanyum",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5258,7 +5263,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 16 Pro Max 512GB Natürel Titanyum",
                             Price = 101939m,
-                            ProductCode = 472589,
+                            ProductCode = 764862,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5267,7 +5272,7 @@ namespace CatalogService.Migrations
                             Id = 113,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6990),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2442),
                             Description = "Samsung Galaxy A04S 64 GB Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5275,7 +5280,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A04S 64 GB Siyah",
                             Price = 6839m,
-                            ProductCode = 575270,
+                            ProductCode = 499463,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5284,7 +5289,7 @@ namespace CatalogService.Migrations
                             Id = 114,
                             BrandId = 16,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6994),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2449),
                             Description = "Redmi Note 14 Pro 5G 12GB 512GB",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5292,7 +5297,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Redmi Note 14 Pro 5G 12GB 512GB",
                             Price = 22500m,
-                            ProductCode = 601268,
+                            ProductCode = 463295,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5301,7 +5306,7 @@ namespace CatalogService.Migrations
                             Id = 115,
                             BrandId = 14,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(6998),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2452),
                             Description = "Nothing Phone 1 128 GB 8 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5309,7 +5314,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Nothing Phone 1 128 GB 8 GB Ram Siyah",
                             Price = 12999m,
-                            ProductCode = 535735,
+                            ProductCode = 787541,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5318,7 +5323,7 @@ namespace CatalogService.Migrations
                             Id = 116,
                             BrandId = 16,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7004),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2456),
                             Description = "Xiaomi Redmi Note 13 Pro 512GB 12GB Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5326,7 +5331,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Xiaomi Redmi Note 13 Pro 512GB 12GB Siyah",
                             Price = 18999m,
-                            ProductCode = 106175,
+                            ProductCode = 290642,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5335,7 +5340,7 @@ namespace CatalogService.Migrations
                             Id = 117,
                             BrandId = 16,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7013),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2459),
                             Description = "Xiaomi Redmi 12 128 GB 8 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5343,7 +5348,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Xiaomi Redmi 12 128 GB 8 GB Ram Siyah",
                             Price = 8190m,
-                            ProductCode = 115307,
+                            ProductCode = 194956,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5352,7 +5357,7 @@ namespace CatalogService.Migrations
                             Id = 118,
                             BrandId = 13,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7016),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2463),
                             Description = "HONOR Magic V3 512 GB 12 GB Ram Yeşil",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5360,7 +5365,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "HONOR Magic V3 512 GB 12 GB Ram Yeşil",
                             Price = 79999m,
-                            ProductCode = 284926,
+                            ProductCode = 718140,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5369,7 +5374,7 @@ namespace CatalogService.Migrations
                             Id = 119,
                             BrandId = 21,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7020),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2470),
                             Description = "Tecno Spark 30 256 GB 8 GB Ram",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5377,7 +5382,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Tecno Spark 30 256 GB 8 GB Ram",
                             Price = 9199m,
-                            ProductCode = 968474,
+                            ProductCode = 559571,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5386,7 +5391,7 @@ namespace CatalogService.Migrations
                             Id = 120,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7026),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2473),
                             Description = "Samsung Galaxy S25 Ultra 1 Tb 12 GB Ram",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5394,7 +5399,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S25 Ultra 1 Tb 12 GB Ram",
                             Price = 88999m,
-                            ProductCode = 141510,
+                            ProductCode = 475099,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5403,7 +5408,7 @@ namespace CatalogService.Migrations
                             Id = 121,
                             BrandId = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7033),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2477),
                             Description = "Apple iPhone 16 Pro 128GB Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5411,7 +5416,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Apple iPhone 16 Pro 128GB Siyah",
                             Price = 79324m,
-                            ProductCode = 889669,
+                            ProductCode = 293146,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5420,7 +5425,7 @@ namespace CatalogService.Migrations
                             Id = 122,
                             BrandId = 20,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7037),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2480),
                             Description = "Reeder P13 Blue Max L 2022 64 GB Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5428,7 +5433,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Reeder P13 Blue Max L 2022 64 GB Beyaz",
                             Price = 3399m,
-                            ProductCode = 790943,
+                            ProductCode = 728670,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5437,7 +5442,7 @@ namespace CatalogService.Migrations
                             Id = 123,
                             BrandId = 17,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7040),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2527),
                             Description = "POCO X7 12GB 512GB",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5445,7 +5450,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "POCO X7 12GB 512GB",
                             Price = 17499m,
-                            ProductCode = 576218,
+                            ProductCode = 480373,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5454,7 +5459,7 @@ namespace CatalogService.Migrations
                             Id = 124,
                             BrandId = 18,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7045),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2530),
                             Description = "Oppo A60 8GB 256GB Mavi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5462,7 +5467,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Oppo A60 8GB 256GB Mavi",
                             Price = 10199m,
-                            ProductCode = 419039,
+                            ProductCode = 168637,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5471,7 +5476,7 @@ namespace CatalogService.Migrations
                             Id = 125,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7050),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2533),
                             Description = "Samsung Galaxy A25 5G 256 GB 8 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5479,7 +5484,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy A25 5G 256 GB 8 GB Ram Siyah",
                             Price = 13250m,
-                            ProductCode = 947463,
+                            ProductCode = 650389,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5488,7 +5493,7 @@ namespace CatalogService.Migrations
                             Id = 126,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7056),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2724),
                             Description = "Samsung Galaxy S25 256 GB Lacivert",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5496,7 +5501,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Galaxy S25 256 GB Lacivert",
                             Price = 47670m,
-                            ProductCode = 905928,
+                            ProductCode = 254773,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5505,7 +5510,7 @@ namespace CatalogService.Migrations
                             Id = 127,
                             BrandId = 19,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7059),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2746),
                             Description = "Panasonic KX-TU550EXB Katlanabilir Renkli Ekran 4g Tuşlu Cep Telefonu Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5513,7 +5518,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Panasonic KX-TU550EXB Katlanabilir Renkli Ekran 4g Tuşlu Cep Telefonu Siyah",
                             Price = 4269m,
-                            ProductCode = 988561,
+                            ProductCode = 571857,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5522,7 +5527,7 @@ namespace CatalogService.Migrations
                             Id = 128,
                             BrandId = 20,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7089),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2753),
                             Description = "Reeder S19 Max Pro 256 GB 6 GB Ram Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5530,7 +5535,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Reeder S19 Max Pro 256 GB 6 GB Ram Siyah",
                             Price = 4799m,
-                            ProductCode = 265990,
+                            ProductCode = 599631,
                             Rating = 0m,
                             SubCategoryId = 3
                         },
@@ -5539,7 +5544,7 @@ namespace CatalogService.Migrations
                             Id = 129,
                             BrandId = 9,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7094),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2757),
                             Description = "Samsung B310E Cep Telefonu Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5547,7 +5552,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung B310E Cep Telefonu Beyaz",
                             Price = 1149m,
-                            ProductCode = 672987,
+                            ProductCode = 359323,
                             Rating = 3.5m,
                             SubCategoryId = 3
                         },
@@ -5556,7 +5561,7 @@ namespace CatalogService.Migrations
                             Id = 130,
                             BrandId = 22,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7099),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2773),
                             Description = "Arçelik 6167 6 Programlı Beyaz Bulaşık Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5564,7 +5569,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arçelik 6167 6 Programlı Beyaz Bulaşık Makinesi",
                             Price = 25739.01m,
-                            ProductCode = 625229,
+                            ProductCode = 139520,
                             Rating = 4.5m,
                             SubCategoryId = 4
                         },
@@ -5573,7 +5578,7 @@ namespace CatalogService.Migrations
                             Id = 131,
                             BrandId = 23,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7104),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2776),
                             Description = "Kumtel Beyaz Cam Digital / Dokunmatik Ankastre Set - 8 Programlı (KO-40 TAHDF Ocak B66-Sf2 Ddt Fırın DA6-835 Davlumbaz)",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5581,7 +5586,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kumtel Beyaz Cam Digital / Dokunmatik Ankastre Set",
                             Price = 11299m,
-                            ProductCode = 203383,
+                            ProductCode = 677343,
                             Rating = 4.1m,
                             SubCategoryId = 4
                         },
@@ -5590,7 +5595,7 @@ namespace CatalogService.Migrations
                             Id = 132,
                             BrandId = 24,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7113),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2784),
                             Description = "Regal Bm 310 3 Programlı Bulaşık Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5598,7 +5603,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Regal Bm 310 3 Programlı Bulaşık Makinesi",
                             Price = 11549m,
-                            ProductCode = 452793,
+                            ProductCode = 745864,
                             Rating = 4.6m,
                             SubCategoryId = 4
                         },
@@ -5607,7 +5612,7 @@ namespace CatalogService.Migrations
                             Id = 133,
                             BrandId = 25,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7120),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2787),
                             Description = "Profilo BM6320MA D Enerji Sınıfı 6 Programlı Bulaşık Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5615,7 +5620,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Profilo BM6320MA D Enerji Sınıfı 6 Programlı Bulaşık Makinesi",
                             Price = 15999m,
-                            ProductCode = 121976,
+                            ProductCode = 233592,
                             Rating = 4.7m,
                             SubCategoryId = 4
                         },
@@ -5624,7 +5629,7 @@ namespace CatalogService.Migrations
                             Id = 134,
                             BrandId = 26,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7124),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2791),
                             Description = "Altus AL 7103 MD 1000 Devir 7 kg Çamaşır Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5632,7 +5637,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Altus AL 7103 MD 1000 Devir 7 kg Çamaşır Makinesi",
                             Price = 12479m,
-                            ProductCode = 303183,
+                            ProductCode = 393971,
                             Rating = 4.6m,
                             SubCategoryId = 4
                         },
@@ -5641,7 +5646,7 @@ namespace CatalogService.Migrations
                             Id = 135,
                             BrandId = 26,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7128),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2794),
                             Description = "Altus AL 10123 D C Enerji 10 Kg Çamaşır Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5649,7 +5654,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Altus AL 10123 D C Enerji 10 Kg Çamaşır Makinesi",
                             Price = 17028m,
-                            ProductCode = 279796,
+                            ProductCode = 560755,
                             Rating = 4.7m,
                             SubCategoryId = 4
                         },
@@ -5658,7 +5663,7 @@ namespace CatalogService.Migrations
                             Id = 136,
                             BrandId = 27,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7135),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2803),
                             Description = "Hoover NDEH 10A2TSBE-17 10 kg Wi-Fi + Bluetooth Bağlantılı Isı Pompalı Kurutma Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5666,7 +5671,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Hoover NDEH 10A2TSBE-17 10 kg Isı Pompalı Kurutma Makinesi",
                             Price = 14999m,
-                            ProductCode = 832469,
+                            ProductCode = 112641,
                             Rating = 4.5m,
                             SubCategoryId = 4
                         },
@@ -5675,7 +5680,7 @@ namespace CatalogService.Migrations
                             Id = 137,
                             BrandId = 22,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7139),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2809),
                             Description = "Arçelik 7103 D 7 Kg 1000 Devir Çamaşır Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5683,7 +5688,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arçelik 7103 D 7 Kg 1000 Devir Çamaşır Makinesi",
                             Price = 14999m,
-                            ProductCode = 614838,
+                            ProductCode = 472320,
                             Rating = 4.5m,
                             SubCategoryId = 4
                         },
@@ -5692,7 +5697,7 @@ namespace CatalogService.Migrations
                             Id = 138,
                             BrandId = 28,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7143),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2812),
                             Description = "Uğur UES 507 D/S 3 Kapılı No-Frost Buzdolabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5700,7 +5705,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Uğur UES 507 D/S 3 Kapılı No-Frost Buzdolabı",
                             Price = 29999m,
-                            ProductCode = 569044,
+                            ProductCode = 972402,
                             Rating = 4.3m,
                             SubCategoryId = 4
                         },
@@ -5709,7 +5714,7 @@ namespace CatalogService.Migrations
                             Id = 139,
                             BrandId = 33,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7148),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2815),
                             Description = "Vestel NF480 EX A++ Siyah 453 Lt No-Frost Buzdolabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5717,7 +5722,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Vestel NF480 EX Siyah No-Frost Buzdolabı",
                             Price = 23599m,
-                            ProductCode = 743508,
+                            ProductCode = 831377,
                             Rating = 4.4m,
                             SubCategoryId = 4
                         },
@@ -5726,7 +5731,7 @@ namespace CatalogService.Migrations
                             Id = 140,
                             BrandId = 24,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7153),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2823),
                             Description = "Regal 90 LT A+ Mini Buzdolabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5734,7 +5739,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Regal 90 LT A+ Mini Buzdolabı",
                             Price = 6499m,
-                            ProductCode = 934057,
+                            ProductCode = 227178,
                             Rating = 4.6m,
                             SubCategoryId = 4
                         },
@@ -5743,7 +5748,7 @@ namespace CatalogService.Migrations
                             Id = 141,
                             BrandId = 29,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7158),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2826),
                             Description = "Arnell Ankastre Set (8665 MDOC Ankastre Fırın + 1140-CSBDF 4 Gözlü Ocak + DS3490EC / EC3490 Davlumbaz)",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5751,7 +5756,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arnell Ankastre Set",
                             Price = 13499m,
-                            ProductCode = 109153,
+                            ProductCode = 752811,
                             Rating = 4.2m,
                             SubCategoryId = 4
                         },
@@ -5760,7 +5765,7 @@ namespace CatalogService.Migrations
                             Id = 142,
                             BrandId = 30,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7162),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2829),
                             Description = "Evora 3'lü Siyah Cam Ankastre Set (EAF-6056 Fırın + EAO-8505 Ocak + EAD-9263 Davlumbaz)",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5768,7 +5773,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Evora Siyah Cam Set",
                             Price = 10990m,
-                            ProductCode = 221369,
+                            ProductCode = 473190,
                             Rating = 4.1m,
                             SubCategoryId = 4
                         },
@@ -5777,7 +5782,7 @@ namespace CatalogService.Migrations
                             Id = 143,
                             BrandId = 31,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7167),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2832),
                             Description = "Albergio AL-FO-005-E Ankastre Fırın",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5785,7 +5790,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Albergio AL-FO-005-E Ankastre Fırın",
                             Price = 5499m,
-                            ProductCode = 922929,
+                            ProductCode = 779098,
                             Rating = 4.0m,
                             SubCategoryId = 4
                         },
@@ -5794,7 +5799,7 @@ namespace CatalogService.Migrations
                             Id = 144,
                             BrandId = 32,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7170),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2835),
                             Description = "Kiwi KSW-4215 Beyaz Soğuk Su Sebili",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5802,7 +5807,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kiwi KSW-4215 Beyaz Soğuk Su Sebili",
                             Price = 1299m,
-                            ProductCode = 959367,
+                            ProductCode = 864425,
                             Rating = 3.9m,
                             SubCategoryId = 4
                         },
@@ -5811,7 +5816,7 @@ namespace CatalogService.Migrations
                             Id = 145,
                             BrandId = 33,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7175),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2840),
                             Description = "Vestel SP 100 Beyaz Soğuk Su Sebili",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5819,7 +5824,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Vestel SP 100 Beyaz Soğuk Su Sebili",
                             Price = 1499m,
-                            ProductCode = 255256,
+                            ProductCode = 690010,
                             Rating = 4.0m,
                             SubCategoryId = 4
                         },
@@ -5828,7 +5833,7 @@ namespace CatalogService.Migrations
                             Id = 146,
                             BrandId = 22,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7179),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2844),
                             Description = "Arçelik 1100 S Beyaz Su Sebili",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5836,7 +5841,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arçelik 1100 S Beyaz Su Sebili",
                             Price = 1999m,
-                            ProductCode = 598638,
+                            ProductCode = 316540,
                             Rating = 4.2m,
                             SubCategoryId = 4
                         },
@@ -5845,7 +5850,7 @@ namespace CatalogService.Migrations
                             Id = 147,
                             BrandId = 25,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7183),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2849),
                             Description = "Profilo SP 100 Sıcak/Soğuk Su Sebili",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5853,7 +5858,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Profilo SP 100 Sıcak/Soğuk Su Sebili",
                             Price = 2299m,
-                            ProductCode = 402339,
+                            ProductCode = 180745,
                             Rating = 4.3m,
                             SubCategoryId = 4
                         },
@@ -5862,7 +5867,7 @@ namespace CatalogService.Migrations
                             Id = 148,
                             BrandId = 22,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7186),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2989),
                             Description = "Arçelik 5500 BT Mini Fırın - 15 Litre",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5870,7 +5875,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arçelik 5500 BT Mini Fırın",
                             Price = 4999m,
-                            ProductCode = 217869,
+                            ProductCode = 246905,
                             Rating = 4.5m,
                             SubCategoryId = 4
                         },
@@ -5879,7 +5884,7 @@ namespace CatalogService.Migrations
                             Id = 149,
                             BrandId = 23,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7191),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(2997),
                             Description = "Kumtel KF3150 Mini Fırın - 36 Litre Beyaz",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5887,7 +5892,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kumtel KF3150 Mini Fırın",
                             Price = 2699m,
-                            ProductCode = 290573,
+                            ProductCode = 174495,
                             Rating = 4.3m,
                             SubCategoryId = 4
                         },
@@ -5896,7 +5901,7 @@ namespace CatalogService.Migrations
                             Id = 150,
                             BrandId = 33,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7196),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3005),
                             Description = "Vestel R8080 Retro Buzdolabı - Kırmızı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5904,7 +5909,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Vestel R8080 Retro Buzdolabı",
                             Price = 28900m,
-                            ProductCode = 999865,
+                            ProductCode = 727941,
                             Rating = 4.7m,
                             SubCategoryId = 4
                         },
@@ -5913,7 +5918,7 @@ namespace CatalogService.Migrations
                             Id = 151,
                             BrandId = 22,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7253),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3009),
                             Description = "Arçelik 9144 YI Ultra Hijyen 9 Kg 1400 Devir Çamaşır Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5921,7 +5926,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arçelik 9144 YI Ultra Hijyen 9 Kg Çamaşır Makinesi",
                             Price = 21950m,
-                            ProductCode = 910478,
+                            ProductCode = 583841,
                             Rating = 4.8m,
                             SubCategoryId = 4
                         },
@@ -5930,7 +5935,7 @@ namespace CatalogService.Migrations
                             Id = 152,
                             BrandId = 25,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7258),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3012),
                             Description = "Profilo CGA242X1TR A++ 9 Kg 1200 Devir Çamaşır Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5938,7 +5943,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Profilo CGA242X1TR A++ 9 Kg Çamaşır Makinesi",
                             Price = 18999m,
-                            ProductCode = 703109,
+                            ProductCode = 475133,
                             Rating = 4.5m,
                             SubCategoryId = 4
                         },
@@ -5947,7 +5952,7 @@ namespace CatalogService.Migrations
                             Id = 153,
                             BrandId = 24,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7264),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3018),
                             Description = "Regal Pratik 2000 Toz Torbasız Elektrikli Süpürge",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5955,7 +5960,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Regal Pratik 2000 Elektrikli Süpürge",
                             Price = 2999m,
-                            ProductCode = 592748,
+                            ProductCode = 443641,
                             Rating = 4.2m,
                             SubCategoryId = 4
                         },
@@ -5964,7 +5969,7 @@ namespace CatalogService.Migrations
                             Id = 154,
                             BrandId = 33,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7268),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3021),
                             Description = "Vestel BM 5201 X EKO PLUS Bulaşık Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5972,7 +5977,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Vestel EKO PLUS Bulaşık Makinesi",
                             Price = 12999m,
-                            ProductCode = 973698,
+                            ProductCode = 282006,
                             Rating = 4.3m,
                             SubCategoryId = 4
                         },
@@ -5981,7 +5986,7 @@ namespace CatalogService.Migrations
                             Id = 155,
                             BrandId = 22,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7274),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3024),
                             Description = "Arçelik K 3290 Telve Otomatik Türk Kahve Makinesi - Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -5989,7 +5994,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arçelik K 3290 Telve Türk Kahve Makinesi",
                             Price = 3299m,
-                            ProductCode = 346401,
+                            ProductCode = 665160,
                             Rating = 4.9m,
                             SubCategoryId = 4
                         },
@@ -5998,7 +6003,7 @@ namespace CatalogService.Migrations
                             Id = 156,
                             BrandId = 26,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7279),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3027),
                             Description = "Altus AL 413 E 4 Programlı Bulaşık Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6006,7 +6011,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Altus AL 413 E 4 Programlı Bulaşık Makinesi",
                             Price = 13499m,
-                            ProductCode = 649208,
+                            ProductCode = 503237,
                             Rating = 4.1m,
                             SubCategoryId = 4
                         },
@@ -6015,7 +6020,7 @@ namespace CatalogService.Migrations
                             Id = 157,
                             BrandId = 27,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7282),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3031),
                             Description = "Hoover HLWOQ 59B-S 9 Kg Çamaşır Kurutma Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6023,7 +6028,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Hoover HLWOQ 59B-S Çamaşır Kurutma Makinesi",
                             Price = 17999m,
-                            ProductCode = 564926,
+                            ProductCode = 824500,
                             Rating = 4.4m,
                             SubCategoryId = 4
                         },
@@ -6032,7 +6037,7 @@ namespace CatalogService.Migrations
                             Id = 158,
                             BrandId = 33,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7285),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3036),
                             Description = "Vestel MAYA 10100 ST 10 Kg 1000 Devir Çamaşır Makinesi",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6040,7 +6045,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Vestel MAYA 10100 ST Çamaşır Makinesi",
                             Price = 14599m,
-                            ProductCode = 451838,
+                            ProductCode = 276342,
                             Rating = 4.5m,
                             SubCategoryId = 4
                         },
@@ -6049,7 +6054,7 @@ namespace CatalogService.Migrations
                             Id = 159,
                             BrandId = 34,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7291),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3039),
                             Description = "Airfel LTXM35N 12000 BTU R32 Inverter Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6057,7 +6062,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Airfel LTXM35N 12000 BTU R32 Inverter Duvar Tipi Klima",
                             Price = 25541.01m,
-                            ProductCode = 539172,
+                            ProductCode = 353773,
                             Rating = 4.6m,
                             SubCategoryId = 5
                         },
@@ -6066,7 +6071,7 @@ namespace CatalogService.Migrations
                             Id = 160,
                             BrandId = 35,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7296),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3042),
                             Description = "Regal Luna A++ 15000 BTU Inverter Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6074,7 +6079,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Regal Luna A++ 15000 BTU Inverter Duvar Tipi Klima",
                             Price = 26499m,
-                            ProductCode = 509337,
+                            ProductCode = 552565,
                             Rating = 4.6m,
                             SubCategoryId = 5
                         },
@@ -6083,7 +6088,7 @@ namespace CatalogService.Migrations
                             Id = 161,
                             BrandId = 36,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7299),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3045),
                             Description = "Kumtel Bej Fanlı Isıtıcı 2000 W LX - 6331",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6091,7 +6096,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kumtel Bej Fanlı Isıtıcı 2000 W LX - 6331",
                             Price = 509m,
-                            ProductCode = 276274,
+                            ProductCode = 858468,
                             Rating = 4.2m,
                             SubCategoryId = 5
                         },
@@ -6100,7 +6105,7 @@ namespace CatalogService.Migrations
                             Id = 162,
                             BrandId = 37,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7303),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3056),
                             Description = "Bosch Climate CL2000U W 35 E A++ 12000 BTU Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6108,7 +6113,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Bosch Climate CL2000U W 35 E A++ 12000 BTU Duvar Tipi Klima",
                             Price = 26999m,
-                            ProductCode = 648952,
+                            ProductCode = 107948,
                             Rating = 4.4m,
                             SubCategoryId = 5
                         },
@@ -6117,7 +6122,7 @@ namespace CatalogService.Migrations
                             Id = 163,
                             BrandId = 38,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7307),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3059),
                             Description = "Kaira DTXR35E A++ 12000 BTU Wifi Inverter Duvar Tipi Klima (Montaj Dahil)",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6125,7 +6130,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kaira DTXR35E A++ 12000 BTU Wifi Inverter Duvar Tipi Klima",
                             Price = 25840m,
-                            ProductCode = 889381,
+                            ProductCode = 910837,
                             Rating = 4.4m,
                             SubCategoryId = 5
                         },
@@ -6134,7 +6139,7 @@ namespace CatalogService.Migrations
                             Id = 164,
                             BrandId = 36,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7311),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3061),
                             Description = "Kumtel Juniper Portatif Taşınabilir Klima Kmpac-7",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6142,7 +6147,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kumtel Juniper Portatif Taşınabilir Klima Kmpac-7",
                             Price = 9999m,
-                            ProductCode = 366432,
+                            ProductCode = 521307,
                             Rating = 4.3m,
                             SubCategoryId = 5
                         },
@@ -6151,7 +6156,7 @@ namespace CatalogService.Migrations
                             Id = 165,
                             BrandId = 33,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7315),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3064),
                             Description = "Vestel Flora Doğa 124 A++ Wifi 12000 BTU Inverter Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6159,7 +6164,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Vestel Flora Doğa 124 A++ Wifi 12000 BTU Inverter Duvar Tipi Klima",
                             Price = 26235m,
-                            ProductCode = 604804,
+                            ProductCode = 207471,
                             Rating = 4.6m,
                             SubCategoryId = 5
                         },
@@ -6168,7 +6173,7 @@ namespace CatalogService.Migrations
                             Id = 166,
                             BrandId = 39,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7321),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3067),
                             Description = "Xiaomi ZMYDFS01DM Şarj Edilebilir Mini Fan",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6176,7 +6181,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Xiaomi ZMYDFS01DM Şarj Edilebilir Mini Fan",
                             Price = 1889m,
-                            ProductCode = 884622,
+                            ProductCode = 520356,
                             Rating = 5m,
                             SubCategoryId = 5
                         },
@@ -6185,7 +6190,7 @@ namespace CatalogService.Migrations
                             Id = 167,
                             BrandId = 36,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7325),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3070),
                             Description = "Kumtel LX-2832 Siyah 1500 Watt Isıtıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6193,7 +6198,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kumtel LX-2832 Siyah 1500 Watt Isıtıcı",
                             Price = 549m,
-                            ProductCode = 627871,
+                            ProductCode = 342593,
                             Rating = 4.5m,
                             SubCategoryId = 5
                         },
@@ -6202,7 +6207,7 @@ namespace CatalogService.Migrations
                             Id = 168,
                             BrandId = 40,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7329),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3076),
                             Description = "Mirkraft Future 2500 Watt Elektrikli Isıtıcı - IP24 - LCD Ekran - Uzaktan Kumandalı - 4 Isı Ayarı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6210,7 +6215,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Mirkraft Future 2500 Watt Elektrikli Isıtıcı",
                             Price = 5559.66m,
-                            ProductCode = 403354,
+                            ProductCode = 662709,
                             Rating = 5m,
                             SubCategoryId = 5
                         },
@@ -6219,7 +6224,7 @@ namespace CatalogService.Migrations
                             Id = 169,
                             BrandId = 41,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7333),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3079),
                             Description = "Samsung Premium AR18TSHZHWK A++ 18000 BTU Inverter Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6227,7 +6232,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Samsung Premium AR18TSHZHWK A++ 18000 BTU Inverter Duvar Tipi Klima",
                             Price = 38599m,
-                            ProductCode = 788080,
+                            ProductCode = 188134,
                             Rating = 4.4m,
                             SubCategoryId = 5
                         },
@@ -6236,7 +6241,7 @@ namespace CatalogService.Migrations
                             Id = 170,
                             BrandId = 42,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7339),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3086),
                             Description = "Arnell Elektrikli Isıtıcı Quartz Ev Ve Ofis Oda Tipi 3+1 Çubuklu Güvenli Elektrikli Soba - 2600 Watt",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6244,7 +6249,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arnell Elektrikli Isıtıcı Quartz",
                             Price = 2218.63m,
-                            ProductCode = 683995,
+                            ProductCode = 415545,
                             Rating = 3m,
                             SubCategoryId = 5
                         },
@@ -6253,7 +6258,7 @@ namespace CatalogService.Migrations
                             Id = 171,
                             BrandId = 36,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7344),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3090),
                             Description = "Kumtel Ks-2760 Quartz Isıtıcı Siyah",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6261,7 +6266,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kumtel Ks-2760 Quartz Isıtıcı Siyah",
                             Price = 999m,
-                            ProductCode = 392946,
+                            ProductCode = 849245,
                             Rating = 4.1m,
                             SubCategoryId = 5
                         },
@@ -6270,7 +6275,7 @@ namespace CatalogService.Migrations
                             Id = 172,
                             BrandId = 43,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7350),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3094),
                             Description = "Zeeful Süper Güç Üfleyici Mini Turbo Jet Fan 130000RPM 52+M/s 4000MAH (Yurt Dışından)",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6278,7 +6283,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Zeeful Süper Güç Üfleyici Mini Turbo Jet Fan",
                             Price = 1750.32m,
-                            ProductCode = 374785,
+                            ProductCode = 403451,
                             Rating = 4.5m,
                             SubCategoryId = 5
                         },
@@ -6287,7 +6292,7 @@ namespace CatalogService.Migrations
                             Id = 173,
                             BrandId = 44,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7355),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3099),
                             Description = "Beko 31225 Ekolojik A++ 12000 BTU Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6295,7 +6300,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Beko 31225 Ekolojik A++ 12000 BTU Duvar Tipi Klima",
                             Price = 27754.65m,
-                            ProductCode = 309938,
+                            ProductCode = 823158,
                             Rating = 4.6m,
                             SubCategoryId = 5
                         },
@@ -6304,7 +6309,7 @@ namespace CatalogService.Migrations
                             Id = 174,
                             BrandId = 33,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7359),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3103),
                             Description = "Vestel Flora Doğa 244 A++ 24000 BTU Wifi Inverter Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6312,7 +6317,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Vestel Flora Doğa 244 A++ 24000 BTU Wifi Inverter Duvar Tipi Klima",
                             Price = 42362.10m,
-                            ProductCode = 917519,
+                            ProductCode = 559900,
                             Rating = 4.4m,
                             SubCategoryId = 5
                         },
@@ -6321,7 +6326,7 @@ namespace CatalogService.Migrations
                             Id = 175,
                             BrandId = 45,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7365),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3110),
                             Description = "Arçelik Ekolojik 18325 A++ 18000 BTU Inverter Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6329,7 +6334,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arçelik Ekolojik 18325 A++ 18000 BTU Inverter Duvar Tipi Klima",
                             Price = 39897m,
-                            ProductCode = 433920,
+                            ProductCode = 673545,
                             Rating = 4.4m,
                             SubCategoryId = 5
                         },
@@ -6338,7 +6343,7 @@ namespace CatalogService.Migrations
                             Id = 176,
                             BrandId = 42,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7368),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3118),
                             Description = "Arnell Elektrikli Isıtıcı Duvar Tip Soba 3000 Watt",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6346,7 +6351,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Arnell Elektrikli Isıtıcı Duvar Tip Soba",
                             Price = 1431.06m,
-                            ProductCode = 410127,
+                            ProductCode = 113666,
                             Rating = 4.8m,
                             SubCategoryId = 5
                         },
@@ -6355,7 +6360,7 @@ namespace CatalogService.Migrations
                             Id = 177,
                             BrandId = 46,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7372),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3121),
                             Description = "Baymak Elegant Plus UV 18 A++ (Montaj Dahil) 18000 BTU Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6363,7 +6368,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Baymak Elegant Plus UV 18 A++ 18000 BTU Duvar Tipi Klima",
                             Price = 44989m,
-                            ProductCode = 990025,
+                            ProductCode = 261277,
                             Rating = 4.4m,
                             SubCategoryId = 5
                         },
@@ -6372,7 +6377,7 @@ namespace CatalogService.Migrations
                             Id = 178,
                             BrandId = 47,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7377),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3124),
                             Description = "FujiPlus Fujiplus Sakura 12000 Btu Inverter Duvar Tipi Klima",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6380,7 +6385,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "FujiPlus Sakura 12000 Btu Inverter Duvar Tipi Klima",
                             Price = 22777.03m,
-                            ProductCode = 918662,
+                            ProductCode = 270858,
                             Rating = 3.9m,
                             SubCategoryId = 5
                         },
@@ -6389,7 +6394,7 @@ namespace CatalogService.Migrations
                             Id = 179,
                             BrandId = 46,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7381),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3128),
                             Description = "Baymak Aqua Konfor 65 Litre Termosifon",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6397,7 +6402,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Baymak Aqua Konfor 65 Litre Termosifon",
                             Price = 8439m,
-                            ProductCode = 766314,
+                            ProductCode = 471389,
                             Rating = 4.5m,
                             SubCategoryId = 5
                         },
@@ -6406,7 +6411,7 @@ namespace CatalogService.Migrations
                             Id = 180,
                             BrandId = 36,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7389),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3134),
                             Description = "Kumtel Ecoray Ex-25 2500 Watt Duvar Tipi Infrared Isıtıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6414,7 +6419,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kumtel Ecoray Ex-25 2500 Watt Duvar Tipi Infrared Isıtıcı",
                             Price = 886.05m,
-                            ProductCode = 135662,
+                            ProductCode = 671539,
                             Rating = 4.3m,
                             SubCategoryId = 5
                         },
@@ -6423,7 +6428,7 @@ namespace CatalogService.Migrations
                             Id = 181,
                             BrandId = 48,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7392),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3319),
                             Description = "UFO Ufo Star 2400 W Duvar Tipi Isıtıcı - Termostatlı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6431,7 +6436,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "UFO Ufo Star 2400 W Duvar Tipi Isıtıcı",
                             Price = 4190m,
-                            ProductCode = 580985,
+                            ProductCode = 976469,
                             Rating = 4.5m,
                             SubCategoryId = 5
                         },
@@ -6440,7 +6445,7 @@ namespace CatalogService.Migrations
                             Id = 182,
                             BrandId = 49,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7397),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3322),
                             Description = "Abbruch Şarj Edilebilir Taşınabilir Ipli Mini El Fanı Üç Kademe Hızlı Güçlü Soğutucu Pervane Vantilatör",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6448,7 +6453,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Abbruch Şarj Edilebilir Taşınabilir Mini El Fanı",
                             Price = 289.90m,
-                            ProductCode = 715144,
+                            ProductCode = 348392,
                             Rating = 4.5m,
                             SubCategoryId = 5
                         },
@@ -6457,7 +6462,7 @@ namespace CatalogService.Migrations
                             Id = 183,
                             BrandId = 50,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7401),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3331),
                             Description = "Sinbo SF-6783 Vantilatör",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6465,7 +6470,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Sinbo SF-6783 Vantilatör",
                             Price = 1200m,
-                            ProductCode = 797604,
+                            ProductCode = 838516,
                             Rating = 3.4m,
                             SubCategoryId = 5
                         },
@@ -6474,7 +6479,7 @@ namespace CatalogService.Migrations
                             Id = 184,
                             BrandId = 44,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7406),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3334),
                             Description = "Beko 31650 Vantilatör uzaktan kumandalı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6482,7 +6487,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Beko 31650 Vantilatör",
                             Price = 3259m,
-                            ProductCode = 724962,
+                            ProductCode = 358623,
                             Rating = 4.6m,
                             SubCategoryId = 5
                         },
@@ -6491,7 +6496,7 @@ namespace CatalogService.Migrations
                             Id = 185,
                             BrandId = 48,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7491),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3337),
                             Description = "UFO Ufo Micatronic 1900 W Kule Tipi Isıtıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6499,7 +6504,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "UFO Ufo Micatronic 1900 W Kule Tipi Isıtıcı",
                             Price = 4390m,
-                            ProductCode = 242155,
+                            ProductCode = 675865,
                             Rating = 4.4m,
                             SubCategoryId = 5
                         },
@@ -6508,7 +6513,7 @@ namespace CatalogService.Migrations
                             Id = 186,
                             BrandId = 48,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7496),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3340),
                             Description = "UFO Omri 1200 W Termostatlı Hem Yatay Hem Dikey Isıtıcı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6516,7 +6521,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "UFO Omri 1200 W Termostatlı Isıtıcı",
                             Price = 3400m,
-                            ProductCode = 401187,
+                            ProductCode = 590474,
                             Rating = 3.9m,
                             SubCategoryId = 5
                         },
@@ -6525,7 +6530,7 @@ namespace CatalogService.Migrations
                             Id = 187,
                             BrandId = 38,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7502),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3343),
                             Description = "Kaira DTXR71E A++ 24000 BTU Inverter Duvar Tipi Klima (Montaj Dahil)",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6533,7 +6538,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Kaira DTXR71E A++ 24000 BTU Inverter Duvar Tipi Klima",
                             Price = 45250.40m,
-                            ProductCode = 463553,
+                            ProductCode = 632514,
                             Rating = 4m,
                             SubCategoryId = 5
                         },
@@ -6542,7 +6547,7 @@ namespace CatalogService.Migrations
                             Id = 188,
                             BrandId = 46,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7506),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3349),
                             Description = "Baymak Duo Tec Compact Premix 24 kw Yoğuşmalı Kombi (Baca Dahil)",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6550,7 +6555,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Baymak Duo Tec Compact Premix 24 kw Yoğuşmalı Kombi",
                             Price = 27400m,
-                            ProductCode = 145725,
+                            ProductCode = 968617,
                             Rating = 4.6m,
                             SubCategoryId = 5
                         },
@@ -6559,7 +6564,7 @@ namespace CatalogService.Migrations
                             Id = 189,
                             BrandId = 48,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7512),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3352),
                             Description = "UFO ISITICI STAR S/19 1900 W",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6567,7 +6572,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "UFO ISITICI STAR S/19 1900 W",
                             Price = 3690m,
-                            ProductCode = 318503,
+                            ProductCode = 750093,
                             Rating = 4.4m,
                             SubCategoryId = 5
                         },
@@ -6576,7 +6581,7 @@ namespace CatalogService.Migrations
                             Id = 190,
                             BrandId = 51,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7517),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3354),
                             Description = "Magiceham Lilo Stitch Peluş Sıcak Su Isıtıcısı - Lacivert (Yurt Dışından)",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6584,7 +6589,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Magiceham Lilo Stitch Peluş Sıcak Su Isıtıcısı",
                             Price = 528.45m,
-                            ProductCode = 611585,
+                            ProductCode = 319006,
                             Rating = 4.6m,
                             SubCategoryId = 5
                         },
@@ -6593,7 +6598,7 @@ namespace CatalogService.Migrations
                             Id = 191,
                             BrandId = 64,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7524),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3357),
                             Description = "Xnews A Üstü USB Fan Soğutucu Vantilatör Klima USB Girişli Metal Serinlci Fan Mini Vantilatör Fan Klima Fan",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6601,7 +6606,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Xnews A Üstü USB Fan Soğutucu",
                             Price = 269.90m,
-                            ProductCode = 597719,
+                            ProductCode = 819040,
                             Rating = 5m,
                             SubCategoryId = 5
                         },
@@ -6610,7 +6615,7 @@ namespace CatalogService.Migrations
                             Id = 192,
                             BrandId = 65,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7527),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3361),
                             Description = "Lacoste Sport Court-Master Pro Erkek Siyah Sneaker 744SMA0084 02H",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6618,7 +6623,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lacoste Sport Court-Master Pro Erkek Siyah Sneaker 744SMA0084 02H",
                             Price = 3239.10m,
-                            ProductCode = 347479,
+                            ProductCode = 558295,
                             Rating = 4.9m,
                             SubCategoryId = 6
                         },
@@ -6627,7 +6632,7 @@ namespace CatalogService.Migrations
                             Id = 193,
                             BrandId = 66,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7534),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3363),
                             Description = "Letoon 2104 Günlük Unisex Spor Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6635,7 +6640,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Letoon 2104 Günlük Unisex Spor Ayakkabı",
                             Price = 564m,
-                            ProductCode = 611752,
+                            ProductCode = 646124,
                             Rating = 4.2m,
                             SubCategoryId = 6
                         },
@@ -6644,7 +6649,7 @@ namespace CatalogService.Migrations
                             Id = 194,
                             BrandId = 67,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7539),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3372),
                             Description = "Derilax Hakiki Deri Tam Ortopedik Erkek Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6652,7 +6657,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Derilax Hakiki Deri Tam Ortopedik Erkek Ayakkabı",
                             Price = 1200m,
-                            ProductCode = 341045,
+                            ProductCode = 864270,
                             Rating = 4.6m,
                             SubCategoryId = 6
                         },
@@ -6661,7 +6666,7 @@ namespace CatalogService.Migrations
                             Id = 195,
                             BrandId = 68,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7543),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3376),
                             Description = "Hotiç Hakiki Deri Siyah Erkek Günlük Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6669,7 +6674,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Hotiç Hakiki Deri Siyah Erkek Günlük Ayakkabı",
                             Price = 1679.40m,
-                            ProductCode = 821415,
+                            ProductCode = 783776,
                             Rating = 4.1m,
                             SubCategoryId = 6
                         },
@@ -6678,7 +6683,7 @@ namespace CatalogService.Migrations
                             Id = 196,
                             BrandId = 69,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7548),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3379),
                             Description = "Ispartalılar 7575 Ortopedik Taban Yumuşak Hakiki Deri Mevsimlik Kışlık Erkek Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6686,7 +6691,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Ispartalılar 7575 Ortopedik Taban Yumuşak Hakiki Deri Mevsimlik Kışlık Erkek Ayakkabı",
                             Price = 670.65m,
-                            ProductCode = 990472,
+                            ProductCode = 915856,
                             Rating = 4m,
                             SubCategoryId = 6
                         },
@@ -6695,7 +6700,7 @@ namespace CatalogService.Migrations
                             Id = 197,
                             BrandId = 70,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7552),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3382),
                             Description = "Under Armour Çocuk Ua Bgs Charged Rogue 4 Koşu Ayakkabısı 3027106-400",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6703,7 +6708,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Under Armour Çocuk Ua Bgs Charged Rogue 4 Koşu Ayakkabısı 3027106-400",
                             Price = 2090m,
-                            ProductCode = 788476,
+                            ProductCode = 282884,
                             Rating = 5m,
                             SubCategoryId = 6
                         },
@@ -6712,7 +6717,7 @@ namespace CatalogService.Migrations
                             Id = 198,
                             BrandId = 69,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7558),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3387),
                             Description = "Ispartalılar 502 Ortopedik Topuk Masajlı Hakiki Deri Kışlık Erkek Ayakkabı Bağcıklı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6720,7 +6725,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Ispartalılar 502 Ortopedik Topuk Masajlı Hakiki Deri Kışlık Erkek Ayakkabı Bağcıklı",
                             Price = 679.15m,
-                            ProductCode = 912107,
+                            ProductCode = 323195,
                             Rating = 4m,
                             SubCategoryId = 6
                         },
@@ -6729,7 +6734,7 @@ namespace CatalogService.Migrations
                             Id = 199,
                             BrandId = 71,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7565),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3390),
                             Description = "Muggo Samuel Garantili Günlük Klasik Deri Casual Rahat Ortopedik Kalın Taban Erkek Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6737,7 +6742,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Muggo Samuel Garantili Günlük Klasik Deri Casual Rahat Ortopedik Kalın Taban Erkek Ayakkabı",
                             Price = 899.90m,
-                            ProductCode = 280071,
+                            ProductCode = 307489,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6746,7 +6751,7 @@ namespace CatalogService.Migrations
                             Id = 200,
                             BrandId = 72,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7575),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3393),
                             Description = "Tomiross Erkek Atlanta Günlük Kullanım Sneaker Ayakkabı ATLNT-5025",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6754,7 +6759,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Tomiross Erkek Atlanta Günlük Kullanım Sneaker Ayakkabı ATLNT-5025",
                             Price = 699.90m,
-                            ProductCode = 616342,
+                            ProductCode = 843757,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6763,7 +6768,7 @@ namespace CatalogService.Migrations
                             Id = 201,
                             BrandId = 73,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7578),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3395),
                             Description = "Yaya By Hotic 02ayy296160a100 Siyah Erkek Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6771,7 +6776,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Yaya By Hotic 02ayy296160a100 Siyah Erkek Ayakkabı",
                             Price = 899.90m,
-                            ProductCode = 828435,
+                            ProductCode = 624226,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6780,7 +6785,7 @@ namespace CatalogService.Migrations
                             Id = 202,
                             BrandId = 74,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7583),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3398),
                             Description = "Hotic Hakiki Deri Lacivert Erkek Günlük Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6788,7 +6793,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Hotic Hakiki Deri Lacivert Erkek Günlük Ayakkabı",
                             Price = 799.90m,
-                            ProductCode = 147060,
+                            ProductCode = 145279,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6797,7 +6802,7 @@ namespace CatalogService.Migrations
                             Id = 203,
                             BrandId = 75,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7593),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3401),
                             Description = "Derilax Deri Tam Ortopedik Erkek Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6805,7 +6810,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Derilax Deri Tam Ortopedik Erkek Ayakkabı",
                             Price = 699.90m,
-                            ProductCode = 354273,
+                            ProductCode = 688000,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6814,7 +6819,7 @@ namespace CatalogService.Migrations
                             Id = 204,
                             BrandId = 76,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7596),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3407),
                             Description = "Ispartalılar 909 Tam Ortopedik Taban Hakiki Deri Erkek Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6822,7 +6827,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Ispartalılar 909 Tam Ortopedik Taban Hakiki Deri Erkek Ayakkabı",
                             Price = 599.90m,
-                            ProductCode = 256215,
+                            ProductCode = 797644,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6831,7 +6836,7 @@ namespace CatalogService.Migrations
                             Id = 205,
                             BrandId = 77,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7600),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3410),
                             Description = "Selin Soylu Hakiki Deri Erkek Ayakkabı Kışlık Günlük Ayakkabı",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6839,7 +6844,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Selin Soylu Hakiki Deri Erkek Ayakkabı Kışlık Günlük Ayakkabı",
                             Price = 499.90m,
-                            ProductCode = 848384,
+                            ProductCode = 355607,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6848,7 +6853,7 @@ namespace CatalogService.Migrations
                             Id = 206,
                             BrandId = 78,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7604),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3413),
                             Description = "Sebago Nubuk Koyu Kahve Siyah Erkek Günlük Ayakkabı 7111m5w",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6856,7 +6861,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Sebago Nubuk Koyu Kahve Siyah Erkek Günlük Ayakkabı 7111m5w",
                             Price = 399.90m,
-                            ProductCode = 194752,
+                            ProductCode = 963160,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6865,7 +6870,7 @@ namespace CatalogService.Migrations
                             Id = 207,
                             BrandId = 79,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7609),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3417),
                             Description = "Lumberjack 4m Navigator 4fx",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6873,7 +6878,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Lumberjack 4m Navigator 4fx",
                             Price = 299.90m,
-                            ProductCode = 222143,
+                            ProductCode = 779378,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6882,7 +6887,7 @@ namespace CatalogService.Migrations
                             Id = 208,
                             BrandId = 78,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7615),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3420),
                             Description = "Sebago Deri Lacivert Erkek Günlük Ayakkabı 70004z0",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6890,7 +6895,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Sebago Deri Lacivert Erkek Günlük Ayakkabı 70004z0",
                             Price = 199.90m,
-                            ProductCode = 590258,
+                            ProductCode = 895103,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         },
@@ -6899,7 +6904,7 @@ namespace CatalogService.Migrations
                             Id = 209,
                             BrandId = 80,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(7619),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(3427),
                             Description = "Dakirs Yazlık Erkek Keten Günlük Rahat Hafif Bağcıklı Spor Ayakkabı 40-44",
                             DiscountPrice = 0m,
                             HasDiscount = false,
@@ -6907,7 +6912,7 @@ namespace CatalogService.Migrations
                             IsDeleted = false,
                             Name = "Dakirs Yazlık Erkek Keten Günlük Rahat Hafif Bağcıklı Spor Ayakkabı 40-44",
                             Price = 99.90m,
-                            ProductCode = 548767,
+                            ProductCode = 698882,
                             Rating = 4.5m,
                             SubCategoryId = 6
                         });
@@ -6966,7 +6971,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(6366),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(8706),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -6977,7 +6982,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(6373),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(8708),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -6988,7 +6993,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(6374),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(8709),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -6999,7 +7004,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(6375),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(8744),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -7010,7 +7015,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(6378),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(8746),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -7021,7 +7026,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(6383),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(8748),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -7032,7 +7037,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(6389),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(8752),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -7043,7 +7048,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(6392),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(8754),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 1,
@@ -7054,7 +7059,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(7589),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(9508),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -7065,7 +7070,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(7593),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(9538),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -7076,7 +7081,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(7594),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(9539),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -7087,7 +7092,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(7595),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(9540),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -7098,7 +7103,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(7598),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(9541),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -7109,7 +7114,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(7632),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(9542),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -7120,7 +7125,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(7635),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(9543),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -7131,7 +7136,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(7638),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(9544),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 2,
@@ -7142,7 +7147,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(8532),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(247),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -7153,7 +7158,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(8533),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(248),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -7164,7 +7169,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(8534),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(249),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -7175,7 +7180,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(8535),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(249),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -7186,7 +7191,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(8556),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(250),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -7197,7 +7202,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(8558),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(250),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -7208,7 +7213,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(8559),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(251),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -7219,7 +7224,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(8561),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(252),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 3,
@@ -7230,7 +7235,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(9454),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(849),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -7241,7 +7246,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(9455),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(850),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -7252,7 +7257,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(9456),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(851),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -7263,7 +7268,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(9486),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(851),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -7274,7 +7279,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(9489),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(852),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -7285,7 +7290,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(9491),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(853),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -7296,7 +7301,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(9493),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(853),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -7307,7 +7312,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(9496),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(854),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 4,
@@ -7318,7 +7323,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(598),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(1742),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -7329,7 +7334,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(629),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(1744),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -7340,7 +7345,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(630),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(1744),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -7351,7 +7356,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(631),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(1744),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -7362,7 +7367,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(633),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(1746),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -7373,7 +7378,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(635),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(1748),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -7384,7 +7389,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(637),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(1749),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -7395,7 +7400,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(639),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(1751),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 5,
@@ -7406,7 +7411,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(1691),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(2463),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -7417,7 +7422,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(1692),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(2464),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -7428,7 +7433,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(1693),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(2464),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -7439,7 +7444,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(1694),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(2465),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -7450,7 +7455,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(1695),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(2466),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -7461,7 +7466,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(1696),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(2466),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -7472,7 +7477,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(1697),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(2467),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -7483,7 +7488,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(1699),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(2468),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 6,
@@ -7494,7 +7499,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(2746),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3092),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -7505,7 +7510,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(2747),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3092),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -7516,7 +7521,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(2748),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3093),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -7527,7 +7532,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(2749),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3093),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -7538,7 +7543,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(2751),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3094),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -7549,7 +7554,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 54,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(2753),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3095),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -7560,7 +7565,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 55,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(2755),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3095),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -7571,7 +7576,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 56,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(2758),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3096),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 7,
@@ -7582,7 +7587,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 57,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(3781),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3801),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -7593,7 +7598,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 58,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(3783),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3801),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -7604,7 +7609,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 59,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(3784),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3802),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -7615,7 +7620,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 60,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(3785),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3802),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -7626,7 +7631,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 61,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(3787),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3803),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -7637,7 +7642,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 62,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(3789),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3804),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -7648,7 +7653,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 63,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(3790),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3805),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -7659,7 +7664,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 64,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(3792),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(3805),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 8,
@@ -7670,7 +7675,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 65,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(4937),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4381),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -7681,7 +7686,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 66,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(4941),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4382),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -7692,7 +7697,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 67,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(4942),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4382),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -7703,7 +7708,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 68,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(4943),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4382),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -7714,7 +7719,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 69,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(4945),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4383),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -7725,7 +7730,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 70,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(4947),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4384),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -7736,7 +7741,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 71,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(4949),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4385),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -7747,7 +7752,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 72,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(4951),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4386),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 9,
@@ -7758,7 +7763,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 73,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(6015),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4940),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -7769,7 +7774,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 74,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(6016),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4941),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -7780,7 +7785,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 75,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(6017),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4941),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -7791,7 +7796,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 76,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(6017),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4942),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -7802,7 +7807,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 77,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(6019),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4942),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -7813,7 +7818,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 78,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(6021),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4943),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -7824,7 +7829,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 79,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(6025),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4944),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -7835,7 +7840,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 80,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(6027),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(4944),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 10,
@@ -7846,7 +7851,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 81,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(9332),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(5485),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 11,
@@ -7857,7 +7862,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 82,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(9334),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(5485),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 11,
@@ -7868,7 +7873,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 83,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(9335),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(5486),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 11,
@@ -7879,7 +7884,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 84,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(9335),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(5486),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 11,
@@ -7890,7 +7895,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 85,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(9338),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(5487),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 11,
@@ -7901,7 +7906,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 86,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(9341),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(5488),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 11,
@@ -7912,7 +7917,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 87,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(9348),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(5488),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 11,
@@ -7923,7 +7928,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 88,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 304, DateTimeKind.Local).AddTicks(9350),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(5489),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 11,
@@ -7934,7 +7939,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 89,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(644),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6017),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 12,
@@ -7945,7 +7950,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 90,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(645),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6017),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 12,
@@ -7956,7 +7961,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 91,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(647),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6018),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 12,
@@ -7967,7 +7972,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 92,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(647),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6018),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 12,
@@ -7978,7 +7983,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 93,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(649),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6019),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 12,
@@ -7989,7 +7994,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 94,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(651),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6019),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 12,
@@ -8000,7 +8005,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 95,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(653),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6020),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 12,
@@ -8011,7 +8016,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 96,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(655),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6021),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 12,
@@ -8022,7 +8027,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 97,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(1677),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6744),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 13,
@@ -8033,7 +8038,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 98,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(1678),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6745),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 13,
@@ -8044,7 +8049,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 99,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(1678),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6745),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 13,
@@ -8055,7 +8060,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 100,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(1679),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6745),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 13,
@@ -8066,7 +8071,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 101,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(1681),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6746),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 13,
@@ -8077,7 +8082,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 102,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(1683),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6747),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 13,
@@ -8088,7 +8093,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 103,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(1685),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6747),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 13,
@@ -8099,7 +8104,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 104,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(1687),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(6748),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 13,
@@ -8110,7 +8115,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 105,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(2857),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7341),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 14,
@@ -8121,7 +8126,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 106,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(2858),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7341),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 14,
@@ -8132,7 +8137,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 107,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(2858),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7342),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 14,
@@ -8143,7 +8148,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 108,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(2859),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7342),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 14,
@@ -8154,7 +8159,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 109,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(2860),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7343),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 14,
@@ -8165,7 +8170,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 110,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(2862),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7343),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 14,
@@ -8176,7 +8181,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 111,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(2864),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7344),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 14,
@@ -8187,7 +8192,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 112,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(2866),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7345),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 14,
@@ -8198,7 +8203,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 113,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(4087),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7906),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 15,
@@ -8209,7 +8214,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 114,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(4088),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7907),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 15,
@@ -8220,7 +8225,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 115,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(4088),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7907),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 15,
@@ -8231,7 +8236,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 116,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(4089),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7908),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 15,
@@ -8242,7 +8247,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 117,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(4091),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7909),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 15,
@@ -8253,7 +8258,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 118,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(4093),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7909),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 15,
@@ -8264,7 +8269,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 119,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(4095),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7910),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 15,
@@ -8275,7 +8280,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 120,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(4096),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(7911),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 15,
@@ -8286,7 +8291,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 121,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5114),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(8489),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 16,
@@ -8297,7 +8302,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 122,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5115),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(8490),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 16,
@@ -8308,7 +8313,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 123,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5116),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(8490),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 16,
@@ -8319,7 +8324,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 124,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5116),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(8490),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 16,
@@ -8330,7 +8335,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 125,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5118),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(8491),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 16,
@@ -8341,7 +8346,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 126,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5120),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(8492),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 16,
@@ -8352,7 +8357,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 127,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5122),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(8492),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 16,
@@ -8363,7 +8368,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 128,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5124),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(8493),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 16,
@@ -8374,7 +8379,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 129,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5883),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9036),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 17,
@@ -8385,7 +8390,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 130,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5889),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9038),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 17,
@@ -8396,7 +8401,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 131,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5889),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9038),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 17,
@@ -8407,7 +8412,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 132,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5890),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9039),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 17,
@@ -8418,7 +8423,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 133,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5892),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9039),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 17,
@@ -8429,7 +8434,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 134,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5893),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9040),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 17,
@@ -8440,7 +8445,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 135,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5895),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9041),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 17,
@@ -8451,7 +8456,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 136,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(5897),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9041),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 17,
@@ -8462,7 +8467,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 137,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(6737),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9568),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 18,
@@ -8473,7 +8478,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 138,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(6738),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9568),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 18,
@@ -8484,7 +8489,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 139,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(6739),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9568),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 18,
@@ -8495,7 +8500,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 140,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(6739),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9569),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 18,
@@ -8506,7 +8511,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 141,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(6741),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9570),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 18,
@@ -8517,7 +8522,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 142,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(6743),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9570),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 18,
@@ -8528,7 +8533,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 143,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(6744),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9602),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 18,
@@ -8539,7 +8544,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 144,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(6746),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 423, DateTimeKind.Local).AddTicks(9603),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 18,
@@ -8550,7 +8555,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 145,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(7485),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(118),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 19,
@@ -8561,7 +8566,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 146,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(7485),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(118),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 19,
@@ -8572,7 +8577,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 147,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(7486),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(119),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 19,
@@ -8583,7 +8588,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 148,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(7486),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(119),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 19,
@@ -8594,7 +8599,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 149,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(7487),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(120),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 19,
@@ -8605,7 +8610,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 150,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(7488),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(121),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 19,
@@ -8616,7 +8621,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 151,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(7489),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(121),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 19,
@@ -8627,7 +8632,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 152,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(7490),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(139),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 19,
@@ -8638,7 +8643,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 153,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8099),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(649),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 20,
@@ -8649,7 +8654,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 154,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8100),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(650),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 20,
@@ -8660,7 +8665,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 155,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8100),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(650),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 20,
@@ -8671,7 +8676,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 156,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8101),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(650),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 20,
@@ -8682,7 +8687,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 157,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8102),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(651),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 20,
@@ -8693,7 +8698,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 158,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8103),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(652),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 20,
@@ -8704,7 +8709,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 159,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8104),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(682),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 20,
@@ -8715,7 +8720,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 160,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8104),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(683),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 20,
@@ -8726,7 +8731,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 161,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8785),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(1593),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 21,
@@ -8737,7 +8742,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 162,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8786),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(1594),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 21,
@@ -8748,7 +8753,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 163,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8786),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(1594),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 21,
@@ -8759,7 +8764,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 164,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8787),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(1595),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 21,
@@ -8770,7 +8775,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 165,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8788),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(1596),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 21,
@@ -8781,7 +8786,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 166,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8789),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(1629),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 21,
@@ -8792,7 +8797,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 167,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8789),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(1632),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 21,
@@ -8803,7 +8808,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 168,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(8790),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(1634),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 21,
@@ -8814,7 +8819,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 169,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9324),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2354),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 22,
@@ -8825,7 +8830,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 170,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9324),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2355),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 22,
@@ -8836,7 +8841,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 171,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9325),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2355),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 22,
@@ -8847,7 +8852,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 172,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9325),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2356),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 22,
@@ -8858,7 +8863,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 173,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9327),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2384),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 22,
@@ -8869,7 +8874,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 174,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9327),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2385),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 22,
@@ -8880,7 +8885,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 175,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9328),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2387),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 22,
@@ -8891,7 +8896,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 176,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9329),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2388),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 22,
@@ -8902,7 +8907,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 177,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9909),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2957),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 23,
@@ -8913,7 +8918,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 178,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9910),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2957),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 23,
@@ -8924,7 +8929,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 179,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9910),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2957),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 23,
@@ -8935,7 +8940,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 180,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9911),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2996),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 23,
@@ -8946,7 +8951,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 181,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9913),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2997),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 23,
@@ -8957,7 +8962,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 182,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9915),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2997),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 23,
@@ -8968,7 +8973,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 183,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9916),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2998),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 23,
@@ -8979,7 +8984,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 184,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 305, DateTimeKind.Local).AddTicks(9918),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(2999),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 23,
@@ -8990,7 +8995,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 185,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(860),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(3517),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 24,
@@ -9001,7 +9006,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 186,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(860),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(3517),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 24,
@@ -9012,7 +9017,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 187,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(861),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(3553),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 24,
@@ -9023,7 +9028,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 188,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(862),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(3553),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 24,
@@ -9034,7 +9039,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 189,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(863),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(3554),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 24,
@@ -9045,7 +9050,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 190,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(864),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(3555),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 24,
@@ -9056,7 +9061,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 191,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(864),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(3556),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 24,
@@ -9067,7 +9072,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 192,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(865),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(3557),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 24,
@@ -9078,7 +9083,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 193,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(1452),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4149),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 25,
@@ -9089,7 +9094,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 194,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(1452),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4150),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 25,
@@ -9100,7 +9105,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 195,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(1453),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4151),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 25,
@@ -9111,7 +9116,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 196,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(1453),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4152),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 25,
@@ -9122,7 +9127,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 197,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(1454),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4153),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 25,
@@ -9133,7 +9138,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 198,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(1455),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4154),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 25,
@@ -9144,7 +9149,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 199,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(1456),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4155),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 25,
@@ -9155,7 +9160,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 200,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(1456),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4155),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 25,
@@ -9166,7 +9171,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 201,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2205),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4671),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 26,
@@ -9177,7 +9182,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 202,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2206),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4672),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 26,
@@ -9188,7 +9193,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 203,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2206),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4673),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 26,
@@ -9199,7 +9204,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 204,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2207),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4674),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 26,
@@ -9210,7 +9215,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 205,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2208),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4674),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 26,
@@ -9221,7 +9226,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 206,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2209),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4675),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 26,
@@ -9232,7 +9237,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 207,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2209),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4676),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 26,
@@ -9243,7 +9248,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 208,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2210),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(4676),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 26,
@@ -9254,7 +9259,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 209,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2758),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5189),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 27,
@@ -9265,7 +9270,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 210,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2758),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5189),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 27,
@@ -9276,7 +9281,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 211,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2759),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5190),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 27,
@@ -9287,7 +9292,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 212,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2759),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5190),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 27,
@@ -9298,7 +9303,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 213,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2760),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5191),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 27,
@@ -9309,7 +9314,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 214,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2761),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5192),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 27,
@@ -9320,7 +9325,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 215,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2762),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5193),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 27,
@@ -9331,7 +9336,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 216,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(2762),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5193),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 27,
@@ -9342,7 +9347,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 217,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3297),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5698),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 28,
@@ -9353,7 +9358,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 218,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3297),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5699),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 28,
@@ -9364,7 +9369,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 219,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3298),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5699),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 28,
@@ -9375,7 +9380,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 220,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3298),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5700),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 28,
@@ -9386,7 +9391,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 221,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3299),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5701),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 28,
@@ -9397,7 +9402,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 222,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3300),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5701),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 28,
@@ -9408,7 +9413,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 223,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3301),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5702),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 28,
@@ -9419,7 +9424,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 224,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3325),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(5703),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 28,
@@ -9430,7 +9435,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 225,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3970),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6178),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 29,
@@ -9441,7 +9446,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 226,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3971),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6178),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 29,
@@ -9452,7 +9457,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 227,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3971),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6179),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 29,
@@ -9463,7 +9468,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 228,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3972),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6179),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 29,
@@ -9474,7 +9479,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 229,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3988),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6180),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 29,
@@ -9485,7 +9490,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 230,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3989),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6181),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 29,
@@ -9496,7 +9501,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 231,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3990),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6181),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 29,
@@ -9507,7 +9512,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 232,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(3991),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6182),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 29,
@@ -9518,7 +9523,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 233,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(4636),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6749),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 30,
@@ -9529,7 +9534,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 234,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(4637),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6749),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 30,
@@ -9540,7 +9545,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 235,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(4637),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6749),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 30,
@@ -9551,7 +9556,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 236,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(4769),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6750),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 30,
@@ -9562,7 +9567,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 237,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(4772),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6751),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 30,
@@ -9573,7 +9578,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 238,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(4774),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6751),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 30,
@@ -9584,7 +9589,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 239,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(4776),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6752),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 30,
@@ -9595,7 +9600,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 240,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(4778),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(6753),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 30,
@@ -9606,7 +9611,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 241,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(5589),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7370),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 31,
@@ -9617,7 +9622,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 242,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(5589),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7370),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 31,
@@ -9628,7 +9633,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 243,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(5637),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7370),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 31,
@@ -9639,7 +9644,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 244,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(5638),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7371),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 31,
@@ -9650,7 +9655,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 245,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(5640),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7372),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 31,
@@ -9661,7 +9666,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 246,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(5642),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7372),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 31,
@@ -9672,7 +9677,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 247,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(5644),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7373),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 31,
@@ -9683,7 +9688,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 248,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(5646),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7374),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 31,
@@ -9694,7 +9699,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 249,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6898),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7911),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9705,7 +9710,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 250,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6937),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7912),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9716,7 +9721,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 251,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6938),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7912),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9727,7 +9732,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 252,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6940),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7914),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9738,7 +9743,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 253,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6943),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7915),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9749,7 +9754,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 254,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6945),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7917),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9760,7 +9765,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 255,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6978),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7937),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9771,7 +9776,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 256,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6979),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7938),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9782,7 +9787,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 257,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6980),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7939),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9793,7 +9798,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 258,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6985),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7942),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9804,7 +9809,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 259,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(6986),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(7942),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 32,
@@ -9815,7 +9820,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 260,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7860),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8494),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9826,7 +9831,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 261,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7861),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8494),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9837,7 +9842,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 262,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7861),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8495),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9848,7 +9853,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 263,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7863),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8496),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9859,7 +9864,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 264,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7865),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8496),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9870,7 +9875,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 265,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7866),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8496),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9881,7 +9886,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 266,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7872),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8498),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9892,7 +9897,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 267,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7873),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8499),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9903,7 +9908,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 268,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7873),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8499),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9914,7 +9919,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 269,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7874),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8500),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9925,7 +9930,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 270,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(7874),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8500),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 33,
@@ -9936,7 +9941,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 271,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8719),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8998),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -9947,7 +9952,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 272,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8719),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8998),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -9958,7 +9963,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 273,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8720),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8999),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -9969,7 +9974,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 274,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8721),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(8999),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -9980,7 +9985,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 275,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8721),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9000),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -9991,7 +9996,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 276,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8722),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9000),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -10002,7 +10007,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 277,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8724),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9032),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -10013,7 +10018,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 278,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8725),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9032),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -10024,7 +10029,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 279,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8725),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9033),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -10035,7 +10040,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 280,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8726),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9033),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -10046,7 +10051,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 281,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(8726),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9033),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 34,
@@ -10057,7 +10062,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 282,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9445),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9516),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10068,7 +10073,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 283,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9445),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9517),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10079,7 +10084,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 284,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9446),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9517),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10090,7 +10095,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 285,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9447),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9533),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10101,7 +10106,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 286,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9449),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9534),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10112,7 +10117,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 287,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9450),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9535),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10123,7 +10128,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 288,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9455),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9536),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10134,7 +10139,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 289,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9456),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9536),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10145,7 +10150,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 290,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9457),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9536),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10156,7 +10161,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 291,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9457),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9537),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10167,7 +10172,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 292,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 306, DateTimeKind.Local).AddTicks(9458),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 424, DateTimeKind.Local).AddTicks(9537),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 35,
@@ -10178,7 +10183,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 293,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(254),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(49),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10189,7 +10194,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 294,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(255),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(50),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10200,7 +10205,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 295,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(255),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(50),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10211,7 +10216,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 296,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(256),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(51),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10222,7 +10227,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 297,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(256),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(52),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10233,7 +10238,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 298,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(257),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(52),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10244,7 +10249,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 299,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(259),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(54),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10255,7 +10260,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 300,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(260),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(54),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10266,7 +10271,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 301,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(445),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(55),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10277,7 +10282,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 302,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(446),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(55),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10288,7 +10293,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 303,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(446),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(55),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 36,
@@ -10299,7 +10304,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 304,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1006),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(552),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10310,7 +10315,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 305,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1007),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(553),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10321,7 +10326,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 306,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1007),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(553),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10332,7 +10337,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 307,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1008),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(554),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10343,7 +10348,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 308,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1036),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(554),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10354,7 +10359,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 309,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1037),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(555),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10365,7 +10370,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 310,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1039),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(556),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10376,7 +10381,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 311,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1039),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(556),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10387,7 +10392,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 312,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1040),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(557),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10398,7 +10403,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 313,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1040),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(557),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10409,7 +10414,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 314,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1041),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(558),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 37,
@@ -10420,7 +10425,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 315,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1717),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1192),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10431,7 +10436,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 316,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1718),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1192),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10442,7 +10447,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 317,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1718),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1193),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10453,7 +10458,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 318,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1719),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1194),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10464,7 +10469,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 319,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1720),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1195),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10475,7 +10480,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 320,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1721),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1196),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10486,7 +10491,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 321,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1722),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1200),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10497,7 +10502,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 322,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1723),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1200),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10508,7 +10513,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 323,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1724),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1201),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10519,7 +10524,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 324,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1725),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1201),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10530,7 +10535,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 325,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(1725),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1202),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 38,
@@ -10541,7 +10546,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 326,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2238),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1898),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10552,7 +10557,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 327,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2238),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1898),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10563,7 +10568,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 328,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2239),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1898),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10574,7 +10579,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 329,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2239),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1899),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10585,7 +10590,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 330,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2240),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1900),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10596,7 +10601,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 331,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2240),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1900),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10607,7 +10612,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 332,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2241),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1901),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10618,7 +10623,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 333,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2242),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1902),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10629,7 +10634,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 334,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2243),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1902),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10640,7 +10645,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 335,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2243),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1902),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10651,7 +10656,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 336,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2243),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(1903),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 39,
@@ -10662,7 +10667,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 337,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2801),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2583),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10673,7 +10678,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 338,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2802),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2584),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10684,7 +10689,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 339,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2802),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2584),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10695,7 +10700,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 340,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2803),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2584),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10706,7 +10711,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 341,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2803),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2585),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10717,7 +10722,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 342,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2804),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2585),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10728,7 +10733,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 343,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2805),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2587),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10739,7 +10744,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 344,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2805),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2587),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10750,7 +10755,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 345,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2806),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2588),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10761,7 +10766,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 346,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2807),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2589),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10772,7 +10777,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 347,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(2807),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(2589),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 40,
@@ -10783,7 +10788,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 348,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3388),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3131),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10794,7 +10799,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 349,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3388),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3132),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10805,7 +10810,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 350,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3389),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3133),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10816,7 +10821,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 351,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3389),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3133),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10827,7 +10832,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 352,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3390),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3134),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10838,7 +10843,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 353,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3390),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3134),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10849,7 +10854,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 354,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3392),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3135),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10860,7 +10865,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 355,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3393),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3136),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10871,7 +10876,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 356,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3393),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3136),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10882,7 +10887,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 357,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3394),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3136),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10893,7 +10898,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 358,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3395),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3137),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 41,
@@ -10904,7 +10909,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 359,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3905),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3746),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -10915,7 +10920,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 360,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3906),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3747),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -10926,7 +10931,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 361,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3906),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3747),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -10937,7 +10942,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 362,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3907),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3748),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -10948,7 +10953,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 363,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3907),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3748),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -10959,7 +10964,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 364,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3908),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3748),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -10970,7 +10975,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 365,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3909),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3750),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -10981,7 +10986,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 366,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3910),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3750),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -10992,7 +10997,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 367,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3910),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3750),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -11003,7 +11008,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 368,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3911),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3751),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -11014,7 +11019,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 369,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(3911),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(3751),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 42,
@@ -11025,7 +11030,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 370,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4437),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4233),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11036,7 +11041,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 371,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4437),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4233),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11047,7 +11052,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 372,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4438),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4234),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11058,7 +11063,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 373,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4438),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4234),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11069,7 +11074,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 374,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4439),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4235),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11080,7 +11085,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 375,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4439),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4235),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11091,7 +11096,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 376,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4441),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4237),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11102,7 +11107,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 377,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4441),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4238),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11113,7 +11118,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 378,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4442),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4238),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11124,7 +11129,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 379,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4442),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4239),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11135,7 +11140,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 380,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(4443),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4239),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 43,
@@ -11146,7 +11151,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 381,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5255),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4724),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11157,7 +11162,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 382,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5256),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4724),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11168,7 +11173,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 383,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5256),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4725),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11179,7 +11184,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 384,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5257),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4725),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11190,7 +11195,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 385,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5257),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4726),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11201,7 +11206,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 386,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5258),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4726),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11212,7 +11217,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 387,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5259),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4728),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11223,7 +11228,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 388,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5260),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4728),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11234,7 +11239,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 389,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5260),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4729),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11245,7 +11250,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 390,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5262),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4729),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11256,7 +11261,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 391,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5262),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(4729),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 44,
@@ -11267,7 +11272,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 392,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5750),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5207),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11278,7 +11283,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 393,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5750),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5208),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11289,7 +11294,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 394,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5751),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5208),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11300,7 +11305,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 395,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5751),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5209),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11311,7 +11316,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 396,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5752),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5209),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11322,7 +11327,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 397,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5752),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5210),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11333,7 +11338,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 398,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5754),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5211),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11344,7 +11349,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 399,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5755),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5211),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11355,7 +11360,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 400,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5755),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5212),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11366,7 +11371,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 401,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5756),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5212),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11377,7 +11382,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 402,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(5756),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5250),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 45,
@@ -11388,7 +11393,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 403,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6289),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5705),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11399,7 +11404,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 404,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6289),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5705),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11410,7 +11415,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 405,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6290),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5706),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11421,7 +11426,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 406,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6290),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5706),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11432,7 +11437,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 407,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6291),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5707),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11443,7 +11448,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 408,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6291),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5707),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11454,7 +11459,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 409,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6292),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5755),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11465,7 +11470,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 410,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6293),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5755),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11476,7 +11481,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 411,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6293),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5756),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11487,7 +11492,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 412,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6294),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5757),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11498,7 +11503,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 413,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6294),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(5757),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 46,
@@ -11509,7 +11514,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 414,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6870),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6267),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11520,7 +11525,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 415,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6870),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6267),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11531,7 +11536,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 416,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6871),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6268),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11542,7 +11547,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 417,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6871),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6288),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11553,7 +11558,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 418,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6872),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6289),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11564,7 +11569,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 419,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6872),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6289),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11575,7 +11580,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 420,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6874),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6290),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11586,7 +11591,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 421,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6874),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6291),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11597,7 +11602,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 422,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6875),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6291),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11608,7 +11613,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 423,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6875),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6292),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11619,7 +11624,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 424,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(6876),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6292),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 47,
@@ -11630,7 +11635,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 425,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7357),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6802),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11641,7 +11646,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 426,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7358),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6803),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11652,7 +11657,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 427,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7358),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6803),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11663,7 +11668,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 428,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7359),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6803),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11674,7 +11679,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 429,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7359),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6804),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11685,7 +11690,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 430,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7360),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6804),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11696,7 +11701,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 431,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7361),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6806),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11707,7 +11712,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 432,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7362),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6806),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11718,7 +11723,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 433,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7362),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6806),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11729,7 +11734,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 434,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7388),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6807),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11740,7 +11745,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 435,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7388),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(6807),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 48,
@@ -11751,7 +11756,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 436,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7857),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7369),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11762,7 +11767,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 437,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7857),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7369),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11773,7 +11778,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 438,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7858),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7370),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11784,7 +11789,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 439,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7883),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7371),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11795,7 +11800,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 440,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7883),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7372),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11806,7 +11811,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 441,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7884),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7372),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11817,7 +11822,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 442,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7885),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7374),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11828,7 +11833,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 443,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7886),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7374),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11839,7 +11844,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 444,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7886),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7375),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11850,7 +11855,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 445,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7887),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7375),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11861,7 +11866,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 446,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(7887),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7376),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 49,
@@ -11872,7 +11877,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 447,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8397),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7956),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11883,7 +11888,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 448,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8398),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7957),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11894,7 +11899,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 449,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8398),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7957),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11905,7 +11910,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 450,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8399),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7958),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11916,7 +11921,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 451,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8400),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7958),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11927,7 +11932,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 452,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8400),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7959),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11938,7 +11943,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 453,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8402),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7960),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11949,7 +11954,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 454,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8402),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7960),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11960,7 +11965,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 455,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8403),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7961),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11971,7 +11976,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 456,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8403),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7961),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11982,7 +11987,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 457,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(8404),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(7961),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 50,
@@ -11993,7 +11998,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 458,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9239),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8439),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12004,7 +12009,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 459,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9239),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8439),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12015,7 +12020,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 460,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9240),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8440),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12026,7 +12031,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 461,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9241),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8440),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12037,7 +12042,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 462,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9241),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8441),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12048,7 +12053,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 463,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9242),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8442),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12059,7 +12064,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 464,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9243),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8443),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12070,7 +12075,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 465,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9244),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8443),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12081,7 +12086,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 466,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9244),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8444),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12092,7 +12097,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 467,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9245),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8444),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12103,7 +12108,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 468,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9245),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8445),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 51,
@@ -12114,7 +12119,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 469,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9922),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8942),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12125,7 +12130,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 470,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9923),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8942),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12136,7 +12141,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 471,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9923),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8943),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12147,7 +12152,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 472,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9924),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8943),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12158,7 +12163,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 473,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9924),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8944),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12169,7 +12174,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 474,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9925),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8944),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12180,7 +12185,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 475,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9926),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8946),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12191,7 +12196,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 476,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9927),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8946),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12202,7 +12207,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 477,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9927),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8947),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12213,7 +12218,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 478,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9928),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8947),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12224,7 +12229,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 479,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 307, DateTimeKind.Local).AddTicks(9928),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(8947),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 52,
@@ -12235,7 +12240,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 480,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(676),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9456),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12246,7 +12251,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 481,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(676),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9456),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12257,7 +12262,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 482,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(677),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9457),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12268,7 +12273,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 483,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(677),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9458),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12279,7 +12284,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 484,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(678),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9458),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12290,7 +12295,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 485,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(678),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9458),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12301,7 +12306,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 486,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(680),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9460),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12312,7 +12317,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 487,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(680),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9460),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12323,7 +12328,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 488,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(681),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9460),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12334,7 +12339,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 489,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(681),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9461),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12345,7 +12350,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 490,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(682),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9461),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 53,
@@ -12356,7 +12361,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 491,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1256),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9978),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12367,7 +12372,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 492,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1257),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9979),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12378,7 +12383,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 493,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1257),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9980),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12389,7 +12394,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 494,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1258),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9980),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12400,7 +12405,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 495,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1258),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9981),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12411,7 +12416,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 496,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1259),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9981),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12422,7 +12427,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 497,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1260),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9982),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12433,7 +12438,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 498,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1261),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9983),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12444,7 +12449,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 499,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1261),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9983),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12455,7 +12460,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 500,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1262),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9984),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12466,7 +12471,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 501,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(1262),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 425, DateTimeKind.Local).AddTicks(9984),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 54,
@@ -12477,7 +12482,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 502,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2193),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(466),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12488,7 +12493,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 503,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2194),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(466),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12499,7 +12504,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 504,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2195),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(466),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12510,7 +12515,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 505,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2196),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(467),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12521,7 +12526,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 506,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2196),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(467),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12532,7 +12537,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 507,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2196),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(468),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12543,7 +12548,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 508,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2198),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(469),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12554,7 +12559,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 509,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2198),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(469),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12565,7 +12570,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 510,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2199),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(470),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12576,7 +12581,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 511,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2199),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(470),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12587,7 +12592,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 512,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2199),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(471),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 55,
@@ -12598,7 +12603,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 513,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2798),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1254),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12609,7 +12614,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 514,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2827),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1315),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12620,7 +12625,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 515,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2827),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1316),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12631,7 +12636,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 516,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2828),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1318),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12642,7 +12647,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 517,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2828),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1319),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12653,7 +12658,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 518,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2829),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1321),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12664,7 +12669,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 519,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2830),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1327),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12675,7 +12680,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 520,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2831),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1328),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12686,7 +12691,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 521,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2831),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1329),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12697,7 +12702,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 522,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2832),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1329),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12708,7 +12713,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 523,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(2832),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(1330),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 56,
@@ -12719,7 +12724,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 524,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3270),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2145),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12730,7 +12735,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 525,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3270),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2146),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12741,7 +12746,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 526,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3271),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2146),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12752,7 +12757,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 527,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3271),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2147),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12763,7 +12768,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 528,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3271),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2147),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12774,7 +12779,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 529,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3272),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2148),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12785,7 +12790,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 530,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3273),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2178),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12796,7 +12801,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 531,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3274),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2179),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12807,7 +12812,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 532,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3274),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2179),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12818,7 +12823,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 533,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3274),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2180),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12829,7 +12834,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 534,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3275),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2181),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 57,
@@ -12840,7 +12845,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 535,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3720),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2766),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12851,7 +12856,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 536,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3721),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2767),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12862,7 +12867,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 537,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3721),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2814),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12873,7 +12878,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 538,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3722),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2815),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12884,7 +12889,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 539,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3722),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2816),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12895,7 +12900,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 540,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3723),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2816),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12906,7 +12911,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 541,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3724),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2818),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12917,7 +12922,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 542,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3724),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2818),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12928,7 +12933,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 543,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3725),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2819),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12939,7 +12944,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 544,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3725),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2819),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12950,7 +12955,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 545,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(3726),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(2820),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 58,
@@ -12961,7 +12966,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 546,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4173),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3395),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -12972,7 +12977,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 547,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4173),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3396),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -12983,7 +12988,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 548,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4173),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3396),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -12994,7 +12999,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 549,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4174),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3397),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -13005,7 +13010,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 550,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4174),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3397),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -13016,7 +13021,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 551,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4175),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3398),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -13027,7 +13032,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 552,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4177),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3399),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -13038,7 +13043,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 553,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4177),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3400),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -13049,7 +13054,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 554,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4178),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3400),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -13060,7 +13065,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 555,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4178),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3401),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -13071,7 +13076,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 556,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4179),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3401),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 59,
@@ -13082,7 +13087,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 557,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4627),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3928),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13093,7 +13098,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 558,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4627),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3929),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13104,7 +13109,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 559,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4628),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3929),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13115,7 +13120,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 560,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4628),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3930),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13126,7 +13131,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 561,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4629),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3931),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13137,7 +13142,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 562,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4629),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3931),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13148,7 +13153,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 563,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4658),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3932),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13159,7 +13164,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 564,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4659),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3933),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13170,7 +13175,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 565,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4660),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3933),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13181,7 +13186,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 566,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4660),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3934),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13192,7 +13197,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 567,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(4661),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(3934),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 60,
@@ -13203,7 +13208,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 568,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5417),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4459),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13214,7 +13219,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 569,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5418),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4459),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13225,7 +13230,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 570,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5418),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4459),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13236,7 +13241,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 571,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5434),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4460),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13247,7 +13252,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 572,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5436),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4460),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13258,7 +13263,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 573,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5437),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4461),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13269,7 +13274,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 574,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5442),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4461),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13280,7 +13285,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 575,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5443),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4462),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13291,7 +13296,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 576,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5444),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4462),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13302,7 +13307,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 577,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5444),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4463),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13313,7 +13318,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 578,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(5445),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4463),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 61,
@@ -13324,7 +13329,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 579,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6326),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4990),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13335,7 +13340,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 580,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6327),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4991),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13346,7 +13351,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 581,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6327),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4991),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13357,7 +13362,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 582,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6329),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4992),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13368,7 +13373,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 583,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6331),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4992),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13379,7 +13384,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 584,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6332),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4992),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13390,7 +13395,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 585,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6336),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4993),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13401,7 +13406,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 586,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6337),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4994),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13412,7 +13417,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 587,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6338),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4994),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13423,7 +13428,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 588,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6338),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4995),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13434,7 +13439,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 589,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6339),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(4995),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 62,
@@ -13445,7 +13450,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 590,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6902),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5460),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13456,7 +13461,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 591,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6903),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5461),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13467,7 +13472,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 592,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6904),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5461),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13478,7 +13483,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 593,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6905),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5462),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13489,7 +13494,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 594,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6906),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5462),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13500,7 +13505,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 595,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6907),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5462),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13511,7 +13516,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 596,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6909),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5463),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13522,7 +13527,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 597,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6909),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5464),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13533,7 +13538,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 598,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6910),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5464),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13544,7 +13549,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 599,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6910),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5465),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13555,7 +13560,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 600,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(6911),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(5465),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 63,
@@ -13566,7 +13571,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 601,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7444),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6038),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13577,7 +13582,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 602,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7444),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6039),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13588,7 +13593,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 603,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7445),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6039),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13599,7 +13604,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 604,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7445),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6040),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13610,7 +13615,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 605,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7446),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6040),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13621,7 +13626,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 606,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7446),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6041),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13632,7 +13637,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 607,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7448),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6042),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13643,7 +13648,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 608,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7448),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6043),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13654,7 +13659,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 609,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7449),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6043),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13665,7 +13670,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 610,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7449),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6044),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13676,7 +13681,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 611,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7450),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6044),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 64,
@@ -13687,7 +13692,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 612,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7973),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6579),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13698,7 +13703,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 613,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7974),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6580),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13709,7 +13714,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 614,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7974),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6580),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13720,7 +13725,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 615,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7975),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6580),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13731,7 +13736,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 616,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7975),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6581),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13742,7 +13747,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 617,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7976),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6581),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13753,7 +13758,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 618,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7977),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6583),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13764,7 +13769,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 619,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7977),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6583),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13775,7 +13780,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 620,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7978),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6584),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13786,7 +13791,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 621,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7978),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6584),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13797,7 +13802,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 622,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(7979),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(6585),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 65,
@@ -13808,7 +13813,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 623,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8783),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7252),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13819,7 +13824,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 624,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8784),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7253),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13830,7 +13835,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 625,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8784),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7253),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13841,7 +13846,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 626,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8786),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7253),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13852,7 +13857,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 627,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8787),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7254),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13863,7 +13868,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 628,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8788),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7254),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13874,7 +13879,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 629,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8793),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7255),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13885,7 +13890,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 630,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8793),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7255),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13896,7 +13901,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 631,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8794),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7256),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13907,7 +13912,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 632,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8794),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7256),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13918,7 +13923,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 633,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(8795),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7257),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 66,
@@ -13929,7 +13934,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 634,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9350),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7802),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -13940,7 +13945,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 635,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9351),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7802),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -13951,7 +13956,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 636,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9351),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7802),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -13962,7 +13967,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 637,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9351),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7803),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -13973,7 +13978,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 638,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9352),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7803),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -13984,7 +13989,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 639,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9353),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7804),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -13995,7 +14000,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 640,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9355),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7805),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -14006,7 +14011,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 641,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9356),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7805),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -14017,7 +14022,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 642,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9356),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7806),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -14028,7 +14033,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 643,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9357),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7806),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -14039,7 +14044,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 644,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9357),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(7807),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 67,
@@ -14050,7 +14055,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 645,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9833),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8319),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14061,7 +14066,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 646,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9834),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8320),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14072,7 +14077,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 647,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9834),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8320),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14083,7 +14088,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 648,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9835),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8321),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14094,7 +14099,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 649,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9835),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8321),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14105,7 +14110,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 650,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9836),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8322),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14116,7 +14121,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 651,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9837),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8323),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14127,7 +14132,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 652,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9838),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8324),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14138,7 +14143,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 653,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9838),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8324),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14149,7 +14154,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 654,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9839),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8325),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14160,7 +14165,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 655,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 308, DateTimeKind.Local).AddTicks(9839),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8325),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 68,
@@ -14171,7 +14176,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 656,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(365),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8823),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14182,7 +14187,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 657,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(365),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8823),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14193,7 +14198,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 658,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(366),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8824),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14204,7 +14209,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 659,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(366),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8824),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14215,7 +14220,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 660,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(366),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8825),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14226,7 +14231,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 661,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(367),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8825),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14237,7 +14242,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 662,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(368),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8826),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14248,7 +14253,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 663,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(368),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8827),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14259,7 +14264,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 664,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(369),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8854),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14270,7 +14275,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 665,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(369),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8854),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14281,7 +14286,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 666,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(370),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(8854),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 69,
@@ -14292,7 +14297,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 667,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(824),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9325),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14303,7 +14308,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 668,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(825),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9326),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14314,7 +14319,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 669,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(825),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9326),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14325,7 +14330,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 670,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(826),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9327),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14336,7 +14341,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 671,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(826),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9364),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14347,7 +14352,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 672,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(827),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9364),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14358,7 +14363,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 673,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(828),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9365),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14369,7 +14374,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 674,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(829),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9366),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14380,7 +14385,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 675,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(829),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9366),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14391,7 +14396,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 676,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(829),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9367),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14402,7 +14407,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 677,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(830),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9367),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 70,
@@ -14413,7 +14418,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 678,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1668),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9889),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14424,7 +14429,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 679,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1669),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9889),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14435,7 +14440,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 680,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1670),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9890),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14446,7 +14451,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 681,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1671),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9890),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14457,7 +14462,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 682,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1673),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9891),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14468,7 +14473,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 683,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1674),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9891),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14479,7 +14484,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 684,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1678),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9892),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14490,7 +14495,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 685,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1679),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9893),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14501,7 +14506,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 686,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1679),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9893),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14512,7 +14517,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 687,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1680),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9894),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14523,7 +14528,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 688,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(1680),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 426, DateTimeKind.Local).AddTicks(9894),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 71,
@@ -14534,7 +14539,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 689,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2644),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(435),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14545,7 +14550,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 690,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2645),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(435),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14556,7 +14561,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 691,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2646),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(436),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14567,7 +14572,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 692,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2647),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(436),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14578,7 +14583,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 693,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2648),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(437),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14589,7 +14594,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 694,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2649),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(437),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14600,7 +14605,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 695,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2652),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(438),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14611,7 +14616,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 696,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2653),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(439),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14622,7 +14627,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 697,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2653),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(439),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14633,7 +14638,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 698,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2676),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(440),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14644,7 +14649,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 699,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(2677),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(440),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 72,
@@ -14655,7 +14660,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 700,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3405),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1135),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14666,7 +14671,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 701,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3406),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1136),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14677,7 +14682,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 702,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3406),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1137),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14688,7 +14693,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 703,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3407),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1139),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14699,7 +14704,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 704,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3409),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1140),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14710,7 +14715,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 705,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3453),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1142),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14721,7 +14726,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 706,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3456),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1146),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14732,7 +14737,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 707,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3457),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1147),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14743,7 +14748,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 708,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3457),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1148),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14754,7 +14759,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 709,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3458),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1148),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14765,7 +14770,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 710,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(3458),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1149),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 73,
@@ -14776,7 +14781,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 711,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(4249),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1987),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 74,
@@ -14787,7 +14792,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 712,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(4253),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(1990),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 74,
@@ -14798,7 +14803,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 713,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(4976),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(2605),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 75,
@@ -14809,7 +14814,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 714,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(4978),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(2606),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 75,
@@ -14820,7 +14825,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 715,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(5556),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(3409),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 76,
@@ -14831,7 +14836,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 716,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(5557),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(3410),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 76,
@@ -14842,7 +14847,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 717,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(6058),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(4132),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 77,
@@ -14853,7 +14858,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 718,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(6059),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(4133),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 77,
@@ -14864,7 +14869,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 719,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(6505),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(4833),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 78,
@@ -14875,7 +14880,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 720,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(6505),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(4834),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 78,
@@ -14886,7 +14891,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 721,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(6930),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(5382),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 79,
@@ -14897,7 +14902,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 722,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(6932),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(5383),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 79,
@@ -14908,7 +14913,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 723,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(7586),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(5864),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 80,
@@ -14919,7 +14924,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 724,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(7586),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(5865),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 80,
@@ -14930,7 +14935,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 725,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(8362),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(6498),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 81,
@@ -14941,7 +14946,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 726,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(8364),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(6501),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 81,
@@ -14952,7 +14957,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 727,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(9167),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(7151),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 82,
@@ -14963,7 +14968,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 728,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 309, DateTimeKind.Local).AddTicks(9169),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(7152),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 82,
@@ -14974,7 +14979,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 729,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(310),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(7798),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 83,
@@ -14985,7 +14990,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 730,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(311),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(7798),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 83,
@@ -14996,7 +15001,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 731,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(851),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(8445),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 84,
@@ -15007,7 +15012,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 732,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(852),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(8446),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 84,
@@ -15018,7 +15023,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 733,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(1299),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(9084),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 85,
@@ -15029,7 +15034,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 734,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(1300),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(9084),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 85,
@@ -15040,7 +15045,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 735,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(1762),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(9690),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 86,
@@ -15051,7 +15056,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 736,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(1783),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 427, DateTimeKind.Local).AddTicks(9691),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 86,
@@ -15062,7 +15067,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 737,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(2189),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(288),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 87,
@@ -15073,7 +15078,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 738,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(2190),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(289),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 87,
@@ -15084,7 +15089,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 739,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(2627),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(915),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 88,
@@ -15095,7 +15100,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 740,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(2628),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(915),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 88,
@@ -15106,7 +15111,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 741,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(3252),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(1442),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 89,
@@ -15117,7 +15122,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 742,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(3254),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(1443),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 89,
@@ -15128,7 +15133,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 743,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(4156),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(1937),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 90,
@@ -15139,7 +15144,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 744,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(4159),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(1938),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 90,
@@ -15150,7 +15155,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 745,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(4954),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(2480),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 91,
@@ -15161,7 +15166,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 746,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(4956),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(2481),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 91,
@@ -15172,7 +15177,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 747,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(5795),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(3182),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 92,
@@ -15183,7 +15188,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 748,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(5796),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(3183),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 92,
@@ -15194,7 +15199,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 749,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(6458),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(3726),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 93,
@@ -15205,7 +15210,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 750,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(6460),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(3726),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 93,
@@ -15216,7 +15221,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 751,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(6977),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(4291),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 94,
@@ -15227,7 +15232,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 752,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(6978),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(4292),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 94,
@@ -15238,7 +15243,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 753,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(7544),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(4823),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 95,
@@ -15249,7 +15254,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 754,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(7545),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(4824),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 95,
@@ -15260,7 +15265,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 755,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(8282),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(5346),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 96,
@@ -15271,7 +15276,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 756,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(8283),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(5347),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 96,
@@ -15282,7 +15287,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 757,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(8779),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(5851),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 97,
@@ -15293,7 +15298,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 758,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(8779),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(5852),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 97,
@@ -15304,7 +15309,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 759,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(9222),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(6717),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 98,
@@ -15315,7 +15320,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 760,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(9222),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(6719),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 98,
@@ -15326,7 +15331,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 761,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(9743),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(7412),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 99,
@@ -15337,7 +15342,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 762,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 310, DateTimeKind.Local).AddTicks(9743),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(7413),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 99,
@@ -15348,7 +15353,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 763,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(414),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(7960),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 100,
@@ -15359,7 +15364,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 764,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(415),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(7961),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 100,
@@ -15370,7 +15375,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 765,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(1122),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(8511),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 101,
@@ -15381,7 +15386,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 766,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(1123),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(8512),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 101,
@@ -15392,7 +15397,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 767,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(1672),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(9004),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 102,
@@ -15403,7 +15408,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 768,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(1673),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(9005),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 102,
@@ -15414,7 +15419,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 769,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(2218),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(9519),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 103,
@@ -15425,7 +15430,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 770,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(2220),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 428, DateTimeKind.Local).AddTicks(9521),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 103,
@@ -15436,7 +15441,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 771,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(2958),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(50),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 104,
@@ -15447,7 +15452,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 772,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(2959),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(51),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 104,
@@ -15458,7 +15463,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 773,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(3654),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(587),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 105,
@@ -15469,7 +15474,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 774,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(3656),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(588),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 105,
@@ -15480,7 +15485,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 775,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(4493),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(1104),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 106,
@@ -15491,7 +15496,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 776,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(4496),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(1105),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 106,
@@ -15502,7 +15507,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 777,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(5411),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(1621),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 107,
@@ -15513,7 +15518,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 778,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(5413),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(1621),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 107,
@@ -15524,7 +15529,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 779,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(6211),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(2162),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 108,
@@ -15535,7 +15540,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 780,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(6212),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(2162),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 108,
@@ -15546,7 +15551,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 781,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(6856),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(2693),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 109,
@@ -15557,7 +15562,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 782,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(6857),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(2693),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 109,
@@ -15568,7 +15573,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 783,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(7358),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(3208),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 110,
@@ -15579,7 +15584,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 784,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(7359),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(3209),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 110,
@@ -15590,7 +15595,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 785,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(7830),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(3724),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 111,
@@ -15601,7 +15606,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 786,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(7831),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(3725),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 111,
@@ -15612,7 +15617,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 787,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(8652),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(4268),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 112,
@@ -15623,7 +15628,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 788,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(8654),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(4269),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 112,
@@ -15634,7 +15639,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 789,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(9426),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(4825),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 113,
@@ -15645,7 +15650,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 790,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 311, DateTimeKind.Local).AddTicks(9428),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(4826),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 113,
@@ -15656,7 +15661,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 791,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(34),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(5339),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 114,
@@ -15667,7 +15672,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 792,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(35),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(5340),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 114,
@@ -15678,7 +15683,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 793,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(534),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(5886),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 115,
@@ -15689,7 +15694,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 794,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(535),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(5887),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 115,
@@ -15700,7 +15705,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 795,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(1330),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(6570),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 116,
@@ -15711,7 +15716,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 796,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(1332),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(6572),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 116,
@@ -15722,7 +15727,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 797,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(2153),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(7344),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 117,
@@ -15733,7 +15738,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 798,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(2155),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(7345),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 117,
@@ -15744,7 +15749,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 799,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(3326),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(7933),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 118,
@@ -15755,7 +15760,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 800,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(3329),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(7934),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 118,
@@ -15766,7 +15771,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 801,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(4135),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(8451),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 119,
@@ -15777,7 +15782,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 802,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(4137),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(8452),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 119,
@@ -15788,7 +15793,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 803,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(4840),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(8983),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 120,
@@ -15799,7 +15804,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 804,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(4841),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(8983),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 120,
@@ -15810,7 +15815,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 805,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(5407),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(9485),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 121,
@@ -15821,7 +15826,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 806,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(5407),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(9486),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 121,
@@ -15832,7 +15837,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 807,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(6134),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(9972),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 122,
@@ -15843,7 +15848,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 808,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(6137),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 429, DateTimeKind.Local).AddTicks(9975),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 122,
@@ -15854,7 +15859,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 809,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(6848),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(895),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 123,
@@ -15865,7 +15870,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 810,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(6849),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(897),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 123,
@@ -15876,7 +15881,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 811,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(7625),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(1990),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 124,
@@ -15887,7 +15892,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 812,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(7626),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(1992),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 124,
@@ -15898,7 +15903,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 813,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(8254),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(2654),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 125,
@@ -15909,7 +15914,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 814,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(8255),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(2655),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 125,
@@ -15920,7 +15925,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 815,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(8740),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(3136),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 126,
@@ -15931,7 +15936,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 816,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(8740),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(3136),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 126,
@@ -15942,7 +15947,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 817,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(9235),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(3626),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 127,
@@ -15953,7 +15958,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 818,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(9236),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(3627),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 127,
@@ -15964,7 +15969,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 819,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(9860),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(4100),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 128,
@@ -15975,7 +15980,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 820,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 312, DateTimeKind.Local).AddTicks(9861),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(4101),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 128,
@@ -15986,7 +15991,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 821,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(788),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(4559),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 129,
@@ -15997,7 +16002,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 822,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(793),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(4559),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 129,
@@ -16008,7 +16013,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 823,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(2001),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(5037),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 130,
@@ -16019,7 +16024,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 824,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(2871),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(5502),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 131,
@@ -16030,7 +16035,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 825,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(3896),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(5949),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 132,
@@ -16041,7 +16046,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 826,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(4775),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(6429),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 133,
@@ -16052,7 +16057,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 827,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(5555),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(6914),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 134,
@@ -16063,7 +16068,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 828,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(6145),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(7383),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 135,
@@ -16074,7 +16079,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 829,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(6626),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(7826),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 136,
@@ -16085,7 +16090,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 830,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(7218),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(8303),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 137,
@@ -16096,7 +16101,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 831,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(8029),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(8762),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 138,
@@ -16107,7 +16112,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 832,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(8738),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(9220),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 139,
@@ -16118,7 +16123,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 833,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 313, DateTimeKind.Local).AddTicks(9325),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 430, DateTimeKind.Local).AddTicks(9666),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 140,
@@ -16129,7 +16134,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 834,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 314, DateTimeKind.Local).AddTicks(6249),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 431, DateTimeKind.Local).AddTicks(7041),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 141,
@@ -16140,7 +16145,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 835,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 314, DateTimeKind.Local).AddTicks(7217),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 431, DateTimeKind.Local).AddTicks(7886),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 142,
@@ -16151,7 +16156,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 836,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 314, DateTimeKind.Local).AddTicks(7997),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 431, DateTimeKind.Local).AddTicks(8368),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 143,
@@ -16162,7 +16167,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 837,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 314, DateTimeKind.Local).AddTicks(8451),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 431, DateTimeKind.Local).AddTicks(8850),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 144,
@@ -16173,7 +16178,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 838,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 314, DateTimeKind.Local).AddTicks(8900),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 431, DateTimeKind.Local).AddTicks(9324),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 145,
@@ -16184,7 +16189,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 839,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 314, DateTimeKind.Local).AddTicks(9567),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 431, DateTimeKind.Local).AddTicks(9794),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 146,
@@ -16195,7 +16200,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 840,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(239),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 432, DateTimeKind.Local).AddTicks(252),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 147,
@@ -16206,7 +16211,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 841,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(730),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 432, DateTimeKind.Local).AddTicks(711),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 148,
@@ -16217,7 +16222,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 842,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(1242),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 432, DateTimeKind.Local).AddTicks(5761),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 149,
@@ -16228,7 +16233,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 843,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(1750),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 432, DateTimeKind.Local).AddTicks(6996),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 150,
@@ -16239,7 +16244,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 844,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(2204),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 432, DateTimeKind.Local).AddTicks(7702),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 151,
@@ -16250,7 +16255,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 845,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(2741),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 432, DateTimeKind.Local).AddTicks(8638),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 152,
@@ -16261,7 +16266,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 846,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(3207),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 432, DateTimeKind.Local).AddTicks(9236),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 153,
@@ -16272,7 +16277,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 847,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(3885),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 432, DateTimeKind.Local).AddTicks(9922),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 154,
@@ -16283,7 +16288,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 848,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(4493),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(477),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 155,
@@ -16294,7 +16299,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 849,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(4980),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(1012),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 156,
@@ -16305,7 +16310,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 850,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(5705),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(1551),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 157,
@@ -16316,7 +16321,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 851,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(6421),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(2120),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 158,
@@ -16327,7 +16332,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 852,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(7168),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(2678),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 159,
@@ -16338,7 +16343,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 853,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(7884),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(3608),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 160,
@@ -16349,7 +16354,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 854,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(8465),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(4336),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 161,
@@ -16360,7 +16365,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 855,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 315, DateTimeKind.Local).AddTicks(9394),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(4947),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 162,
@@ -16371,7 +16376,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 856,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(188),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(5509),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 163,
@@ -16382,7 +16387,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 857,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(960),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(6075),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 164,
@@ -16393,7 +16398,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 858,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(1511),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(6643),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 165,
@@ -16404,7 +16409,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 859,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(2180),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(7178),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 166,
@@ -16415,7 +16420,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 860,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(2988),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(7733),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 167,
@@ -16426,7 +16431,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 861,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(3646),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(8352),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 168,
@@ -16437,7 +16442,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 862,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(4156),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(8948),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 169,
@@ -16448,7 +16453,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 863,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(4642),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 433, DateTimeKind.Local).AddTicks(9517),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 170,
@@ -16459,7 +16464,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 864,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(5111),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(75),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 171,
@@ -16470,7 +16475,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 865,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(5681),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(690),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 172,
@@ -16481,7 +16486,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 866,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(6149),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(1269),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 173,
@@ -16492,7 +16497,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 867,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(6671),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(1802),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 174,
@@ -16503,7 +16508,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 868,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(7196),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(2367),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 175,
@@ -16514,7 +16519,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 869,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(8088),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(2902),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 176,
@@ -16525,7 +16530,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 870,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(8921),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(3447),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 177,
@@ -16536,7 +16541,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 871,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 316, DateTimeKind.Local).AddTicks(9862),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(3974),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 178,
@@ -16547,7 +16552,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 872,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(589),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(4483),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 179,
@@ -16558,7 +16563,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 873,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(1117),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(5034),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 180,
@@ -16569,7 +16574,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 874,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(1658),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(5523),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 181,
@@ -16580,7 +16585,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 875,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(2222),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(6046),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 182,
@@ -16591,7 +16596,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 876,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(2773),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(6569),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 183,
@@ -16602,7 +16607,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 877,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(3240),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(7072),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 184,
@@ -16613,7 +16618,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 878,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(3770),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(7605),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 185,
@@ -16624,7 +16629,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 879,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(4335),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(8099),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 186,
@@ -16635,7 +16640,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 880,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(4847),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(8663),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 187,
@@ -16646,7 +16651,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 881,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(5412),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(9186),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 188,
@@ -16657,7 +16662,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 882,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(6285),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 434, DateTimeKind.Local).AddTicks(9714),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 189,
@@ -16668,7 +16673,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 883,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(7024),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(383),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 190,
@@ -16679,7 +16684,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 884,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(8031),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(1120),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 191,
@@ -16690,7 +16695,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 885,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(8750),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(1726),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 192,
@@ -16701,7 +16706,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 886,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 317, DateTimeKind.Local).AddTicks(9578),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(2279),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 193,
@@ -16712,7 +16717,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 887,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(416),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(3067),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 194,
@@ -16723,7 +16728,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 888,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(982),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(3967),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 195,
@@ -16734,7 +16739,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 889,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(1540),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(4552),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 196,
@@ -16745,7 +16750,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 890,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(2156),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(5261),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 197,
@@ -16756,7 +16761,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 891,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(2995),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(5867),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 198,
@@ -16767,7 +16772,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 892,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(3548),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(6520),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 199,
@@ -16778,7 +16783,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 893,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(4067),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(7035),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 200,
@@ -16789,7 +16794,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 894,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(4582),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(7543),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 192,
@@ -16800,7 +16805,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 895,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(5118),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(8052),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 193,
@@ -16811,7 +16816,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 896,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(5788),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(8554),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 194,
@@ -16822,7 +16827,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 897,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(6598),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(9083),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 195,
@@ -16833,7 +16838,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 898,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(7339),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 435, DateTimeKind.Local).AddTicks(9609),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 196,
@@ -16844,7 +16849,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 899,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(7862),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(138),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 197,
@@ -16855,7 +16860,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 900,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(8355),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(652),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 198,
@@ -16866,7 +16871,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 901,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(8866),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(1180),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 199,
@@ -16877,7 +16882,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 902,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(9352),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(1732),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 200,
@@ -16888,7 +16893,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 903,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 318, DateTimeKind.Local).AddTicks(9855),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(2304),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 201,
@@ -16899,7 +16904,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 904,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 319, DateTimeKind.Local).AddTicks(330),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(2895),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 202,
@@ -16910,7 +16915,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 905,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 319, DateTimeKind.Local).AddTicks(808),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(3461),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 203,
@@ -16921,7 +16926,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 906,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 319, DateTimeKind.Local).AddTicks(1357),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(4048),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 204,
@@ -16932,7 +16937,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 907,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 319, DateTimeKind.Local).AddTicks(2128),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(4644),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 205,
@@ -16943,7 +16948,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 908,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 319, DateTimeKind.Local).AddTicks(2658),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(5190),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 206,
@@ -16954,7 +16959,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 909,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 319, DateTimeKind.Local).AddTicks(3159),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(5728),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 207,
@@ -16965,7 +16970,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 910,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 319, DateTimeKind.Local).AddTicks(3639),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(6220),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 208,
@@ -16976,7 +16981,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 911,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 319, DateTimeKind.Local).AddTicks(4178),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 436, DateTimeKind.Local).AddTicks(6779),
                             IsActive = true,
                             IsDeleted = false,
                             ProductId = 209,
@@ -17030,7 +17035,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4824),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7581),
                             Description = "Ürün Renk Seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -17039,7 +17044,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4836),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7584),
                             Description = "Beden Seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -17048,7 +17053,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4837),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7585),
                             Description = "Dahili Hafıza",
                             IsActive = true,
                             IsDeleted = false,
@@ -17057,7 +17062,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4839),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7586),
                             Description = "Bilgisayar İşlemci Seçenekleri",
                             IsActive = true,
                             IsDeleted = false,
@@ -17066,7 +17071,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4840),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7588),
                             Description = "Bellek Kapasitesi",
                             IsActive = true,
                             IsDeleted = false,
@@ -17075,7 +17080,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4843),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7590),
                             Description = "SSD Kapasitesi",
                             IsActive = true,
                             IsDeleted = false,
@@ -17084,7 +17089,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4844),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7591),
                             Description = "Ekran Boyutu",
                             IsActive = true,
                             IsDeleted = false,
@@ -17093,7 +17098,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4845),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7592),
                             Description = "Yazıcı Teknolojisi",
                             IsActive = true,
                             IsDeleted = false,
@@ -17102,7 +17107,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4847),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7593),
                             Description = "Mürekkep/Kartuş Sistemi",
                             IsActive = true,
                             IsDeleted = false,
@@ -17111,7 +17116,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4849),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7595),
                             Description = "Desteklenen Kağıt Boyutları",
                             IsActive = true,
                             IsDeleted = false,
@@ -17120,7 +17125,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4850),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7597),
                             Description = "Yazıcı Fonksiyonları",
                             IsActive = true,
                             IsDeleted = false,
@@ -17173,7 +17178,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4897),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7623),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17182,7 +17187,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4903),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7629),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17191,7 +17196,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4904),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7630),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17200,7 +17205,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4905),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7631),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17209,7 +17214,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4906),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7632),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -17218,7 +17223,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4908),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7655),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -17227,7 +17232,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4909),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7656),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -17236,7 +17241,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4911),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7657),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -17245,7 +17250,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4912),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7658),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -17254,7 +17259,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4914),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7660),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 2,
@@ -17263,7 +17268,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4915),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7661),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 3,
@@ -17272,7 +17277,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4917),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7662),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 3,
@@ -17281,7 +17286,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4919),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7663),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 3,
@@ -17290,7 +17295,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4920),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7664),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 3,
@@ -17299,7 +17304,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4921),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7666),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17308,7 +17313,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4922),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7667),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17317,7 +17322,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4924),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7668),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17326,7 +17331,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4925),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7669),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17335,7 +17340,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4926),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7670),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17344,7 +17349,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4927),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7671),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17353,7 +17358,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4928),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7672),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17362,7 +17367,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4930),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7673),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 5,
@@ -17371,7 +17376,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4931),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7675),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 5,
@@ -17380,7 +17385,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4932),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7676),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 5,
@@ -17389,7 +17394,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4933),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7677),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 6,
@@ -17398,7 +17403,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4935),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7678),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 6,
@@ -17407,7 +17412,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4936),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7680),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 6,
@@ -17416,7 +17421,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4937),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7681),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 6,
@@ -17425,7 +17430,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4938),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7682),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 7,
@@ -17434,7 +17439,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4940),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7683),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 7,
@@ -17443,7 +17448,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4941),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7684),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 7,
@@ -17452,7 +17457,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4942),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7685),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17461,7 +17466,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4943),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7686),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17470,7 +17475,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4945),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7728),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17479,7 +17484,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4946),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7730),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17488,7 +17493,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4948),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7731),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 4,
@@ -17497,7 +17502,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4949),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7732),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 8,
@@ -17506,7 +17511,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4950),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7733),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 8,
@@ -17515,7 +17520,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4951),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7734),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 8,
@@ -17524,7 +17529,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4952),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7735),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 9,
@@ -17533,7 +17538,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4978),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7736),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 9,
@@ -17542,7 +17547,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4980),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7738),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 9,
@@ -17551,7 +17556,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4982),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7739),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 10,
@@ -17560,7 +17565,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4983),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7740),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 10,
@@ -17569,7 +17574,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4985),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7741),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 10,
@@ -17578,7 +17583,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4986),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7746),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 11,
@@ -17587,7 +17592,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4987),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7747),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 11,
@@ -17596,7 +17601,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4988),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7748),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 11,
@@ -17605,7 +17610,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4989),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7749),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 11,
@@ -17614,7 +17619,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4991),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7750),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 11,
@@ -17623,7 +17628,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4992),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7751),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 11,
@@ -17632,7 +17637,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4993),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7752),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17641,7 +17646,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4994),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7753),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17650,7 +17655,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 54,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4995),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7754),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17659,7 +17664,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 55,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4996),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7755),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17668,7 +17673,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 56,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4997),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7756),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17677,7 +17682,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 57,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(4998),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7757),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17686,7 +17691,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 58,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5000),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7758),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17695,7 +17700,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 59,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5001),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7759),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17704,7 +17709,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 60,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5003),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7760),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17713,7 +17718,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 61,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5004),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7762),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17722,7 +17727,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 62,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5005),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7763),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17731,7 +17736,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 63,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5006),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7764),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17740,7 +17745,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 64,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5007),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7766),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17749,7 +17754,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 65,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5008),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7767),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17758,7 +17763,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 66,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5010),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7769),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17767,7 +17772,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 67,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5012),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7770),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17776,7 +17781,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 68,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5013),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7771),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17785,7 +17790,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 69,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5014),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7772),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17794,7 +17799,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 70,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5015),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7773),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17803,7 +17808,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 71,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5016),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7774),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17812,7 +17817,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 72,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5017),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7775),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17821,7 +17826,7 @@ namespace CatalogService.Migrations
                         new
                         {
                             Id = 73,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 303, DateTimeKind.Local).AddTicks(5018),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(7776),
                             IsActive = true,
                             IsDeleted = false,
                             PropertyTypeId = 1,
@@ -17883,7 +17888,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5861),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(998),
                             Description = "Dizüstü, masaüstü bilgisayarlar ve tabletler",
                             IsDeleted = false,
                             Name = "Bilgisayarlar & Tabletler",
@@ -17893,7 +17898,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5864),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1004),
                             Description = "Yazıcılar, tarayıcılar ve projeksiyon cihazları",
                             IsDeleted = false,
                             Name = "Yazıcılar & Projeksiyon",
@@ -17903,7 +17908,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5867),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1005),
                             Description = "Akıllı telefonlar ve aksesuarları",
                             IsDeleted = false,
                             Name = "Telefonlar",
@@ -17913,7 +17918,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 4,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5869),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1006),
                             Description = "Buzdolabı, çamaşır makinesi ve diğer beyaz eşyalar",
                             IsDeleted = false,
                             Name = "Beyaz Eşya",
@@ -17923,7 +17928,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5870),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1008),
                             Description = "Klimalar, ısıtıcılar ve hava temizleyiciler",
                             IsDeleted = false,
                             Name = "Klima ve Isıtıcılar",
@@ -17933,7 +17938,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 6,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5875),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1009),
                             Description = "Kadın, erkek ve çocuk ayakkabıları, çantalar ve aksesuarlar",
                             IsDeleted = false,
                             Name = "Ayakkabı & Çanta",
@@ -17943,7 +17948,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5878),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1010),
                             Description = "Kadın giyim ürünleri, elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
                             Name = "Kadın Giyim",
@@ -17953,7 +17958,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 8,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5883),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1011),
                             Description = "Erkek giyim ürünleri, takım elbiseler, üst giyim ve alt giyim",
                             IsDeleted = false,
                             Name = "Erkek Giyim",
@@ -17963,7 +17968,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 9,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5885),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1013),
                             Description = "Kız ve erkek çocuk giyim ürünleri",
                             IsDeleted = false,
                             Name = "Çocuk Giyim",
@@ -17973,7 +17978,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 10,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5886),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1014),
                             Description = "Oturma grupları, yatak odası, yemek odası ve ofis mobilyaları",
                             IsDeleted = false,
                             Name = "Mobilya",
@@ -17983,7 +17988,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 11,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5888),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1015),
                             Description = "Nevresim takımları, perdeler, halılar ve dekoratif tekstil ürünleri",
                             IsDeleted = false,
                             Name = "Ev Tekstili",
@@ -17993,7 +17998,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 12,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5890),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1016),
                             Description = "Ev dekorasyon ürünleri, tablolar, aynalar ve aydınlatma sistemleri",
                             IsDeleted = false,
                             Name = "Dekorasyon & Aydınlatma",
@@ -18003,7 +18008,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 13,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5891),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1017),
                             Description = "Pişirme, servis ve saklama ürünleri, mutfak aletleri",
                             IsDeleted = false,
                             Name = "Mutfak Gereçleri",
@@ -18013,7 +18018,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 14,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5893),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1018),
                             Description = "Banyo aksesuarları, temizlik ve düzenleme ürünleri",
                             IsDeleted = false,
                             Name = "Banyo & Ev Gereçleri",
@@ -18023,7 +18028,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 15,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5894),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1020),
                             Description = "Kırtasiye malzemeleri, ofis gereçleri ve okul ürünleri",
                             IsDeleted = false,
                             Name = "Kırtasiye & Ofis",
@@ -18033,7 +18038,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 16,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5895),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1022),
                             Description = "Kadın ve erkek parfümleri, deodorantlar ve vücut spreyleri",
                             IsDeleted = false,
                             Name = "Parfüm & Deodorant",
@@ -18043,7 +18048,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 17,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5897),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1060),
                             Description = "Saç bakım ve şekillendirme ürünleri",
                             IsDeleted = false,
                             Name = "Saç Şekillendirme",
@@ -18053,7 +18058,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 18,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5898),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1061),
                             Description = "Yüz ve vücut bakım ürünleri, kremler ve serumlar",
                             IsDeleted = false,
                             Name = "Cilt Bakımı",
@@ -18063,7 +18068,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 19,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5899),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1063),
                             Description = "Renkli kozmetik ve makyaj malzemeleri",
                             IsDeleted = false,
                             Name = "Makyaj",
@@ -18073,7 +18078,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 20,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5902),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1064),
                             Description = "Vitamin, takviye gıdalar ve medikal ürünler",
                             IsDeleted = false,
                             Name = "Sağlık & Medikal Ürünler",
@@ -18083,7 +18088,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 21,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5903),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1065),
                             Description = "Diş bakım ürünleri ve ağız bakım ürünleri",
                             IsDeleted = false,
                             Name = "Ağız & Diş Bakımı",
@@ -18093,7 +18098,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 22,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5904),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1066),
                             Description = "Fitness ekipmanları, kondisyon aletleri ve aksesuarları",
                             IsDeleted = false,
                             Name = "Fitness & Kondisyon",
@@ -18103,7 +18108,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 23,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5952),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1068),
                             Description = "Spor giyim ürünleri, spor ayakkabılar ve aksesuarlar",
                             IsDeleted = false,
                             Name = "Spor Giyim & Ayakkabı",
@@ -18113,7 +18118,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 24,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5954),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1069),
                             Description = "Kamp malzemeleri, outdoor giyim ve ekipmanlar",
                             IsDeleted = false,
                             Name = "Outdoor & Kamp",
@@ -18123,7 +18128,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 25,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5956),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1070),
                             Description = "Kayak ekipmanları ve kış sporları malzemeleri",
                             IsDeleted = false,
                             Name = "Kış Sporları",
@@ -18133,7 +18138,7 @@ namespace CatalogService.Migrations
                         {
                             Id = 26,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 9, 22, 22, 15, 6, 302, DateTimeKind.Local).AddTicks(5957),
+                            CreatedDate = new DateTime(2025, 9, 22, 21, 18, 25, 422, DateTimeKind.Local).AddTicks(1071),
                             Description = "Yüzme ve su sporları ekipmanları",
                             IsDeleted = false,
                             Name = "Su Sporları",

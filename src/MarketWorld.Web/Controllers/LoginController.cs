@@ -88,6 +88,7 @@ namespace MarketWorld.Web.Controllers
                 HttpContext.Items["UserId"] = user.Id;
                 HttpContext.Items["Username"] = user.UserName;
                 HttpContext.Items["UserEmail"] = user.Email;
+                HttpContext.Items["JwtToken"] = token;
                 
                 // Debug bilgisi
                 Console.WriteLine($"Login Controller - Giriş başarılı! UserId: {user.Id}, Username: {user.UserName}, Email: {user.Email}");
@@ -180,6 +181,9 @@ namespace MarketWorld.Web.Controllers
                     SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict,
                     Expires = System.DateTimeOffset.UtcNow.AddDays(7)
                 });
+                
+                // Token'ı HttpContext'e de ekle
+                HttpContext.Items["JwtToken"] = token;
                 
                 TempData["SuccessMessage"] = "Hesabınız başarıyla oluşturuldu!";
                 return RedirectToAction("Index", "Home");

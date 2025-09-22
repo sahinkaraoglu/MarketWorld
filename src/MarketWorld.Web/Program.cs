@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using MarketWorld.Infrastructure.Context;
 using MarketWorld.Application.Services.Jwt;
 using MarketWorld.Infrastructure.Data.SeedData;
+using MarketWorld.Web.Services.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -100,6 +101,11 @@ builder.Services.AddScoped<IPropertyTypeService, PropertyTypeService>();
 builder.Services.AddScoped<IPropertyValueService, PropertyValueService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ICartService, CartService>();
+
+// API Services
+builder.Services.AddHttpClient<IRestService, RestService>();
+builder.Services.AddScoped<ICommentApiService, CommentApiService>();
+builder.Services.AddScoped<IAuthApiService, AuthApiService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

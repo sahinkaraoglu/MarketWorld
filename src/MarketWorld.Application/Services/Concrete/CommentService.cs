@@ -58,8 +58,17 @@ namespace MarketWorld.Application.Services.Concrete
             if (comment == null)
                 throw new ArgumentNullException(nameof(comment));
 
-            await _unitOfWork.Comments.AddAsync(comment);
-            await _unitOfWork.SaveChangesAsync();
+            try
+            {
+                await _unitOfWork.Comments.AddAsync(comment);
+                await _unitOfWork.SaveChangesAsync();
+
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
         }
 
         public async Task UpdateComment(Comment comment)
@@ -99,4 +108,4 @@ namespace MarketWorld.Application.Services.Concrete
             await _unitOfWork.SaveChangesAsync();
         }
     }
-} 
+}

@@ -562,11 +562,7 @@ namespace MarketWorld.Infrastructure.Context
                 .Property(c => c.Text)
                 .IsRequired()
                 .HasMaxLength(1000);
-                
-            modelBuilder.Entity<Comment>()
-                .Property(c => c.UserName)
-                .IsRequired()
-                .HasMaxLength(100);
+
         }
     }
 }
